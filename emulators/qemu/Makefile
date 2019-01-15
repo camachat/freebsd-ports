@@ -2,9 +2,10 @@
 # $FreeBSD$
 
 PORTNAME=	qemu
-PORTVERSION=	2.9.0
+PORTVERSION=	2.12.1
+PORTREVISION=	1
 CATEGORIES=	emulators
-MASTER_SITES=	http://wiki.qemu.org/download/
+MASTER_SITES=	https://download.qemu.org/
 DIST_SUBDIR=	qemu/${PORTVERSION}
 
 MAINTAINER?=	bofh@FreeBSD.org
@@ -12,21 +13,21 @@ COMMENT?=	QEMU CPU Emulator
 
 LICENSE=	GPLv2
 
+BROKEN_powerpc64=	fails to compile: In function aio_bh_poll: internal compiler error: Segmentation fault
+
 LIB_DEPENDS?=	libnettle.so:security/nettle \
 		libfontconfig.so:x11-fonts/fontconfig \
 		libfreetype.so:print/freetype2
 
 HAS_CONFIGURE=	yes
-USES?=		cpe gmake pkgconfig bison perl5 python:2,build tar:bzip2
+USES?=		cpe gmake pkgconfig bison perl5 python:2.7,build tar:xz
 USE_PERL5=	build
 MAKE_ENV+=	BSD_MAKE="${MAKE}" V=1
 .if !defined(PKGNAMESUFFIX) || ${PKGNAMESUFFIX} != "-utils"
 USE_XORG=	pixman
-USE_GNOME+=	cairo glib20
-ONLY_FOR_ARCHS=	amd64 i386 powerpc powerpc64 # XXX someone wants to debug sparc64 hosts?
+USE_GNOME+=	cairo glib20 libxml2
+ONLY_FOR_ARCHS=	amd64 i386 powerpc powerpc64
 .endif
-
-BROKEN_powerpc64=	fails to compile: In function aio_bh_poll: internal compiler error: Segmentation fault
 
 OPTIONS_DEFINE=	SAMBA X11 GTK2 OPENGL GNUTLS SASL JPEG PNG CURL \
 		VDE CDROM_DMA PCAP USBREDIR GNS3 X86_TARGETS \
@@ -114,12 +115,7 @@ MAKE_ARGS+=	ARCH=ppc64
 CONFIGURE_ARGS+=	--sparc_cpu=v9
 .endif
 
-# clang in freebsd 10 is unable to assemble linuxboot_dma.bin
-.if (${OSVERSION} < 1100000)
-PLIST_SUB+=	LINUXBOOT_DMA="@comment "
-.else
 PLIST_SUB+=	LINUXBOOT_DMA=""
-.endif
 
 # -lprocstat actually only _needs_ -lelf after r249666 or r250870 (MFC)
 # but it shouldn't matter much
@@ -142,15 +138,6 @@ post-patch:
 	@${REINPLACE_CMD} -E \
 		-e "1s|^(#! )/usr/bin/perl|\1${PERL}|" \
 		${WRKSRC}/scripts/texi2pod.pl
-# clang in freebsd 10 is unable to assemble linuxboot_dma.bin
-.if (${OSVERSION} < 1100000)
-	@${REINPLACE_CMD} -E \
-		-e 's|linuxboot_dma.bin||' \
-		${WRKSRC}/pc-bios/optionrom/Makefile
-	@${REINPLACE_CMD} -E \
-		-e 's|linuxboot_dma.bin||' \
-		${WRKSRC}/Makefile
-.endif
 
 post-patch-CDROM_DMA-off:
 	@${REINPLACE_CMD} -e '/USE_DMA_CDROM/d' ${WRKSRC}/include/hw/ide/internal.h
@@ -171,7 +158,6 @@ post-install:
 	${INSTALL_SCRIPT} ${FILESDIR}/qemu-ifup.sample ${STAGEDIR}${PREFIX}/etc
 	${INSTALL_SCRIPT} ${FILESDIR}/qemu-ifdown.sample ${STAGEDIR}${PREFIX}/etc
 	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/qemu-*
-	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/ivshmem-*
 
 post-install-DOCS-on:
 	@(cd ${WRKSRC} && ${COPYTREE_SHARE} docs ${STAGEDIR}${DOCSDIR}/)

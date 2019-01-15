@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	openssl
-PORTVERSION=	17.3.0
+PORTVERSION=	18.0.0
 CATEGORIES=	security python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -14,12 +14,12 @@ COMMENT=	Python interface to the OpenSSL library
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-RUN_DEPENDS?=	${PYTHON_PKGNAMEPREFIX}cryptography>1.9:security/py-cryptography \
-		${PYTHON_PKGNAMEPREFIX}six>=1.5.2:devel/py-six
+RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}cryptography>=2.2.1:security/py-cryptography@${PY_FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}six>=1.5.2:devel/py-six@${PY_FLAVOR}
 
 OPTIONS_DEFINE=	EXAMPLES
 
-USES?=		cpe python
+USES=		cpe python
 USE_PYTHON=	autoplist concurrent distutils pythonprefix
 
 CPE_VENDOR=	jean-paul_calderone

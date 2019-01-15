@@ -10,13 +10,14 @@ COMMENT=	Simple and pretty Qt4-based expression calculator
 
 LICENSE=	BSD4CLAUSE
 
-BROKEN_powerpc64=	fails to compile: cc1plus: unrecognized command line option "-std=c++11"
+DEPRECATED=		Qt4 has been EOL since december 2015
+EXPIRATION_DATE=	2019-03-15
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	anpp
 
-USES=		qmake
-USE_QT4=	corelib gui moc_build rcc_build uic_build
+USES=		qmake qt:4
+USE_QT=		corelib gui moc_build rcc_build uic_build
 WRKSRC_SUBDIR=	aCalc/aCalc
 
 PLIST_FILES=	bin/acalc share/pixmaps/Calculator-50.png

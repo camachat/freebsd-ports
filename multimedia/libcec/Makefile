@@ -3,7 +3,7 @@
 
 PORTNAME=	libcec
 PORTVERSION=	4.0.2
-PORTREVISION=	1
+PORTREVISION=	6
 DISTVERSIONPREFIX=	${PORTNAME}-
 CATEGORIES=	multimedia
 
@@ -14,8 +14,6 @@ LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/COPYING
 
 LIB_DEPENDS=	libp8-platform.so:devel/p8-platform
-
-BROKEN_powerpc64=	fails to compile: cecloader.h: converting to 'bool' from 'std::nullptr_t' requires direct-initialization
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	Pulse-Eight
@@ -51,7 +49,7 @@ CMAKE_ARGS+=	-DSKIP_PYTHON_WRAPPER:BOOL=true
 .endif
 
 .if ${PORT_OPTIONS:MX11}
-USE_XORG=	x11 xproto xrandr
+USE_XORG=	x11 xorgproto xrandr
 .endif
 
 post-patch:

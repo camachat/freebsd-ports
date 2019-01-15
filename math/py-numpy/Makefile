@@ -2,15 +2,16 @@
 # $FreeBSD$
 
 PORTNAME=	numpy
-PORTVERSION=	1.13.1
-DISTVERSIONPREFIX=	v
-PORTREVISION=	2
+PORTVERSION=	1.15.4
+PORTREVISION=	1
 PORTEPOCH=	1
 CATEGORIES=	math python
-MASTER_SITES=	http://docs.scipy.org/doc/${PORTNAME}-${PORTVERSION:C/\.[0-9]+$/.0/}/:doc
+MASTER_SITES=	CHEESESHOP \
+		https://docs.scipy.org/doc/${PORTNAME}-${PORTVERSION}/:doc
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
-DISTFILES=	${PORTNAME}-ref-${PORTVERSION:C/\.[0-9]+$/.0/}.pdf:doc \
-		${PORTNAME}-user-${PORTVERSION:C/\.[0-9]+$/.0/}.pdf:doc
+DISTFILES=	${DISTNAME}${EXTRACT_SUFX} \
+		${PORTNAME}-ref-${PORTVERSION}.pdf:doc \
+		${PORTNAME}-user-${PORTVERSION}.pdf:doc
 EXTRACT_ONLY=	${DISTNAME}${EXTRACT_SUFX}
 
 MAINTAINER=	python@FreeBSD.org
@@ -19,48 +20,42 @@ COMMENT=	The New Numeric Extension to Python
 LICENSE=	BSD3CLAUSE
 LICENSE_FILE=	${WRKSRC}/LICENSE.txt
 
+USES=		fortran python zip
+USE_PYTHON=	allflavors autoplist concurrent cython distutils
+
 PYDISTUTILS_BUILDARGS=		--fcompiler=gnu95
 PYDISTUTILS_CONFIGUREARGS=	--fcompiler=gnu95
-USES=		fortran python
-USE_GITHUB=	yes
-USE_PYTHON=	concurrent distutils py3kplist
 LDFLAGS+=	-shared
 
-OPTIONS_DEFINE=		DOCS SUITESPARSE TESTS
+OPTIONS_DEFINE=		DOCS SUITESPARSE
 OPTIONS_SINGLE=		BLASLIB
 OPTIONS_DEFAULT=	NETLIB SUITESPARSE
 OPTIONS_SINGLE_BLASLIB=	ATLAS NETLIB OPENBLAS
 SUITESPARSE_DESC=	Use AMD and UMFPACK in SuiteSparse
 TESTS_DESC=		Install test suite requirements
 
-PLIST_SUB=	PYTHON_VER=${PYTHON_VER}
 PORTDOCS=	*
 
 GCCLIBDIR_CMDS=	${FC} -print-file-name=libgfortran.so | ${SED} -e s/libgfortran.so//
 
-ATLAS_USES=	blaslapack:atlas
-NETLIB_USES=	blaslapack:netlib
+ATLAS_USES=		blaslapack:atlas
+NETLIB_USES=		blaslapack:netlib
 NETLIB_LIB_DEPENDS=	libcblas.so:math/cblas
-OPENBLAS_USES=	blaslapack:openblas
+OPENBLAS_USES=		blaslapack:openblas
 SUITESPARSE_LIB_DEPENDS=libumfpack.so:math/suitesparse
-TESTS_RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}nose>=0:devel/py-nose
+TEST_DEPENDS=		${PYTHON_PKGNAMEPREFIX}pytest>=0:devel/py-pytest@${PY_FLAVOR}
 
-BUILD_DEPENDS+=	cython:lang/cython
-
-.include <bsd.port.pre.mk>
-
-.if ${PYTHON_VERSION} == ${PYTHON_DEFAULT_VERSION}
-PLIST_FILES+=	man/man1/f2py.1.gz
-.endif
+post-extract:
+	@${TOUCH} ${WRKSRC}/numpy/f2py/tests/src/temp
 
 post-patch:
-	${REINPLACE_CMD} -e "s|%%FC%%|${FC}|" ${WRKSRC}/numpy/distutils/fcompiler/gnu.py
-	${CP} ${FILESDIR}/site.cfg ${WRKSRC}/site.cfg
+	@${REINPLACE_CMD} -e "s|%%FC%%|${FC}|" ${WRKSRC}/numpy/distutils/fcompiler/gnu.py
+	@${CP} ${FILESDIR}/site.cfg ${WRKSRC}/site.cfg
 
 pre-configure:
 	@${REINPLACE_CMD} -e "s|%%GCCLIBDIR%%|$$(${GCCLIBDIR_CMDS})|" \
-	    -e "s|%%LOCALBASE%%|${LOCALBASE}|g" \
-		${WRKSRC}/site.cfg
+		-e "s|%%LOCALBASE%%|${LOCALBASE}|g" \
+			${WRKSRC}/site.cfg
 	@${REINPLACE_CMD} -e "s|%%GCCLIBDIR%%|$$(${GCCLIBDIR_CMDS})|" ${WRKSRC}/numpy/distutils/system_info.py
 
 pre-configure-ATLAS-on:
@@ -89,15 +84,15 @@ pre-configure-SUITESPARSE-off:
 	@${REINPLACE_CMD} -e "s|:%%LOCALBASE%%/include/suitesparse||" ${WRKSRC}/site.cfg
 
 post-install:
-	${INSTALL_MAN} ${WRKSRC}/doc/f2py/f2py.1 ${STAGEDIR}${MANPREFIX}/man/man1/f2py-${PYTHON_VER}.1
-.if ${PYTHON_VERSION} == ${PYTHON_DEFAULT_VERSION}
-	${LN} -sf ${MANPREFIX}/man/man1/f2py-${PYTHON_VER}.1 ${STAGEDIR}${MANPREFIX}/man/man1/f2py.1
-.endif
+#	${INSTALL_MAN} ${WRKSRC}/doc/f2py/f2py.1 ${STAGEDIR}${MANPREFIX}/man/man1/f2py.1
 	${FIND} ${STAGEDIR}${PYTHON_SITELIBDIR} -name '*.so' | ${XARGS} ${STRIP_CMD}
 
 post-install-DOCS-on:
 	@${MKDIR} ${STAGEDIR}${DOCSDIR}
-	${INSTALL_DATA} ${DISTDIR}/${PORTNAME}-ref-${PORTVERSION:C/\.[0-9]+$/.0/}.pdf ${STAGEDIR}${DOCSDIR}
-	${INSTALL_DATA} ${DISTDIR}/${PORTNAME}-user-${PORTVERSION:C/\.[0-9]+$/.0/}.pdf ${STAGEDIR}${DOCSDIR}
+	${INSTALL_DATA} ${DISTDIR}/${PORTNAME}-ref-${PORTVERSION}.pdf ${STAGEDIR}${DOCSDIR}
+	${INSTALL_DATA} ${DISTDIR}/${PORTNAME}-user-${PORTVERSION}.pdf ${STAGEDIR}${DOCSDIR}
 
-.include <bsd.port.post.mk>
+do-test:
+	@cd ${WRKSRC} && ${PYTHON_CMD} runtests.py
+
+.include <bsd.port.mk>

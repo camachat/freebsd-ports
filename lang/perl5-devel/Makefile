@@ -35,13 +35,12 @@ TEST_ENV=	${MAKE_ENV} TEST_JOBS=${MAKE_JOBS_NUMBER} \
 USE_GITHUB=	yes
 GH_ACCOUNT=	Perl
 GH_PROJECT=	perl5
-GH_TAGNAME=	v5.27.4-72-g1fd9130
+GH_TAGNAME=	v5.29.6-98-g22f2eee216
 
 OPTIONS_DEFINE=	DEBUG GDBM PERL_64BITINT MULTIPLICITY SITECUSTOMIZE \
 		THREADS PERL_MALLOC DTRACE DOT_INC
 OPTIONS_DEFAULT=	PERL_64BITINT THREADS MULTIPLICITY DTRACE
 
-OPTIONS_EXCLUDE_FreeBSD_10=	DTRACE
 .if !exists(/usr/sbin/dtrace)
 OPTIONS_EXCLUDE+=	DTRACE
 .endif
@@ -184,13 +183,13 @@ PLIST_SUB+=	PERL_VERSION=${PERL_VERSION} \
 # XXX Remove and change to PERL_VERSION in the plist.
 PLIST_SUB+=	LIBPERL_VER=${LIBPERL_VER}
 
+# Why this is required is explained in:
+# https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=227356#c5
 _PERL5_DEFAULT_FILE=	/tmp/PERL5_DEFAULT
 
-# bsd.default-versions.mk needs to know LOCALBASE for Perl, so
-# bsd.port.options.mk is needed before including it.
+# Get the default version, and possibly, overwrite it.
 .include <bsd.port.options.mk>
 .sinclude "${_PERL5_DEFAULT_FILE}"
-.include "${.CURDIR}/../../Mk/bsd.default-versions.mk"
 
 # if this port is default due PERL5_DEFAULT
 # change PKGNAME to reflect this
@@ -303,7 +302,9 @@ post-install:
 	${MKDIR} ${STAGEDIR}${SITE_MAN1} ${STAGEDIR}${SITE_MAN3}
 	${MKDIR} ${STAGEDIR}${SITE_ARCH}/auto
 	${MKDIR} ${STAGEDIR}${SITE_PERL}/auto
-	${LN} ${STAGEDIR}${PREFIX}/bin/perl${PERL_VERSION} ${STAGEDIR}${PREFIX}/bin/perl5
+.if defined(IAMDEFAULTPERL)
+	${LN} -sf perl ${STAGEDIR}${PREFIX}/bin/perl${PERL_VERSION}
+.endif
 	${LN} -sf libperl.so.${LIBPERL_VER} ${STAGEDIR}${PREFIX}/${_ARCH_LIB}/CORE/libperl.so
 	${LN} -sf libperl.so.${LIBPERL_VER} ${STAGEDIR}${PREFIX}/${_ARCH_LIB}/CORE/libperl.so.${PERL_VER}
 	${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/perl${PERL_VERSION}

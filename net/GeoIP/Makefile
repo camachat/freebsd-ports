@@ -2,24 +2,25 @@
 # $FreeBSD$
 
 PORTNAME=	GeoIP
-PORTVERSION=	1.6.11
-DISTVERSIONPREFIX=	v
+PORTVERSION=	1.6.12
+PORTREVISION=	3
 CATEGORIES=	net geography
+MASTER_SITES=	https://github.com/maxmind/geoip-api-c/releases/download/v${PORTVERSION}/
 
 MAINTAINER=	adamw@FreeBSD.org
 COMMENT=	Find the country that any IP address or hostname originates from
 
 LICENSE=	GPLv2
 
-USE_GITHUB=	yes
-GH_ACCOUNT=	maxmind
-GH_PROJECT=	geoip-api-c
+USES=		libtool pathfix
 
-USES=		autoreconf libtool pathfix
+DEPRECATED=	Legacy databases no longer available. Switch to net/libmaxminddb instead
+EXPIRATION_DATE=2019-02-15
 
 USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
 INSTALL_TARGET=	install-strip
+TEST_TARGET=	check
 
 SUB_FILES=	geoipupdate.sh pkg-message
 PLIST_SUB+=	PORTVERSION="${PORTVERSION}"

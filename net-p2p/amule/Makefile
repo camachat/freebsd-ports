@@ -3,7 +3,7 @@
 
 PORTNAME=	amule
 PORTVERSION=	2.3.2
-PORTREVISION=	1
+PORTREVISION=	3
 CATEGORIES=	net-p2p
 MASTER_SITES=	SF/${PORTNAME}/aMule/${PORTVERSION}
 DISTNAME=	aMule-${PORTVERSION}
@@ -11,15 +11,14 @@ DISTNAME=	aMule-${PORTVERSION}
 MAINTAINER=	bar@FreeBSD.org
 COMMENT=	All-platform eMule p2p client
 
-LICENSE=	GPLv2 GPLv3
-LICENSE_COMB=	dual
+LICENSE=	GPLv2+
 
 LIB_DEPENDS=	libcryptopp.so:security/cryptopp
 
 CONFLICTS=	amule-devel-[0-9]*
 
-USES=		bison desktop-file-utils gmake perl5 pkgconfig shebangfix \
-		tar:xz
+USES=		bison compiler:c++11-lang desktop-file-utils gmake perl5 \
+		pkgconfig shebangfix tar:xz
 USE_PERL5=	build
 USE_WX=		2.8
 WX_CONF_ARGS=	absolute
@@ -30,10 +29,11 @@ CONFIGURE_ENV=	LEX="${FLEX}" PKG_CONFIG="${PKG_CONFIG}" \
 		docdir='$${prefix}/${DOCSDIR_REL}'
 
 CPPFLAGS+=	-I${LOCALBASE}/include
+CXXFLAGS+=	`pkgconf --cflags-only-other libcryptopp`
 LDFLAGS+=	-lpthread -L${LOCALBASE}/lib
 
 OPTIONS_DEFINE=	ALC ALCC AMULECMD AMULEDAEMON AMULEGUI CAS DEBUG DOCS ED2K \
-	FILEVIEW GEOIP MMAP MONOLITHIC NLS PLASMAMULE UPNP \
+	FILEVIEW MMAP MONOLITHIC NLS UPNP \
 	WEBSERVER WXCAS XAS
 ALC_DESC=		Compile aMule Link Creator for GUI
 ALCC_DESC=		Compile aMule Link Creator for console
@@ -45,7 +45,6 @@ ED2K_DESC=		Compile aMule ed2k links handler
 FILEVIEW_DESC=		Compile file viewer for console (EXPERIMENTAL)
 MMAP_DESC=		Use mapped memory
 MONOLITHIC_DESC=	Compile monolithic aMule
-PLASMAMULE_DESC=	Compile aMule plasma applet and engine
 WXCAS_DESC=		Compile aMule Statistics for GUI
 XAS_DESC=		Install XChat2 plugin
 OPTIONS_DEFAULT=ALC ALCC AMULECMD AMULEDAEMON AMULEGUI CAS ED2K \
@@ -80,20 +79,9 @@ ED2K_CONFIGURE_OFF=	--disable-ed2k
 
 FILEVIEW_CONFIGURE_ON=	--enable-fileview
 
-GEOIP_CONFIGURE_ON=	--enable-geoip
-GEOIP_LIB_DEPENDS=	libGeoIP.so:net/GeoIP
-
 MMAP_CONFIGURE_ON=	--enable-mmap
 
 MONOLITHIC_CONFIGURE_OFF=	--disable-monolithic
-
-PLASMAMULE_CONFIGURE_ON=	--enable-plasmamule
-PLASMAMULE_USES=	kde:4
-PLASMAMULE_USE=	KDE=kdelibs QT4=dbus,gui,moc_build
-PLASMAMULE_CONFIGURE_ENV= \
-			ac_cv_path_KDE4_CONFIG=${KDE_PREFIX}/bin/kde4-config \
-			KBUILDSYCOCA=${KDE_PREFIX}/bin/kbuildsycoca4 \
-			UPDATE_MIME_DATABASE=/usr/bin/true
 
 UPNP_LIB_DEPENDS=	libupnp.so:devel/upnp
 UPNP_CONFIGURE_OFF=	--disable-upnp
@@ -107,31 +95,20 @@ XAS_USE=	PERL5+=run
 
 .include <bsd.port.options.mk>
 
-.if ${ARCH} == "i386" && ( ${OSVERSION} >= 1000024 || ${CXX:T} == "clang++" )
-CPPFLAGS+=	-DCRYPTOPP_DISABLE_ASM
-.endif
-
 .if ${PORT_OPTIONS:MED2K}
 CONFLICTS+=		ed2k-hash*
 .endif
 
-post-patch:	.SILENT
-	${REINPLACE_CMD} -e 's/test.*-print-file-name.*`/true/' \
+post-patch:
+	@${REINPLACE_CMD} -e 's/test.*-print-file-name.*`/true/' \
 		-e '/if.*test/s/==/=/' \
 		${WRKSRC}/configure
-.if ! ${PORT_OPTIONS:MDOCS}
-	${REINPLACE_CMD} 's/install-data-am:.*/install-data-am:/' \
-		${WRKSRC}/docs/Makefile.in
-.endif
-.if ${PORT_OPTIONS:MPLASMAMULE}
-	${REINPLACE_CMD} -e 's|@prefix@|${KDE_PREFIX}|' \
-		-e 's|LDFLAGS =|& -L${KDE_PREFIX}/lib |' \
-		${WRKSRC}/src/utils/plasmamule/Makefile.in
-.endif
 
-post-install:
-.if ${PORT_OPTIONS:MFILEVIEW}
+post-patch-DOCS-off:
+	@${REINPLACE_CMD} 's/install-data-am:.*/install-data-am:/' \
+		${WRKSRC}/docs/Makefile.in
+
+post-install-FILEVIEW-on:
 	${INSTALL_PROGRAM} ${WRKSRC}/src/utils/fileview/mulefileview ${STAGEDIR}${PREFIX}/bin
-.endif
 
 .include <bsd.port.mk>

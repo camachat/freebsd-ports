@@ -2,13 +2,13 @@
 # $FreeBSD$
 
 PORTNAME=		krb5
-PORTVERSION=		1.16.${MIT_COMMIT_DATE}
+PORTVERSION=		1.18.${MIT_COMMIT_DATE}
 CATEGORIES=		security
 .if !defined(MASTERDIR)
 PKGNAMESUFFIX=		-devel
 .endif
-HASH=			0c9a4d9
-MIT_COMMIT_DATE=	2017.09.27
+HASH=			7e127eb
+MIT_COMMIT_DATE=	2019.01.07
 
 PATCH_SITES=		http://web.mit.edu/kerberos/advisories/
 PATCH_DIST_STRIP=	-p2
@@ -30,7 +30,7 @@ USE_LDCONFIG=		yes
 USE_CSTD=		gnu99
 GNU_CONFIGURE=		yes
 USES=			autoreconf cpe gmake localbase perl5 libtool:build \
-			gssapi:bootstrap,mit pkgconfig:run ssl
+			gssapi:bootstrap,mit pkgconfig ssl
 CONFIGURE_ARGS?=	--enable-shared --without-system-verto \
 			--disable-rpath --localstatedir="${PREFIX}/var"
 CONFIGURE_ENV=		INSTALL="${INSTALL}" INSTALL_LIB="${INSTALL_LIB}" YACC="${YACC}"
@@ -40,7 +40,7 @@ CPE_VENDOR=		mit
 CPE_VERSION=		5-${PORTVERSION}
 CPE_PRODUCT=		kerberos
 
-OPTIONS_DEFINE=		EXAMPLES NLS DNS_FOR_REALM LDAP
+OPTIONS_DEFINE=		EXAMPLES NLS DNS_FOR_REALM LDAP LMDB
 OPTIONS_DEFAULT=	KRB5_PDF KRB5_HTML READLINE
 OPTIONS_RADIO=		CMD_LINE_EDITING
 OPTIONS_RADIO_CMD_LINE_EDITING=	READLINE READLINE_PORT LIBEDIT
@@ -50,6 +50,10 @@ DNS_FOR_REALM_CONFIGURE_ENABLE=	dns-for-realm
 LDAP=			Enable LDAP support
 LDAP_USE=		OPENLDAP=yes
 LDAP_CONFIGURE_WITH=	ldap
+LMDB_DESC=		OpenLDAP Lightning Memory-Mapped Database support
+LMDB_CONFIGURE_WITH=	lmdb
+LMDB_LIB_DEPENDS=	liblmdb.so:databases/lmdb
+LMDB_IMPLIES=		LDAP
 NLS_USES=		gettext
 READLINE_USES=		readline
 READLINE_PORT_DESC=	Command line editing via devel/readline
@@ -97,7 +101,6 @@ CONFIGURE_ARGS+=	--without-readline
 .if defined(PROGRAM_TRANSFORM_NAME) && ${PROGRAM_TRANSFORM_NAME} != ""
 CONFIGURE_ARGS+=	--program-transform-name="${PROGRAM_TRANSFORM_NAME}"
 .endif
-
 
 .include <bsd.port.pre.mk>
 

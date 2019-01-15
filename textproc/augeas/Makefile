@@ -2,11 +2,12 @@
 # $FreeBSD$
 
 PORTNAME=	augeas
-PORTVERSION=	1.9.0
+PORTVERSION=	1.11.0
+PORTREVISION=	1
 CATEGORIES=	textproc
 MASTER_SITES=	http://download.augeas.net/
 
-MAINTAINER=	swills@FreeBSD.org
+MAINTAINER=	puppet@FreeBSD.org
 COMMENT=	Configuration editing tool
 
 LICENSE=	LGPL21
@@ -14,10 +15,11 @@ LICENSE=	LGPL21
 TEST_DEPENDS=	bash:shells/bash \
 		gsed:textproc/gsed
 
-GNU_CONFIGURE=	yes
 USES=		autoreconf cpe gmake libtool pathfix pkgconfig readline
 USE_GNOME=	libxml2
 USE_LDCONFIG=	yes
+
+GNU_CONFIGURE=	yes
 INSTALL_TARGET=	install-strip
 
 LENSESDIR=	${PREFIX}/share/augeas/lenses
@@ -29,8 +31,5 @@ post-patch:
 		${WRKSRC}/lenses/puppet.aug \
 		${WRKSRC}/lenses/puppet_auth.aug \
 		${WRKSRC}/lenses/puppetfileserver.aug
-
-post-install:
-	${MV} ${STAGEDIR}${PREFIX}/bin/dump ${STAGEDIR}${PREFIX}/bin/augdump
 
 .include <bsd.port.mk>

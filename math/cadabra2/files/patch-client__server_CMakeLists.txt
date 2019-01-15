@@ -1,27 +1,26 @@
---- client_server/CMakeLists.txt.orig	2017-04-14 09:26:53 UTC
+--- client_server/CMakeLists.txt.orig	2018-12-07 04:46:45 UTC
 +++ client_server/CMakeLists.txt
-@@ -90,21 +90,21 @@ add_definitions("-D_WEBSOCKETPP_CPP11_ST
+@@ -32,7 +32,6 @@ set(CADABRA_SERVER_SRC
+ 	${CADABRA_CORE_DIR}/InstallPrefix.cc
+ 	${CADABRA_CORE_DIR}/CdbPython.cc 
+ 	${CADABRA_CORE_DIR}/Stopwatch.cc 
+-	${CADABRA_LIBS_DIR}/jsoncpp/jsoncpp.cpp 
+ 	${CADABRA_LIBS_DIR}/whereami/whereami.c
+ )
  
- # Create the server library
- #link_directories(${UUID_LIBRARY_DIRS})
--add_library(cadabra_server SHARED Server.cc Snoop.cc jsoncpp/jsoncpp.cpp ../core/CdbPython.cc ../core/Stopwatch.cc ../core/ProgressMonitor.cc)
-+add_library(cadabra_server SHARED Server.cc Snoop.cc ../core/CdbPython.cc ../core/Stopwatch.cc ../core/ProgressMonitor.cc)
- target_link_libraries(cadabra_server ${Boost_LIBRARIES} ${SNOOP_LIBRARIES} sqlite3 ${PYTHON_LIBRARIES} ${GLIBMM3_LIBRARIES})
- if (WIN32)
-    target_link_libraries(cadabra_server ws2_32 mswsock)
- endif()
+@@ -43,7 +42,6 @@ set(CADABRA_CLIENT_SRC
+ 	Snoop.cc 
+ 	${CADABRA_CORE_DIR}/DataCell.cc 
+ 	${CADABRA_CORE_DIR}/InstallPrefix.cc
+-	${CADABRA_LIBS_DIR}/jsoncpp/jsoncpp.cpp
+ 	${CADABRA_LIBS_DIR}/whereami/whereami.c
+ )
  
- # Create the client library.
--add_library(cadabra_client SHARED ComputeThread.cc DocumentThread.cc DataCell.cc Actions.cc Snoop.cc jsoncpp/jsoncpp.cpp)
-+add_library(cadabra_client SHARED ComputeThread.cc DocumentThread.cc DataCell.cc Actions.cc Snoop.cc)
- target_link_libraries(cadabra_client ${Boost_LIBRARIES} sqlite3 ${PYTHON_LIBRARIES} ${GLIBMM3_LIBRARIES})
- if (WIN32)
-    target_link_libraries(cadabra_client ws2_32)
- endif()
- 
- # Create server binary
--include_directories("." "./websocketpp" "./jsoncpp")
-+include_directories("." "./websocketpp")
- add_executable(cadabra-server cadabra-server.cc)
- add_executable(cadabra2html cadabra2html.cc DataCell.cc)
- add_executable(cadabra2cadabra cadabra2cadabra.cc DataCell.cc)
+@@ -56,7 +54,6 @@ include_directories(
+ 	"${CADABRA_CORE_DIR}"
+ 	"${CADABRA_LIBS_DIR}/pybind11/include"
+ 	"${CADABRA_LIBS_DIR}/websocketpp" 
+-	"${CADABRA_LIBS_DIR}/jsoncpp"
+ 	"${CADABRA_LIBS_DIR}/internal/include"
+ 	"${CADABRA_LIBS_DIR}/whereami"
+ 	${Boost_INCLUDE_DIRS}

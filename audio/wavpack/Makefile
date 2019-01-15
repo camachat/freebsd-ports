@@ -3,6 +3,7 @@
 
 PORTNAME=	wavpack
 PORTVERSION=	5.1.0
+PORTREVISION=	1
 CATEGORIES=	audio
 MASTER_SITES=	http://www.wavpack.com/
 
@@ -26,14 +27,5 @@ OPTIONS_DEFAULT_armv7=	ASM
 
 ASM_CONFIGURE_OFF=	--disable-asm
 ASM_DESC=	Optimized assembler routines (requires MMX on x86)
-
-.include <bsd.port.options.mk>
-
-# ASM needs clang 3.8+
-# depend on llvm39 since it's more likely to be installed already than 3.8
-.if ${OSVERSION} < 1100101 && ${PORT_OPTIONS:MASM}
-BUILD_DEPENDS+=	clang39:devel/llvm39
-CC=		clang39
-.endif
 
 .include <bsd.port.mk>

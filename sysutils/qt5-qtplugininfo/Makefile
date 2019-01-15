@@ -2,15 +2,15 @@
 
 PORTNAME=	qtplugininfo
 DISTVERSION=	${QT5_VERSION}
+PORTREVISION=	1
 CATEGORIES=	sysutils
 PKGNAMEPREFIX=	qt5-
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	Qt5 plugin metadata dumper
 
-USES=		qmake:outsource
-USE_QT5=	core
-QT_DIST=	tools
+USES=		compiler:c++11-lang qmake:outsource qt-dist:5,tools
+USE_QT=		core
 
 PLIST_FILES=	${QT_BINDIR}/qtplugininfo
 

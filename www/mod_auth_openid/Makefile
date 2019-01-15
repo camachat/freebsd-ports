@@ -3,24 +3,21 @@
 
 PORTNAME=	mod_auth_openid
 PORTVERSION=	0.8
-PORTREVISION=	1
 DISTVERSIONPREFIX=	v
+PORTREVISION=	1
 CATEGORIES=	www
 PKGNAMEPREFIX=	${APACHE_PKGNAMEPREFIX}
 
-MAINTAINER=	ports@FreeBSD.org
+MAINTAINER=	joneum@FreeBSD.org
 COMMENT=	Authentication module for the Apache 2 webserver with OpenID
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-BROKEN_powerpc64=	Does not build
-
 LIB_DEPENDS=	libopkele.so:devel/libopkele \
 		libsqlite3.so:databases/sqlite3
 
-USES=		autoreconf cpe gmake libtool pkgconfig
-USE_APACHE=	22+
+USES=		apache:2.2+ autoreconf cpe gmake libtool pkgconfig
 USE_GITHUB=	yes
 GH_ACCOUNT=	bmuller
 

@@ -3,6 +3,7 @@
 
 PORTNAME=	Mcstas-Tools
 PORTVERSION=	2.2a
+PORTREVISION=	2
 CATEGORIES=	science
 MASTER_SITES=	http://download.mcstas.org/mcstas-${PORTVERSION}/unix/McStas-${PORTVERSION}-UNIX-src/
 PKGNAMEPREFIX=	p5-

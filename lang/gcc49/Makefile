@@ -3,9 +3,9 @@
 
 PORTNAME=	gcc
 PORTVERSION=	4.9.4
-PORTREVISION=	5
+PORTREVISION=	9
 CATEGORIES=	lang
-MASTER_SITES=	GCC/releases/gcc-${DISTVERSION}
+MASTER_SITES=	GCC
 PKGNAMESUFFIX=	${SUFFIX}
 
 MAINTAINER=	gerald@FreeBSD.org
@@ -14,7 +14,7 @@ COMMENT=	GNU Compiler Collection 4.9
 LICENSE=	GPLv3 GPLv3RLE
 LICENSE_COMB=	multi
 
-DEPRECATED=	Unsupported by upstream. Use GCC 5 or newer instead.
+DEPRECATED=	Unsupported by upstream. Use GCC 7 or newer instead.
 ONLY_FOR_ARCHS=	amd64 armv6 i386 powerpc powerpc64 sparc64
 
 LIB_DEPENDS=	libgmp.so:math/gmp \
@@ -61,7 +61,7 @@ CONFIGURE_ENV+=	UNAME_m="powerpc64"
 
 .if ${ARCH} == armv6
 # Override sys.mk including -O in CFLAGS which breaks libgomp building.
-CFLAGS:=	${CFLAGS:S/-O/-O2/g}
+CFLAGS:=	${CFLAGS:S/-O/-O2/}
 . if ${COMPILER_TYPE} == clang
 .  if empty(PORT_OPTIONS:MBOOTSTRAP)
 MAKE_ARGS+=CXXFLAGS+=-fbracket-depth=512
@@ -82,6 +82,10 @@ CONFIGURE_ARGS+=--disable-bootstrap
 CONFIGURE_ARGS+=--with-build-config=bootstrap-debug
 ALL_TARGET=	bootstrap-lean
 .endif
+INSTALL_TARGET=	install-strip
+.if ${UID} != 0
+BINMODE=	755
+.endif
 CONFIGURE_ARGS+=--disable-nls \
 		--enable-gnu-indirect-function \
 		--libdir=${TARGLIB} \
@@ -98,7 +102,7 @@ CONFIGURE_ARGS+=--disable-nls \
 		--enable-languages=${LANGUAGES}
 MAKE_ARGS+=	MAKEINFOFLAGS="--no-split"
 USE_LDCONFIG=	${TARGLIB}
-PLIST_SUB=	GCC_VERSION=${GCC_VERSION} \
+PLIST_SUB+=	GCC_VERSION=${GCC_VERSION} \
 		GNU_HOST=${CONFIGURE_TARGET} \
 		SUFFIX=${SUFFIX}
 INFO=		gcc${SUFFIX}/cpp \
@@ -115,6 +119,11 @@ SUB_LIST+=	TARGLIB=${TARGLIB}
 
 pre-everything::
 	@${ECHO_MSG} "Making GCC ${PORTVERSION} for ${CONFIGURE_TARGET} [${LANGUAGES}]"
+
+post-patch:
+	@${FIND} ${WRKSRC} -type f -name '*.[ch]' | \
+	    ${XARGS} ${EGREP} -l '"(HOST_WIDE|PLUGIN_COND)' | \
+	    ${XARGS} ${REINPLACE_CMD} -E -e 's/"(HOST_WIDE|PLUGIN_COND)/" \1/g'
 
 pre-configure:
 	cd ${WRKSRC} ; contrib/gcc_update --touch

@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	Crypt-OpenSSL-X509
-PORTVERSION=	1.807
+PORTVERSION=	1.812
 CATEGORIES=	security perl5
 MASTER_SITES=	CPAN
 PKGNAMEPREFIX=	p5-
@@ -13,10 +13,9 @@ COMMENT=	Perl extension for OpenSSL X509 API
 LICENSE=	ART10 GPLv1+
 LICENSE_COMB=	dual
 
-BROKEN_SSL=	openssl-devel
-
 USES=		perl5 ssl
 USE_PERL5=	configure
+
 MAKE_ARGS=	PASTHRU_INC=-I${OPENSSLINC}
 
 post-patch:

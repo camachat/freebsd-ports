@@ -2,7 +2,12 @@
 
 PORTNAME=	mgba
 DISTVERSION=	0.6.1
+PORTREVISION=	6
 CATEGORIES=	emulators
+
+PATCH_SITES=	https://github.com/${GH_ACCOUNT}/${GH_PROJECT}/commit/
+PATCHFILES=	a7a51a11373f.patch:-p1 \
+		a2b8c4ae807a.patch:-p1
 
 MAINTAINER=	greg@unrelenting.technology
 COMMENT=	Game Boy Advance (GBA) emulator/debugger
@@ -14,9 +19,9 @@ LICENSE_FILE_LGPL21+=	${WRKSRC}/src/third-party/blip_buf/license.txt
 LICENSE_FILE_MPL20=	${WRKSRC}/LICENSE
 
 LIB_DEPENDS=	libepoxy.so:graphics/libepoxy \
-		libpng16.so:graphics/png
+		libpng.so:graphics/png
 
-USES=		cmake:outsource compiler:c++11-lang localbase:ldflags pkgconfig sqlite:3
+USES=		cmake compiler:c++11-lang localbase:ldflags pkgconfig sqlite:3
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	mgba-emu
@@ -34,7 +39,7 @@ CMAKE_ARGS=	-DCMAKE_INSTALL_DOCDIR:STRING="${DOCSDIR}" \
 		-DBUILD_GLES2:BOOL=OFF
 LDFLAGS+=	-Wl,--as-needed # glu
 
-OPTIONS_DEFINE=	DEBUGGERS FFMPEG MAGICK QT5
+OPTIONS_DEFINE=	DEBUGGERS FFMPEG MAGICK QT5 DOCS
 OPTIONS_DEFAULT=	DEBUGGERS FFMPEG MAGICK QT5
 OPTIONS_SUB=	yes
 
@@ -54,12 +59,12 @@ FFMPEG_LIB_DEPENDS=	libavcodec.so:multimedia/ffmpeg \
 			libswscale.so:multimedia/ffmpeg
 
 MAGICK_CMAKE_BOOL=	USE_MAGICK
-MAGICK_LIB_DEPENDS=	libMagickWand-6.so:graphics/ImageMagick \
-			libMagickCore-6.so:graphics/ImageMagick
+MAGICK_LIB_DEPENDS=	libMagickWand-6.so:graphics/ImageMagick6 \
+			libMagickCore-6.so:graphics/ImageMagick6
 
 QT5_CMAKE_BOOL=	BUILD_QT
-QT5_USE=	qt5=qmake_build,buildtools_build,core,gui,widgets,network,opengl,multimedia
-QT5_USES=	desktop-file-utils
+QT5_USE=	qt=qmake_build,buildtools_build,core,gui,widgets,network,opengl,multimedia
+QT5_USES=	desktop-file-utils qt:5
 QT5_VARS=	installs_icons=yes
 
 .include <bsd.port.mk>

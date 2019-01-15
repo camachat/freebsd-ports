@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	memcached
-PORTVERSION=	1.5.2
+PORTVERSION=	1.5.12
 CATEGORIES=	databases
 MASTER_SITES=	http://www.memcached.org/files/ \
 		GENTOO
@@ -12,6 +12,9 @@ COMMENT=	High-performance distributed memory object cache system
 
 LICENSE=	BSD3CLAUSE
 LICENSE_FILE=	${WRKSRC}/COPYING
+
+BROKEN_mips=		fails to link: failed to merge target specific data of file /usr/lib/dtrace/drti.o
+BROKEN_mips64=		fails to link: failed to merge target specific data of file /usr/lib/dtrace/drti.o
 
 LIB_DEPENDS=	libevent.so:devel/libevent
 
@@ -37,10 +40,11 @@ OPTIONS_DEFAULT=	SASL DTRACE
 OPTIONS_EXCLUDE+=	DTRACE
 .endif
 
-OPTIONS_EXCLUDE_FreeBSD_10+=	DTRACE
 OPTIONS_EXCLUDE_i386=		DTRACE
 # ld(1) fails to link probes: Relocations in generic ELF (EM: 0)
 OPTIONS_EXCLUDE_aarch64=	DTRACE
+OPTIONS_EXCLUDE_armv6=		DTRACE
+OPTIONS_EXCLUDE_armv7=		DTRACE
 
 DTRACE_DESC=	Enable dtrace probes
 SASL_DESC=	Enable SASL Authentication

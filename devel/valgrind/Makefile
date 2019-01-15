@@ -4,7 +4,7 @@
 PORTNAME=	valgrind
 PORTVERSION=	3.10.1.20160113
 DISTVERSIONPREFIX=	freebsd-
-PORTREVISION=	4
+PORTREVISION=	6
 PORTEPOCH=	1
 CATEGORIES=	devel
 MASTER_SITES=	https://bitbucket.org/${BB_ACCOUNT}/${BB_PROJECT}/get/${BB_COMMIT}.tar.gz?dummy=/ \
@@ -38,7 +38,7 @@ DOCS_BUILD_DEPENDS=    docbook-xsl>=0:textproc/docbook-xsl \
                        xsltproc:textproc/libxslt
 MANPAGES_BUILD_DEPENDS=        docbook-xsl>=0:textproc/docbook-xsl \
                        xsltproc:textproc/libxslt
-MPI_LIB_DEPENDS=	libmpich.so:net/mpich2
+MPI_LIB_DEPENDS=	libmpich.so:net/mpich
 
 OPTIONS_SUB=	yes
 USES=		pathfix pkgconfig gmake perl5 shebangfix autoreconf
@@ -60,6 +60,10 @@ WRKSRC=		${WRKDIR}/${BB_ACCOUNT}-${BB_PROJECT}-${BB_COMMIT}
 CONFIGURE_ENV+=	ac_cv_path_PERL=${PERL}
 
 .include <bsd.port.options.mk>
+
+.if ${OSVERSION} > 1200030
+EXTRA_PATCHES+=	${FILESDIR}/extra-patch-ino64:-p1
+.endif
 
 .if ${ARCH} == "amd64"
 PLIST_SUB+=	AMD64="" ARCH=amd64

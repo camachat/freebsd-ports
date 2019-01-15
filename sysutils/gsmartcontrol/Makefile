@@ -2,11 +2,12 @@
 # $FreeBSD$
 
 PORTNAME=	gsmartcontrol
-PORTVERSION=	1.1.1
+PORTVERSION=	1.1.3
+PORTREVISION=	2
 CATEGORIES=	sysutils
 MASTER_SITES=	SF/${PORTNAME}/${PORTVERSION}
 
-MAINTAINER=	pawel@FreeBSD.org
+MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Graphical user interface for smartmontools
 
 LICENSE=	BSD3CLAUSE BSL GPLv2 GPLv3 PD ZLIB

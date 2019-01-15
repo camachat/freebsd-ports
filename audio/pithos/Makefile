@@ -3,26 +3,25 @@
 
 PORTNAME=	pithos
 PORTVERSION=	1.0.0
-PORTREVISION=	2
+PORTREVISION=	3
 CATEGORIES=	audio
 
-MAINTAINER=	jhixson@gmail.com
+MAINTAINER=	jhixson@FreeBSD.org
 COMMENT=	Pandora client for the GNOME desktop
 
 LICENSE=	GPLv3
 
 USE_GITHUB=	yes
 
-RUN_DEPENDS+=	${PYTHON_SITELIBDIR}/xdg/__init__.py:devel/py3-xdg \
-		${PYTHON_SITELIBDIR}/dbus/__init__.py:devel/py3-dbus \
-		${PYTHON_SITELIBDIR}/gi/overrides/Gst.py:multimedia/py3-gstreamer1 \
-		${PYTHON_PKGNAMEPREFIX}pylast>0:audio/py3-pylast \
-		git:devel/git
+RUN_DEPENDS+=	${PYTHON_SITELIBDIR}/xdg/__init__.py:devel/py-xdg@${PY_FLAVOR} \
+		${PYTHON_SITELIBDIR}/dbus/__init__.py:devel/py-dbus@${PY_FLAVOR} \
+		${PYTHON_SITELIBDIR}/gi/overrides/Gst.py:multimedia/py-gstreamer1@${PY_FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}pylast>0:audio/py-pylast@${PY_FLAVOR}
 
-USE_GNOME=	gtk30 py3gobject3
-USES=		python:3
-USE_PYTHON=	distutils autoplist
-USE_GSTREAMER=	core good bad soup
+USE_GNOME=	gtk30 pygobject3
+USES=		python:3.4+
+USE_PYTHON=	distutils autoplist optsuffix
+USE_GSTREAMER1=	core good bad soup
 
 post-install:
 	${MKDIR} ${STAGEDIR}${DATADIR}

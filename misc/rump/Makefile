@@ -11,7 +11,7 @@ COMMENT=	Virtualized NetBSD kernel components in userspace
 
 LICENSE=	BSD2CLAUSE
 
-NOT_FOR_ARCHS=	aarch64 armv6 mips mips64 powerpc powerpc64 sparc64
+NOT_FOR_ARCHS=		armv6 armv7 mips mips64 powerpc powerpc64 sparc64
 NOT_FOR_ARCHS_REASON=	not yet ported to FreeBSD on this architecture
 
 USE_GITHUB=	yes
@@ -23,9 +23,13 @@ USE_LDCONFIG=	yes
 
 .include <bsd.port.pre.mk>
 
-.if ${OSVERSION} >= 1100121
-CFLAGS+=	-Wno-address-of-packed-member
+.if ${ARCH} == amd64 || ${ARCH} == i386
+PLIST_SUB+=	X8664=""
+.else
+PLIST_SUB+=	X8664="@comment "
 .endif
+
+CFLAGS+=	-Wno-address-of-packed-member
 
 do-build:
 	cd ${WRKSRC}; ${SETENV} CC=${CC} AR=${AR} NM=${NM} OBJCOPY=${OBJCOPY} ./buildrump.sh -F CFLAGS="${CFLAGS}" -r fullbuild

@@ -2,12 +2,11 @@
 # $FreeBSD$
 
 PORTNAME=	synth
-PORTVERSION=	1.70
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
+DISTVERSION=	2.07
 CATEGORIES=	ports-mgmt
 
-MAINTAINER=	ericturgeon.bsd@gmail.com
+MAINTAINER=	ericbsd@FreeBSD.org
 COMMENT=	Custom package repository builder for FreeBSD and DragonFly
 
 LICENSE=	ISCL

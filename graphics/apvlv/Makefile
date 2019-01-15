@@ -13,10 +13,12 @@ COMMENT=	PDF/DJVU Viewer that behaves like Vim
 
 LICENSE=	GPLv2
 
+BROKEN=		fails to build
+
 LIB_DEPENDS=	libpoppler-glib.so:graphics/poppler-glib
 
 USE_GNOME=	gtk20
-USES=		cmake pkgconfig
+USES=		cmake:insource pkgconfig
 USE_GITHUB=	yes
 GH_ACCOUNT=	naihe2010
 CMAKE_ARGS+=	-DSYSCONFDIR=${PREFIX}/etc \

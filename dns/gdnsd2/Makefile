@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gdnsd
-PORTVERSION=	2.2.4
+PORTVERSION=	2.4.1
 PORTREVISION=	1
 CATEGORIES=	dns
 MASTER_SITES=	https://github.com/gdnsd/gdnsd/releases/download/v${PORTVERSION}/ \
@@ -34,11 +34,11 @@ USE_RC_SUBR=	gdnsd
 USERS?=		gdnsd
 GROUPS?=	gdnsd
 
-OPTIONS_DEFINE=	DOCS GEOIP URCU
-OPTIONS_DEFAULT=GEOIP
+OPTIONS_DEFINE=	DOCS MAXMINDDB URCU
+OPTIONS_DEFAULT=MAXMINDDB
 
-GEOIP_DESC=		Enable GeoIP Support
-GEOIP_RUN_DEPENDS=	GeoIP>=0:net/GeoIP
+MAXMINDDB_DESC=		Enable GeoIP1 + GeoIP2 Support
+MAXMINDDB_LIB_DEPENDS=	libmaxminddb.so:net/libmaxminddb
 
 URCU_DESC=		Read-Copy-Update Support (Faster Zone Parsing)
 URCU_CONFIGURE_WITH=	urcu

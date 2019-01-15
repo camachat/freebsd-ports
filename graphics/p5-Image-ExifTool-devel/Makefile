@@ -2,9 +2,9 @@
 # $FreeBSD$
 
 PORTNAME=	Image-ExifTool
-PORTVERSION=	10.57
+PORTVERSION=	10.66
 CATEGORIES=	graphics perl5
-MASTER_SITES=	http://www.sno.phy.queensu.ca/~phil/exiftool/
+MASTER_SITES=	https://sno.phy.queensu.ca/~phil/exiftool/
 PKGNAMEPREFIX=	p5-
 PKGNAMESUFFIX=	-devel
 

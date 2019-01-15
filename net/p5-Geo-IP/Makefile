@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	Geo-IP
-PORTVERSION=	1.50
+PORTVERSION=	1.51
 CATEGORIES=	net geography perl5
 MASTER_SITES=	CPAN
 PKGNAMEPREFIX=	p5-
@@ -12,8 +12,12 @@ COMMENT=	Gets country name by IP or hostname
 
 LICENSE=	ART10 GPLv1+
 LICENSE_COMB=	dual
+LICENSE_FILE=	${WRKSRC}/LICENSE
 
 LIB_DEPENDS=	libGeoIP.so:net/GeoIP
+
+DEPRECATED=     Uses legacy GeoIP 1 format which no longer works; switch to GeoIP 2 where possible
+EXPIRATION_DATE=2019-02-15
 
 CONFIGURE_ARGS=	INC="-I${LOCALBASE}/include" LIBS="-L${LOCALBASE}/lib"
 USES=		perl5

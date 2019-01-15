@@ -5,7 +5,7 @@ PORTNAME=	mod_cloudflare
 PORTVERSION=	0.0.2016.6.0
 CATEGORIES=	www
 
-MAINTAINER=	feld@FreeBSD.org
+MAINTAINER=	joneum@FreeBSD.org
 COMMENT=	Cloudflare fork of mod_remoteip
 
 LICENSE=	APACHE20
@@ -16,7 +16,7 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	cloudflare
 GH_TAGNAME=	340fa0a
 
-USE_APACHE=	22+
+USES=		apache:2.2+
 AP_FAST_BUILD=	yes
 AP_GENPLIST=	yes
 SHORTMODNAME=	cloudflare

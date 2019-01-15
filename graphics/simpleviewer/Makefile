@@ -3,7 +3,7 @@
 
 PORTNAME=	simpleviewer
 PORTVERSION=	2.92
-PORTREVISION=	1
+PORTREVISION=	5
 CATEGORIES=	graphics
 MASTER_SITES=	https://bitbucket.org/andreyu/simple-viewer-gl/get/
 DISTNAME=	v${PORTVERSION}	# version tag, thus no embedded ${PORTNAME}
@@ -14,7 +14,7 @@ COMMENT=	Small and simple OpenGL image viewer with transparency support
 
 LICENSE=	GPLv2
 
-LIB_DEPENDS=	libIlmImf.so:graphics/OpenEXR \
+LIB_DEPENDS=	libIlmImf.so:graphics/openexr \
 		libImlib2.so:graphics/imlib2 \
 		libexif.so:graphics/libexif \
 		libfreetype.so:print/freetype2 \
@@ -25,9 +25,7 @@ LIB_DEPENDS=	libIlmImf.so:graphics/OpenEXR \
 		libtiff.so:graphics/tiff \
 		libwebp.so:graphics/webp
 
-BROKEN_powerpc64=	fails to build: fileslist.cpp: '::printf' has not been declared
-
-USES=		cmake compiler:c++11-lang jpeg pkgconfig tar:bzip2
+USES=		cmake:insource compiler:c++11-lang jpeg pkgconfig tar:bzip2
 USE_GL=		glu
 USE_XORG=	ice sm x11 xcursor xext xinerama xrandr xxf86vm
 

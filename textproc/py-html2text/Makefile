@@ -2,7 +2,8 @@
 # $FreeBSD$
 
 PORTNAME=	html2text
-PORTVERSION=	2017.10.4
+PORTVERSION=	2018.1.9
+PORTREVISION=	1
 CATEGORIES=	textproc python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -13,11 +14,11 @@ COMMENT=	Convert HTML into clean plain ASCII text
 LICENSE=	GPLv3+
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-TEST_DEPENDS=	${PYTHON_PKGNAMEPREFIX}coverage>=0:devel/py-coverage
+TEST_DEPENDS=	${PYTHON_PKGNAMEPREFIX}coverage>=0:devel/py-coverage@${PY_FLAVOR}
 
-NO_ARCH=	yes
 USES=		python
-USE_PYTHON=	distutils autoplist
+USE_PYTHON=	distutils concurrent autoplist
+NO_ARCH=	yes
 
 CONFLICTS=	html2text
 

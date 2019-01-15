@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	Thunar
-PORTVERSION=	1.6.12
+DISTVERSION=	1.6.15
 CATEGORIES=	x11-fm xfce
 MASTER_SITES=	XFCE/src/xfce/${PORTNAME:tl}/${PORTVERSION:R}
 DIST_SUBDIR=	xfce4
@@ -22,6 +22,8 @@ LIB_DEPENDS=	libtumbler-1.so:deskutils/xfce4-tumbler \
 		libfreetype.so:print/freetype2
 RUN_DEPENDS=	pkexec:sysutils/polkit
 
+PORTSCOUT=	limit:^1\.6\.
+
 USES=		desktop-file-utils gmake pathfix perl5 libtool pkgconfig \
 		gettext-tools xfce tar:bzip2
 GNU_CONFIGURE=	yes
@@ -35,7 +37,7 @@ INSTALL_TARGET=	install-strip
 OPTIONS_DEFINE=	NLS NOTIFY
 OPTIONS_GROUP=	PLUGINS
 OPTIONS_GROUP_PLUGINS=	PLUG_APR PLUG_SBR PLUG_TPA PLUG_UCA PLUG_WALL
-OPTIONS_DEFAULT=	NOTIFY PLUG_APR PLUG_SBR PLUG_UCA PLUG_TPA PLUG_WALL
+OPTIONS_DEFAULT=	NOTIFY PLUG_APR PLUG_SBR PLUG_TPA PLUG_UCA PLUG_WALL
 
 # Override NOTIFY_DESC
 NOTIFY_DESC=	Display notifications

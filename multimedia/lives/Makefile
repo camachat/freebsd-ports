@@ -3,7 +3,7 @@
 
 PORTNAME=	lives
 PORTVERSION=	2.8.7
-PORTREVISION=	1
+PORTREVISION=	10
 CATEGORIES=	multimedia
 MASTER_SITES=	http://lives-video.com/releases/
 DISTNAME=	LiVES-${PORTVERSION}
@@ -14,7 +14,7 @@ COMMENT=	Video editing system
 LICENSE=	GPLv3+
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-BUILD_DEPENDS=	${LOCALBASE}/include/linux/input.h:multimedia/v4l_compat \
+BUILD_DEPENDS=	${LOCALBASE}/include/linux/input.h:devel/evdev-proto \
 		${LOCALBASE}/bin/analyseplugin:audio/ladspa
 LIB_DEPENDS=	libasound.so:audio/alsa-lib \
 		libjack.so:audio/jack \
@@ -25,7 +25,7 @@ LIB_DEPENDS=	libasound.so:audio/alsa-lib \
 		libvisual-0.4.so:graphics/libvisual04 \
 		libopencv_calib3d.so:graphics/opencv \
 		libopencv_core.so:graphics/opencv-core \
-		libpng16.so:graphics/png \
+		libpng.so:graphics/png \
 		libfftw3.so:math/fftw3 \
 		libfftw3f.so:math/fftw3-float \
 		libavcodec.so:multimedia/ffmpeg \
@@ -37,7 +37,7 @@ RUN_DEPENDS=	${LOCALBASE}/bin/analyseplugin:audio/ladspa \
 		mpg123:audio/mpg123 \
 		sox:audio/sox \
 		ogg123:audio/vorbis-tools \
-		convert:graphics/ImageMagick \
+		convert:graphics/ImageMagick6 \
 		sswf:graphics/sswf \
 		mencoder:multimedia/mencoder \
 		mplayer:multimedia/mplayer \

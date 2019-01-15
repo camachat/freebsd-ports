@@ -2,9 +2,10 @@
 # $FreeBSD$
 
 PORTNAME=	redmine
-PORTVERSION=	3.2.7
+PORTVERSION=	3.4.6
+PORTREVISION=	1
 CATEGORIES=	www
-MASTER_SITES=	http://www.redmine.org/releases/
+MASTER_SITES=	https://www.redmine.org/releases/
 
 MAINTAINER=	ruby@FreeBSD.org
 COMMENT=	Flexible project management web application
@@ -13,25 +14,23 @@ LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/doc/COPYING
 
 RUN_DEPENDS=	rubygem-bundler>=1.5.0:sysutils/rubygem-bundler \
-		rubygem-rails4>=4.2.7.1:www/rubygem-rails4 \
-		rubygem-jquery-rails>=4.3.0:www/rubygem-jquery-rails \
-		rubygem-coderay>=1.1.0:textproc/rubygem-coderay \
-		rubygem-builder>=3.0.4:devel/rubygem-builder \
+		rubygem-rails4>=4.2.8:www/rubygem-rails4 \
+		rubygem-jquery-rails>=3.1.4:www/rubygem-jquery-rails \
+		rubygem-coderay>=1.1.1:textproc/rubygem-coderay \
 		rubygem-request_store>=1.0.5:devel/rubygem-request_store \
-		rubygem-mime-types>=0:misc/rubygem-mime-types \
+		rubygem-mime-types>=3.0:misc/rubygem-mime-types \
 		rubygem-protected_attributes>=0:devel/rubygem-protected_attributes \
-		rubygem-actionpack-action_caching>=0:devel/rubygem-actionpack-action_caching \
 		rubygem-actionpack-xml_parser1>=0:textproc/rubygem-actionpack-xml_parser1 \
-		rubygem-roadie-rails>=1.2.0:mail/rubygem-roadie-rails \
+		rubygem-roadie-rails>=1.1.1:mail/rubygem-roadie-rails \
 		rubygem-roadie>=3.2.1:mail/rubygem-roadie \
 		rubygem-mimemagic>=0:misc/rubygem-mimemagic \
-		rubygem-nokogiri>=1.7.2:textproc/rubygem-nokogiri \
-		rubygem-i18n>=0.8.5:devel/rubygem-i18n \
-		rubygem-ffi>=1.9.14:devel/rubygem-ffi \
+		rubygem-mail>=2.6.4:mail/rubygem-mail \
+		rubygem-nokogiri>=1.8.1:textproc/rubygem-nokogiri \
+		rubygem-i18n>=0.7:devel/rubygem-i18n \
 		rubygem-rails-html-sanitizer>=1.0.3:textproc/rubygem-rails-html-sanitizer \
-		rubygem-rbpdf>=1.19.2:print/rubygem-rbpdf \
-		rubygem-net-ldap>=0.12.0:net/rubygem-net-ldap \
-		rubygem-ruby-openid>=2.3.0:net/rubygem-ruby-openid \
+		rubygem-rbpdf>=1.19.3:print/rubygem-rbpdf \
+		rubygem-net-ldap>=0.12:net/rubygem-net-ldap \
+		rubygem-ruby-openid>=2.3:net/rubygem-ruby-openid \
 		rubygem-rack-openid>=0:www/rubygem-rack-openid \
 		rubygem-rake>=0:devel/rubygem-rake
 
@@ -45,24 +44,19 @@ GROUPS=		${WWWGRP}
 PLIST_SUB=	WWWOWN=${WWWOWN} WWWGRP=${WWWGRP}
 SUB_LIST=	RUBY_NAME=${RUBY_NAME}
 
-OPTIONS_DEFINE=	MYSQL POSTGRESQL LDAP MARKDOWN RMAGIC
+OPTIONS_DEFINE=	MYSQL POSTGRESQL MARKDOWN RMAGIC THIN
 OPTIONS_DEFAULT=MYSQL MARKDOWN RMAGIC THIN
-OPTIONS_SINGLE=	WWWSERVER
-OPTIONS_SINGLE_WWWSERVER=	THIN PASSENGER
 OPTIONS_SUB=	yes
-POSTGRESQL_DESC=	Enable PostgreSQL support
-LDAP_DESC=	Enable LDAP Authentification
+POSTGRESQL_DESC=Enable PostgreSQL support
 MARKDOWN_DESC=	Enable Markdown support
 RMAGIC_DESC=	Enable Gantt charts support
 THIN_DESC=	Use Thin WEB server
-PASSENGER_DESC=	Use Apache/Nginx WEB server
 MYSQL_DESC=	MySQL database support (via mysql2 rubygem)
 NO_OPTIONS_SORT=	yes
 
 MYSQL_RUN_DEPENDS=	rubygem-mysql2>=0.4.6:databases/rubygem-mysql2
-PASSENGER_RUN_DEPENDS=	passenger-config:www/rubygem-passenger
-POSTGRESQL_RUN_DEPENDS=	rubygem-pg>=0.18.1:databases/rubygem-pg
-MARKDOWN_RUN_DEPENDS=	rubygem-redcarpet>=3.3.2:textproc/rubygem-redcarpet
+POSTGRESQL_RUN_DEPENDS=	rubygem-pg018>=0.18.1:databases/rubygem-pg018
+MARKDOWN_RUN_DEPENDS=	rubygem-redcarpet>=3.4.0:textproc/rubygem-redcarpet
 RMAGIC_RUN_DEPENDS=	rubygem-rmagick>=2.14.0:graphics/rubygem-rmagick
 THIN_RUN_DEPENDS=	rubygem-thin>=1.6.2:www/rubygem-thin
 THIN_SUB_LIST=		WWWOWN=${WWWOWN} WWWGRP=${WWWGRP}
@@ -100,9 +94,6 @@ do-install-MYSQL-on:
 
 do-install-POSTGRESQL-on:
 	${CP} ${FILESDIR}/pg.rb ${STAGEDIR}${WWWDIR}/bundler.d
-
-do-install-LDAP-on:
-	${CP} ${FILESDIR}/ldap.rb ${STAGEDIR}${WWWDIR}/bundler.d
 
 do-install-MARKDOWN-on:
 	${CP} ${FILESDIR}/markdown.rb ${STAGEDIR}${WWWDIR}/bundler.d

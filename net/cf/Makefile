@@ -1,11 +1,11 @@
 # $FreeBSD$
 
 PORTNAME=	cf
-PORTVERSION=	6.24.0
+PORTVERSION=	6.41.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	net
 
-MAINTAINER=	swills@FreeBSD.org
+MAINTAINER=	dumbbell@FreeBSD.org
 COMMENT=	CLI for Cloud Foundry written in Go
 
 LICENSE=	APACHE20
@@ -22,9 +22,7 @@ GO_PKGNAME=	code.cloudfoundry.org/cli
 
 PLIST_FILES=	bin/cf
 
-PORTDOCS=	CHANGELOG.md NOTICE README.md
-
-STRIP=		# stripping can break go binaries
+PORTDOCS=	NOTICE README.md
 
 OPTIONS_DEFINE=	DOCS
 

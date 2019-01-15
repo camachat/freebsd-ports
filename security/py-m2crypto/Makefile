@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	m2crypto
-PORTVERSION=	0.27.0
+PORTVERSION=	0.31.0
 CATEGORIES=	security python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -16,13 +16,13 @@ LICENSE_FILE=	${WRKSRC}/LICENCE
 
 BUILD_DEPENDS=	swig3.0:devel/swig30
 
-MAKE_ENV=	SWIG_FEATURES=-I${OPENSSLINC}
-PYDISTUTILS_BUILDARGS=	build_ext --openssl=${OPENSSLBASE} --swig=${LOCALBASE}/bin/swig3.0
-USE_PYTHON=	autoplist concurrent distutils
 USES=		python ssl
+USE_PYTHON=	autoplist concurrent distutils
+
+PYDISTUTILS_BUILDARGS=	build_ext --include=${OPENSSLINC} --openssl=${OPENSSLBASE} --swig=${LOCALBASE}/bin/swig3.0
 
 post-patch:
-	@${REINPLACE_CMD} -e "s|swig\(', '-version\)|swig3.0\1|" ${WRKSRC}/${PYSETUP}
+	@${REINPLACE_CMD} -e "s|swig\(', '-version\)|swig3.0\1|" ${WRKSRC}/setup.py
 
 post-install:
 	${STRIP_CMD} ${STAGEDIR}${PYTHON_SITELIBDIR}/M2Crypto/_m2crypto.so
@@ -30,7 +30,7 @@ post-install:
 .include <bsd.port.pre.mk>
 
 .if ${PYTHON_REL} < 3500
-RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}typing>=0:devel/py-typing
+RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}typing>=0:devel/py-typing@${PY_FLAVOR}
 .endif
 
 .include <bsd.port.post.mk>

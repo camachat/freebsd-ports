@@ -1,8 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	geoip
-PORTVERSION=	1.6.3
-PORTREVISION=	1
+PORTVERSION=	1.6.4
 CATEGORIES=	net rubygems
 MASTER_SITES=	RG
 
@@ -13,6 +12,9 @@ LICENSE=	LGPL21+
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
 RUN_DEPENDS=	geoiplookup:net/GeoIP
+
+DEPRECATED=     Uses legacy GeoIP 1 format which no longer works; switch to GeoIP 2 where possible
+EXPIRATION_DATE=2019-02-15
 
 REINPLACE_ARGS=	-i ''
 NO_ARCH=	yes

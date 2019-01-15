@@ -2,26 +2,25 @@
 # $FreeBSD$
 
 PORTNAME=	openipmi
-PORTVERSION=	2.0.21
-PORTREVISION=	1
+PORTVERSION=	2.0.26
 CATEGORIES=	sysutils
 MASTER_SITES=	SF/${PORTNAME}/OpenIPMI%202.0%20Library
 DISTNAME=	OpenIPMI-${PORTVERSION}
 
-MAINTAINER=	ports@FreeBSD.org
+MAINTAINER=	egypcio@FreeBSD.org
 COMMENT=	Complex IPMI management software
 
 LICENSE=	GPLv2
+LICENSE_FILE=	${WRKSRC}/COPYING
 
 LIB_DEPENDS=	libpopt.so:devel/popt
 
-GNU_CONFIGURE=	yes
-INSTALL_TARGET=	install-strip
-USES=		gmake libtool ncurses pathfix pkgconfig
+USES=		gmake libtool localbase:ldflags ncurses pathfix \
+		pkgconfig readline
 USE_LDCONFIG=	yes
 
-CPPFLAGS+=	-I../include -I${LOCALBASE}/include
-LIBS+=		-L${LOCALBASE}/lib
+GNU_CONFIGURE=	yes
+INSTALL_TARGET=	install-strip
 
 OPTIONS_DEFINE=	SSL SNMP PERL PYTHON TCL TKINTER GDBM
 OPTIONS_RADIO=	GLIB
@@ -58,9 +57,9 @@ CONFIGURE_ARGS+=	--with-openssl=no
 .endif
 
 .if ${PORT_OPTIONS:MTKINTER}
-USES+=			python
-WITH_PYTHON=		yes
-BUILD_DEPENDS+=		${PYTHON_PKGNAMEPREFIX}tkinter>0:x11-toolkits/py-tkinter \
+USES+=			python shebangfix
+SHEBANG_FILES=		swig/python/openipmigui.py
+BUILD_DEPENDS+=		${PYTHON_PKGNAMEPREFIX}tkinter>0:x11-toolkits/py-tkinter@${PY_FLAVOR} \
 			${LOCALBASE}/lib/Tix8.4.3/Tix.tcl:x11-toolkits/tix
 CONFIGURE_ARGS+=	--with-tkinter
 PLIST_SUB+=		TKINTER=""
@@ -72,18 +71,22 @@ PLIST_SUB+=		TKINTER="@comment "
 .if ${PORT_OPTIONS:MPERL}
 WITH_SWIG=		yes
 USES+=			perl5
-CONFIGURE_ARGS+=	--with-perl
-PLIST_SUB+=		PERL=""
+CONFIGURE_ARGS+=	--with-perl ac_cv_path_perlprog=${PERL}
+LDFLAGS+=		-L${SITE_ARCH}
+LIBS+=			-L${SITE_ARCH}
+PLIST_SUB+=		OIPMIPERL=""
+EXTRA_PATCHES+=		${PATCHDIR}/extra-patch-swig_perl_Makefile.in
 .else
 CONFIGURE_ARGS+=	--with-perl=no
-PLIST_SUB+=		PERL="@comment "
+PLIST_SUB+=		OIPMIPERL="@comment "
 .endif
 
 .if ${PORT_OPTIONS:MPYTHON}
 USES+=			python
 CONFIGURE_ARGS+=	--with-python --with-swig ac_cv_path_pythonprog=${PYTHON_CMD}
-BUILD_DEPENDS+=		swig:devel/swig13
+BUILD_DEPENDS+=		swig3.0:devel/swig30
 PLIST_SUB+=		PYTHON=""
+BINARY_ALIAS=		swig=swig3.0
 .else
 CONFIGURE_ARGS+=	--with-python=no --with-swig=no
 PLIST_SUB+=		PYTHON="@comment "
@@ -105,34 +108,38 @@ LIB_DEPENDS+=		libgdbm.so:databases/gdbm
 .endif
 
 .if ${PORT_OPTIONS:MGLIB12}
-USE_GNOME+=		glib12
-CONFIGURE_ARGS+=	--with-glib12 --with-glibver=1.2
-PLIST_SUB+=		GLIB12=""
+USE_GNOME=		glib12
+CONFIGURE_ARGS+=	--with-glib --with-glibver=1.2 \
+			--with-glibcflags=-I${LOCALBASE}/include/glib-1.2 \
+			--with-gliblibs="-L${LOCALBASE}/lib -lglib -lgthread"
+MAKE_ENV+=		GLIB_MAJOR_VERSION=1
+EXTRA_PATCHES+=		${PATCHDIR}/extra-patch-glib_glib__os__hnd.c
+PLIST_SUB+=		GLIB=""
 .else
-CONFIGURE_ARGS+=	--with-glib12=no
-PLIST_SUB+=		GLIB12="@comment "
+PLIST_SUB+=		GLIB="@comment "
 .endif
 
 .if ${PORT_OPTIONS:MGLIB20}
-USE_GNOME+=		glib20
+USE_GNOME=		glib20
 CONFIGURE_ARGS+=	--with-glib --with-glibver=2.0
-PLIST_SUB+=		GLIB20=""
+PLIST_SUB+=		GLIB=""
 .else
-CONFIGURE_ARGS+=	--with-glib=no
-PLIST_SUB+=		GLIB20="@comment "
+PLIST_SUB+=		GLIB="@comment "
 .endif
 
 post-patch:
-	@${REINPLACE_CMD} '/libOpenIPMIutils_la_LIBADD =/s/$$/ -lexecinfo/' \
+	${REINPLACE_CMD} '/libOpenIPMIutils_la_LIBADD =/s/$$/ -lexecinfo/' \
 		${WRKSRC}/utils/Makefile.in
-	@${REINPLACE_CMD} 's|malloc.h|stdlib.h|' \
+	${REINPLACE_CMD} 's|malloc.h|stdlib.h|' \
 		${WRKSRC}/lanserv/sdrcomp/sdrcomp.c \
 		${WRKSRC}/lanserv/extcmd.c \
 		${WRKSRC}/lanserv/bmc_app.c \
 		${WRKSRC}/lanserv/bmc_storage.c \
 		${WRKSRC}/lanserv/bmc_picmg.c \
 		${WRKSRC}/lanserv/bmc_sensor.c
-	@${REINPLACE_CMD} 's|-ldl||' \
+	${REINPLACE_CMD} 's|-ldl||' \
 		${WRKSRC}/lanserv/Makefile.in
+	${REINPLACE_CMD} 's|editline/readline.h|edit/readline/readline.h|' \
+		${WRKSRC}/sample/ipmi_serial_bmc_emu.c
 
 .include <bsd.port.mk>

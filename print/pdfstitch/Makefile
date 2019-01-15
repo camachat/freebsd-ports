@@ -3,7 +3,7 @@
 
 PORTNAME=	pdfstitch
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.5
+DISTVERSION=	0.6
 CATEGORIES=	print
 
 MAINTAINER=	ports@textmail.me
@@ -22,6 +22,8 @@ GH_ACCOUNT=	sur5r
 
 NO_ARCH=	yes
 NO_BUILD=	yes
+
+OPTIONS_DEFINE=	DOCS
 
 do-install:
 	${INSTALL_SCRIPT} ${WRKSRC}/pdfstitch ${STAGEDIR}${PREFIX}/bin/pdfstitch

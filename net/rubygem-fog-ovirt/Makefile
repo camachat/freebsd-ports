@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	fog-ovirt
-PORTVERSION=	0.1.1
+PORTVERSION=	1.1.4
 CATEGORIES=	net rubygems
 MASTER_SITES=	RG
 
@@ -12,13 +12,15 @@ COMMENT=	Module for the 'fog' gem to support oVirt platform
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE.md
 
-RUN_DEPENDS=	rubygem-fog-core>=1.45:devel/rubygem-fog-core \
+RUN_DEPENDS=	rubygem-fog-core>=0:devel/rubygem-fog-core \
 		rubygem-fog-json>=0:devel/rubygem-fog-json \
-		rubygem-fog-xml>=0.1.1:textproc/rubygem-fog-xml \
-		rubygem-rbovirt>=0.1.4:www/rubygem-rbovirt
+		rubygem-fog-xml>=0:textproc/rubygem-fog-xml \
+		rubygem-ovirt-engine-sdk>=4.1.3:net/rubygem-ovirt-engine-sdk \
+		rubygem-rbovirt>=0.1.5:www/rubygem-rbovirt
+
+USES=		gem
+USE_RUBY=	yes
 
 NO_ARCH=	yes
-USE_RUBY=	yes
-USES=		gem
 
 .include <bsd.port.mk>

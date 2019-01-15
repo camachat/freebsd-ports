@@ -2,15 +2,15 @@
 
 PORTNAME=	qtdiag
 DISTVERSION=	${QT5_VERSION}
+PORTREVISION=	1
 CATEGORIES=	sysutils
 PKGNAMEPREFIX=	qt5-
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	Tool for reporting diagnostic information about Qt and its environment
 
-USES=		qmake:outsource
-USE_QT5=	core gui
-QT_DIST=	tools
+USES=		compiler:c++11-lang qmake:outsource qt-dist:5,tools
+USE_QT=		core gui
 
 PLIST_FILES=	${QT_BINDIR}/qtdiag
 

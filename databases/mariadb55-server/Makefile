@@ -1,8 +1,8 @@
 # $FreeBSD$
 
 PORTNAME?=	mariadb
-PORTVERSION=	5.5.57
-PORTREVISION?=	3
+PORTVERSION=	5.5.62
+PORTREVISION?=	2
 CATEGORIES=	databases ipv6
 MASTER_SITES=	http://ftp.osuosl.org/pub/mariadb/${PORTNAME}-${PORTVERSION}/source/ \
 		http://mirrors.supportex.net/mariadb/${PORTNAME}-${PORTVERSION}/source/ \
@@ -21,10 +21,9 @@ COMMENT?=	Multithreaded SQL database (server)
 LICENSE=	GPLv2
 
 SUB_FILES=	pkg-message
-PKGMESSAGE=	${WRKDIR}/pkg-message
 
 SLAVEDIRS=	databases/mariadb55-client
-USES=		cmake:noninja shebangfix ssl
+USES+=		cmake:insource,noninja shebangfix ssl
 USE_LDCONFIG=	${PREFIX}/lib/mysql
 SHEBANG_FILES=	scripts/*.sh sql-bench/[a-km-z]*
 
@@ -50,9 +49,9 @@ CMAKE_ARGS+=	-DINSTALL_DOCDIR="share/doc/mysql" \
 
 DATADIR=	${PREFIX}/share/mysql
 
-BROKEN_aarch64=		Fails to link: missing sbrk
-BROKEN_armv6=		Does not compile on armv6
 BROKEN_sparc64=		Does not compile: Unsupported platform
+BROKEN_SSL=		openssl111
+BROKEN_SSL_REASON_openssl111=	Does not support OpenSSL 1.1, use MariaDB 10.2 or 10.3
 
 .if defined(USE_MYSQL)
 .error You have 'USE_MYSQL' variable defined either in environment or in make(1) arguments. Please undefine and try again.
@@ -101,9 +100,20 @@ OQGRAPH_BROKEN=	OQGraph does not build
 MAXKEY_EXTRA_PATCHES=	${FILESDIR}/extra-patch-include_my__compare.h
 .endif
 
+.include <bsd.port.options.mk>
+
+.if ${OPSYS} == FreeBSD && ${OSVERSION} >= 1200057
+SUB_LIST+=	LEGACY_LIMITS="@comment " MODERN_LIMITS=""
+.else
+SUB_LIST+=	LEGACY_LIMITS="" MODERN_LIMITS="@comment "
+.endif
+
 .include <bsd.port.pre.mk>
 
 .if ${OPSYS} == FreeBSD
+.  if ${OSVERSION} >= 1200085 && ${SSL_DEFAULT} == base
+BROKEN=	${BROKEN_SSL_REASON_openssl111}
+.  endif
 CMAKE_ARGS+=	-DWITH_JEMALLOC="system"
 .else
 CMAKE_ARGS+=	-DWITH_JEMALLOC="no"

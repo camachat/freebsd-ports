@@ -3,8 +3,8 @@
 
 PORTNAME=	googletest
 DISTVERSIONPREFIX=	release-
-DISTVERSION=	1.8.0-358
-DISTVERSIONSUFFIX=	-gf1a87d7
+DISTVERSION=	1.8.1
+PORTREVISION=	1
 CATEGORIES=	devel
 
 MAINTAINER=	jbeich@FreeBSD.org
@@ -16,7 +16,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 USE_GITHUB=	yes
 GH_ACCOUNT=	google
 
-USES=		autoreconf libtool
+USES=		autoreconf compiler:c++11-lang libtool
 WRKSRC_SUBDIR=	${PORTNAME}
 GNU_CONFIGURE=	yes
 # fused-src python tests are only useful for bundling. There's no point in

@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	concourse
-PORTVERSION=	3.5.0
+PORTVERSION=	4.2.1
 CATEGORIES=	net sysutils
 MASTER_SITES=	LOCAL/dumbbell/concourse/
 PKGNAMESUFFIX=	-fly
@@ -11,8 +11,6 @@ COMMENT=	CLI for Concourse
 
 LICENSE=	APACHE20
 
-CONFLICTS_INSTALL=	fly
-
 GO_CMD=		${LOCALBASE}/bin/go
 GO_PKGNAME=	github.com/concourse/fly
 
@@ -21,8 +19,6 @@ USES=		go tar:xz
 CONFLICTS_INSTALL=	fly
 
 PLIST_FILES=	bin/fly
-
-STRIP=		# stripping can break go binaries
 
 # The build instructions for `fly` suggest to clone the global Concourse
 # repository, which contains many Git submodules, including fly, and

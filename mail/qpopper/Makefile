@@ -5,18 +5,26 @@ PORTNAME=	qpopper
 PORTVERSION=	4.1.0
 PORTREVISION=	6
 CATEGORIES=	mail ipv6
-MASTER_SITES=	ftp://ftp.qualcomm.com/eudora/servers/unix/popper/ \
-		http://core.ring.gr.jp/archives/net/mail/qpopper/
+MASTER_SITES=	http://core.ring.gr.jp/archives/net/mail/qpopper/ \
+		http://ftp.osuosl.org/.1/blfs/7.7/q/ \
+		LOCAL/eugen
 DISTNAME=	${PORTNAME}${PORTVERSION}
 
-MAINTAINER=	bc979@lafn.org
+MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Berkeley POP 3 server (now maintained by Qualcomm)
 
+# BSD-style license
+LICENSE=	QUALCOMM
+LICENSE_NAME=	Qualcomm BSD-style license
+LICENSE_FILE=	${WRKSRC}/License.txt
+LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
+
 USES=		compiler:features
-USE_AUTOTOOLS=	autoconf
+
+GNU_CONFIGURE=	yes
 CONFIGURE_ENV=	OS_DEFS="-DSETPROCTITLE ${OS_DEFS}"
 CONFIGURE_ARGS=	--enable-nonauth-file=${POPUSERS_FILE} \
-		--without-gdbm \
+		--without-gdbm ac_cv_header_gdbm_h=no \
 		--enable-keep-temp-drop
 LIBS+=		-L${LOCALBASE}/lib -lcrypt -lmd -lutil
 
@@ -114,7 +122,7 @@ CONFIGURE_ARGS+=	--enable-shy
 # without inetd.
 .if ${PORT_OPTIONS:MSTANDALONE_MODE}
 CONFIGURE_ARGS+=	--enable-standalone
-USE_RC_SUBR=	 ${PORTNAME}
+USE_RC_SUBR=	${PORTNAME}
 .endif
 
 # The default is to build without SSL/TLS support.
@@ -122,15 +130,21 @@ USE_RC_SUBR=	 ${PORTNAME}
 CONFIGURE_ARGS+=	--with-openssl=${OPENSSLBASE}
 .endif
 
+# openssl-1.1.1 no longer has SSLv2 support
+.if ${OPSYS} == FreeBSD && ${OSVERSION} >= 1200085
+CFLAGS+=		-DOPENSSL_NO_SSL2
+CONFIGURE_ARGS+=	CFLAGS="${CFLAGS}"
+.endif
+
 post-patch:
 .if ${COMPILER_TYPE} == clang
-	@${REINPLACE_CMD} -e 's|-freg-struct-return||' ${WRKSRC}/configure.in
+	@${REINPLACE_CMD} -e 's|-freg-struct-return||' ${WRKSRC}/configure
 .endif
 	@${RM} ${WRKSRC}/popper/md5.h
 	@${REINPLACE_CMD} -e 's|%%PREFIX%%|${PREFIX}|g' ${WRKSRC}/man/*
 	@${REINPLACE_CMD} -e \
 		's|\$${sbindir}/sendmail|${LOCALBASE}/sbin/sendmail|g' \
-		${WRKSRC}/configure.in
+		${WRKSRC}/configure
 .if ${PORT_OPTIONS:MPOPPASSD}
 	@${REINPLACE_CMD} -e 's|/usr/bin/smbpasswd|${LOCALBASE}/bin/smbpasswd|' \
 		${WRKSRC}/password/poppassd.c

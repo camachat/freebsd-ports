@@ -1,2 +1,3 @@
-SHA256 (gromacs-5.0.6.tar.gz) = e07e950c4cd6cb84b83b145b70a15c25338ad6a7d7d1a0a83cdbd51cad954952
-SIZE (gromacs-5.0.6.tar.gz) = 26351063
+TIMESTAMP = 1542246014
+SHA256 (gromacs-2018.4.tar.gz) = 6f2ee458c730994a8549d6b4f601ecfc9432731462f8bd4ffa35d330d9aaa891
+SIZE (gromacs-2018.4.tar.gz) = 29918276

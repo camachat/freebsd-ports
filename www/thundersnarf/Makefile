@@ -2,7 +2,7 @@
 
 PORTNAME=	thundersnarf
 PORTVERSION=	1.3
-PORTREVISION=	4
+PORTREVISION=	5
 PORTEPOCH=	1
 CATEGORIES=	www
 MASTER_SITES=	http://www.tracanelli.com.br/l/dev/thunder/ \
@@ -29,7 +29,7 @@ PLIST_SUB=	OWNER=${WWWOWN} GROUP=${WWWGRP}
 .include <bsd.port.options.mk>
 
 .if ${PORT_OPTIONS:MAPACHE}
-USE_APACHE_RUN=	22+
+USES+=		apache:run,2.2+
 .endif
 
 .if ${PORT_OPTIONS:MPGSQL}

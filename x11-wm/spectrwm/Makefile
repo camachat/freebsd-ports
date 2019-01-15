@@ -3,7 +3,7 @@
 
 PORTNAME=	spectrwm
 DISTVERSIONPREFIX=	SPECTRWM_
-DISTVERSION=	3_1_0
+DISTVERSION=	3_2_0
 CATEGORIES=	x11-wm
 
 MAINTAINER=	zeising@FreeBSD.org
@@ -40,14 +40,15 @@ post-patch:
 	@${REINPLACE_CMD} -e 's|/etc/|${PREFIX}/etc/|g' ${WRKSRC}/spectrwm.*
 
 do-build:
-	${CC} ${CFLAGS} -Wall -Werror -I${LOCALBASE}/include \
+	${CC} ${CFLAGS} -Wall -Wextra -Wshadow -Werror -I${LOCALBASE}/include \
 		-I${LOCALBASE}/include/freetype2 -I${WRKSRC}/freebsd \
 		-lutil -L${LOCALBASE}/lib -lX11 -lX11-xcb -lxcb -lxcb-icccm \
-		-lxcb-keysyms -lxcb-randr -lxcb-util -lxcb-xtest -lXcursor \
-		-lXft -DSWM_LIB=\"${PREFIX}/lib/libswmhack.so\" \
+		-lxcb-keysyms -lxcb-randr -lxcb-util -lxcb-xinput -lxcb-xtest \
+		-lXcursor -lXft -DSWM_LIB=\"${PREFIX}/lib/libswmhack.so\" \
 		-o ${WRKSRC}/${PORTNAME} ${WRKSRC}/${PORTNAME}.c
-	${CC} ${CFLAGS} -Wall -Werror -I${LOCALBASE}/include -shared -fpic -DPIC \
-		-o ${WRKSRC}/libswmhack.so ${WRKSRC}/lib/swm_hack.c
+	${CC} ${CFLAGS} -Wall -Wextra -Wshadow -Werror -I${LOCALBASE}/include \
+		-shared -fpic -DPIC -o ${WRKSRC}/libswmhack.so \
+		${WRKSRC}/lib/swm_hack.c
 
 do-install:
 	${INSTALL_PROGRAM} ${WRKSRC}/${PORTNAME} ${STAGEDIR}${PREFIX}/bin

@@ -1,7 +1,9 @@
 # $FreeBSD$
 
 PORTNAME=	FreeCAD
-DISTVERSION=	0.17.12018
+DISTVERSION=	0.17-13541 # git rev-list --count
+DISTVERSIONSUFFIX=	-g9948ee4f1
+PORTREVISION=	4
 CATEGORIES=	cad
 
 MAINTAINER=	ports@FreeBSD.org
@@ -10,15 +12,17 @@ COMMENT=	General purpose 3D CAD modeller
 LICENSE=	LGPL20+
 LICENSE_FILE=	${WRKSRC}/COPYING
 
+DEPRECATED=		Qt4 has been EOL since december 2015
+EXPIRATION_DATE=	2019-03-15
+
 BUILD_DEPENDS=	pyside-rcc:devel/pyside-tools \
-		swig:devel/swig13 \
-		${LOCALBASE}/libdata/pkgconfig/eigen3.pc:math/eigen3
+		swig3.0:devel/swig30
 LIB_DEPENDS=	libexpat.so:textproc/expat2 \
 		libfreetype.so:print/freetype2 \
-		libboost_python.so:devel/boost-python-libs \
-		libpyside-python2.7.so:devel/pyside \
+		${PY_BOOST} \
+		libpyside-python2.7.so:devel/pyside@${PY_FLAVOR} \
 		libCoin.so:graphics/Coin \
-		libpng16.so:graphics/png \
+		libpng.so:graphics/png \
 		libtiff.so:graphics/tiff \
 		libvtkFiltersTexture-6.2.so:math/vtk6 \
 		libTKernel.so:cad/opencascade \
@@ -29,13 +33,14 @@ LIB_DEPENDS=	libexpat.so:textproc/expat2 \
 		libmed.so:french/med \
 		libshiboken-${PYTHON_VERSION}.so:devel/shiboken \
 		libhdf5.so:science/hdf5
-RUN_DEPENDS=	pivy>0:graphics/py-pivy
+RUN_DEPENDS=	pivy>0:graphics/py-pivy@${PY_FLAVOR}
 
-USES=		dos2unix compiler:c++11-lib cmake:outsource fortran jpeg \
-		python localbase
+USES=		dos2unix compiler:c++11-lib cmake eigen:3 fortran jpeg \
+		python:2.7 localbase qt:4
+USE_GITHUB=	yes
 USE_XORG=	ice sm x11 xext xt
 USE_GL=		gl glu
-USE_QT4=	qmake_build corelib gui moc_build network opengl rcc_build \
+USE_QT=		qmake_build corelib gui moc_build network opengl rcc_build \
 		uic_build svg xml webkit
 USE_LDCONFIG=	yes
 DOS2UNIX_GLOB=	*.txt *.h *.cpp *.py *.qss *.csv *.pov *.stp *.ui *.wrl *.WRL
@@ -52,24 +57,23 @@ CFLAGS+=	-I${LOCALBASE}/include/hdf5-18
 
 CMAKE_INSTALL_PREFIX=	${PREFIX}/${PORTNAME}
 
-USE_GITHUB=	yes
-GH_TAGNAME=	f27617e
-
 OPTIONS_DEFINE=	COLLADA
 
 COLLADA_DESC=		Install pycollada for Collada files import
-COLLADA_RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}pycollada>0:graphics/py-pycollada
+COLLADA_RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}pycollada>0:graphics/py-pycollada@${PY_FLAVOR}
 
 DESKTOP_ENTRIES=${PORTNAME} "" "${PREFIX}/FreeCAD/data/freecad.svg" \
 		${PORTNAME} "Engineering;" false
 
 post-patch:
+	@${REINPLACE_CMD} -e '/sed/s,-i,& \\"\\",' \
+		${WRKSRC}/cMake/FindPySide*Tools.cmake
 	@${REINPLACE_CMD} -e 's,%%LOCALBASE%%,${LOCALBASE},' \
 		${WRKSRC}/src/Gui/CMakeLists.txt
+	@${REINPLACE_CMD} -e '/self\.rev/s/Unknown/${DISTVERSION:C/.*-//}/' \
+		${WRKSRC}/src/Tools/SubWCRev.py
 
 pre-configure:
-	@${CP} ${FILESDIR}/version.h \
-		${WRKSRC}/src/Build/Version.h
 	# To be removed when french/med will be built against science/hdf5
 	@${REINPLACE_CMD} -e 's|find_package(HDF5 REQUIRED)|#find_package(HDF5 REQUIRED)|' \
 		${WRKSRC}/CMakeLists.txt

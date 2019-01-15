@@ -2,7 +2,8 @@
 # $FreeBSD$
 
 PORTNAME=	xmobar
-PORTVERSION=	0.24.5
+PORTVERSION=	0.29.4
+PORTREVISION=	1
 CATEGORIES=	x11 haskell
 
 MAINTAINER=	haskell@FreeBSD.org
@@ -10,18 +11,21 @@ COMMENT=	Minimalistic text-based status bar
 
 LICENSE=	BSD3CLAUSE
 
-USE_CABAL=	HTTP>=4000.2.4 mtl>=2.1 parsec>=3.1 regex-compat stm>=2.3 \
-		X11>=1.6.1
+USE_CABAL=	HTTP>=4000.2.4 async extensible-exceptions mtl>=2.1 regex-compat\
+		X11>=1.6.1 parsec-numbers
 USE_XORG=	xpm
 
 EXECUTABLE=	xmobar
 
 STANDALONE=	yes
 
-INSTALL_PORTDATA=	${INSTALL_DATA} ${WRKSRC}/samples/xmobar.config ${STAGEDIR}${DATADIR}
+OPTIONS_DEFINE=	EXAMPLES
+
+INSTALL_PORTEXAMPLES=	${INSTALL_DATA} ${WRKSRC}/examples/xmobar.config \
+				${STAGEDIR}${EXAMPLESDIR}
 
 FLAGS_DEFINE=		XFT UTF8 MPD INOTIFY DATEZONE THREADED
-FLAGS_DEFAULT=		UTF8
+FLAGS_DEFAULT=		XFT UTF8
 
 XFT_DESC=		Use Xft to render text (UTF-8 support included)
 XFT_FLAG_ENABLE=	with_xft
@@ -48,6 +52,10 @@ THREADED_FLAG_ENABLE=	with_threaded
 
 # Disable unsupported options
 FLAGS_DISABLE=		with_mpris with_dbus with_iwlib with_alsa
+
+post-extract:
+	${ECHO} "import Distribution.Simple" > ${WRKSRC}/Setup.hs
+	${ECHO} "main = defaultMain" >>  ${WRKSRC}/Setup.hs
 
 .include "${.CURDIR}/../../lang/ghc/bsd.cabal.mk"
 .include <bsd.port.mk>

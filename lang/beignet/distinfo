@@ -1,3 +1,3 @@
-TIMESTAMP = 1498205154
-SHA256 (intel-beignet-Release_v1.3.1-205-gf0c3b352_GH0.tar.gz) = 5223e50f878eb8675f23873ea562374dbbd899aa3b1f9f4e778b0c7d01695d54
-SIZE (intel-beignet-Release_v1.3.1-205-gf0c3b352_GH0.tar.gz) = 1138434
+TIMESTAMP = 1509014001
+SHA256 (beignet-1.3.2-source.tar.gz) = c555edba149de23243965a703f39f79fa06f15bcff5a3762b5544b0925010b43
+SIZE (beignet-1.3.2-source.tar.gz) = 1143573

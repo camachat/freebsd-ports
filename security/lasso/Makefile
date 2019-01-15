@@ -7,7 +7,7 @@ PORTREVISION=	1
 CATEGORIES=	security
 MASTER_SITES=	https://dev.entrouvert.org/releases/lasso/
 
-MAINTAINER=	tj@FreeBSD.org
+MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Free Liberty Alliance Implementation
 
 LICENSE=	GPLv2
@@ -51,9 +51,9 @@ PLIST_SUB+=	PHP5="@comment "
 .if ${PORT_OPTIONS:MPYTHON}
 CONFIGURE_ARGS+=	--enable-python
 PLIST_SUB+=	PYTHON=""
-USES+=		python
+USES+=		python:2.7
 .else
-USES+=		python:build
+USES+=		python:2.7,build
 CONFIGURE_ARGS+=	--disable-python
 PLIST_SUB+=	PYTHON="@comment "
 .endif

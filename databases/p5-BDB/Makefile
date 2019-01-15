@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	BDB
-PORTVERSION=	1.91
+PORTVERSION=	1.92
 CATEGORIES=	databases perl5
 MASTER_SITES=	CPAN
 MASTER_SITE_SUBDIR=	CPAN:MLEHMANN
@@ -14,8 +14,8 @@ COMMENT=	Asynchronous Berkeley DB access
 LICENSE=	ART10 GPLv1+
 LICENSE_COMB=	dual
 
-BUILD_DEPENDS=	p5-common-sense>=0:devel/p5-common-sense
-RUN_DEPENDS:=	${BUILD_DEPENDS}
+BUILD_DEPENDS=	${RUN_DEPENDS}
+RUN_DEPENDS=	p5-common-sense>=0:devel/p5-common-sense
 
 PORTSCOUT=	skipv:1.801
 

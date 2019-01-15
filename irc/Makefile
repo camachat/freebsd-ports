@@ -9,6 +9,7 @@
     SUBDIR += bitchx
     SUBDIR += bitlbee
     SUBDIR += bitlbee-facebook
+    SUBDIR += bitlbee-steam
     SUBDIR += bnc
     SUBDIR += bopm
     SUBDIR += cgiirc
@@ -59,14 +60,12 @@
     SUBDIR += keitairc2
     SUBDIR += konversation
     SUBDIR += kvirc
-    SUBDIR += kvirc-qt4
     SUBDIR += libircclient
     SUBDIR += lostirc
     SUBDIR += miau
     SUBDIR += minbif
     SUBDIR += muh
     SUBDIR += nethirc
-    SUBDIR += netwalker-ircc
     SUBDIR += ngircd
     SUBDIR += ninja
     SUBDIR += onis
@@ -122,11 +121,9 @@
     SUBDIR += undernet-ircu
     SUBDIR += unreal
     SUBDIR += weechat
+    SUBDIR += weechat-otr
     SUBDIR += xaric
-    SUBDIR += xchat
-    SUBDIR += xchat-fish
-    SUBDIR += xchat-mircryption
-    SUBDIR += xchat-ruby
     SUBDIR += znc
+    SUBDIR += znc-push
 
 .include <bsd.port.subdir.mk>

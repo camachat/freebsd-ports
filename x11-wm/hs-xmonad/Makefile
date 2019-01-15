@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	xmonad
-PORTVERSION=	0.13
+PORTVERSION=	0.15
 PORTREVISION=	1
 CATEGORIES=	x11-wm haskell
 
@@ -11,7 +11,7 @@ COMMENT=	Tiling window manager
 
 LICENSE=	BSD3CLAUSE
 
-USE_CABAL=	extensible-exceptions mtl setlocale utf8-string X11
+USE_CABAL=	extensible-exceptions mtl semigroups setlocale utf8-string X11
 USE_XORG=	x11
 
 MAN1PAGES=	xmonad.1
@@ -19,7 +19,10 @@ MAN1SRC=	man
 
 EXECUTABLE=	xmonad
 
-FLAGS_DISABLE=	testing
+OPTIONS_DEFINE=	EXAMPLES
+
+INSTALL_PORTEXAMPLES=	${INSTALL_DATA} ${WRKSRC}/man/xmonad.hs \
+				${STAGEDIR}${EXAMPLESDIR}
 
 .include "${.CURDIR}/../../lang/ghc/bsd.cabal.mk"
 

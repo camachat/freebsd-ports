@@ -1,18 +1,20 @@
 # $FreeBSD$
 
-GEANY_VER=	1.31
+GEANY_VER=		1.34
+GEANY_PLUGINS_GTK2=	debugger \
+			devhelp \
+			geanypy \
+			multiterm
+
 GEANY_PLUGINS_ALL=	addons \
 			autoclose \
 			automark \
 			codenav \
 			commander \
 			ctags \
-			debugger \
 			defineformat \
-			devhelp \
 			doc \
 			extrasel \
-			geanypy \
 			gendoc \
 			geniuspaste \
 			git-changebar \
@@ -24,7 +26,6 @@ GEANY_PLUGINS_ALL=	addons \
 			macro \
 			markdown \
 			miniscript \
-			multiterm \
 			numberedbookmarks \
 			overview \
 			pairtaghighlighter \
@@ -41,7 +42,9 @@ GEANY_PLUGINS_ALL=	addons \
 			treebrowser \
 			updatechecker \
 			vc \
+			vimode \
 			webhelper \
+			workbench \
 			xmlsnippets
 
 addons_DESC=		various small addons
@@ -83,8 +86,11 @@ spellcheck_DESC=	spell check via Enchant
 tableconvert_DESC=	convert tabulator separated selection into a table
 treebrowser_DESC=	alternate file browser
 updatechecker_DESC=	check for new version of Geany
+utilslib_DESC=		utility library
 vc_DESC=		access to different version-control systems
+vimode_DESC=		vim-mode plugin for Geany written by a guy who does not use Vim
 webhelper_DESC=		web development facilities
+workbench_DESC=		manage multiple projects in geany
 xmlsnippets_DESC=	XML/HTML tag autocompletion
 
 doc_DIR=		geanydoc
@@ -92,7 +98,7 @@ ctags_DIR=		geanyctags
 extrasel_DIR=		geanyextrasel
 gendoc_DIR=		geanygendoc
 insertnum_DIR=		geanyinsertnum
-latex_DIR=		geanylatex
+latex_DIR=		latex
 lipsum_DIR=		lipsum
 lua_DIR=		geanylua
 macro_DIR=		geanymacro
@@ -100,7 +106,10 @@ miniscript_DIR=		geanyminiscript
 numberedbookmarks_DIR=	geanynumberedbookmarks
 pg_DIR=			geanypg
 prj_DIR=		geanyprj
+utilslib_DIR=		utils
 vc_DIR=			geanyvc
 
 git-changebar_SWITCH=	--enable-gitchangebar
 pretty-printer_SWITCH=	--enable-pretty_printer
+
+GEANY_UTIL=		scope workbench

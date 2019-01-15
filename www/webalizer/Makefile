@@ -2,7 +2,7 @@
 
 PORTNAME=	webalizer
 PORTVERSION=	2.23.8
-PORTREVISION=	6
+PORTREVISION=	7
 CATEGORIES+=	www
 MASTER_SITES=	ftp://ftp.mrunix.net/pub/webalizer/:main \
 		ftp://ftp.mrunix.net/pub/webalizer/geodb/:geodb \
@@ -17,25 +17,27 @@ COMMENT=	Web server log file analysis program
 
 LICENSE=	GPLv2
 
-LIB_DEPENDS+=	libpng16.so:graphics/png
+LIB_DEPENDS+=	libpng.so:graphics/png
 
 GNU_CONFIGURE=	yes
 DOCSDIR?=	${PREFIX}/share/doc/${PKGNAMEPREFIX}${PORTNAME}
 EXAMPLESDIR?=	${PREFIX}/share/examples/${PKGNAMEPREFIX}${PORTNAME}
 GD_PORT?=	graphics/gd
 
-CONFLICTS=	geolizer-2*
+CONFLICTS=	geolizer-2* ${PKGNAMEPREFIX}webalizer-geoip-2*
 
 .if defined(BATCH)
 # no cosmetique spaces allowed
 WEBALIZER_LANG?=english
 .endif
 
-OPTIONS_DEFINE=	GEOIP GEODB BDB1 BDB WEBALIZER_CONV \
+OPTIONS_DEFINE=	GEODB WEBALIZER_CONV \
 		FULL_CGI_REFS CLICKABLE_REFERER \
 		IP_AS_HOSTNAME LARGE_URL \
 		DOCS EXAMPLES
 OPTIONS_DEFAULT?=	BDB1
+OPTIONS_SINGLE=		DB
+OPTIONS_SINGLE_DB=	BDB1 BDB
 NO_OPTIONS_SORT=yes
 OPTIONS_SUB=yes
 GEODB_DESC=Enable Webalizers IP-Database support
@@ -45,13 +47,7 @@ CLICKABLE_REFERER_DESC=Make referers clickable
 IP_AS_HOSTNAME_DESC=Show IP as hostname when IP does not resolve
 LARGE_URL_DESC=Enable URLs longer 512 bytes
 
-GEOIP_CONFIGURE_ON=	--enable-geoip \
-			--with-geoip-lib=${LOCALBASE}/lib \
-			--with-geoip-inc=${LOCALBASE}/include
-GEOIP_LIB_DEPENDS=	libGeoIP.so:net/GeoIP
-BDB1_PREVENTS=		BDB
 BDB1_CFLAGS=		-DUSE_DB185
-BDB_PREVENTS=		BDB1
 BDB_USES=		bdb
 BDB_LDFLAGS=		-L${BDB_LIB_DIR}
 BDB_CFLAGS=		-I${BDB_INCLUDE_DIR}
@@ -65,11 +61,7 @@ IP_AS_HOSTNAME_CFLAGS=		-DUSE_IP_AS_HOSTNAME
 
 .include <bsd.port.options.mk>
 
-.if empty(PORT_OPTIONS:MBDB) && empty(PORT_OPTIONS:MBDB1)
-OPTIONS_WRONG_RADIO=	BDB BDB1
-.endif
-
-.if ${PORT_OPTIONS:MGEODB} || ${PORT_OPTIONS:MGEOIP} || make(makesum) || defined(FETCH_ALL)
+.if ${PORT_OPTIONS:MGEODB} || make(makesum) || defined(FETCH_ALL)
 DISTFILES+=	webalizer-flags.tgz:main
 .endif
 .if ${PORT_OPTIONS:MGEODB} || make(makesum) || defined(FETCH_ALL)
@@ -81,13 +73,7 @@ DISTFILES+=	webalizer-geodb-20170201.tgz:geodb
 LIB_DEPENDS+=	libgd.so:${GD_PORT}
 .endif
 
-.if ${PORT_OPTIONS:MGEOIP}
-CONFLICTS+=	${PKGNAMEPREFIX}webalizer-2*
-.else
-CONFLICTS+=	${PKGNAMEPREFIX}webalizer-geoip-2*
-.endif
-
-.if ${PORT_OPTIONS:MGEODB} || ${PORT_OPTIONS:MGEOIP}
+.if ${PORT_OPTIONS:MGEODB}
 PLIST_SUB+=	WITH_ICONS=""
 .else
 PLIST_SUB+=	WITH_ICONS="@comment "
@@ -169,7 +155,7 @@ do-install:
 .for i in ${LMAN1}
 	${INSTALL_MAN} ${WRKSRC}/${i:S/^${PKGNAMEPREFIX}//} ${STAGEDIR}${PREFIX}/man/man1/${i}
 .endfor
-.if ${PORT_OPTIONS:MGEODB} || ${PORT_OPTIONS:MGEOIP}
+.if ${PORT_OPTIONS:MGEODB}
 	${MKDIR} ${STAGEDIR}${PREFIX}/share/geolizer
 	${INSTALL_DATA} ${WRKDIR}/flags/* ${STAGEDIR}${PREFIX}/share/geolizer/
 .endif

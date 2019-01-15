@@ -3,7 +3,7 @@
 
 PORTNAME=	mpd
 DISTVERSION=	5.8
-PORTREVISION=	2
+PORTREVISION=	10
 CATEGORIES=	net
 MASTER_SITES=	SF/${PORTNAME}/Mpd5/Mpd-${PORTVERSION}
 PKGNAMESUFFIX=	5
@@ -14,7 +14,7 @@ COMMENT=	Multi-link PPP daemon based on netgraph(4)
 
 LICENSE=	BSD3CLAUSE
 
-OPTIONS_DEFINE=	NG_IPACCT
+OPTIONS_DEFINE=	DOCS NG_IPACCT
 NG_IPACCT_DESC=	Use ng_ipacct kernel module from port
 
 HAS_CONFIGURE=	YES
@@ -33,6 +33,9 @@ RUN_DEPENDS+=	${KMODDIR}/ng_ipacct.ko:net-mgmt/ng_ipacct
 .else
 RUN_DEPENDS+=	/boot/modules/ng_ipacct.ko:net-mgmt/ng_ipacct
 .endif
+.else
+CONFIGURE_ENV+=	USE_NG_IPACCT=no
+EXTRA_PATCHES+=	${FILESDIR}/extra-patch-no-ng_ipacct
 .endif
 
 USE_RC_SUBR=	mpd5
@@ -45,10 +48,4 @@ PLIST_FILES=	${CONFSUF:S/^/etc\/mpd5\/mpd./:S/$/.sample/} sbin/mpd5
 PLIST_FILES+=	man/man8/mpd5.8.gz
 .endif
 
-.include <bsd.port.pre.mk>
-
-.if ${SSL_DEFAULT:Mopenssl-devel}
-BROKEN=		Does not build with openssl-devel
-.endif
-
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>

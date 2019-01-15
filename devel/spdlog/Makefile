@@ -2,7 +2,8 @@
 # $FreeBSD$
 
 PORTNAME=	spdlog
-PORTVERSION=	0.14.0
+PORTVERSION=	1.2.1
+PORTREVISION=	1
 DISTVERSIONPREFIX=	v
 CATEGORIES=	devel
 
@@ -12,11 +13,9 @@ COMMENT=	Super fast C++ logging library
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-BROKEN_powerpc64=	fails to compile: includes.h: error: chrono: No such file or directory
-
 USE_GITHUB=	yes
 GH_ACCOUNT=	gabime
 
-USES=		cmake dos2unix pathfix
+USES=		cmake compiler:c++11-lib pathfix
 
 .include <bsd.port.mk>

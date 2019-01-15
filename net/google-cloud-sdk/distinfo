@@ -1,2 +1,3 @@
-SHA256 (google-cloud-sdk-coretools-linux-static-20160122113408.tar.gz) = 89361dd88b370017dff25f53e47818850d1b6b0d21d282f3d083710d3fcc88e4
-SIZE (google-cloud-sdk-coretools-linux-static-20160122113408.tar.gz) = 6579867
+TIMESTAMP = 1545014771
+SHA256 (google-cloud-sdk-228.0.0-linux-x86_64.tar.gz) = e4876cedf2af338a0c853f4cf97aa88e18173117ed4f59c93c9d25239ac3ade3
+SIZE (google-cloud-sdk-228.0.0-linux-x86_64.tar.gz) = 25371877

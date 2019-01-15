@@ -2,7 +2,8 @@
 # $FreeBSD$
 
 PORTNAME=	pglogical
-PORTVERSION=	2.1.0
+PORTVERSION=	2.2.1
+PORTREVISION=	1
 CATEGORIES=	databases
 
 MAINTAINER=	matthew@FreeBSD.org
@@ -11,12 +12,13 @@ COMMENT=	Logical replication system as a PostgreSQL extension
 LICENSE=	PostgreSQL
 
 USES=		gmake pgsql:9.4+
+LLD_UNSAFE=	yes
 WANT_PGSQL=	client server
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	2ndQuadrant
 GH_PROJECT=	pglogical pglogical_dump:dump
-GH_TAGNAME=	REL2_1_0 9f3b0b1:dump
+GH_TAGNAME=	REL2_2_0 f66606d:dump
 GH_SUBDIR=	pglogical_dump:dump
 
 MAKE_ARGS=	USE_PGXS=1
@@ -28,9 +30,9 @@ DOCS_PORTDOCS=	*
 .include <bsd.port.pre.mk>
 
 .if ${PGSQL_VER:M9.4}
-PLIST_SUB=	PGSQL94=""
+PLIST_SUB+=	PGSQL94=""
 .else
-PLIST_SUB=	PGSQL94="@comment "
+PLIST_SUB+=	PGSQL94="@comment "
 .endif
 
 # FFI

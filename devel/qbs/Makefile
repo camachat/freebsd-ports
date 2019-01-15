@@ -2,29 +2,32 @@
 
 PORTNAME=	qbs
 DISTVERSIONPREFIX=	src-
-DISTVERSION=	1.9.0
+DISTVERSION=	1.12.2
 CATEGORIES=	devel
 MASTER_SITES=	QT/official_releases/${PORTNAME}/${PORTVERSION}
 DIST_SUBDIR=	KDE/Qt/qbs
 
 MAINTAINER=	kde@FreeBSD.org
-COMMENT=	Qt Build Suite
+COMMENT=	Qbs Build Suite
 
 LICENSE=	GPLv3 LGPL21
 LICENSE_COMB=	dual
 
-USES=		compiler:c++11-lib python:run qmake:outsource shebangfix
+USES=		compiler:c++11-lib python:run qmake:outsource qt:5 shebangfix
 USE_GL=		gl
 USE_LDCONFIG=	yes
-USE_QT5=	buildtools_build core concurrent gui network script testlib \
+USE_QT=		buildtools_build core concurrent gui network script testlib \
 		widgets xml
 
 SHEBANG_FILES=	src/3rdparty/python/bin/dmgbuild
 
+QMAKE_ARGS=		CONFIG+=qbs_disable_rpath \
+			CONFIG+=qbs_enable_project_file_updates
 QMAKE_SOURCE_PATH=	${WRKSRC}/qbs.pro
 
 OPTIONS_DEFINE=		DOCS
-DOCS_USE=		QT5=help_build,qdoc_build,sql-sqlite3_build
+DOCS_USES=	qt:5
+DOCS_USE=		QT=help_build,qdoc_build,sql-sqlite3_build
 OPTIONS_DEFAULT=	${OPTIONS_DEFINE}
 
 ALL_TARGET=		all
@@ -34,8 +37,6 @@ DOCS_ALL_TARGET=	docs
 DOCS_INSTALL_TARGET=	install_docs
 
 PLIST_SUB=		SHLIB_VERSION="${PORTVERSION}"
-
-WRKSRC=			${WRKDIR}/dist/${DISTNAME}
 
 pre-configure:
 # We piggyback on QMAKE_LIBDIR_FLAGS to make sure -L${WRKSRC}/lib is passed to

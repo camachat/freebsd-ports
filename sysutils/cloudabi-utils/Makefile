@@ -3,8 +3,7 @@
 
 PORTNAME=	cloudabi-utils
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.30
-PORTREVISION=	1
+DISTVERSION=	0.38
 CATEGORIES=	sysutils
 
 MAINTAINER=	ed@FreeBSD.org
@@ -23,15 +22,9 @@ LIB_DEPENDS=	libargdata.so:devel/argdata \
 		libarpc.so:devel/arpc \
 		libyaml-cpp.so:devel/yaml-cpp
 
-USES=		cmake localbase:ldflags pkgconfig tar:xz
+USES=		cmake localbase:ldflags pkgconfig
 USE_LDCONFIG=	yes
 USE_GITHUB=	yes
 GH_ACCOUNT=	NuxiNL
 
-.include <bsd.port.pre.mk>
-
-.if ${OPSYS} == FreeBSD && ${OSVERSION} < 1100511
-IGNORE=		requires various C++17 features
-.endif
-
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>

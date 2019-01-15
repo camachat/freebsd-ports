@@ -8,8 +8,10 @@ PORTREVISION=	1
 CATEGORIES=	devel net-im
 PKGNAMEPREFIX=	erlang-
 
-MAINTAINER=	olgeni@FreeBSD.org
+MAINTAINER=	erlang@FreeBSD.org
 COMMENT=	Fast and scalable library for XMPP written in Erlang/OTP
+
+BROKEN_SSL=	openssl111
 
 LICENSE=	EPL
 
@@ -36,9 +38,17 @@ PLIST_SUB=	VERSION=${PORTVERSION}
 USES=		autoreconf cpe libtool pkgconfig ssl
 CPE_VENDOR=	process-one
 
+OPTIONS_DEFINE=	DOCS
+
 DOCS_CONFIGURE_ENABLE=	documentation
 
 MAKE_JOBS_UNSAFE=	yes
+
+.include <bsd.port.options.mk>
+
+.if ${OPSYS} == FreeBSD && ${OSVERSION} >= 1200085 && ${SSL_DEFAULT} == base
+BROKEN=	Does not support OpenSSL 1.1
+.endif
 
 post-configure:
 	${REINPLACE_CMD}  's|\(-spec.*\)\/[0-9] ::\(.*\)|\1\2|g' ${WRKSRC}/src/network/*.erl

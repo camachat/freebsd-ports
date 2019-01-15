@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	www
-PORTVERSION=	1.1.1
+PORTVERSION=	2.0.0
 CATEGORIES=	www
 PKGNAMEPREFIX=	go-
 
@@ -16,10 +16,8 @@ USES=		go
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	nbari:DEFAULT
-GH_TUPLE=	golang:crypto:847319b:crypto/src/golang.org/x/crypto
+GH_TUPLE=	golang:crypto:505ab14:crypto/src/golang.org/x/crypto
 GH_SUBDIR=	src/github.com/nbari/${PORTNAME}
-
-STRIP=		# stripping can break go binaries
 
 PLIST_FILES=	bin/www
 
@@ -29,7 +27,7 @@ post-patch:
 
 do-build:
 	@cd ${WRKSRC}/src/github.com/${GH_ACCOUNT}/${GH_PROJECT}; \
-	${SETENV} ${BUILD_ENV} GOPATH=${WRKSRC} go build -ldflags \
+	${SETENV} ${MAKE_ENV} ${BUILD_ENV} GOPATH=${WRKSRC} go build -ldflags \
 	"-s -w" -o www;
 
 do-install:

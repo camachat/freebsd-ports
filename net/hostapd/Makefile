@@ -2,11 +2,13 @@
 # $FreeBSD$
 
 PORTNAME=	hostapd
-PORTVERSION=	2.6
+PORTVERSION=	2.7
 CATEGORIES=	net
-MASTER_SITES=	http://w1.fi/releases/
+MASTER_SITES=	https://w1.fi/releases/
 
-MAINTAINER=	leres@FreeBSD.org
+PATCH_SITES=	https://w1.fi/security/2018-1/:2018_1
+
+MAINTAINER=	cy@FreeBSD.org
 COMMENT=	IEEE 802.11 AP, IEEE 802.1X/WPA/WPA2/EAP/RADIUS Authenticator
 
 LICENSE=	BSD3CLAUSE

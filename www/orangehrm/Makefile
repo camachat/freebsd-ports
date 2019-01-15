@@ -2,8 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	orangehrm
-PORTVERSION=	3.3.3
-PORTREVISION=	1
+PORTVERSION=	4.2.0.1
 CATEGORIES=	www misc
 MASTER_SITES=	SF/${PORTNAME}/stable/${PORTVERSION}
 
@@ -14,11 +13,13 @@ LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/license/LICENSE.TXT
 
 USES=		cpe php zip
-USE_PHP=	pdo_mysql ctype xml simplexml
+USE_PHP=	iconv json pdo_mysql ctype xml session simplexml
 NO_BUILD=	yes
 PLIST=		${WRKDIR}/plist
 SUB_FILES=	pkg-message
 HRMDIR=		www/orangehrm
+
+#WRKSRC=		${WRKDIR}/${PORTNAME}-${PORTVERSION}/${PORTNAME}-${PORTVERSION}
 
 pre-install:
 	@${ECHO_CMD} -e '@owner ${WWWOWN}\n@group ${WWWGRP}' > ${PLIST}

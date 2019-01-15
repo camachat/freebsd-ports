@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=		openldap
-DISTVERSION=		2.4.45
+DISTVERSION=		2.4.47
 PORTREVISION=		${OPENLDAP_PORTREVISION}
 CATEGORIES=		net databases
 MASTER_SITES=		ftp://ftp.OpenLDAP.org/pub/OpenLDAP/%SUBDIR%/ \
@@ -65,9 +65,9 @@ BROKEN=			incompatible OpenLDAP version: ${WANT_OPENLDAP_VER}
 .endif
 
 PORTREVISION_CLIENT=	0
-PORTREVISION_SERVER=	2
+PORTREVISION_SERVER=	0
 OPENLDAP_SHLIB_MAJOR=	2
-OPENLDAP_SHLIB_MINOR=	10.8
+OPENLDAP_SHLIB_MINOR=	10.10
 OPENLDAP_MAJOR=		${DISTVERSION:R}
 
 OPTIONS_DEFINE=		DEBUG FETCH GSSAPI
@@ -75,7 +75,9 @@ OPTIONS_DEFINE=		DEBUG FETCH GSSAPI
 FETCH_DESC=		Enable fetch(3) support
 GSSAPI_DESC=		With GSSAPI support (implies SASL support)
 
-.if !defined(CLIENT_ONLY)
+.if defined(CLIENT_ONLY)
+OPTIONS_DEFINE+=	DOCS
+.else
 OPTIONS_DEFINE+=	DYNACL ACI BDB MDB DNSSRV PASSWD PERL RELAY SHELL
 OPTIONS_DEFINE+=	SOCK ODBC RLOOKUPS SLP SLAPI TCP_WRAPPERS
 OPTIONS_DEFINE+=	ACCESSLOG AUDITLOG COLLECT CONSTRAINT DDS
@@ -199,10 +201,6 @@ CONFIGURE_ARGS=		--with-threads=posix \
 			--with-tls=openssl \
 			--disable-dependency-tracking \
 			--enable-dynamic
-
-.if ${OSVERSION} < 1101000
-CFLAGS+=		-DMDB_DSYNC=O_SYNC -Dfdatasync=fsync
-.endif
 
 .if ${PORT_OPTIONS:MSASL}
 LIB_DEPENDS+=		libsasl2.so:security/cyrus-sasl2
@@ -508,8 +506,8 @@ EXTRA_PATCHES+=		${FILESDIR}/extrapatch-outlook-servers__slapd__schema_prep.c
 .endif
 
 .if ${PORT_OPTIONS:MKQUEUE}
+BUILD_DEPENDS+=		autoconf>0:devel/autoconf
 EXTRA_PATCHES+=		${FILESDIR}/extrapatch-ITS6300
-USE_AUTOTOOLS=		autoconf
 .endif
 
 # end of client/server specific configuration
@@ -536,10 +534,6 @@ PLIST_SUB+=		OPENLDAP_MAJOR=${OPENLDAP_MAJOR}
 
 .include <bsd.port.pre.mk>
 
-.if ${SSL_DEFAULT:Mopenssl-devel}
-BROKEN=		Does not build with openssl-devel
-.endif
-
 .if !${PORT_OPTIONS:MFETCH}
 CONFIGURE_ARGS+=	--without-fetch
 .else
@@ -565,6 +559,9 @@ pre-configure:
 		${ECHO_CMD} "${PKGNAME}: bind installed with PORT_REPLACES_BASE_BIND causes build problems."; \
 		${FALSE}; \
 	fi
+.if ${PORT_OPTIONS:MKQUEUE}
+	@(cd ${WRKSRC} && ${LOCALBASE}/bin/autoconf)
+.endif
 
 .if !defined(CLIENT_ONLY)
 test: build

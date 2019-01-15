@@ -2,8 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	nvmupdate
-DISTVERSION=	5_05
-PORTREVISION=	1
+DISTVERSION=	6_80
 CATEGORIES=	sysutils
 MASTER_SITES=	https://downloadmirror.intel.com/${MASTER_SITE_SUBDIR}/ \
 		http://downloadmirror.intel.com/${MASTER_SITE_SUBDIR}/
@@ -25,10 +24,10 @@ LICENSE_NAME_IPL=	Intel Proprietary License
 LICENSE_FILE_IPL=	${WRKSRC}/license.txt
 LICENSE_PERMS_IPL=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 
-BROKEN=		Does not fetch.
-
 WRKSRC=			${WRKDIR}/XL710/FreeBSDx64
 NO_BUILD=		yes
+NO_ARCH=		yes
+NO_ARCH_IGNORE=		nvmupdate64e
 ONLY_FOR_ARCHS=		amd64
 ONLY_FOR_ARCHS_REASON=	not supported on anything other than amd64
 IGNORE_DragonFly=	FreeBSD binary port

@@ -3,7 +3,7 @@
 
 PORTNAME=	taucs
 PORTVERSION=	2.2
-PORTREVISION=	16
+PORTREVISION=	19
 CATEGORIES=	math
 MASTER_SITES=	http://www.tau.ac.il/~stoledo/taucs/${PORTVERSION}/ \
 		LOCAL/bf
@@ -12,10 +12,10 @@ DISTNAME=	${PORTNAME}
 MAINTAINER=	ports@FreeBSD.org
 COMMENT=	C library of sparse linear solvers
 
-LICENSE=        TAUCS
-LICENSE_NAME=   TAUCS License
-LICENSE_FILE=   ${FILESDIR}/TAUCS-license.txt
-LICENSE_PERMS=  dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
+LICENSE=	TAUCS
+LICENSE_NAME=	TAUCS License
+LICENSE_FILE=	${FILESDIR}/TAUCS-license.txt
+LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 
 LIB_DEPENDS=	libmetis.so:math/metis4
 
@@ -87,12 +87,12 @@ do-install:
 	${INSTALL_DATA} ${WRKSRC}/src/*.h ${STAGEDIR}${PREFIX}/include
 	(cd ${WRKSRC}_SHARED/bin/FreeBSD && \
 		${INSTALL_PROGRAM} ${BINS} ${STAGEDIR}${PREFIX}/bin)
-.if ${PORT_OPTIONS:MDOCS}
+
+do-install-DOCS-on:
 	@${MKDIR} ${STAGEDIR}${DOCSDIR}
 	${INSTALL_DATA} ${WRKSRC}/doc/*.pdf ${STAGEDIR}${DOCSDIR}
-.endif
 
-check test: build
+do-test: # XXX: building tests fail 
 .for t in ${TESTS}
 	@${PRINTF} "\n%s\n" "Building test_${t}"
 	@cd ${WRKSRC}_SHARED ; ${FC} ${FFLAGS} -Llib/FreeBSD -L./ \
@@ -105,11 +105,5 @@ check test: build
 	${SETENV} LD_LIBRARY_PATH="lib/FreeBSD:/lib:/usr/lib:${LOCALBASE}/lib" \
 	bin/FreeBSD/test_${t}
 .endfor
-
-#be conservative, and expose a regression test target for amd64 builds only, because
-#some of the tests run amok during i386 tinderbox builds on amd64 hosts
-.if ${ARCH} == "amd64"
-regression-test: check
-.endif
 
 .include <bsd.port.mk>

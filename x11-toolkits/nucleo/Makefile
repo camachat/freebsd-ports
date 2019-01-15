@@ -3,7 +3,7 @@
 
 PORTNAME=	nucleo
 PORTVERSION=	0.7.6
-PORTREVISION=	19
+PORTREVISION=	22
 CATEGORIES=	x11-toolkits
 MASTER_SITES=	http://insitu.lri.fr/metisse/download/nucleo/
 
@@ -18,7 +18,8 @@ LIB_DEPENDS=	libexif.so:graphics/libexif \
 		libfreetype.so:print/freetype2 \
 		libexpat.so:textproc/expat2
 
-USES=		gmake jpeg libtool localbase:ldflags pathfix pkgconfig python:run shebangfix tar:bzip2
+USES=		gl gmake jpeg libtool localbase:ldflags \
+		pathfix pkgconfig python:run shebangfix tar:bzip2
 USE_GL=		gl glu
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--without-opencv
@@ -50,7 +51,8 @@ GNUTLS_CONFIGURE_OFF=	--without-gnutls
 
 MDNSRESPONDER_LIB_DEPENDS=	libdns_sd.so:net/mDNSResponder
 
-QT4_USE=		QT4=moc_build,corelib
+QT4_USE=		QT=moc_build,corelib
+QT4_USES=		qmake:no_env qt:4
 QT4_CONFIGURE_OFF=	--without-qt
 QT4_MAKE_ARGS=		QT4MOC="${MOC}"
 
@@ -61,7 +63,8 @@ CONFIGURE_ARGS+=	--without-dns-sd
 .endif
 
 .if ${PORT_OPTIONS:MQT4}
-QT_NONSTANDARD=		yes
+DEPRECATED=		Qt4 has been EOL since december 2015
+EXPIRATION_DATE=	2019-03-15
 .endif
 
 post-install:

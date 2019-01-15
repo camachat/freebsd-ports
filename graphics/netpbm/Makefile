@@ -2,9 +2,11 @@
 # $FreeBSD$
 
 PORTNAME=	netpbm
-DISTVERSIONPREFIX=	v
-DISTVERSION=	10.80.00
+DISTVERSION=	10.85.01
 CATEGORIES=	graphics
+MASTER_SITES=	https://github.com/t6/netpbm/releases/download/v${DISTVERSION}/ \
+		https://gitlab.com/tobiask/netpbm/uploads/2780c2f59fe3a808d2fe37c60ebcbea4/ \
+		LOCAL/tobik
 
 MAINTAINER=	tobik@FreeBSD.org
 COMMENT=	Toolkit for conversion of images between different formats
@@ -21,11 +23,8 @@ TEST_DEPENDS=	bash:shells/bash
 # create tarballs for them, so we have to roll our own.  See
 # http://netpbm.sourceforge.net/getting_netpbm.php.  To checkout the
 # sources yourself see the netpbm-version-check and netpbm-fetch
-# targets below.  The sources are then pushed to t6/netpbm and tagged
-# on GitHub.
+# targets below.
 USES=		ghostscript:test gmake perl5 shebangfix
-USE_GITHUB=	yes
-GH_ACCOUNT=	t6
 USE_LDCONFIG=	yes
 USE_PERL5=	build test
 
@@ -53,14 +52,13 @@ TEST_TARGET=	check
 # test fails.  The resulting and intermediary images look fine in
 # spite of this.
 DISABLED_TESTS=	all-in-place tiff-flate-lzw-roundtrip ppmgauss \
-		palm-roundtrip pamtopdbimg
+		palm-roundtrip pamtopdbimg ps-alt-roundtrip \
+		pammixmulti-identity
 
 OPTIONS_DEFAULT=	MANPAGES PERL
 OPTIONS_DEFINE=	MANPAGES PERL STATIC SVGTOPAM X11
 OPTIONS_SUB=	yes
 
-MANPAGES_GH_TUPLE=	t6:netpbm-userguide:r2996:userguide
-MANPAGES_USES=		python:build,2.7
 PERL_USE=		PERL5=run
 STATIC_BUILD_DEPENDS=	tiff>0:graphics/tiff \
 			png>0:graphics/png \
@@ -73,6 +71,7 @@ STATIC_LIB_DEPENDS_OFF=	libtiff.so:graphics/tiff \
 STATIC_USES=		jpeg:build
 STATIC_USES_OFF=	jpeg
 SVGTOPAM_DESC=		Build svgtopam
+SVGTOPAM_USES=		gnome
 SVGTOPAM_USE=		GNOME=libxml2
 SVGTOPAM_VARS_OFF=	DISABLED_TESTS+=svgtopam
 X11_USE=		XORG=x11,xcb,xau,xdmcp
@@ -87,7 +86,9 @@ post-patch:
 .endfor
 
 post-patch-STATIC-on:
-	@${REINPLACE_CMD} 's|$$(LD)|$$(LD) -static|g' ${WRKSRC}/common.mk
+	@${REINPLACE_CMD} -e 's|$$(LD)|$$(LD) -static|g' \
+		-e 's@$$(NETPBMLIBFNAME)@libnetpbm.a@' \
+		${WRKSRC}/common.mk
 
 # Disable building svgtopam by default.  It is the only program that
 # requires libxml2 and it is not useful in this day and age according
@@ -102,14 +103,6 @@ post-patch-X11-off:
 do-configure:
 	@${CAT} ${WRKSRC}/config.mk.in ${FILESDIR}/config.mk > ${WRKSRC}/config.mk
 
-post-build-MANPAGES-on:
-	@cd ${WRKSRC_userguide} && ${WRKSRC}/buildtools/makeman *.html
-	@cd ${WRKSRC_userguide} && ${MV} index.1 netpbm.1
-# Remove broken manpages
-	@cd ${WRKSRC_userguide} && ${RM} directory.1 liberror.1 \
-		libnetpbm_dir.1 libsystem.3 libtmpfile.3 libtmpfilefd.3 \
-		ppmsvgalib.1 vidtoppm.1 extendedopacity.5
-
 post-install:
 	@cd ${STAGEDIR}${PREFIX}/lib && ${LN} -sf libnetpbm.so.11 libnetpbm.so
 	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/libnetpbm.so
@@ -118,9 +111,9 @@ post-install:
 		${STAGEDIR}${PREFIX}/include/netpbm
 
 post-install-MANPAGES-on:
-	${INSTALL_MAN} ${WRKSRC_userguide}/*.1 ${STAGEDIR}${PREFIX}/man/man1
-	${INSTALL_MAN} ${WRKSRC_userguide}/*.3 ${STAGEDIR}${PREFIX}/man/man3
-	${INSTALL_MAN} ${WRKSRC_userguide}/*.5 ${STAGEDIR}${PREFIX}/man/man5
+	${INSTALL_MAN} ${WRKSRC}/man/*.1 ${STAGEDIR}${PREFIX}/man/man1
+	${INSTALL_MAN} ${WRKSRC}/man/*.3 ${STAGEDIR}${PREFIX}/man/man3
+	${INSTALL_MAN} ${WRKSRC}/man/*.5 ${STAGEDIR}${PREFIX}/man/man5
 
 .if defined(DEVELOPER)
 # A lot of this is stolen from the netpbm OpenBSD port

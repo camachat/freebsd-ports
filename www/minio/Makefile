@@ -9,14 +9,14 @@ COMMENT=	Amazon S3 compatible object storage server
 
 LICENSE=	APACHE20
 
-BUILD_DEPENDS=	go>=1.7:lang/go
+BUILD_DEPENDS=	go>=1.9.4:lang/go
 
 USES=		compiler
 
 USE_GITHUB=	yes
-GH_TAGNAME=	RELEASE.2017-09-29T19-16-56Z
+GH_TAGNAME=	RELEASE.2019-01-10T00-21-20Z
 GH_SUBDIR=	src/github.com/${PORTNAME}/${PORTNAME}
-COMMIT_ID=	60cc6184d253efee4a3120683517028342229e21
+COMMIT_ID=	ed1275a06345f578c3a21fd62458f3c7c96053ac
 
 PLIST_FILES=	bin/minio
 
@@ -30,7 +30,7 @@ SUB_LIST=	USER="${USERS}" \
 
 do-build:
 	@cd ${WRKSRC}/${GH_SUBDIR} ; \
-	${SETENV} GOPATH=${WRKSRC} CGO_ENABLED=0 go build \
+	${SETENV} ${MAKE_ENV} GOPATH=${WRKSRC} CGO_ENABLED=0 go build \
 		--ldflags '-X github.com/minio/minio/cmd.Version=${GH_TAGNAME:C/RELEASE\.//:C|(..)-(..)-(..)Z|\1:\2:\3Z|} -X github.com/minio/minio/cmd.ReleaseTag=${GH_TAGNAME} -X github.com/minio/minio/cmd.CommitID=${COMMIT_ID} -X github.com/minio/minio/cmd.GOPATH=${WRKSRC} -s -w' -o ${WRKSRC}/bin/minio
 
 do-install:
