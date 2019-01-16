@@ -1,8 +1,8 @@
 This is an extract of upstream commit 
     https://cgit.kde.org/qca.git/commit/?id=d58e20ee652038dc4ec4fe4765dc3639ed735526
 
---- plugins/qca-ossl/qca-ossl.cpp.orig	2017-02-06 12:29:44 UTC
-+++ plugins/qca-ossl/qca-ossl.cpp
+--- plugins/qca-ossl/qca-ossl.cpp.orig	2017-02-06 04:29:44.000000000 -0800
++++ plugins/qca-ossl/qca-ossl.cpp	2019-01-15 21:16:20.091154000 -0800
 @@ -1,6 +1,7 @@
  /*
   * Copyright (C) 2004-2007  Justin Karneges <justin@affinix.com>
@@ -31,16 +31,16 @@ This is an extract of upstream commit
 +#endif
 +
 +// OpenSSL 1.1.0 compatibility macros
-+#ifdef OSSL_110
-+#define M_ASN1_IA5STRING_new() ASN1_IA5STRING_new()
-+#else
-+static HMAC_CTX *HMAC_CTX_new() { return new HMAC_CTX(); }
-+static void HMAC_CTX_free(HMAC_CTX *x) { free(x); }
-+static void EVP_PKEY_up_ref(EVP_PKEY *x) { CRYPTO_add(&x->references, 1, CRYPTO_LOCK_EVP_PKEY); }
-+static void X509_up_ref(X509 *x) { CRYPTO_add(&x->references, 1, CRYPTO_LOCK_X509); }
-+static void X509_CRL_up_ref(X509_CRL *x) { CRYPTO_add(&x->references, 1, CRYPTO_LOCK_X509_CRL); }
-+static DSA *EVP_PKEY_get0_DSA(EVP_PKEY *x) { return x->pkey.dsa; }
-+static DH *EVP_PKEY_get0_DH(EVP_PKEY *x) { return x->pkey.dh; }
++//-#ifdef OSSL_110
++//-#define M_ASN1_IA5STRING_new() ASN1_IA5STRING_new()
++//-#else
++//-static HMAC_CTX *HMAC_CTX_new() { return new HMAC_CTX(); }
++//-static void HMAC_CTX_free(HMAC_CTX *x) { free(x); }
++//-static void EVP_PKEY_up_ref(EVP_PKEY *x) { CRYPTO_add(&x->references, 1, CRYPTO_LOCK_EVP_PKEY); }
++//-static void X509_up_ref(X509 *x) { CRYPTO_add(&x->references, 1, CRYPTO_LOCK_X509); }
++//-static void X509_CRL_up_ref(X509_CRL *x) { CRYPTO_add(&x->references, 1, CRYPTO_LOCK_X509_CRL); }
++//-static DSA *EVP_PKEY_get0_DSA(EVP_PKEY *x) { return x->pkey.dsa; }
++//-static DH *EVP_PKEY_get0_DH(EVP_PKEY *x) { return x->pkey.dh; }
 +static int RSA_meth_set_sign(RSA_METHOD *meth,
 +                      int (*sign) (int type, const unsigned char *m,
 +                                   unsigned int m_length,
@@ -91,7 +91,7 @@ This is an extract of upstream commit
 +{
 +    return x->revocationDate;
 +}
-+#endif
++//-#endif
 +
  using namespace QCA;
  
@@ -930,11 +930,11 @@ This is an extract of upstream commit
  		}
  		else
  		{
-+#if OPENSSL_VERSION_NUMBER > 0x10100000L
-+			RSAerr(RSA_F_RSA_OSSL_PRIVATE_DECRYPT, RSA_R_UNKNOWN_PADDING_TYPE);
-+#else
++//-#if OPENSSL_VERSION_NUMBER > 0x10100000L
++//-			RSAerr(RSA_F_RSA_OSSL_PRIVATE_DECRYPT, RSA_R_UNKNOWN_PADDING_TYPE);
++//-#else
  			RSAerr(RSA_F_RSA_EAY_PRIVATE_DECRYPT, RSA_R_UNKNOWN_PADDING_TYPE);
-+#endif
++//-#endif
  			return -1;
  		}
  
