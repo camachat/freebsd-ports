@@ -96,8 +96,6 @@ INSTALLS_ICONS=	yes
 
 .endif
 
-EXTRA_PATCHES+=	${FILESDIR}/extra-patch-clang
-
 # TODO bz@ : install libwidevinecdm.so (see third_party/widevine/cdm/BUILD.gn)
 #
 # Run "./out/${BUILDTYPE}/gn args out/${BUILDTYPE} --list" for all variables.
