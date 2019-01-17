@@ -1,8 +1,8 @@
 # $FreeBSD$
 
 PORTNAME=	sway
-DISTVERSION=	1.0-beta.2-189
-DISTVERSIONSUFFIX=	-g2573606b
+DISTVERSION=	1.0-beta.2-204
+DISTVERSIONSUFFIX=	-g70637b40
 CATEGORIES=	x11-wm
 
 MAINTAINER=	jbeich@FreeBSD.org
@@ -35,7 +35,7 @@ OPTIONS_SUB=	yes
 
 MANPAGES_BUILD_DEPENDS=	scdoc:textproc/scdoc
 
-SUID_DESC=		Install with setuid bit set
+SUID_DESC=		setuid bit on "sway" binary (required for DRM session)
 SUID_PLIST_SUB=		MAYBE_SUID="@(,,4755) "
 SUID_PLIST_SUB_OFF=	MAYBE_SUID=""
 
@@ -46,8 +46,17 @@ post-patch:
 # Let @sample handle default files under etc/
 	@${REINPLACE_CMD} -e '/config\.in/{ N; s/@BASENAME@/&.sample/; }' \
 		${WRKSRC}/meson.build
+# Let terminal chooser pick default
+	@${REINPLACE_CMD} -e 's/urxvt/swayterm/' \
+		${WRKSRC}/config.in
 
 post-patch-MANPAGES-off:
 	@${REINPLACE_CMD} -i '' "s/'scdoc/&-disabled/" ${WRKSRC}/meson.build
+
+post-install:
+	${INSTALL_SCRIPT} ${FILESDIR}/swayterm ${STAGEDIR}${PREFIX}/bin
+	${MKDIR} ${STAGEDIR}${ETCDIR}/config.d
+# x11/libxkbcommon has --with-default-rules="xorg" but x11/libinput expects "evdev"
+	${ECHO_CMD} 'input * xkb_rules evdev' >${STAGEDIR}${ETCDIR}/config.d/evdev
 
 .include <bsd.port.mk>
