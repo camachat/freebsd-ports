@@ -205,6 +205,7 @@
     SUBDIR += kf5-purpose
     SUBDIR += kgeography
     SUBDIR += klettres
+    SUBDIR += kookbook
     SUBDIR += ktouch
     SUBDIR += kwordquiz
     SUBDIR += lastools
@@ -367,6 +368,7 @@
     SUBDIR += py-colorbrewer
     SUBDIR += py-crudini
     SUBDIR += py-emoji
+    SUBDIR += py-fast-histogram
     SUBDIR += py-fuzzy
     SUBDIR += py-glance
     SUBDIR += py-kartograph
