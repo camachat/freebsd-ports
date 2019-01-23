@@ -30,6 +30,10 @@ ${all:tu}_DESC=	${all} plugin
 ${all:tu}_USE=	GSTREAMER1=${all}
 .endfor
 
+# Pull out zbar plugins, which uses ImageMagick7 while others use ImageMagick6, also it doesn't have qt5 support in ports.
+ALL_PLUGINS:=	${ALL_PLUGINS:Nzbar}
+DEF_PLUGINS:=	${DEF_PLUGINS:Nzbar}
+
 # Pull out i386-only plugins, add back conditionally
 ALL_PLUGINS:=	${ALL_PLUGINS:Nspc}
 DEF_PLUGINS:=	${DEF_PLUGINS:Nspc}
