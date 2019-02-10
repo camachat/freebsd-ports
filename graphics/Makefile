@@ -844,6 +844,7 @@
     SUBDIR += py-graphy
     SUBDIR += py-gvgen
     SUBDIR += py-imageio
+    SUBDIR += py-imageio-ffmpeg
     SUBDIR += py-imagesize
     SUBDIR += py-imgurpython
     SUBDIR += py-leather
@@ -861,6 +862,7 @@
     SUBDIR += py-photocollage
     SUBDIR += py-pillow
     SUBDIR += py-pivy
+    SUBDIR += py-pivy-devel
     SUBDIR += py-plotly
     SUBDIR += py-png
     SUBDIR += py-poppler
@@ -1090,6 +1092,7 @@
     SUBDIR += xnview
     SUBDIR += xoris
     SUBDIR += xournal
+    SUBDIR += xournalpp
     SUBDIR += xpaint
     SUBDIR += xpdf
     SUBDIR += xpdf3

@@ -218,10 +218,10 @@
     SUBDIR += cpupdate
     SUBDIR += cramfs
     SUBDIR += crashme
-    SUBDIR += createrepo
     SUBDIR += cronic
     SUBDIR += cronolog
     SUBDIR += cronolog-devel
+    SUBDIR += ctop
     SUBDIR += curly
     SUBDIR += currtime
     SUBDIR += cw
@@ -398,6 +398,7 @@
     SUBDIR += fusefs-rar2fs
     SUBDIR += fusefs-s3backer
     SUBDIR += fusefs-s3fs
+    SUBDIR += fusefs-sandboxfs
     SUBDIR += fusefs-simple-mtpfs
     SUBDIR += fusefs-smbnetfs
     SUBDIR += fusefs-sqlfs
@@ -1523,7 +1524,6 @@
     SUBDIR += xvidcap
     SUBDIR += yadm
     SUBDIR += yank
-    SUBDIR += yum
     SUBDIR += zap
     SUBDIR += zbackup
     SUBDIR += zeitgeist
