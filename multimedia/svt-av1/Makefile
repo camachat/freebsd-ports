@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	svt-av1
-PORTVERSION=	s20180216
+PORTVERSION=	s20180222
 CATEGORIES=	multimedia
 
 MAINTAINER=	jbeich@FreeBSD.org
@@ -18,12 +18,12 @@ ONLY_FOR_ARCHS_REASON=	uses x86-64 assembly
 
 BUILD_DEPENDS=	nasm:devel/nasm
 
-USES=		cmake
+USES=		cmake compiler:c11
 USE_GITHUB=	yes
 USE_LDCONFIG=	yes
 GH_ACCOUNT=	OpenVisualCloud
 GH_PROJECT=	SVT-AV1
-GH_TAGNAME=	56df866
+GH_TAGNAME=	df11eb0
 
 post-patch:
 # Default CFLAGS are already set by USES=cmake

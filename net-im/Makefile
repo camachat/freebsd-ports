@@ -12,10 +12,10 @@
     SUBDIR += corebird
     SUBDIR += cutegram
     SUBDIR += diligent
+    SUBDIR += dino
     SUBDIR += echat
     SUBDIR += ejabberd
     SUBDIR += ekiga
-    SUBDIR += emesene
     SUBDIR += empathy
     SUBDIR += farsight2
     SUBDIR += farstream
@@ -59,11 +59,11 @@
     SUBDIR += libnice-gst010
     SUBDIR += libnice-gst1
     SUBDIR += libpurple
+    SUBDIR += libqmatrixclient
     SUBDIR += libqtelegram-ae
     SUBDIR += libsignon-glib
     SUBDIR += libstrophe
     SUBDIR += libtelepathy
-    SUBDIR += libyahoo2
     SUBDIR += licq
     SUBDIR += licq-icq
     SUBDIR += licq-jabber
@@ -144,9 +144,9 @@
     SUBDIR += py-unmessage
     SUBDIR += py-xmpppy
     SUBDIR += py-xmpppy-irc
-    SUBDIR += py-xmpppy-yahoo
     SUBDIR += qTox
     SUBDIR += qq
+    SUBDIR += quaternion
     SUBDIR += qxmpp
     SUBDIR += qxmpp-qt5
     SUBDIR += ramblercontacts
