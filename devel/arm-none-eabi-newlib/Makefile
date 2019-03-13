@@ -21,6 +21,7 @@ NEWLIB_TARGET?=	arm-none-eabi
 USES=		gmake makeinfo
 HAS_CONFIGURE=	yes
 CONFIGURE_ARGS+=	--prefix=${PREFIX} --target="${NEWLIB_TARGET}" --disable-newlib-supplied-syscalls
+CONFIGURE_ARGS+=	--enable-newlib-reent-small
 
 # Disable installation of .info files and fix includedir reference.
 post-patch:
