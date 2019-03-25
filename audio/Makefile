@@ -225,7 +225,6 @@
     SUBDIR += gmpc-mdcover
     SUBDIR += gmpc-mserver
     SUBDIR += gmpc-shout
-    SUBDIR += gmpc-wikipedia
     SUBDIR += gmsynth-lv2
     SUBDIR += gmtp
     SUBDIR += gmusicbrowser
@@ -550,6 +549,7 @@
     SUBDIR += mpg321
     SUBDIR += mpiosh
     SUBDIR += mps
+    SUBDIR += mumble
     SUBDIR += murmur
     SUBDIR += musepack
     SUBDIR += musescore

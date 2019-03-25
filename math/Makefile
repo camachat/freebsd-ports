@@ -729,6 +729,7 @@
     SUBDIR += py-keras
     SUBDIR += py-keras-applications
     SUBDIR += py-keras-preprocessing
+    SUBDIR += py-kiwisolver
     SUBDIR += py-levmar
     SUBDIR += py-libpoly
     SUBDIR += py-luminol
@@ -739,6 +740,7 @@
     SUBDIR += py-munkres10
     SUBDIR += py-networkx
     SUBDIR += py-networkx1
+    SUBDIR += py-nevergrad
     SUBDIR += py-numarray
     SUBDIR += py-numeric
     SUBDIR += py-numexpr
