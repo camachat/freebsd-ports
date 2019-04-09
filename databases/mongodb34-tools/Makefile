@@ -45,6 +45,10 @@ MY_TAGS=	-tags "${USE_MY_TAGS}"
 
 .include <bsd.port.pre.mk>
 
+.if ${SSL_DEFAULT} == base
+BROKEN_FreeBSD_12=	variable has incomplete type 'BIO_METHOD' (aka 'struct bio_method_st')
+BROKEN_FreeBSD_13=	variable has incomplete type 'BIO_METHOD' (aka 'struct bio_method_st')
+.endif
 .if ${SSL_DEFAULT:Mlibressl*}
 EXTRA_PATCHES+= ${FILESDIR}/extra-vendor_src_github.com_spacemonkeygo_openssl_cert.go \
 	${FILESDIR}/extra-vendor_src_github.com_spacemonkeygo_openssl_version.go
