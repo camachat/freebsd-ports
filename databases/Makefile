@@ -847,6 +847,7 @@
     SUBDIR += py-sqlrelay
     SUBDIR += py-swift
     SUBDIR += py-sybase
+    SUBDIR += py-tableschema
     SUBDIR += py-tarantool
     SUBDIR += py-umemcache
     SUBDIR += py-unqlite
@@ -980,6 +981,7 @@
     SUBDIR += rubygem-sqlite3-ruby
     SUBDIR += rubygem-state_machines-activemodel
     SUBDIR += rubygem-state_machines-activerecord
+    SUBDIR += rubygem-state_machines-activerecord05
     SUBDIR += rubygem-tarantool
     SUBDIR += sequeler
     SUBDIR += sfcgal
