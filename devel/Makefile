@@ -105,6 +105,7 @@
     SUBDIR += amd64-binutils
     SUBDIR += amd64-gcc
     SUBDIR += amd64-xtoolchain-gcc
+    SUBDIR += amqp-cpp
     SUBDIR += android-tools-adb
     SUBDIR += android-tools-fastboot
     SUBDIR += android-tools-simpleperf
@@ -4121,6 +4122,7 @@
     SUBDIR += phpunit7
     SUBDIR += phpunit8
     SUBDIR += physfs
+    SUBDIR += picojson
     SUBDIR += picp
     SUBDIR += picprog
     SUBDIR += pig
@@ -5977,7 +5979,6 @@
     SUBDIR += rubygem-react-rails-rails5
     SUBDIR += rubygem-readwritesettings
     SUBDIR += rubygem-recaptcha
-    SUBDIR += rubygem-recaptcha3
     SUBDIR += rubygem-recursive-open-struct
     SUBDIR += rubygem-redis-activesupport
     SUBDIR += rubygem-redis-activesupport-rails5
