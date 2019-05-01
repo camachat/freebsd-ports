@@ -1119,6 +1119,7 @@
     SUBDIR += rsyslog8
     SUBDIR += rtty
     SUBDIR += rubygem-backup
+    SUBDIR += rubygem-bolt
     SUBDIR += rubygem-bosh-gen
     SUBDIR += rubygem-bundler
     SUBDIR += rubygem-bundler1
@@ -1415,6 +1416,7 @@
     SUBDIR += uefi-edk2-bhyve
     SUBDIR += uefi-edk2-bhyve-csm
     SUBDIR += uefi-edk2-bhyve-devel
+    SUBDIR += uefi-edk2-qemu
     SUBDIR += ufs_copy
     SUBDIR += uhidd
     SUBDIR += uif2iso
