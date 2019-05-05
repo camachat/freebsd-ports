@@ -4732,7 +4732,6 @@
     SUBDIR += py-jsonrpclib
     SUBDIR += py-jsonrpclib-pelix
     SUBDIR += py-jsonschema
-    SUBDIR += py-jsonschema2
     SUBDIR += py-jsonsir
     SUBDIR += py-jupyter_client
     SUBDIR += py-jupyter_console
@@ -5870,7 +5869,6 @@
     SUBDIR += rubygem-mongo
     SUBDIR += rubygem-mono_logger
     SUBDIR += rubygem-msgpack
-    SUBDIR += rubygem-msgpack1
     SUBDIR += rubygem-mspec
     SUBDIR += rubygem-multi_json
     SUBDIR += rubygem-multi_test
@@ -6337,6 +6335,7 @@
     SUBDIR += thrift
     SUBDIR += thrift-c_glib
     SUBDIR += thrift-cpp
+    SUBDIR += thrust
     SUBDIR += thunar-vcs-plugin
     SUBDIR += ticcutils
     SUBDIR += tig
@@ -6385,6 +6384,7 @@
     SUBDIR += valgrind-devel
     SUBDIR += varconf
     SUBDIR += vasm
+    SUBDIR += vc
     SUBDIR += vcglib
     SUBDIR += vera++
     SUBDIR += vexcl
