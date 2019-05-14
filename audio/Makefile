@@ -133,7 +133,6 @@
     SUBDIR += enscribe
     SUBDIR += epos-devel
     SUBDIR += eq10q-lv2
-    SUBDIR += esound
     SUBDIR += espeak
     SUBDIR += espressivo-lv2
     SUBDIR += etcd
@@ -249,7 +248,6 @@
     SUBDIR += gstreamer-plugins-amrwbdec
     SUBDIR += gstreamer-plugins-cdaudio
     SUBDIR += gstreamer-plugins-cdparanoia
-    SUBDIR += gstreamer-plugins-esound
     SUBDIR += gstreamer-plugins-faac
     SUBDIR += gstreamer-plugins-faad
     SUBDIR += gstreamer-plugins-flac
@@ -326,9 +324,6 @@
     SUBDIR += harp
     SUBDIR += herrie
     SUBDIR += hexter
-    SUBDIR += hs-ALUT
-    SUBDIR += hs-OpenAL
-    SUBDIR += hs-libmpd
     SUBDIR += hts_engine-API
     SUBDIR += hvl2wav
     SUBDIR += hydrogen
@@ -425,6 +420,7 @@
     SUBDIR += libogg
     SUBDIR += liboggz
     SUBDIR += libopenmpt
+    SUBDIR += libopenshot-audio
     SUBDIR += libopenspc
     SUBDIR += libopusenc
     SUBDIR += libsamplerate
@@ -571,6 +567,7 @@
     SUBDIR += nuvolaplayer
     SUBDIR += oaml
     SUBDIR += ocp
+    SUBDIR += ogg2mp3
     SUBDIR += openal-soft
     SUBDIR += opencore-amr
     SUBDIR += openspc
@@ -696,6 +693,7 @@
     SUBDIR += py-tagpy
     SUBDIR += py-vorbis
     SUBDIR += py-wavio
+    SUBDIR += py-webrtcvad
     SUBDIR += py-xmms2
     SUBDIR += pytone
     SUBDIR += qjackctl
