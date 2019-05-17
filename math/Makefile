@@ -185,6 +185,7 @@
     SUBDIR += coq
     SUBDIR += crlibm
     SUBDIR += cryptominisat
+    SUBDIR += curv
     SUBDIR += cvc3
     SUBDIR += cvc4
     SUBDIR += dbcsr
@@ -774,7 +775,6 @@
     SUBDIR += py-svgmath
     SUBDIR += py-sym
     SUBDIR += py-symcxx
-    SUBDIR += py-symeig
     SUBDIR += py-sympy
     SUBDIR += py-theano
     SUBDIR += py-ufl
