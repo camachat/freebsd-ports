@@ -1,5 +1,4 @@
 # $FreeBSD$
-PORTREVISION=	1
 #
 
     COMMENT = Security tools
@@ -12,7 +11,6 @@ PORTREVISION=	1
     SUBDIR += R-cran-ROAuth
     SUBDIR += R-cran-digest
     SUBDIR += R-cran-openssl
-    SUBDIR += acme-client
     SUBDIR += acme.sh
     SUBDIR += acmetool
     SUBDIR += aescrypt
@@ -344,6 +342,7 @@ PORTREVISION=	1
     SUBDIR += linux-c7-trousers
     SUBDIR += log2timeline
     SUBDIR += logcheck
+    SUBDIR += lua-bcrypt
     SUBDIR += luasec
     SUBDIR += luasec-51
     SUBDIR += lxqt-openssh-askpass
@@ -1060,6 +1059,7 @@ PORTREVISION=	1
     SUBDIR += revealrk
     SUBDIR += revelation
     SUBDIR += rhash
+    SUBDIR += ridl
     SUBDIR += rifiuti2
     SUBDIR += rkhunter
     SUBDIR += rndpassw
@@ -1263,7 +1263,6 @@ PORTREVISION=	1
     SUBDIR += tinc
     SUBDIR += tinc-devel
     SUBDIR += tinyca
-    SUBDIR += titan
     SUBDIR += titus
     SUBDIR += tls-check
     SUBDIR += tlswrap
@@ -1314,6 +1313,7 @@ PORTREVISION=	1
     SUBDIR += yersinia
     SUBDIR += ykclient
     SUBDIR += ykpers
+    SUBDIR += ylva
     SUBDIR += yubico-piv-tool
     SUBDIR += yubikey-manager-qt
     SUBDIR += yubikey-personalization-gui
