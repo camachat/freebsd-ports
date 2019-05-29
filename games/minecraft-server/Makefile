@@ -1,9 +1,9 @@
 # $FreeBSD$
 
 PORTNAME=	minecraft-server
-PORTVERSION=	1.14.1
+PORTVERSION=	1.14.2
 CATEGORIES=	games java
-MASTER_SITES=	https://launcher.mojang.com/v1/objects/ed76d597a44c5266be2a7fcd77a8270f1f0bc118/
+MASTER_SITES=	https://launcher.mojang.com/v1/objects/808be3869e2ca6b62378f9f4b33c946621620019/
 DISTFILES=	server.jar
 DIST_SUBDIR=	${PORTNAME}-${PORTVERSION}
 EXTRACT_ONLY=
