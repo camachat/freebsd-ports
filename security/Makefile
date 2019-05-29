@@ -237,6 +237,7 @@
     SUBDIR += ipsec-tools
     SUBDIR += ipv6toolkit
     SUBDIR += isakmpd
+    SUBDIR += ismtp
     SUBDIR += isnprober
     SUBDIR += jbrofuzz
     SUBDIR += john
@@ -801,6 +802,7 @@
     SUBDIR += php73-openssl
     SUBDIR += php73-sodium
     SUBDIR += phpsecinfo
+    SUBDIR += picosha2
     SUBDIR += pidentd
     SUBDIR += pidgin-encryption
     SUBDIR += pidgin-otr
