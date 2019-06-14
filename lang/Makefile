@@ -110,6 +110,7 @@
     SUBDIR += gcc7-devel
     SUBDIR += gcc8
     SUBDIR += gcc8-devel
+    SUBDIR += gcc9
     SUBDIR += gcc9-devel
     SUBDIR += gforth
     SUBDIR += ghc
@@ -283,6 +284,7 @@
     SUBDIR += php73
     SUBDIR += php73-extensions
     SUBDIR += picoc
+    SUBDIR += plexil
     SUBDIR += pocl
     SUBDIR += polyml
     SUBDIR += ponyc
@@ -307,6 +309,7 @@
     SUBDIR += python35
     SUBDIR += python36
     SUBDIR += python37
+    SUBDIR += qmasm
     SUBDIR += qscheme
     SUBDIR += quack
     SUBDIR += racket

@@ -13,6 +13,9 @@ MAINTAINER=	brooks@FreeBSD.org
 COMMENT=	LLVM and Clang
 BROKEN= Use devel/llvm50 instead.
 
+DEPRECATED=	Obsolete and unmaintained
+EXPIRATION_DATE=	2019-06-30
+
 .include "${.CURDIR}/../llvm-devel/Makefile.LICENSE"
 
 LLVM_RELEASE=	${DISTVERSION:C/rc.*//}

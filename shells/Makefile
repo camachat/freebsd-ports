@@ -6,6 +6,7 @@
     SUBDIR += 44bsd-csh
     SUBDIR += ammonite
     SUBDIR += antibody
+    SUBDIR += ast-ksh
     SUBDIR += bash
     SUBDIR += bash-completion
     SUBDIR += bash-static
@@ -40,7 +41,6 @@
     SUBDIR += pear-PHP_Shell
     SUBDIR += psh
     SUBDIR += rc
-    SUBDIR += rssh
     SUBDIR += rush
     SUBDIR += sash
     SUBDIR += scponly

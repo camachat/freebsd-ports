@@ -854,6 +854,7 @@
     SUBDIR += py-YubiOTP
     SUBDIR += py-acme
     SUBDIR += py-acme-tiny
+    SUBDIR += py-argon2-cffi
     SUBDIR += py-artifacts
     SUBDIR += py-asyncssh
     SUBDIR += py-backports.ssl_match_hostname
@@ -994,6 +995,7 @@
     SUBDIR += py-service_identity
     SUBDIR += py-signedjson
     SUBDIR += py-slowaes
+    SUBDIR += py-social-auth-core
     SUBDIR += py-spake2
     SUBDIR += py-ssh
     SUBDIR += py-ssh-audit
@@ -1034,7 +1036,6 @@
     SUBDIR += qtkeychain
     SUBDIR += quantis-kmod
     SUBDIR += racoon2
-    SUBDIR += racoon2-legacy
     SUBDIR += radamsa
     SUBDIR += ranpwd
     SUBDIR += ratproxy
@@ -1068,6 +1069,7 @@
     SUBDIR += rndpassw
     SUBDIR += ruby-bitwarden
     SUBDIR += ruby-camellia
+    SUBDIR += rubygem-acme-client
     SUBDIR += rubygem-aes_key_wrap
     SUBDIR += rubygem-airbrussh
     SUBDIR += rubygem-attr_encrypted
