@@ -35,6 +35,7 @@
     SUBDIR += R-cran-fansi
     SUBDIR += R-cran-foreach
     SUBDIR += R-cran-gbm
+    SUBDIR += R-cran-gbRd
     SUBDIR += R-cran-gdata
     SUBDIR += R-cran-generics
     SUBDIR += R-cran-glmnet
@@ -62,6 +63,7 @@
     SUBDIR += R-cran-proto
     SUBDIR += R-cran-purrr
     SUBDIR += R-cran-randomForest
+    SUBDIR += R-cran-Rdpack
     SUBDIR += R-cran-registry
     SUBDIR += R-cran-repr
     SUBDIR += R-cran-reshape
@@ -145,6 +147,7 @@
     SUBDIR += argdata
     SUBDIR += argouml
     SUBDIR += argp-standalone
+    SUBDIR += args
     SUBDIR += argtable
     SUBDIR += arm-elf-binutils
     SUBDIR += arm-gnueabi-binutils
@@ -1583,6 +1586,7 @@
     SUBDIR += newfile
     SUBDIR += newt
     SUBDIR += newtonsoft-json
+    SUBDIR += nextpnr
     SUBDIR += nexus2-oss
     SUBDIR += nimble
     SUBDIR += nini
@@ -4644,6 +4648,7 @@
     SUBDIR += py-omnijson
     SUBDIR += py-omniorb
     SUBDIR += py-openapi-codec
+    SUBDIR += py-openapi-spec-validator
     SUBDIR += py-opendht
     SUBDIR += py-opengrok-tools
     SUBDIR += py-openstacksdk
@@ -4918,7 +4923,7 @@
     SUBDIR += py-robotframework-databaselibrary
     SUBDIR += py-robotframework-pabot
     SUBDIR += py-robotframework-ride
-    SUBDIR += py-robotframework-selenium2library
+    SUBDIR += py-robotframework-seleniumlibrary
     SUBDIR += py-robotremoteserver
     SUBDIR += py-rope
     SUBDIR += py-rose
@@ -4944,6 +4949,7 @@
     SUBDIR += py-selectors2
     SUBDIR += py-selectors34
     SUBDIR += py-semantic_version
+    SUBDIR += py-semver
     SUBDIR += py-serializable
     SUBDIR += py-serpent
     SUBDIR += py-setproctitle
@@ -6178,6 +6184,7 @@
     SUBDIR += trac-bitten
     SUBDIR += tradcpp
     SUBDIR += treepy.el
+    SUBDIR += trellis
     SUBDIR += trio
     SUBDIR += truc
     SUBDIR += ua_parser-core
