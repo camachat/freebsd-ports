@@ -42,6 +42,7 @@
     SUBDIR += ansible24
     SUBDIR += ansible25
     SUBDIR += ansible26
+    SUBDIR += ansible27
     SUBDIR += anvil
     SUBDIR += apachetop
     SUBDIR += apcpwr
@@ -106,6 +107,7 @@
     SUBDIR += biosfont
     SUBDIR += bkpupsd
     SUBDIR += bksh
+    SUBDIR += boot-extract
     SUBDIR += boxbackup-devel
     SUBDIR += brasero
     SUBDIR += bsd-splash-changer
@@ -478,6 +480,7 @@
     SUBDIR += hpacucli
     SUBDIR += hploscripts
     SUBDIR += hptcli
+    SUBDIR += hs-cputype
     SUBDIR += hstr
     SUBDIR += htop
     SUBDIR += httplog
@@ -708,6 +711,7 @@
     SUBDIR += mptd
     SUBDIR += msiklm
     SUBDIR += msktutil
+    SUBDIR += mstflint
     SUBDIR += msyslog
     SUBDIR += mtm
     SUBDIR += mtpfs
@@ -727,6 +731,7 @@
     SUBDIR += ncdu
     SUBDIR += ndmpd
     SUBDIR += neofetch
+    SUBDIR += netevent
     SUBDIR += nfcutils
     SUBDIR += nfsping
     SUBDIR += nitrogen
