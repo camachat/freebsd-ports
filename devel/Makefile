@@ -3465,6 +3465,7 @@
     SUBDIR += p5-Test2-Harness
     SUBDIR += p5-Test2-Plugin-NoWarnings
     SUBDIR += p5-Test2-Suite
+    SUBDIR += p5-Test2-Tools-Explain
     SUBDIR += p5-Text-Levenshtein
     SUBDIR += p5-Text-Levenshtein-Damerau
     SUBDIR += p5-Text-LevenshteinXS
@@ -5155,6 +5156,7 @@
     SUBDIR += py-yandex-money-sdk
     SUBDIR += py-yappi
     SUBDIR += py-yapps2
+    SUBDIR += py-yattag
     SUBDIR += py-ydbf
     SUBDIR += py-yg.lockfile
     SUBDIR += py-yum-metadata-parser
