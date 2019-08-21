@@ -1211,6 +1211,7 @@
     SUBDIR += rubygem-azure-core
     SUBDIR += rubygem-beefcake
     SUBDIR += rubygem-bunny
+    SUBDIR += rubygem-cloudflare
     SUBDIR += rubygem-connection_pool
     SUBDIR += rubygem-docker-api
     SUBDIR += rubygem-dogapi
@@ -1259,6 +1260,7 @@
     SUBDIR += rubygem-gitlab_omniauth-ldap
     SUBDIR += rubygem-google-cloud-core
     SUBDIR += rubygem-google-cloud-env
+    SUBDIR += rubygem-google-cloud-logging
     SUBDIR += rubygem-google-cloud-storage
     SUBDIR += rubygem-grpc
     SUBDIR += rubygem-hangouts-chat
@@ -1324,6 +1326,7 @@
     SUBDIR += rubygem-rye
     SUBDIR += rubygem-serverengine
     SUBDIR += rubygem-simple_oauth
+    SUBDIR += rubygem-stackdriver-core
     SUBDIR += rubygem-stompserver
     SUBDIR += rubygem-t
     SUBDIR += rubygem-tweetstream
@@ -1338,8 +1341,6 @@
     SUBDIR += rude
     SUBDIR += ryu
     SUBDIR += s3ql
-    SUBDIR += samba46
-    SUBDIR += samba47
     SUBDIR += samba48
     SUBDIR += samba410
     SUBDIR += samplicator
@@ -1405,6 +1406,7 @@
     SUBDIR += ssvnc
     SUBDIR += stone
     SUBDIR += stund
+    SUBDIR += subnetcalc
     SUBDIR += suckblow
     SUBDIR += sup
     SUBDIR += svnup
