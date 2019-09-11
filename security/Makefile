@@ -898,6 +898,7 @@
     SUBDIR += py-docker-pycreds
     SUBDIR += py-ecdsa
     SUBDIR += py-ed25519ll
+    SUBDIR += py-exscript
     SUBDIR += py-fail2ban
     SUBDIR += py-fchksum
     SUBDIR += py-fido2
@@ -1261,6 +1262,7 @@
     SUBDIR += sudoscript
     SUBDIR += super
     SUBDIR += suricata
+    SUBDIR += suricata5
     SUBDIR += swatch
     SUBDIR += switzerland
     SUBDIR += symbion-sslproxy
@@ -1277,6 +1279,7 @@
     SUBDIR += tlswrap
     SUBDIR += tor
     SUBDIR += tor-devel
+    SUBDIR += totp-cli
     SUBDIR += tpm-tools
     SUBDIR += trezord
     SUBDIR += trinokiller
