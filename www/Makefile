@@ -327,6 +327,8 @@
     SUBDIR += ljdump
     SUBDIR += llgal
     SUBDIR += logtools
+    SUBDIR += lua-resty-core
+    SUBDIR += lua-resty-lrucache
     SUBDIR += luakit
     SUBDIR += lynx
     SUBDIR += lynx-current
@@ -1445,6 +1447,7 @@
     SUBDIR += py-amf
     SUBDIR += py-apachelog
     SUBDIR += py-arxiv
+    SUBDIR += py-asgiref
     SUBDIR += py-autobahn
     SUBDIR += py-aws-requests-auth
     SUBDIR += py-azure-common

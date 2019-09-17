@@ -1,9 +1,9 @@
 # $FreeBSD$
 
 PORTNAME=		uhid-freebsd
-PORTVERSION=		1.0
-DISTVERSIONPREFIX=	v
+PORTVERSION=		1.2.1
 CATEGORIES=		devel python
+MASTER_SITES=		CHEESESHOP
 PKGNAMEPREFIX=		${PYTHON_PKGNAMEPREFIX}
 
 MAINTAINER=		grembo@FreeBSD.org
@@ -12,10 +12,7 @@ COMMENT=		Python library to retrieve information on uhid devices
 LICENSE=		BSD2CLAUSE
 LICENSE_FILE=		${WRKSRC}/LICENSE
 
-USES=			python
+USES=			compiler:c++11-lang python
 USE_PYTHON=		autoplist distutils
-
-USE_GITHUB=		yes
-GH_ACCOUNT=		grembo
 
 .include <bsd.port.mk>

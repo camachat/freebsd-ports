@@ -1505,6 +1505,7 @@
     SUBDIR += lua-posix
     SUBDIR += lua-pty
     SUBDIR += lua-rds-parser
+    SUBDIR += lua-resty-string
     SUBDIR += lua-stdlib
     SUBDIR += lua-stdlib-debug
     SUBDIR += lua-stdlib-normalize
@@ -5165,6 +5166,7 @@
     SUBDIR += py-whichcraft
     SUBDIR += py-whistle
     SUBDIR += py-widgetsnbextension
+    SUBDIR += py-wlc
     SUBDIR += py-wrapt
     SUBDIR += py-wsgi_intercept
     SUBDIR += py-wsgi_xmlrpc
@@ -5632,6 +5634,7 @@
     SUBDIR += rubygem-aws-sdk-workdocs
     SUBDIR += rubygem-aws-sdk-worklink
     SUBDIR += rubygem-aws-sdk-workmail
+    SUBDIR += rubygem-aws-sdk-workmailmessageflow
     SUBDIR += rubygem-aws-sdk-workspaces
     SUBDIR += rubygem-aws-sdk-xray
     SUBDIR += rubygem-aws-sdk2
@@ -6441,6 +6444,7 @@
     SUBDIR += tclxml
     SUBDIR += tdl
     SUBDIR += template-glib
+    SUBDIR += termbox
     SUBDIR += terminality
     SUBDIR += tevent
     SUBDIR += tevent1
