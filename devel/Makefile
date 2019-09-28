@@ -50,6 +50,7 @@
     SUBDIR += R-cran-iterators
     SUBDIR += R-cran-itertools
     SUBDIR += R-cran-later
+    SUBDIR += R-cran-lifecycle
     SUBDIR += R-cran-lubridate
     SUBDIR += R-cran-magrittr
     SUBDIR += R-cran-memoise
@@ -77,6 +78,7 @@
     SUBDIR += R-cran-rstudioapi
     SUBDIR += R-cran-sfsmisc
     SUBDIR += R-cran-sourcetools
+    SUBDIR += R-cran-sys
     SUBDIR += R-cran-testthat
     SUBDIR += R-cran-tibble
     SUBDIR += R-cran-tidyr
@@ -361,6 +363,7 @@
     SUBDIR += codesearch-py
     SUBDIR += codeville
     SUBDIR += codeworker
+    SUBDIR += collada-dom
     SUBDIR += colorgcc
     SUBDIR += colormake
     SUBDIR += commit-patch
@@ -654,6 +657,7 @@
     SUBDIR += flang
     SUBDIR += flang-clang
     SUBDIR += flatbuffers
+    SUBDIR += flatcc
     SUBDIR += flatzebra
     SUBDIR += flex-sdk
     SUBDIR += flex-sdk35
@@ -832,6 +836,7 @@
     SUBDIR += glib20-reference
     SUBDIR += glibmm
     SUBDIR += glibmm-reference
+    SUBDIR += gllvm
     SUBDIR += global
     SUBDIR += glog
     SUBDIR += glrparser
@@ -973,6 +978,7 @@
     SUBDIR += hs-random
     SUBDIR += hs-setlocale
     SUBDIR += hs-shake
+    SUBDIR += hs-spago
     SUBDIR += hs-threadscope
     SUBDIR += hs-transformers-compat
     SUBDIR += hs-unordered-containers
@@ -1189,7 +1195,6 @@
     SUBDIR += libdwarf
     SUBDIR += libe
     SUBDIR += libedit
-    SUBDIR += libee
     SUBDIR += libeio
     SUBDIR += libelf
     SUBDIR += libepoll-shim
@@ -1269,7 +1274,6 @@
     SUBDIR += libltdl
     SUBDIR += liblxqt
     SUBDIR += libmaa
-    SUBDIR += libmal
     SUBDIR += libmatheval
     SUBDIR += libmba
     SUBDIR += libmill
@@ -1981,6 +1985,7 @@
     SUBDIR += p5-Commands-Guarded
     SUBDIR += p5-CommitBit
     SUBDIR += p5-Compiler-Lexer
+    SUBDIR += p5-Config-AST
     SUBDIR += p5-Config-Any
     SUBDIR += p5-Config-ApacheFormat
     SUBDIR += p5-Config-Auto
@@ -2006,6 +2011,8 @@
     SUBDIR += p5-Config-MySQL
     SUBDIR += p5-Config-Objective
     SUBDIR += p5-Config-Options
+    SUBDIR += p5-Config-Parser
+    SUBDIR += p5-Config-Parser-ldap
     SUBDIR += p5-Config-Perl-V
     SUBDIR += p5-Config-Properties
     SUBDIR += p5-Config-Record
@@ -3934,6 +3941,17 @@
     SUBDIR += php73-sysvsem
     SUBDIR += php73-sysvshm
     SUBDIR += php73-tokenizer
+    SUBDIR += php74-ffi
+    SUBDIR += php74-gettext
+    SUBDIR += php74-intl
+    SUBDIR += php74-json
+    SUBDIR += php74-pcntl
+    SUBDIR += php74-readline
+    SUBDIR += php74-shmop
+    SUBDIR += php74-sysvmsg
+    SUBDIR += php74-sysvsem
+    SUBDIR += php74-sysvshm
+    SUBDIR += php74-tokenizer
     SUBDIR += phpbt
     SUBDIR += phpsh
     SUBDIR += phpunit6
@@ -4370,6 +4388,7 @@
     SUBDIR += py-deprecation
     SUBDIR += py-dexml
     SUBDIR += py-dialog
+    SUBDIR += py-dialog3
     SUBDIR += py-diazo
     SUBDIR += py-dill
     SUBDIR += py-dirspec
@@ -4855,7 +4874,7 @@
     SUBDIR += py-pyinstaller
     SUBDIR += py-pyjsparser
     SUBDIR += py-pyke
-    SUBDIR += py-pylama 
+    SUBDIR += py-pylama
     SUBDIR += py-pylibsrtp
     SUBDIR += py-pylru
     SUBDIR += py-pylru-cache
@@ -5013,6 +5032,7 @@
     SUBDIR += py-selectors2
     SUBDIR += py-selectors34
     SUBDIR += py-semantic_version
+    SUBDIR += py-semantic_version26
     SUBDIR += py-semver
     SUBDIR += py-serializable
     SUBDIR += py-serpent
@@ -5379,6 +5399,17 @@
     SUBDIR += roboctl
     SUBDIR += robodoc
     SUBDIR += root-doc
+    SUBDIR += ros-catkin_pkg
+    SUBDIR += ros-console_bridge
+    SUBDIR += ros-urdfdom
+    SUBDIR += ros-urdfdom_headers
+    SUBDIR += ros-rosdep
+    SUBDIR += ros-rosdistro
+    SUBDIR += ros-rosinstall
+    SUBDIR += ros-rosinstall_generator
+    SUBDIR += ros-rospkg
+    SUBDIR += ros-vcstools
+    SUBDIR += ros-wstool
     SUBDIR += rote
     SUBDIR += rpc2
     SUBDIR += rpclib
@@ -6539,7 +6570,6 @@
     SUBDIR += xeus
     SUBDIR += xeus-cling
     SUBDIR += xfce4-dev-tools
-    SUBDIR += xfce4-vala
     SUBDIR += xmake
     SUBDIR += xmltooling
     SUBDIR += xorg-macros

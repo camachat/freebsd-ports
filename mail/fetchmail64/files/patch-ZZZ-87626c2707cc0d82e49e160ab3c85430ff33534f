@@ -20,9 +20,9 @@ diff --git a/NEWS b/NEWS
 index c01f9df9..9485edca 100644
 --- a/NEWS
 +++ b/NEWS
-@@ -80,6 +80,13 @@ fetchmail-6.5.0 (not yet released):
-   The libesmtp/getaddrinfo.? library has been removed from the distribution.
-   The KAME/getnameinfo.c file has been removed from the distribution.
+@@ -63,5 +63,12 @@
+ 
+ --------------------------------------------------------------------------------
  
 +## BUG FIXES
 +* fetchmail can now report mailbox sizes of 2^31 octets and beyond.
@@ -31,9 +31,8 @@ index c01f9df9..9485edca 100644
 +
 +--------------------------------------------------------------------------------
 +
- fetchmail-6.4.0 (not yet released):
+ fetchmail-6.4.1 (released 2019-09-28, 27473 LoC):
  
- # NOTE THAT FETCHMAIL IS NO LONGER PUBLISHED THROUGH IBIBLIO.
 diff --git a/driver.c b/driver.c
 index d21a32ab..a5033729 100644
 --- a/driver.c

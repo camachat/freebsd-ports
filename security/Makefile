@@ -9,6 +9,7 @@
     SUBDIR += ADMsmb
     SUBDIR += ADMsnmp
     SUBDIR += R-cran-ROAuth
+    SUBDIR += R-cran-askpass
     SUBDIR += R-cran-digest
     SUBDIR += R-cran-openssl
     SUBDIR += acme.sh
@@ -805,6 +806,9 @@
     SUBDIR += php73-hash
     SUBDIR += php73-openssl
     SUBDIR += php73-sodium
+    SUBDIR += php74-filter
+    SUBDIR += php74-openssl
+    SUBDIR += php74-sodium
     SUBDIR += phpsecinfo
     SUBDIR += picosha2
     SUBDIR += pidentd
