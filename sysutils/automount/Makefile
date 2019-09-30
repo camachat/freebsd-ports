@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	automount
-PORTVERSION=	1.6.1
+PORTVERSION=	1.7.0
 CATEGORIES=	sysutils
 MASTER_SITES=	https://raw.github.com/vermaden/automount/master/ \
 		LOCAL/madpilot/${PORTNAME}/
@@ -35,8 +35,9 @@ MTP_RUN_DEPENDS=	fusefs-simple-mtpfs>=0:sysutils/fusefs-simple-mtpfs \
                     zenity>=0:x11/zenity
 
 do-install:
-	${INSTALL_SCRIPT} ${WRKSRC}/automount             ${STAGEDIR}${PREFIX}/sbin
-	${INSTALL_DATA}   ${WRKSRC}/automount_devd.conf   ${STAGEDIR}${PREFIX}/etc/devd/automount_devd.conf
-	${INSTALL_DATA}   ${WRKSRC}/automount.conf        ${STAGEDIR}${PREFIX}/etc/automount.conf.sample
+	${INSTALL_SCRIPT} ${WRKDIR}/automount             ${STAGEDIR}${PREFIX}/sbin
+	${INSTALL_DATA}   ${WRKDIR}/automount_devd.conf   ${STAGEDIR}${PREFIX}/etc/devd/automount_devd.conf
+	${INSTALL_DATA}   ${WRKDIR}/automount.conf	  ${STAGEDIR}${PREFIX}/etc/automount.conf.sample
 
 .include <bsd.port.mk>
+
