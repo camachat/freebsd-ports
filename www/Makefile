@@ -309,6 +309,7 @@
     SUBDIR += libmicrohttpd
     SUBDIR += libnghttp2
     SUBDIR += libresonic-standalone
+    SUBDIR += libwpe
     SUBDIR += libwww
     SUBDIR += lightsquid
     SUBDIR += lighttpd
@@ -1924,6 +1925,7 @@
     SUBDIR += qooxdoo
     SUBDIR += qt5-webchannel
     SUBDIR += qt5-webengine
+    SUBDIR += qt5-webglplugin
     SUBDIR += qt5-webkit
     SUBDIR += qt5-websockets
     SUBDIR += qt5-websockets-qml
@@ -2482,6 +2484,7 @@
     SUBDIR += wikicalc
     SUBDIR += woof
     SUBDIR += wordpress
+    SUBDIR += wpebackend-fdo
     SUBDIR += wsdlpull
     SUBDIR += wsmake
     SUBDIR += wt

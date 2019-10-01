@@ -1259,6 +1259,7 @@
     SUBDIR += libiqxmlrpc
     SUBDIR += libisofs
     SUBDIR += libixp
+    SUBDIR += libjitterentropy
     SUBDIR += libjson++
     SUBDIR += libk8055
     SUBDIR += libklel
@@ -5748,6 +5749,7 @@
     SUBDIR += rubygem-cookbook-omnifetch
     SUBDIR += rubygem-cool.io
     SUBDIR += rubygem-corefines
+    SUBDIR += rubygem-countries
     SUBDIR += rubygem-crack
     SUBDIR += rubygem-cri
     SUBDIR += rubygem-cucumber
@@ -5808,6 +5810,7 @@
     SUBDIR += rubygem-extras
     SUBDIR += rubygem-facets
     SUBDIR += rubygem-faker
+    SUBDIR += rubygem-faraday_middleware-aws-signers-v4
     SUBDIR += rubygem-faraday_middleware-multi_json
     SUBDIR += rubygem-fast-stemmer
     SUBDIR += rubygem-fast_blank
@@ -5872,8 +5875,11 @@
     SUBDIR += rubygem-github_api
     SUBDIR += rubygem-gitlab-default_value_for
     SUBDIR += rubygem-gitlab-labkit
+    SUBDIR += rubygem-gitlab-license
+    SUBDIR += rubygem-gitlab-peek-rails52
     SUBDIR += rubygem-gitlab-pygments.rb
     SUBDIR += rubygem-gitlab-sidekiq-fetcher
+    SUBDIR += rubygem-gitlab_chronic_duration
     SUBDIR += rubygem-gitlab_git
     SUBDIR += rubygem-gitlab_meta
     SUBDIR += rubygem-glib2
@@ -5917,6 +5923,7 @@
     SUBDIR += rubygem-holidays
     SUBDIR += rubygem-http_accept_language
     SUBDIR += rubygem-i18n
+    SUBDIR += rubygem-i18n_data
     SUBDIR += rubygem-icalendar
     SUBDIR += rubygem-ice_cube
     SUBDIR += rubygem-ice_nine
@@ -6291,6 +6298,7 @@
     SUBDIR += rubygem-tty-editor
     SUBDIR += rubygem-tty-file
     SUBDIR += rubygem-tty-font
+    SUBDIR += rubygem-tty-logger
     SUBDIR += rubygem-tty-markdown
     SUBDIR += rubygem-tty-pager
     SUBDIR += rubygem-tty-pie
@@ -6311,6 +6319,7 @@
     SUBDIR += rubygem-unicode
     SUBDIR += rubygem-unicode-display_width
     SUBDIR += rubygem-unicode_utils
+    SUBDIR += rubygem-unleash
     SUBDIR += rubygem-useragent
     SUBDIR += rubygem-uuid
     SUBDIR += rubygem-uuidtools
