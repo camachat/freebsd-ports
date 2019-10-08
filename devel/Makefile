@@ -125,6 +125,7 @@
     SUBDIR += antlr4
     SUBDIR += apache-ant
     SUBDIR += apache-commons-configuration
+    SUBDIR += apache-commons-daemon
     SUBDIR += apache-commons-io
     SUBDIR += apache-commons-jxpath
     SUBDIR += apache-commons-modeler
@@ -1030,7 +1031,6 @@
     SUBDIR += itext
     SUBDIR += ivykis
     SUBDIR += iz
-    SUBDIR += jakarta-commons-daemon
     SUBDIR += jam
     SUBDIR += jansson
     SUBDIR += java-findbugs
@@ -1523,6 +1523,7 @@
     SUBDIR += luafilesystem-51
     SUBDIR += luajava
     SUBDIR += lutok
+    SUBDIR += luv
     SUBDIR += lwp
     SUBDIR += lxqt-build-tools
     SUBDIR += m17n-db
@@ -6430,6 +6431,7 @@
     SUBDIR += spatialindex
     SUBDIR += spdlog
     SUBDIR += spice-protocol
+    SUBDIR += spin
     SUBDIR += spirv-tools
     SUBDIR += splint
     SUBDIR += spread-sheet-widget
