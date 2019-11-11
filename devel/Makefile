@@ -286,6 +286,7 @@
     SUBDIR += capnproto
     SUBDIR += capstone3
     SUBDIR += capstone4
+    SUBDIR += cargo-c
     SUBDIR += cargo-tree
     SUBDIR += cask
     SUBDIR += catch
@@ -800,6 +801,7 @@
     SUBDIR += git-codereview
     SUBDIR += git-cola
     SUBDIR += git-cvs
+    SUBDIR += git-delta
     SUBDIR += git-extras
     SUBDIR += git-gui
     SUBDIR += git-lfs
@@ -4451,6 +4453,7 @@
     SUBDIR += py-foolscap
     SUBDIR += py-fortran
     SUBDIR += py-freebsd
+    SUBDIR += py-freebsd-sysctl
     SUBDIR += py-freenas.dispatcher
     SUBDIR += py-freenas.utils
     SUBDIR += py-freezegun
@@ -4866,6 +4869,7 @@
     SUBDIR += py-pyinotify
     SUBDIR += py-pyinstaller
     SUBDIR += py-pyjsparser
+    SUBDIR += py-pyjq
     SUBDIR += py-pyke
     SUBDIR += py-pylama
     SUBDIR += py-pylibsrtp
@@ -6039,6 +6043,7 @@
     SUBDIR += rubygem-numerizer
     SUBDIR += rubygem-numerizer01
     SUBDIR += rubygem-octopress-hooks
+    SUBDIR += rubygem-oci
     SUBDIR += rubygem-oj
     SUBDIR += rubygem-omniauth_crowd
     SUBDIR += rubygem-omniauth_crowd22

@@ -5,7 +5,8 @@ PORTNAME=	yadex
 PORTVERSION=	1.7.0
 PORTREVISION=	3
 CATEGORIES=	games
-MASTER_SITES=	http://www.teaser.fr/~amajorel/yadex/
+MASTER_SITES=	http://vault.101011010.xyz/distfiles/yadex/ \
+		http://freebsd.nsu.ru/distfiles/yadex/ GENTOO
 DIST_SUBDIR=	${PORTNAME}
 
 MAINTAINER=	danfe@FreeBSD.org
