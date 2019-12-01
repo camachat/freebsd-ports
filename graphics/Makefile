@@ -1029,6 +1029,7 @@
     SUBDIR += togl
     SUBDIR += ttygif
     SUBDIR += tumble
+    SUBDIR += tweeny
     SUBDIR += ufraw
     SUBDIR += uniconvertor
     SUBDIR += uniconvw
