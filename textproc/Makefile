@@ -1394,6 +1394,7 @@
     SUBDIR += py-tinycss
     SUBDIR += py-tinycss2
     SUBDIR += py-toml
+    SUBDIR += py-tomlkit
     SUBDIR += py-toronado
     SUBDIR += py-towncrier
     SUBDIR += py-trans
@@ -1407,6 +1408,7 @@
     SUBDIR += py-wicked
     SUBDIR += py-wordnet
     SUBDIR += py-wstools
+    SUBDIR += py-wtf-peewee
     SUBDIR += py-wtforms
     SUBDIR += py-xhtml2pdf
     SUBDIR += py-xlrd

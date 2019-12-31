@@ -7938,7 +7938,6 @@ math/p5-Math-Geometry-Planar-GPC-Polygon||2015-12-30|Has expired: Broken for mor
 www/eliom||2015-12-30|Has expired: Depends on broken and expiring www/ocsigen
 audio/py-fastaudio||2015-12-30|Has expired: Broken for more than 6 months
 devel/jgoodies-common||2015-12-30|Has expired: Broken for more than 6 months
-graphics/pinta||2015-12-30|Has expired: Broken for more than 6 months
 games/kanatest||2015-12-30|Has expired: Broken for more than 6 months
 editors/bless||2015-12-30|Has expired: Broken for more than 6 months
 security/burpsuite||2015-12-30|Has expired: Broken for more than 6 months
@@ -13212,7 +13211,6 @@ graphics/xmandel||2019-10-16|Has expired: Unfetchable, unmaintained
 irc/minbif||2019-10-16|Has expired: Unfetchable, unmaintained
 japanese/VTPSfont||2019-10-16|Has expired: Unfetchable, unmaintained
 japanese/asterisk-sounds||2019-10-16|Has expired: Unfetchable, unmaintained
-japanese/cannadic||2019-10-16|Has expired: Unfetchable, unmaintained
 japanese/edict-utf-8||2019-10-16|Has expired: Unfetchable, unmaintained
 japanese/kpcal||2019-10-16|Has expired: Unfetchable, unmaintained
 japanese/multiskkserv||2019-10-16|Has expired: Unfetchable, unmaintained
@@ -13600,3 +13598,25 @@ www/php71-tidy|www/php72-tidy|2019-12-17|Has expired: upstream security support 
 lang/php71-extensions|lang/php72-extensions|2019-12-17|Has expired: upstream security support ended
 devel/pecl-request||2019-12-17|Has expired: upstream security support ended
 devel/googlemock||2019-12-19|Merged into devel/googletest
+lang/chicken|lang/chicken5|2019-12-22|Has expired: Old release; please migrate to lang/chicken5
+math/metis-edf||2019-12-23|No more required by Code_Aster 14.4.0-1
+textproc/py-text-unidecode||2019-12-24|Duplicate of converters/py-text-unidecode
+java/jakarta-bcel|java/apache-bcel|2019-12-24|Renamed upstream
+deskutils/conduit||2019-12-26|Abandonware
+mail/openemm2013|mail/openemm2015|2019-12-26|Has expired: marked BROKEN for 4 months; use mail/openemm2015 instead
+devel/gnome-js-common||2019-12-26|Not used anymore by any gnome components
+devel/liboobs||2019-12-26|Gnome dependency not used anymore
+x11-toolkits/libgnomeprintui||2019-12-26|Gnome2 dependency not used anymore
+x11-toolkits/libgnomeprintuimm||2019-12-26|Gnome2 dependency not used anymore
+print/libgnomeprint||2019-12-26|Gnome2 dependency not used anymore
+print/libgnomeprint-reference||2019-12-26|Gnome2 dependency not used anymore
+print/libgnomeprintmm||2019-12-26|Gnome2 dependency not used anymore
+print/libgnomecups||2019-12-26|Gnome2 dependency not used anymore
+devel/rubygem-gitlab-peek-rails52|devel/rubygem-peek-rails52|2019-12-28|Has expired: use devel/rubygem-peek-rails52 instead
+devel/rubygem-numerizer01|devel/rubygem-numerizer|2019-12-28|Has expired: use devel/rubygem-numerizer instead
+databases/phpmyadmin-devel|databases/phpmyadmin5|2019-12-29|Move to phpmyadmin5
+sysutils/bareos-docs||2019-12-29|PDF is not available anymore. Bareos documentation can be found at https://docs.bareos.org/
+databases/php-memcache|databases/pecl-memcache|2019-12-30|Development from websupport.sk is the official PECL repository now
+java/jakarta-commons-codec|java/apache-commons-codec|2019-12-30|Renamed upstream
+java/jakarta-commons-dbcp|java/apache-commons-dbcp|2019-12-30|Renamed upstream
+java/jakarta-commons-httpclient|java/apache-commons-httpclient|2019-12-30|Renamed upstream

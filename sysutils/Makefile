@@ -87,7 +87,6 @@
     SUBDIR += baloo-widgets
     SUBDIR += bamf
     SUBDIR += bareos-client
-    SUBDIR += bareos-docs
     SUBDIR += bareos-server
     SUBDIR += bareos-traymonitor
     SUBDIR += bareos16-client
@@ -432,6 +431,7 @@
     SUBDIR += gkrelltop
     SUBDIR += gksu
     SUBDIR += glogg
+    SUBDIR += glow
     SUBDIR += gnome-control-center
     SUBDIR += gnome-mount
     SUBDIR += gnome-power-manager
@@ -1022,6 +1022,11 @@
     SUBDIR += py-supervisor
     SUBDIR += py-tarsnapper
     SUBDIR += py-tmuxp
+    SUBDIR += py-upt
+    SUBDIR += py-upt-cpan
+    SUBDIR += py-upt-freebsd
+    SUBDIR += py-upt-pypi
+    SUBDIR += py-upt-rubygems
     SUBDIR += py-uptime
     SUBDIR += py-zdaemon
     SUBDIR += pydf
