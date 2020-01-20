@@ -443,6 +443,7 @@
     SUBDIR += nextcloud
     SUBDIR += nextcloud-calendar
     SUBDIR += nextcloud-contacts
+    SUBDIR += nextcloud-deck
     SUBDIR += nextcloud-notes
     SUBDIR += nextcloud-tasks
     SUBDIR += nghttp2
@@ -1634,6 +1635,7 @@
     SUBDIR += py-flask-cors
     SUBDIR += py-flask-flatpages
     SUBDIR += py-flask-json
+    SUBDIR += py-flask-jwt-extended
     SUBDIR += py-flask-login
     SUBDIR += py-flask-marshmallow
     SUBDIR += py-flask-migrate

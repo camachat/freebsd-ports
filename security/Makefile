@@ -209,12 +209,14 @@
     SUBDIR += hashcat
     SUBDIR += hashcat-legacy
     SUBDIR += heimdal
+    SUBDIR += helib
     SUBDIR += highwayhash
     SUBDIR += hitch
     SUBDIR += hlfl
     SUBDIR += hmap
     SUBDIR += hockeypuck
     SUBDIR += honggfuzz
+    SUBDIR += horcrux
     SUBDIR += hotssh
     SUBDIR += hpenc
     SUBDIR += hydra
@@ -962,6 +964,7 @@
     SUBDIR += py-pyotp
     SUBDIR += py-pyptlib
     SUBDIR += py-pysaml2
+    SUBDIR += py-pysaml24
     SUBDIR += py-pyscard
     SUBDIR += py-pysha3
     SUBDIR += py-pysodium
