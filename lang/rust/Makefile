@@ -42,6 +42,11 @@ USES=		pkgconfig python:3.3+,build ssl tar:xz
 
 CONFLICTS_INSTALL?=	rust-nightly
 
+# lang/rust-bootstrap builds the bundled libgit2 and using the patch
+# to fix runtime with system libgit2 is incompatible with it.  Keep
+# it separate.
+EXTRA_PATCHES=	${PATCHDIR}/libgit2
+
 PLIST_FILES=	lib/rustlib/components \
 		lib/rustlib/rust-installer-version
 
@@ -172,14 +177,7 @@ do-configure:
 	@${ECHO_CMD} '[target.${_RUST_TARGET}]' >> ${WRKSRC}/config.toml
 	@${ECHO_CMD} 'cc="${CC}"' >> ${WRKSRC}/config.toml
 	@${ECHO_CMD} 'cxx="${CXX}"' >> ${WRKSRC}/config.toml
-.if ${PKGNAMESUFFIX:U} == -nightly && ${ARCH} == i386
-# https://github.com/rust-lang/rust/pull/68361
-	@${PRINTF} '#!/bin/sh\nexec ${CC} -Wl,-znotext "$$@"' > ${WRKDIR}/cc-wrapper
-	@${CHMOD} +x ${WRKDIR}/cc-wrapper
-	@${ECHO_CMD} 'linker="${WRKDIR}/cc-wrapper"' >> ${WRKSRC}/config.toml
-.else
 	@${ECHO_CMD} 'linker="${CC}"' >> ${WRKSRC}/config.toml
-.endif
 	@${ECHO_CMD} '[dist]' >> ${WRKSRC}/config.toml
 	@${ECHO_CMD} 'src-tarball=false' >> ${WRKSRC}/config.toml
 	@${REINPLACE_CMD} -e 's,%CC%,${CC},g' \
