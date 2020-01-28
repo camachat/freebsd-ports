@@ -10,9 +10,6 @@ MASTER_SITES=	SF/${PORTNAME}/${PORTNAME}-source/
 MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Fast 2D tank arcade game with multiplayer and split-screen modes
 
-DEPRECATED=	Unmaintained, uses EOLed python27
-EXPIRATION_DATE=	2020-01-27
-
 LICENSE=	GPLv2+
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
@@ -22,7 +19,7 @@ LIB_DEPENDS=	libsigc-2.0.so:devel/libsigc++20 \
 		libvorbisfile.so:audio/libvorbis \
 		libsmpeg.so:multimedia/smpeg
 
-USES=		lua:51 openal:al pkgconfig python:2.7,build scons sdl tar:bzip2
+USES=		lua:51 openal:al pkgconfig python:build scons sdl tar:bzip2
 USE_CXXSTD=	gnu++98
 USE_LDCONFIG=	yes
 USE_SDL=	image sdl
