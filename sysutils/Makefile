@@ -94,6 +94,9 @@
     SUBDIR += bareos17-client
     SUBDIR += bareos17-client-static
     SUBDIR += bareos17-server
+    SUBDIR += bareos18-client
+    SUBDIR += bareos18-server
+    SUBDIR += bareos18-traymonitor
     SUBDIR += barrier
     SUBDIR += bastille
     SUBDIR += batmon
@@ -763,6 +766,7 @@
     SUBDIR += opencorsairlink
     SUBDIR += openipmi
     SUBDIR += opensbi
+    SUBDIR += openseachest
     SUBDIR += openupsd
     SUBDIR += openzfs
     SUBDIR += openzfs-kmod
