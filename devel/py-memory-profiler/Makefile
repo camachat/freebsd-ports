@@ -1,12 +1,12 @@
 # Created by: Johannes Meixner <johannes@perceivon.net>
 # $FreeBSD$
 
-PORTNAME=	memory_profiler
-PORTVERSION=	0.55.0
-PORTREVISION=	1
+PORTNAME=	memory-profiler
+PORTVERSION=	0.57.0
 CATEGORIES=	devel python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
+DISTNAME=	memory_profiler-${PORTVERSION}
 
 MAINTAINER=	sunpoet@FreeBSD.org
 COMMENT=	Module for monitoring memory usage of a python program
@@ -21,10 +21,9 @@ USE_PYTHON=	autoplist concurrent distutils
 
 NO_ARCH=	yes
 
-PORTSCOUT=	skipv:0.56.0
-
 OPTIONS_DEFINE=	MATPLOTLIB
 MATPLOTLIB_DESC=Plot support via matplotlib
+
 MATPLOTLIB_RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}matplotlib>=0:math/py-matplotlib@${PY_FLAVOR}
 
 .include <bsd.port.mk>

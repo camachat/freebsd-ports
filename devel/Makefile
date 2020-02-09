@@ -4147,6 +4147,7 @@
     SUBDIR += py-azure-multiapi-storage
     SUBDIR += py-azure-storage-blob
     SUBDIR += py-azure-storage-common
+    SUBDIR += py-b2sdk
     SUBDIR += py-babel
     SUBDIR += py-babelfish
     SUBDIR += py-backcall
@@ -4195,6 +4196,7 @@
     SUBDIR += py-canonicaljson
     SUBDIR += py-capstone
     SUBDIR += py-castellan
+    SUBDIR += py-castellan1
     SUBDIR += py-cbor
     SUBDIR += py-cbor2
     SUBDIR += py-cclib
@@ -4587,7 +4589,7 @@
     SUBDIR += py-mdv
     SUBDIR += py-medikit
     SUBDIR += py-meliae
-    SUBDIR += py-memory_profiler
+    SUBDIR += py-memory-profiler
     SUBDIR += py-microversion_parse
     SUBDIR += py-minimongo
     SUBDIR += py-minio
@@ -4669,6 +4671,7 @@
     SUBDIR += py-oslo.limit
     SUBDIR += py-oslo.log
     SUBDIR += py-oslo.messaging
+    SUBDIR += py-oslo.messaging10
     SUBDIR += py-oslo.middleware
     SUBDIR += py-oslo.policy
     SUBDIR += py-oslo.privsep
@@ -4716,6 +4719,7 @@
     SUBDIR += py-pinocchio
     SUBDIR += py-pip
     SUBDIR += py-pip-api
+    SUBDIR += py-pip-run
     SUBDIR += py-pip-tools
     SUBDIR += py-pipdeptree
     SUBDIR += py-pipenv
@@ -5023,6 +5027,7 @@
     SUBDIR += py-tapi
     SUBDIR += py-tarantool-queue
     SUBDIR += py-taskflow
+    SUBDIR += py-taskflow3
     SUBDIR += py-tblib
     SUBDIR += py-tconfpy
     SUBDIR += py-tempora
@@ -5046,6 +5051,7 @@
     SUBDIR += py-timelib
     SUBDIR += py-tinyarray
     SUBDIR += py-tinyrpc
+    SUBDIR += py-tinyrpc0
     SUBDIR += py-tipper
     SUBDIR += py-tokenize-rt
     SUBDIR += py-toolz
