@@ -1466,6 +1466,7 @@
     SUBDIR += py-dj22-djangoql
     SUBDIR += py-dj22-djangorestframework
     SUBDIR += py-dj22-drf-yasg
+    SUBDIR += py-dj22-jsonfield
     SUBDIR += py-dj22-jsonfield2
     SUBDIR += py-dj22-swapper
     SUBDIR += py-django
@@ -1629,6 +1630,7 @@
     SUBDIR += py-formalchemy
     SUBDIR += py-formencode
     SUBDIR += py-frappe-bench
+    SUBDIR += py-freenit
     SUBDIR += py-frozen-flask
     SUBDIR += py-funkload
     SUBDIR += py-gandi.cli
