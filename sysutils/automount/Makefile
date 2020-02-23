@@ -13,7 +13,7 @@ LICENSE=	BSD2CLAUSE
 
 PLIST_FILES=	sbin/automount etc/devd/automount_devd.conf etc/automount.conf.sample
 
-SUB_FILES=	pkg-install
+#SUB_FILES=	pkg-install
 NO_BUILD=	yes
 NO_ARCH=	yes
 
