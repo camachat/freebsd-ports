@@ -170,6 +170,7 @@
     SUBDIR += fwlogwatch
     SUBDIR += gag
     SUBDIR += gcr
+    SUBDIR += gef
     SUBDIR += git-crypt
     SUBDIR += git-remote-gcrypt
     SUBDIR += git-secret
@@ -963,6 +964,7 @@
     SUBDIR += py-python-registry
     SUBDIR += py-python3-openid
     SUBDIR += py-python3-saml
+    SUBDIR += py-pyvex
     SUBDIR += py-pywinrm
     SUBDIR += py-rekall
     SUBDIR += py-rekall-core
