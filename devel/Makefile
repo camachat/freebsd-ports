@@ -4610,6 +4610,7 @@
     SUBDIR += py-mox
     SUBDIR += py-mox3
     SUBDIR += py-msgpack
+    SUBDIR += py-mulpyplexer
     SUBDIR += py-multi_key_dict
     SUBDIR += py-multipledispatch
     SUBDIR += py-multiprocess
@@ -6620,6 +6621,7 @@
     SUBDIR += tinycbor
     SUBDIR += tinygo
     SUBDIR += tinylaf
+    SUBDIR += tl-expected
     SUBDIR += tkcon
     SUBDIR += tkcvs
     SUBDIR += tkmerge
