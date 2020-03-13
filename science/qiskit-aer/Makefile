@@ -1,8 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	qiskit-aer
-DISTVERSION=	0.4.0-28
-DISTVERSIONSUFFIX=	-g1a0377c
+DISTVERSION=	0.4.1
 CATEGORIES=	science
 
 MAINTAINER=	yuri@FreeBSD.org
@@ -16,7 +15,7 @@ LIB_DEPENDS=	libfmt.so:devel/libfmt \
 		libopenblas.so:math/openblas
 RUN_DEPENDS=	spdlog>0:devel/spdlog
 
-USES=		cmake
+USES=		cmake compiler:c++11-lang
 USE_GITHUB=	yes
 GH_ACCOUNT=	Qiskit
 
