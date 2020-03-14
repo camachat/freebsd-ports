@@ -22,7 +22,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE.txt
 BUILD_DEPENDS=	${PYNUMPY} \
 		cython:lang/cython
 RUN_DEPENDS=	${PYNUMPY} \
-		swig:devel/swig13
+		swig3.0:devel/swig30
 
 USES=		fortran python shebangfix
 USE_PYTHON=	autoplist concurrent distutils
