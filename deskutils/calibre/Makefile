@@ -29,7 +29,8 @@ BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}sqlite3>=0:databases/py-sqlite3@${PY_FLAVO
 		${PYTHON_PKGNAMEPREFIX}apsw>=0:databases/py-apsw@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}msgpack>=0.3:devel/py-msgpack@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}regex>=0:textproc/py-regex@${PY_FLAVOR} \
-		${PYTHON_PKGNAMEPREFIX}html5-parser>=0.4.3:www/py-html5-parser@${PY_FLAVOR}
+		${PYTHON_PKGNAMEPREFIX}html5-parser>=0.4.3:www/py-html5-parser@${PY_FLAVOR} \
+		${PY_PILLOW}
 RUN_DEPENDS=	xdg-open:devel/xdg-utils \
 		${PYTHON_PKGNAMEPREFIX}css-parser>=1.0.4:www/py-css-parser@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}dnspython>=0:dns/py-dnspython@${PY_FLAVOR} \
@@ -47,12 +48,14 @@ RUN_DEPENDS=	xdg-open:devel/xdg-utils \
 		${PYTHON_PKGNAMEPREFIX}markdown>=0:textproc/py-markdown@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}chardet>=0:textproc/py-chardet@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}html5-parser>=0.4.3:www/py-html5-parser@${PY_FLAVOR} \
+		${PY_PILLOW} \
 		pdftohtml:graphics/poppler-utils
 
 USES=		desktop-file-utils gettext-runtime gl gnome localbase:ldflags \
 		pkgconfig pyqt:5 qt:5 shared-mime-info shebangfix \
 		ssl tar:xz xorg
 USE_RC_SUBR=	calibre
+SUB_LIST+=	PYTHON_VERSION=${PYTHON_VERSION}
 USE_PYQT=	core gui network sip svg webengine widgets xmlpatterns
 USE_QT=		buildtools_build core dbus gui qmake_build widgets
 USE_GL=		egl gl
@@ -84,16 +87,12 @@ OPTIONS_SINGLE_PYTHON=	PYTHON2 PYTHON3
 OPTIONS_DEFAULT=	PYTHON2
 OPTINS_SUB=		yes
 
-PYTHON2_BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}pillow6>=0:graphics/py-pillow6@${PY_FLAVOR} 
-PYTHON2_RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}pillow6>=0:graphics/py-pillow6@${PY_FLAVOR}
 PYTHON2_USES=		python:2.7
 PYTHON2_VARS=		PYTHON_BIN=${LOCALBASE}/bin/python2 \
 			DEPRECATED="Uses deprecated version of python" \
 			EXPIRATION_DATE=2020-09-15
 PYTHON2_PLIST_SUB=	SODIR=""
 
-PYTHON3_BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}pillow>=0:graphics/py-pillow@${PY_FLAVOR}
-PYTHON3_RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}pillow>=0:graphics/py-pillow@${PY_FLAVOR}
 PYTHON3_USES=		python:3.5+
 PYTHON3_VARS=		PYTHON_BIN=${LOCALBASE}/bin/python3
 PYTHON3_MAKE_ENV=	CALIBRE_PY3_PORT=1
