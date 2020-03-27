@@ -450,6 +450,7 @@
     SUBDIR += date
     SUBDIR += dbus
     SUBDIR += dbus-c++
+    SUBDIR += dbus-java
     SUBDIR += dbus-glib
     SUBDIR += dbus-sharp
     SUBDIR += dbus-sharp-glib
@@ -6527,9 +6528,9 @@
     SUBDIR += snorenotify
     SUBDIR += soapui
     SUBDIR += socket_wrapper
-    SUBDIR += sonar-ant-task
     SUBDIR += sonar-scanner-cli
-    SUBDIR += sonarqube
+    SUBDIR += sonarqube-ant-task
+    SUBDIR += sonarqube-community
     SUBDIR += sope2
     SUBDIR += sope4
     SUBDIR += sord
