@@ -346,6 +346,7 @@
     SUBDIR += jalv
     SUBDIR += jalv-select
     SUBDIR += jamin
+    SUBDIR += jamulus
     SUBDIR += jid3lib
     SUBDIR += juk
     SUBDIR += juke
@@ -651,7 +652,6 @@
     SUBDIR += py-music21
     SUBDIR += py-musicbrainzngs
     SUBDIR += py-mutagen
-    SUBDIR += py-ogg
     SUBDIR += py-openal
     SUBDIR += py-opuslib
     SUBDIR += py-py-jack

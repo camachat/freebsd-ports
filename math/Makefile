@@ -95,6 +95,7 @@
     SUBDIR += R-cran-quadprog
     SUBDIR += R-cran-qualityTools
     SUBDIR += R-cran-quantreg
+    SUBDIR += R-cran-raster
     SUBDIR += R-cran-recipes
     SUBDIR += R-cran-rgenoud
     SUBDIR += R-cran-robustbase
@@ -340,6 +341,7 @@
     SUBDIR += lapacke
     SUBDIR += laspack
     SUBDIR += latte-integrale
+    SUBDIR += lcalc
     SUBDIR += ldouble
     SUBDIR += lean
     SUBDIR += lemon
@@ -369,6 +371,7 @@
     SUBDIR += lis
     SUBDIR += lll_spect
     SUBDIR += lp_solve
+    SUBDIR += lrcalc
     SUBDIR += lrng
     SUBDIR += lrslib
     SUBDIR += ltl
@@ -689,6 +692,7 @@
     SUBDIR += physcalc
     SUBDIR += picosat
     SUBDIR += piranha
+    SUBDIR += planarity
     SUBDIR += plman
     SUBDIR += ploticus
     SUBDIR += ploticus-nox11
