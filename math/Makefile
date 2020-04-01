@@ -158,6 +158,7 @@
     SUBDIR += blocksolve95
     SUBDIR += bonmin
     SUBDIR += boolector
+    SUBDIR += brial
     SUBDIR += bsdnt
     SUBDIR += btor2tools
     SUBDIR += cadabra2
@@ -725,6 +726,7 @@
     SUBDIR += py-bitmath
     SUBDIR += py-bitvector
     SUBDIR += py-bottleneck
+    SUBDIR += py-brial
     SUBDIR += py-cdecimal
     SUBDIR += py-chaospy
     SUBDIR += py-claripy
@@ -840,6 +842,7 @@
     SUBDIR += qtiplot-doc
     SUBDIR += qwtplot3d
     SUBDIR += randlib
+    SUBDIR += rankwidth
     SUBDIR += rapid
     SUBDIR += reduce
     SUBDIR += reduce-psl

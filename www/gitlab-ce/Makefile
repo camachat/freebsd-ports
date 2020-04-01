@@ -3,7 +3,7 @@
 
 PORTNAME=	gitlab-ce
 PORTVERSION=	12.9.1
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	www devel
 
 MAINTAINER=	mfechner@FreeBSD.org
@@ -21,7 +21,7 @@ MY_DEPENDS=	git>=2.22.2:devel/git \
 	gitlab-pages>=1.17.0:www/gitlab-pages \
 	redis>=3.2.12:databases/redis \
 	yarn>=1.10.0:www/yarn \
-	rubygem-rails60=6.0.2.2:www/rubygem-rails60 \
+	rubygem-rails60>=6.0.2.2<6.0.2.3:www/rubygem-rails60 \
 	rubygem-bootsnap>=1.4.6<2.0:devel/rubygem-bootsnap \
 	rubygem-nakayoshi_fork>=0.0.4<0.1.0:devel/rubygem-nakayoshi_fork \
 	rubygem-responders-rails60>=3.0<4.0:www/rubygem-responders-rails60 \
@@ -186,7 +186,7 @@ MY_DEPENDS=	git>=2.22.2:devel/git \
 	rubygem-peek-rails60>=1.1.0<2.0:devel/rubygem-peek-rails60 \
 	rubygem-snowplow-tracker>=0.6.1<0.7.0:devel/rubygem-snowplow-tracker \
 	rubygem-gitlab-derailed_benchmarks>0:benchmarks/rubygem-gitlab-derailed_benchmarks \
-	rubygem-method_source>=0.8<1.0:devel/rubygem-method_source \
+	rubygem-method_source0>=0.8<1.0:devel/rubygem-method_source0 \
 	rubygem-influxdb>=0.2<1.0:databases/rubygem-influxdb \
 	rubygem-prometheus-client-mmap>=0.10.0<0.11.0:devel/rubygem-prometheus-client-mmap \
 	rubygem-raindrops>=0.18<1.0:www/rubygem-raindrops \

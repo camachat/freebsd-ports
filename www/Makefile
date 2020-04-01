@@ -13,6 +13,7 @@
     SUBDIR += R-cran-rvest
     SUBDIR += R-cran-scrapeR
     SUBDIR += R-cran-selectr
+    SUBDIR += R-cran-servr
     SUBDIR += R-cran-shiny
     SUBDIR += Stikked
     SUBDIR += UniversalFeedCreator
@@ -1707,8 +1708,6 @@
     SUBDIR += py-prawcore
     SUBDIR += py-priority
     SUBDIR += py-puppetboard
-    SUBDIR += py-puppetboard02
-    SUBDIR += py-puppetboard03
     SUBDIR += py-py-restclient
     SUBDIR += py-pySmartDL
     SUBDIR += py-pyjwt
