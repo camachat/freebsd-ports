@@ -68,10 +68,13 @@
     SUBDIR += R-cran-inline
     SUBDIR += R-cran-ipred
     SUBDIR += R-cran-irlba
+    SUBDIR += R-cran-isoband
     SUBDIR += R-cran-labeling
     SUBDIR += R-cran-lava
     SUBDIR += R-cran-lazyeval
+    SUBDIR += R-cran-linprog
     SUBDIR += R-cran-lme4
+    SUBDIR += R-cran-lpSolve
     SUBDIR += R-cran-magic
     SUBDIR += R-cran-maxLik
     SUBDIR += R-cran-mcmc
@@ -310,6 +313,7 @@
     SUBDIR += hexcalc
     SUBDIR += hipmcl
     SUBDIR += hmat-oss
+    SUBDIR += hpcombi
     SUBDIR += hpipm
     SUBDIR += hs-Agda
     SUBDIR += hs-penrose
@@ -317,6 +321,7 @@
     SUBDIR += ideep
     SUBDIR += ignition-math
     SUBDIR += igraph
+    SUBDIR += iml
     SUBDIR += intervaltree
     SUBDIR += ipopt
     SUBDIR += ised
@@ -362,6 +367,7 @@
     SUBDIR += libranlip
     SUBDIR += librdata
     SUBDIR += librsb
+    SUBDIR += libsemigroups
     SUBDIR += libtommath
     SUBDIR += libtsnnls
     SUBDIR += libxls
@@ -378,6 +384,7 @@
     SUBDIR += ltl
     SUBDIR += ltl2ba
     SUBDIR += m4ri
+    SUBDIR += m4rie
     SUBDIR += mate-calc
     SUBDIR += math77
     SUBDIR += mathgl
@@ -393,12 +400,12 @@
     SUBDIR += mingw32-libgmp
     SUBDIR += minisat
     SUBDIR += miracl
-    SUBDIR += mkl-dnn
     SUBDIR += mlpack
     SUBDIR += moab
     SUBDIR += moo
     SUBDIR += mpc
     SUBDIR += mpexpr
+    SUBDIR += mpfi
     SUBDIR += mpfr
     SUBDIR += mpfrc++
     SUBDIR += mpir
@@ -509,6 +516,7 @@
     SUBDIR += octave-forge-zeromq
     SUBDIR += octomap
     SUBDIR += oleo
+    SUBDIR += onednn
     SUBDIR += openblas
     SUBDIR += openfst
     SUBDIR += openlibm

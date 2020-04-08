@@ -2,8 +2,8 @@
 # $FreeBSD$
 
 PORTNAME=	gitlab-ce
-PORTVERSION=	12.9.1
-PORTREVISION=	2
+PORTVERSION=	12.9.2
+PORTREVISION=	0
 CATEGORIES=	www devel
 
 MAINTAINER=	mfechner@FreeBSD.org
@@ -144,7 +144,7 @@ MY_DEPENDS=	git>=2.22.2:devel/git \
 	rubygem-redis-rails-rails60>=5.0.2<5.1:www/rubygem-redis-rails-rails60 \
 	rubygem-discordrb-webhooks-blackst0ne>=3.3<4.0:net-im/rubygem-discordrb-webhooks-blackst0ne \
 	rubygem-hipchat>=1.6.0<1.7.0:net-im/rubygem-hipchat \
-	rubygem-jira-ruby>=1.7<2.0:devel/rubygem-jira-ruby \
+	rubygem-jira-ruby1>=1.7<2.0:devel/rubygem-jira-ruby1 \
 	rubygem-atlassian-jwt>=0.2.0<0.3.0:www/rubygem-atlassian-jwt \
 	rubygem-flowdock>=0.7<1.0:www/rubygem-flowdock \
 	rubygem-slack-messenger>=2.3.3<2.4.0:devel/rubygem-slack-messenger \
@@ -245,7 +245,7 @@ USE_GITLAB=	yes
 GL_ACCOUNT=	gitlab-org
 GL_PROJECT=	gitlab-foss
 # Find the here: https://gitlab.com/gitlab-org/gitlab-foss/-/tags
-GL_COMMIT=	63745c932cc8bc81fc2b2d30e9a171e346f4b969
+GL_COMMIT=	ac5568eb5d8cef68ced7c70729cc47f20d0a84b9
 
 USERS=	git
 GROUPS=	git

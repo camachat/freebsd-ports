@@ -322,6 +322,7 @@
     SUBDIR += gtkam
     SUBDIR += gts
     SUBDIR += guetzli
+    SUBDIR += guile-cairo
     SUBDIR += guilib
     SUBDIR += gwenview
     SUBDIR += hdr_tools
@@ -1020,6 +1021,7 @@
     SUBDIR += tkpng
     SUBDIR += togl
     SUBDIR += ttygif
+    SUBDIR += ttyplot
     SUBDIR += tumble
     SUBDIR += tweeny
     SUBDIR += ufraw
