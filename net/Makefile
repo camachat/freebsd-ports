@@ -409,6 +409,7 @@
     SUBDIR += libtrace
     SUBDIR += libunp
     SUBDIR += libusipp
+    SUBDIR += libusrsctp
     SUBDIR += libutp
     SUBDIR += libvncserver
     SUBDIR += libwebsockets
@@ -1356,6 +1357,7 @@
     SUBDIR += ryu
     SUBDIR += s3ql
     SUBDIR += samba410
+    SUBDIR += samba411
     SUBDIR += samplicator
     SUBDIR += savvycan
     SUBDIR += sbd
