@@ -2,6 +2,7 @@
 
 PORTNAME=	vscode
 DISTVERSION=	1.43.2
+PORTREVISION=	1
 CATEGORIES=	editors
 MASTER_SITES=	https://nodejs.org/dist/v${NODE_VER}/:node_headers \
 		https://github.com/tagattie/FreeBSD-VSCode/releases/download/${DISTVERSION}/:yarn_cache
@@ -10,7 +11,7 @@ DISTFILES=	node-v${NODE_VER}-headers${EXTRACT_SUFX}:node_headers \
 		vscode-marketplace-exts-${DISTVERSION}${EXTRACT_SUFX}:yarn_cache
 DIST_SUBDIR=	${PORTNAME}
 
-MAINTAINER=	tagattie@yandex.com
+MAINTAINER=	tagattie@FreeBSD.org
 COMMENT=	Visual Studio Code - Open Source ("Code - OSS")
 
 LICENSE=	MIT

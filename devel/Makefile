@@ -1174,6 +1174,7 @@
     SUBDIR += libestr
     SUBDIR += libev
     SUBDIR += libevdev
+    SUBDIR += libevdevplus
     SUBDIR += libevent
     SUBDIR += libevt
     SUBDIR += libevtx
@@ -1362,6 +1363,7 @@
     SUBDIR += libublio
     SUBDIR += libubox
     SUBDIR += libudev-devd
+    SUBDIR += libuinputplus
     SUBDIR += libukcprog
     SUBDIR += libunicode
     SUBDIR += libuninum
@@ -1460,6 +1462,7 @@
     SUBDIR += lua-cjson
     SUBDIR += lua-gettext
     SUBDIR += lua-lgi
+    SUBDIR += lua-libevent
     SUBDIR += lua-lpeg
     SUBDIR += lua-luacheck
     SUBDIR += lua-luarocks
@@ -1472,12 +1475,8 @@
     SUBDIR += lua-stdlib-debug
     SUBDIR += lua-stdlib-normalize
     SUBDIR += lua-sysctl
-    SUBDIR += lua51-bitop
-    SUBDIR += lua51-cjson
-    SUBDIR += lua51-libevent
     SUBDIR += luabind
     SUBDIR += luafilesystem
-    SUBDIR += luafilesystem-51
     SUBDIR += luajava
     SUBDIR += lutok
     SUBDIR += luv
@@ -6002,6 +6001,7 @@
     SUBDIR += rubygem-google-protobuf38
     SUBDIR += rubygem-googleapis-common-protos
     SUBDIR += rubygem-googleapis-common-protos-types
+    SUBDIR += rubygem-googleapis-common-protos-types104
     SUBDIR += rubygem-graf
     SUBDIR += rubygem-grape
     SUBDIR += rubygem-grape-entity

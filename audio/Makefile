@@ -462,7 +462,7 @@
     SUBDIR += lollypop
     SUBDIR += lpac
     SUBDIR += lsp-plugins-lv2
-    SUBDIR += lua51-mpd
+    SUBDIR += lua-mpd
     SUBDIR += luppp
     SUBDIR += lv2
     SUBDIR += lv2file
@@ -615,6 +615,7 @@
     SUBDIR += pear-Text_Spell_Audio
     SUBDIR += penguinsap
     SUBDIR += pianobar
+    SUBDIR += pianobooster
     SUBDIR += pianod2
     SUBDIR += picard
     SUBDIR += picard-plugins
@@ -769,6 +770,7 @@
     SUBDIR += stymulator
     SUBDIR += suil
     SUBDIR += supercollider
+    SUBDIR += surge-synthesizer-lv2
     SUBDIR += sweep
     SUBDIR += swh-lv2
     SUBDIR += swhplugins

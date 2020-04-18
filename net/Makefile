@@ -430,10 +430,7 @@
     SUBDIR += lla
     SUBDIR += ltm
     SUBDIR += lualdap
-    SUBDIR += lualdap-51
     SUBDIR += luasocket
-    SUBDIR += luasocket-51
-    SUBDIR += luasocket-53
     SUBDIR += lvwimax
     SUBDIR += mDNSResponder
     SUBDIR += macchanger
@@ -993,7 +990,6 @@
     SUBDIR += pimdd
     SUBDIR += pipsecd
     SUBDIR += pjsip
-    SUBDIR += pjsip-extsrtp
     SUBDIR += pkt-gen
     SUBDIR += pktanon
     SUBDIR += pload
