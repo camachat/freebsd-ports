@@ -3,6 +3,7 @@
 
 PORTNAME=	nginx
 PORTVERSION=	1.18.0
+PORTREVISION=	8
 CATEGORIES=	www
 MASTER_SITES=	https://nginx.org/download/ \
 		LOCAL/osa
@@ -17,7 +18,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 CONFLICTS_INSTALL=	nginx
 
-PORTSCOUT=	limit:^1\.17\.[0-9]*
+PORTSCOUT=	limit:^1\.19\.[0-9]*
 
 USES=		cpe
 
@@ -273,7 +274,8 @@ post-patch-GRIDFS-on:
 
 post-patch-HTTP_AUTH_KRB5-on:
 	@${REINPLACE_CMD} 's!%%GSSAPILIBS%%!${GSSAPILIBS}!g; \
-		s!%%GSSAPIINCDIR%%!${GSSAPIINCDIR}!g' ${WRKSRC_auth_krb5}/config
+		s!%%GSSAPIINCDIR%%!${GSSAPIINCDIR}!g; \
+		s!%%GSSAPILIBDIR%%!${GSSAPILIBDIR}!g' ${WRKSRC_auth_krb5}/config
 
 post-patch-HTTP_TARANTOOL-on:
 	@${REINPLACE_CMD} 's!%%PREFIX%%!${LOCALBASE}!g' ${WRKSRC_nginx_tarantool}/config

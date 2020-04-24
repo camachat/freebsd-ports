@@ -1099,6 +1099,7 @@
     SUBDIR += py-python-keystoneclient
     SUBDIR += py-python-neutronclient
     SUBDIR += py-python-novaclient
+    SUBDIR += py-python-novaclient16
     SUBDIR += py-python-ntlm
     SUBDIR += py-python-openstackclient
     SUBDIR += py-python-twitter
@@ -1240,6 +1241,7 @@
     SUBDIR += rubygem-fog-dynect
     SUBDIR += rubygem-fog-ecloud
     SUBDIR += rubygem-fog-google
+    SUBDIR += rubygem-fog-google19
     SUBDIR += rubygem-fog-gridscale
     SUBDIR += rubygem-fog-internet-archive
     SUBDIR += rubygem-fog-joyent
@@ -1387,6 +1389,7 @@
     SUBDIR += skstream
     SUBDIR += sl2tps
     SUBDIR += slurm
+    SUBDIR += smb4k
     SUBDIR += smcroute
     SUBDIR += smm++
     SUBDIR += sngrep
