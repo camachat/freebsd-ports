@@ -2,6 +2,7 @@
 
 PORTNAME=	gcc
 PORTVERSION?=	8.4.0
+PORTREVISION=	1
 CATEGORIES=	devel
 MASTER_SITES=	GCC
 PKGNAMEPREFIX?=	aarch64-none-elf-
@@ -45,6 +46,8 @@ CONFIGURE_ARGS+=--target=${GCC_TARGET} --disable-nls --enable-languages=c,c++ \
 		--with-as=${LOCALBASE}/bin/${GCC_TARGET}-as \
 		--with-ld=${LOCALBASE}/bin/${GCC_TARGET}-ld
 
+MAKE_ENV+=	PATH=${PATH}:${LOCALBASE}/${GCC_TARGET}/bin
+
 # U-Boot requires libgcc, crossbuild and install it along with the compiler.
 ALL_TARGET=	all-gcc all-target-libgcc
 INSTALL_TARGET=	install-gcc install-target-libgcc
@@ -66,12 +69,6 @@ CONFIGURE_TARGET=	${ARCH}-unknown-${OPSYS:tl}${OSREL}
 # The following is required for clang to bootstrap gcc.
 .if ${COMPILER_TYPE} == clang
 MAKE_ARGS+=	CXXFLAGS=-fbracket-depth=512
-.endif
-
-.if ${ARCH} == "aarch64"
-PLIST_SUB+=	PLUGINS="@comment plugin does not build"
-.else
-PLIST_SUB+=	PLUGINS=""
 .endif
 
 post-install:
