@@ -358,6 +358,7 @@
     SUBDIR += libbraiding
     SUBDIR += libccd
     SUBDIR += libflame
+    SUBDIR += libhomfly
     SUBDIR += liblbfgs
     SUBDIR += libmesh
     SUBDIR += libmissing
@@ -377,6 +378,7 @@
     SUBDIR += libxlsxwriter
     SUBDIR += libxsmm
     SUBDIR += lidia
+    SUBDIR += linbox
     SUBDIR += linpack
     SUBDIR += lis
     SUBDIR += lll_spect

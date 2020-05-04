@@ -243,7 +243,9 @@
     SUBDIR += py-gsd
     SUBDIR += py-h5json
     SUBDIR += py-h5py
+    SUBDIR += py-kim-query
     SUBDIR += py-kinematics
+    SUBDIR += py-kliff
     SUBDIR += py-lifelines
     SUBDIR += py-mdp
     SUBDIR += py-mlpy
