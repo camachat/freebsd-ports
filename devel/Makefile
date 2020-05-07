@@ -503,6 +503,7 @@
     SUBDIR += duplo
     SUBDIR += dwarf2json
     SUBDIR += dwarfdump
+    SUBDIR += dwarves
     SUBDIR += dxa65
     SUBDIR += dyncall
     SUBDIR += e00compr
@@ -4497,7 +4498,6 @@
     SUBDIR += py-ioflo
     SUBDIR += py-ipaddr
     SUBDIR += py-ipdb
-    SUBDIR += py-ipykernel
     SUBDIR += py-ipykernel5
     SUBDIR += py-ipyparallel
     SUBDIR += py-ipython_genutils
