@@ -599,6 +599,7 @@
     SUBDIR += lr
     SUBDIR += lsblk
     SUBDIR += lscpu
+    SUBDIR += lsd
     SUBDIR += lsof
     SUBDIR += lsop
     SUBDIR += lsyncd
@@ -946,7 +947,6 @@
     SUBDIR += py-bitrot
     SUBDIR += py-borgmatic
     SUBDIR += py-cdmi
-    SUBDIR += py-cpuinfo
     SUBDIR += py-cron-descriptor
     SUBDIR += py-croniter
     SUBDIR += py-diffoscope
@@ -982,6 +982,7 @@
     SUBDIR += py-psutil
     SUBDIR += py-psutil121
     SUBDIR += py-ptyprocess
+    SUBDIR += py-py-cpuinfo
     SUBDIR += py-python-consul
     SUBDIR += py-python-crontab
     SUBDIR += py-python-nomad
@@ -990,6 +991,7 @@
     SUBDIR += py-pyznap
     SUBDIR += py-queuelib
     SUBDIR += py-ranger
+    SUBDIR += py-rdiff-backup
     SUBDIR += py-salt
     SUBDIR += py-scandir
     SUBDIR += py-scarab
@@ -1028,7 +1030,6 @@
     SUBDIR += rclean
     SUBDIR += rcm
     SUBDIR += rdate
-    SUBDIR += rdiff-backup
     SUBDIR += rdup
     SUBDIR += read-edid
     SUBDIR += recoverdm
@@ -1248,6 +1249,7 @@
     SUBDIR += syslog-ng324
     SUBDIR += syslog-ng325
     SUBDIR += syslog-ng326
+    SUBDIR += syslog-ng327
     SUBDIR += syslogger
     SUBDIR += sysrc
     SUBDIR += system-tools-backends
