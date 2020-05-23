@@ -7972,7 +7972,6 @@ www/cakephp21||2016-01-25|Has expired: PHP 5.4 EOL reached
 www/cakephp22||2016-01-25|Has expired: PHP 5.4 EOL reached
 www/cakephp23||2016-01-25|Has expired: PHP 5.4 EOL reached
 www/fluxcms||2016-01-25|Has expired: PHP 5.4 EOL reached
-www/fusionpbx||2016-01-25|Has expired: PHP 5.4 EOL reached
 www/jawstats||2016-01-25|Has expired: PHP 5.4 EOL reached
 www/ojs2||2016-01-25|Has expired: PHP 5.4 EOL reached
 www/webcalendar||2016-01-25|Has expired: PHP 5.4 EOL reached
@@ -15013,3 +15012,5 @@ www/py-django-happenings|www/py-django-happenings-update|2020-05-17|Has expired:
 devel/py-django-tastypie-mongoengine||2020-05-17|Has expired: Not necessary anymore, and project unmaintained
 sysutils/py-cpuinfo|sysutils/py-py-cpuinfo|2020-05-18|Rename to match PyPI name
 devel/py-jupyterlab_server|devel/py-jupyterlab-server|2020-05-19|Rename to match upstream naming
+math/py-onnx|misc/py-onnx|2020-05-23|Move to misc category because it's not related to math
+misc/onnx|misc/py-onnx|2020-05-23|Remove duplicate

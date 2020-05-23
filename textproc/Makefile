@@ -213,6 +213,7 @@
     SUBDIR += gastex
     SUBDIR += gd-aspell
     SUBDIR += gdome2
+    SUBDIR += git-chglog
     SUBDIR += gitlab-elasticsearch-indexer
     SUBDIR += gl-aspell
     SUBDIR += gladtex
@@ -1263,6 +1264,7 @@
     SUBDIR += py-isbnlib
     SUBDIR += py-isbntools
     SUBDIR += py-iso-639
+    SUBDIR += py-jc
     SUBDIR += py-jinja2-cli
     SUBDIR += py-jsonslicer
     SUBDIR += py-jsx-lexer
@@ -1354,6 +1356,8 @@
     SUBDIR += py-snowballstemmer
     SUBDIR += py-sparqlwrapper
     SUBDIR += py-sphinx
+    SUBDIR += py-sphinx-autoapi
+    SUBDIR += py-sphinx-autodoc-typehints
     SUBDIR += py-sphinx-hieroglyph
     SUBDIR += py-sphinx-intl
     SUBDIR += py-sphinx-me

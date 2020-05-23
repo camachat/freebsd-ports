@@ -129,6 +129,7 @@
     SUBDIR += caph
     SUBDIR += cardpics
     SUBDIR += cataclysm-dda
+    SUBDIR += cataclysm-dda-tiles
     SUBDIR += catesc
     SUBDIR += cave9
     SUBDIR += cavezofphear
@@ -485,12 +486,14 @@
     SUBDIR += libretro-beetle_vb
     SUBDIR += libretro-beetle_wswan
     SUBDIR += libretro-bluemsx
+    SUBDIR += libretro-cap32
     SUBDIR += libretro-core-info
     SUBDIR += libretro-desmume2015
     SUBDIR += libretro-dosbox
     SUBDIR += libretro-emux
     SUBDIR += libretro-fbalpha
     SUBDIR += libretro-fceumm
+    SUBDIR += libretro-fmsx
     SUBDIR += libretro-fuse
     SUBDIR += libretro-gambatte
     SUBDIR += libretro-genesis_plus_gx
@@ -502,6 +505,7 @@
     SUBDIR += libretro-mame2003
     SUBDIR += libretro-mame2003_plus
     SUBDIR += libretro-mgba
+    SUBDIR += libretro-mu
     SUBDIR += libretro-nestopia
     SUBDIR += libretro-nxengine
     SUBDIR += libretro-o2em

@@ -854,6 +854,7 @@
     SUBDIR += godot2-tools
     SUBDIR += goffice
     SUBDIR += gogs
+    SUBDIR += golangci-lint
     SUBDIR += golint
     SUBDIR += google-cloud-cpp
     SUBDIR += google-gdata
@@ -4097,6 +4098,7 @@
     SUBDIR += py-azure-functions-devops-build
     SUBDIR += py-azure-graphrbac
     SUBDIR += py-azure-keyvault
+    SUBDIR += py-azure-loganalytics
     SUBDIR += py-azure-mgmt-advisor
     SUBDIR += py-azure-mgmt-apimanagement
     SUBDIR += py-azure-mgmt-appconfiguration
@@ -4471,6 +4473,7 @@
     SUBDIR += py-grpcio
     SUBDIR += py-grpcio-gcp
     SUBDIR += py-grpcio-tools
+    SUBDIR += py-gs_api_client
     SUBDIR += py-gtfslib
     SUBDIR += py-gyp
     SUBDIR += py-hash_ring
@@ -4610,6 +4613,7 @@
     SUBDIR += py-logbook
     SUBDIR += py-logfury
     SUBDIR += py-logilab-common
+    SUBDIR += py-loguru
     SUBDIR += py-logutils
     SUBDIR += py-louie
     SUBDIR += py-lunardate
@@ -6333,6 +6337,7 @@
     SUBDIR += rubygem-ref
     SUBDIR += rubygem-reline
     SUBDIR += rubygem-request_store
+    SUBDIR += rubygem-request_store14
     SUBDIR += rubygem-require_all
     SUBDIR += rubygem-resque
     SUBDIR += rubygem-retriable
@@ -6719,6 +6724,7 @@
     SUBDIR += tkp4
     SUBDIR += tl-expected
     SUBDIR += tla
+    SUBDIR += tllist
     SUBDIR += tmake
     SUBDIR += tnt
     SUBDIR += tokamak
