@@ -256,6 +256,7 @@
     SUBDIR += igal2
     SUBDIR += ikiwiki
     SUBDIR += ilias
+    SUBDIR += ilias6
     SUBDIR += interchange
     SUBDIR += iridium
     SUBDIR += itop
@@ -409,7 +410,6 @@
     SUBDIR += mongoose
     SUBDIR += mongrel2
     SUBDIR += moodle35
-    SUBDIR += moodle36
     SUBDIR += moodle37
     SUBDIR += moodle38
     SUBDIR += morty
@@ -1569,6 +1569,7 @@
     SUBDIR += py-djangorestframework-csv
     SUBDIR += py-djangorestframework-filters
     SUBDIR += py-djangorestframework-xml
+    SUBDIR += py-djangorestframework311
     SUBDIR += py-djangorestframework36
     SUBDIR += py-djangotoolbox
     SUBDIR += py-dojango
@@ -1893,7 +1894,9 @@
     SUBDIR += rubygem-ethon
     SUBDIR += rubygem-eventmachine_httpserver
     SUBDIR += rubygem-faraday
+    SUBDIR += rubygem-faraday0
     SUBDIR += rubygem-faraday_middleware
+    SUBDIR += rubygem-faraday_middleware0
     SUBDIR += rubygem-faye
     SUBDIR += rubygem-faye-websocket
     SUBDIR += rubygem-fcgi
