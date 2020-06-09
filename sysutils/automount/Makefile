@@ -26,12 +26,12 @@ EXFAT_DESC=		Support Microsoft exFAT filesystem
 EXFAT_RUN_DEPENDS=	fusefs-exfat>=0:sysutils/fusefs-exfat \
 			exfat-utils>=0:sysutils/exfat-utils
 HFS_DESC=		Support HFS+ filesystem
-HFS_RUN_DEPENDS=	fusefs-hfsfuse>=0:sysutils/fusefs-hfsfuse
+HFS_RUN_DEPENDS=	hfsfuse:sysutils/fusefs-hfsfuse
 XFS_DESC=		Support XFS filesystem
 XFS_RUN_DEPENDS=	fusefs-lkl>=0:sysutils/fusefs-lkl
 MTP_DESC=		Support MTP filesystem
-MTP_RUN_DEPENDS=	fusefs-simple-mtpfs>=0:sysutils/fusefs-simple-mtpfs \
-                    zenity>=0:x11/zenity
+MTP_RUN_DEPENDS=	jmtpfs:sysutils/fusefs-jmtpfs \
+			zenity>=0:x11/zenity
 
 do-install:
 	${INSTALL_SCRIPT} ${WRKDIR}/automount ${STAGEDIR}${PREFIX}/sbin
