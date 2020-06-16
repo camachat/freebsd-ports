@@ -410,9 +410,11 @@
     SUBDIR += moinmoincli
     SUBDIR += mongoose
     SUBDIR += mongrel2
+    SUBDIR += monolith
     SUBDIR += moodle35
     SUBDIR += moodle37
     SUBDIR += moodle38
+    SUBDIR += moodle39
     SUBDIR += morty
     SUBDIR += mozplugger
     SUBDIR += multisort
@@ -1570,7 +1572,6 @@
     SUBDIR += py-djangorestframework-filters
     SUBDIR += py-djangorestframework-xml
     SUBDIR += py-djangorestframework311
-    SUBDIR += py-djangorestframework36
     SUBDIR += py-draftjs_exporter
     SUBDIR += py-drf-yasg
     SUBDIR += py-dtflickr
@@ -2058,6 +2059,7 @@
     SUBDIR += rubygem-raindrops
     SUBDIR += rubygem-ramaze
     SUBDIR += rubygem-raphael-rails
+    SUBDIR += rubygem-rate_throttle_client
     SUBDIR += rubygem-rbovirt
     SUBDIR += rubygem-rdf
     SUBDIR += rubygem-rdf-normalize
