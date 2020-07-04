@@ -115,6 +115,7 @@
     SUBDIR += keybinder
     SUBDIR += keybinder-gtk3
     SUBDIR += keyboardcast
+    SUBDIR += keynav
     SUBDIR += kf5-frameworkintegration
     SUBDIR += kf5-frameworks
     SUBDIR += kf5-kactivities
@@ -182,6 +183,9 @@
     SUBDIR += lilyterm
     SUBDIR += linux-c7-libxkbcommon
     SUBDIR += linux-c7-pixman
+    SUBDIR += linux-c7-xcb-util
+    SUBDIR += linux-c7-xcb-util-image
+    SUBDIR += linux-c7-xcb-util-keysyms
     SUBDIR += linux-c7-xorg-libs
     SUBDIR += linux-nvidia-libs
     SUBDIR += linux-nvidia-libs-304
@@ -222,6 +226,7 @@
     SUBDIR += mrxvt-devel
     SUBDIR += multi-aterm
     SUBDIR += mxico
+    SUBDIR += nezd
     SUBDIR += numlockx
     SUBDIR += nvidia-driver
     SUBDIR += nvidia-driver-304
