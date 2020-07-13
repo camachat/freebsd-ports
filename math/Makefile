@@ -46,6 +46,7 @@
     SUBDIR += R-cran-coda
     SUBDIR += R-cran-combinat
     SUBDIR += R-cran-conf.design
+    SUBDIR += R-cran-conquer
     SUBDIR += R-cran-ddalpha
     SUBDIR += R-cran-deldir
     SUBDIR += R-cran-dimRed
@@ -76,6 +77,7 @@
     SUBDIR += R-cran-lme4
     SUBDIR += R-cran-lpSolve
     SUBDIR += R-cran-magic
+    SUBDIR += R-cran-matrixStats
     SUBDIR += R-cran-maxLik
     SUBDIR += R-cran-mcmc
     SUBDIR += R-cran-memisc

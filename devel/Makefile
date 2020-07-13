@@ -3994,7 +3994,6 @@
     SUBDIR += py-Js2Py
     SUBDIR += py-PEAK-Rules
     SUBDIR += py-PeachPy
-    SUBDIR += py-Pint
     SUBDIR += py-Products.ExternalEditor
     SUBDIR += py-Products.PloneLanguageTool
     SUBDIR += py-PyExecJS
@@ -4783,6 +4782,7 @@
     SUBDIR += py-pika
     SUBDIR += py-pika-pool
     SUBDIR += py-pinocchio
+    SUBDIR += py-pint
     SUBDIR += py-pip
     SUBDIR += py-pip-api
     SUBDIR += py-pip-licenses
@@ -4820,6 +4820,7 @@
     SUBDIR += py-promise
     SUBDIR += py-prompt_toolkit
     SUBDIR += py-prompt_toolkit1
+    SUBDIR += py-prompt_toolkit2
     SUBDIR += py-protobuf
     SUBDIR += py-protocols
     SUBDIR += py-ptable
@@ -5296,6 +5297,7 @@
     SUBDIR += pybugz
     SUBDIR += pycanberra
     SUBDIR += pycharm-ce
+    SUBDIR += pycharm-pro
     SUBDIR += pycos
     SUBDIR += pycount
     SUBDIR += pydbus-common
