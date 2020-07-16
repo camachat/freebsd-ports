@@ -1644,7 +1644,6 @@
     SUBDIR += py-jonpy
     SUBDIR += py-jsonfield
     SUBDIR += py-jsonfield2
-    SUBDIR += py-kallithea
     SUBDIR += py-lektor
     SUBDIR += py-lesscpy
     SUBDIR += py-libsass
@@ -2105,6 +2104,7 @@
     SUBDIR += sabredav
     SUBDIR += sahi
     SUBDIR += sakai
+    SUBDIR += samdruckerserver
     SUBDIR += sarg
     SUBDIR += scloader
     SUBDIR += script4rss
