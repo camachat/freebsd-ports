@@ -57,10 +57,11 @@
  3.130,		101.669,	"miwi"				# Kuala Lumpur, Malaysia
  55.033,	82.917,		"danfe,fjoe"			# Novosibirsk, Russia
  13.6325,	78.4552,	"jkoshy"			# Rishi Valley, India
- 28.599623,	77.314412	"ashish"			# Delhi, India
+ 28.599623,	77.314412,	"ashish"			# Delhi, India
  43.219564,	76.851597,	"bp"				# Almaty, Kazakhstan
  35.72689,	51.54698,	"mmokhi"			# Tehran, Iran
  51.33,		46.00,		"novel"				# Saratov, Russia
+ 48.676433,	44.473968,	"arrowd"			# Volgograd, Russia
  48.805,	44.586,		"den"				# Volgograd, Russia
  55.740978,	37.830851,	"sem"				# Moscow, Russia
  55.7,		37.8,		"az"				# Moscow, Russia
@@ -121,7 +122,7 @@
  48.108055,	11.635277,	"olli"				# Munich, Germany
  55.48821,	11.62152,	"pho"				# Soroe, Denmark
  48.109752,	11.572466,	"barner"			# Munich, Germany
- 55.406124,	11.3397291,	"phk"				# Slagelse, Denmark
+ 55.4064909,	11.3368464,	"phk"				# Slagelse, Denmark
  48.095,	11.296,		"harti"				# Gilching, Germany
  48.16,		11.26,		"rse"				# Dachau, Germany
  43.79142,	11.22991,	"madpilot"			# Florence, Italy
@@ -134,6 +135,7 @@
  53.56,		10.02,		"cracauer"			# Hamburg, Germany
  53.64,		9.84,		"hm"		align=left	# Rellingen, Germany
  48.336389,	9.836389,	"helbig"			# Waiblingen, Germany
+ 57.196092,	9.673923,	"debdrup"			# Kaas, Denmark
  49.00,		9.5,		"schweikh"			# Weinstadt, Germany
  51.20,		9.20,		"dinoex"			# Habichtswald, Germany
  45.467,	9.200,		"piso"				# Milano, Italy
@@ -155,7 +157,7 @@
  47.23,		8.32,		"andre"				# Zurich, Switzerland
  51.68,		7.8,		"dhn"				# Hamm, Germany
  51.533,	7.683,		"stefan"			# Unna, Germany
- 51.47670,	7.60220		"flo"				# Dortmund, Germany
+ 51.47670,	7.60220,	"flo"				# Dortmund, Germany
  51.290484,	7.293945,	"markus"			# Dortmund, Germany
  50.73389,	7.09972,	"egypcio"			# Bonn, Germany
  51.385658,	7.007214,	"lofi"				# Essen, Germany
@@ -165,6 +167,7 @@
  51.146552,	6.86970,	"lme"				# Duesseldorf, Germany
  51.22720,	6.80959,	"pizzamig"			# Duesseldorf, Germany
  51.126809,	6.784074,	"oliver"			# Dormagen, Germany
+ 45.8766,	6.633,		"lbartoletti"			# Sallanches, France
  51.4666,	6.6166,		"ticso"				# Moers, Germany
  51.12,		6.41,		"andreas"			# Neuss, Germany
  49.612,        6.130,          "culot"                         # Luxembourg, Luxembourg
@@ -195,9 +198,8 @@
  48.912,	2.256,		"mich"		align=left	# La Garenne-Colombes, France
  48.818344,	2.245696,	"roberto"	align=left	# Meudon, France
  48.836,	2.242,		"blackend"	align=left	# Boulogne-Billancourt, France
- 48.844,	2.213,		"bapt"				# (CORE) Saint Cloud, France
+ 48.79964,	2.35058 	"bapt"				# (CORE) Villejuif, France
  46.75984,	1.738281,	"stephane"			# Orleans, France
- 51.33046,	1.41088,	"matthew"			# Ramsgate, UK
  51.29870,	1.07005,	"tdb"				# Canterbury, United Kingdom
  52.18,		0.19,		"markm"		align=left	# Cambridge, Cambs, UK
  52.20360,	0.14134,	"rsm"				# Cambridge, UK
@@ -212,6 +214,7 @@
  52.01,		-0.75,		"tom"		align=left	# Milton Keynes, UK
  51.461916,	-1.011833,	"jesper"			# Reading, United Kingdom
  53.955666,	-1.072605,	"gavin"				# (CORE) York, United Kingdom
+ 51.782616,     -1.373806	"matthew"			# Eynsham, UK
  52.635,	-1.135,		"hmp"				# Leicester, East Midlands, UK
  48.12,		-1.60,		"martymac"			# Cesson-Sevigne, France
  48.10927,	-1.61104,	"jadawin"			# Cesson-Sevigne, France
@@ -293,11 +296,11 @@
  44.89,		-93.35,		"bdrewery"			# Minneapolis, MN, USA
  42.02,		-93.67,		"ghelmer"			# Ames, IA, USA
  29.834,	-95.00,		"     ,chris"			# Houston, TX, USA
- 30.715833	-95.5525,	"ade"				# Huntsville, TX, USA
+ 30.715833,	-95.5525,	"ade"				# Huntsville, TX, USA
  37.0625,	-95.677068,	"kmacy"				# Palo Alto, CA, USA
  29.7925,	-95.8225,	"dwcjr"				# Katy, TX, USA
  39.168,	-96.620,	"kevans"			# Manhattan, KS, USA
- 30.47702408	-97.64801025	"ler"				# Pflugerville, TX, USA
+ 30.47702408,	-97.64801025,	"ler"				# Pflugerville, TX, USA
  30.343,	-97.881,	"          ,linimon"		# Austin, TX, USA
  37.972,	-100.872,	"mezz"				# Garden City, KS, USA
  39.897418,	-104.981891,	"brd"				# Northglenn, CO, USA
@@ -306,7 +309,7 @@
  40.1,		-105.3,		"gibbs,ken"			# Boulder, CO, USA
  29.067,	-110.967,	"jcamou"			# Hermosillo, Sonora, Mexico
  40.298753,	-111.696486,	"jamie"				# Orem, UT, USA
- 33.3437,	-111.9344	"kbowling"			# Tempe, Arizona, USA
+ 33.3437,	-111.9344,	"kbowling"			# Tempe, Arizona, USA
  51.083,	-114.13,	"davidc"			# Calgary, Alberta, Canada
  51.083,	-114.167,	"aaron"				# Calgary, Alberta, Canada
  47.74075,	-116.83366,	"jasone"			# Coeur d'Alene, ID, USA
@@ -338,7 +341,7 @@
  47.382689,	-122.227021,	"garys"				# Kent, WA, USA
  37.81875,	-122.2466,	"kientzle"			# Oakland, CA, USA
  37.84,		-122.25,	"jmg"				# Oakland, CA, USA
- 37.4703,	-122.2548	"dhw"				# Redwood City, CA, USA
+ 37.4703,	-122.2548,	"dhw"				# Redwood City, CA, USA
  37.887398,	-122.264896,	"gsutter,sam"			# Berkeley, CA, USA
  37.386666,	-122.268966,	"fenner"			# Sky Londa, CA, USA
  37.848966,	-122.288577,	"dteske"			# Emeryville, CA, USA
