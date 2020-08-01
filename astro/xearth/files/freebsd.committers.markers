@@ -4,7 +4,10 @@
 #
 # In case you don't know the exact coordinates, you might find it at
 # http://maps.google.com/ or http://www.heavens-above.com/
-
+#
+# Where the difference matters, assume the WGS84 coordinate system,
+# which is used by GPS receivers, Google Maps, OpenStreetMap and
+# others.
 #
 # Style (sorted from east to west): sort -n -r -k2
 # Lat,		Long,		"name"	opt			# location
@@ -18,7 +21,7 @@
  35.54,		139.53,		"        ,nyan,ume"		# Yokohama, Kanagawa, Japan
  35.36,		139.31,		"                     ,daichi"	# Kawasaki, Kanagawa, Japan
  35.009668,	135.75497,	"takawata"			# Kyoto, Kyoto, Japan
- 48.24138,	135.07563,	"fluffy"			# Khabarovsk, Russia
+ 48.516613,	135.051836,	"fluffy"			# Khabarovsk, Russia
  31.2,		121.5,		"loader"			# Shanghai, China
  25.017,	121.450,	"avatar,kevlo,vanilla,lwhsu,sunpoet"	# Taipei, Taiwan
 -31.900,	115.855,	"woodsb02"			# Perth, WA, Australia
@@ -82,7 +85,7 @@
  51.4233,	7.76057,	"flo"				# Menden, Germany
  50.73389,	7.09972,	"egypcio"			# Bonn, Germany
  49.398056,	6.983889,	"netchild"			# Eppelborn, Germany
- 50.9953,	6.9175,		"se"				# Cologne, Germany
+ 51.05167,	6.91561,	"se"				# Cologne, Germany
  51.146552,	6.86970,	"lme"				# Duesseldorf, Germany
  51.22720,	6.80959,	"pizzamig"			# Duesseldorf, Germany
  51.126809,	6.784074,	"oliver"			# Dormagen, Germany
