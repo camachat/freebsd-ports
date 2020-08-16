@@ -349,6 +349,7 @@
     SUBDIR += cmake-fedora
     SUBDIR += cmake-gui
     SUBDIR += cmake-modules-webos
+    SUBDIR += cmakedoc
     SUBDIR += cmph
     SUBDIR += cmunge
     SUBDIR += coccinelle
@@ -2097,6 +2098,7 @@
     SUBDIR += p5-Data-URIEncode
     SUBDIR += p5-Data-UUID
     SUBDIR += p5-Data-Uniqid
+    SUBDIR += p5-Data-Unixish
     SUBDIR += p5-Data-Util
     SUBDIR += p5-Data-Validate
     SUBDIR += p5-Data-Validator
@@ -2708,6 +2710,7 @@
     SUBDIR += p5-Module-Build-Pluggable
     SUBDIR += p5-Module-Build-Pluggable-ReadmeMarkdownFromPod
     SUBDIR += p5-Module-Build-Tiny
+    SUBDIR += p5-Module-Build-WithXSpp
     SUBDIR += p5-Module-Build-XSUtil
     SUBDIR += p5-Module-CPANTS-Analyse
     SUBDIR += p5-Module-CPANfile

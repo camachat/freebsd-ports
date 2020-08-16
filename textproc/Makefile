@@ -477,6 +477,7 @@
     SUBDIR += p5-BibTeX-Parser
     SUBDIR += p5-BigIP-ParseConfig
     SUBDIR += p5-Bloom-Filter
+    SUBDIR += p5-Business-IS-PIN
     SUBDIR += p5-CAM-PDF
     SUBDIR += p5-CQL-Parser
     SUBDIR += p5-CSS
@@ -724,6 +725,7 @@
     SUBDIR += p5-Search-QueryParser
     SUBDIR += p5-Search-QueryParser-SQL
     SUBDIR += p5-Search-Saryer
+    SUBDIR += p5-Search-Sitemap
     SUBDIR += p5-Search-VectorSpace
     SUBDIR += p5-Senna
     SUBDIR += p5-Solr
@@ -942,6 +944,7 @@
     SUBDIR += p5-Text-Wrapper
     SUBDIR += p5-Text-Xslate
     SUBDIR += p5-Text-Xslate-Bridge-TT2Like
+    SUBDIR += p5-Text-sprintfn
     SUBDIR += p5-Text-vCard
     SUBDIR += p5-Tiffany
     SUBDIR += p5-Time-Human
