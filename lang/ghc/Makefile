@@ -62,6 +62,8 @@ GMP_CONFIGURE_WITH=	gmp-includes=${LOCALBASE}/include \
 GMP_LIB_DEPENDS=	libgmp.so:math/gmp
 GMP_SUB_LIST=		INTEGER_LIBRARY="integer-gmp"
 GMP_SUB_LIST_OFF=	INTEGER_LIBRARY="integer-simple"
+GMP_PLIST_SUB=		GMP="" SIMPLE="@comment "
+GMP_PLIST_SUB_OFF=	GMP="@comment " SIMPLE=""
 
 # Append substitutions for build.mk
 BOOT_SUB_LIST=		HSC2HS=${LOCALBASE}/bin/hsc2hs
@@ -72,13 +74,8 @@ PROFILE_SUB_LIST_OFF=	WITH_PROFILE="NO"
 
 PLIST_SUB=		GHC_VERSION=${GHC_VERSION} GHC_LIBDIR=${GHC_LIBDIR_REL}
 
-GHC_VERSION?=		${GHC_VERSION_DEFAULT}
-GHC_VERSION_DEFAULT=	8.10.1
-GHC_VERSION_MAJOR=	${GHC_VERSION:S/./ /g:[1]}
-GHC_VERSION_MINOR=	${GHC_VERSION:S/./ /g:[2]}
-
+GHC_VERSION=		8.10.1
 HSCOLOUR_VERSION=	1.24.4
-
 LLVM_VERSION=		90
 # LLVM version that bootstrap compiler uses
 BOOT_LLVM_VERSION=	60
@@ -188,19 +185,6 @@ post-install-script:
 		-e 's,^${STAGEDIR}${PREFIX}/?,,' \
 		-e '/^${GHC_LIBDIR:C/\//\\\//g}\/package.conf.d\/package\.cache/s|^|@comment |g' \
 		>> ${TMPPLIST}
-.if ${PORT_OPTIONS:MDOCS}
-	${FIND} -ds ${STAGEDIR}${DOCSDIR} -type f -print | ${SED} -E \
-		-e 's,^${STAGEDIR}${PREFIX}/?,,' \
-		-e '/^${STAGEDIR:C/\//\\\//g}${DOCSDIR:C/\//\\\//g}\/html\/libraries\/doc-index-[^.]+\.html/s|^|@comment |g' \
-		-e '/^${STAGEDIR:C/\//\\\//g}${DOCSDIR:C/\//\\\//g}\/html\/libraries\/index[^\/.]*\.html/s|^|@comment|g' \
-		-e '/^${STAGEDIR:C/\//\\\//g}${DOCSDIR:C/\//\\\//g}\/html\/libraries\/[^\/]+\.png/s|^|@comment |g' \
-		>> ${TMPPLIST}
-
-	# Cleanup the indexen created by gen_contents_index
-	${ECHO} "@postunexec ${RM} %D/${DOCSDIR_REL}/html/libraries/doc-index-*.html" >> ${TMPPLIST}
-	${ECHO} "@postunexec ${RM} %D/${DOCSDIR_REL}/html/libraries/index*.html" >> ${TMPPLIST}
-	${ECHO} "@postunexec ${RM} %D/${DOCSDIR_REL}/html/libraries/*.png" >> ${TMPPLIST}
-.endif
 	${ECHO} '@postunexec ${RM} %D/${GHC_LIBDIR_REL}/package.conf.d/package.cache' >>${TMPPLIST}
 
 post-patch:
