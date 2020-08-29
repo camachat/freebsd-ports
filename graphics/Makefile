@@ -64,7 +64,6 @@
     SUBDIR += aview
     SUBDIR += avir
     SUBDIR += azpainter
-    SUBDIR += backfract
     SUBDIR += barbecue
     SUBDIR += barcode
     SUBDIR += batik
@@ -264,9 +263,8 @@
     SUBDIR += gmic
     SUBDIR += gmic-qt
     SUBDIR += gmt
-    SUBDIR += gmt5
-    SUBDIR += gmt5-dcw
-    SUBDIR += gmt5-gshhg
+    SUBDIR += gmt-dcw
+    SUBDIR += gmt-gshhg
     SUBDIR += gnash
     SUBDIR += gnome-color-manager
     SUBDIR += gnome-video-effects
@@ -894,6 +892,7 @@
     SUBDIR += qgis-ltr
     SUBDIR += qiv
     SUBDIR += qr-code-generator
+    SUBDIR += qt-avif-image-plugin
     SUBDIR += qt5-3d
     SUBDIR += qt5-graphicaleffects
     SUBDIR += qt5-imageformats

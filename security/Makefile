@@ -118,7 +118,6 @@
     SUBDIR += cyrus-sasl2-srp
     SUBDIR += d0_blind_id
     SUBDIR += dcetest
-    SUBDIR += ddos_scan
     SUBDIR += dehydrated
     SUBDIR += denyhosts
     SUBDIR += destroy
@@ -169,7 +168,6 @@
     SUBDIR += fwbuilder
     SUBDIR += fwknop
     SUBDIR += fwlogwatch
-    SUBDIR += gag
     SUBDIR += gcr
     SUBDIR += gef
     SUBDIR += git-crypt
@@ -907,7 +905,6 @@
     SUBDIR += py-kerberos
     SUBDIR += py-keyring
     SUBDIR += py-keyrings.alt
-    SUBDIR += py-keystone
     SUBDIR += py-libnacl
     SUBDIR += py-m2crypto
     SUBDIR += py-maec
@@ -1146,7 +1143,6 @@
     SUBDIR += sancp
     SUBDIR += sandsifter
     SUBDIR += sasp
-    SUBDIR += scamp
     SUBDIR += scanlogd
     SUBDIR += scanssh
     SUBDIR += scrypt

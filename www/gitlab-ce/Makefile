@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gitlab-ce
-PORTVERSION=	13.3.0
+PORTVERSION=	13.3.2
 PORTREVISION=	0
 CATEGORIES=	www devel
 
@@ -75,7 +75,7 @@ MY_DEPENDS=	git>=2.26:devel/git \
 	rubygem-gitlab_omniauth-ldap>=2.1.1<2.2.0:net/rubygem-gitlab_omniauth-ldap \
 	rubygem-net-ldap>0:net/rubygem-net-ldap \
 	rubygem-grape>=1.4.0<1.4.1:devel/rubygem-grape \
-	rubygem-grape-entity>=0.7.1<0.8.0,1:devel/rubygem-grape-entity \
+	rubygem-grape-entity07>=0.7.1<0.8.0,1:devel/rubygem-grape-entity07 \
 	rubygem-rack-cors>=1.0.6<1.1.0:www/rubygem-rack-cors \
 	rubygem-graphql>=1.10.5<1.11.0:devel/rubygem-graphql \
 	rubygem-graphiql-rails>=1.4.10<1.5.0:devel/rubygem-graphiql-rails \
@@ -259,7 +259,7 @@ USE_GITLAB=	yes
 GL_ACCOUNT=	gitlab-org
 GL_PROJECT=	gitlab-foss
 # Find the here: https://gitlab.com/gitlab-org/gitlab-foss/-/tags
-GL_COMMIT=	9119206b6e8aefc4ae25a0d366e7a9788c0a2abd
+GL_COMMIT=	f4a969f7f495978a7e656c69c929c9fdac111cff
 
 USERS=	git
 GROUPS=	git
