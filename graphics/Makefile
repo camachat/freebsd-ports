@@ -222,6 +222,7 @@
     SUBDIR += gdk-pixbuf2
     SUBDIR += gdtclft
     SUBDIR += geeqie
+    SUBDIR += geeqie-devel
     SUBDIR += gegl
     SUBDIR += generic_image_decoder
     SUBDIR += geoapi
@@ -1054,6 +1055,7 @@
     SUBDIR += volpack
     SUBDIR += vp
     SUBDIR += vpaint
+    SUBDIR += vulkan-caps-viewer
     SUBDIR += vulkan-loader
     SUBDIR += vv
     SUBDIR += waffle
