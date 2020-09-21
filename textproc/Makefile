@@ -68,6 +68,7 @@
     SUBDIR += bg-hyphen
     SUBDIR += bg-mythes
     SUBDIR += bib2html
+    SUBDIR += bibclean
     SUBDIR += bibtex2html
     SUBDIR += bibtool
     SUBDIR += bibutils
@@ -1324,6 +1325,7 @@
     SUBDIR += py-pycountry
     SUBDIR += py-pygccxml
     SUBDIR += py-pygments
+    SUBDIR += py-pygments-25
     SUBDIR += py-pygtail
     SUBDIR += py-pyhamcrest
     SUBDIR += py-pyjade
