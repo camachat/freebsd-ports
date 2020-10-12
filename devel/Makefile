@@ -784,9 +784,7 @@
     SUBDIR += git-cola
     SUBDIR += git-delta
     SUBDIR += git-extras
-    SUBDIR += git-gui
     SUBDIR += git-lfs
-    SUBDIR += git-lite
     SUBDIR += git-merge-changelog
     SUBDIR += git-modes
     SUBDIR += git-review
@@ -1298,7 +1296,6 @@
     SUBDIR += libsmpp34
     SUBDIR += libsmraw
     SUBDIR += libsoup
-    SUBDIR += libsoup-gnome
     SUBDIR += libspark2012
     SUBDIR += libspice-server
     SUBDIR += libstatgrab
@@ -4035,6 +4032,7 @@
     SUBDIR += py-aenum
     SUBDIR += py-aiofiles
     SUBDIR += py-aioice
+    SUBDIR += py-aiologger
     SUBDIR += py-aiorpcX
     SUBDIR += py-aiortc
     SUBDIR += py-amalgamate
@@ -4780,8 +4778,11 @@
     SUBDIR += py-ply
     SUBDIR += py-pockets
     SUBDIR += py-podcastparser
+    SUBDIR += py-poetry-core
     SUBDIR += py-polib
     SUBDIR += py-pooch
+    SUBDIR += py-pop
+    SUBDIR += py-pop-config
     SUBDIR += py-portalocker
     SUBDIR += py-positional
     SUBDIR += py-posix_ipc
@@ -4792,6 +4793,7 @@
     SUBDIR += py-pretend
     SUBDIR += py-prettyprinter
     SUBDIR += py-prettytable
+    SUBDIR += py-prettytable0
     SUBDIR += py-proglog
     SUBDIR += py-progress
     SUBDIR += py-promise
@@ -5102,6 +5104,7 @@
     SUBDIR += py-threema-msgapi
     SUBDIR += py-thrift
     SUBDIR += py-thriftpy
+    SUBDIR += py-tiamat
     SUBDIR += py-timelib
     SUBDIR += py-tinyarray
     SUBDIR += py-tinyrpc
@@ -6073,6 +6076,7 @@
     SUBDIR += rubygem-grape-path-helpers
     SUBDIR += rubygem-grape-route-helpers
     SUBDIR += rubygem-grape-swagger
+    SUBDIR += rubygem-grape140
     SUBDIR += rubygem-grape_logging
     SUBDIR += rubygem-graphiql-rails
     SUBDIR += rubygem-graphql
