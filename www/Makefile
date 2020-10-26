@@ -2071,7 +2071,6 @@
     SUBDIR += rubygem-turbolinks-source
     SUBDIR += rubygem-typhoeus
     SUBDIR += rubygem-uglifier
-    SUBDIR += rubygem-uglifier27
     SUBDIR += rubygem-underscore-rails
     SUBDIR += rubygem-unicorn
     SUBDIR += rubygem-unicorn-worker-killer
@@ -2082,7 +2081,6 @@
     SUBDIR += rubygem-wasabi
     SUBDIR += rubygem-webdrivers
     SUBDIR += rubygem-webmock
-    SUBDIR += rubygem-webpack-rails-rails60
     SUBDIR += rubygem-webrick
     SUBDIR += rubygem-webrobots
     SUBDIR += rubygem-websocket
@@ -2259,6 +2257,7 @@
     SUBDIR += uchiwa
     SUBDIR += ufdbguard
     SUBDIR += unit
+    SUBDIR += unit-java
     SUBDIR += unit-perl
     SUBDIR += unit-php
     SUBDIR += unit-python

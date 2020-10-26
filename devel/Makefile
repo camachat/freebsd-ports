@@ -228,6 +228,7 @@
     SUBDIR += bingrep
     SUBDIR += binutils
     SUBDIR += bison
+    SUBDIR += bit
     SUBDIR += bitkeeper
     SUBDIR += blame
     SUBDIR += blitz
@@ -504,6 +505,7 @@
     SUBDIR += e00compr
     SUBDIR += e2fsprogs-libss
     SUBDIR += eastl
+    SUBDIR += easyexif
     SUBDIR += easygit
     SUBDIR += easyloggingpp
     SUBDIR += ebnf2yacc
@@ -1276,6 +1278,7 @@
     SUBDIR += librevisa-vish
     SUBDIR += librevisa-vxi
     SUBDIR += librolegen
+    SUBDIR += librttopo
     SUBDIR += libruin
     SUBDIR += libs11n
     SUBDIR += libsavitar
@@ -4189,6 +4192,7 @@
     SUBDIR += py-bcdoc
     SUBDIR += py-beautifultable
     SUBDIR += py-behave
+    SUBDIR += py-beniget
     SUBDIR += py-bidict
     SUBDIR += py-billiard
     SUBDIR += py-binaryornot
@@ -4319,6 +4323,7 @@
     SUBDIR += py-dask
     SUBDIR += py-dataclasses
     SUBDIR += py-datadog
+    SUBDIR += py-datapackage
     SUBDIR += py-datatest
     SUBDIR += py-dateparser
     SUBDIR += py-dateutil
@@ -4332,6 +4337,7 @@
     SUBDIR += py-decorator
     SUBDIR += py-decoratortools
     SUBDIR += py-deepdiff
+    SUBDIR += py-deepmerge
     SUBDIR += py-defusedxml
     SUBDIR += py-delfick_error
     SUBDIR += py-demjson
@@ -4383,6 +4389,7 @@
     SUBDIR += py-fasteners
     SUBDIR += py-fastentrypoints
     SUBDIR += py-fastimport
+    SUBDIR += py-fastjsonschema
     SUBDIR += py-fastnumbers
     SUBDIR += py-fastprogress
     SUBDIR += py-fbprophet
@@ -5176,6 +5183,7 @@
     SUBDIR += py-validators
     SUBDIR += py-validictory
     SUBDIR += py-vcrpy
+    SUBDIR += py-vcver
     SUBDIR += py-vcversioner
     SUBDIR += py-venusian
     SUBDIR += py-verboselogs
@@ -6847,6 +6855,7 @@
     SUBDIR += yasm
     SUBDIR += yasm-devel
     SUBDIR += youcompleteme
+    SUBDIR += yuck
     SUBDIR += z80-asm
     SUBDIR += z80asm
     SUBDIR += z80ex

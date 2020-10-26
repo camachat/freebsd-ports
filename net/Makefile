@@ -38,6 +38,7 @@
     SUBDIR += asterisk-g72x
     SUBDIR += asterisk13
     SUBDIR += asterisk16
+    SUBDIR += asterisk18
     SUBDIR += avahi
     SUBDIR += avahi-app
     SUBDIR += avahi-autoipd
@@ -1005,6 +1006,7 @@
     SUBDIR += py-dpkt
     SUBDIR += py-dugong
     SUBDIR += py-ec2-cli-tools
+    SUBDIR += py-errbot
     SUBDIR += py-eventlet
     SUBDIR += py-flask-xml-rpc
     SUBDIR += py-gntp
