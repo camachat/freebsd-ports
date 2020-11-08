@@ -96,19 +96,27 @@ EXTRA_PATCHES+= ${PATCHDIR}/extra-src_gallium_auxiliary_meson.build \
 BINARY_ALIAS+=	python3=${PYTHON_VERSION}
 
 .if ${ARCH} == powerpc64
-LLVM_DEFAULT=	90
-BUILD_DEPENDS+=	llvm${LLVM_DEFAULT}>=9.0.1_2:devel/llvm${LLVM_DEFAULT}
+.if ${LLVM_DEFAULT:M[678]0}
+LLVM_VERSION=	90
+.else
+LLVM_VERSION=	${LLVM_DEFAULT}
+.endif
+BUILD_DEPENDS+=	llvm${LLVM_VERSION}>=9.0.1_2:devel/llvm${LLVM_VERSION}
 .if ${COMPONENT} != libs
-RUN_DEPENDS+=	llvm${LLVM_DEFAULT}>=9.0.1_2:devel/llvm${LLVM_DEFAULT}
+RUN_DEPENDS+=	llvm${LLVM_VERSION}>=9.0.1_2:devel/llvm${LLVM_VERSION}
 .endif
 .else
-#LLVM_DEFAULT=	10
-BUILD_DEPENDS+=	llvm${LLVM_DEFAULT}>=10.0.1_1:devel/llvm${LLVM_DEFAULT}
+.if ${LLVM_DEFAULT:M[6789]0}
+LLVM_VERSION=	10
+.else
+LLVM_VERSION=	${LLVM_DEFAULT}
+.endif
+BUILD_DEPENDS+=	llvm${LLVM_VERSION}>=10.0.1_1:devel/llvm${LLVM_VERSION}
 .if ${COMPONENT} != libs
-RUN_DEPENDS+=	llvm${LLVM_DEFAULT}>=10.0.1_1:devel/llvm${LLVM_DEFAULT}
+RUN_DEPENDS+=	llvm${LLVM_VERSION}>=10.0.1_1:devel/llvm${LLVM_VERSION}
 .endif
 .endif
 
 MESON_ARGS+=	--native-file="${WRKSRC}/llvm.ini"
-LDFLAGS+=	-Wl,-rpath=${LOCALBASE}/llvm${LLVM_DEFAULT}/lib
+LDFLAGS+=	-Wl,-rpath=${LOCALBASE}/llvm${LLVM_VERSION}/lib
 MESON_ARGS+=	-Dllvm=enabled
