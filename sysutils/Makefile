@@ -312,6 +312,7 @@
     SUBDIR += etc_os-release
     SUBDIR += etcmerge
     SUBDIR += etcupdate
+    SUBDIR += ethname
     SUBDIR += evhz
     SUBDIR += evisum
     SUBDIR += evtviewer
@@ -522,8 +523,8 @@
     SUBDIR += istatserver
     SUBDIR += istio
     SUBDIR += jadm
-    SUBDIR += jail_exporter
     SUBDIR += jail-primer
+    SUBDIR += jail_exporter
     SUBDIR += jailadmin
     SUBDIR += jaildaemon
     SUBDIR += jailme
@@ -1309,6 +1310,7 @@
     SUBDIR += thefish
     SUBDIR += timelimit
     SUBDIR += timemon
+    SUBDIR += tiramisu
     SUBDIR += titlefix
     SUBDIR += tkdvd
     SUBDIR += tlsdate
