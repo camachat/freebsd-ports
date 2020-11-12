@@ -373,6 +373,9 @@ gst_msdk_GST_PLUGIN_DIR=	sys/msdk
 gst_musepack_LIB_DEPENDS=libmpcdec.so:audio/musepack
 
 # neon
+.if ${GST_PLUGIN} == "neon"
+CPPFLAGS+=	-I${LOCALBASE}/include/neon
+.endif
 gst_neon_LIB_DEPENDS+=  libneon.so:www/neon
 gst_neon_PLIST_FILES=	${GST_LIB_DIR}/libgstneonhttpsrc.so
 
