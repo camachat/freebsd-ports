@@ -60,6 +60,7 @@
     SUBDIR += erun
     SUBDIR += eterm
     SUBDIR += evilvte
+    SUBDIR += evtest
     SUBDIR += fbdesk
     SUBDIR += fbpanel
     SUBDIR += find-cursor
@@ -405,6 +406,7 @@
     SUBDIR += xcut
     SUBDIR += xditview
     SUBDIR += xdm
+    SUBDIR += xdo
     SUBDIR += xdotool
     SUBDIR += xdpyinfo
     SUBDIR += xdriinfo
