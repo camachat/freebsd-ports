@@ -4225,6 +4225,7 @@
     SUBDIR += py-cachy
     SUBDIR += py-canonicaljson
     SUBDIR += py-capstone
+    SUBDIR += py-case
     SUBDIR += py-castellan
     SUBDIR += py-castellan1
     SUBDIR += py-cbor
@@ -5049,6 +5050,7 @@
     SUBDIR += py-selectors2
     SUBDIR += py-semantic_version
     SUBDIR += py-semver
+    SUBDIR += py-sentry-sdk
     SUBDIR += py-serializable
     SUBDIR += py-serpent
     SUBDIR += py-setproctitle
