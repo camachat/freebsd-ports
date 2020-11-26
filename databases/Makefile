@@ -159,6 +159,7 @@
     SUBDIR += libnvpair
     SUBDIR += libodbc++
     SUBDIR += libpbl
+    SUBDIR += libpg_query
     SUBDIR += libpqtypes
     SUBDIR += libsdb
     SUBDIR += libzdb
@@ -235,6 +236,7 @@
     SUBDIR += ocaml-dbm
     SUBDIR += ocaml-mysql
     SUBDIR += ocaml-sqlite3
+    SUBDIR += ods2sql
     SUBDIR += opendbviewer
     SUBDIR += opendbx
     SUBDIR += opentsdb
@@ -930,6 +932,7 @@
     SUBDIR += rubygem-flipper-active_record
     SUBDIR += rubygem-flipper-active_record017
     SUBDIR += rubygem-gdbm
+    SUBDIR += rubygem-gitlab-pg_query
     SUBDIR += rubygem-globalid
     SUBDIR += rubygem-globalid-rails5
     SUBDIR += rubygem-globalid-rails50
