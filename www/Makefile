@@ -140,6 +140,7 @@
     SUBDIR += emacs-w3m
     SUBDIR += encode-explorer
     SUBDIR += envoy
+    SUBDIR += eolie
     SUBDIR += ephemera
     SUBDIR += epiphany
     SUBDIR += erlang-cowboy
