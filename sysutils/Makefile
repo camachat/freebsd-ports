@@ -15,6 +15,7 @@
     SUBDIR += accounts-qml-module
     SUBDIR += accountsservice
     SUBDIR += acerhdf-kmod
+    SUBDIR += acfgfs
     SUBDIR += acltool
     SUBDIR += acpi_call
     SUBDIR += acpica-tools
@@ -232,6 +233,7 @@
     SUBDIR += daggy
     SUBDIR += dar
     SUBDIR += datadog-agent
+    SUBDIR += datadog-integrations
     SUBDIR += dateutils
     SUBDIR += dc3dd
     SUBDIR += dcfldd
@@ -654,6 +656,7 @@
     SUBDIR += mate-system-monitor
     SUBDIR += mbgtools
     SUBDIR += mcelog
+    SUBDIR += mcfly
     SUBDIR += mcollective
     SUBDIR += mcollective-actionpolicy-auth
     SUBDIR += mcollective-nettest-agent
@@ -1292,7 +1295,6 @@
     SUBDIR += sysinfo
     SUBDIR += syslinux
     SUBDIR += syslog-ng
-    SUBDIR += syslog-ng324
     SUBDIR += syslog-ng325
     SUBDIR += syslog-ng326
     SUBDIR += syslog-ng327
