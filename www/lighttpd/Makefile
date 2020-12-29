@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME?=	lighttpd
-PORTVERSION=	1.4.57
+PORTVERSION=	1.4.58
 CATEGORIES?=	www
 MASTER_SITES?=	https://download.lighttpd.net/lighttpd/releases-1.4.x/
 
@@ -16,7 +16,7 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 
 LIB_DEPENDS+=	libpcre.so:devel/pcre
 
-USES=		autoreconf gmake libtool localbase pkgconfig tar:xz
+USES=		autoreconf compiler:c11 gmake libtool localbase pkgconfig tar:xz
 USE_CSTD=	gnu99
 
 .if !defined(_BUILDING_LIGHTTPD_MODULE)

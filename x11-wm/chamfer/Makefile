@@ -10,8 +10,8 @@ COMMENT=	Tiling X11 window manager with Vulkan compositor
 LICENSE=	BSD3CLAUSE
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-BUILD_DEPENDS=	spirv-opt:devel/spirv-tools \
-		vulkan-headers>0:devel/vulkan-headers \
+BUILD_DEPENDS=	spirv-opt:graphics/spirv-tools \
+		vulkan-headers>0:graphics/vulkan-headers \
 		glslc:graphics/shaderc \
 		glm>0:math/glm
 LIB_DEPENDS=	libboost_filesystem.so:devel/boost-libs \

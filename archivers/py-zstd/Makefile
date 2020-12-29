@@ -13,11 +13,11 @@ LICENSE=	BSD2CLAUSE
 
 LIB_DEPENDS=	libzstd.so:archivers/zstd
 
-USES=		python localbase
+USES=		python:3.6+ localbase
 USE_PYTHON=	distutils autoplist
 PYDISTUTILS_BUILDARGS=	--external
 
 post-install:
-	@${STRIP_CMD} ${STAGEDIR}${PYTHONPREFIX_SITELIBDIR}/zstd.so
+	@${STRIP_CMD} ${STAGEDIR}${PYTHONPREFIX_SITELIBDIR}/zstd*.so
 
 .include <bsd.port.mk>

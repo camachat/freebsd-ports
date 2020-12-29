@@ -50,6 +50,7 @@
     SUBDIR += belier
     SUBDIR += bfbtester
     SUBDIR += binwalk
+    SUBDIR += bitwarden_rs
     SUBDIR += boringssl
     SUBDIR += botan110
     SUBDIR += botan2
@@ -1150,6 +1151,7 @@
     SUBDIR += rubygem-six
     SUBDIR += rubygem-sshkey
     SUBDIR += rubygem-sshkit
+    SUBDIR += rubygem-sslshake
     SUBDIR += rubygem-timfel-krb5
     SUBDIR += rubygem-tpm-key_attestation
     SUBDIR += rubygem-twitter_oauth

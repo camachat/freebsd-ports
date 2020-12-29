@@ -13,13 +13,16 @@ COMMENT=	SLEPc for Python
 LICENSE=	BSD2CLAUSE
 LICENSE_FILE=	${WRKSRC}/LICENSE.rst
 
+DEPRECATED=	Depends on broken and expiring math/slepc
+EXPIRATION_DATE=	2020-12-29
+
 BUILD_DEPENDS=	${PYNUMPY}
 LIB_DEPENDS=	libmpich.so:net/mpich \
 		libpetsc.so:science/PETSc \
 		libslepc.so:math/slepc
 RUN_DEPENDS=	${PYNUMPY}
 
-USES=		fortran python
+USES=		fortran python:3.6+
 USE_PYTHON=	distutils autoplist
 
 MAKE_ENV=	PETSC_DIR=${LOCALBASE} SLEPC_DIR=${LOCALBASE}

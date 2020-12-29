@@ -9,6 +9,7 @@
     SUBDIR += 915resolution
     SUBDIR += LPRng
     SUBDIR += LPRngTool
+    SUBDIR += R-cran-ps
     SUBDIR += UEFITool
     SUBDIR += abduco
     SUBDIR += abgx360
@@ -98,6 +99,9 @@
     SUBDIR += bareos18-client
     SUBDIR += bareos18-server
     SUBDIR += bareos18-traymonitor
+    SUBDIR += bareos19-client
+    SUBDIR += bareos19-server
+    SUBDIR += bareos19-traymonitor
     SUBDIR += barrier
     SUBDIR += bashtop
     SUBDIR += bastille
@@ -754,6 +758,7 @@
     SUBDIR += nfcutils
     SUBDIR += nitrogen
     SUBDIR += nix
+    SUBDIR += nmrpflash
     SUBDIR += no-login
     SUBDIR += node_exporter
     SUBDIR += nomad
@@ -1122,7 +1127,9 @@
     SUBDIR += rubygem-chef-config
     SUBDIR += rubygem-chef-config12
     SUBDIR += rubygem-chef-dk
+    SUBDIR += rubygem-chef-telemetry
     SUBDIR += rubygem-chef-utils
+    SUBDIR += rubygem-chef-utils15
     SUBDIR += rubygem-chef-vault
     SUBDIR += rubygem-chef-zero
     SUBDIR += rubygem-chef-zero5
@@ -1402,11 +1409,11 @@
     SUBDIR += u-boot-rockpro64
     SUBDIR += u-boot-rpi
     SUBDIR += u-boot-rpi-0-w
+    SUBDIR += u-boot-rpi-arm64
     SUBDIR += u-boot-rpi2
     SUBDIR += u-boot-rpi3
     SUBDIR += u-boot-rpi3-32
     SUBDIR += u-boot-rpi4
-    SUBDIR += u-boot-rpi-arm64
     SUBDIR += u-boot-sifive-fu540
     SUBDIR += u-boot-sinovoip-bpi-m3
     SUBDIR += u-boot-sopine

@@ -231,6 +231,7 @@
     SUBDIR += py-chempy
     SUBDIR += py-coards
     SUBDIR += py-dlib
+    SUBDIR += py-eccodes
     SUBDIR += py-eccodes-python
     SUBDIR += py-geolinks
     SUBDIR += py-geomet
@@ -240,6 +241,7 @@
     SUBDIR += py-gsd
     SUBDIR += py-h5json
     SUBDIR += py-h5py
+    SUBDIR += py-jupyter_jsmol
     SUBDIR += py-kim-query
     SUBDIR += py-kinematics
     SUBDIR += py-kliff

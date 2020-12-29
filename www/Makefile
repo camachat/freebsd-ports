@@ -44,6 +44,7 @@
     SUBDIR += bareos16-webui
     SUBDIR += bareos17-webui
     SUBDIR += bareos18-webui
+    SUBDIR += bareos19-webui
     SUBDIR += beehive
     SUBDIR += bkmrkconv
     SUBDIR += blastbeat
@@ -117,6 +118,7 @@
     SUBDIR += drupal7
     SUBDIR += drupal7-wysiwyg
     SUBDIR += drupal8
+    SUBDIR += drupal9
     SUBDIR += drush
     SUBDIR += dtse
     SUBDIR += e107
@@ -164,6 +166,7 @@
     SUBDIR += firefox-esr
     SUBDIR += flashplayer
     SUBDIR += flat-frog
+    SUBDIR += flexget
     SUBDIR += flickcurl
     SUBDIR += fnord
     SUBDIR += formication
@@ -482,6 +485,7 @@
     SUBDIR += opera-linuxplugins
     SUBDIR += orangehrm
     SUBDIR += osrm-backend
+    SUBDIR += osticket
     SUBDIR += ot-recorder
     SUBDIR += otrs
     SUBDIR += otter-browser
@@ -1614,7 +1618,6 @@
     SUBDIR += py-flask-sockets
     SUBDIR += py-flask-uploads
     SUBDIR += py-flask-wtf
-    SUBDIR += py-flexget
     SUBDIR += py-flup6
     SUBDIR += py-folium
     SUBDIR += py-forcediphttpsadapter
@@ -2017,7 +2020,6 @@
     SUBDIR += rubygem-rack15
     SUBDIR += rubygem-rack16
     SUBDIR += rubygem-rack20
-    SUBDIR += rubygem-rack21
     SUBDIR += rubygem-rack_csrf
     SUBDIR += rubygem-rails-settings-cached
     SUBDIR += rubygem-rails-settings-cached-rails5
@@ -2140,6 +2142,8 @@
     SUBDIR += smarty3
     SUBDIR += smb_auth
     SUBDIR += snarf
+    SUBDIR += sogo
+    SUBDIR += sogo-activesync
     SUBDIR += sogo2
     SUBDIR += sogo2-activesync
     SUBDIR += sogo4

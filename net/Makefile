@@ -177,6 +177,7 @@
     SUBDIR += geoipupdate
     SUBDIR += gerbera
     SUBDIR += gfbgraph
+    SUBDIR += gitlab-agent
     SUBDIR += glflow
     SUBDIR += glib-networking
     SUBDIR += glusterfs
@@ -267,7 +268,6 @@
     SUBDIR += ip6_int
     SUBDIR += ipdecap
     SUBDIR += ipgrab
-    SUBDIR += iplog
     SUBDIR += ipsumdump
     SUBDIR += ipsvd
     SUBDIR += ipxe
