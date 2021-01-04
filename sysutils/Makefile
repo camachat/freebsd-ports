@@ -175,6 +175,7 @@
     SUBDIR += chgrep
     SUBDIR += choria
     SUBDIR += chyves
+    SUBDIR += cinnamon-control-center
     SUBDIR += cinnamon-settings-daemon
     SUBDIR += ciso
     SUBDIR += ciso-maker
@@ -1415,6 +1416,7 @@
     SUBDIR += ucspi-unix
     SUBDIR += udfclient
     SUBDIR += uefi-edk2-bhyve
+    SUBDIR += uefi-edk2-bhyve-csm
     SUBDIR += uefi-edk2-bhyve-devel
     SUBDIR += uefi-edk2-qemu
     SUBDIR += ufetch
@@ -1477,6 +1479,8 @@
     SUBDIR += wimlib
     SUBDIR += wmapmload
     SUBDIR += wmbluecpu
+    SUBDIR += wmbsdbatt
+    SUBDIR += wmcube
     SUBDIR += wmdiskmon
     SUBDIR += wmflame
     SUBDIR += wmmemfree
@@ -1487,6 +1491,7 @@
     SUBDIR += wuzzah
     SUBDIR += x86info
     SUBDIR += xbatt
+    SUBDIR += xbattbar
     SUBDIR += xcdroast
     SUBDIR += xcpustate
     SUBDIR += xdu

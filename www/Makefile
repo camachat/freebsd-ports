@@ -410,6 +410,7 @@
     SUBDIR += mod_xmlns
     SUBDIR += mod_xsendfile
     SUBDIR += mohawk
+    SUBDIR += moinmoin
     SUBDIR += moinmoincli
     SUBDIR += mongoose
     SUBDIR += mongrel2
@@ -455,6 +456,8 @@
     SUBDIR += nibbleblog
     SUBDIR += nift
     SUBDIR += node
+    SUBDIR += node10
+    SUBDIR += node12
     SUBDIR += node14
     SUBDIR += nostromo
     SUBDIR += novnc
@@ -1966,6 +1969,7 @@
     SUBDIR += rubygem-multipart-post
     SUBDIR += rubygem-nanoc
     SUBDIR += rubygem-nested_form
+    SUBDIR += rubygem-net-http
     SUBDIR += rubygem-net-http-digest_auth
     SUBDIR += rubygem-net-http-persistent
     SUBDIR += rubygem-net-http-persistent2
@@ -2279,7 +2283,6 @@
     SUBDIR += wsdlpull
     SUBDIR += wsmake
     SUBDIR += wt
-    SUBDIR += wt3
     SUBDIR += wuzz
     SUBDIR += wwwoffle
     SUBDIR += xapian-omega
