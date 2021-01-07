@@ -945,6 +945,7 @@
     SUBDIR += htable
     SUBDIR += hub
     SUBDIR += hwloc
+    SUBDIR += hwloc2
     SUBDIR += hyperscan
     SUBDIR += i386-gcc
     SUBDIR += i386-xtoolchain-gcc
@@ -2111,6 +2112,7 @@
     SUBDIR += p5-Data-Validator
     SUBDIR += p5-Data-Visitor
     SUBDIR += p5-Data-Visitor-Encode
+    SUBDIR += p5-Data-Visitor-Tiny
     SUBDIR += p5-Data-Walk
     SUBDIR += p5-Date-Business
     SUBDIR += p5-Date-Calc
@@ -6832,6 +6834,7 @@
     SUBDIR += tnt
     SUBDIR += tokamak
     SUBDIR += tokei
+    SUBDIR += toml11
     SUBDIR += tortoisehg
     SUBDIR += tpasm
     SUBDIR += tradcpp
