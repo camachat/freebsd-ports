@@ -1157,6 +1157,7 @@
     SUBDIR += libdwarf
     SUBDIR += libe
     SUBDIR += libedit
+    SUBDIR += libegit2
     SUBDIR += libeio
     SUBDIR += libelf
     SUBDIR += libepoll-shim
@@ -1481,6 +1482,7 @@
     SUBDIR += m4
     SUBDIR += mage
     SUBDIR += magit
+    SUBDIR += magit-devel
     SUBDIR += magit-popup
     SUBDIR += make++
     SUBDIR += makedepend
@@ -6855,6 +6857,7 @@
     SUBDIR += tpasm
     SUBDIR += tradcpp
     SUBDIR += transwarp
+    SUBDIR += transient
     SUBDIR += treepy.el
     SUBDIR += trellis
     SUBDIR += trio
