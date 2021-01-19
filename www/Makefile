@@ -1761,6 +1761,7 @@
     SUBDIR += py-webassets
     SUBDIR += py-webob
     SUBDIR += py-weboob
+    SUBDIR += py-weboob-qt
     SUBDIR += py-websocket-client
     SUBDIR += py-webunit
     SUBDIR += py-werkzeug
