@@ -1,7 +1,7 @@
 # Created by: Johannes Dieterich <jmd@FreeBSD.org>
 # $FreeBSD$
 
-PORTNAME=	drm-current-kmod
+PORTNAME=	drm-fbsd13-kmod
 PORTVERSION=	5.4.62.g20210122
 CATEGORIES=	graphics kld
 
@@ -39,7 +39,7 @@ GH_TAGNAME=	drm_v5.4.62_10
 .include <bsd.port.options.mk>
 
 .if ${OPSYS} == FreeBSD && (${OSVERSION} < 1300136 || ${OSVERSION} >= 1400000)
-IGNORE=		only supported on FreeBSD 12.
+IGNORE=		only supported on FreeBSD 13.
 .endif
 .if ${OPSYS} != FreeBSD
 IGNORE=		not supported on anything but FreeBSD (missing linuxkpi functionality)
