@@ -14416,7 +14416,6 @@ deskutils/syncthing-gtk||2020-03-07|Has expired: Old, uses EOLed python27
 x11-wm/compiz-fusion||2020-03-07|Has expired: Old, uses EOLed python27
 x11/run_scaled||2020-03-07|Has expired: Old, uses EOLed python27
 databases/pgworksheet||2020-03-07|Has expired: Old, uses EOLed python27
-x11-fonts/font-manager||2020-03-07|Has expired: Old, uses EOLed python27
 x11-toolkits/py-gtksourceview||2020-03-07|Has expired: Old, uses EOLed python27
 devel/py-hgsubversion||2020-03-08|Has expired: Unmaintained, uses EOLed python27
 devel/py-gamin||2020-03-08|Has expired: Old, uses EOLed python27
@@ -15980,7 +15979,6 @@ games/freera||2021-01-02|Has expired: Uses Python 2.7 version of scons, and Pyth
 games/glob2||2021-01-02|Has expired: Uses Python 2.7 version of scons, and Python 2.7 which is EOLed upstream
 games/marsnomercy||2021-01-02|Has expired: Uses Python 2.7 version of scons, and Python 2.7 which is EOLed upstream
 games/netpanzer||2021-01-02|Has expired: Uses Python 2.7 version of scons, and Python 2.7 which is EOLed upstream
-games/pingus||2021-01-02|Has expired: Uses Python 2.7 version of scons, and Python 2.7 which is EOLed upstream
 graphics/goxel||2021-01-02|Has expired: Uses Python 2.7 version of scons, and Python 2.7 which is EOLed upstream
 graphics/sk1libs||2021-01-02|Has expired: Uses Python 2.7 which is EOLed upstream
 graphics/uniconvertor||2021-01-02|Has expired: Uses deprecated version of python
