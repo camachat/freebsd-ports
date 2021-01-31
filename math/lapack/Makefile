@@ -117,7 +117,7 @@ PLIST_SUB+=	${o}="@comment "
 post-patch:
 	@${SED} -Ee '\
 		s@^(FORTRAN|LOADER)([[:blank:]]*=)(.*)@\1\2 $${FC}@; \
-		s@^(OPTS[[:blank:]]*=)(.*)@\1 $${FFLAGS} $${EXTRAFLAGS}@; \
+		s@^(OPTS[[:blank:]]*=)(.*)@\1 ${FFLAGS} $${EXTRAFLAGS}@; \
 		s@^NOOPT[[:blank:]]*=.*@& $${EXTRAFLAGS}@; \
 		s@^(LOADOPTS[[:blank:]]*=)(.*)@\1 $${LDFLAGS} $${EXTRAFLAGS}@; \
 		s@^(CC[[:blank:]]*=)(.*)@@; \
