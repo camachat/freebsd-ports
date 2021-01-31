@@ -5,6 +5,7 @@ DISTVERSIONPREFIX=	v
 DISTVERSION=	0.2.3
 PORTEPOCH=	1
 CATEGORIES=	comms hamradio
+#PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
 MAINTAINER=	martymac@FreeBSD.org
 COMMENT=	GNU Radio OsmoSDR module
@@ -12,7 +13,7 @@ COMMENT=	GNU Radio OsmoSDR module
 LICENSE=	GPLv3
 
 BUILD_DEPENDS=	swig:devel/swig \
-		cheetah:devel/py-cheetah3@${PY_FLAVOR}
+		${PYTHON_PKGNAMEPREFIX}cheetah3>0:devel/py-cheetah3@${PY_FLAVOR}
 LIB_DEPENDS=	libgnuradio-runtime.so:comms/gnuradio \
 		libgnuradio-pmt.so:comms/gnuradio \
 		libgnuradio-blocks.so:comms/gnuradio \
@@ -24,7 +25,7 @@ LIB_DEPENDS=	libgnuradio-runtime.so:comms/gnuradio \
 		libgmp.so:math/gmp \
 		liborc-0.4.so:devel/orc
 
-USES=	cmake compiler:c++11-lang fortran pkgconfig python:3.7+ tar:tgz
+USES=		cmake compiler:c++11-lang fortran pkgconfig python:3.7+ tar:tgz
 
 SUB_LIST=	VERSION=${PORTVERSION}
 SUB_FILES=	gnuradio-osmosdr.pc
