@@ -15212,7 +15212,6 @@ devel/py-protocols||2020-08-15|Has expired: Uses deprecated version of python
 devel/py-ptrace||2020-08-15|Has expired: Uses deprecated version of python
 devel/py-pydoop||2020-08-15|Has expired: Uses deprecated version of python
 devel/py-pyke||2020-08-15|Has expired: Uses deprecated version of python
-devel/py-pymtbl||2020-08-15|Has expired: Uses deprecated version of python
 devel/py-pyshapelib||2020-08-15|Has expired: Uses deprecated version of python
 devel/py-pytemplate||2020-08-15|Has expired: Uses deprecated version of python
 devel/py-python2-pythondialog||2020-08-15|Has expired: Uses deprecated version of python
@@ -15265,7 +15264,6 @@ multimedia/py-flvlib||2020-08-15|Has expired: Uses deprecated version of python
 net/py-gspreadsheet||2020-08-15|Has expired: Uses deprecated version of python
 net/py-libnet||2020-08-15|Has expired: Uses deprecated version of python
 net/py-netlib||2020-08-15|Has expired: Uses deprecated version of python
-net/py-pynmsg||2020-08-15|Has expired: Uses deprecated version of python
 net/py-rainbowstream||2020-08-15|Has expired: Uses deprecated version of python
 net/py-wolframalpha||2020-08-15|Has expired: Uses deprecated version of python
 net-im/empathy||2020-08-15|Has expired: Uses deprecated version of python
@@ -16032,3 +16030,7 @@ ftp/bbftp||2021-01-30|Was split into client and server ports, install as needed
 graphics/opencv-core|graphics/opencv|2021-01-30|Reintegrated into a simple, maintainable port
 graphics/py-opencv|graphics/opencv|2021-01-30|Reintegrated into a simple, maintainable port
 graphics/opencv-java|graphics/opencv|2021-01-30|Reintegrated into a simple, maintainable port
+devel/py-automaton1|devel/py-automaton|2021-01-31|Has expired: Use devel/py-automaton instead
+devel/py-jaraco.functools2|devel/py-jaraco.functools|2021-01-31|Has expired: Use devel/py-jaraco.functools instead
+math/py-statsmodels010|math/py-statsmodels|2021-01-31|Has expired: Use math/py-statsmodels instead
+www/py-tornado6|www/py-tornado|2021-01-31|Has expired: Use www/py-tornado instead
