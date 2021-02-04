@@ -856,7 +856,6 @@
     SUBDIR += gob2
     SUBDIR += gobject-introspection
     SUBDIR += gocheese
-    SUBDIR += godep
     SUBDIR += godot
     SUBDIR += godot-tools
     SUBDIR += godot2
@@ -1964,6 +1963,7 @@
     SUBDIR += p5-Config-MVP-Reader-INI
     SUBDIR += p5-Config-Merge
     SUBDIR += p5-Config-Model
+    SUBDIR += p5-Config-Model-Backend-Yaml
     SUBDIR += p5-Config-Model-Tester
     SUBDIR += p5-Config-MySQL
     SUBDIR += p5-Config-Objective
@@ -2011,6 +2011,7 @@
     SUBDIR += p5-Data-Clone
     SUBDIR += p5-Data-Compare
     SUBDIR += p5-Data-Diver
+    SUBDIR += p5-Data-Dmp
     SUBDIR += p5-Data-Domain
     SUBDIR += p5-Data-Dump
     SUBDIR += p5-Data-Dump-Color
@@ -3116,6 +3117,7 @@
     SUBDIR += p5-Regexp-Pattern-Perl
     SUBDIR += p5-Regexp-RegGrp
     SUBDIR += p5-Regexp-Shellish
+    SUBDIR += p5-Regexp-Stringify
     SUBDIR += p5-Regexp-Subst-Parallel
     SUBDIR += p5-Regexp-Trie
     SUBDIR += p5-Religion
@@ -3694,6 +3696,7 @@
     SUBDIR += pam_wrapper
     SUBDIR += papi
     SUBDIR += papilio-loader
+    SUBDIR += parallel-hashmap
     SUBDIR += pas2dox
     SUBDIR += pasm
     SUBDIR += patch
@@ -4084,6 +4087,7 @@
     SUBDIR += py-atomicwrites
     SUBDIR += py-atpublic
     SUBDIR += py-attrs
+    SUBDIR += py-autocommand
     SUBDIR += py-autoflake
     SUBDIR += py-automaton
     SUBDIR += py-autoprop
@@ -4222,6 +4226,7 @@
     SUBDIR += py-case
     SUBDIR += py-castellan
     SUBDIR += py-castellan1
+    SUBDIR += py-catalogue
     SUBDIR += py-cbor
     SUBDIR += py-cbor2
     SUBDIR += py-cclib
@@ -4752,6 +4757,7 @@
     SUBDIR += py-pastel
     SUBDIR += py-patch
     SUBDIR += py-patch-ng
+    SUBDIR += py-path
     SUBDIR += py-path.py
     SUBDIR += py-pathlib2
     SUBDIR += py-pathspec
@@ -4849,6 +4855,7 @@
     SUBDIR += py-pycparser
     SUBDIR += py-pydantic
     SUBDIR += py-pydash
+    SUBDIR += py-pydecor
     SUBDIR += py-pydenticon
     SUBDIR += py-pydevd
     SUBDIR += py-pydispatcher
@@ -6813,6 +6820,7 @@
     SUBDIR += t1lib
     SUBDIR += ta-lib
     SUBDIR += tablist
+    SUBDIR += tabulate
     SUBDIR += tailor
     SUBDIR += talloc
     SUBDIR += taskctl

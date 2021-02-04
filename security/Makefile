@@ -192,8 +192,8 @@
     SUBDIR += gost-engine
     SUBDIR += govpn
     SUBDIR += gpa
-    SUBDIR += gpgdir
     SUBDIR += gpg-gui
+    SUBDIR += gpgdir
     SUBDIR += gpgme
     SUBDIR += gpgme-cpp
     SUBDIR += gpgme-qt5
@@ -207,8 +207,8 @@
     SUBDIR += gstreamer1-plugins-dtls
     SUBDIR += gtkpasman
     SUBDIR += gvm
-    SUBDIR += gvmd
     SUBDIR += gvm-libs
+    SUBDIR += gvmd
     SUBDIR += gwee
     SUBDIR += hackbot
     SUBDIR += hardening-check
@@ -273,6 +273,7 @@
     SUBDIR += krb5-116
     SUBDIR += krb5-117
     SUBDIR += krb5-118
+    SUBDIR += krb5-119
     SUBDIR += krb5-appl
     SUBDIR += krb5-devel
     SUBDIR += kripp
@@ -1045,6 +1046,7 @@
     SUBDIR += rifiuti2
     SUBDIR += rkhunter
     SUBDIR += rndpassw
+    SUBDIR += rnp
     SUBDIR += ruby-bitwarden
     SUBDIR += rubygem-acme-client
     SUBDIR += rubygem-aes_key_wrap
@@ -1259,7 +1261,6 @@
     SUBDIR += tinc
     SUBDIR += tinc-devel
     SUBDIR += tinyca
-    SUBDIR += titus
     SUBDIR += tls-check
     SUBDIR += tlswrap
     SUBDIR += tor
