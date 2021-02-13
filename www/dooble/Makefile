@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	dooble
-DISTVERSION=	2020.10.10
+DISTVERSION=	2021.01.10
 CATEGORIES=	www
 
 MAINTAINER=	eric@camachat.org
@@ -10,7 +10,7 @@ COMMENT=	Dooble Web Browser
 LICENSE=	BSD3CLAUSE
 LICENSE_FILE=	${WRKSRC}/../LICENSE
 
-USES=		desktop-file-utils compiler:c++11-lang qt:5 ssl tar xorg gmake qmake
+USES=		desktop-file-utils compiler:c++17-lang qt:5 ssl tar xorg gmake qmake
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	textbrowser
