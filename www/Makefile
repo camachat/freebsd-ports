@@ -2185,6 +2185,7 @@
     SUBDIR += tokyopromenade
     SUBDIR += tomcat-devel
     SUBDIR += tomcat-native
+    SUBDIR += tomcat10
     SUBDIR += tomcat7
     SUBDIR += tomcat85
     SUBDIR += tomcat9
