@@ -521,6 +521,7 @@
     SUBDIR += dwarf2json
     SUBDIR += dwarfdump
     SUBDIR += dwarves
+    SUBDIR += dwz
     SUBDIR += dxa65
     SUBDIR += dyncall
     SUBDIR += e00compr
@@ -4629,6 +4630,7 @@
     SUBDIR += py-meliae
     SUBDIR += py-memory-profiler
     SUBDIR += py-microversion-parse
+    SUBDIR += py-milc
     SUBDIR += py-minidump
     SUBDIR += py-minimongo
     SUBDIR += py-minio
