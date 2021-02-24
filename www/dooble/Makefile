@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	dooble
-DISTVERSION=	2021.01.10
+DISTVERSION=	2021.02.20
 CATEGORIES=	www
 
 MAINTAINER=	eric@camachat.org
