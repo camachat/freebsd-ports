@@ -233,7 +233,6 @@
     SUBDIR += h2o
     SUBDIR += h2o-devel
     SUBDIR += habari
-    SUBDIR += helma
     SUBDIR += hiawatha
     SUBDIR += hiawatha-monitor
     SUBDIR += horde-ansel

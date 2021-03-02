@@ -4895,6 +4895,7 @@
     SUBDIR += py-pylibsrtp
     SUBDIR += py-pylru
     SUBDIR += py-pylru-cache
+    SUBDIR += py-pyls-black
     SUBDIR += py-pymarc
     SUBDIR += py-pymaven-patch
     SUBDIR += py-pymisp
@@ -5433,6 +5434,7 @@
     SUBDIR += ros-rospkg
     SUBDIR += ros-urdfdom
     SUBDIR += ros-urdfdom_headers
+    SUBDIR += ros-vcstool
     SUBDIR += ros-vcstools
     SUBDIR += ros-wstool
     SUBDIR += roswell
@@ -6781,7 +6783,6 @@
     SUBDIR += smake
     SUBDIR += smc
     SUBDIR += smv
-    SUBDIR += snorenotify
     SUBDIR += soapui
     SUBDIR += socket_wrapper
     SUBDIR += sonar-scanner-cli
