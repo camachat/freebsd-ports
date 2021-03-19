@@ -167,6 +167,7 @@
     SUBDIR += freerdp
     SUBDIR += freeswitch
     SUBDIR += freevrrpd
+    SUBDIR += frp
     SUBDIR += frr7
     SUBDIR += frr7-pythontools
     SUBDIR += fspclient
@@ -240,6 +241,7 @@
     SUBDIR += hlmaster
     SUBDIR += honeyd
     SUBDIR += hostapd
+    SUBDIR += hostapd-devel
     SUBDIR += hping
     SUBDIR += hping3
     SUBDIR += hsflowd
