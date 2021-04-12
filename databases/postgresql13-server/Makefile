@@ -240,21 +240,8 @@ RUN_DEPENDS+=		llvm-config${PG_LLVM_VERSION}:devel/llvm${PG_LLVM_VERSION}
 CONFIGURE_ENV+=		LLVM_CONFIG=${LOCALBASE}/bin/llvm-config${PG_LLVM_VERSION}
 .endif
 
-# sync LLVM to the preferred compiler if possible
-# or else use a lower version compiler that is compatible
-.if ${COMPILER_VERSION} > ${LLVM_DEFAULT}
-# Highest LLVM version in ports:
-.  if ${COMPILER_VERSION} <= 11
-PG_LLVM_VERSION=${COMPILER_VERSION}
-PG_COMPILER_VERSION=${COMPILER_VERSION}
-.  else
-PG_LLVM_VERSION=11
-PG_COMPILER_VERSION=11
-.  endif
-.else
 PG_COMPILER_VERSION=${COMPILER_VERSION}
 PG_LLVM_VERSION=${LLVM_DEFAULT}
-.endif
 
 .if ${DISTVERSION:C/([0-9]*).*/\1/} >= 11
 .  if defined(SERVER_ONLY) && ${PORT_OPTIONS:MLLVM}
