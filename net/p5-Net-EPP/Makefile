@@ -1,5 +1,8 @@
 # Created by: Aaron Dalton <aaron@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-EPP
 PORTVERSION=	0.22

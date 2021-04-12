@@ -1,5 +1,8 @@
 # Created by: Aaron H. K. Diep <ahkdiep@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ctags
 PORTVERSION=	1.0.5

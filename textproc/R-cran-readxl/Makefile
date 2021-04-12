@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	readxl
 DISTVERSION=	1.3.1
 PORTREVISION=	2

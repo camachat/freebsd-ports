@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	scamper
 DISTVERSION=	20210324
 CATEGORIES=	net

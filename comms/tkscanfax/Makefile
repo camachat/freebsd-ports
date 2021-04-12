@@ -1,5 +1,8 @@
 # Created by: MITA Yoshio <mita@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tkscanfax
 PORTVERSION=	1.1.8

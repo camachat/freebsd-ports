@@ -1,7 +1,11 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+
+>>>>>>> upstream/main
 # PROVIDE: minirsyslogd
 # REQUIRE: DAEMON
 # KEYWORD: shutdown

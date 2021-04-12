@@ -1,5 +1,8 @@
 # Created by: krion@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	icpld
 PORTVERSION=	1.1.5

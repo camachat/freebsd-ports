@@ -1,5 +1,8 @@
 # Created by: jrhett@netconsonance.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cfengine
 PORTVERSION=	3.14.0

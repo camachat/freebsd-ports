@@ -1,5 +1,8 @@
 # Created by: Gabor Kovesdan
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Crypt-SKey
 PORTVERSION=	0.10

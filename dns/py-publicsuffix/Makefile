@@ -1,5 +1,8 @@
 # Created by: Dmitry Pryadko <d.pryadko@rambler-co.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	publicsuffix
 PORTVERSION=	1.1.0

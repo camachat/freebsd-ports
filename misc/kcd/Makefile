@@ -1,5 +1,8 @@
 # Created by: Andrey Zakhvatov
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	kcd
 PORTVERSION=	7.15.0

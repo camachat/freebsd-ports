@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	SpreadSheetPlugin
 SVNREV=		16417
 

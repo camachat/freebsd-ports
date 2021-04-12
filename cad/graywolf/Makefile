@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	graywolf
 DISTVERSION=	0.1.6-4
 DISTVERSIONSUFFIX=	-gf47937b

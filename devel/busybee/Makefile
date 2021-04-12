@@ -1,5 +1,8 @@
 # Created by: Veniamin Gvozdikov <vg@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		busybee
 PORTVERSION=		0.7.0

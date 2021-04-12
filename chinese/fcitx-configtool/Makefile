@@ -1,5 +1,8 @@
 # Created by: Zhihao Yuan <lichray@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fcitx-configtool
 PORTVERSION=	0.4.9

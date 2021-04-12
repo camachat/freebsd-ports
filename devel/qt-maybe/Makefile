@@ -1,5 +1,8 @@
 # Created by: Pawel Pekala <pawel@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	qt-maybe
 PORTVERSION=	0.0.20151227

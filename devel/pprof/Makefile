@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pprof
 DISTVERSION=	g20200905
 CATEGORIES=	devel

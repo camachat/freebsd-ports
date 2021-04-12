@@ -1,5 +1,8 @@
 # Created by: gahr
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ez-pine-gpg
 DISTVERSION=	0.4h

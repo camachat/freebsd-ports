@@ -1,5 +1,8 @@
 # Created by: Steve Wills <swills@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	power_assert
 PORTVERSION=	1.2.0

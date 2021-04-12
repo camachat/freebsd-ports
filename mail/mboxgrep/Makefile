@@ -1,5 +1,8 @@
 # Created by: Anders Nordby <anders@fix.no>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mboxgrep
 PORTVERSION=	0.7.9

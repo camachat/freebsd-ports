@@ -1,5 +1,8 @@
 # Created by: Dominic Marks <d.marks@student.umist.ac.uk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ccache
 #PORTVERSION must be set later due to depending on PORT_OPTIONS.

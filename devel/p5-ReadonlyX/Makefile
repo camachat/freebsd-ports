@@ -1,5 +1,8 @@
 # Created by: Adam Weinberger <adamw@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ReadonlyX
 PORTVERSION=	1.04

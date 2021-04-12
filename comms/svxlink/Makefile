@@ -1,5 +1,8 @@
 # Created by: shurd
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME?=	svxlink
 PORTVERSION=	19.09.1

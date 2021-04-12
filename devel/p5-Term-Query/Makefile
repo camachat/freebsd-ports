@@ -1,5 +1,8 @@
 # Created by: Garrett Wollman <wollman@lcs.mit.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Term-Query
 PORTVERSION=	2.0

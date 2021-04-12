@@ -1,5 +1,8 @@
 # Created by: Aaron Straup Cope
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	print-n-times
 PORTVERSION=	1.0

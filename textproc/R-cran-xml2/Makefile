@@ -1,5 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xml2
 PORTVERSION=	1.3.2

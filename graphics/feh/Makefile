@@ -1,5 +1,8 @@
 # Created by: Jeremy Norris <ishmael127@home.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	feh
 PORTVERSION=	3.5

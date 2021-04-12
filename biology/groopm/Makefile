@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	GroopM
 DISTVERSION=	0.3.4
 PORTREVISION=	3

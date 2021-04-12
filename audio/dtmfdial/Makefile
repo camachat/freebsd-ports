@@ -1,5 +1,8 @@
 # Created by: David Bushong <david@bushong.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dtmfdial
 PORTVERSION=	0.2

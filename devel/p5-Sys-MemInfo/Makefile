@@ -1,5 +1,8 @@
 # Created by: Terry Sposato <terry@sucked-in.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Sys-MemInfo
 PORTVERSION=	0.99

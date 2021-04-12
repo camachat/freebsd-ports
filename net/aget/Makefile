@@ -1,5 +1,8 @@
 # Created by: Aaron Zauner <az_mail@gmx.at>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	aget
 PORTVERSION=	0.4.1

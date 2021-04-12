@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	jql
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.9.3

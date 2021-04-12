@@ -1,5 +1,8 @@
 # Created by: Li-Wen Hsu <lwhsu@lwhsu.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	python-igraph
 PORTVERSION=	0.8.3

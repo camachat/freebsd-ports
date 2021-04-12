@@ -1,5 +1,8 @@
 # Created by: Mikhail T. <mi@aldan.algebra.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	adcli
 PORTVERSION=	0.8.2

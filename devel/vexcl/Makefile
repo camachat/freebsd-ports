@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	vexcl
 DISTVERSION=	1.4.1
 PORTREVISION=	5

@@ -1,5 +1,8 @@
 # Created by: Masafumi NAKANE <max@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mailagent
 PORTVERSION=	3.1.106

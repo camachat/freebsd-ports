@@ -1,5 +1,8 @@
 # Created by: Gvozdikov Veniamin <g.veniamin@googlemail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xwinwrap
 PORTVERSION=	0.3

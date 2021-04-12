@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Email-Abstract
 PORTVERSION=	3.008
 PORTREVISION=	1

@@ -1,5 +1,8 @@
 # Created by: Matt Lancereau
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libexo
 PORTVERSION=	4.16.1

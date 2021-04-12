@@ -1,5 +1,8 @@
 # Created by: adamw
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	x265
 PORTVERSION=	3.4

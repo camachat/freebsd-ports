@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	RPC-EPC-Service
 PORTVERSION=	0.0.11
 PORTREVISION=	1

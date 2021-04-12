@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	openfx-misc
 PORTVERSION=	2.3.14
 PORTREVISION=	1

@@ -1,5 +1,8 @@
 # Created by: will
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Algorithm-Diff
 PORTVERSION=	1.1903

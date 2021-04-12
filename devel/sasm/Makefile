@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	SASM
 DISTVERSIONPREFIX=	v
 DISTVERSION=	3.11.1

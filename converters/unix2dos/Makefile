@@ -1,5 +1,8 @@
 # Created by: Oscar Bonilla <obonilla@fisicc-ufm.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	unix2dos
 PORTVERSION=	1.3

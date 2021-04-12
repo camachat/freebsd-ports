@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	schema
 DISTVERSION=	0.7.4
 CATEGORIES=	devel python

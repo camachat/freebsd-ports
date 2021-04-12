@@ -1,5 +1,8 @@
 # Created by: Douglas K. Rand <rand@iteris.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	check_relayd_status
 PORTVERSION=	1.1

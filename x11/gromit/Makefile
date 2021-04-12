@@ -1,5 +1,8 @@
 # Created by: Sergei Kolobov <sergei@kolobov.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gromit
 PORTVERSION=	20041213

@@ -1,5 +1,8 @@
 # Created by: Rusmir Dusko <nemysis@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fbg2
 PORTVERSION=	0.4

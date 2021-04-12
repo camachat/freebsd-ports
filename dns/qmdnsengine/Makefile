@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	qmdnsengine
 DISTVERSION=	0.2.0
 CATEGORIES=	dns

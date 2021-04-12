@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	thundersnarf
 PORTVERSION=	1.3
 PORTREVISION=	6

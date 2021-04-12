@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	csdp
 DISTVERSIONPREFIX=	releases/
 DISTVERSION=	6.2.0

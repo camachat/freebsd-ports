@@ -1,5 +1,8 @@
 # Created by: ijliao
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libassa
 DISTVERSION=	3.5.1

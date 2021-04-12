@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	octopress
 PORTVERSION=	3.0.11
 PORTREVISION=	2

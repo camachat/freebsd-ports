@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gpaw
 DISTVERSION=	21.1.0
 CATEGORIES=	science python

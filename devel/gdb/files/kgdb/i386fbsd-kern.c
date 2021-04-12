@@ -25,7 +25,10 @@
  */
 
 #include <sys/cdefs.h>
+<<<<<<< HEAD
 __FBSDID("$FreeBSD$");
+=======
+>>>>>>> upstream/main
 
 #include "defs.h"
 #include "frame-unwind.h"

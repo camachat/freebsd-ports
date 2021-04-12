@@ -1,5 +1,8 @@
 # Created by: Ying-Chieh Chen
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Data-Bind
 PORTVERSION=	0.30

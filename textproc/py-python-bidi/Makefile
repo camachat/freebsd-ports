@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	python-bidi
 DISTVERSION=	0.4.2
 CATEGORIES=	textproc python

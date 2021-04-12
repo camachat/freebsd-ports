@@ -1,5 +1,8 @@
 # Created by: Stefan Hagen <sh@codevoid.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sacc
 PORTVERSION=	1.01

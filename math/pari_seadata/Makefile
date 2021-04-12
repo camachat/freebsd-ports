@@ -1,5 +1,8 @@
 # Created by: thierry@pompo.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	seadata
 DISTVERSION=	2009-06-18

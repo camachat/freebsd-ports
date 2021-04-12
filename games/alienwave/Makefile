@@ -1,5 +1,8 @@
 # Created by: Travis Poppe <tlp@liquidx.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	alienwave
 PORTVERSION=	0.4.0

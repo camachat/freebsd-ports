@@ -1,5 +1,8 @@
 # Created by: mi@aldan.algebra.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	qmake
 PORTVERSION=	3.3.8

@@ -1,5 +1,8 @@
 # Created by: John Hixson <jhixson@freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	openshift-install
 PORTVERSION=	4.5

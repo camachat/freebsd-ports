@@ -1,5 +1,8 @@
 # Created by: Janni
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	skstream
 PORTVERSION=	0.3.9

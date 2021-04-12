@@ -1,5 +1,8 @@
 # Created by: Petri Totterman <petri.totterman@hmv.fi>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	log4cplus
 PORTVERSION=	1.1.2

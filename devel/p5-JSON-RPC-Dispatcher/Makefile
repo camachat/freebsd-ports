@@ -1,5 +1,8 @@
 # Created by: Wen Heping <wenheping@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	JSON-RPC-Dispatcher
 PORTVERSION=	0.0508

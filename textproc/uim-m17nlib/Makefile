@@ -1,5 +1,8 @@
 # Created by: MANTANI Nobutaka <nobutaka@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 .if defined(WITHOUT_X11)
 PKGNAMESUFFIX=	-m17nlib-nox11

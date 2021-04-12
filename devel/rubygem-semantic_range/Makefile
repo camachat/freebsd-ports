@@ -1,5 +1,8 @@
 # Created by: Po-Chuan Hsieh <sunpoet@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	semantic_range
 PORTVERSION=	2.3.1

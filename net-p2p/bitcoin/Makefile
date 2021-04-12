@@ -1,5 +1,8 @@
 # Created by: Shaun Amott <shaun@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bitcoin
 PORTVERSION=	0.21.0

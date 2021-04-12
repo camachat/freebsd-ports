@@ -1,5 +1,8 @@
 # Created by: johnpupu <johnpupu@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	leveldb
 PORTVERSION=	0.2.1

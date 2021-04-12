@@ -1,5 +1,8 @@
 # Created by: ijliao
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Class-DBI-AutoLoader
 PORTVERSION=	0.12

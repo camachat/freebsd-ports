@@ -1,5 +1,8 @@
 # Created by: Robin Schilham
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Clp
 DISTVERSION=	1.17.3

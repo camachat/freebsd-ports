@@ -1,5 +1,8 @@
 # Created by: ports@c0decafe.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Debug-Client
 PORTVERSION=	0.31

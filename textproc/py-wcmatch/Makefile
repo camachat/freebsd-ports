@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	wcmatch
 PORTVERSION=	8.1.2
 CATEGORIES=	textproc python

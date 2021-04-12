@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	python-subunit
 DISTVERSION=	1.3.0
 PORTREVISION=	2

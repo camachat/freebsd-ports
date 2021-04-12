@@ -1,5 +1,8 @@
 # Created by: ijliao
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Lingua-ZH-Numbers
 PORTVERSION=	0.04

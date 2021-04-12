@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pc-networkmanager
 PORTVERSION=	201710031301
 PORTREVISION=	3

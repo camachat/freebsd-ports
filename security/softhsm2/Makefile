@@ -1,5 +1,8 @@
 # Created by: Jaap Akkerhuis <jaap@NLnetLabs.nl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	softhsm
 PORTVERSION=	2.6.1

@@ -1,5 +1,8 @@
 # Created by: Ryan Steinmetz (<rpsfa@rit.edu>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	directory_watcher
 PORTVERSION=	1.5.1

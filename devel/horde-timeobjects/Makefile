@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	timeobjects
 PORTVERSION=	2.1.4
 CATEGORIES=	devel www pear

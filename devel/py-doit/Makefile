@@ -1,5 +1,8 @@
 # Created by: Kubilay Kocak <koobs@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	doit
 PORTVERSION=	0.31.1

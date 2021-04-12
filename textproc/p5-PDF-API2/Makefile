@@ -1,5 +1,8 @@
 # Created by: ijliao
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	PDF-API2
 PORTVERSION=	2.038

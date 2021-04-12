@@ -1,5 +1,8 @@
 # Created by: netchild@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cscout
 PORTVERSION=	3.01

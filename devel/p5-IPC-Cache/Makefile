@@ -1,5 +1,8 @@
 # Created by: vanilla
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	IPC-Cache
 PORTVERSION=	0.02

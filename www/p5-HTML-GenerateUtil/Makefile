@@ -1,5 +1,8 @@
 # Created by: Kurt Lidl (kurt.lidl@cello.com)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HTML-GenerateUtil
 PORTVERSION=	1.20

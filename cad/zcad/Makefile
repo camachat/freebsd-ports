@@ -1,5 +1,8 @@
 # Created by: Alexey Dokuchaev <danfe@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	zcad
 PORTVERSION=	0.9.8.5

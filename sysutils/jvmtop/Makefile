@@ -1,5 +1,8 @@
 # Created by: Jason Helfman <jgh@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jvmtop
 DISTVERSION=	0.8.0-27

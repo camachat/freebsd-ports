@@ -1,5 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	http_parser.rb
 PORTVERSION=	0.6.0

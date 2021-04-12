@@ -1,5 +1,8 @@
 # Created by: Dmitry Sivachenko <demon@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-Z3950-ZOOM
 PORTVERSION=	1.30

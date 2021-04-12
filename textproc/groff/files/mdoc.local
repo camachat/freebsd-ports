@@ -22,8 +22,11 @@
 .\" OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 .\" SUCH DAMAGE.
 .\"
+<<<<<<< HEAD
 .\" $FreeBSD: head/gnu/usr.bin/groff/tmac/mdoc.local.in 318645 2017-05-22 14:21:07Z gjb $
 .\"
+=======
+>>>>>>> upstream/main
 .\"     %beginstrip%
 .
 .eo

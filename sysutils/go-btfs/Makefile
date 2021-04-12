@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	go-btfs
 PORTVERSION=	1.5.1
 DISTVERSIONPREFIX=	btfs-v

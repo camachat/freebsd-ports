@@ -1,5 +1,8 @@
 # Created by: Konstantin Menshikov <kostjnspb@yandex.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HTML-HTMLDoc
 PORTVERSION=	0.10

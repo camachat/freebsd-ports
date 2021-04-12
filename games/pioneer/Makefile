@@ -1,5 +1,8 @@
 # Created by: lightside <lightside@gmx.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pioneer
 DISTVERSION=	0.0.${GH_TAGNAME}

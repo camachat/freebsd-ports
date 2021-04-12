@@ -1,5 +1,8 @@
 # Created by: chinsan <chinsan.tw@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	RRD-Simple
 PORTVERSION=	1.44

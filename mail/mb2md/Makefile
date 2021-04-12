@@ -1,5 +1,8 @@
 # Created by: Andy Gilligan
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mb2md
 PORTVERSION=	3.20

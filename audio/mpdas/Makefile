@@ -1,5 +1,8 @@
 # Created by: hrkfrd@googlemail.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mpdas
 PORTVERSION=	0.4.5

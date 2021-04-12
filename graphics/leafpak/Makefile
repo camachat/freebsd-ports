@@ -1,5 +1,8 @@
 # Created by: TAKAHASHI Kaoru <kaoru@kaisei.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	leafpak
 PORTVERSION=	1.1.1

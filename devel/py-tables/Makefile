@@ -1,5 +1,8 @@
 # Created by: ijliao@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tables
 PORTVERSION=	3.6.1

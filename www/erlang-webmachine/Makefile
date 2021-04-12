@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	webmachine
 PORTVERSION=	1.10.9
 CATEGORIES=	www devel

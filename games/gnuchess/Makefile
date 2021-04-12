@@ -1,5 +1,8 @@
 # Created by: markm
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gnuchess
 PORTVERSION=	6.2.7

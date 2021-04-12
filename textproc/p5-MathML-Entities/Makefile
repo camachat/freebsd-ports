@@ -1,5 +1,8 @@
 # Created by: Aaron Dalton <aaron@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	MathML-Entities
 PORTVERSION=	0.17

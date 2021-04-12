@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mesa-gallium-va
 PORTVERSION=	${MESAVERSION}
 PORTREVISION=	2

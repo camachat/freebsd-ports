@@ -1,5 +1,8 @@
 # Created by: Quentin Stievenart <acieroid@awesom.eu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	zathura
 DISTVERSION=	0.4.5

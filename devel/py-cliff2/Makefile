@@ -1,5 +1,8 @@
 # Created by: Alexander Nusov <alexander.nusov@nfvexpress.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cliff
 PORTVERSION=	2.18.0

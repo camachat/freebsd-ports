@@ -1,5 +1,8 @@
 # Created by: Johnny Sorocil <jsorocil@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lattice-ice40-tools
 PORTVERSION=	g20181021

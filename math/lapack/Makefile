@@ -1,5 +1,8 @@
 # Created by: jmz
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME?=	lapack
 PORTVERSION=	3.5.0
@@ -117,7 +120,11 @@ PLIST_SUB+=	${o}="@comment "
 post-patch:
 	@${SED} -Ee '\
 		s@^(FORTRAN|LOADER)([[:blank:]]*=)(.*)@\1\2 $${FC}@; \
+<<<<<<< HEAD
 		s@^(OPTS[[:blank:]]*=)(.*)@\1 ${FFLAGS} $${EXTRAFLAGS}@; \
+=======
+		s@^(OPTS[[:blank:]]*=)(.*)@\1 $${FFLAGS} $${EXTRAFLAGS}@; \
+>>>>>>> upstream/main
 		s@^NOOPT[[:blank:]]*=.*@& $${EXTRAFLAGS}@; \
 		s@^(LOADOPTS[[:blank:]]*=)(.*)@\1 $${LDFLAGS} $${EXTRAFLAGS}@; \
 		s@^(CC[[:blank:]]*=)(.*)@@; \

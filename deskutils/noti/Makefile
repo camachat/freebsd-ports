@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	noti
 DISTVERSION=	3.5.0
 CATEGORIES=	deskutils

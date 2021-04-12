@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	webvfx
 DISTVERSION=	0.4.4-20160823
 PORTREVISION=	13

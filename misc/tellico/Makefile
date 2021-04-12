@@ -1,5 +1,8 @@
 # Created by: Kirill Ponomarew <ponomarew@oberon.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tellico
 DISTVERSION=	3.3.5

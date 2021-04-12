@@ -1,5 +1,8 @@
 # Created by: Emmanuel Vadot <manu@freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	u-boot-tools
 DISTVERSION=	2020.07

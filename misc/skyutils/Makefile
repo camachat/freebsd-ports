@@ -1,5 +1,8 @@
 # Created by: Machiel Mastenbroek <machiel_mastenbroek@hotmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	skyutils
 PORTVERSION=	3.0

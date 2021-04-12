@@ -1,5 +1,8 @@
 # Created by: Vladimir Kondratyev <wulf@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hid-tools
 PORTVERSION=	0.2

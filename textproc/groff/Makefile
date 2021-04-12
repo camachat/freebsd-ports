@@ -1,5 +1,8 @@
 # Created by: Ulrich Spoerlein <uqs@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	groff
 PORTVERSION=	1.22.4

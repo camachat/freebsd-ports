@@ -1,5 +1,8 @@
 # Created by: proff@suburbia.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nntpcache
 PORTVERSION=	3.0.2

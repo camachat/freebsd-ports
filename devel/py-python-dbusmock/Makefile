@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	python-dbusmock
 PORTVERSION=	0.22.0
+=======
+PORTNAME=	python-dbusmock
+PORTVERSION=	0.23.0
+>>>>>>> upstream/main
 CATEGORIES=	devel python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -14,7 +19,11 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 
 RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}dbus>0:devel/py-dbus@${PY_FLAVOR}
 
+<<<<<<< HEAD
 USES=		gnome python:3.6+
+=======
+USES=		gnome python
+>>>>>>> upstream/main
 USE_GNOME=	pygobject3
 USE_PYTHON=	autoplist distutils
 

@@ -1,5 +1,8 @@
 # Created by: Pedro Giffuni <giffunip@asme.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fasthenry
 DISTVERSION=	3.0wr-021113

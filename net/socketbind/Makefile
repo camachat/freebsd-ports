@@ -1,5 +1,8 @@
 # Created by: Gaspar Chilingarov <nm@web.am>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	socketbind
 PORTVERSION=	1

@@ -1,5 +1,8 @@
 # Created by: Alex Dupre <ale@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	secp256k1
 PORTVERSION=	0.1.20190225

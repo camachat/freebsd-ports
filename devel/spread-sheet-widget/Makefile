@@ -1,5 +1,8 @@
 # Created by: Carlos J. Puga Medina <cpm@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	spread-sheet-widget
 PORTVERSION=	0.7

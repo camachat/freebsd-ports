@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	soco
 PORTVERSION=	0.21.1
 DISTVERSIONPREFIX=	v

@@ -1,5 +1,8 @@
 # Created by: Garrett Rooney <rooneg@electricjellyfish.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	metacity
 PORTVERSION=	3.36.1

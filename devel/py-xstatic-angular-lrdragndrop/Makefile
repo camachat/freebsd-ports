@@ -1,5 +1,8 @@
 # Created by: Alexander Nusov <alexander.nusov@nfvexpress.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xstatic-angular-lrdragndrop
 PORTVERSION=	1.0.2.4

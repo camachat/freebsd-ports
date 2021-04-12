@@ -1,5 +1,8 @@
 # Created by: Mikolaj Golub <trociny@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	leo_center
 PORTVERSION=	0.4.70

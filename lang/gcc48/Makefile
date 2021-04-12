@@ -1,5 +1,8 @@
 # Created by: Gerald Pfeifer <gerald@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gcc
 PORTVERSION=	4.8.5

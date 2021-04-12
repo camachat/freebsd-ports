@@ -1,5 +1,8 @@
 # Created by: petef
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tdl
 PORTVERSION=	1.5.2

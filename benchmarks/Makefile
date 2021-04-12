@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
 
+=======
+>>>>>>> upstream/main
     COMMENT = Benchmarking tools
 
     SUBDIR += ali

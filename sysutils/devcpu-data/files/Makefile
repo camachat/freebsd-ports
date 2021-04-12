@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 INTEL_UCODE=	Intel-Linux-Processor-Microcode-Data-Files-%%GH_TAGNAME%%/intel-ucode
 OUTPUT_DIR=	mcodes
 

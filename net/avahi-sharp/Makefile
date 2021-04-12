@@ -1,5 +1,8 @@
 # Created by: Tom McLaughlin <tmclaugh@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTREVISION=	0
 CATEGORIES=	net dns

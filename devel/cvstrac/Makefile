@@ -1,5 +1,8 @@
 # Created by: Bruce M Simpson <bms@spc.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME?=	cvstrac
 PORTVERSION=	2.0.1

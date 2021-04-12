@@ -1,5 +1,8 @@
 # Created by: Andreev Maxim <andreevmaxim@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	qconf
 DISTVERSIONPREFIX=	v

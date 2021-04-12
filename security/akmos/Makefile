@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	akmos
 PORTVERSION=	0.7.2
 PORTREVISION=	3

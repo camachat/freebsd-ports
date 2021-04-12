@@ -1,5 +1,8 @@
 # Created by: Andrey Zakhvatov
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	miscom
 PORTVERSION=	1.0

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dalton
 DISTVERSION=	2020.0
 CATEGORIES=	science

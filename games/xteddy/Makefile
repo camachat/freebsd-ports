@@ -1,5 +1,8 @@
 # Created by: Eckart "Isegrim" Hofmann
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xteddy
 PORTVERSION=	2.2

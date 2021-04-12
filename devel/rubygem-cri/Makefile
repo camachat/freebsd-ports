@@ -1,5 +1,8 @@
 # Created by: Ryan Steinmetz <zi@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cri
 PORTVERSION=	2.15.10

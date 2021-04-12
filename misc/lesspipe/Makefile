@@ -1,5 +1,8 @@
 # Created by: Slaven Rezic <slaven@rezic.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lesspipe
 PORTVERSION=	1.83

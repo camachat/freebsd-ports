@@ -1,5 +1,8 @@
 # Created by: Mikhail Teterin
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pgtcl
 PORTVERSION=	2.1.1

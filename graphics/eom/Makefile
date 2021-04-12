@@ -1,5 +1,8 @@
 # Created by: Joe Marcus Clarke <marcus@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	eom
 PORTVERSION=	1.24.1

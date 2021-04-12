@@ -1,5 +1,8 @@
 # Created by: Cory R King <coryking@mozimedia.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	URI-ToDisk
 PORTVERSION=	1.12

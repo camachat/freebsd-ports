@@ -1,5 +1,8 @@
 # Created by: John Merryweather Cooper
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	docs
 PORTVERSION=	3.2.0

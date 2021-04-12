@@ -1,5 +1,8 @@
 # Created by: Michael Johnson <ahze@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gstreamer1-plugins-gnonlin
 PORTVERSION=	1.4.0

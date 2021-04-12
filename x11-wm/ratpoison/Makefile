@@ -1,5 +1,8 @@
 # Created by: Gergely Nagy <8@free.bsd.hu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ratpoison
 PORTVERSION=	1.4.9

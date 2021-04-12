@@ -1,5 +1,8 @@
 # Created by: Thierry Thomas <thierry@pompo.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ireport
 PORTVERSION=	3.7.6

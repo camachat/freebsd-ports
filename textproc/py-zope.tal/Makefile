@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	zope.tal
 PORTVERSION=	3.6.1
 PORTREVISION=	1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	twmn
 PORTVERSION=	g20190917
 CATEGORIES=	sysutils

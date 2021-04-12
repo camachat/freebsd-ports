@@ -1,5 +1,8 @@
 # Created by: Alex Stangl <alex@stangl.us>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pauker
 DISTVERSION=	1.8

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libmatthew
 DISTVERSION=	0.8.1
 PORTREVISION=	1

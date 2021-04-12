@@ -1,5 +1,8 @@
 # Created by: Chris Calvey <chris@securityforensics.co.uk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	aimage
 PORTVERSION=	3.2.5

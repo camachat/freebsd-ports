@@ -1,5 +1,8 @@
 # Created by: Dmitriy Limonov
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ncdc
 PORTVERSION=	1.22.1

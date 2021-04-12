@@ -1,5 +1,8 @@
 # Created by: Po-Chuan Hsieh <sunpoet@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Text-WideChar-Util
 PORTVERSION=	0.170

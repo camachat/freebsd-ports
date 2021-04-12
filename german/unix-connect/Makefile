@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	unix-connect
 PORTVERSION=	0.95
 PORTREVISION=	3

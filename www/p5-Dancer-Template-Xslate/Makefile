@@ -1,5 +1,8 @@
 # Created by: Grzegorz Blach <gblach@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Dancer-Template-Xslate
 PORTVERSION=	0.03

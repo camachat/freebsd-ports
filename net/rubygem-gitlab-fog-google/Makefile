@@ -1,5 +1,8 @@
 # Created by: Matthias Fechner <mfechner@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gitlab-fog-google
 PORTVERSION=	1.13.0

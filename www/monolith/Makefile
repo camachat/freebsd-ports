@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	monolith
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.4.1

@@ -1,5 +1,8 @@
 # Created by: Adrian Chadd <adrian@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mkfwimage
 DISTVERSION=	r1

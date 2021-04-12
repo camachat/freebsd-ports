@@ -1,5 +1,8 @@
 # Created by: mukai
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	extlib
 PORTVERSION=	1.7.5

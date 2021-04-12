@@ -1,5 +1,8 @@
 # Created by: Tassilo Philipp <tphilipp@potion-studios.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTREVISION=		2
 

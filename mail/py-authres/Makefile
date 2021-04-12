@@ -1,5 +1,8 @@
 # Created by: Yasuhiro KIMURA <yasu@utahime.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	authres
 PORTVERSION=	1.2.0

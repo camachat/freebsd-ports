@@ -1,5 +1,8 @@
 # Created by: Steve Wills <swills@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ruby-ogginfo
 PORTVERSION=	0.7.2

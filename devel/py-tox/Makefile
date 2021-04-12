@@ -1,5 +1,8 @@
 # Created by: Kubilay Kocak <koobs@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tox
 PORTVERSION=	3.12.1

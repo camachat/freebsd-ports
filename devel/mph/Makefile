@@ -1,5 +1,8 @@
 # Created by: Chuck Swiger <chuck@pkix.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mph
 PORTVERSION=	1.2

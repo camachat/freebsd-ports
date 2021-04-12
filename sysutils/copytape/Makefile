@@ -1,5 +1,8 @@
 # Created by: Stephen J. Roznowski <sjr@home.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		copytape
 PORTVERSION=		1.0

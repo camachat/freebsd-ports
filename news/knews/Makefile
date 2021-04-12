@@ -1,5 +1,8 @@
 # Created by: Andreas Klemm <andreas@klemm.gtn.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	knews
 PORTVERSION=	1.0b.1

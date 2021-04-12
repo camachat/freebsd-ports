@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gwenhywfar
 PORTVERSION=	5.6.0
 PORTREVISION?=	0

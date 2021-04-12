@@ -1,5 +1,8 @@
 # Created by: alepulver
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	advancemame
 PORTVERSION=	1.4

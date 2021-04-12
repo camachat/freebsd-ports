@@ -1,5 +1,8 @@
 # Created by: John Hixson <john@pcbsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mtpfs
 PORTVERSION=	1.1

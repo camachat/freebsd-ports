@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- chrome/browser/ui/exclusive_access/exclusive_access_bubble.cc.orig	2020-11-13 06:36:38 UTC
+=======
+--- chrome/browser/ui/exclusive_access/exclusive_access_bubble.cc.orig	2021-03-12 23:57:19 UTC
+>>>>>>> upstream/main
 +++ chrome/browser/ui/exclusive_access/exclusive_access_bubble.cc
 @@ -16,7 +16,7 @@
  

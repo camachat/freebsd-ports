@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xml2c
 PORTVERSION=	20151019
 CATEGORIES=	converters

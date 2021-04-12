@@ -1,5 +1,8 @@
 # Created by: Olivier Duchateau
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	urllib3
 PORTVERSION=	1.25.11

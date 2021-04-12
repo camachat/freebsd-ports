@@ -1,5 +1,8 @@
 # Created by: Donald Burr <dburr@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	yodl
 PORTVERSION=	3.10.00

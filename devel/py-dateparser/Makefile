@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dateparser
 PORTVERSION=	0.7.2
 CATEGORIES=	devel python

@@ -1,5 +1,8 @@
 # Created by: Pawel Worach
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	font-bh-ttf
 PORTVERSION=	1.0.3

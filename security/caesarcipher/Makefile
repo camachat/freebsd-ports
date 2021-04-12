@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	caesarcipher
 PORTVERSION=	1.1
 CATEGORIES=	security

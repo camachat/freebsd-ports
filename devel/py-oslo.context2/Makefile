@@ -1,5 +1,8 @@
 # Created by: Alexander Nusov <alexander.nusov@nfvexpress.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	oslo.context
 PORTVERSION=	2.23.1

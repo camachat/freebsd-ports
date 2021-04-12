@@ -1,5 +1,8 @@
 # Created by: Steven Kreuzer <skreuzer@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	chron
 DISTVERSION=	2.3-43

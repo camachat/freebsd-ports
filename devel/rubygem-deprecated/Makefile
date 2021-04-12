@@ -1,5 +1,8 @@
 # Created by: Wen Heping<wenheping@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	deprecated
 PORTVERSION=	3.0.1

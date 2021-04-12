@@ -1,5 +1,8 @@
 # Created by: clsung@dragon2.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Lingua-ZH-Toke
 PORTVERSION=	0.02

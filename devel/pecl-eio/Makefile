@@ -1,5 +1,8 @@
 # Created by: Gasol Wu <gasol.wu@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	eio
 DISTVERSION=	2.0.4

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	color
 PORTVERSION=	1.8
 CATEGORIES=	print rubygems

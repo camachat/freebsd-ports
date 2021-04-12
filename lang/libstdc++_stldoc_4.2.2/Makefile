@@ -1,5 +1,8 @@
 # Created by: Bruce M. Simpson
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libstdc++_stldoc_4.2.2
 PORTVERSION=	20071101

@@ -1,5 +1,8 @@
 # Created by: Frederic Praca <frederic.praca@freebsd-fr.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	buildbot-worker
 PORTVERSION=	2.7.0

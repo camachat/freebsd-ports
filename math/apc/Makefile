@@ -1,5 +1,8 @@
 # Created by: Eric A. Griff <eagriff@global2000.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	apc
 PORTVERSION=	1.0

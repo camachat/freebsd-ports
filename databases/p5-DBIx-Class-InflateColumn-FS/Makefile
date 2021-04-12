@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	DBIx-Class-InflateColumn-FS
 PORTVERSION=	0.01007
 PORTREVISION=	1

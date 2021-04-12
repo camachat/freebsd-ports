@@ -1,5 +1,8 @@
 # Created by: nectar
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xhtml-modularization
 PORTVERSION=	1.0.${RECDATE}

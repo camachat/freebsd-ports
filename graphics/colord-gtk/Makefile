@@ -1,5 +1,8 @@
 # Created by: Koop Mast <kwm@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	colord-gtk
 PORTVERSION=	0.2.0

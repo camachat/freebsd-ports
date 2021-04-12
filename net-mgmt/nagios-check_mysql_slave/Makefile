@@ -1,5 +1,8 @@
 # Created by: Ryan Steinmetz
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	check_mysql_slave
 PORTVERSION=	0.1.1

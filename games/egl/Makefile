@@ -1,5 +1,8 @@
 # Created by: Alejandro Pulver <alepulver@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	egl
 PORTVERSION=	0.3.1

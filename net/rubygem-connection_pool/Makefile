@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	connection_pool
 PORTVERSION=	2.2.2
 CATEGORIES=	net rubygems

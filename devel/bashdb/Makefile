@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bashdb
 DISTVERSION=	5.0-1.1.2
 CATEGORIES=	devel

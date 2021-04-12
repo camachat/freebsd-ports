@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	qemu-powernv
 PORTVERSION=	3.0.50
 PORTREVISION=	2

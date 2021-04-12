@@ -1,5 +1,8 @@
 # Created by: jabley
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	aggregate
 PORTVERSION=	1.6

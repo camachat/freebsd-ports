@@ -1,5 +1,8 @@
 # Created by: Will Andrews <andrews@technologist.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wmglobe
 PORTVERSION=	1.3

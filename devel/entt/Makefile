@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	entt
 DISTVERSIONPREFIX=	v
 DISTVERSION=	3.6.0

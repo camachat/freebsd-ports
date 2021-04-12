@@ -1,5 +1,8 @@
 # Created by: Masahiro Teramoto <markun@onohara.to>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Text-Language-Guess
 PORTVERSION=	0.02

@@ -1,5 +1,8 @@
 # Created by: cracauer@cons.org "Martin Cracauer"
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	opengl-man
 PORTVERSION=	657.2

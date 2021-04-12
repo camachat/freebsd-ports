@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	hyphy
 DISTVERSION=	2.5.29
+=======
+PORTNAME=	hyphy
+DISTVERSION=	2.5.30
+>>>>>>> upstream/main
 CATEGORIES=	biology
 
 MAINTAINER=	jrm@FreeBSD.org

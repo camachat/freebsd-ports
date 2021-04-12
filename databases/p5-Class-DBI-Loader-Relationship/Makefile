@@ -1,5 +1,8 @@
 # Created by: Lars Thegler <lars@thegler.dk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Class-DBI-Loader-Relationship
 PORTVERSION=	1.3

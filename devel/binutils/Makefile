@@ -1,5 +1,8 @@
 # Created by: Martin Matuska <mm@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	binutils
 PORTVERSION=	2.33.1

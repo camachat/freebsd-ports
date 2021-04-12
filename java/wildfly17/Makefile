@@ -1,5 +1,8 @@
 # Created by: Simeo Reig <reig.simeo@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wildfly17
 PORTVERSION=	17.0.1

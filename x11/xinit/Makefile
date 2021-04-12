@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xinit
 PORTVERSION=	1.4.1
 PORTEPOCH=	1

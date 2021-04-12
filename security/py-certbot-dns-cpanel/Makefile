@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	certbot-dns-cpanel
 DISTVERSION=	0.2.2
 CATEGORIES=	security python

@@ -1,5 +1,8 @@
 # Created by: Wen Heping <wenheping@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Socket-Class
 PORTVERSION=	2.258

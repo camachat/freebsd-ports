@@ -1,5 +1,8 @@
 # Created by: petef@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	qtools
 PORTVERSION=	0.56

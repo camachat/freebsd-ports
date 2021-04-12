@@ -1,5 +1,8 @@
 # Created by: Oliver Breuninger <ob@breuninger.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	discid
 PORTVERSION=	1.3

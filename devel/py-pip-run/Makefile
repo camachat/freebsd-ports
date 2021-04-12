@@ -1,5 +1,8 @@
 # Created by: Po-Chuan Hsieh <sunpoet@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pip-run
 PORTVERSION=	8.4.2

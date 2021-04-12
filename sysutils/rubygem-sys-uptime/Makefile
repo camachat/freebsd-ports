@@ -1,5 +1,8 @@
 # Created by: Eric Freeman <freebsdports@chillibear.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sys-uptime
 PORTVERSION=	0.7.5

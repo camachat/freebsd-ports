@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pytradfri
 DISTVERSION=	7.0.6
 CATEGORIES=	net

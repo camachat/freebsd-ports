@@ -1,5 +1,8 @@
 # Created by: Martin Wilke <miwi@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	DBA_Relational
 PORTVERSION=	0.2.0

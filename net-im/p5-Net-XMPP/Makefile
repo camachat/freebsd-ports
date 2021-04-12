@@ -1,5 +1,8 @@
 # Created by: Lars Eggert <lars.eggert@gmx.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-XMPP
 PORTVERSION=	1.05

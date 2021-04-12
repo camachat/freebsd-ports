@@ -1,5 +1,8 @@
 # Created by: Alex Dupre <ale@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mime4j
 PORTVERSION=	0.7.2

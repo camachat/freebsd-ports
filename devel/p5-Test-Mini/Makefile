@@ -1,5 +1,8 @@
 # Created by: Kurt Lidl <kurt.lidl@cello.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Test-Mini
 PORTVERSION=	v1.1.3

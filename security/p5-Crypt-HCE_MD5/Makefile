@@ -1,5 +1,8 @@
 # Created by: Gabor Kovesdan
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Crypt-HCE_MD5
 PORTVERSION=	0.75

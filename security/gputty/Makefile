@@ -1,5 +1,8 @@
 # Created by: Olivier Cochard-Labbe <olivier@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gputty
 PORTVERSION=	0.9.10

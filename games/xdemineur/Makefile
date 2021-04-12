@@ -1,5 +1,8 @@
 # Created by: Thomas Gellekum <tg@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xdemineur
 PORTVERSION=	2.1.1

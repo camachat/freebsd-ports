@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	anope
 PORTVERSION=	2.0.9
 PORTREVISION=	1

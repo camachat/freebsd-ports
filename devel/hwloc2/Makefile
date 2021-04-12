@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	hwloc
 PORTVERSION=	2.4.1
 CATEGORIES=	devel

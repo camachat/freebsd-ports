@@ -1,5 +1,8 @@
 # Created by: Clement Laforet <sheepkiller@cultdeadsheep.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net_NNTP
 PORTVERSION=	1.5.2

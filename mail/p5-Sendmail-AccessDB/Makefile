@@ -1,5 +1,8 @@
 # Created by: Emanuel Haupt <ehaupt@critical.ch>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Sendmail-AccessDB
 PORTVERSION=	1.04

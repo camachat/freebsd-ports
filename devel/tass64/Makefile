@@ -1,5 +1,8 @@
 # Created by: Uffe Jakobsen <uffe@uffe.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tass64
 PORTVERSION=	1.55.2200

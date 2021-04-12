@@ -1,5 +1,8 @@
 # Created by: kuriyama
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Search-Namazu
 PORTVERSION=	0.96

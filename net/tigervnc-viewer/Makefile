@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PKGNAMESUFFIX=	-viewer
 CATEGORIES=	net
 

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	qt5pas
 PORTVERSION=	2.6
 PORTREVISION=	2

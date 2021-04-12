@@ -1,5 +1,8 @@
 # Created by: shurd@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xnec2c
 PORTVERSION=	3.4

@@ -1,5 +1,8 @@
 # Whom:					Tom McLaughlin <tmclaugh@sdf.lonestar.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PKGNAMEPREFIX=	gnome-icons-
 

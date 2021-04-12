@@ -1,5 +1,8 @@
 # Created by: Sergey Skvortsov <skv@protey.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	POE-Session-MultiDispatch
 PORTVERSION=	1.3

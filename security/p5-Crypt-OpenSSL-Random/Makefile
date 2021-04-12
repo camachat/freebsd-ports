@@ -1,5 +1,8 @@
 # Created by: nork@cityfujisawa.ne.jp
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Crypt-OpenSSL-Random
 PORTVERSION=	0.15

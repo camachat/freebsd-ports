@@ -1,5 +1,8 @@
 # Created by: Martin Matuska <mm@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Horde_Nls
 PORTVERSION=	2.2.1

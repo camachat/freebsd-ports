@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PROG=		SuicaValue
 DPADD=		${LOCALBASE}/lib/libpasori.a
 LDADD=		-L${LOCALBASE}/lib -lpasori

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gitlab-pygments.rb
 PORTVERSION=	0.5.4
 PORTREVISION=	3

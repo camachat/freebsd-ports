@@ -1,5 +1,8 @@
 # Created by: Thorsten Greiner <thorsten.greiner@web.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Text-German
 PORTVERSION=	0.06

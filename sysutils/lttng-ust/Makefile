@@ -1,5 +1,8 @@
 # Created by: Mahdi Mokhtari <mokhi64@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lttng-ust
 PORTVERSION=	2.9.0

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	jiri
 PORTVERSION=	g${TIMESTAMP:S/-/./g:C/T.*//g}
 CATEGORIES=	devel

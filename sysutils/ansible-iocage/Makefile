@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ansible-iocage
 DISTVERSION=	g20200327
 PORTEPOCH=	1

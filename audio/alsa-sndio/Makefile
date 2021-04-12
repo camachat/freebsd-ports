@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	alsa-sndio
 DISTVERSION=	0.2
 PORTREVISION=	1

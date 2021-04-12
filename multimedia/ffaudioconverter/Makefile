@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	FFaudioConverter
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.29.1

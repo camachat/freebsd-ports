@@ -1,5 +1,8 @@
 # Created by: Roland van Laar <roland@micite.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	kerberos
 PORTVERSION=	1.3.0

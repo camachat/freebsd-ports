@@ -1,5 +1,8 @@
 # Created by: Stephen J. Roznowski <sjr@home.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Time-HiRes
 PORTVERSION=	1.9764

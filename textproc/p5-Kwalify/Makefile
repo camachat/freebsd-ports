@@ -1,5 +1,8 @@
 # Created by: Martin Wilke <miwi@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Kwalify
 PORTVERSION=	1.23

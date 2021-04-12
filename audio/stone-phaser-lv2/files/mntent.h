@@ -27,8 +27,11 @@
  * SUCH DAMAGE.
  */
 
+<<<<<<< HEAD
 // $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 #if defined(HAVE_MNTENT_H)
 #include <mntent.h>
 #else

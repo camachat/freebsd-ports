@@ -1,5 +1,8 @@
 # Created by: Kurt Jaeger <fbsd-ports@opsec.eu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	URBL-Prepare
 PORTVERSION=	0.09

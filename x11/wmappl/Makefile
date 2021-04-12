@@ -1,5 +1,8 @@
 # Created by: od <od@iclub.nsu.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wmappl
 PORTVERSION=	0.71

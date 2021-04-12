@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	make
 PORTVERSION=	3.82
 DISTVERSIONSUFFIX=	-24.el7

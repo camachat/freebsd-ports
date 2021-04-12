@@ -1,5 +1,8 @@
 # Created by: Frank Steinborn <steinex@nognu.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	apparix
 PORTVERSION=	20110303

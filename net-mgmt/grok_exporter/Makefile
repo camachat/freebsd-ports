@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	grok_exporter
 DISTVERSIONPREFIX=v
 DISTVERSION=	1.0.0.RC4

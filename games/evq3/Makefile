@@ -1,5 +1,8 @@
 # Created by: alepulver
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	evq3
 PORTVERSION=	1.3.20080810

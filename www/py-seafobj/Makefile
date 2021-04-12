@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	seafobj
 DISTVERSIONPREFIX=	v
 DISTVERSION=	${SEAHUB_VER}

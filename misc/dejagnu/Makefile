@@ -1,5 +1,8 @@
 # Created by: markm
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dejagnu
 PORTVERSION=	1.6.2

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bit-struct
 PORTVERSION=	0.16
 CATEGORIES=	devel rubygems

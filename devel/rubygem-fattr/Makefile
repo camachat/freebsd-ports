@@ -1,5 +1,8 @@
 # Created by: Wen Heping <wenheping@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fattr
 PORTVERSION=	2.4.0

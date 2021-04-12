@@ -1,5 +1,8 @@
 # Created by: chinsan
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HTML-Email-Obfuscate
 PORTVERSION=	1.00

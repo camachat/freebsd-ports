@@ -1,5 +1,8 @@
 # Created by: vanilla
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	IPC-ShareLite
 PORTVERSION=	0.17

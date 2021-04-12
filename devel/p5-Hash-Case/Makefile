@@ -1,5 +1,8 @@
 # Created by: Gea-Suan Lin
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Hash-Case
 PORTVERSION=	1.030

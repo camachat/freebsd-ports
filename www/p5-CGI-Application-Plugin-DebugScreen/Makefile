@@ -1,5 +1,8 @@
 # Created by: George Hartzell <hartzell@alerce.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	CGI-Application-Plugin-DebugScreen
 PORTVERSION=	1.00

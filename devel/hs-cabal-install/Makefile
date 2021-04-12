@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cabal-install
 DISTVERSIONPREFIX=	${PORTNAME}-
 DISTVERSION=	3.4.0.0

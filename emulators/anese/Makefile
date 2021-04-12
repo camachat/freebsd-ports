@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	anese
 PORTVERSION=	0.9.1
 CATEGORIES=	emulators

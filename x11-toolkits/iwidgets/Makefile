@@ -1,5 +1,8 @@
 # Created by: chuckr
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	iwidgets
 PORTVERSION=	4.0.1

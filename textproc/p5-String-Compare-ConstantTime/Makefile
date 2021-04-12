@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	String-Compare-ConstantTime
 PORTVERSION=	0.310
 PORTREVISION=	1

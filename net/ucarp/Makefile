@@ -1,5 +1,8 @@
 # Created by: Meno Abels <meno.abels@adviser.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ucarp
 PORTVERSION=	1.5.2.20171201

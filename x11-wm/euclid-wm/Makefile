@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	euclid-wm
 PORTVERSION=	0.4.3
 PORTREVISION=	1

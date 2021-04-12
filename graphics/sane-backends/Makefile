@@ -1,5 +1,8 @@
 # Created by: gary@hotlava.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sane-backends
 DISTVERSION=	1.0.32

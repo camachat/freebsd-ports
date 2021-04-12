@@ -1,5 +1,8 @@
 # Created by: Dan Langille <dan@langille.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bacula-web
 DISTVERSIONPREFIX=	v

@@ -1,5 +1,8 @@
 # Created by: Eric L. Hernes <erich@rrnet.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	9menu
 PORTVERSION=	1.10

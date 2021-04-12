@@ -1,5 +1,8 @@
 # Created by: Vladimir Chukharev
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	robotframework
 PORTVERSION=	3.1.2

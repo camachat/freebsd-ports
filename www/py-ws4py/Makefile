@@ -1,5 +1,8 @@
 # Created by: rene@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ws4py
 PORTVERSION=	0.3.4

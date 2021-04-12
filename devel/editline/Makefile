@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	editline
 PORTVERSION=	1.17.1
 CATEGORIES=	devel

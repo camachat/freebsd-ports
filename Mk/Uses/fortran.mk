@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # Fortran support
 #
 # Feature:	fortran

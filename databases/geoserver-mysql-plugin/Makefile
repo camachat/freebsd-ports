@@ -1,8 +1,14 @@
 # Created by: Alexander Logvinov <ports@logvinov.com>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	geoserver
 PORTVERSION=	2.18.2
+=======
+
+PORTNAME=	geoserver
+PORTVERSION=	2.19.0
+>>>>>>> upstream/main
 CATEGORIES=	databases geography java
 MASTER_SITES=	SF/${PORTNAME}/GeoServer/${PORTVERSION}/extensions
 PKGNAMESUFFIX=	-mysql-plugin
@@ -22,8 +28,13 @@ NO_ARCH=	yes
 
 GSLIBDIR=	geoserver/webapps/geoserver/WEB-INF/lib
 SUB_FILES=	pkg-message
+<<<<<<< HEAD
 PLIST_FILES=	${GSLIBDIR}/gt-jdbc-mysql-24.2.jar \
 		${GSLIBDIR}/mysql-connector-java-8.0.22.jar
+=======
+PLIST_FILES=	${GSLIBDIR}/gt-jdbc-mysql-25.0.jar \
+		${GSLIBDIR}/mysql-connector-java-8.0.23.jar
+>>>>>>> upstream/main
 
 do-install:
 	@${MKDIR} ${STAGEDIR}${PREFIX}/${GSLIBDIR}

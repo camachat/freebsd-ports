@@ -1,5 +1,8 @@
 # Created by: Po-Chuan Hsieh <sunpoet@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nevergrad
 PORTVERSION=	0.4.2

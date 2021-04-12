@@ -1,5 +1,8 @@
 # Created by: stb@lassitu.de
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pngnq
 PORTVERSION=	1.1

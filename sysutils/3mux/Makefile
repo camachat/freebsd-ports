@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	3mux
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.1.0

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	lsyncd
 DISTVERSIONPREFIX=	release-
 DISTVERSION=	2.2.3

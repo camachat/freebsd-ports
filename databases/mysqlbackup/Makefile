@@ -1,5 +1,8 @@
 # Created by: Alexey Degtyarev <alexey@renatasystems.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mysqlbackup
 PORTVERSION=	2.8

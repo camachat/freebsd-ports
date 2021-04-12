@@ -1,5 +1,8 @@
 # Created by: shalunov
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	thrulay
 PORTVERSION=	0.9

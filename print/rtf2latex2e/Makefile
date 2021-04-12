@@ -1,5 +1,8 @@
 # Created by: Martin Dieringer <martin.dieringer@gmx.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rtf2latex2e
 DISTVERSION=	2-2-2

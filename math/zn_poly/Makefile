@@ -1,5 +1,8 @@
 # Created by: thierry@pompo.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	zn_poly
 PORTVERSION=	0.9.2

@@ -1,5 +1,8 @@
 # Created by: Wen Heping <wenheping@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pycha
 PORTVERSION=	0.8.1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	amtk
 PORTVERSION=	5.2.0
 CATEGORIES=	x11-toolkits

@@ -1,5 +1,8 @@
 # Created by: jeffhung
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Class-OOorNO
 PORTVERSION=	0.011

@@ -1,5 +1,8 @@
 # Created by: Domas Mituzas <midom@dammit.lt>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sqsh
 PORTVERSION=	2.5.16.1

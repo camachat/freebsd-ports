@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	peek-host
 PORTVERSION=	1.0.0
 CATEGORIES=	devel rubygems

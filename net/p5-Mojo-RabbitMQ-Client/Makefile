@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Mojo-RabbitMQ-Client
 PORTVERSION=	0.3.1
 CATEGORIES=	net perl5

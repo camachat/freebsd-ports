@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cpr
 DISTVERSION=	1.3.0-57
 PORTREVISION=	1

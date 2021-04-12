@@ -1,5 +1,8 @@
 #!/bin/sh
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 : ${MODE:=${1:-about_dialog}}
 case $MODE in

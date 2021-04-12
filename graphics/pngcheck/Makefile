@@ -1,5 +1,8 @@
 # Created by: will
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pngcheck
 PORTVERSION=	3.0.2

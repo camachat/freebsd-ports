@@ -1,5 +1,8 @@
 # Created by: Yar Tikhiy <yar@comp.chem.msu.su>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	CDDB
 PORTVERSION=	1.222

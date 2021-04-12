@@ -1,5 +1,8 @@
 # Created by: David Naylor <dbn@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	s2tc
 PORTVERSION=	1.0+20151228

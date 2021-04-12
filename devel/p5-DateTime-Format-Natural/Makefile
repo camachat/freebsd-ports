@@ -1,5 +1,8 @@
 # Created by: Timur I. Bakeyev <bat@cpan.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	DateTime-Format-Natural
 PORTVERSION=	1.11

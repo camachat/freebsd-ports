@@ -1,5 +1,8 @@
 # Created by: ijliao
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	txtbdf2ps
 PORTVERSION=	0.7.1

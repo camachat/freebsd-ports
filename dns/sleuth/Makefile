@@ -1,5 +1,8 @@
 # Created by: Mark Pulford <mark@kyne.com.au>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sleuth
 PORTVERSION=	1.4.4

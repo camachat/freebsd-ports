@@ -1,5 +1,8 @@
 # Created by: rfarmer@predatorlabs.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jeuclid
 PORTVERSION=	3.1.9

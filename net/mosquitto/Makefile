@@ -1,5 +1,8 @@
 # Created by: Joseph Benden <joe@thrallingpenguin.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mosquitto
 PORTVERSION=	2.0.8

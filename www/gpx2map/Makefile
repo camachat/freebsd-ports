@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gpx2map
 PORTVERSION=	0.2
 PORTREVISION=	1

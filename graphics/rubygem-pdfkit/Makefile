@@ -1,5 +1,8 @@
 # Created by: rpsfa@rit.edu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pdfkit
 PORTVERSION=	0.8.2

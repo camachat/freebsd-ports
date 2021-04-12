@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # Handle dependency on eigen 
 #
 # Feature:	eigen

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Hash-MoreUtils
 PORTVERSION=	0.05
 PORTREVISION=	1

@@ -1,5 +1,8 @@
 # Created by: Thierry Thomas (<thierry@pompo.net>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Date
 PORTVERSION=	1.4.7

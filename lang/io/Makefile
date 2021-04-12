@@ -1,5 +1,8 @@
 # Created by: Hye-Shik Chang
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	io
 PORTVERSION=	2017.09.06

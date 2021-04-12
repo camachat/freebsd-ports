@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
 
+=======
+>>>>>>> upstream/main
     COMMENT = Hungarian language support
 
     SUBDIR += aspell

@@ -1,5 +1,8 @@
 # Created by: kirk@daycos.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pgdbf
 PORTVERSION=	0.6.2

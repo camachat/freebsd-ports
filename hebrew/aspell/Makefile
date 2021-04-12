@@ -1,5 +1,8 @@
 # Created by: Thierry Thomas <thierry@pompo.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	aspell
 SPELLVERSION=	6-he-1.0-0

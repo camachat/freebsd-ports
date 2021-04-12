@@ -1,5 +1,8 @@
 # Created by: MANTANI Nobutaka <nobutaka@nobutaka.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	emacs-w3m
 PORTVERSION=	1.4.632.b.${SNAPDATE}

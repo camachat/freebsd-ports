@@ -1,5 +1,8 @@
 # Created by: thierry@pompo.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	linbox
 PORTVERSION=	1.6.3

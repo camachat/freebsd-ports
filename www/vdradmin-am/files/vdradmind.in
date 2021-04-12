@@ -1,7 +1,11 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+
+>>>>>>> upstream/main
 # PROVIDE: vdradmind
 # REQUIRE: LOGIN
 # KEYWORD: shutdown

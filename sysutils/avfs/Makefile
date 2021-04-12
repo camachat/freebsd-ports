@@ -1,8 +1,14 @@
 # Created by: Evgeny Zhirnov <jirnov@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	avfs
 PORTVERSION=	1.1.3
+=======
+
+PORTNAME=	avfs
+PORTVERSION=	1.1.4
+>>>>>>> upstream/main
 CATEGORIES=	sysutils
 MASTER_SITES=	SF/avf/${PORTNAME}/${PORTVERSION}
 

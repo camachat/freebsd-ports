@@ -1,5 +1,8 @@
 # Created by: trevor
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cvsgraph
 PORTVERSION=	1.7.0

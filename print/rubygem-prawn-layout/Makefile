@@ -1,5 +1,8 @@
 # Created by: wenheping@gmail.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	prawn-layout
 PORTVERSION=	0.8.4

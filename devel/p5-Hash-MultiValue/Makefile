@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Hash-MultiValue
 PORTVERSION=	0.16
 CATEGORIES=	devel perl5

@@ -1,5 +1,8 @@
 # $Id: ports/russian/koi2koi/src/Makefile,v 1.1 2003/04/08 14:01:51 marck Exp $
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 .PATH: ${PKGDIR}/src
 

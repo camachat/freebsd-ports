@@ -1,5 +1,8 @@
 # Created by: Nikola Lecic <nikola.lecic@anthesphoria.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	kmfl-european-latin
 PORTVERSION=	1.6

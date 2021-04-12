@@ -1,5 +1,8 @@
 # Created by: chinsan
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	termatrix
 PORTVERSION=	0.2

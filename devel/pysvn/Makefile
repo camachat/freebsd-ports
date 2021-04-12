@@ -1,5 +1,8 @@
 # Created by: bra@fsn.hu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pysvn
 PORTVERSION=	1.9.12

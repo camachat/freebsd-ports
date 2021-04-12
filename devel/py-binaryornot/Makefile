@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	binaryornot
 DISTVERSION=	0.4.4
 CATEGORIES=	devel python

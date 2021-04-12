@@ -1,5 +1,8 @@
 # Created by: Takuya Tsuchida <tsucchi@cpan.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Module-Used
 PORTVERSION=	v1.2.0

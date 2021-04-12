@@ -1,5 +1,8 @@
 # Created by: kwm@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wayland
 PORTVERSION=	1.19.0

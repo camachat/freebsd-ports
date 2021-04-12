@@ -1,5 +1,8 @@
 # Created by: Stephen Montgomery-Smith <stephen@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	octave-forge-zeromq
 PORTVERSION=	1.5.2

@@ -1,5 +1,8 @@
 # Created by: Alejandro Pulver <alepulver@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	qudos
 PORTVERSION=	0.40.1

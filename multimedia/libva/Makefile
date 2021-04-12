@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libva
 DISTVERSION=	2.11.0
 CATEGORIES=	multimedia

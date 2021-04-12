@@ -1,5 +1,8 @@
 # Created by: Juraj Lutter <otis@sk.FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tartarus
 PORTVERSION=	0.9.8

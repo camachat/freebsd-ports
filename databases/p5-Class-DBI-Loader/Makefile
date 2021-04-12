@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Class-DBI-Loader
 PORTVERSION=	0.34
 PORTREVISION=	2

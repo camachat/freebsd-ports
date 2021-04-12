@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	openmesh
 DISTVERSION=	8.1
 CATEGORIES=	math

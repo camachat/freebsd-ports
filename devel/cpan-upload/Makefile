@@ -1,5 +1,8 @@
 # Created by: Lars Thegler <lars@thegler.dk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cpan-upload
 PORTVERSION=	2.2

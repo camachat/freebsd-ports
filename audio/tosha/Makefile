@@ -1,5 +1,8 @@
 # Created by: Oliver Fromme <oliver.fromme@heim3.tu-clausthal.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tosha
 PORTVERSION=	0.6

@@ -1,5 +1,8 @@
 # Created by: trasz
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	torque
 PORTVERSION=	2.5.13

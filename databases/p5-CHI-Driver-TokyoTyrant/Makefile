@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	CHI-Driver-TokyoTyrant
 PORTVERSION=	0.02
 CATEGORIES=	databases perl5

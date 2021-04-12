@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	steam-utils
 DISTVERSION=	20210303
 CATEGORIES=	games linux

@@ -1,5 +1,8 @@
 # Created by: trociny
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bmkdep
 PORTVERSION=	20140112

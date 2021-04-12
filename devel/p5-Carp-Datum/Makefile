@@ -1,5 +1,8 @@
 # Created by: kuriyama
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Carp-Datum
 PORTVERSION=	0.1.3

@@ -1,5 +1,8 @@
 # Created by: Po-Chuan Hsieh <sunpoet@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	chef-utils
 PORTVERSION=	15.15.0

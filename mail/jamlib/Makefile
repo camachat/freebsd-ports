@@ -1,5 +1,8 @@
 # Created by: CyrilM <cyrilm@tower.pp.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jamlib
 PORTVERSION=	1.4.7

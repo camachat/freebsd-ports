@@ -1,5 +1,8 @@
 # Created by: mm@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 # the SVG and PANGO plugins need X11
 OPTIONS_EXCLUDE=	X11 SVG PANGO

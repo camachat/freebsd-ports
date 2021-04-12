@@ -1,5 +1,8 @@
 # Created by: Tsung-Han Yeh <snowfly@yuntech.edu.tw>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-Flickr-Backup
 PORTVERSION=	3.1

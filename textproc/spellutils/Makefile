@@ -1,5 +1,8 @@
 # Created by: thierry@pompo.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	spellutils
 PORTVERSION=	0.7

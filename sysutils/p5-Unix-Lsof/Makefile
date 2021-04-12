@@ -1,5 +1,8 @@
 # Created by: George Cox <gjvc@gjvc.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Unix-Lsof
 PORTVERSION=	0.1.0

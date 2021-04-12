@@ -1,5 +1,8 @@
 # Created by: Carey Jones <mcj@acquiesce.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mpg123
 PORTVERSION=	1.26.5

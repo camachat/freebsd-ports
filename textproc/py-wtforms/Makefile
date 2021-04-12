@@ -1,5 +1,8 @@
 # Created by: Moggie <moggie@elasticmind.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wtforms
 PORTVERSION=	2.1

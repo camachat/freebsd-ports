@@ -1,5 +1,8 @@
 # Created by: Philip M. Gollucci <pgollucci@p6m7g8.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	geminabox
 PORTVERSION=	1.1.1

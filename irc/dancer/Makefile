@@ -1,5 +1,8 @@
 # Created by: Dominic Marks <dom@cus.org.uk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dancer
 PORTVERSION=	4.16

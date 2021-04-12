@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	apbs
 DISTVERSIONPREFIX=	${PORTNAME}-
 DISTVERSION=	1.5-102

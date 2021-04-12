@@ -1,5 +1,8 @@
 # Created by: shanali
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	raddump
 PORTVERSION=	0.3.1

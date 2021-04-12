@@ -1,5 +1,8 @@
 # Created by: Alex Trull <freebsd.alex@trull.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bass
 PORTVERSION=	1.2

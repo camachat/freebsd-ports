@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	caldav
 PORTVERSION=	0.7.1
+=======
+PORTNAME=	caldav
+PORTVERSION=	0.8.0
+>>>>>>> upstream/main
 CATEGORIES=	www python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}

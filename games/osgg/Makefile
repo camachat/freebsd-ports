@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # Created by: Dmitry Marakasov <amdmi3@FreeBSD.org>
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	osgg
 PORTVERSION=	1.0
 PORTREVISION=	1

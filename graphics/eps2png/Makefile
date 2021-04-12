@@ -1,5 +1,8 @@
 # Created by: nik
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	eps2png
 PORTVERSION=	2.905

@@ -1,5 +1,8 @@
 # Created by: Simon Barner <barner@gmx.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	valgrind
 PORTVERSION=	3.18.0.g20210323

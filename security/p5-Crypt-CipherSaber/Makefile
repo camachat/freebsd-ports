@@ -1,5 +1,8 @@
 # Created by: will
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Crypt-CipherSaber
 PORTVERSION=	1.01

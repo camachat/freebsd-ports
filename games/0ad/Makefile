@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	0ad
 PORTVERSION=	0.0.24b
 PORTREVISION=	1
+=======
+PORTNAME=	0ad
+PORTVERSION=	0.0.24b
+PORTREVISION=	2
+>>>>>>> upstream/main
 CATEGORIES=	games
 MASTER_SITES=	http://releases.wildfiregames.com/ \
 		SF/zero-ad/releases

@@ -1,5 +1,8 @@
 # Created by: erich@rrnet.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xcoral
 PORTVERSION=	3.47

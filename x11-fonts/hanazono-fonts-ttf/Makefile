@@ -1,5 +1,8 @@
 # Created by: Zhihao Yuan <lichray@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hanazono-fonts-ttf
 PORTVERSION=	20170904

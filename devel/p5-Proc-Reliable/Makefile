@@ -1,5 +1,8 @@
 # Created by: Seamus Venasse <svenasse@polaris.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Proc-Reliable
 PORTVERSION=	1.16

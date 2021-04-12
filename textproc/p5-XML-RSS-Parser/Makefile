@@ -1,5 +1,8 @@
 # Created by: Yen-Ming Lee <leeym@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	XML-RSS-Parser
 PORTVERSION=	4.0

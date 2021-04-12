@@ -1,5 +1,8 @@
 # Created by: Michael L. Hostbaek (mich@freebsdcluster.org)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	p4delta
 PORTVERSION=	1.3.2

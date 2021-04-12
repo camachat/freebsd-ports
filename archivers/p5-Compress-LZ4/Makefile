@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Compress-LZ4
 PORTVERSION=	0.25
 CATEGORIES=	archivers perl5

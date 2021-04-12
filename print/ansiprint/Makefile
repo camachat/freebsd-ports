@@ -1,5 +1,8 @@
 # Created by: Stephen Fisher
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ansiprint
 PORTVERSION=	1.0

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fmake
 PORTVERSION=	r250982
 CATEGORIES=	devel

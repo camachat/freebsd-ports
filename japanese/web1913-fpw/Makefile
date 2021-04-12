@@ -1,5 +1,8 @@
 # Created by: Satoshi Taoka <taoka@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	web1913-fpw
 PORTVERSION=	${WEBFPW_VER}

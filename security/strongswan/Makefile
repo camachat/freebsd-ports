@@ -1,5 +1,8 @@
 # Created by: Riaan Kruger <riaank@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	strongswan
 DISTVERSION=	5.9.2

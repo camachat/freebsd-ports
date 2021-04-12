@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	calcoo
 PORTVERSION=	1.3.18
 PORTREVISION=	7

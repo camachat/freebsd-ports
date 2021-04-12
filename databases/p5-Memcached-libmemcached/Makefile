@@ -1,5 +1,8 @@
 # Created by: Cheng-Lung Sung <clsung@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Memcached-libmemcached
 PORTVERSION=	1.001801

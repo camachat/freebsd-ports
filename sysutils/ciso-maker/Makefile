@@ -1,5 +1,8 @@
 # Created by: Lucas Holt <luke@foolishgames.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ciso-maker
 PORTVERSION=	1.02

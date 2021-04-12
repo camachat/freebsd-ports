@@ -1,5 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pkgmaker
 PORTVERSION=	0.32.2

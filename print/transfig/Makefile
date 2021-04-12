@@ -1,5 +1,8 @@
 # Created by: chuckr@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	transfig
 PORTVERSION=	3.2.5e

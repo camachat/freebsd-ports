@@ -1,5 +1,8 @@
 # Created by: sumikawa@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lv
 PORTVERSION=	4.51.20200728

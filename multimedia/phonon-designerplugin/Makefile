@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	phonon
 DISTVERSION=	4.11.1
 CATEGORIES=	multimedia kde

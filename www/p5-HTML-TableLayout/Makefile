@@ -1,5 +1,8 @@
 # Created by: Dmitry Sivachenko <dima@Chg.RU>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HTML-TableLayout
 PORTVERSION=	1.001008

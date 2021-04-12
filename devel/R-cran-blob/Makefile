@@ -1,5 +1,8 @@
 # Created by: Guangyuan Yang <ygy@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	blob
 DISTVERSION=	1.2.1

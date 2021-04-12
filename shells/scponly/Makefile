@@ -1,5 +1,8 @@
 # Created by: mcglk@artlogix.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	scponly
 PORTVERSION=	4.8.20110526

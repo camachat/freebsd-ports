@@ -1,5 +1,8 @@
 # Created by: Valerio Daelli <valerio.daelli@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	geteltorito
 PORTVERSION=	0.6

@@ -1,5 +1,8 @@
 # Created by: brix@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Module-Runtime
 PORTVERSION=	0.016

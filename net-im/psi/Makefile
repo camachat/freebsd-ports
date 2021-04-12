@@ -1,5 +1,8 @@
 # Created by: Jonathan Chen <jonc@chen.org.nz>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	psi
 PORTVERSION=	1.5

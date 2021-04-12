@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	markdownfmt
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.1-67

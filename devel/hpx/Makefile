@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	hpx
 DISTVERSION=	1.2.1
 PORTREVISION=	4

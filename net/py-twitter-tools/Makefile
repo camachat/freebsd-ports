@@ -1,5 +1,8 @@
 # Created by: Kubilay Kocak <koobs@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	twitter
 PORTVERSION=	1.18.0

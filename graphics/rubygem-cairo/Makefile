@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cairo
 PORTVERSION=	1.16.2
 CATEGORIES=	graphics rubygems

@@ -1,5 +1,8 @@
 # Created by: Andreas Kohn <andreas@syndrom23.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	obby
 PORTVERSION=	0.4.8

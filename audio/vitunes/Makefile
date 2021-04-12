@@ -1,5 +1,8 @@
 # Created by: Dennis Herrmann <dhn@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vitunes
 PORTVERSION=	2.3

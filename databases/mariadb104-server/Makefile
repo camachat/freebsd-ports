@@ -1,5 +1,8 @@
 # Created by: Bernard Spil <brnrd@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME?=	mariadb
 PORTVERSION=	10.4.18

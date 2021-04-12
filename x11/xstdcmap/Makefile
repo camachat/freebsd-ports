@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xstdcmap
 PORTVERSION=	1.0.4
 CATEGORIES=	x11

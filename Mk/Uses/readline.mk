@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # handle dependency on the readline port
 #
 # Feature:	readline

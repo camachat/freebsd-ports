@@ -1,5 +1,8 @@
 # Created by: Chris S.J. Peron <maneo@bsdpro.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	subcalc
 DISTVERSIONPREFIX=	v

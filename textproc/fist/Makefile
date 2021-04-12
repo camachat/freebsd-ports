@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fist
 PORTVERSION=	4.0
 CATEGORIES=	textproc

@@ -1,5 +1,8 @@
 # Created by: Alexander Nusov <alexander.nusov@nfvexpress.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	openstacksdk
 PORTVERSION=	0.43.0

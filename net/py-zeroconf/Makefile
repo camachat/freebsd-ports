@@ -1,5 +1,8 @@
 # Created by: John Hixson <jhixson@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	zeroconf
 PORTVERSION=	0.28.8

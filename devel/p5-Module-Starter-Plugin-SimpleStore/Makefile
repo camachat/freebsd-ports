@@ -1,5 +1,8 @@
 # Created by: George Hartzell <hartzell@alerce.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Module-Starter-Plugin-SimpleStore
 PORTVERSION=	0.144

@@ -1,5 +1,8 @@
 # Created by: Chris Cowart <ccowart@rescomp.berkeley.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pam_require
 PORTVERSION=	0.7

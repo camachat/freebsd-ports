@@ -1,14 +1,25 @@
 # Created by: Shane Ambler <FreeBSD@Shaneware.biz>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	openimageio
 DISTVERSIONPREFIX=	Release-
 DISTVERSION=	2.2.10.1
+=======
+
+PORTNAME=	openimageio
+DISTVERSIONPREFIX=	Release-
+DISTVERSION=	2.2.13.1
+>>>>>>> upstream/main
 # PORTREVISION must be set with ?= so as not to stomp over
 # py-openimageio's PORTREVISION.
 # Also, just to be on the safe side, when resetting,
 # best keep PORTREVISION?=	0.
+<<<<<<< HEAD
 PORTREVISION?=	2
+=======
+PORTREVISION?=	0
+>>>>>>> upstream/main
 CATEGORIES?=	graphics multimedia
 
 MAINTAINER?=	FreeBSD@Shaneware.biz
@@ -21,8 +32,13 @@ LIB_DEPENDS=	libboost_thread.so:devel/boost-libs \
 		libfmt.so:devel/libfmt \
 		libhdf5.so:science/hdf5 \
 		libheif.so:graphics/libheif \
+<<<<<<< HEAD
 		libImath.so:graphics/ilmbase \
 		libIlmImf.so:graphics/openexr \
+=======
+		libImath.so:math/Imath \
+		libOpenEXR.so:graphics/openexr \
+>>>>>>> upstream/main
 		libpng.so:graphics/png \
 		libsquish.so:graphics/squish \
 		libtiff.so:graphics/tiff \

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	djangorestframework
 PORTVERSION=	3.12.4
 CATEGORIES=	www python

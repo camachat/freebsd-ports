@@ -1,5 +1,8 @@
 # Created by: Kiriyama Kazuhiko <kiri@kiri.toba-cmt.ac.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 # for committer: bump PORTREVISION for math/facile whenever ocaml gets updated
 
 PORTNAME=	ocaml

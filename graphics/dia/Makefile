@@ -1,5 +1,8 @@
 # Created by: saper@system.pl
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 #   $MCom: ports/graphics/dia/Makefile,v 1.16 2007/10/11 02:49:12 mezz Exp $
 
 PORTNAME=	dia

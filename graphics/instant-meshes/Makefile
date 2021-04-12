@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	instant-meshes
 DISTVERSION=	0.0-42
 DISTVERSIONSUFFIX=	-g4a083f4

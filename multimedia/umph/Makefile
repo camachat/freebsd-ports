@@ -1,5 +1,8 @@
 # Created by: Toni Gundogdu <legatvs@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	umph
 PORTVERSION=	0.2.5

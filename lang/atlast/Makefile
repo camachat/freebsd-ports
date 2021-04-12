@@ -1,5 +1,8 @@
 # Created by: Pedro Giffuni
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	atlast
 PORTVERSION=	1.2

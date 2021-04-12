@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	XML-AutoWriter
 PORTVERSION=	0.40
 PORTREVISION=	1

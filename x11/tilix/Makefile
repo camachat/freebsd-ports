@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tilix
 PORTVERSION=	1.9.3
 CATEGORIES=	x11

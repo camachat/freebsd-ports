@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	elfutils
 PORTVERSION=	0.176
 DISTVERSIONSUFFIX=	-5.el7

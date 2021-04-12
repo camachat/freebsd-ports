@@ -1,5 +1,8 @@
 # Created by: Mykola Marzhan <delgod@portaone.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Sys-Sendfile-FreeBSD
 PORTVERSION=	0.01

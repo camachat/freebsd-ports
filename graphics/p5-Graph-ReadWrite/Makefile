@@ -1,5 +1,8 @@
 # Created by: arved
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Graph-ReadWrite
 PORTVERSION=	2.09

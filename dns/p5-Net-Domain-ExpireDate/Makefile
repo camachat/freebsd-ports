@@ -1,5 +1,8 @@
 # Created by: clsung
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-Domain-ExpireDate
 PORTVERSION=	1.20

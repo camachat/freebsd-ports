@@ -1,5 +1,8 @@
 # Created by: Klaus Goger <klaus.goger@reflex.at>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xbubble
 PORTVERSION=	0.5.8

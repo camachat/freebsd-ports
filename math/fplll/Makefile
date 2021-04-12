@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fplll
 DISTVERSION=	5.4.0
 CATEGORIES=	math

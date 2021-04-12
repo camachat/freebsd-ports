@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	devel
 
 MASTERDIR=	${.CURDIR}/../../lang/php80

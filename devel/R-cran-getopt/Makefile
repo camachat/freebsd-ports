@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	getopt
 DISTVERSION=	1.20.3
 PORTREVISION=	1

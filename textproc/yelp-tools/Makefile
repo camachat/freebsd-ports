@@ -1,5 +1,8 @@
 # Created by: Koop Mast <kwm@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	yelp-tools
 PORTVERSION=	3.38.0

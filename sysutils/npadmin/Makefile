@@ -1,5 +1,8 @@
 # Created by: Dom Mitchell <dom@happygiraffe.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	npadmin
 PORTVERSION=	0.8.7

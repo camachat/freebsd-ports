@@ -1,5 +1,8 @@
 # Created by: Kazutoki TAKAMUNE <takamune@avrl.mei.co.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	epwutil
 PORTVERSION=	1.1

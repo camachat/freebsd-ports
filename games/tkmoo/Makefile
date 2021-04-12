@@ -1,5 +1,8 @@
 # Created by: Will Andrews <andrews@technologist.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tkmoo
 PORTVERSION=	0.3.32

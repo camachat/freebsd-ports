@@ -1,5 +1,8 @@
 # Created by: joerg
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bpatch
 PORTVERSION=	1.0

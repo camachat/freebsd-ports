@@ -1,5 +1,8 @@
 # Created by: Toshiya Saitoh (<toshiya@saitoh.nu>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	DB_Pager
 PORTVERSION=	0.7.2

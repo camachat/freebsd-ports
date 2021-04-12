@@ -1,5 +1,8 @@
 # Created by: TERAMOTO Masahiro <markun@onohara.to>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-Rendezvous-Publish
 PORTVERSION=	0.04

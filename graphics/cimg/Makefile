@@ -1,9 +1,16 @@
 # Created by: thierry@pompo.net
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	cimg
 DISTVERSIONPREFIX=	v.
 DISTVERSION=	2.9.6
+=======
+
+PORTNAME=	cimg
+DISTVERSIONPREFIX=	v.
+DISTVERSION=	2.9.7
+>>>>>>> upstream/main
 PORTREVISION=	1
 PORTEPOCH=	3
 CATEGORIES=	graphics devel
@@ -51,8 +58,14 @@ LIB_DEPENDS+=	libboard.so:graphics/libboard
 LIB_DEPENDS+=	libcurl.so:ftp/curl			\
 		libpng.so:graphics/png			\
 		libtiff.so:graphics/tiff		\
+<<<<<<< HEAD
 		libHalf.so:graphics/ilmbase		\
 		libIlmImf.so:graphics/openexr		\
+=======
+		libImath.so:math/Imath			\
+		libheif.so:graphics/libheif		\
+		libOpenEXR.so:graphics/openexr		\
+>>>>>>> upstream/main
 		libgimp-2.0.so:graphics/gimp-app	\
 		libfftw3.so:math/fftw3			\
 		libopencv_core.so:graphics/opencv	\
@@ -84,6 +97,10 @@ USE_XORG+=	xext
 . endif
 
 DOCBASE=	README.txt
+<<<<<<< HEAD
+=======
+CFLAGS+=	-I${LOCALBASE}/include/Imath -I${LOCALBASE}/include/OpenEXR
+>>>>>>> upstream/main
 MAKE_ARGS+=	CPPFLAGS="${CFLAGS}" FREEBSD_LDFLAGS="${LDFLAGS}"
 PROGS=		CImg_demo captcha curve_editor2d dtmri_view3d			\
 	edge_explorer2d fade_images gaussian_fit1d generate_loop_macros		\

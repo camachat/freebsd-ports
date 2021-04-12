@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	open-isns
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.101

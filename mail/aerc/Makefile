@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	aerc
 DISTVERSION=	0.4.0
 CATEGORIES=	mail

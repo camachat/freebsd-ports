@@ -1,5 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bitops
 DISTVERSION=	1.0-6

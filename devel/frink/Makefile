@@ -1,5 +1,8 @@
 # Created by: Mikhail Teterin
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	frink
 PORTVERSION=	2.2.2p4

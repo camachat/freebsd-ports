@@ -1,5 +1,8 @@
 # Created by: Thomas Gellekum <tg@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	unroff
 PORTVERSION=	1.0.2

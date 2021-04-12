@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pagmo2
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.17.0

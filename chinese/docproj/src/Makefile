@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 SUBDIR=	cjktexsty
 

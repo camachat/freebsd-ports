@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	nucleus
 PORTVERSION=	0.77
 PORTREVISION=	6

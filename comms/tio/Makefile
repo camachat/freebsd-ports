@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tio
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.32

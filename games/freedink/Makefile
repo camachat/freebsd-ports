@@ -1,5 +1,8 @@
 # Created by: Stephen Hurd <shurd@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	freedink
 PORTVERSION=	108.4

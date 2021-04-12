@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- third_party/swiftshader/src/Reactor/Debug.cpp.orig	2020-11-13 06:42:23 UTC
+=======
+--- third_party/swiftshader/src/Reactor/Debug.cpp.orig	2021-03-13 00:03:40 UTC
+>>>>>>> upstream/main
 +++ third_party/swiftshader/src/Reactor/Debug.cpp
 @@ -23,16 +23,20 @@
  #	include <android/log.h>

@@ -1,5 +1,8 @@
 # Created by: Bill Fumerola <billf@chc-chimes.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME?=	wireshark
 PORTVERSION=	3.4.4

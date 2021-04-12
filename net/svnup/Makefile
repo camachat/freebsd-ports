@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	svnup
 PORTVERSION=	1.08
 DISTVERSIONPREFIX=	v

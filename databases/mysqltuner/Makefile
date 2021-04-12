@@ -1,5 +1,8 @@
 # Created by: Wen heping <wenheping@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mysqltuner
 PORTVERSION=	1.7.21

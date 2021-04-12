@@ -1,5 +1,8 @@
 # Created by: ptiJo
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xfe
 PORTVERSION=	1.44

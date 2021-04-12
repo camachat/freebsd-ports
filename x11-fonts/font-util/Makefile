@@ -1,5 +1,8 @@
 # Created by: Pawel Worach
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	font-util
 PORTVERSION=	1.3.2

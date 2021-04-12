@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	parafly
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.1.0	# Test new versions with Trinity before upgrading

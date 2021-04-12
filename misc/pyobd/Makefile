@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pyobd
 DISTVERSION=	0.9.3
 PORTREVISION=	5

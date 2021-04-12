@@ -1,5 +1,8 @@
 # Created by: Alan Snelson <Alan@Wave2.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	DBIx-VersionedDDL
 PORTVERSION=	0.17

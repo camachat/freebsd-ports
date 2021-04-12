@@ -1,5 +1,8 @@
 # Created by: znerd@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xalan-j
 PORTVERSION=	2.7.2

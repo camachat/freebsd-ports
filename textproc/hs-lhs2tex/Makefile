@@ -1,5 +1,8 @@
 # Created by: mainland@apeiron.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lhs2tex
 PORTVERSION=	1.24

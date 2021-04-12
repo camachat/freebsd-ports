@@ -1,5 +1,8 @@
 # Created by: bf <bf2006a@yahoo.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	unuran
 PORTVERSION=	1.8.1

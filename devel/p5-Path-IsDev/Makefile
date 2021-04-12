@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Path-IsDev
 PORTVERSION=	1.001002
 PORTREVISION=	1

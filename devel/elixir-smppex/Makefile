@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	smppex
 PORTVERSION=	2.2.9
 DISTVERSIONPREFIX=	v

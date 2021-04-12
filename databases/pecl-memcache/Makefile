@@ -1,5 +1,8 @@
 # Created by: Gerrit Beine <tux@pinguru.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	memcache
 PORTVERSION=	8.0

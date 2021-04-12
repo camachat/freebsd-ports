@@ -1,5 +1,8 @@
 # Created by: Lars Balker Rasmussen <lbr@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Catalyst-Plugin-Unicode
 PORTVERSION=	0.93

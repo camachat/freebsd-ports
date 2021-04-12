@@ -1,5 +1,8 @@
 # Created by: gahr
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	opensmtpd-extras
 PORTVERSION?=	6.7.1

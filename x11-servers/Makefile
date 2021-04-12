@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
 
+=======
+>>>>>>> upstream/main
     COMMENT = X11 servers
 
     SUBDIR += Xfstt

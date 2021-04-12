@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	hextools
 PORTVERSION=	1.1
 CATEGORIES=	sysutils

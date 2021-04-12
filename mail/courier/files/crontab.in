@@ -1,3 +1,6 @@
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 #minute	hour	mday	month	wday	command
 25	*	*	*	*	%%PREFIX%%/share/courier/sqwebmail/cleancache.pl

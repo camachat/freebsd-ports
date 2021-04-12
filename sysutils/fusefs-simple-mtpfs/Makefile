@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	simple-mtpfs
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.4.0

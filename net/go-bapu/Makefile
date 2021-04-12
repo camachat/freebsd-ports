@@ -1,5 +1,8 @@
 # Created by: Carlo Strub <cs@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bapu
 PORTVERSION=	0.3.0

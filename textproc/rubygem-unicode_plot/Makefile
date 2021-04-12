@@ -1,5 +1,8 @@
 # Created by: Matthias Fechner <mfechner@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	unicode_plot
 PORTVERSION=	0.0.4

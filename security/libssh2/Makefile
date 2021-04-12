@@ -1,5 +1,8 @@
 # Created by: Alexander Leidinger <netchild@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libssh2
 PORTVERSION=	1.9.0

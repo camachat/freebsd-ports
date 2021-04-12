@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kak-lsp
 DISTVERSIONPREFIX=	v
 DISTVERSION=	9.0.0

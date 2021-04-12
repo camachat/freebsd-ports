@@ -1,5 +1,8 @@
 # Created by: Radim Kolar
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rkhunter
 PORTVERSION=	1.4.6

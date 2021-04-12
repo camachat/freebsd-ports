@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	vkmark
 DISTVERSION=	2017.08-24
 DISTVERSIONSUFFIX=	-g53abc4f

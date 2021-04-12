@@ -1,5 +1,8 @@
 # Created by: Gustau Perez i Querol <gustau.perez@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gobject
 PORTVERSION=	3.38.0

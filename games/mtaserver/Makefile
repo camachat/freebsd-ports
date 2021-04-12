@@ -1,5 +1,8 @@
 # Created by: Alexander Logvinov <ports@logvinov.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	${MTANAME:tl}
 PORTVERSION=	0.5

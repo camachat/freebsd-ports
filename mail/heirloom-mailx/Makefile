@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mailx
 PORTVERSION=	12.4
 PORTREVISION=	8

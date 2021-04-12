@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cgl
 DISTVERSIONPREFIX=	releases/
 DISTVERSION=	0.60.3

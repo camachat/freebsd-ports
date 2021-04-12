@@ -1,5 +1,8 @@
 # Created by: Oliver Eikemeier <eikemeier@fillmore-labs.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	XML-LibXML-Iterator
 PORTVERSION=	1.06

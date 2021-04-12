@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rcs
 PORTVERSION=	5.9.4
 PORTREVISION=	1

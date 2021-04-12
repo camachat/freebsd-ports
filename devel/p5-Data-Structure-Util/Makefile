@@ -1,5 +1,8 @@
 # Created by: Jon Nistor <nistor@snickers.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Data-Structure-Util
 PORTVERSION=	0.16

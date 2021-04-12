@@ -1,5 +1,8 @@
 # Created by: Sergey Skvortsov <skv@protey.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tsung
 DISTVERSION=	1.7.0

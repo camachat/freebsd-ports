@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mpd
 PORTVERSION=	0.1
 PORTREVISION=	1

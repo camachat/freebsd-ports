@@ -1,5 +1,8 @@
 # Created by: cracauer@cons.org "Martin Cracauer"
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rdate
 PORTVERSION=	20150501

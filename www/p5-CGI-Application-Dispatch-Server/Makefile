@@ -1,5 +1,8 @@
 # Created by: George Hartzell <hartzell@alerce.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	CGI-Application-Dispatch-Server
 PORTVERSION=	0.53

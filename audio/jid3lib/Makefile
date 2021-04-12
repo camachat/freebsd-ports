@@ -1,5 +1,8 @@
 # Created by: Alexander Botero-Lowry <alex@foxybanana.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jid3lib
 PORTVERSION=	0.5.4

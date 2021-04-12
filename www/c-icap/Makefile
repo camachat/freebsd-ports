@@ -1,5 +1,8 @@
 # Created by: Elisey Savateev <b3k@mail.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	c-icap
 PORTVERSION=	0.5.7

@@ -1,5 +1,8 @@
 # Created by: Choe, Cheng-Dae
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jep
 PORTVERSION=	3.9.1

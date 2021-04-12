@@ -1,5 +1,8 @@
 # Created by: Mathieu Arnold <m@absolight.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	DateTime-Format-Mail
 PORTVERSION=	0.403

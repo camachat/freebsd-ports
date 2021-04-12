@@ -1,5 +1,8 @@
 # Created by: Jaap Akkerhuis <jaap@NLnetLabs.nl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	opendnssec
 PORTVERSION=	2.1.8

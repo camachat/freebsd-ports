@@ -1,5 +1,8 @@
 # Created by: Rashid N. Achilov <shelton@granch.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mountsmb2
 PORTVERSION=	0.90.2

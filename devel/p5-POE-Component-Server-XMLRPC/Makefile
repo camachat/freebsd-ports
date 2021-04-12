@@ -1,5 +1,8 @@
 # Created by: Jesper Dalberg <jesper@jdn.dk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	POE-Component-Server-XMLRPC
 PORTVERSION=	0.05

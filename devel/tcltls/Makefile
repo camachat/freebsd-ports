@@ -1,5 +1,8 @@
 # Created by: mi@aldan.algebra.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tcltls
 PORTVERSION=	1.7.18

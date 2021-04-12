@@ -1,5 +1,8 @@
 # Created by: Martin Preuss <martin@libchipcard.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libchipcard
 PORTVERSION=	5.0.4

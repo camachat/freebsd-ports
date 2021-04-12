@@ -1,5 +1,8 @@
 # Created by: Joseph Koshy <jkoshy@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ocamlgraph
 PORTVERSION=	1.8.7

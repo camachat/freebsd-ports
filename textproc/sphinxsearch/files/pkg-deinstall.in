@@ -1,7 +1,10 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 
 sphinx_usr=%%SPHINX_USR%%
 sphinx_grp=%%SPHINX_GRP%%

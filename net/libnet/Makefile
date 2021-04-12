@@ -1,5 +1,8 @@
 # Created by: shipley@dis.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libnet
 PORTVERSION=	1.1.6

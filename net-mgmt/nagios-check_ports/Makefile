@@ -1,5 +1,8 @@
 # Created by: Anders Troback
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	check_ports
 PORTVERSION=	0.7.4

@@ -1,5 +1,8 @@
 # Created by: thinker@branda.to
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 

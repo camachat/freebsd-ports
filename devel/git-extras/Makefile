@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	git-extras
 PORTVERSION=	6.1.0
+=======
+PORTNAME=	git-extras
+PORTVERSION=	6.2.0
+>>>>>>> upstream/main
 CATEGORIES=	devel
 
 MAINTAINER=	igor.ostapenko@pm.me

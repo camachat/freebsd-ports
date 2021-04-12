@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tcplog_dumper
 PORTVERSION=	0.1.0
 DISTVERSIONPREFIX=	v

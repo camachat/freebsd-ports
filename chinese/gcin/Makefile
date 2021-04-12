@@ -1,5 +1,8 @@
 # Created by: Shen Chuan-Hsing
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gcin
 PORTVERSION=	2.9.0

@@ -1,5 +1,8 @@
 # Created by: Thomas Lotterer <thomas.lotterer@cw.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lmtp2nntp
 PORTVERSION=	1.4.1

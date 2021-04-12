@@ -1,8 +1,15 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	wayfire-plugins-extra
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.7.0
+=======
+PORTNAME=	wayfire-plugins-extra
+DISTVERSIONPREFIX=	v
+DISTVERSION=	0.7.0
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	x11-wm
 
 MAINTAINER=	jbeich@FreeBSD.org

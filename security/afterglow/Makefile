@@ -1,5 +1,8 @@
 # Created by: pauls
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	afterglow
 PORTVERSION=	1.6.2

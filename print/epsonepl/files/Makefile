@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 DESTDIR=
 BINDIR=	${PREFIX}/bin
 

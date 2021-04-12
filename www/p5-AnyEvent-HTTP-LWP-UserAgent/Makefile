@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	AnyEvent-HTTP-LWP-UserAgent
 PORTVERSION=	0.10
 PORTREVISION=	1

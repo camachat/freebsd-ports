@@ -1,5 +1,8 @@
 # Created by: Steve Jacobson <sjac@cs.stanford.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sock
 PORTVERSION=	0.4.2

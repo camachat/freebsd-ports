@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cuttlefish
 PORTVERSION=	2.0.11
 PORTREVISION=	2

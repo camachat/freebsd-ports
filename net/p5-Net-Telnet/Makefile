@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Net-Telnet
 PORTVERSION=	3.04
 PORTREVISION=	1

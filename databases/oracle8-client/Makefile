@@ -1,5 +1,8 @@
 # Created by: Max Khon <fjoe@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	oracle8-client
 PORTVERSION=	0.2.0

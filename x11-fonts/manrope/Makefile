@@ -1,5 +1,8 @@
 # Created by: Mateusz Piotrowski <0mp@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	manrope
 PORTVERSION=	4.504

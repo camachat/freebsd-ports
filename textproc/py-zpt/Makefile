@@ -1,5 +1,8 @@
 # Created by: Benno Rice <benno@jeamland.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	zpt
 PORTVERSION=	2.5

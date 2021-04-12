@@ -1,5 +1,8 @@
 # Created by: William Ward <William.Ward@ericsson.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nylon
 PORTVERSION=	1.21

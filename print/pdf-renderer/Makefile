@@ -1,5 +1,8 @@
 # Created by: Alex Dupre <ale@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pdf-renderer
 PORTVERSION=	0.9.1

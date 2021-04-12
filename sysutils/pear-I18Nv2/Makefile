@@ -1,5 +1,8 @@
 # Created by: Antonio Carlos Venancio Junior (<antonio@inf.ufsc.br>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	I18Nv2
 PORTVERSION=	0.11.4

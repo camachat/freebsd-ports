@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	docx2txt
 PORTVERSION=	1.4
 CATEGORIES=	textproc perl5

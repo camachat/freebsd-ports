@@ -1,5 +1,8 @@
 # Created by: Patrick Powell <papowell@astart.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	XML-Compile-Dumper
 PORTVERSION=	0.13

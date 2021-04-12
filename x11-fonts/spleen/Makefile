@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	spleen
 DISTVERSION=	1.9.0
 CATEGORIES=	x11-fonts

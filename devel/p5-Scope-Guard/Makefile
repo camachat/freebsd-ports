@@ -1,5 +1,8 @@
 # Created by: Craig Manley
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Scope-Guard
 PORTVERSION=	0.21

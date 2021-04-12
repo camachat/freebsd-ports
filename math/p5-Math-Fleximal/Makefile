@@ -1,5 +1,8 @@
 # Created by: Matthew Seaman <matthew@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Math-Fleximal
 PORTVERSION=	0.06

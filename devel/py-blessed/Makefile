@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	blessed
 DISTVERSION=	1.18.0
 CATEGORIES=	devel python

@@ -1,5 +1,8 @@
 # Created by: Eric Anholt <anholt@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libICE
 PORTVERSION=	1.0.10

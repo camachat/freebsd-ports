@@ -1,5 +1,8 @@
 # Created by: Sofian Brabez <sbrabez@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	colorgcc
 PORTVERSION=	1.4.4

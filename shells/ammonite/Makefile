@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ammonite
 DISTVERSION=	2.3.8
 CATEGORIES=	shells java

@@ -1,5 +1,8 @@
 # Created by: Balwinder S "bsd" Dheeman <bsd@rubyforge.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ta-lib
 PORTVERSION=	0.4.0

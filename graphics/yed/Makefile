@@ -1,5 +1,8 @@
 # Created by: Eugene Mychlo <myc@barev.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	yed
 DISTVERSION=	3.20.1

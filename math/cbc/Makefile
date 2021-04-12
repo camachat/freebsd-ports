@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cbc
 DISTVERSIONPREFIX=	releases/
 DISTVERSION=	2.10.5

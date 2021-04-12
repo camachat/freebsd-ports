@@ -1,5 +1,8 @@
 # Created by: Frederic Culot <culot@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tomenet
 PORTVERSION=	4.6.0

@@ -1,5 +1,8 @@
 # Created by: hrs
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	papersize-default
 PORTVERSION=	0.0.20120302

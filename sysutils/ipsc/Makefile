@@ -1,5 +1,8 @@
 # Created by: Jeremy Shaffner <jeremy@external.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ipsc
 PORTVERSION=	0.4.3

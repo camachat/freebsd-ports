@@ -1,5 +1,8 @@
 # Created by: Patrick Seal <patseal@hyperhost.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	boxes
 PORTVERSION=	1.3

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Callback-Frame
 PORTVERSION=	1.100
 PORTREVISION=	1

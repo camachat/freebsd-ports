@@ -1,5 +1,8 @@
 # Created by: Yoichi Asai <yatt@luna2.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PKGNAMESUFFIX=	-xaw
 

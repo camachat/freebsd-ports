@@ -1,5 +1,8 @@
 # Created by: Ruben van Staveren
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	threads-shared
 PORTVERSION=	1.59

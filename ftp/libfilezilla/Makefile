@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libfilezilla
 PORTVERSION=	0.15.1
 PORTREVISION=	3

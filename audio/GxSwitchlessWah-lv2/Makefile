@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	GxSwitchlessWah
 DISTVERSION=	g20171206
 CATEGORIES=	audio

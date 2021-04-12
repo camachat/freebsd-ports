@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	app-builder
 DISTVERSIONPREFIX=	v
 DISTVERSION=	3.4.2

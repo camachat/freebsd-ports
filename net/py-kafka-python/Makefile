@@ -1,5 +1,8 @@
 # Created by: Christer Edwards <christer.edwards@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	kafka-python
 DISTVERSION=	1.4.5

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	puppetboard
 PORTVERSION=	2.2.0
 DISTVERSIONPREFIX=	v

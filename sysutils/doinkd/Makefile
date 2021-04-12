@@ -1,5 +1,8 @@
 # Created by: Andrew <andrew@ugh.net.au>, Iain Templeton <iain@ugh.net.au>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	doinkd
 DISTVERSIONPREFIX=	v

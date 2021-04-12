@@ -1,5 +1,8 @@
 # Created by: Emanuel Haupt <ehaupt@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Test-Spelling
 PORTVERSION=	0.25

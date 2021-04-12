@@ -1,7 +1,10 @@
 # Makefile wrapper for building both full and shareware versions.
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 
 all: rott rott-sw
 	$(MAKE) -C rott

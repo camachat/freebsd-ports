@@ -1,5 +1,8 @@
 # Created by: Zane C, Bowers <vvelox@vvelox.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	FreeBSD-Ports-INDEXhash
 PORTVERSION=	1.2.2

@@ -1,5 +1,8 @@
 # Created by: Chao Shin <quakelee@cn.FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pnetcdf
 PORTVERSION=	1.8.1

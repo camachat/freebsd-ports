@@ -1,5 +1,8 @@
 # Created by: Shinsuke Matsui <smatsui@karashi.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HTML-Selector-XPath
 PORTVERSION=	0.22

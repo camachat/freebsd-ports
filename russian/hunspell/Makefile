@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	hunspell
 PORTVERSION=	20131101
 CATEGORIES=	russian textproc

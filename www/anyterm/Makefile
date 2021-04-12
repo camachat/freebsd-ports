@@ -1,5 +1,8 @@
 # Created by: Douglas Thrift <douglas@douglasthrift.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	anyterm
 PORTVERSION=	1.1.29

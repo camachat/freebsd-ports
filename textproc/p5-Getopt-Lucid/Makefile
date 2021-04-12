@@ -1,5 +1,8 @@
 # Created by: Felippe de Meirelles Motta <lippemail@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Getopt-Lucid
 PORTVERSION=	1.10

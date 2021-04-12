@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	chisel
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.7.6

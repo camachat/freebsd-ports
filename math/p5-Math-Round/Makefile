@@ -1,5 +1,8 @@
 # Created by: Foxfair Hu <foxfair@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Math-Round
 PORTVERSION=	0.07

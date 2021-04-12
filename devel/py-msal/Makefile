@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	msal
 DISTVERSION=	1.10.0
 CATEGORIES=	devel python

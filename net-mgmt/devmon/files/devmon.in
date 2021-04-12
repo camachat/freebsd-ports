@@ -1,5 +1,9 @@
 #!/bin/sh
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+
+>>>>>>> upstream/main
 # PROVIDE: devmon
 # REQUIRE: LOGIN
 # KEYWORD: shutdown

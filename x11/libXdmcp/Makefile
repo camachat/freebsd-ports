@@ -1,5 +1,8 @@
 # Created by: Eric Anholt <anholt@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libXdmcp
 PORTVERSION=	1.1.3

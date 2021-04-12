@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # Created by: Dmitry Marakasov <amdmi3@FreeBSD.org>
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	crashtest
 PORTVERSION=	1.1
 PORTREVISION=	2

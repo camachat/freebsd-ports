@@ -1,5 +1,8 @@
 # Created by: past@ebs.gr
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mgopen
 PORTVERSION=	1.1

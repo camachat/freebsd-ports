@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PROG=	cjktexsty
 SRCS=	cjktexsty.l

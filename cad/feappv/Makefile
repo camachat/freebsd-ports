@@ -1,5 +1,8 @@
 # Created by: Pedro F. Giffuni <giffunip@asme.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	feappv
 PORTVERSION=	4.1i

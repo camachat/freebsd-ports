@@ -1,5 +1,8 @@
 # Created by: Gabor Zahemszky
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ifuse
 PORTVERSION=	1.1.4

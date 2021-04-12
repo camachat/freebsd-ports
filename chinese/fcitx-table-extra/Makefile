@@ -1,5 +1,8 @@
 # Created by: Zhihao Yuan <lichray@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fcitx-table-extra
 PORTVERSION=	0.3.8

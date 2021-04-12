@@ -1,5 +1,8 @@
 # Created by: ismail.yenigul@endersys.com.tr
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	filetype
 PORTVERSION=	0.1.3

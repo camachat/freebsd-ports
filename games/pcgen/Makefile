@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pcgen
 PORTVERSION=	6.06.01
 PORTREVISION=	1

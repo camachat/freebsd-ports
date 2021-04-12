@@ -1,5 +1,8 @@
 # Created by: David Thiel <lx@redundancy.redundancy.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	log4sh
 PORTVERSION=	1.4.2

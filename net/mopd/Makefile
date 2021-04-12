@@ -1,5 +1,8 @@
 # Created by: David O'Brien (obrien@NUXI.com)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mopd
 PORTVERSION=	2.5.3

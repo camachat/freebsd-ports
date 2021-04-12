@@ -1,5 +1,8 @@
 # Created by: jack
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	asmon
 PORTVERSION=	0.61

@@ -1,5 +1,8 @@
 # Created by: Janne Snabb <snabb@epipe.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	downtimed
 PORTVERSION=	1.0

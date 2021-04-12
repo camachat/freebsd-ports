@@ -1,5 +1,8 @@
 # Created by: gahr
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	casstcl
 PORTVERSION=	2.15.0

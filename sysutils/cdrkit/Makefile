@@ -1,5 +1,8 @@
 # Created by: Pav Lucistnik <pav@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cdrkit
 PORTVERSION=	1.1.11

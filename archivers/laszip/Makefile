@@ -1,5 +1,8 @@
 # Created by: Rainer Hurling <rhurlin@gwdg.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	laszip
 PORTVERSION=	3.4.3

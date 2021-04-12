@@ -1,5 +1,8 @@
 # Created by: Kay Lehmann
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lgrind
 PORTVERSION=	3.67

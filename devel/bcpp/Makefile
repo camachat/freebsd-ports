@@ -1,5 +1,8 @@
 # Created by: Mike Buchanon <buchanon@msu.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bcpp
 PORTVERSION=	20210108

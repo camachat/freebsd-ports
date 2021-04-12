@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	doctest
 DISTVERSION=	2.4.5
 CATEGORIES=	devel

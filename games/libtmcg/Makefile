@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libtmcg
 DISTVERSION=	1.3.18
 CATEGORIES=	games security

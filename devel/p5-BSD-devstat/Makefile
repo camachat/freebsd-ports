@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	BSD-devstat
 PORTVERSION=	0.02
 PORTREVISION=	2

@@ -1,5 +1,8 @@
 # Created by: ijliao@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	log4cpp
 PORTVERSION=	1.1.3

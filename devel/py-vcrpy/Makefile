@@ -1,5 +1,8 @@
 # Created by: Kubilay Kocak <koobs@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vcrpy
 PORTVERSION=	2.0.1

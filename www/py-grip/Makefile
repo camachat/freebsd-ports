@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	grip
 PORTVERSION=	4.5.2
 PORTREVISION=	2

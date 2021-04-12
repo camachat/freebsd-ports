@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dpkt
 PORTVERSION=	1.9.5
 CATEGORIES=	net python

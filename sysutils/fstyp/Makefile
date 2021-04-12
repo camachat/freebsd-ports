@@ -1,5 +1,8 @@
 # Created by: Sachidananda Urs
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fstyp
 PORTVERSION=	0.1

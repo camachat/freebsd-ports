@@ -1,5 +1,8 @@
 # Created by: Ying-Chieh Liao <ijliao@csie.nctu.edu.tw>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Term-Screen
 PORTVERSION=	1.06

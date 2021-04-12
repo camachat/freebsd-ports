@@ -1,5 +1,8 @@
 # Created by: chinsan
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mysql-genocide
 PORTVERSION=	0.03

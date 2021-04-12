@@ -1,5 +1,8 @@
 # Created by: Pedro Giffuni
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	apache-rat
 PORTVERSION=	0.13

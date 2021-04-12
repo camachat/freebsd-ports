@@ -1,5 +1,8 @@
 # Created by: Mark Felder <feld@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	flask-apscheduler
 PORTVERSION=	1.11.0

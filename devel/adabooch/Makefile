@@ -1,5 +1,8 @@
 # Created by: David Holm <david@realityrift.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	adabooch
 PORTVERSION=	20160321

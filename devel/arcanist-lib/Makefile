@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME?=	arcanist
 PORTVERSION?=	20210113
 CATEGORIES?=	devel

@@ -1,5 +1,8 @@
 # Created by: Bill Fumerola <billf@chc-chimes.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vigor
 PORTVERSION=	0.016

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	slurm
 DISTVERSION=	20.02.1
 PORTREVISION=	6

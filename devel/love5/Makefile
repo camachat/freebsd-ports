@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # Created by: Dmitry Marakasov <amdmi3@FreeBSD.org>
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	love
 DISTVERSION=	0.5-0
 PORTREVISION=	29

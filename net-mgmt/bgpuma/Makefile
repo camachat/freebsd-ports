@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bgpuma
 PORTVERSION=	20151209
 PORTREVISION=	1

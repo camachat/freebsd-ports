@@ -1,5 +1,8 @@
 # Created by: Yen-Ming Lee <leeym@leeym.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mussh
 PORTVERSION=	1.0

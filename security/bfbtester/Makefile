@@ -1,5 +1,8 @@
 # Created by: Mike Heffner <mheffner@vt.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bfbtester
 PORTVERSION=	2.0.1

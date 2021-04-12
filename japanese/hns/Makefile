@@ -1,5 +1,8 @@
 # Created by: Hyper NIKKI System Project <hnsmaster@h14m.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hns
 PORTVERSION=	2.19.9

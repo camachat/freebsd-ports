@@ -1,5 +1,8 @@
 # Created by: Choe, Cheng-Dae
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mod_webkit
 PORTVERSION=	1.2.3

@@ -1,5 +1,8 @@
 # Created by: Johan Kerckaert <kirk@bricsnet.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	picprog
 PORTVERSION=	1.9.1

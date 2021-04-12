@@ -1,5 +1,8 @@
 # Created by: Aaron Dalton <aaron@daltons.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Tree-Binary-Dictionary
 PORTVERSION=	1.01

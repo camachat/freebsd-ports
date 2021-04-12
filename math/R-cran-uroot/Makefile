@@ -1,5 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	uroot
 DISTVERSION=	2.1-2

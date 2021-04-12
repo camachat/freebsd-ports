@@ -1,5 +1,8 @@
 # Created by: matusita@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	popfile
 PORTVERSION=	1.1.3

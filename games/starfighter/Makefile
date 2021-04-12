@@ -1,5 +1,8 @@
 # Created by: Alejandro Pulver <alejandro@varnet.biz>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	starfighter
 PORTVERSION=	2.4

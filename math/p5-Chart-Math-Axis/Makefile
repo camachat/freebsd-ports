@@ -1,5 +1,8 @@
 # Created by: Sergey Skvortsov <skv@protey.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Chart-Math-Axis
 PORTVERSION=	1.06

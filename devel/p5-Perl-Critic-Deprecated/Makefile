@@ -1,5 +1,8 @@
 # Created by: Steve Wills <swills@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Perl-Critic-Deprecated
 PORTVERSION=	1.119

@@ -1,5 +1,8 @@
 # Created by: Valerio Daelli <valerio.daelli@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sqlninja
 DISTVERSION=	0.2.6

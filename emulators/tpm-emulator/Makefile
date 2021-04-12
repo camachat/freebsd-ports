@@ -1,5 +1,8 @@
 # Created by: Sebastian Schuetz <sschuetz@fhm.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tpm-emulator
 PORTVERSION=	0.7.4

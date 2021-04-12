@@ -1,5 +1,8 @@
 # Created by: Patrick Dung (patrick_dkt@yahoo.com.hk)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pdftk
 DISTVERSIONPREFIX=	v

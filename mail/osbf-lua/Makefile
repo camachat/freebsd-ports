@@ -1,5 +1,8 @@
 # Created by: RicardoSSP <ricardo.katz@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	osbf-lua
 PORTVERSION=	2.0.4

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pyside2-tools
 DISTVERSION=	5.15.2
 CATEGORIES=	devel

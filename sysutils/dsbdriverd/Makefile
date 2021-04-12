@@ -1,5 +1,8 @@
 # Created by: Marcel Kaiser <mk@nic-nac-project.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dsbdriverd
 PORTVERSION=	1.1

@@ -1,5 +1,8 @@
 # Created by: David Naylor <dbn@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	plumbum
 PORTVERSION=	1.7.0

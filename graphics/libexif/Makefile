@@ -1,5 +1,8 @@
 # Created by: Peter Schmiedeskamp <pschmied@qwest.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libexif
 PORTVERSION=	0.6.22

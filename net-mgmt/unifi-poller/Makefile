@@ -1,5 +1,8 @@
 # Created by: Anthony Brown <anthony@found-it.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	unifi-poller
 DISTVERSIONPREFIX=v

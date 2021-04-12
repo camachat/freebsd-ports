@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 --- base/debug/proc_maps_linux.cc.orig	2020-11-13 06:36:34 UTC
 +++ base/debug/proc_maps_linux.cc
 @@ -13,7 +13,7 @@
+=======
+--- base/debug/proc_maps_linux.cc.orig	2021-03-12 23:57:15 UTC
++++ base/debug/proc_maps_linux.cc
+@@ -13,13 +13,18 @@
+>>>>>>> upstream/main
  #include "base/strings/string_split.h"
  #include "build/build_config.h"
  
@@ -9,7 +15,10 @@
  #include <inttypes.h>
  #endif
  
+<<<<<<< HEAD
 @@ -29,6 +29,11 @@
+=======
+>>>>>>> upstream/main
  namespace base {
  namespace debug {
  
@@ -21,7 +30,11 @@
  // Scans |proc_maps| starting from |pos| returning true if the gate VMA was
  // found, otherwise returns false.
  static bool ContainsGateVMA(std::string* proc_maps, size_t pos) {
+<<<<<<< HEAD
 @@ -44,15 +49,16 @@ static bool ContainsGateVMA(std::string* proc_maps, si
+=======
+@@ -35,15 +40,16 @@ static bool ContainsGateVMA(std::string* proc_maps, si
+>>>>>>> upstream/main
    return false;
  #endif
  }
@@ -40,7 +53,11 @@
      return false;
    }
    proc_maps->clear();
+<<<<<<< HEAD
 @@ -66,7 +72,7 @@ bool ReadProcMaps(std::string* proc_maps) {
+=======
+@@ -57,7 +63,7 @@ bool ReadProcMaps(std::string* proc_maps) {
+>>>>>>> upstream/main
  
      ssize_t bytes_read = HANDLE_EINTR(read(fd.get(), buffer, kReadSize));
      if (bytes_read < 0) {
@@ -49,7 +66,11 @@
        proc_maps->clear();
        return false;
      }
+<<<<<<< HEAD
 @@ -77,6 +83,7 @@ bool ReadProcMaps(std::string* proc_maps) {
+=======
+@@ -68,6 +74,7 @@ bool ReadProcMaps(std::string* proc_maps) {
+>>>>>>> upstream/main
      if (bytes_read == 0)
        break;
  
@@ -57,7 +78,11 @@
      // The gate VMA is handled as a special case after seq_file has finished
      // iterating through all entries in the virtual memory table.
      //
+<<<<<<< HEAD
 @@ -87,6 +94,7 @@ bool ReadProcMaps(std::string* proc_maps) {
+=======
+@@ -78,6 +85,7 @@ bool ReadProcMaps(std::string* proc_maps) {
+>>>>>>> upstream/main
      // Avoid this by searching for the gate VMA and breaking early.
      if (ContainsGateVMA(proc_maps, pos))
        break;
@@ -65,17 +90,29 @@
    }
  
    return true;
+<<<<<<< HEAD
 @@ -115,10 +123,32 @@ bool ParseProcMaps(const std::string& input,
      MappedMemoryRegion region;
      const char* line = lines[i].c_str();
      char permissions[5] = {'\0'};  // Ensure NUL-terminated string.
+=======
+@@ -105,11 +113,32 @@ bool ParseProcMaps(const std::string& input,
+ 
+     MappedMemoryRegion region;
+     const char* line = lines[i].c_str();
+-    char permissions[5] = {'\0'};  // Ensure NUL-terminated string.
++    char permissions[6] = {'\0'};  // Ensure NUL-terminated string.
+>>>>>>> upstream/main
 +    int path_index = 0;
 +
 +#if defined(OS_BSD)
 +    if (lines[i].empty())
 +      continue;
 +
+<<<<<<< HEAD
 +
+=======
+>>>>>>> upstream/main
 +    char cow;
 +
 +    // Format:
@@ -83,7 +120,11 @@
 +    // start    end      resident private_resident obj                perms ref_count shadow_count flags  cow needs_copy type  fullpath cred ruid
 +    // 0x200000 0x202000 2        6                0xfffff80005be9000 r--   3         1            0x1000 COW NC         vnode /bin/cat NCH  -1
 +    //
+<<<<<<< HEAD
 +    if (sscanf(line, "%" SCNxPTR " %" SCNxPTR " %*ld %*ld %*llx %3c %*d %*d %*x %c%*s %*s %*s %n",
+=======
++    if (sscanf(line, "%" SCNxPTR " %" SCNxPTR " %*ld %*ld %*[^ ] %5[^ ] %*d %*d %*x %c%*s %*s %*s %n",
+>>>>>>> upstream/main
 +	       &region.start, &region.end, permissions, &cow, &path_index) < 4) {
 +      DPLOG(WARNING) << "sscanf failed for line: " << line;
 +      return false;
@@ -99,7 +140,11 @@
  
      // Sample format from man 5 proc:
      //
+<<<<<<< HEAD
 @@ -134,6 +164,7 @@ bool ParseProcMaps(const std::string& input,
+=======
+@@ -125,6 +154,7 @@ bool ParseProcMaps(const std::string& input,
+>>>>>>> upstream/main
        DPLOG(WARNING) << "sscanf failed for line: " << line;
        return false;
      }
@@ -107,7 +152,11 @@
  
      region.permissions = 0;
  
+<<<<<<< HEAD
 @@ -152,14 +183,31 @@ bool ParseProcMaps(const std::string& input,
+=======
+@@ -143,14 +173,31 @@ bool ParseProcMaps(const std::string& input,
+>>>>>>> upstream/main
      else if (permissions[2] != '-')
        return false;
  

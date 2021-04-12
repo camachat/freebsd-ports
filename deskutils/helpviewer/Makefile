@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	helpviewer
 PORTVERSION=	0.3
 PORTREVISION=	11

@@ -1,7 +1,10 @@
 #!/bin/csh
+<<<<<<< HEAD
 #
 # $MBSDlabs$
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 set JAVA = "%%LOCALBASE%%/bin/java"
 set LIBFILES = "%%LIBFILES%%"

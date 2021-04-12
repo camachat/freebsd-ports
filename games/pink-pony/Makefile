@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # Created by: Dmitry Marakasov <amdmi3@FreeBSD.org>
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pink-pony
 PORTVERSION=	1.4.1
 PORTREVISION=	28
@@ -11,12 +14,24 @@ COMMENT=	Tron-like multiplayer racing game
 
 LICENSE=	GPLv3+
 
+<<<<<<< HEAD
 LIB_DEPENDS=	libIL.so:graphics/devil \
 		libprotobuf.so:devel/protobuf \
 		libglfw.so:graphics/glfw2 \
 		libHalf.so:graphics/ilmbase \
 		libftgl.so:graphics/ftgl \
 		libsigc-2.0.so:devel/libsigc++20
+=======
+BROKEN=		depends on removed port graphics/ilmbase
+
+LIB_DEPENDS=	libIL.so:graphics/devil \
+		libprotobuf.so:devel/protobuf \
+		libglfw.so:graphics/glfw2 \
+		libftgl.so:graphics/ftgl \
+		libsigc-2.0.so:devel/libsigc++20
+# FIXME: which port has a drop-in replacement of libHalf.so?
+#		libHalf.so:graphics/ilmbase
+>>>>>>> upstream/main
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	ginkgo

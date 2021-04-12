@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	spm
 PORTVERSION=	0.20200208
 CATEGORIES=	security

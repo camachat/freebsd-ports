@@ -1,5 +1,8 @@
 # Created by: Matthias Fechner <mfechner@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	omniauth_openid_connect
 PORTVERSION=	0.3.5

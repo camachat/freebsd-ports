@@ -1,5 +1,8 @@
 # Created by: trasz <trasz@pin.if.uz.zgora.pl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libgig
 DISTVERSION=	4.2.0

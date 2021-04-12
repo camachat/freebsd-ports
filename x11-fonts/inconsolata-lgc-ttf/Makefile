@@ -1,5 +1,8 @@
 # Created by: Ilya A. Arkhipov <rum1cro@yandex.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Inconsolata-LGC
 PORTVERSION=	20131024

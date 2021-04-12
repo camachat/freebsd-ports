@@ -1,5 +1,8 @@
 # Created by: Jake Smith <jake@xz.cx>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libk8055
 PORTVERSION=	0.2

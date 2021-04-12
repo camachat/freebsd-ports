@@ -1,5 +1,8 @@
 # Created by: alepulver
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	doom3
 PORTVERSION=	1.3.1.1304

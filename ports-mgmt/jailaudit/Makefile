@@ -1,5 +1,8 @@
 # Created by: Philipp Wuensche <cryx-ports@h3q.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jailaudit
 PORTVERSION=	1.6.1

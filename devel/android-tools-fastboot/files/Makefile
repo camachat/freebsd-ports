@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PROG_CXX=fastboot
 BINDIR?=/usr/bin
 FILESDIR?=${DOCDIR}/${PROG}

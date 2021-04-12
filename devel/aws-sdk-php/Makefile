@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	aws-sdk
 PORTVERSION=	3.103.2
 CATEGORIES=	devel

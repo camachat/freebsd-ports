@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	azure-mgmt-cognitiveservices
 PORTVERSION=	6.3.0
 CATEGORIES=	devel python

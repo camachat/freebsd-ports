@@ -1,5 +1,8 @@
 # Created by: jkh
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tclX
 PORTVERSION=	8.4.1

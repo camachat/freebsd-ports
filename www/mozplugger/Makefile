@@ -1,5 +1,8 @@
 # Created by: Loren M. Lang <loren@north-winds.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mozplugger
 PORTVERSION=	2.1.6

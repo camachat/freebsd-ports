@@ -1,5 +1,8 @@
 # Created by: Kimura Fuyuki <fuyuki@nigredo.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	uuid
 PORTVERSION=	1.6.2

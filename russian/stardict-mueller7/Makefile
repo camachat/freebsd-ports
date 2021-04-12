@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	stardict-mueller7
 PORTVERSION=	2.4.2
 CATEGORIES=	russian

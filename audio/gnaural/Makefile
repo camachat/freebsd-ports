@@ -1,5 +1,8 @@
 # Created by: Ganael Laplanche <ganael.laplanche@martymac.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gnaural
 PORTVERSION=	1.0.20110606

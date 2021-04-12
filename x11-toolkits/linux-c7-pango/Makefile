@@ -1,5 +1,8 @@
 # Created by: Piotr Kubaj <pkubaj@anongoth.pl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pango
 PORTVERSION=	1.42.4

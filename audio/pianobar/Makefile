@@ -1,5 +1,8 @@
 # Created by: John Hixson <john@pcbsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pianobar
 PORTVERSION=	2020.11.28

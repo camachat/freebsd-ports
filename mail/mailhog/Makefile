@@ -1,5 +1,8 @@
 # Created by: punkt.de Hosting Team <mops@punkt.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mailhog
 DISTVERSIONPREFIX=	v

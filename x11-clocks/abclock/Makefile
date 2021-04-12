@@ -1,5 +1,8 @@
 # Created by: Chris D. Faulhaber <jedgar@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	abclock
 PORTVERSION=	1.0d

@@ -1,5 +1,8 @@
 # Created by: Tom Hukins <tom@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	FreeBSD-Ports
 PORTVERSION=	0.04

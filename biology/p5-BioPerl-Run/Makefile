@@ -1,5 +1,8 @@
 # Created by: Mauricio Herrera Cuadra <mauricio@arareko.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	BioPerl-Run
 PORTVERSION=	1.007003

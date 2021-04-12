@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	qpOASES
 DISTVERSION=	3.2.1
 PORTREVISION=	6

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fvcom
 PORTVERSION=	2.7.1
 PORTREVISION?=	16

@@ -1,5 +1,8 @@
 # Created by: chinsan
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vietunicode-trichlor
 PORTVERSION=	2004.04.30

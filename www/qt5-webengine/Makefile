@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 # QtWebEngine itself is a very thin layer of Qt code on top of a large part of
 # Chromium (everything up to the content/ layer). As such, most of the work in
 # this port revolves around taming Chromium and getting it to build on FreeBSD.

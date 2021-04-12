@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	queue-fix
 PORTVERSION=	1.4
 PORTREVISION=	1

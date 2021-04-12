@@ -1,5 +1,8 @@
 # Created by: jacs
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xfishtank
 PORTVERSION=	2.2

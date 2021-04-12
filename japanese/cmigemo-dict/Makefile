@@ -1,5 +1,8 @@
 # Created by: MANTANI Nobutaka <nobutaka@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 CATEGORIES=	japanese
 MASTER_SITES=	LOCAL/nobutaka:skkdic

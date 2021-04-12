@@ -1,5 +1,8 @@
 # Created by: Mamoru Sakaue / MwGhennndo
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	portsreinstall
 PORTVERSION=	4.1.0

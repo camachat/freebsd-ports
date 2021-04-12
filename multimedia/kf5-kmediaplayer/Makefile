@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kmediaplayer
 DISTVERSION=	${KDE_FRAMEWORKS_VERSION}
 CATEGORIES=	multimedia kde kde-frameworks

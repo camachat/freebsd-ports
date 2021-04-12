@@ -1,5 +1,8 @@
 # Created by: Jov <amutu@amutu.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	radcli
 PORTVERSION=	1.3.0

@@ -1,5 +1,8 @@
 # Created by: Marcin Cieslak <saper@SYSTEM.PL>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jtopen
 PORTVERSION=	6.2

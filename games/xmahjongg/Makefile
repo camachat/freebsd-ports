@@ -1,5 +1,8 @@
 # Created by: joerg@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xmahjongg
 PORTVERSION=	3.7

@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 # pre/postprocessing driver variables
 
 # dmprt specific

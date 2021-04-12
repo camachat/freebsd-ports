@@ -1,5 +1,8 @@
 # Created by: Hye-Shik Chang <perky@python.or.kr>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	berkeleydb
 PORTVERSION=	18.1.2

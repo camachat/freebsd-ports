@@ -1,5 +1,8 @@
 # Created by: Chadwick Sorrell chad@wickdev.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	awffull
 PORTVERSION=	3.10.2

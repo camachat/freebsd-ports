@@ -1,5 +1,8 @@
 # Created by: Chris Piazza <cpiazza@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	aumix
 PORTVERSION=	2.9.1

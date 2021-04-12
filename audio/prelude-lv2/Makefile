@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	prelude
 DISTVERSION=	g20210218
 CATEGORIES=	audio

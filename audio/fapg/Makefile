@@ -1,5 +1,8 @@
 # Created by: chinsan <chinsan.tw@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fapg
 PORTVERSION=	0.43

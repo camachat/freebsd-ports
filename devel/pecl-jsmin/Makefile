@@ -1,5 +1,8 @@
 # Created by: Gasol Wu <gasol.wu@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jsmin
 PORTVERSION=	3.0.0

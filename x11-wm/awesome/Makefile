@@ -1,5 +1,8 @@
 # Created by: Nikos Ntarmos <ntarmos@ceid.upatras.gr>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	awesome
 PORTVERSION=	4.3

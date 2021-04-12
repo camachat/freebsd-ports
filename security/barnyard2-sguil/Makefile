@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PKGNAMESUFFIX=	-sguil
 
 MASTERDIR=	${.CURDIR}/../barnyard2

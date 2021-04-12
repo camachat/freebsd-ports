@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	backupuser
 DISTVERSION=	1.1.1
 CATEGORIES=	sysutils

@@ -1,5 +1,8 @@
 # Created by: Erwin Lansing <erwin@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Test-Inline
 PORTVERSION=	2.214

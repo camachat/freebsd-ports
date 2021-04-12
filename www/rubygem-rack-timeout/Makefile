@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rack-timeout
 PORTVERSION=	0.5.1
 CATEGORIES=	www rubygems

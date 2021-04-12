@@ -1,5 +1,8 @@
 # Created by: Danilo Egea Gondolfo <danilo@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	aws-c-event-stream
 PORTVERSION=	0.2.6

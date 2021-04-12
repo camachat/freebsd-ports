@@ -1,5 +1,8 @@
 # Created by: Yuri Victorovich <yuri@rawbw.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pyelliptic
 PORTVERSION=	2.0.1

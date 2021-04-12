@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	openstackdocstheme
 DISTVERSION=	2.2.7
 CATEGORIES=	textproc python

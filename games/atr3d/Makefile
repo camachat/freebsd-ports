@@ -1,5 +1,8 @@
 # Created by: Kirill Ponomarew <ponomarew@oberon.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	atr3d
 PORTVERSION=	0.6

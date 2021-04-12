@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
 
+=======
+>>>>>>> upstream/main
     COMMENT = Peer-to-peer network applications
 
     SUBDIR += amule

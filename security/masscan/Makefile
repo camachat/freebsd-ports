@@ -1,5 +1,8 @@
 # Created by: Chie Taguchi <taguchi.ch@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	masscan
 PORTVERSION=	1.0.4

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ruby_expect
 PORTVERSION=	1.7.4
 PORTREVISION=	1

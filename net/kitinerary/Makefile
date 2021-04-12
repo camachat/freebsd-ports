@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kitinerary
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
 PORTREVISION=	1

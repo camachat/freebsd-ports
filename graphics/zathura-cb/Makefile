@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	zathura-cb
 DISTVERSION=	0.1.8
 PORTREVISION=	4

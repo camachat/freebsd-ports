@@ -1,5 +1,8 @@
 # Created by: Mikhail Teterin <mi@aldan.algebra.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tcl-mmap
 PORTVERSION=	1.1

@@ -1,5 +1,8 @@
 # Created by: Rusmir Dusko <nemysis@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	glfw
 PORTVERSION=	3.3.3

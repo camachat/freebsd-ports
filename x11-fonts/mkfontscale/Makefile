@@ -1,5 +1,8 @@
 # Created by: Pawel Worach
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mkfontscale
 PORTVERSION=	1.2.1

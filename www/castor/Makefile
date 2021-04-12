@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	castor
 DISTVERSION=	0.8.16
 PORTREVISION=	4

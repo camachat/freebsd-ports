@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	opensbi
 DISTVERSIONPREFIX=v
 DISTVERSION=	0.9

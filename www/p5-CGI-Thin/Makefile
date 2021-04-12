@@ -1,5 +1,8 @@
 # Created by: Phil Phillips
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	CGI-Thin
 PORTVERSION=	0.52

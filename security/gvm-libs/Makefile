@@ -1,8 +1,15 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	gvm
 DISTVERSION=	20.8.1
 DISTVERSIONPREFIX=	v
+=======
+PORTNAME=	gvm
+DISTVERSION=	20.8.1
+DISTVERSIONPREFIX=	v
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	security
 PKGNAMESUFFIX=	-libs
 
@@ -12,7 +19,13 @@ COMMENT=	libraries module for the GVM solution
 LICENSE=	GPLv2+
 
 BUILD_DEPENDS=	doxygen>0:devel/doxygen
+<<<<<<< HEAD
 LIB_DEPENDS=	libgpgme.so:security/gpgme \
+=======
+LIB_DEPENDS=	libassuan.so:security/libassuan \
+		libgpgme.so:security/gpgme \
+		libgpg-error.so:security/libgpg-error \
+>>>>>>> upstream/main
 		libgnutls.so:security/gnutls \
 		libuuid.so:misc/e2fsprogs-libuuid \
 		libssh.so:security/libssh \

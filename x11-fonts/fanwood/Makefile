@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fanwood
 DISTVERSION=	g20110526
 PORTREVISION=	1

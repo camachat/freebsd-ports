@@ -1,5 +1,8 @@
 # Created by: Daniel B. Hemmerich <dan@spot.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Text-FIGlet
 PORTVERSION=	2.19.4

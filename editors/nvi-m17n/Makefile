@@ -1,5 +1,8 @@
 # Created by: Jun-ichiro itojun Itoh <itojun@itojun.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nvi
 PORTVERSION=	1.79.20040608

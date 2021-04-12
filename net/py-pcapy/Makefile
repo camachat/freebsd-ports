@@ -1,5 +1,8 @@
 # Created by: Marcin Jessa <yazzy@yazzy.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pcapy
 PORTVERSION=	0.11.1

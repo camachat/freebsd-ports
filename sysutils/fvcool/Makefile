@@ -1,5 +1,8 @@
 # Created by: Frerich Raabe <frerich.raabe@gmx.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fvcool
 PORTVERSION=	1.0.4

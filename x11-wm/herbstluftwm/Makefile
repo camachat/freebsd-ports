@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	herbstluftwm
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.9.2

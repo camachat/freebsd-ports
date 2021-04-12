@@ -1,5 +1,8 @@
 # Created by: Leo Vandewoestijne <freebsd@dns.company>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	p5-App-DSC-DataTool
 PORTVERSION=	0.03

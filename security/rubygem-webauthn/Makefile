@@ -1,5 +1,8 @@
 # Created by: Matthias Fechner <mfechner@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	webauthn
 PORTVERSION=	2.4.1

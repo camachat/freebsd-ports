@@ -1,5 +1,8 @@
 # Created by: Michael Haro <mharo@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Math-Pari
 PORTVERSION=	2.01080900

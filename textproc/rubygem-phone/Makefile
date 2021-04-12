@@ -1,5 +1,8 @@
 # Created by: Douglas Thrift <douglas@douglasthrift.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	phone
 PORTVERSION=	1.2.3

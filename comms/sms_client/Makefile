@@ -1,5 +1,8 @@
 # Created by: George Reid <greid@ukug.uk.freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sms_client
 PORTVERSION=	3.0.2

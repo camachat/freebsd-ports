@@ -1,5 +1,8 @@
 # Created by: Yoshiaki Uchikawa
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mikmod
 PORTVERSION=	3.2.8

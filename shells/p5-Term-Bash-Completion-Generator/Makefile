@@ -1,5 +1,8 @@
 # Created by: gebhart@secnetix.de
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Term-Bash-Completion-Generator
 PORTVERSION=	0.02.8

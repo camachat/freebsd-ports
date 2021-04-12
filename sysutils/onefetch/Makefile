@@ -1,9 +1,16 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	onefetch
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.9.1
 PORTREVISION=	2
+=======
+PORTNAME=	onefetch
+DISTVERSIONPREFIX=	v
+DISTVERSION=	2.9.1
+PORTREVISION=	3
+>>>>>>> upstream/main
 CATEGORIES=	sysutils devel
 
 MAINTAINER=	lcook@FreeBSD.org

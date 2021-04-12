@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	squeekboard
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.12.0

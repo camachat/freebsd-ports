@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	carton
 PORTVERSION=	1.0.28
 PORTREVISION=	1

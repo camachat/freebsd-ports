@@ -1,5 +1,8 @@
 # Created by: Aaron Dalton <aaron@daltons.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Tree-Binary
 PORTVERSION=	1.08

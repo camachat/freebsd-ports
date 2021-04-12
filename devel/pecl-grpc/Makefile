@@ -1,8 +1,14 @@
 # Created by: vanilla@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	grpc
 PORTVERSION=	1.36.0
+=======
+
+PORTNAME=	grpc
+PORTVERSION=	1.37.0
+>>>>>>> upstream/main
 CATEGORIES=	devel net
 
 MAINTAINER=	vanilla@FreeBSD.org

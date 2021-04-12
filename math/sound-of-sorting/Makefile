@@ -1,5 +1,8 @@
 # Created by: Stefan Esser <se@StefanEsser.FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sound-of-sorting
 PORTVERSION=	0.6.5

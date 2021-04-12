@@ -1,7 +1,11 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+
+>>>>>>> upstream/main
 # PROVIDE: vsftpd
 # REQUIRE: DAEMON
 # KEYWORD: shutdown

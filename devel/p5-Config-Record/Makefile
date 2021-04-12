@@ -1,5 +1,8 @@
 # Created by: Aaron Dalton <aaron@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Config-Record
 PORTVERSION=	1.1.2

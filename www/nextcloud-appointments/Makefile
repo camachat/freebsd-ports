@@ -1,5 +1,8 @@
 # Created by: Bernard Spil <brnrd@freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	appointments
 PORTVERSION=	1.8.10

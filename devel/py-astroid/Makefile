@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	astroid
 PORTVERSION=	2.5.1
 CATEGORIES=	devel python

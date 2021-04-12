@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	doorkeeper
 PORTVERSION=	5.0.2
 CATEGORIES=	security rubygems

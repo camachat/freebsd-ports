@@ -1,5 +1,8 @@
 # Created by: Nikola Lecic <nikola.lecic@anthesphoria.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	kmfl-sil-galatia
 PORTVERSION=	1.03

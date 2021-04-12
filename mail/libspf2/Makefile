@@ -1,5 +1,8 @@
 # Created by: snowchyld
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libspf2
 PORTVERSION=	1.2.10

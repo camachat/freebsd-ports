@@ -1,5 +1,8 @@
 # Created by: Gvozdikov Veniamin <g.veniamin@googlemail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	conkyforecast
 PORTVERSION=	2.20

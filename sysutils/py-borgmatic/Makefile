@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	borgmatic
 PORTVERSION=	1.5.12
 CATEGORIES=	sysutils python

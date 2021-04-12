@@ -1,5 +1,8 @@
 # Created by: Chris D. Faulhaber <jedgar@fxp.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bvi
 PORTVERSION=	1.4.0

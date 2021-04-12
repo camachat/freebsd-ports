@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 --- chrome/common/chrome_paths.cc.orig	2021-01-18 21:28:52 UTC
 +++ chrome/common/chrome_paths.cc
 @@ -47,21 +47,29 @@ namespace {
+=======
+--- chrome/common/chrome_paths.cc.orig	2021-03-12 23:57:19 UTC
++++ chrome/common/chrome_paths.cc
+@@ -48,21 +48,29 @@ namespace {
+>>>>>>> upstream/main
  const base::FilePath::CharType kPepperFlashBaseDirectory[] =
      FILE_PATH_LITERAL("PepperFlash");
  
@@ -32,7 +38,11 @@
  
  #if (defined(OS_LINUX) || defined(OS_CHROMEOS)) && \
      BUILDFLAG(ENABLE_WIDEVINE_CDM_COMPONENT)
+<<<<<<< HEAD
 @@ -182,7 +190,7 @@ bool PathProvider(int key, base::FilePath* result) {
+=======
+@@ -183,7 +191,7 @@ bool PathProvider(int key, base::FilePath* result) {
+>>>>>>> upstream/main
          return false;
        break;
      case chrome::DIR_DEFAULT_DOWNLOADS_SAFE:
@@ -41,7 +51,11 @@
        if (!GetUserDownloadsDirectorySafe(&cur))
          return false;
        break;
+<<<<<<< HEAD
 @@ -453,6 +461,9 @@ bool PathProvider(int key, base::FilePath* result) {
+=======
+@@ -447,6 +455,9 @@ bool PathProvider(int key, base::FilePath* result) {
+>>>>>>> upstream/main
      case chrome::DIR_POLICY_FILES: {
  #if BUILDFLAG(GOOGLE_CHROME_BRANDING)
        cur = base::FilePath(FILE_PATH_LITERAL("/etc/opt/chrome/policies"));
@@ -51,6 +65,7 @@
  #else
        cur = base::FilePath(FILE_PATH_LITERAL("/etc/chromium/policies"));
  #endif
+<<<<<<< HEAD
 @@ -460,7 +471,7 @@ bool PathProvider(int key, base::FilePath* result) {
      }
  #endif
@@ -61,6 +76,22 @@
        if (!base::PathService::Get(chrome::DIR_USER_DATA, &cur))
          return false;
 @@ -468,7 +479,7 @@ bool PathProvider(int key, base::FilePath* result) {
+=======
+@@ -455,9 +466,9 @@ bool PathProvider(int key, base::FilePath* result) {
+ #endif
+ // TODO(crbug.com/1052397): Revisit once build flag switch of lacros-chrome is
+ // complete.
+-#if defined(OS_CHROMEOS) ||                                  \
+-    ((defined(OS_LINUX) || BUILDFLAG(IS_CHROMEOS_LACROS)) && \
+-     BUILDFLAG(CHROMIUM_BRANDING)) ||                        \
++#if defined(OS_CHROMEOS) ||                                                    \
++    ((defined(OS_LINUX) || BUILDFLAG(IS_CHROMEOS_LACROS) || defined(OS_BSD)) && \
++     BUILDFLAG(CHROMIUM_BRANDING)) ||                                           \
+     defined(OS_MAC)
+     case chrome::DIR_USER_EXTERNAL_EXTENSIONS: {
+       if (!base::PathService::Get(chrome::DIR_USER_DATA, &cur))
+@@ -466,7 +477,7 @@ bool PathProvider(int key, base::FilePath* result) {
+>>>>>>> upstream/main
        break;
      }
  #endif
@@ -69,7 +100,11 @@
      case chrome::DIR_STANDALONE_EXTERNAL_EXTENSIONS: {
        cur = base::FilePath(kFilepathSinglePrefExtensions);
        break;
+<<<<<<< HEAD
 @@ -503,7 +514,7 @@ bool PathProvider(int key, base::FilePath* result) {
+=======
+@@ -501,7 +512,7 @@ bool PathProvider(int key, base::FilePath* result) {
+>>>>>>> upstream/main
  #endif
        break;
  
@@ -78,7 +113,11 @@
      case chrome::DIR_NATIVE_MESSAGING:
  #if defined(OS_MAC)
  #if BUILDFLAG(GOOGLE_CHROME_BRANDING)
+<<<<<<< HEAD
 @@ -517,6 +528,9 @@ bool PathProvider(int key, base::FilePath* result) {
+=======
+@@ -515,6 +526,9 @@ bool PathProvider(int key, base::FilePath* result) {
+>>>>>>> upstream/main
  #if BUILDFLAG(GOOGLE_CHROME_BRANDING)
        cur = base::FilePath(FILE_PATH_LITERAL(
            "/etc/opt/chrome/native-messaging-hosts"));
@@ -88,7 +127,11 @@
  #else
        cur = base::FilePath(FILE_PATH_LITERAL(
            "/etc/chromium/native-messaging-hosts"));
+<<<<<<< HEAD
 @@ -529,7 +543,7 @@ bool PathProvider(int key, base::FilePath* result) {
+=======
+@@ -527,7 +541,7 @@ bool PathProvider(int key, base::FilePath* result) {
+>>>>>>> upstream/main
          return false;
        cur = cur.Append(FILE_PATH_LITERAL("NativeMessagingHosts"));
        break;

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	File-Spec-Native
 PORTVERSION=	1.004
 CATEGORIES=	devel perl5

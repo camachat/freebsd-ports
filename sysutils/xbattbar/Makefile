@@ -1,5 +1,8 @@
 # Created by: sumikawa
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xbattbar
 PORTVERSION=	1.4.2

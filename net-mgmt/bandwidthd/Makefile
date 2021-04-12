@@ -1,5 +1,8 @@
 # Created by: Clement Laforet <sheepkiller@cultdeadsheep.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bandwidthd
 PORTVERSION=	2.0.1

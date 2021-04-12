@@ -1,5 +1,8 @@
 # Created by: Ulrich Spoerlein <uspoerlein@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rgl
 PORTVERSION=	0.5.3

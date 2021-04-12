@@ -1,5 +1,8 @@
 # Created by: Nicola Vitale <nivit@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pafy
 PORTVERSION=	0.5.5

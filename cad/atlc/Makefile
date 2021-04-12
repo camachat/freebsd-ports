@@ -1,5 +1,8 @@
 # Created by: Marc Fonvieille <blackend@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	atlc
 PORTVERSION=	4.6.1

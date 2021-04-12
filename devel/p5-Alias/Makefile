@@ -1,5 +1,8 @@
 # Created by: will
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Alias
 PORTVERSION=	2.32

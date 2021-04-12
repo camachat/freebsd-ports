@@ -1,8 +1,14 @@
 # Created by: vanilla@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	CryptX
 PORTVERSION=	0.070
+=======
+
+PORTNAME=	CryptX
+PORTVERSION=	0.071
+>>>>>>> upstream/main
 CATEGORIES=	security perl5
 MASTER_SITES=	CPAN/Crypt
 PKGNAMEPREFIX=	p5-

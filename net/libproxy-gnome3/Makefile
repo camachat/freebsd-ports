@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTREVISION=	0
 CATEGORIES=	net devel
 PKGNAMESUFFIX=	-${LIBPROXY_SLAVE}

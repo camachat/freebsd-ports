@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- third_party/crashpad/crashpad/client/crashpad_client_posix.cc.orig	2020-11-16 10:08:53 UTC
+=======
+--- third_party/crashpad/crashpad/client/crashpad_client_posix.cc.orig	2021-03-15 11:01:24 UTC
+>>>>>>> upstream/main
 +++ third_party/crashpad/crashpad/client/crashpad_client_posix.cc
 @@ -0,0 +1,39 @@
 +// Copyright 2017 The Crashpad Authors. All rights reserved.

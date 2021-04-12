@@ -1,5 +1,8 @@
 # Created by: glarkin
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	statsvn
 PORTVERSION=	0.7.0

@@ -1,5 +1,8 @@
 # Created by: reg@shale.csir.co.za
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	snns
 PORTVERSION=	4.3

@@ -1,5 +1,8 @@
 # Created by: proler@gmail.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	clickhouse
 PORTVERSION=	20.7.2.30

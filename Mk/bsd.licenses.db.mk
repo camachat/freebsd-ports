@@ -1,7 +1,10 @@
 #-*- tab-width: 4; -*-
 # ex:ts=4
+<<<<<<< HEAD
 #
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 # ** Please run changes to this file by eadler@ first **
 
@@ -51,7 +54,11 @@ _LICENSE_LIST+= AGPLv3+ GPLv1+ GPLv2+ GPLv3+ GPLv3RLE+ LGPL20+ LGPL21+ \
 				LGPL3+
 
 # BSD family
+<<<<<<< HEAD
 _LICENSE_LIST+= BSD BSD2CLAUSE BSD3CLAUSE BSD4CLAUSE
+=======
+_LICENSE_LIST+= BSD BSD0CLAUSE BSD2CLAUSE BSD3CLAUSE BSD4CLAUSE
+>>>>>>> upstream/main
 
 # LaTeX family
 _LICENSE_LIST+= LPPL10 LPPL11 LPPL12 LPPL13 LPPL13a LPPL13b LPPL13c
@@ -137,6 +144,12 @@ _LICENSE_GROUPS_ART20=	FSF GPL OSI
 _LICENSE_NAME_BSD=	BSD license Generic Version (deprecated)
 _LICENSE_GROUPS_BSD=	FSF OSI COPYFREE
 
+<<<<<<< HEAD
+=======
+_LICENSE_NAME_BSD0CLAUSE=	BSD Zero Clause License
+_LICENSE_GROUPS_BSD0CLAUSE=	OSI
+
+>>>>>>> upstream/main
 _LICENSE_NAME_BSD2CLAUSE=	BSD 2-clause "Simplified" License
 _LICENSE_GROUPS_BSD2CLAUSE=	FSF OSI COPYFREE
 

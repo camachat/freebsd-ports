@@ -1,5 +1,8 @@
 # Created by: Boris Samorodov <bsam@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pycharm-ce
 PORTVERSION=	2020.3.3

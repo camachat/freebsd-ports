@@ -1,5 +1,8 @@
 # Created by: Dom Mitchell <dom@happygiraffe.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ucspi-tcp
 PORTVERSION=	0.88

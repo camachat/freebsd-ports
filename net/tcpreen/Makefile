@@ -1,5 +1,8 @@
 # Created by: Janos.Mohacsi@bsd.hu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tcpreen
 PORTVERSION=	1.4.4

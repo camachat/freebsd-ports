@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libxshmfence
 PORTVERSION=	1.3
 CATEGORIES=	x11

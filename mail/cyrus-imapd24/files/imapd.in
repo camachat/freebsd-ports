@@ -1,7 +1,10 @@
 #!/bin/sh
 
 # Start or stop cyrus-imapd
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 # PROVIDE: cyrus_imapd imap
 # REQUIRE: DAEMON

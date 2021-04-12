@@ -1,5 +1,8 @@
 # Created by: Mykola Dzham <freebsd@levsha.org.ua>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	apertium
 PORTVERSION=	3.6.1

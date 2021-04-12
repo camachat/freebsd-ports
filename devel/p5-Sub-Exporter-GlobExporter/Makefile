@@ -1,5 +1,8 @@
 # Created by: Geraud CONTINSOUZAS <geraud@gcu.info>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Sub-Exporter-GlobExporter
 PORTVERSION=	0.005

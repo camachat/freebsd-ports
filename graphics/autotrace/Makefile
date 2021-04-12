@@ -1,5 +1,8 @@
 # Created by: KANOU Hiroki <kanou@mil.allnet.ne.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	autotrace
 PORTVERSION=	0.31.1

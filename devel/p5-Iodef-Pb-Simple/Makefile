@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Iodef-Pb-Simple
 PORTVERSION=	0.21
 PORTREVISION=	2

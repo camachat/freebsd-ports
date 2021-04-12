@@ -1,5 +1,8 @@
 # Created by: alepulver
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	advancemess
 PORTVERSION=	1.4

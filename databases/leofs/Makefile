@@ -1,5 +1,8 @@
 # Created by: Mikolaj Golub <trociny@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	leofs
 DISTVERSION=	1.4.3

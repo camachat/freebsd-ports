@@ -1,5 +1,8 @@
 # Created by: mharo@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	DWH_File
 PORTVERSION=	0.24

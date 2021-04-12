@@ -1,5 +1,8 @@
 # Created by: Jordi Haarman
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	simpletal
 PORTVERSION=	4.3

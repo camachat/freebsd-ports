@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- content/renderer/renderer_blink_platform_impl.cc.orig	2021-01-18 21:28:58 UTC
+=======
+--- content/renderer/renderer_blink_platform_impl.cc.orig	2021-03-12 23:57:24 UTC
+>>>>>>> upstream/main
 +++ content/renderer/renderer_blink_platform_impl.cc
 @@ -102,7 +102,7 @@
  
@@ -27,6 +31,7 @@
    if (sandboxEnabled()) {
  #if defined(OS_MAC)
      sandbox_support_ = std::make_unique<WebSandboxSupportMac>();
+<<<<<<< HEAD
 @@ -235,7 +235,7 @@ RendererBlinkPlatformImpl::WrapSharedURLLoaderFactory(
  
  void RendererBlinkPlatformImpl::SetDisplayThreadPriority(
@@ -36,6 +41,17 @@
    if (RenderThreadImpl* render_thread = RenderThreadImpl::current()) {
      render_thread->render_message_filter()->SetThreadPriority(
          thread_id, base::ThreadPriority::DISPLAY);
+=======
+@@ -233,7 +233,7 @@ RendererBlinkPlatformImpl::WrapSharedURLLoaderFactory(
+       std::move(factory));
+ }
+ 
+-#if defined(OS_LINUX) || defined(OS_CHROMEOS)
++#if defined(OS_LINUX) || defined(OS_CHROMEOS) || defined(OS_BSD)
+ void RendererBlinkPlatformImpl::SetDisplayThreadPriority(
+     base::PlatformThreadId thread_id) {
+   if (RenderThreadImpl* render_thread = RenderThreadImpl::current()) {
+>>>>>>> upstream/main
 @@ -248,7 +248,7 @@ blink::BlameContext* RendererBlinkPlatformImpl::GetTop
  }
  

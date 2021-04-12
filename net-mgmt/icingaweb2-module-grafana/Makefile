@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	icingaweb2-module-grafana
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.3.6

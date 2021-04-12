@@ -1,5 +1,8 @@
 # Created by: Marcin Simonides <marcin@studio4plus.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	zfs-snapshot-mgmt
 PORTVERSION=	20090201

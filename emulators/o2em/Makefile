@@ -1,5 +1,8 @@
 # Created by: Gunter Wambaugh <techgunter@yahoo.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	o2em
 PORTVERSION=	1.17

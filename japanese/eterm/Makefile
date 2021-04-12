@@ -1,5 +1,8 @@
 # Created by: MANTANI Nobutaka <nobutaka@nobutaka.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 CATEGORIES=	japanese
 

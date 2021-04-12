@@ -1,5 +1,8 @@
 # Created by: Amar Takhar <verm@drunkmonk.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fastresolve
 PORTVERSION=	2.10

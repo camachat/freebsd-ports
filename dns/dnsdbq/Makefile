@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dnsdbq
 PORTVERSION=	2.5.3
 DISTVERSIONPREFIX=	v

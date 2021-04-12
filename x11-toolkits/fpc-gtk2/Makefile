@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 CATEGORIES=	x11-toolkits lang
 PKGNAMESUFFIX=	-gtk2
 

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	nexus2
 PORTVERSION=	2.14.18
 DISTVERSIONSUFFIX=	01

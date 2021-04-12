@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	otter-browser
 DISTVERSIONPREFIX=	v
 # Occasionally otter-browser is updated to intermediate commits;

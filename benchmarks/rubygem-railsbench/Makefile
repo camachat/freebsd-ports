@@ -1,5 +1,8 @@
 # Created by: Alexander Logvinov <ports@logvinov.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	railsbench
 PORTVERSION=	0.9.8

@@ -1,5 +1,8 @@
 # Created by: Zhihao Yuan <lichray@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fcitx-anthy
 PORTVERSION=	0.2.3

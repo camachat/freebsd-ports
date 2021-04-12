@@ -1,5 +1,8 @@
 # Created by: Peter Avalos <pavalos@theshell.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HTML-Widgets-SelectLayers
 PORTVERSION=	0.07

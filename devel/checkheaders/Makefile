@@ -1,5 +1,8 @@
 # Created by: bf <bf@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	checkheaders
 PORTVERSION=	1.0.1

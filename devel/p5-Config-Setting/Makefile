@@ -1,5 +1,8 @@
 # Created by: petef@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Config-Setting
 PORTVERSION=	0.04

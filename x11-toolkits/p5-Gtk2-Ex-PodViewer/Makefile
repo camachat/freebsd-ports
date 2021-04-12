@@ -1,5 +1,8 @@
 # Created by: ports@c0decafe.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Gtk2-Ex-PodViewer
 PORTVERSION=	0.18

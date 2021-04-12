@@ -1,5 +1,8 @@
 # Created by: Yoshiro MIHIRA <sanpei@yy.cs.keio.ac.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME?=	xpbiff
 PORTVERSION?=	1.27

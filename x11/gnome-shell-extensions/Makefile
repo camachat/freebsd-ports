@@ -1,5 +1,8 @@
 # Created by: Koop Mast <kwm@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gnome-shell-extensions
 PORTVERSION=	3.36.3

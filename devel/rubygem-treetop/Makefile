@@ -1,5 +1,8 @@
 # Created by: Wen Heping <ruby@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	treetop
 PORTVERSION=	1.6.10

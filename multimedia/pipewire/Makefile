@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	pipewire
 DISTVERSION=	0.3.23
 PORTREVISION=	1
+=======
+PORTNAME=	pipewire
+DISTVERSION=	0.3.25
+>>>>>>> upstream/main
 CATEGORIES=	multimedia
 
 MAINTAINER=	arrowd@FreeBSD.org
@@ -23,12 +28,21 @@ USES=		compiler:c11 gnome meson pkgconfig
 
 OPTIONS_DEFINE=	GSTREAMER VULKAN
 
+<<<<<<< HEAD
 GSTREAMER_MESON_TRUE=	gstreamer
 GSTREAMER_LIB_DEPENDS=	libgstreamer-1.0.so:multimedia/gstreamer1 \
 			libgstaudio-1.0.so:multimedia/gstreamer1-plugins
 
 VULKAN_DESC=	Enable Vulkan integration
 VULKAN_MESON_TRUE=	vulkan
+=======
+GSTREAMER_MESON_ENABLED=gstreamer
+GSTREAMER_LIB_DEPENDS=	libgstreamer-1.0.so:multimedia/gstreamer1 \
+			libgstaudio-1.0.so:multimedia/gstreamer1-plugins
+
+VULKAN_DESC=		Enable Vulkan integration
+VULKAN_MESON_ENABLED=	vulkan
+>>>>>>> upstream/main
 VULKAN_BUILD_DEPENDS=	${LOCALBASE}/include/vulkan/vulkan.h:graphics/vulkan-headers
 VULKAN_LIB_DEPENDS=	libvulkan.so:graphics/vulkan-loader
 
@@ -38,12 +52,19 @@ USE_LDCONFIG=	yes
 USE_GITHUB=	yes
 GH_ACCOUNT=	PipeWire
 
+<<<<<<< HEAD
 MESON_ARGS=	-D gstreamer=false \
 		-Dalsa=false -Dpipewire-alsa=false \
 		-D bluez5=false \
 		-D jack=false -D pipewire-jack=false \
 		-D pipewire-pulseaudio=false \
 		-D systemd=false
+=======
+MESON_ARGS=	-Dalsa=disabled -Dpipewire-alsa=disabled \
+		-D bluez5=disabled \
+		-D jack=disabled -D pipewire-jack=disabled \
+		-D systemd=disabled
+>>>>>>> upstream/main
 
 OPTIONS_SUB=	yes
 

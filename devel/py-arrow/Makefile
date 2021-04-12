@@ -1,5 +1,8 @@
 # Created by: Grzegorz Blach <gblach@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	arrow
 PORTVERSION=	0.17.0

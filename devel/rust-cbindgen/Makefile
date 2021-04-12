@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	cbindgen
 DISTVERSION=	0.18.0
 PORTREVISION=	1
+=======
+PORTNAME=	cbindgen
+DISTVERSION=	0.19.0
+>>>>>>> upstream/main
 CATEGORIES=	devel
 MASTER_SITES=	CRATESIO
 PKGNAMEPREFIX=	rust-

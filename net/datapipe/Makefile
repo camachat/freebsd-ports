@@ -1,5 +1,8 @@
 # Created by: Daniel Baker <dbaker@FreeBSD.org> <dbaker@cuckoo.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	datapipe
 PORTVERSION=	1.0

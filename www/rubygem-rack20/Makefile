@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rack
 PORTVERSION=	2.0.9
 PORTEPOCH=	3

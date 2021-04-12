@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 .SUFFIXES: .csv .euc-csv
 
 CSV=	ken_all.csv

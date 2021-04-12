@@ -1,5 +1,8 @@
 # Created by: Vincent Tantardini <vinc@FreeBSD-fr.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mp3burn
 PORTVERSION=	0.4.2

@@ -1,5 +1,8 @@
 # Created by: Neil Blakey-Milner
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vpopmail
 PORTVERSION=	5.4.33

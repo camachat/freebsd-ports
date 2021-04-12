@@ -1,5 +1,8 @@
 # Created by: Lars Engels <lars.engels@0x20.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	freesynd
 PORTVERSION=	0.7.5

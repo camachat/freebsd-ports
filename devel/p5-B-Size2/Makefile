@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	B-Size2
 PORTVERSION=	2.07
 PORTREVISION=	1

@@ -1,5 +1,8 @@
 # Created by: Juraj Lutter <otis@sk.freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	powwow
 PORTVERSION=	1.2.22

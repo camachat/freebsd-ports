@@ -1,5 +1,8 @@
 # Created by: thierry@pompo.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	coxeter
 PORTVERSION=	3.1.20210124

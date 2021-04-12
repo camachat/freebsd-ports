@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	shiboken2
 DISTVERSION=	5.15.2
 PORTREVISION=	1

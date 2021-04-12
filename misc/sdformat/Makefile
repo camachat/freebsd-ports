@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sdformat
 DISTVERSION=	8.0.0
 PORTREVISION=	3

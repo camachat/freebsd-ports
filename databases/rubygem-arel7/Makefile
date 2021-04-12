@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	arel
 PORTVERSION=	7.1.4
 PORTEPOCH=	1

@@ -1,5 +1,8 @@
 # Created by: torstenb
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cricket
 PORTVERSION=	1.0.5

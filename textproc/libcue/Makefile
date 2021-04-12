@@ -1,5 +1,8 @@
 # Created by: buganini@gmail.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libcue
 PORTVERSION=	2.1.0

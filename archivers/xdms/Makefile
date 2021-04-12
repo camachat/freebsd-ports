@@ -1,5 +1,8 @@
 # Created by: Mark Pulford <mark@kyne.com.au>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xdms
 PORTVERSION=	1.3.2

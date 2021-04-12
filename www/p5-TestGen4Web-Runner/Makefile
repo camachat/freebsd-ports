@@ -1,5 +1,8 @@
 # Created by: Conor McDermottroe <ports@mcdermottroe.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	TestGen4Web-Runner
 PORTVERSION=	0.11

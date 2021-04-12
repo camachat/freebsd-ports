@@ -1,5 +1,8 @@
 # Created by: Arjan van der Velde <noresult@xs4all.nl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	spindown
 PORTVERSION=	0.4

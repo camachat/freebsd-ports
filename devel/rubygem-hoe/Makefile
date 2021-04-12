@@ -1,5 +1,8 @@
 # Created by: Jonathan Weiss (<jw@innerewut.de>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hoe
 PORTVERSION=	3.22.1

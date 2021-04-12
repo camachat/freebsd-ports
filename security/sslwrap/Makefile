@@ -1,5 +1,8 @@
 # Created by: Zahemszky, Gabor <ZGabor at CoDe dot HU>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sslwrap
 PORTVERSION=	2.0.6

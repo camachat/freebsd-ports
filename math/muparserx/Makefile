@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	muparserx
 DISTVERSIONPREFIX=	v
 DISTVERSION=	4.0.8-30

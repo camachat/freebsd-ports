@@ -1,5 +1,8 @@
 # Created by: Maxim Ignatenko <gelraen.ua@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	acpi_call
 PORTVERSION=	1.0.1

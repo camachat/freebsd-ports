@@ -1,5 +1,8 @@
 # Created by: gahr
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vtk
 PORTVERSION=	6.2.0

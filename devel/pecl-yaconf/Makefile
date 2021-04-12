@@ -1,5 +1,8 @@
 # Created by: John Chen <johnpupu@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	yaconf
 DISTVERSION=	1.1.0

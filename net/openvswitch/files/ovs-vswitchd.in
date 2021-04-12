@@ -1,7 +1,10 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 
 # PROVIDE: ovs_vswitchd
 # REQUIRE: LOGIN ovsdb_server

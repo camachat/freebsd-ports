@@ -1,5 +1,8 @@
 # Created by: Dmitry Sivachenko <demon@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tinycss
 PORTVERSION=	0.4

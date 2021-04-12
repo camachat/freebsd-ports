@@ -1,5 +1,8 @@
 # Created by: Maxim Sobolev <sobomax@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	oroborus
 PORTVERSION=	2.0.20

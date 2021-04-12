@@ -1,5 +1,8 @@
 # Created by: Krzysztof Stryjek <ports@bsdserwis.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	postsrsd
 PORTVERSION=	1.10

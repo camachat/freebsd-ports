@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kpcli
 PORTVERSION=	3.1
 PORTREVISION=	1

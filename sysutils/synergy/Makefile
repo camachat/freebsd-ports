@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	synergy
 DISTVERSION=	1.13.1.41
 DISTVERSIONSUFFIX=	-stable

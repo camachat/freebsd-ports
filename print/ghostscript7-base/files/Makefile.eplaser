@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 # EPLASER - additional driver for ESC/Page printers, by EPSON AVASYS Corp.
 # http://www.avasys.jp/english/linux_e/index.html
 

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Template-AutoFilter
 PORTVERSION=	0.143050
 CATEGORIES=	textproc perl5

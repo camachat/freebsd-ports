@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	webassembly
 PORTVERSION=	0.6.1
 DISTVERSIONPREFIX=	v

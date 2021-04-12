@@ -1,5 +1,8 @@
 # Created by: Zane C, Bowers <vvelox@vvelox.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-LDAP-Makepath
 PORTVERSION=	1.0.1

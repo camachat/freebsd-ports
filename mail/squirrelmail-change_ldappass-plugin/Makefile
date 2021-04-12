@@ -1,5 +1,8 @@
 # Created by: Alexander Wittig <alexander@wittig.name>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	change_ldappass
 PORTVERSION=	2.2

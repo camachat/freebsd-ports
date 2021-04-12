@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cassandra
 DISTVERSION=	3.11.10
 CATEGORIES=	databases java

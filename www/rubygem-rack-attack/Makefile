@@ -1,5 +1,8 @@
 # Created by: Steve Wills <swills@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rack-attack
 PORTVERSION=	6.3.1

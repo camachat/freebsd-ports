@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rack-oauth2
 PORTVERSION=	1.16.0
 PORTREVISION=	0

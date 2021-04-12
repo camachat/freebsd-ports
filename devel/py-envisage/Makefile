@@ -1,5 +1,8 @@
 # Created by: Vladimir Chukharev
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	envisage
 PORTVERSION=	4.9.0

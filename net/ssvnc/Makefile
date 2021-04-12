@@ -1,5 +1,8 @@
 # Created by: Alejandro Pulver <alepulver@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ssvnc
 PORTVERSION=	1.0.29

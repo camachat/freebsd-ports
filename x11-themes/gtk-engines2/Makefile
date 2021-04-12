@@ -1,5 +1,8 @@
 # Created by: Joe Marcus Clarke <marcus@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 #   $MCom: ports/x11-themes/gtk-engines2/Makefile,v 1.82 2010/04/19 10:51:27 kwm Exp $
 
 PORTNAME=	gtk-engines2

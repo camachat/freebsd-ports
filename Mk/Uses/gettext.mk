@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # Sets a library dependency on gettext-runtime and a build dependency
 # on gettext-tools.  Same as "USES=gettext-runtime gettext-tools".
 #

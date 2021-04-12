@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PKGNAMESUFFIX=	-utils
 PORTREVISION=	2
 

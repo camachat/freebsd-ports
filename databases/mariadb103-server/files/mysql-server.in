@@ -1,7 +1,10 @@
 #!/bin/sh
 
+<<<<<<< HEAD
 # $FreeBSD: head/databases/mariadb55-server/files/mysql-server.in 361647 2014-07-12 22:42:33Z rakuco $
 #
+=======
+>>>>>>> upstream/main
 # PROVIDE: mysql
 # REQUIRE: LOGIN
 # KEYWORD: shutdown

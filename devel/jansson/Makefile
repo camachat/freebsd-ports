@@ -1,5 +1,8 @@
 # Created by: vanilla@
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jansson
 PORTVERSION=	2.13.1

@@ -1,5 +1,8 @@
 # Created by: Olivier Duchateau
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wikipedia
 PORTVERSION=	1.4.0

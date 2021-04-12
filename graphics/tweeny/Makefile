@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tweeny
 DISTVERSIONPREFIX=	v
 DISTVERSION=	3-6

@@ -1,5 +1,8 @@
 # Created by: Stefan A. Deutscher (sad@mailaps.org)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	renattach
 PORTVERSION=	1.2.4

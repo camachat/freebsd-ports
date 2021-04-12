@@ -1,5 +1,8 @@
 # Created by: Aleksander Fafula <alex@bsdguru.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fortunepl
 PORTVERSION=	20091121

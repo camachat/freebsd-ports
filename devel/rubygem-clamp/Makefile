@@ -1,5 +1,8 @@
 # Created by: Michael Moll <kvedulv@kvedulv.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	clamp
 PORTVERSION=	1.3.2

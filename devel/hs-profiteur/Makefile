@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	profiteur
 PORTVERSION=	0.4.5.1
 PORTREVISION=	4

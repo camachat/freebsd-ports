@@ -1,5 +1,8 @@
 # Created by: Ryan Steinmetz <zi@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cli53
 DISTVERSION=	0.8.18

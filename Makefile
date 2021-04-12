@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
 
+=======
+>>>>>>> upstream/main
 SUBDIR += accessibility
 SUBDIR += arabic
 SUBDIR += archivers

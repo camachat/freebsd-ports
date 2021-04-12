@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Log-Any
 PORTVERSION=	1.707
 CATEGORIES=	devel perl5

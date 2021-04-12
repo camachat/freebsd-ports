@@ -1,5 +1,8 @@
 # Created by: Gustau Perez i Querol <gustau.perez@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cinnamon-settings-daemon
 PORTVERSION=	4.8.5

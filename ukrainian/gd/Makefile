@@ -1,5 +1,8 @@
 # Created by: mike@LITech.lviv.ua
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 MASTERDIR=	${.CURDIR:H:H}/graphics/gd
 CATEGORIES=	ukrainian

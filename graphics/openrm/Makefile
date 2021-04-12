@@ -1,5 +1,8 @@
 # Created by: Igor Pokrovsky <tiamat@comset.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	openrm
 PORTVERSION=	1.6.0.2

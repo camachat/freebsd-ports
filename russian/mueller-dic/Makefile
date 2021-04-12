@@ -1,5 +1,8 @@
 # Created by: Igor Pokrovsky <tiamat@comset.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mueller-dic
 PORTVERSION=	1.2

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	remotedesk
 PORTVERSION=	0.1
 PORTREVISION=	10

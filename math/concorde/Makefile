@@ -1,5 +1,8 @@
 # Created by: dbader@ece.unm.edu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	concorde
 PORTVERSION=	20031219

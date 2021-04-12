@@ -1,5 +1,8 @@
 # Created by: Colin Booth <colin@heliocat.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	s6
 PORTVERSION=	2.10.0.0

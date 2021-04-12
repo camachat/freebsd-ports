@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pQuery
 PORTVERSION=	0.24
 CATEGORIES=	www perl5

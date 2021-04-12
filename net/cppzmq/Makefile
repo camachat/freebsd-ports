@@ -1,5 +1,8 @@
 # Created by: Vasil Dimov <vd@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cppzmq
 PORTVERSION=	4.7.1

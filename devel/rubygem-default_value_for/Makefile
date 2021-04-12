@@ -1,5 +1,8 @@
 # Created by: Johannes Meixner <johannes@perceivon.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	default_value_for
 PORTVERSION=	3.4.0

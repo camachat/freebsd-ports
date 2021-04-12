@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Plack-Middleware-AMF
 PORTVERSION=	0.02
 PORTREVISION=	1

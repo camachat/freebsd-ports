@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	zookeeper
 PORTVERSION=	3.6.2
 CATEGORIES=	devel java

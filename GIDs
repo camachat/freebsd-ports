@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 # Please keep this file sorted by GID!
 # Please pick an empty slot when available and also consider base values from
 # /usr/src/etc/group
@@ -227,9 +230,15 @@ devmon:*:283:
 vnstat:*:284:
 exaddos:*:285:exaddos
 rancid:*:286:
+<<<<<<< HEAD
 # free: 287
 ntopng:*:288:
 # free: 289
+=======
+webdis:*:287:
+ntopng:*:288:
+victoria-metrics:*:289:
+>>>>>>> upstream/main
 # free: 290
 # free: 291
 # free: 292

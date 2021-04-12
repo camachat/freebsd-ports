@@ -1,5 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@rtfm.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	amazon-ecs
 PORTVERSION=	2.5.0

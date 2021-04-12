@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	optuna
 DISTVERSION=	2.6.0
+=======
+PORTNAME=	optuna
+DISTVERSION=	2.7.0
+>>>>>>> upstream/main
 CATEGORIES=	math # machine-learning
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}

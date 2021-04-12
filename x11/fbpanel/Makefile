@@ -1,5 +1,8 @@
 # Created by: Tobias Roth <ports@fsck.ch>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fbpanel
 PORTVERSION=	6.1

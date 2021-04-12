@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	eastl
 DISTVERSION=	3.13.06
 PORTREVISION=	1

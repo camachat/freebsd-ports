@@ -1,5 +1,8 @@
 # Created by: GreenDog <fiziologus@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fife
 PORTVERSION=	0.4.2

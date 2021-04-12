@@ -1,5 +1,8 @@
 # Created by: Marcello Coutinho <marcellocoutinho@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Acme-Comment
 PORTVERSION=	1.04

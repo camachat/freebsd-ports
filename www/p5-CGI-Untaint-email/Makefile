@@ -1,5 +1,8 @@
 # Created by: Marc G. Fournier <scrappy@hub.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	CGI-Untaint-email
 PORTVERSION=	0.03

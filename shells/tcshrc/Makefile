@@ -1,5 +1,8 @@
 # Created by: Sean Chittenden <seanc@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tcshrc
 PORTVERSION=	1.6.2

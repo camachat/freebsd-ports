@@ -1,5 +1,8 @@
 # Created by: mnag@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gnupg
 PORTVERSION=	1.4.0

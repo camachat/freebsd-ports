@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # Created by: Dmitry Marakasov <amdmi3@FreeBSD.org>
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	meandmyshadow
 PORTVERSION=	0.5a
 PORTREVISION=	1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	port-index-uniquifier
 PORTVERSION=	${OSVERSION}
 CATEGORIES=	ports-mgmt

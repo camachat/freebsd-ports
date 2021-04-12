@@ -1,5 +1,8 @@
 # Created by: Li-Lun Wang <llwang@infor.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mdp
 PORTVERSION=	3.5

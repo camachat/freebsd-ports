@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 CATEGORIES=	german
 LO_I18N=	de
 LO_HAS_HELPPACK=	yes

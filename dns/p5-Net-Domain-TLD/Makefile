@@ -1,5 +1,8 @@
 # Created by: Anton Berezin <tobez@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-Domain-TLD
 PORTVERSION=	1.75

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 LIB = 	asm-xml
 OBJS=	src/elf.So
 INCS=	include/asm-xml.h

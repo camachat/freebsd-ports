@@ -1,5 +1,8 @@
 # Created by: Carsten Larsen <cs@innolan.dk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	python-lhafile
 DISTVERSION=	0.2.2

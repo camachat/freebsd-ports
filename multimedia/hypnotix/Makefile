@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	hypnotix
 DISTVERSION=	1.4
 PORTREVISION=	1

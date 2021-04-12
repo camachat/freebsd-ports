@@ -1,5 +1,8 @@
 # Created by: Eric F Crist <ecrist@secure-computing.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rackmonkey
 PORTVERSION=	1.2.5

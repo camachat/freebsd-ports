@@ -1,5 +1,8 @@
 # Created by: Martin Matuska <mm@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	facedetect
 PORTVERSION=	1.1

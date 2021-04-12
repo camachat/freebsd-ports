@@ -1,5 +1,8 @@
 # Created by: Ryan Steinmetz <zi@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fastavro
 PORTVERSION=	0.24.2

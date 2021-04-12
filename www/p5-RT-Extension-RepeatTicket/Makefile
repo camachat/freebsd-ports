@@ -1,5 +1,8 @@
 # Created by: Matthew Seaman <matthew@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	RT-Extension-RepeatTicket
 PORTVERSION=	1.11

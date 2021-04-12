@@ -1,5 +1,8 @@
 # Created by: Igor Pokrovsky <ip@unixway.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bashc
 PORTVERSION=	5.0.9

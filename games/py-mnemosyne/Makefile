@@ -1,5 +1,8 @@
 # Created by: Beech Rintoul <beech@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mnemosyne
 PORTVERSION=		2.7.3

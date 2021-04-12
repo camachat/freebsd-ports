@@ -1,5 +1,8 @@
 # Created by: Xin LI <delphij@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hgsvn
 PORTVERSION=	0.5.2

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	googleapis-common-protos
 PORTVERSION=	1.53.0
 CATEGORIES=	devel python

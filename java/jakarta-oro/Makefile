@@ -1,5 +1,8 @@
 # Created by: Dave Glowacki <dglo@ssec.wisc.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jakarta-oro
 PORTVERSION=	2.0.8

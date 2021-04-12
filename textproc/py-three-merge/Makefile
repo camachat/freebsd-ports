@@ -1,5 +1,8 @@
 # Created by: Rainer Hurling <rhurlin@gwdg.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	three-merge
 PORTVERSION=	0.1.1

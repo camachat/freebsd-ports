@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Genesis-PyAPI
 DISTVERSION=	1.2.1
 CATEGORIES=	biology python

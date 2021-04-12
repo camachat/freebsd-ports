@@ -1,5 +1,8 @@
 #!/bin/sh
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 # PROVIDE: pot
 # REQUIRE: NETWORKING LOGIN FILESYSTEM

@@ -1,5 +1,8 @@
 # Created by: Geoffroy Desvernay <dgeo@centrale-marseille.fr>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Time-timegm
 PORTVERSION=	0.01

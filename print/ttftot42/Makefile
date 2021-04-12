@@ -1,5 +1,8 @@
 # Created by: Yukihiro Nakai <nakai@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ttftot42
 PORTVERSION=	0.3.1

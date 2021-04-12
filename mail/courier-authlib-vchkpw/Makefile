@@ -1,5 +1,8 @@
 # Created by: Yarema <yds@CoolRat.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTREVISION=	0
 PKGNAMESUFFIX=	-vchkpw

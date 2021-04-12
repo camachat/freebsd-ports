@@ -1,5 +1,8 @@
 # Created by: Bernard Spil <brnrd@freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	passman
 PORTVERSION=	2.3.7

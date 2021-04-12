@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	URI-Match
 PORTVERSION=	0.00001
 PORTREVISION=	1

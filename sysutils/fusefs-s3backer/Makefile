@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	s3backer
 DISTVERSION=	1.5.4
 CATEGORIES=	sysutils

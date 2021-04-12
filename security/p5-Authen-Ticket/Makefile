@@ -1,5 +1,8 @@
 # Created by: will
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Authen-Ticket
 PORTVERSION=	0.02

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tickrs
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.14.4

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		plink
 DISTVERSIONPREFIX=	v
 DISTVERSION=		1.90b6.17

@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 # Created by: Dmitry Marakasov <amdmi3@FreeBSD.org>
 # $FreeBSD$
 
 PORTNAME=	gpsprune
 PORTVERSION=	20.2
+=======
+PORTNAME=	gpsprune
+PORTVERSION=	20.3
+>>>>>>> upstream/main
 CATEGORIES=	astro java
 MASTER_SITES=	http://activityworkshop.net/software/${PORTNAME}/ \
 		http://mirror.amdmi3.ru/distfiles/

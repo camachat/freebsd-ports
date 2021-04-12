@@ -1,5 +1,8 @@
 # Created by: Adam Weinberger <adamw@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	URL-Encode-XS
 PORTVERSION=	0.03

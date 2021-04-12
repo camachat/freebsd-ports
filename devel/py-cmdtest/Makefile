@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cmdtest
 PORTVERSION=	0.33.s20191128
 PORTREVISION=	1

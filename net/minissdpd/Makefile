@@ -1,5 +1,8 @@
 # Created by: Emanuel Haupt <ehaupt@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	minissdpd
 PORTVERSION=	1.5.20200928

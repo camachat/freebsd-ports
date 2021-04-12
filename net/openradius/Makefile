@@ -1,5 +1,8 @@
 # Created by: Adam Jette <jettea46@yahoo.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	openradius
 PORTVERSION=	0.9.12c

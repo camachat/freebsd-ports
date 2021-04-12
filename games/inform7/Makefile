@@ -1,5 +1,8 @@
 # Created by: Andy Kosela <akosela@andykosela.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	inform7
 PORTVERSION=	6L38

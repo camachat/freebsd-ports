@@ -1,5 +1,8 @@
 # Created by: Emanuel Haupt <ehaupt@critical.ch>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pure-sfv
 PORTVERSION=	0.3

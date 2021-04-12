@@ -1,5 +1,8 @@
 # Created by: Eric Freeman <freebsdports@chillibear.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Cache-AgainstFile
 PORTVERSION=	1.016

@@ -1,5 +1,8 @@
 # Created by: Anton Berezin <tobez@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Color-Palette
 PORTVERSION=	0.100003

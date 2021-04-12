@@ -1,5 +1,8 @@
 # Created by: Steve Wills <swills@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	haml-coderay
 PORTVERSION=	0.2.0

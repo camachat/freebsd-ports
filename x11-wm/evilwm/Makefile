@@ -1,5 +1,8 @@
 # Created by: trevor
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	evilwm
 PORTVERSION=	1.1.1

@@ -1,5 +1,8 @@
 # Created by: hq@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 EXTRACT_SUFX=	#
 

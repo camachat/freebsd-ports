@@ -1,5 +1,8 @@
 # Created by: shurd
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	syncterm
 PORTVERSION=	1.0

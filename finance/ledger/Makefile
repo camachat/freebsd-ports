@@ -1,5 +1,8 @@
 # Created by: wcarey
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ledger
 PORTVERSION=	3.2.1

@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	libxlsxwriter
 PORTVERSION=	1.0.0
+=======
+PORTNAME=	libxlsxwriter
+PORTVERSION=	1.0.1
+>>>>>>> upstream/main
 DISTVERSIONPREFIX=	RELEASE_
 CATEGORIES=	math devel
 

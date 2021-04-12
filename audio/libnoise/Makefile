@@ -1,5 +1,8 @@
 # Created by: Andrew Pantyukhin <infofarmer@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libnoise
 DISTVERSION=	1.0.0

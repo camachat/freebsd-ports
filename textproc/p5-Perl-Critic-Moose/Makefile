@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Perl-Critic-Moose
 PORTVERSION=	1.05
 CATEGORIES=	textproc devel perl5

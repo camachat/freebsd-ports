@@ -1,5 +1,8 @@
 # Created by: Zach Thompson <hideo@lastamericanempire.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	POE-Component-Daemon
 PORTVERSION=	0.1400

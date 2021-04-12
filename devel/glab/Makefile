@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	glab
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.16.0

@@ -1,5 +1,8 @@
 # Created by: Aaron Dalton <aaron@daltons.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Heap-Simple-XS
 PORTVERSION=	0.10

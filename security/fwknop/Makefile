@@ -1,9 +1,16 @@
 # Created by: Sean Greven <sean.greven@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	fwknop
 PORTVERSION=	2.6.10
 PORTREVISION=	1
+=======
+
+PORTNAME=	fwknop
+PORTVERSION=	2.6.10
+PORTREVISION=	2
+>>>>>>> upstream/main
 CATEGORIES=	security
 MASTER_SITES=	http://www.cipherdyne.org/fwknop/download/
 
@@ -12,9 +19,12 @@ COMMENT=	SPA implementation for Linux and FreeBSD
 
 LICENSE=	GPLv2
 
+<<<<<<< HEAD
 BROKEN_FreeBSD_13=	ld: error: duplicate symbol: log_level_t
 BROKEN_FreeBSD_14=	ld: error: duplicate symbol: log_level_t
 
+=======
+>>>>>>> upstream/main
 BUILD_DEPENDS= wget:ftp/wget
 RUN_DEPENDS=   wget:ftp/wget
 LIB_DEPENDS+=  libassuan.so:security/libassuan

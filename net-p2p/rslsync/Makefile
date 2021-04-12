@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	rslsync
 PORTVERSION=	2.7.1
+=======
+PORTNAME=	rslsync
+PORTVERSION=	2.7.2
+>>>>>>> upstream/main
 CATEGORIES=	net-p2p
 MASTER_SITES=	https://download-cdn.resilio.com/${PORTVERSION}/FreeBSD-${CONFIG_ARCH}/ \
 		http://download-cdn.resilio.com/${PORTVERSION}/FreeBSD-${CONFIG_ARCH}/

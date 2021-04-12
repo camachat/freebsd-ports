@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	isal
 DISTVERSION=	g20200702
 CATEGORIES=	security

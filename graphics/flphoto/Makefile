@@ -1,5 +1,8 @@
 # Created by: johan
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	flphoto
 PORTVERSION=	1.3.1

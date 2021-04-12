@@ -1,5 +1,8 @@
 # Created by: Patrick Powell <papowell@astart.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	XML-Compile-SOAP-WSA
 PORTVERSION=	0.12

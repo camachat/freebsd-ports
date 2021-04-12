@@ -1,5 +1,8 @@
 # Created by: mwlucas
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mod_auth_xradius
 PORTVERSION=	0.4.6

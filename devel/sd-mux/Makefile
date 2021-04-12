@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sd-mux
 PORTVERSION=	g20201028
 CATEGORIES=	devel

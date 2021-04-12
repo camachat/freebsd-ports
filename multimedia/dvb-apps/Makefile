@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dvb-apps
 PORTVERSION=	1.1.2.1505
 PORTREVISION=	3

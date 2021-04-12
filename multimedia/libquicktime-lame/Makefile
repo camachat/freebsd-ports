@@ -1,5 +1,8 @@
 # Created by: mm
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libquicktime
 PORTREVISION=	6

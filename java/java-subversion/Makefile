@@ -1,5 +1,8 @@
 # Created by: Lev Serebryakov <lev@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PKGNAMEPREFIX=	java-
 CATEGORIES=	java

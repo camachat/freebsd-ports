@@ -1,5 +1,8 @@
 # Created by: hrs, lesi
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 # NOTE: libc.so.5 is built with _PATH_LOCALE defined to
 # "/usr/local/share/compat/locale" in src/include/paths.h so data installed by

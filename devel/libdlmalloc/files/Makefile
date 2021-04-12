@@ -10,9 +10,12 @@
 #  preliminary VERSION 2.8.4
 #
 #  working version; unreleased.
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 
 VER=2.8.6
 

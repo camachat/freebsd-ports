@@ -1,5 +1,8 @@
 # Created by: Andrew Pantyukhin <infofarmer@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Text-Bastardize
 DISTVERSION=	0.08

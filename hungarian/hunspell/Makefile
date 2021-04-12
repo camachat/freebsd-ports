@@ -1,5 +1,8 @@
 # Created by: janos.mohacsi@bsd.hu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hunspell
 PORTVERSION=	1.6.1

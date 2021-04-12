@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	TryCatch
 PORTVERSION=	1.003002
 PORTREVISION=	1

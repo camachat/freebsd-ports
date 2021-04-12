@@ -1,5 +1,8 @@
 # Created by: Andrew Thompson <andy@fud.org.nz>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	handbrake
 DISTVERSION=	1.3.3

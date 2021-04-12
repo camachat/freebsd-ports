@@ -1,5 +1,8 @@
 # Created by: tenser@spitfire.ecsel.psu.edu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bsvc
 DISTVERSIONPREFIX=	v

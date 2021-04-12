@@ -1,5 +1,8 @@
 # Created by: Will Andrews <andrews@technologist.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	IO-Tty
 PORTVERSION=	1.16

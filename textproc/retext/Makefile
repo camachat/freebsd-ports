@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	retext
 DISTVERSION=	7.0.4
 PORTREVISION=	5

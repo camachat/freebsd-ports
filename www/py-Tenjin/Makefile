@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Tenjin
 PORTVERSION=	1.1.1
 CATEGORIES=	www python

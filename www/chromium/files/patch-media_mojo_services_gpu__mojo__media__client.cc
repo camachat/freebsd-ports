@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 --- media/mojo/services/gpu_mojo_media_client.cc.orig	2021-01-18 21:29:00 UTC
 +++ media/mojo/services/gpu_mojo_media_client.cc
 @@ -68,7 +68,7 @@ namespace media {
+=======
+--- media/mojo/services/gpu_mojo_media_client.cc.orig	2021-03-12 23:57:26 UTC
++++ media/mojo/services/gpu_mojo_media_client.cc
+@@ -67,7 +67,7 @@ namespace media {
+>>>>>>> upstream/main
  namespace {
  
  #if defined(OS_ANDROID) || defined(OS_CHROMEOS) || defined(OS_MAC) || \
@@ -9,7 +15,11 @@
  gpu::CommandBufferStub* GetCommandBufferStub(
      scoped_refptr<base::SingleThreadTaskRunner> gpu_task_runner,
      base::WeakPtr<MediaGpuChannelManager> media_gpu_channel_manager,
+<<<<<<< HEAD
 @@ -299,7 +299,7 @@ std::unique_ptr<VideoDecoder> GpuMojoMediaClient::Crea
+=======
+@@ -289,7 +289,7 @@ std::unique_ptr<VideoDecoder> GpuMojoMediaClient::Crea
+>>>>>>> upstream/main
                                  command_buffer_id->route_id));
        }
  

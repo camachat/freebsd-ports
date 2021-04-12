@@ -1,5 +1,8 @@
 # Created by: kline
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	enscript
 PORTVERSION=	1.6.6

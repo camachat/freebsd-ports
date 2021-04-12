@@ -1,5 +1,8 @@
 # Created by: Sutra Zhou <zhoushuqun@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ShellEd
 PORTVERSION=	1.0.2a

@@ -1,5 +1,8 @@
 # Created by: torstenb
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sunclock
 PORTVERSION=	3.57

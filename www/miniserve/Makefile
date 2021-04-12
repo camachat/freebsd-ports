@@ -1,9 +1,15 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	miniserve
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.12.0
 PORTREVISION=	2
+=======
+PORTNAME=	miniserve
+DISTVERSIONPREFIX=	v
+DISTVERSION=	0.13.0
+>>>>>>> upstream/main
 CATEGORIES=	www
 
 MAINTAINER=	mikael@FreeBSD.org
@@ -33,7 +39,11 @@ CARGO_CRATES=	actix-codec-0.3.0 \
 		actix-utils-2.0.0 \
 		actix-web-3.3.2 \
 		actix-web-codegen-0.4.0 \
+<<<<<<< HEAD
 		actix-web-httpauth-0.5.0 \
+=======
+		actix-web-httpauth-0.5.1 \
+>>>>>>> upstream/main
 		adler32-1.2.0 \
 		ahash-0.3.8 \
 		aho-corasick-0.7.15 \
@@ -48,7 +58,10 @@ CARGO_CRATES=	actix-codec-0.3.0 \
 		autocfg-1.0.1 \
 		awc-2.0.3 \
 		base-x-0.2.8 \
+<<<<<<< HEAD
 		base64-0.12.3 \
+=======
+>>>>>>> upstream/main
 		base64-0.13.0 \
 		beef-0.4.4 \
 		bit-set-0.5.2 \
@@ -75,14 +88,24 @@ CARGO_CRATES=	actix-codec-0.3.0 \
 		clap-2.33.3 \
 		cloudabi-0.0.3 \
 		codemap-0.1.3 \
+<<<<<<< HEAD
 		const_fn-0.4.5 \
+=======
+		const_fn-0.4.6 \
+		convert_case-0.4.0 \
+>>>>>>> upstream/main
 		cookie-0.14.4 \
 		copyless-0.1.5 \
 		cpuid-bool-0.1.2 \
 		crc32fast-1.2.1 \
 		crossbeam-utils-0.8.3 \
+<<<<<<< HEAD
 		ctor-0.1.19 \
 		derive_more-0.99.11 \
+=======
+		ctor-0.1.20 \
+		derive_more-0.99.13 \
+>>>>>>> upstream/main
 		diff-0.1.12 \
 		difference-2.0.0 \
 		digest-0.9.0 \
@@ -117,7 +140,11 @@ CARGO_CRATES=	actix-codec-0.3.0 \
 		globwalk-0.8.1 \
 		grass-0.10.4 \
 		h2-0.2.7 \
+<<<<<<< HEAD
 		h2-0.3.1 \
+=======
+		h2-0.3.2 \
+>>>>>>> upstream/main
 		hashbrown-0.8.2 \
 		hashbrown-0.9.1 \
 		heck-0.3.2 \
@@ -129,7 +156,11 @@ CARGO_CRATES=	actix-codec-0.3.0 \
 		http-body-0.4.1 \
 		httparse-1.3.5 \
 		httpdate-0.3.2 \
+<<<<<<< HEAD
 		hyper-0.14.4 \
+=======
+		hyper-0.14.5 \
+>>>>>>> upstream/main
 		hyper-rustls-0.22.1 \
 		idna-0.2.2 \
 		ignore-0.4.17 \
@@ -144,7 +175,11 @@ CARGO_CRATES=	actix-codec-0.3.0 \
 		language-tags-0.2.2 \
 		lasso-0.3.1 \
 		lazy_static-1.4.0 \
+<<<<<<< HEAD
 		libc-0.2.90 \
+=======
+		libc-0.2.91 \
+>>>>>>> upstream/main
 		libflate-1.0.4 \
 		libflate_lz77-1.0.0 \
 		linked-hash-map-0.5.4 \
@@ -164,10 +199,17 @@ CARGO_CRATES=	actix-codec-0.3.0 \
 		mime_guess-2.0.3 \
 		miniz_oxide-0.3.7 \
 		mio-0.6.23 \
+<<<<<<< HEAD
 		mio-0.7.10 \
 		mio-uds-0.6.8 \
 		miow-0.2.2 \
 		miow-0.3.6 \
+=======
+		mio-0.7.11 \
+		mio-uds-0.6.8 \
+		miow-0.2.2 \
+		miow-0.3.7 \
+>>>>>>> upstream/main
 		nanoid-0.3.0 \
 		net2-0.2.37 \
 		new_debug_unreachable-1.0.4 \
@@ -186,15 +228,26 @@ CARGO_CRATES=	actix-codec-0.3.0 \
 		parking_lot_core-0.8.3 \
 		peekmore-0.5.6 \
 		percent-encoding-2.1.0 \
+<<<<<<< HEAD
+=======
+		pest-2.1.3 \
+>>>>>>> upstream/main
 		phf-0.8.0 \
 		phf_codegen-0.8.0 \
 		phf_generator-0.8.0 \
 		phf_macros-0.8.0 \
 		phf_shared-0.8.0 \
+<<<<<<< HEAD
 		pin-project-0.4.27 \
 		pin-project-1.0.5 \
 		pin-project-internal-0.4.27 \
 		pin-project-internal-1.0.5 \
+=======
+		pin-project-0.4.28 \
+		pin-project-1.0.6 \
+		pin-project-internal-0.4.28 \
+		pin-project-internal-1.0.6 \
+>>>>>>> upstream/main
 		pin-project-lite-0.1.12 \
 		pin-project-lite-0.2.6 \
 		pin-utils-0.1.0 \
@@ -243,8 +296,14 @@ CARGO_CRATES=	actix-codec-0.3.0 \
 		resolv-conf-0.7.0 \
 		ring-0.16.20 \
 		rle-decode-fast-1.0.1 \
+<<<<<<< HEAD
 		rstest-0.6.4 \
 		rustc_version-0.2.3 \
+=======
+		rstest-0.7.0 \
+		rustc_version-0.2.3 \
+		rustc_version-0.3.3 \
+>>>>>>> upstream/main
 		rustls-0.19.0 \
 		ryu-1.0.5 \
 		same-file-1.0.6 \
@@ -252,20 +311,36 @@ CARGO_CRATES=	actix-codec-0.3.0 \
 		sct-0.6.0 \
 		select-0.5.0 \
 		semver-0.9.0 \
+<<<<<<< HEAD
 		semver-parser-0.7.0 \
 		serde-1.0.124 \
 		serde_derive-1.0.124 \
+=======
+		semver-0.11.0 \
+		semver-parser-0.7.0 \
+		semver-parser-0.10.2 \
+		serde-1.0.125 \
+		serde_derive-1.0.125 \
+>>>>>>> upstream/main
 		serde_json-1.0.64 \
 		serde_urlencoded-0.7.0 \
 		sha-1-0.9.4 \
 		sha1-0.6.0 \
 		sha2-0.9.3 \
 		signal-hook-registry-1.3.0 \
+<<<<<<< HEAD
 		simplelog-0.9.0 \
+=======
+		simplelog-0.10.0 \
+>>>>>>> upstream/main
 		siphasher-0.3.5 \
 		slab-0.4.2 \
 		smallvec-1.6.1 \
 		socket2-0.3.19 \
+<<<<<<< HEAD
+=======
+		socket2-0.4.0 \
+>>>>>>> upstream/main
 		spin-0.5.2 \
 		standback-0.2.17 \
 		stdweb-0.4.20 \
@@ -279,7 +354,11 @@ CARGO_CRATES=	actix-codec-0.3.0 \
 		structopt-derive-0.4.14 \
 		strum-0.20.0 \
 		strum_macros-0.20.1 \
+<<<<<<< HEAD
 		syn-1.0.64 \
+=======
+		syn-1.0.65 \
+>>>>>>> upstream/main
 		tar-0.4.33 \
 		tempfile-3.2.0 \
 		tendril-0.4.2 \
@@ -289,7 +368,11 @@ CARGO_CRATES=	actix-codec-0.3.0 \
 		thiserror-impl-1.0.24 \
 		thread_local-1.1.3 \
 		threadpool-1.8.1 \
+<<<<<<< HEAD
 		time-0.1.44 \
+=======
+		time-0.1.43 \
+>>>>>>> upstream/main
 		time-0.2.26 \
 		time-macros-0.1.1 \
 		time-macros-impl-0.1.1 \
@@ -310,6 +393,10 @@ CARGO_CRATES=	actix-codec-0.3.0 \
 		try-lock-0.2.3 \
 		twoway-0.2.1 \
 		typenum-1.13.0 \
+<<<<<<< HEAD
+=======
+		ucd-trie-0.1.3 \
+>>>>>>> upstream/main
 		unchecked-index-0.2.2 \
 		unicase-2.6.0 \
 		unicode-bidi-0.3.4 \
@@ -327,10 +414,17 @@ CARGO_CRATES=	actix-codec-0.3.0 \
 		version_check-0.1.5 \
 		version_check-0.9.3 \
 		wait-timeout-0.2.0 \
+<<<<<<< HEAD
 		walkdir-2.3.1 \
 		want-0.3.0 \
 		wasi-0.9.0+wasi-snapshot-preview1 \
 		wasi-0.10.0+wasi-snapshot-preview1 \
+=======
+		walkdir-2.3.2 \
+		want-0.3.0 \
+		wasi-0.9.0+wasi-snapshot-preview1 \
+		wasi-0.10.2+wasi-snapshot-preview1 \
+>>>>>>> upstream/main
 		wasm-bindgen-0.2.72 \
 		wasm-bindgen-backend-0.2.72 \
 		wasm-bindgen-futures-0.4.22 \

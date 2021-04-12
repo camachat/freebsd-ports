@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	wmfocus
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.1.5

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	asusoled
 PORTVERSION=	0.10
 PORTREVISION=	10

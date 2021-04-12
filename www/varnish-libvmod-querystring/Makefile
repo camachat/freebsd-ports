@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libvmod-querystring
 DISTVERSION=	v2.0.2
 CATEGORIES=	www

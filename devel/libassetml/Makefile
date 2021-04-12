@@ -1,5 +1,8 @@
 # Created by: Alexander Nedotsukov <bland@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libassetml
 PORTVERSION=	1.2.1

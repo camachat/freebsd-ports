@@ -1,5 +1,8 @@
 # Created by: Andreas Klemm <andreas@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	personality
 PORTVERSION=	1.0

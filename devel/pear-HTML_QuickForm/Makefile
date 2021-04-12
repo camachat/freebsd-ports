@@ -1,5 +1,8 @@
 # Created by: Gerrit Beine (<gerrit@beine-computer.de>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HTML_QuickForm
 PORTVERSION=	3.2.16

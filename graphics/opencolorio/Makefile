@@ -1,5 +1,8 @@
 # Created by: Shane Ambler <FreeBSD@Shaneware.biz>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	opencolorio
 DISTVERSIONPREFIX=	v

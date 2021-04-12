@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	MooX-Attribute-ENV
 PORTVERSION=	0.02
 PORTREVISION=	1

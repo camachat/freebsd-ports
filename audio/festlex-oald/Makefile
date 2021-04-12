@@ -1,5 +1,8 @@
 # Created by: trevor
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	festlex-oald
 PORTVERSION=	1.4.1

@@ -1,5 +1,8 @@
 # Created by: Patrick Bihan-Faou <patrick@mindstep.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pipsecd
 PORTVERSION=	19991014

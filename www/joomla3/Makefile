@@ -1,5 +1,8 @@
 # Created by: Francisco Cabrita <include@npf.pt.freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	joomla
 DISTVERSION=	3-9-24

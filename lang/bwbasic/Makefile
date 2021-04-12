@@ -1,5 +1,8 @@
 # Created by: msmith@gsoft.com.au
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bwbasic
 PORTVERSION=	3.20

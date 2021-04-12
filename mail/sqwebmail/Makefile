@@ -1,5 +1,8 @@
 # Created by: Neil Blakey-Milner
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sqwebmail
 PORTVERSION=	6.0.3

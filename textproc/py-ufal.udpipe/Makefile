@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ufal.udpipe
 PORTVERSION=	1.2.0.3
 CATEGORIES=	textproc python

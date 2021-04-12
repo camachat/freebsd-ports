@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	docbook
 PORTVERSION=	5.0
 PORTREVISION=	3

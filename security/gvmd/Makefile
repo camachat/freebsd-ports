@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gvmd
 DISTVERSION=	20.8.1
 DISTVERSIONPREFIX=	v

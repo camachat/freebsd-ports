@@ -1,5 +1,8 @@
 # Created by: Gilbert Morgan <gmm@tutanota.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 #
 
 PORTNAME=	cachelib

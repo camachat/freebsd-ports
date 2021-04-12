@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	norm
 PORTVERSION=	1.5r6
 PORTREVISION=	1

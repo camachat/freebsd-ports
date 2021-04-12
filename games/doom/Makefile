@@ -1,5 +1,8 @@
 # Created by: Jean-Marc Zucconi <jmz@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	doom
 PORTVERSION=	1.10

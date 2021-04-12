@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	toccata
 DISTVERSION=	g20200819
 CATEGORIES=	audio

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Mojolicious-Plugin-Mail
 PORTVERSION=	1.5
 CATEGORIES=	mail perl5

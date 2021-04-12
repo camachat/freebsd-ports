@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	black
 PORTVERSION=	20.8b1
 PORTREVISION=	1

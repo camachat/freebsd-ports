@@ -1,5 +1,8 @@
 # Created by: Martin Matuska <mm@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Horde_Stream
 PORTVERSION=	1.6.3

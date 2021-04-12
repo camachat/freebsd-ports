@@ -1,5 +1,8 @@
 # Created by: Keith Walker <kew@icehouse.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sscalc
 PORTVERSION=	1.0

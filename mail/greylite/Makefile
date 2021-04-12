@@ -1,5 +1,8 @@
 # Created by: Mij <mij@bitchx.it>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	greylite
 PORTVERSION=	2.3

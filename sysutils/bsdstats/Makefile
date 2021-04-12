@@ -1,5 +1,8 @@
 # Created by: Marc G. Fournier <scrappy@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bsdstats
 PORTVERSION=	7.0

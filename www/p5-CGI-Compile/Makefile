@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	CGI-Compile
 PORTVERSION=	0.19
 CATEGORIES=	www perl5

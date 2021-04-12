@@ -1,5 +1,8 @@
 # Created by: meyser@xenet.de
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	OpenOffice-OODoc
 PORTVERSION=	2.125

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xmlf90
 DISTVERSION=	1.5.4
 PORTREVISION=	3

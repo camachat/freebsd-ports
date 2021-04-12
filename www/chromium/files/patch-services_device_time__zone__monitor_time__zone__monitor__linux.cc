@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- services/device/time_zone_monitor/time_zone_monitor_linux.cc.orig	2021-01-18 21:29:02 UTC
+=======
+--- services/device/time_zone_monitor/time_zone_monitor_linux.cc.orig	2021-03-12 23:57:28 UTC
+>>>>>>> upstream/main
 +++ services/device/time_zone_monitor/time_zone_monitor_linux.cc
 @@ -125,7 +125,11 @@ class TimeZoneMonitorLinuxImpl
      // false positives are harmless, assuming the false positive rate is

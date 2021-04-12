@@ -1,5 +1,8 @@
 # Created by: Cory R. King <coryking@mozimedia.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Params-Coerce
 PORTVERSION=	0.14

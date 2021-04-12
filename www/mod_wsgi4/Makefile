@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mod_wsgi
 DISTVERSION=	4.7.0
 CATEGORIES=	www python

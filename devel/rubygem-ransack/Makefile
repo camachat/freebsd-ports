@@ -1,5 +1,8 @@
 # Created by: Sunpoet Po-Chuan Hsieh <sunpoet@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ransack
 PORTVERSION=	2.4.2
@@ -12,8 +15,11 @@ COMMENT=	Successor to the MetaSearch gem
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
+<<<<<<< HEAD
 BROKEN_RUBY25=	yes
 
+=======
+>>>>>>> upstream/main
 RUN_DEPENDS=	rubygem-activerecord52>=5.2.4:databases/rubygem-activerecord52 \
 		rubygem-activesupport52>=5.2.4:devel/rubygem-activesupport52 \
 		rubygem-i18n>=0:devel/rubygem-i18n

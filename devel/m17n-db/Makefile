@@ -1,5 +1,8 @@
 # Created by: Kimura Fuyuki <fuyuki@hadaly.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	m17n-db
 PORTVERSION=	1.8.0

@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	gallery-dl
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.17.1
+=======
+PORTNAME=	gallery-dl
+DISTVERSIONPREFIX=	v
+DISTVERSION=	1.17.2
+>>>>>>> upstream/main
 CATEGORIES=	www
 
 # Implicit approval to commit trivial version updates.

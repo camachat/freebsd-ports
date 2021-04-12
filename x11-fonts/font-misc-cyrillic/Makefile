@@ -1,5 +1,8 @@
 # Created by: Pawel Worach
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	font-misc-cyrillic
 PORTVERSION=	1.0.3

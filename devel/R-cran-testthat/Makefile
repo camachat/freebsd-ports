@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	testthat
 DISTVERSION=	2.0.1
 PORTREVISION=	3

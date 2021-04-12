@@ -1,5 +1,8 @@
 # Created by: Tim Bishop <tim@bishnet.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pircbot
 PORTVERSION=	1.5.0

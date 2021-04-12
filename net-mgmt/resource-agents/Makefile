@@ -1,5 +1,8 @@
 # Created by: dpejesh@yahoo.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	resource-agents
 PORTVERSION=	4.8.0

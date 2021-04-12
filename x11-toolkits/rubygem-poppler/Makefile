@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	poppler
 PORTVERSION=	3.4.3
 PORTREVISION=	7

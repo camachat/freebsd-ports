@@ -1,5 +1,8 @@
 # Created by: smace
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xv
 PORTVERSION=	3.10a

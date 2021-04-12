@@ -1,5 +1,8 @@
 # Created by: olevole@olevole.ru
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libspice-server
 DISTVERSION=	0.14.0

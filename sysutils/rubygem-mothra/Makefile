@@ -1,5 +1,8 @@
 # Created by: Jin-Sih, Lin <linpct@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mothra
 PORTVERSION=	0.0.3

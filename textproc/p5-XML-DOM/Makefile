@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	XML-DOM
 PORTVERSION=	1.44
 PORTREVISION=	1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	HTTP-Recorder
 PORTVERSION=	0.07
 PORTREVISION=	1

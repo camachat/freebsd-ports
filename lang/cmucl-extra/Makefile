@@ -1,5 +1,8 @@
 # Created by: Scott Flatman <sf@dsinw.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cmucl-extra
 DISTVERSION=	21b

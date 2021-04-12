@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	breeze-icons
 DISTVERSION=	${KDE_FRAMEWORKS_VERSION}
 CATEGORIES=	x11-themes kde kde-frameworks

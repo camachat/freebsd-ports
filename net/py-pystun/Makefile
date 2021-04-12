@@ -1,5 +1,8 @@
 # Created by: Yuri Victorovich <yuri@rawbw.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pystun
 PORTVERSION=	0.1.0

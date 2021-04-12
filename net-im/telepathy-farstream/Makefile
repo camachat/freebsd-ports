@@ -1,5 +1,8 @@
 # Created by: Joe Marcus Clarke <marcus@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	telepathy-farstream
 PORTVERSION=	0.6.2

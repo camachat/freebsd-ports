@@ -1,5 +1,8 @@
 # Created by: Vanilla I. Shu <vanilla@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	glib
 DISTVERSION=	2.66.7

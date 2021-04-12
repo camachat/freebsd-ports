@@ -1,5 +1,8 @@
 # Created by: Andrew Lewis <freeghb@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	luasec
 PORTVERSION=	0.9

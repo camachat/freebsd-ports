@@ -1,5 +1,8 @@
 # Created by: Jeremy C. Reed
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bundy
 PORTVERSION=	0.20170618

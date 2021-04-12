@@ -1,5 +1,8 @@
 # Created by: trevor
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	openbox
 PORTVERSION=	3.6

@@ -1,5 +1,8 @@
 %!PS-Adobe-3.0 Resource-Font
+<<<<<<< HEAD
 %%Creator: $FreeBSD$
+=======
+>>>>>>> upstream/main
 %%DocumentNeededResources: %%CMAPNAME%% (CMap)
 %%IncludeResource: %%CMAPNAME%% (CMap)
 %%BeginResource: Font (%%FONTNAME%%-%%CMAPNAME%%)

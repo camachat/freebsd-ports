@@ -1,5 +1,8 @@
 # Created by: erwin@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Crypt-OpenSSL-Bignum
 PORTVERSION=	0.09

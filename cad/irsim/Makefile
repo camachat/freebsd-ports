@@ -1,5 +1,8 @@
 # Created by: swallace
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	irsim
 DISTVERSION=	9.7.108

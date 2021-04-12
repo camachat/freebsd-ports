@@ -1,5 +1,8 @@
 # Created by: Oliver Mahmoudi <olivermahmoudi@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	kamailio
 PORTVERSION=	5.4.4

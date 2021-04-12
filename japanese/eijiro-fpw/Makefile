@@ -1,5 +1,8 @@
 # Created by: Satoshi Taoka <taoka@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	eijiro-fpw
 PORTVERSION=	1.0b

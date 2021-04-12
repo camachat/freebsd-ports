@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Audio-Ecasound
 PORTVERSION=	1.01
 PORTREVISION=	1

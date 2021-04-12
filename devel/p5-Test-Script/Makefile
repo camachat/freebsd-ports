@@ -1,5 +1,8 @@
 # Created by: lth@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Test-Script
 PORTVERSION=	1.27

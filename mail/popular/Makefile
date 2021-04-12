@@ -1,5 +1,8 @@
 # Created by: Pav Lucistnik <pav@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	popular
 PORTVERSION=	1.5.5

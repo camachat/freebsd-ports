@@ -1,5 +1,8 @@
 # Created by: Randall Hopper <aa8vb@ipass.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	PyOpenGL
 PORTVERSION=	3.1.5

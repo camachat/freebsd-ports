@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 # This is based on previous support for libhidapi which was dropped in
 # upstream commit f5d2eba.
 import ctypes as _C

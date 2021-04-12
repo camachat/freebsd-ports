@@ -1,5 +1,8 @@
 # Created by: Aaron Dalton <aaron@daltons.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Heap-Simple-Perl
 PORTVERSION=	0.14

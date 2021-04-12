@@ -1,5 +1,8 @@
 # Created by: Alexey Dokuchaev <danfe@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ssddiff
 PORTVERSION=	0.2

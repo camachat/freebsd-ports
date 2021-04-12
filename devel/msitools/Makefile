@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	msitools
 PORTVERSION=	0.100
 CATEGORIES=	devel

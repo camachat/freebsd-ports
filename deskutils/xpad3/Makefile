@@ -1,5 +1,8 @@
 # Created by: Guillaume Paquet <amyfoub@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xpad
 PORTVERSION=	3.1

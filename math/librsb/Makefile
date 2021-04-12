@@ -1,5 +1,8 @@
 # Created by: stephen@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	librsb
 PORTVERSION=	1.2.0.9

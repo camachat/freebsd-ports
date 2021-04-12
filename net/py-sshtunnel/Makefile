@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sshtunnel
 PORTVERSION=	0.1.5
 CATEGORIES=	net python

@@ -4,8 +4,11 @@
 # Date created:		12 Nov 2005
 # Whom:			Michael Johnson <ahze@FreeBSD.org>
 #
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # 4 column tabs prevent hair loss and tooth decay!
 
 # bsd.gecko.mk abstracts the selection of gecko-based backends. It allows users
@@ -196,7 +199,11 @@ MOZ_OPTIONS+=	\
 		--disable-updater \
 		--with-system-zlib
 
+<<<<<<< HEAD
 # API keys from www/chromium
+=======
+# API keys from www/chromium 
+>>>>>>> upstream/main
 # http://www.chromium.org/developers/how-tos/api-keys
 # Note: these are for FreeBSD use ONLY. For your own distribution,
 # please get your own set of keys.
@@ -204,9 +211,14 @@ MOZ_EXPORT+=	MOZ_GOOGLE_LOCATION_SERVICE_API_KEY=AIzaSyBsp9n41JLW8jCokwn7vhoaMej
 MOZ_EXPORT+=	MOZ_GOOGLE_SAFEBROWSING_API_KEY=AIzaSyBsp9n41JLW8jCokwn7vhoaMejDFRd1mp8
 
 .if ${PORT_OPTIONS:MOPTIMIZED_CFLAGS}
+<<<<<<< HEAD
 #CFLAGS+=		-O3
 #MOZ_EXPORT+=	MOZ_OPTIMIZE_FLAGS="${CFLAGS:M-O*}"
 MOZ_EXPORT+=	MOZ_OPTIMIZE_FLAGS="${CFLAGS}"
+=======
+CFLAGS+=		-O3
+MOZ_EXPORT+=	MOZ_OPTIMIZE_FLAGS="${CFLAGS:M-O*}"
+>>>>>>> upstream/main
 MOZ_OPTIONS+=	--enable-optimize
 .else
 MOZ_OPTIONS+=	--disable-optimize

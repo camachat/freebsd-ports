@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xcb-util-wm
 PORTVERSION=	0.4.1
 PORTREVISION=	3

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	trueos-libqt5
 PORTVERSION=	20171003
 PORTREVISION=	2

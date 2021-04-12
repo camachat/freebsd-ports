@@ -1,5 +1,8 @@
 # Created by: snowchyld
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Mail-SRS
 PORTVERSION=	0.31

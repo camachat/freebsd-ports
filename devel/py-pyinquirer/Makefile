@@ -1,5 +1,8 @@
 # Created by: Gilbert Morgan <gmm@tutanota.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	PyInquirer
 PORTVERSION=	1.0.3

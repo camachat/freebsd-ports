@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gobgp
 PORTVERSION=	2.23.0
 DISTVERSIONPREFIX=	v

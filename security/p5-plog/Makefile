@@ -1,5 +1,8 @@
 # Created by: Cy Schubert <cy@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	plog
 PORTVERSION=	0.10

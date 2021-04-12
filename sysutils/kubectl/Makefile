@@ -1,5 +1,8 @@
 # Created by: Danilo Egea Gondolfo <danilo@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	kubectl
 PORTVERSION=	1.20.2

@@ -1,5 +1,8 @@
 # Created by: grog
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dirdiff
 PORTVERSION=	2.1

@@ -1,5 +1,8 @@
 # Created by: Jan Siml <jsi@jules.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	truc
 PORTVERSION=	0.12.0

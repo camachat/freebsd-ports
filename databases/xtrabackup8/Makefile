@@ -1,9 +1,16 @@
 # Created by: Alex Samorukov <samm@freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	xtrabackup
 PORTVERSION=	8.0.14
 PORTREVISION=	1
+=======
+
+PORTNAME=	xtrabackup
+PORTVERSION=	8.0.14
+PORTREVISION=	2
+>>>>>>> upstream/main
 CATEGORIES=	databases
 MASTER_SITES=	https://www.percona.com/downloads/Percona-XtraBackup-${PORTVERSION:R}/Percona-XtraBackup-${PORTVERSION}/source/tarball/ \
 		https://github.com/percona/percona-xtrabackup/archive/

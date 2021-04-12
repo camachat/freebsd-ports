@@ -1,5 +1,8 @@
 # Created by: Eyal Soha <esoha@attbi.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	noip
 PORTVERSION=	2.1.9

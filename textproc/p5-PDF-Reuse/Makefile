@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	PDF-Reuse
 DISTVERSION=	0.39
 PORTREVISION=	1

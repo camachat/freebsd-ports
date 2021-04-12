@@ -1,5 +1,8 @@
 # Created by: Hirohisa Yamaguchi <umq@ueo.co.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 # This file is used to tune build time options.
 

@@ -1,5 +1,8 @@
 # Created by: Yukihiro Nakai <nakai@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mono
 PORTVERSION=	5.20.1.34

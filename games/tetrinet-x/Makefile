@@ -1,5 +1,8 @@
 # Created by: gmarco@giovannelli.it
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tetrinet-x
 PORTVERSION=	1.13.16

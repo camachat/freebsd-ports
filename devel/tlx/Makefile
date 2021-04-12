@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tlx
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.5.20200222-5

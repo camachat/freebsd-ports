@@ -1,5 +1,8 @@
 # Created by: pgl@instinct.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pisg
 PORTVERSION=	0.73

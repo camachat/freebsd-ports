@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	povray-meta
 PORTVERSION=	0.1
 PORTREVISION=	1

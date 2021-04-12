@@ -1,9 +1,16 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	cargo-audit
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.14.0
 PORTREVISION=	1
+=======
+PORTNAME=	cargo-audit
+DISTVERSIONPREFIX=	v
+DISTVERSION=	0.14.0
+PORTREVISION=	2
+>>>>>>> upstream/main
 CATEGORIES=	security
 
 MAINTAINER=	mikael@FreeBSD.org

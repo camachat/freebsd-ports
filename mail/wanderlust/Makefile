@@ -1,5 +1,8 @@
 # Created by: MANTANI Nobutaka <nobutaka@nobutaka.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wanderlust
 PORTVERSION=	2.15.9.b.${SNAPDATE}

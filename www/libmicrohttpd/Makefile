@@ -1,5 +1,8 @@
 # Created by: David Barksdale <amatus@gnu.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libmicrohttpd
 DISTVERSION=	0.9.72

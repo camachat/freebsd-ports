@@ -1,5 +1,8 @@
 # Created by: Gerhard Häring <gh@ghaering.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	duplicity
 PORTVERSION=	0.8.17

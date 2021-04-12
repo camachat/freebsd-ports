@@ -1,5 +1,8 @@
 # Created by: brett@peloton.physics.montana.edu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	latex2html
 PORTVERSION=	2016

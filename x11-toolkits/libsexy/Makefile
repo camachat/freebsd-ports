@@ -1,5 +1,8 @@
 # Created by: Andreas Kohn <andreas@syndrom23.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libsexy
 PORTVERSION=	0.1.11

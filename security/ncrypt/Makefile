@@ -1,5 +1,8 @@
 # Created by: Frank Laszlo <laszlof@vonostingroup.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ncrypt
 PORTVERSION=	0.8.1

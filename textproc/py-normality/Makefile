@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	normality
 DISTVERSION=	2.1.1
 CATEGORIES=	textproc python

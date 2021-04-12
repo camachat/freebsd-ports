@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mutagen
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.11.8

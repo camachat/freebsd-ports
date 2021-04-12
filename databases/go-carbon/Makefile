@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		go-carbon
 DISTVERSIONPREFIX=	v
 DISTVERSION=		0.12.0

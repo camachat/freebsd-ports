@@ -1,5 +1,8 @@
 # Created by: Lars Balker Rasmussen <lbr@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Class-C3-Componentised
 PORTVERSION=	1.001002

@@ -1,5 +1,8 @@
 # Created by: Florian Limberger <flo@snakeoilproductions.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	orbitron
 DISTVERSION=	g20110525

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	espressivo
 DISTVERSION=	g20190421
 PORTREVISION=	1

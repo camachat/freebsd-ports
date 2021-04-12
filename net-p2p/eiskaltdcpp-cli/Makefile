@@ -1,5 +1,8 @@
 # Created by: Maxim Ignatenko <gelraen.ua@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	eiskaltdcpp
 PORTREVISION=	20

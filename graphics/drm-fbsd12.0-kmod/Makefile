@@ -1,5 +1,8 @@
 # Created by: Johannes Dieterich <jmd@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	drm-fbsd12.0-kmod
 PORTVERSION=	4.16.g20201016

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	monitor-core
 PORTVERSION=	3.7.2
 CATEGORIES=	sysutils net

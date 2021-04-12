@@ -1,5 +1,8 @@
 # Created by: Zane C. Bowers <vvelox@vvelox.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-WhitePages
 PORTVERSION=	1.04

@@ -1,5 +1,8 @@
 # Created by: Martin Wilke <miwi@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	clutter-gst
 PORTVERSION=	3.0.27

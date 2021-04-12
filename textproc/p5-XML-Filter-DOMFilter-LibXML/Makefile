@@ -1,5 +1,8 @@
 # Created by: Andrew Humphrey <ahumphrey@realestate.com.au>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	XML-Filter-DOMFilter-LibXML
 PORTVERSION=	0.04

@@ -1,5 +1,8 @@
 # Created by: -
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Lingua-Ispell
 PORTVERSION=	0.07

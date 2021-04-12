@@ -1,5 +1,8 @@
 # Created by: Sofian Brabez <sbz@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ltrace
 PORTVERSION=	0.6.0

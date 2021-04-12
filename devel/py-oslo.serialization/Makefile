@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	oslo.serialization
 PORTVERSION=	4.1.0
 CATEGORIES=	devel python

@@ -1,5 +1,8 @@
 # Created by: Malte Lance <malte.lance@gmx.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	4va
 PORTVERSION=	1.21

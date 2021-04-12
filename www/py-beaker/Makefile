@@ -1,5 +1,8 @@
 # Created by: Dryice Liu <dryice@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	beaker
 PORTVERSION=	1.11.0

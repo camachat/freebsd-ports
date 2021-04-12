@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #!/bin/sh
 #
+=======
+#!/bin/sh
+
+>>>>>>> upstream/main
 # PROVIDE: spoofer
 # REQUIRE: LOGIN
 # KEYWORD: shutdown

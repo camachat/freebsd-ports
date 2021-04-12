@@ -1,5 +1,8 @@
 # Created by: Chris Rees <utisoft@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jstrack
 PORTVERSION=	3.4.0

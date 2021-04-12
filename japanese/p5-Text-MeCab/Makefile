@@ -1,5 +1,8 @@
 # Created by: TAOKA Fumiyoshi <fmysh@iijmio-mail.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Text-MeCab
 PORTVERSION=	0.20009

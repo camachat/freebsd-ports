@@ -1,9 +1,12 @@
 #!/bin/sh
 
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
 
+=======
+>>>>>>> upstream/main
 # PROVIDE: pfstatd
 # REQUIRE: DAEMON
 # KEYWORD: shutdown

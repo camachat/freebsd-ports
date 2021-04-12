@@ -1,5 +1,8 @@
 # Created by: Cyrille Szymanski <cnszym@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dlmodeler
 DISTVERSION=	1.4-2

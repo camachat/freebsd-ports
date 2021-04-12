@@ -1,5 +1,8 @@
 # Created by: wollman
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mod_auth_kerb
 PORTVERSION=	5.4

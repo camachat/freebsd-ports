@@ -1,5 +1,8 @@
 # Created by: Tobias Kortkamp <t@tobik.me>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sndio
 PORTVERSION=	1.7.0

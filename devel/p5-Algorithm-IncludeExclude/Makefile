@@ -1,5 +1,8 @@
 # Created by: Anton Berezin <tobez@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Algorithm-IncludeExclude
 PORTVERSION=	0.01

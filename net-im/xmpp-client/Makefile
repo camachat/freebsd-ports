@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xmpp-client
 PORTVERSION=	20170324
 PORTREVISION=	3

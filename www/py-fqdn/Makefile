@@ -1,5 +1,8 @@
 # Created by: James White <whitejv81@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fqdn
 PORTVERSION=	1.4.0

@@ -1,5 +1,8 @@
 # Created by: Rong-En Fan <rafan@infor.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	XML-Clean
 PORTVERSION=	1.06

@@ -1,5 +1,8 @@
 # Created by: Andrey Zonov <andrey@zonov.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	flock
 PORTVERPREFIX=	2.30

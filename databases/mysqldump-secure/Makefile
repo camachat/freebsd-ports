@@ -1,5 +1,8 @@
 # Created by: <jsmith@resonatingmedia.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mysqldump-secure
 PORTVERSION=	0.16.3

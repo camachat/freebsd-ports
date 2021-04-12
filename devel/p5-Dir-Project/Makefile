@@ -1,5 +1,8 @@
 # Created by: Gea-Suan Lin <gslin@gslin.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Dir-Project
 PORTVERSION=	3.026

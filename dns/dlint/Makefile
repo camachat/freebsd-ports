@@ -1,5 +1,8 @@
 # Created by: David O'Brien (obrien@NUXI.com)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dlint
 PORTVERSION=	1.4.1

@@ -1,5 +1,8 @@
 # Created by: Hung-Yi Chen <gaod@hychen.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mod_memcache_block
 PORTVERSION=	1.0

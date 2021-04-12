@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 #	@(#)COPYRIGHT	8.2 (Berkeley) 3/21/94
 
 The compilation of software known as the FreeBSD Ports Collection is

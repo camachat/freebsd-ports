@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	XML-Rules
 PORTVERSION=	1.16
 PORTREVISION=	2

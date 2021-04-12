@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ruby-hmac
 PORTVERSION=	0.4.0
 CATEGORIES=	security rubygems

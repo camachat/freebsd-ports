@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Amon2-DBI
 PORTVERSION=	0.33
 #PORTREVISION=	0

@@ -1,5 +1,8 @@
 # Created by: Joel Sutton <sutton@aardvark.apana.org.au>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	yahtzee
 PORTVERSION=	1.0

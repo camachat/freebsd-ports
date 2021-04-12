@@ -1,5 +1,8 @@
 # Created by: Volodymyr Kostyrko <c.kworr@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	termcolor
 PORTVERSION=	1.1.0

@@ -1,5 +1,8 @@
 # Created by: Andrew Pantyukhin <infofarmer@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Config-Std
 PORTVERSION=	0.903

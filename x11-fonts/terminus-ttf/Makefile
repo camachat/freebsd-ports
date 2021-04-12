@@ -1,5 +1,8 @@
 # Created by: Tobias Kortkamp <t@tobik.me>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	terminus-ttf
 PORTVERSION=	4.47.0

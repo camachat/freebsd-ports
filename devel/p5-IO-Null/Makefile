@@ -1,5 +1,8 @@
 # Created by: Rouslan Iskhakov <rouslan@rshell.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	IO-Null
 PORTVERSION=	1.01

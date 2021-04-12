@@ -1,5 +1,8 @@
 # Created by: Steven Wallace <swallace@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xemeraldia
 PORTVERSION=	0.4.3

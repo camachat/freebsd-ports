@@ -1,5 +1,8 @@
 # Created by: Alexey Dokuchaev <danfe@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	deadbeef-jack-plugin
 DISTVERSION=	0.0.2011.03.22

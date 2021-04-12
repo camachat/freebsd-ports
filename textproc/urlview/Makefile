@@ -1,5 +1,8 @@
 # Created by: Josh Gilliam <josh@quick.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	urlview
 PORTVERSION=	0.9.20131021

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sdump
 PORTVERSION=	2015.01.16
 PORTREVISION=	1

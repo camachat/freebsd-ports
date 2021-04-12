@@ -1,5 +1,8 @@
 # Created by: Lars Balker Rasmussen <lbr@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Moose
 PORTVERSION=	2.2014

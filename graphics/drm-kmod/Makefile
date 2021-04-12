@@ -1,5 +1,8 @@
 # Created by: Johannes Dieterich <jmd@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	drm-kmod
 PORTVERSION=	g20190710

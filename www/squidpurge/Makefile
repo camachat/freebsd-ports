@@ -1,5 +1,8 @@
 # Created by: Dean Hollister <dean@odyssey.apana.org.au>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	squidpurge
 PORTVERSION=	1.17

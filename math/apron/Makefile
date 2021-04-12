@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	apron
 DISTVERSION=	0.9.12
 DISTVERSIONSUFFIX=	.r${SVN_REVISION}

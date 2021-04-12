@@ -1,5 +1,8 @@
 # Created by: Kris Moore <kmoore@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libfm
 DISTVERSION=	1.3.1

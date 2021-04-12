@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fogpad
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.0.0-3

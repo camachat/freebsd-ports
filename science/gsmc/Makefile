@@ -1,5 +1,8 @@
 # Created by: db
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gsmc
 PORTVERSION=	1.1

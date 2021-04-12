@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ibrowse
 PORTVERSION=	4.4.0
 DISTVERSIONPREFIX=	v

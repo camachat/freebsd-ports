@@ -1,5 +1,8 @@
 # Created by: Alex Miller (<asm@asm.kiev.ua>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	XML_Parser
 PORTVERSION=	1.3.8

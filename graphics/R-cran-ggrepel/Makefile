@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ggrepel
 DISTVERSION=	0.9.1
 CATEGORIES=	graphics

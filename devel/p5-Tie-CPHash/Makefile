@@ -1,5 +1,8 @@
 # Created by: David Chaplin-Loebell <direct@klatha.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Tie-CPHash
 PORTVERSION=	1.04

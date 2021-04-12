@@ -1,5 +1,8 @@
 # Created by: king@v2project.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	makefaq
 PORTVERSION=	2.5

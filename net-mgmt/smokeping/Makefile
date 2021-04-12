@@ -1,5 +1,8 @@
 # Created by: Lars Thegler <lars@thegler.dk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	smokeping
 PORTVERSION=	2.7.3

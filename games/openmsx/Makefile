@@ -1,5 +1,8 @@
 # Created by: Ilya A. Arhipov <admin@gorodkirov.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	openmsx
 PORTVERSION=	0.3.1

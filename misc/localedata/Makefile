@@ -1,5 +1,8 @@
 # Created by: sf
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	localedata
 PORTVERSION=	5.4

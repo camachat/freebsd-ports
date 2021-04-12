@@ -1,5 +1,8 @@
 # Created by: Gea-Suan Lin <gslin@gslin.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Cisco-Reconfig
 PORTVERSION=	0.912

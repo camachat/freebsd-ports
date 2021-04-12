@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	django-assets
 PORTVERSION=	2.0
 CATEGORIES=	www python

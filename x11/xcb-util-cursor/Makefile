@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xcb-util-cursor
 PORTVERSION=	0.1.3
 CATEGORIES=	x11

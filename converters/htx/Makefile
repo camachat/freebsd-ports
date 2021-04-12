@@ -1,5 +1,8 @@
 # Created by: Vsevolod Stakhov <vsevolod@highsecure.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	htx
 DISTVERSION=	0.7.8

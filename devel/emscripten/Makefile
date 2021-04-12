@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	emscripten
 DISTVERSION=	2.0.3
 PORTREVISION=	1

@@ -1,5 +1,8 @@
 # Created by: Greg Larkin <glarkin@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	SVN-Notify-Filter-EmailFlatFileDB
 PORTVERSION=	1.01

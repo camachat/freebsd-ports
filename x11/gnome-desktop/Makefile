@@ -1,5 +1,8 @@
 # Created by: Joe Marcus Clarke <marcus@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gnome-desktop
 PORTVERSION=	3.38.2

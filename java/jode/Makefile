@@ -1,5 +1,8 @@
 # Created by: mi
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jode
 PORTVERSION=	1.1.1.1

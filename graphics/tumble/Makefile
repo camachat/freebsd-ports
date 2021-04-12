@@ -1,5 +1,8 @@
 # Created by: Rob Farmer <rfarmer@predatorlabs.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tumble
 PORTVERSION=	0.36

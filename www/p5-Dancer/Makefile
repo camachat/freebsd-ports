@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Dancer
 PORTVERSION=	1.3513
 CATEGORIES=	www perl5

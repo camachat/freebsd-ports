@@ -1,5 +1,8 @@
 # Created by: Motoyuki Kasahara <m-kasahr@sra.co.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ebnetd
 PORTVERSION=	1.0

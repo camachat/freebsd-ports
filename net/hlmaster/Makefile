@@ -1,5 +1,8 @@
 # Created by: pat@databits.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hlmaster
 PORTVERSION=	0.9.3

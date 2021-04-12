@@ -1,5 +1,8 @@
 # Created by: Yinghong.Liu <relaxbsd@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pokerth
 PORTVERSION=	1.1.2

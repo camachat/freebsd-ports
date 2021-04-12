@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	jigsaw
 PORTVERSION=	0.8
 PORTREVISION=	8

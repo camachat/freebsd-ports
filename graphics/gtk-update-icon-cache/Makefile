@@ -1,5 +1,8 @@
 # Created by: Koop Mast <kwm@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gtk-update-icon-cache
 PORTVERSION=	3.24.26

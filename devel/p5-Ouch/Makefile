@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Ouch
 PORTVERSION=	0.0409
 CATEGORIES=	devel perl5

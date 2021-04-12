@@ -1,5 +1,8 @@
 # Created by: Michael Vasilenko <acid@stu.cn.ua>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	elinks
 DISTVERSION=	0.11.7

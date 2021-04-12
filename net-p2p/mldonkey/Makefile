@@ -1,5 +1,8 @@
 # Created by: Holger Lamm <holger@e-gitt.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mldonkey
 PORTVERSION=	3.1.5

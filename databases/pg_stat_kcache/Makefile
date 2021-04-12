@@ -1,5 +1,8 @@
 # Created by: Palle Girgensohn <girgen@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pg_stat_kcache
 DISTVERSIONPREFIX=	REL

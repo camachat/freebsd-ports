@@ -1,5 +1,8 @@
 # Created by: Sergey Akifyev
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ssamtse
 PORTVERSION=	1.07b1

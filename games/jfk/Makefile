@@ -1,5 +1,8 @@
 # Created by: Stefan Farfeleder <e0026813@stud3.tuwien.ac.at>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jfk
 PORTVERSION=	0.1.1

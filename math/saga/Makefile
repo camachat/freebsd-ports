@@ -1,5 +1,8 @@
 # Created by: Rainer Hurling <rhurlin@gwdg.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	saga
 PORTVERSION=	7.9.0

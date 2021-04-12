@@ -1,5 +1,8 @@
 # Created by: Alex Semenyaka <alex@rinet.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	strace
 PORTVERSION=	4.5.18

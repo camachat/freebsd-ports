@@ -1,5 +1,8 @@
 # Created by: David Johnson <david@usermode.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	qbrew
 PORTVERSION=	0.4.1

@@ -1,5 +1,8 @@
 # Created by: rene@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	owl-lisp
 DISTVERSIONPREFIX=	v

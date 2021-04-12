@@ -1,7 +1,10 @@
 #!/bin/sh
 
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # PROVIDE: phpfpm_exporter
 # REQUIRE: LOGIN
 # KEYWORD: shutdown

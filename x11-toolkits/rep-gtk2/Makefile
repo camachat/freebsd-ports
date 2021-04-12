@@ -1,5 +1,8 @@
 # Created by: Yukihiro Nakai <nakai@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rep-gtk2
 PORTVERSION=	0.90.8.3

@@ -1,5 +1,8 @@
 # Created by: Kian Mohageri <kian.mohageri@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nagios-pf-plugin
 PORTVERSION=	0.1

@@ -1,5 +1,8 @@
 # Created by: Pedro Giffuni
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bitkeeper
 PORTVERSION=	7.3.3

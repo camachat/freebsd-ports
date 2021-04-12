@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	DateTime-Calendar-FrenchRevolutionary
 PORTVERSION=	0.15
+=======
+PORTNAME=	DateTime-Calendar-FrenchRevolutionary
+PORTVERSION=	0.17
+>>>>>>> upstream/main
 CATEGORIES=	devel perl5
 MASTER_SITES=	CPAN
 PKGNAMEPREFIX=	p5-

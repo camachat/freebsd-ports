@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xob
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.2

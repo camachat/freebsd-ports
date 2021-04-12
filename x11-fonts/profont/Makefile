@@ -1,5 +1,8 @@
 # Created by: Manuel Giraud <manuel.giraud@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	profont
 PORTVERSION=	400

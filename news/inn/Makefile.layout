@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 INN_LAYOUT?=		old
 
 .if !empty(INN_LAYOUT:tl:Mnew)

@@ -1,5 +1,8 @@
 # Created by: Emanuel Haupt <ehaupt@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	iec16022
 PORTVERSION=	0.3.0

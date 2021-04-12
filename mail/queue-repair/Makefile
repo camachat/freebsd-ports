@@ -1,5 +1,8 @@
 # Created by: Sergei Kolobov <sergei@kolobov.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	queue-repair
 PORTVERSION=	0.9.0

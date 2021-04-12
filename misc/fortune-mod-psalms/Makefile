@@ -1,5 +1,8 @@
 # Created by: pfg
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fortune-mod-psalms
 PORTVERSION=	1.0

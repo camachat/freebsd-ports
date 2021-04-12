@@ -1,5 +1,8 @@
 # Created by: Henrik Brix Andersen <henrik@brixandersen.dk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ikiwiki
 DISTVERSION=	3.20200202.3

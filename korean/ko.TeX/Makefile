@@ -1,5 +1,8 @@
 # Created by: Hyogeol Lee <hyogeollee@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ko.TeX
 PORTVERSION=	0.1.1.20080329

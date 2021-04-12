@@ -22,8 +22,11 @@
  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
+<<<<<<< HEAD
  *
  * $FreeBSD: /tmp/pcvs/ports/lang/icc/files/stdout.c,v 1.1 2003-01-11 17:25:51 netchild Exp $
+=======
+>>>>>>> upstream/main
  */
 
 #include <stdio.h>

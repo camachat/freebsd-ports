@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	lizzie
 DISTVERSION=	0.6-105
 PORTREVISION=	1

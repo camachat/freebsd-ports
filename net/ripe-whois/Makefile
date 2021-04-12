@@ -1,5 +1,8 @@
 # Created by: Lars Erik Gullerud <lerik@nolink.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ripe-whois
 PORTVERSION=	3.2.2

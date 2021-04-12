@@ -1,5 +1,8 @@
 # Created by: Mike Fisher <Michael_Fisher@URMC.Rochester.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Data-Page-Pageset
 PORTVERSION=	1.02

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	stomp
 PORTVERSION=	1.4.6
 CATEGORIES=	devel rubygems

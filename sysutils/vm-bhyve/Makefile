@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	vm-bhyve
 PORTVERSION=	1.4.2
 CATEGORIES=	sysutils

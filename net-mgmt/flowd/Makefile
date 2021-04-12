@@ -1,5 +1,8 @@
 # Created by: Janos Mohacsi <janos.mohacsi@bsd.hu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	flowd
 PORTVERSION=	0.9.1

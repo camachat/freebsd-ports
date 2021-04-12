@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	hunspell
 PORTVERSION=	20210112
 CATEGORIES=	portuguese textproc

@@ -1,5 +1,8 @@
 # Created by: Tobias Rehbein <tobias.rehbein@web.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nanoblogger-extra
 PORTVERSION=	3.4.2

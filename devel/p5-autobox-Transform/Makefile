@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	autobox-Transform
 PORTVERSION=	1.035
 CATEGORIES=	devel perl5

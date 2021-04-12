@@ -1,5 +1,8 @@
 # Created by: John Hixson <jhixson@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lizardfs
 PORTVERSION=	3.12.0

@@ -1,5 +1,8 @@
 # Created by: Pete Fritchman <petef@databits.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ssh-multiadd
 PORTVERSION=	1.3.2

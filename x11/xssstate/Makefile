@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xssstate
 PORTVERSION=	1.1
 CATEGORIES=	x11

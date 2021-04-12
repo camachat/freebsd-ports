@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cascadia-code
 PORTVERSION=	2102.25
 CATEGORIES=	x11-fonts

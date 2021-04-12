@@ -1,5 +1,8 @@
 # Created by: stas
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	autoconf
 PORTVERSION=	1.1

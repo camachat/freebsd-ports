@@ -1,5 +1,8 @@
 # Created by: Serge Gagnon <gagnon__s@videotron.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libutf
 PORTVERSION=	2.10

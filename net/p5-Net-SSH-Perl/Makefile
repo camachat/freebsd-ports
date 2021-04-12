@@ -1,5 +1,8 @@
 # Created by: Jesper Skriver <jesper@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-SSH-Perl
 PORTVERSION=	2.14

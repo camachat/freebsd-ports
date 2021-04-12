@@ -1,5 +1,8 @@
 # Created by: Danton Dorati <urisso@bsd.com.br>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	snortsam
 PORTVERSION=	2.70

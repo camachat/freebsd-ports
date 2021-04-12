@@ -1,5 +1,8 @@
 # Created by: rv@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cons-test
 PORTVERSION=	2.2.0

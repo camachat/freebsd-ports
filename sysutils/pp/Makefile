@@ -1,5 +1,8 @@
 # Created by: Artem Zaytsev <a.arepo@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pp
 PORTVERSION=	1.03

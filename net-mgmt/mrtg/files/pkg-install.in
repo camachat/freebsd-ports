@@ -1,6 +1,9 @@
 #!/bin/sh
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 
 PW="/usr/sbin/pw"
 CHOWN="/usr/sbin/chown"

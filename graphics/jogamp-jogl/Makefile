@@ -1,5 +1,8 @@
 # Created by: Tassilo Philipp <tphilipp@potion-studios.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jogamp-jogl
 PORTVERSION=	2.3.2

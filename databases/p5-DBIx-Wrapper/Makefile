@@ -1,5 +1,8 @@
 # Created by: Don Owens <don@regexguy.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	DBIx-Wrapper
 PORTVERSION=	0.29

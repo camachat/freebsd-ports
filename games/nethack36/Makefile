@@ -1,5 +1,8 @@
 # Created by: asami
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nethack36
 PORTVERSION=	3.6.6

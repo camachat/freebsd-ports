@@ -1,5 +1,8 @@
 # Created by: bmc@WillsCreek.COM
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gnuls
 PORTVERSION=	8.30

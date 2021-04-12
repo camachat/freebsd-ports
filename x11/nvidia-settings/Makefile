@@ -1,5 +1,8 @@
 # Created by: Alexander Nedotsukov <bland@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nvidia-settings
 PORTVERSION=	460.67

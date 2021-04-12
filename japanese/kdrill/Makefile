@@ -1,5 +1,8 @@
 # Created by: Seth Kingsley <sethk@osd.bsdi.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	kdrill
 PORTVERSION=	6.5

@@ -1,5 +1,8 @@
 # Created by: Tod McQuillin <devin@spamcop.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Image-ExifTool
 PORTVERSION=	12.14

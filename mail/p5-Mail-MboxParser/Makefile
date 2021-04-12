@@ -1,5 +1,8 @@
 # Created by: Dmitry Sivachenko <demon@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Mail-MboxParser
 PORTVERSION=	0.55

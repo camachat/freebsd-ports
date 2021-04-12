@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		HTML5-DOM
 PORTVERSION=		1.18
 CATEGORIES=		www perl5

@@ -1,5 +1,8 @@
 # Created by: Thierry Thomas <thierry@pompo.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	code2000
 PORTVERSION=	1.171

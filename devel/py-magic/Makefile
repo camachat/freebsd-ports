@@ -1,5 +1,8 @@
 # Created by: Alexander Botero-Lowry <alexbl@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	magic
 PORTVERSION=	5.39

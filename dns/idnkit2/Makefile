@@ -1,5 +1,8 @@
 # Created by: Rafal Lesniak <fbsd@grid.einherjar.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	idnkit
 PORTVERSION=	2.3

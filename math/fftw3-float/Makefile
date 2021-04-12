@@ -1,5 +1,8 @@
 # Created by: Michael Johnson <ahze@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 COMMENT=	Fast Discrete Fourier Transform (Single Precision C Routines)
 

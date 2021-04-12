@@ -1,5 +1,8 @@
 # Created by: James FitzGibbon <jfitz@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	File-Slurp
 PORTVERSION=	9999.27

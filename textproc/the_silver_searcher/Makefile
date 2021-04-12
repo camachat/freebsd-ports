@@ -1,5 +1,8 @@
 # Created by: Gea-Suan Lin <gslin@gslin.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	the_silver_searcher
 PORTVERSION=	2.2.0

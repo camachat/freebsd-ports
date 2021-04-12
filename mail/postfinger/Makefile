@@ -1,5 +1,8 @@
 # Created by: Andrew J. Caines <A.J.Caines@halplant.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	postfinger
 PORTVERSION=	1.30

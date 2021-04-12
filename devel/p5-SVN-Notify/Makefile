@@ -1,5 +1,8 @@
 # Created by: dom@happygiraffe.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	SVN-Notify
 PORTVERSION=	2.87

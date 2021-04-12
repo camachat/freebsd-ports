@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	smenu
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.9.17

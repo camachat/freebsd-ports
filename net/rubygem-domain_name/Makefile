@@ -1,5 +1,8 @@
 # Created by: MIHIRA Yoshiro <sanpei@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	domain_name
 PORTVERSION=	0.5.20170404

@@ -1,5 +1,8 @@
 # Created by: Sergei Kolobov <sergei@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	qmail-qfilter
 PORTVERSION=	2.1

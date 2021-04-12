@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	uefi-edk2-bhyve
 PORTVERSION=	g20210214
 PORTEPOCH=	2

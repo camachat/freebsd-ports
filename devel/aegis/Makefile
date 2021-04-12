@@ -1,5 +1,8 @@
 # Created by: alepulver
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	aegis
 PORTVERSION=	4.25

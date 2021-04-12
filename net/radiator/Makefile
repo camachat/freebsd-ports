@@ -1,5 +1,8 @@
 # Created by: shan
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Radiator
 PORTVERSION=	4.24

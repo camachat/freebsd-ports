@@ -1,5 +1,8 @@
 # Created by: Thomas Gellekum <tg@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gnustep
 PORTVERSION=	1.28.0

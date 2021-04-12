@@ -1,5 +1,8 @@
 # Created by: Joseph Scott <joseph@randomnetworks.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Text_Diff
 PORTVERSION=	1.2.2

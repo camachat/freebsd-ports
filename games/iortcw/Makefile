@@ -1,5 +1,8 @@
 # Created by: Tobias Kortkamp <t@tobik.me>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	iortcw
 PORTVERSION=	1.51c

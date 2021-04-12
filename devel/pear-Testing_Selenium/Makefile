@@ -1,5 +1,8 @@
 # Created by: Martin Wilke (miwi@FreeBSD.org)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Testing_Selenium
 PORTVERSION=	0.4.4

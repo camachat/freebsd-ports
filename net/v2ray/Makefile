@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	v2ray
 DISTVERSIONPREFIX=	v
 DISTVERSION=	4.36.2

@@ -1,5 +1,8 @@
 # Created by: Nicklas Johnson <freebsd@spatula.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	speak
 PORTVERSION=	1.2

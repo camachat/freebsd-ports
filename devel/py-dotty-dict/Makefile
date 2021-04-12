@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dotty-dict
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.3.0

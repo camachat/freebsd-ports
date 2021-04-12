@@ -1,5 +1,8 @@
 # Created by: Junho CHOI <junho.choi@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nhpf
 PORTVERSION=	1.42

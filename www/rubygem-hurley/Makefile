@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	hurley
 PORTVERSION=	0.2
 CATEGORIES=	www rubygems

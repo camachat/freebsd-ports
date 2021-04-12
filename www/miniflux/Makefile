@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	miniflux
 DISTVERSION=	2.0.29
 CATEGORIES=	www
@@ -14,6 +17,7 @@ RUN_DEPENDS=	${LOCALBASE}/share/certs/ca-root-nss.crt:security/ca_root_nss
 
 USES=		go:modules
 
+<<<<<<< HEAD
 USERS=	miniflux
 GROUPS=	miniflux
 
@@ -24,6 +28,13 @@ USE_GITHUB=	yes
 GH_PROJECT=	v2
 GH_TUPLE=	\
 		PuerkitoBio:goquery:v1.6.1:puerkitobio_goquery/vendor/github.com/PuerkitoBio/goquery \
+=======
+WANT_PGSQL=	client
+
+USE_GITHUB=	yes
+GH_PROJECT=	v2
+GH_TUPLE=	PuerkitoBio:goquery:v1.6.1:puerkitobio_goquery/vendor/github.com/PuerkitoBio/goquery \
+>>>>>>> upstream/main
 		andybalholm:cascadia:v1.1.0:andybalholm_cascadia/vendor/github.com/andybalholm/cascadia \
 		beorn7:perks:v1.0.1:beorn7_perks/vendor/github.com/beorn7/perks \
 		cespare:xxhash:v2.1.1:cespare_xxhash_v2/vendor/github.com/cespare/xxhash/v2 \
@@ -54,11 +65,22 @@ GH_TUPLE=	\
 		tdewolff:minify:v2.9.13:tdewolff_minify_v2/vendor/github.com/tdewolff/minify/v2 \
 		tdewolff:parse:v2.5.10:tdewolff_parse_v2/vendor/github.com/tdewolff/parse/v2
 
+<<<<<<< HEAD
+=======
+USE_RC_SUBR=	miniflux
+
+>>>>>>> upstream/main
 GO_PKGNAME=	miniflux.app
 GO_TARGET=	:${PORTNAME}
 GO_BUILDFLAGS=	-ldflags="-X miniflux.app/version.Version=${DISTVERSION} \
 		-X miniflux.app/version.BuildDate=$$(date +'%Y-%m-%dT%H:%M:%SZ')"
 
+<<<<<<< HEAD
+=======
+USERS=		miniflux
+GROUPS=		miniflux
+
+>>>>>>> upstream/main
 OPTIONS_DEFINE=		PGSQL_SERVER
 PGSQL_SERVER_DESC=	Install the PostgreSQL Server Component
 PGSQL_SERVER_VARS=	WANT_PGSQL=server,contrib

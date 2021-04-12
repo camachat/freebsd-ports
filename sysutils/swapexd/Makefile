@@ -1,5 +1,8 @@
 # Created by: Jesse Smith
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	swapexd
 PORTVERSION=	0.4

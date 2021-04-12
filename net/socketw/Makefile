@@ -1,5 +1,8 @@
 # Created by: Thibault Payet <monwarez@mailoo.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	socketw
 PORTVERSION=	3.10.26.20180918

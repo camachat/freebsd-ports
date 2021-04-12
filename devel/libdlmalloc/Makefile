@@ -1,5 +1,8 @@
 # Created by: roberto
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dlmalloc
 PORTVERSION=	2.8.6

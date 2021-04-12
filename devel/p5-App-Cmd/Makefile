@@ -1,8 +1,14 @@
 # Created by: George Hartzell <hartzell@alerce.com>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	App-Cmd
 PORTVERSION=	0.331
+=======
+
+PORTNAME=	App-Cmd
+PORTVERSION=	0.333
+>>>>>>> upstream/main
 CATEGORIES=	devel perl5
 MASTER_SITES=	CPAN
 PKGNAMEPREFIX=	p5-

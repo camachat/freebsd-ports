@@ -1,5 +1,8 @@
 # Created by: Lubomir Marinov <lubomir_m@abv.bg>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Tk-ResizeButton
 PORTVERSION=	0.01

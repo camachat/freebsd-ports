@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	azure-mgmt-imagebuilder
 PORTVERSION=	0.4.0
 CATEGORIES=	devel python

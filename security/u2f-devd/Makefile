@@ -1,5 +1,8 @@
 # Created by: Greg V <greg@unrelenting.technology>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	u2f-devd
 PORTVERSION=	1.1.10

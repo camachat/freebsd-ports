@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	lucene++
 PORTVERSION=	3.0.8
+=======
+PORTNAME=	lucene++
+PORTVERSION=	3.0.8
+PORTREVISION=	1
+>>>>>>> upstream/main
 DISTVERSIONPREFIX=	rel_
 CATEGORIES=	textproc
 

@@ -1,5 +1,8 @@
 # Created by: Martin Kammerhofer
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	auctex
 PORTVERSION=	12.2

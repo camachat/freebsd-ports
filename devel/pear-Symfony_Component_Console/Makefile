@@ -1,5 +1,8 @@
 # Created by: William Grzybowski <wg@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Console
 PORTVERSION=	2.4.4

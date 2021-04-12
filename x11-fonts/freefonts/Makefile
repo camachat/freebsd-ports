@@ -1,5 +1,8 @@
 # Created by: erich@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	freefonts
 PORTVERSION=	0.10

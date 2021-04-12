@@ -1,5 +1,8 @@
 # Created by: gahr
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tivoka
 PORTVERSION=	3.5.2

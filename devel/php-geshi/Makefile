@@ -1,5 +1,8 @@
 # Created by: Eygene Ryabinkin <rea-fbsd@codelabs.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	geshi
 DISTVERSION=	1.0.9.1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # Ports Linux compatibility framework
 #
 # Feature:	linux:args

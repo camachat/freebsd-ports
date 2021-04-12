@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kxstitch
 DISTVERSION=	2.2.0
 PORTREVISION=	1

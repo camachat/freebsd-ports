@@ -1,5 +1,8 @@
 # Created by: Michael Johnson <ahze@ahze.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ExtUtils-MakeMaker
 PORTVERSION=	7.58

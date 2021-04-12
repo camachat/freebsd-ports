@@ -1,5 +1,8 @@
 # Created by: pat
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wmjupiter
 PORTVERSION=	1.21

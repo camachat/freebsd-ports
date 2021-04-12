@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	vortex
 DISTVERSION=	2.9.0-59
 PORTREVISION=	1

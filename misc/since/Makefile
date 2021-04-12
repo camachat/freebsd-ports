@@ -1,5 +1,8 @@
 # Created by: Johann Visagie <wjv@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	since
 PORTVERSION=	1.1

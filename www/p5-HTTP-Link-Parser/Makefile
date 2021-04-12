@@ -1,5 +1,8 @@
 # Created by: Tom Judge <tj@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HTTP-Link-Parser
 PORTVERSION=	0.200

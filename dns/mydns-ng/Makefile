@@ -1,5 +1,8 @@
 # Created by: Simon Dick <simond@irrelevant.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mydns-ng
 PORTVERSION=	1.2.8.31

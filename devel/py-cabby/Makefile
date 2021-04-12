@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cabby
 PORTVERSION=	0.1.20
 CATEGORIES=	devel python

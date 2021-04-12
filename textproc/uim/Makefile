@@ -1,5 +1,8 @@
 # Created by: MANTANI Nobutaka <nobutaka@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	uim
 PORTVERSION=	1.8.8

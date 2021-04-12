@@ -1,5 +1,8 @@
 # Created by: Philippe Audeoud <jadawin@tuxaco.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pdfcrack
 PORTVERSION=	0.16

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cdialog
 DISTVERSION=	1.3.20201126
 PORTEPOCH=	2

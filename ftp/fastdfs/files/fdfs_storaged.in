@@ -1,7 +1,10 @@
 #!/bin/sh
 
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # PROVIDE: fdfs_storaged
 # REQUIRE: LOGIN
 # KEYWORD: shutdown

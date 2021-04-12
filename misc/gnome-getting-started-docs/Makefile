@@ -1,5 +1,8 @@
 # Created by: Joe Marcus Clarke <marcus@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gnome-getting-started-docs
 PORTVERSION=	3.28.2

@@ -1,5 +1,8 @@
 # Created by: Vladimir Timofeev <vovkasm@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	DBIx-Class-EncodeColumns
 PORTVERSION=	0.02

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gorm
 PORTVERSION=	1.2.23
 PORTREVISION=	4

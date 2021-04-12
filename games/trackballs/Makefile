@@ -1,5 +1,8 @@
 # Created by: Adam Weinberger <adamw@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	trackballs
 PORTVERSION=	1.3.2

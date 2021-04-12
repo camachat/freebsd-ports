@@ -1,5 +1,8 @@
 # Created by: johnpupu <johnpupu@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	yaf
 DISTVERSION=	3.2.5

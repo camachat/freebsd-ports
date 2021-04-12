@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	azure-mgmt-policyinsights
 PORTVERSION=	0.5.0
 CATEGORIES=	devel python

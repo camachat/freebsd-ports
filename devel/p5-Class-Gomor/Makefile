@@ -1,5 +1,8 @@
 # Created by: Christopher Boumenot <boumenot@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Class-Gomor
 PORTVERSION=	1.03

@@ -1,5 +1,8 @@
 # Created by: Douglas Fraser <doug@idmf.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	grepcidr
 PORTVERSION=	2.0

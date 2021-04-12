@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	encore
 PORTVERSION=	0.3.1
 PORTREVISION=	9

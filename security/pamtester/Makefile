@@ -1,5 +1,8 @@
 # Created by: andy@fud.org.nz
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pamtester
 PORTVERSION=	0.1.2

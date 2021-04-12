@@ -1,5 +1,8 @@
 # Created by: Steven Kreuzer <skreuzer@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	prompt-toolkit
 PORTVERSION=	1.0.18

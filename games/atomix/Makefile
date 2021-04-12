@@ -1,5 +1,8 @@
 # Created by: Yukihiro Nakai <nakai@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	atomix
 PORTVERSION=	3.34.0

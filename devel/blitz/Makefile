@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	blitz
 DISTVERSION=	1.0.2
 PORTREVISION=	4

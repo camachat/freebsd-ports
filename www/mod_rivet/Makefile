@@ -1,5 +1,8 @@
 # Created by: Peter Lai <cowbert@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mod_rivet
 PORTVERSION=	3.1.1

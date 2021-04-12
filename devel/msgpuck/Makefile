@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	msgpuck
 PORTVERSION=	2.0
 PORTREVISION=	3

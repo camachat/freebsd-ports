@@ -1,5 +1,8 @@
 # Created by: Janos Mohacsi <janos.mohacsi@bsd.hu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	shibboleth-sp
 PORTVERSION=	3.2.1

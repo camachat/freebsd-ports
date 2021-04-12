@@ -1,5 +1,8 @@
 # Created by: Benjamin Close <benjsc@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	avis
 PORTVERSION=	1.2.0

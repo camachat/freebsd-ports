@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	re-flex
 PORTVERSION=	3.0.2
 DISTVERSIONPREFIX=	v

@@ -1,5 +1,8 @@
 # Created by: Kelly Yancey <kbyanc@posi.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	aee
 PORTVERSION=	2.2.21

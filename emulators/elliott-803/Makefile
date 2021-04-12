@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	elliott-803
 PORTVERSION=	0.1.8
 DISTVERSIONPREFIX=	v

@@ -1,5 +1,8 @@
 # Created by: Jeremy <karlj000@unbc.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	avida
 PORTVERSION=	2.12.4

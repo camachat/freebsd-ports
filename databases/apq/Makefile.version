@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 APQ_VERSION=	3.2.0
 BASE_PORTREV=	2
 DRV_ODBC_PR=	1

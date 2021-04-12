@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Log-Dump
 PORTVERSION=	0.14
 PORTREVISION=	1

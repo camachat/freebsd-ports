@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pwnat
 PORTVERSION=	g20171222
 CATEGORIES=	net

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	scrcpy
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.17

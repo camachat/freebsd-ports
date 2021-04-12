@@ -1,5 +1,8 @@
 # Created by: Juha Erkkilä <erkkila@cc.jyu.fi>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	etktab
 PORTVERSION=	3.2

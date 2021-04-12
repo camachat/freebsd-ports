@@ -1,5 +1,8 @@
 # Created by: Chris Calvey <chris@securityforensics.co.uk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	afflib
 PORTVERSION=	3.7.16

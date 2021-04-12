@@ -1,5 +1,8 @@
 # Created by: Nicola Vitale <nivit@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pip
 PORTVERSION=	20.2.3

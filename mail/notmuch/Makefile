@@ -1,5 +1,8 @@
 # Created by: DarwinSurvivor <darwinsurvivor@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	notmuch
 PORTVERSION=	0.31.4

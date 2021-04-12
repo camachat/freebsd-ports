@@ -1,5 +1,8 @@
 # Created by: Steve Franks <stevefranks@ieee.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lpc21isp
 PORTVERSION=	1.97

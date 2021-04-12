@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	hashdb
 DISTVERSIONPREFIX=	v
 DISTVERSION=	3.1.0-8

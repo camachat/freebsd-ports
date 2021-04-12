@@ -1,5 +1,8 @@
 # Created by: David O'Brien <obrien@NUXI.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pcc
 PORTVERSION=	1.1.0

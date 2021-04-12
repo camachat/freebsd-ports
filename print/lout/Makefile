@@ -1,5 +1,8 @@
 # Created by: oly@world.std.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lout
 PORTVERSION=	3.40

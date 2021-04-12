@@ -1,5 +1,8 @@
 # Created by: Emanuel Haupt <ehaupt@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dnsblast
 PORTVERSION=	0.0.2016060901

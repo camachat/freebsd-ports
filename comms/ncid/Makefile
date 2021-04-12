@@ -1,5 +1,8 @@
 # Created by: David
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ncid
 PORTVERSION=	1.11

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	nats-top
 PORTVERSION=	0.3.2
 DISTVERSIONPREFIX=	v

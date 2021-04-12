@@ -1,5 +1,8 @@
 # Created by: Johann Visagie <johann@egenetics.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libxml
 PORTVERSION=	0.08

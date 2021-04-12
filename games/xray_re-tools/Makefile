@@ -1,5 +1,8 @@
 # Created by: Alexey Dokuchaev <danfe@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xray_re-tools
 DISTVERSION=	g20180902

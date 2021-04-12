@@ -1,5 +1,8 @@
 # Created by: Igor Pokrovsky <tiamat@comset.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	quesa
 PORTVERSION=	1.8

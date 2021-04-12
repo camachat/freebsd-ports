@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ibus-uniemoji
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.6.0-16

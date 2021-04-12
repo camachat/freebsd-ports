@@ -1,5 +1,8 @@
 # Created by: Yoshiro MIHIRA <sanpei@yy.cs.keio.ac.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wdiff
 PORTVERSION=	1.2.2

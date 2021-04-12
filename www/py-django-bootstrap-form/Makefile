@@ -1,5 +1,8 @@
 # Created by: Alfred Perlstein <alfred@freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	django-bootstrap-form
 PORTVERSION=	3.4

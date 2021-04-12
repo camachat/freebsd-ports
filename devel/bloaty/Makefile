@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bloaty
 PORTVERSION=	1.1
 DISTVERSIONPREFIX=	v

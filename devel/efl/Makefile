@@ -1,5 +1,8 @@
 # Created by: Grzegorz Blach <gblach@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	efl
 DISTVERSION=	1.25.1

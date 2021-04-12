@@ -1,5 +1,8 @@
 # Created by: gmarco@giovannelli.it
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	abs
 PORTVERSION=	0908

@@ -1,5 +1,8 @@
 # Created by: Emanuel Haupt <ehaupt@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pdf-redact-tools
 PORTVERSION=	0.1.2

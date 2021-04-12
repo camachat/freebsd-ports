@@ -1,5 +1,8 @@
 # Created by: Philippe Rocques <phil@teaser.fr>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gtkpasman
 PORTVERSION=	0.12.1

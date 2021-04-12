@@ -1,5 +1,8 @@
 # Created by: Shin'ya Murakami <murakami@ahs.scitec.kobe-u.ac.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dcl
 PORTVERSION=	5.4.8

@@ -1,5 +1,8 @@
 # Created by: Alexander Y. Grigoryev <alexander.4mail@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	zathura-djvu
 DISTVERSION=	0.2.9

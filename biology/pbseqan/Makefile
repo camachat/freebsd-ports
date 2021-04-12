@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pbseqan
 DISTVERSION=	g20171011
 CATEGORIES=	biology

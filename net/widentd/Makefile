@@ -1,5 +1,8 @@
 # Created by: Dirk-Willem van Gulik / dirkx@webweaving.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	widentd
 PORTVERSION=	1.04

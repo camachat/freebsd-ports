@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		dojo
 PORTVERSION=		1.12.2
 CATEGORIES=		www

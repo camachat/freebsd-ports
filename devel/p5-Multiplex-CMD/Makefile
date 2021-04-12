@@ -1,5 +1,8 @@
 # Created by: Andrey Ignatov <rdna@rdna.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Multiplex-CMD
 PORTVERSION=	0.03

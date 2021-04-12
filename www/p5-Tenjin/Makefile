@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Tenjin
 PORTVERSION=	0.070001
 PORTREVISION=	1

@@ -1,5 +1,8 @@
 # Created by: Danilo Egea Gondolfo <danilo@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pev
 PORTVERSION=	0.80

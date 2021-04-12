@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	h323plus
 DISTVERSIONPREFIX=      v
 DISTVERSION=    1_27_2

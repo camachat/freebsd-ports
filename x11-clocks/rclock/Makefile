@@ -1,5 +1,8 @@
 # Created by: obrien@NUXI.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rclock
 PORTVERSION=	2.7.10

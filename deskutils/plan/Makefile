@@ -1,5 +1,8 @@
 # Created by: Daniel Eischen <deischen@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 # Also update	ports/japanese/plan/ (ja-plan) when this port is updated
 

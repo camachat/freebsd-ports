@@ -1,5 +1,8 @@
 # Created by: jfreund
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cdeploy
 PORTVERSION=	0.2.1

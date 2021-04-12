@@ -1,5 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@rtfm.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ruby2ruby
 PORTVERSION=	2.4.1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		spoqahansans
 DISTVERSIONPREFIX=	v
 DISTVERSION=		2.1.2

@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # Created by: Dmitry Marakasov <amdmi3@FreeBSD.org>
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pyglet
 PORTVERSION=	1.5.0
 CATEGORIES=	graphics multimedia x11-toolkits python

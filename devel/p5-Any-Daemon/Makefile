@@ -1,5 +1,8 @@
 # Created by: Martin Waschbuesch <martin@waschbuesch.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Any-Daemon
 PORTVERSION=	0.95

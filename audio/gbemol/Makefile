@@ -1,5 +1,8 @@
 # Created by: Thomas M. Hermann <tmh.public@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gbemol
 PORTVERSION=	0.3.2

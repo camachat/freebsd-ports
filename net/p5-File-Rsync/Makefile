@@ -1,5 +1,8 @@
 # Created by: petef@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	File-Rsync
 PORTVERSION=	0.49

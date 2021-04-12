@@ -1,5 +1,8 @@
 # Created by: Evan Sarmiento <esarmiento@wayfair.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	graphite-web
 PORTVERSION=	1.1.7

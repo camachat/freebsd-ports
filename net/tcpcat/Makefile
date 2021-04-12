@@ -1,5 +1,8 @@
 # Created by: roam@orbitel.bg
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tcpcat
 PORTVERSION=	1.2.0

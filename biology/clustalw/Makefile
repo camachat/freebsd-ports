@@ -1,5 +1,8 @@
 # Created by: dbader@eece.unm.edu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	clustalw
 PORTVERSION=	2.1

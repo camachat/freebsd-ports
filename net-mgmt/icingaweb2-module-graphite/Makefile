@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	icingaweb2-module-graphite
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.1.0

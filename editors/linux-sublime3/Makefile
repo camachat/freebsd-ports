@@ -1,5 +1,8 @@
 # Created by: Miguel Clara <miguelmclara@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sublime
 PORTVERSION=	3.2.2

@@ -1,8 +1,14 @@
 # Created by: Koop Mast <kwm@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	evolution-ews
 DISTVERSION=	3.38.4
+=======
+
+PORTNAME=	evolution-ews
+DISTVERSION=	3.40.0
+>>>>>>> upstream/main
 CATEGORIES=	mail gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome

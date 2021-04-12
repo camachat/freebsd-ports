@@ -1,5 +1,8 @@
 # Created by: Alexandre Biancalana <ale@biancalanas.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-Google-SafeBrowsing2
 PORTVERSION=	1.09

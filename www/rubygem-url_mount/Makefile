@@ -1,5 +1,8 @@
 # Created by: Rodrigo Nicola Lombardo <rodnic@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	url_mount
 PORTVERSION=	0.2.1

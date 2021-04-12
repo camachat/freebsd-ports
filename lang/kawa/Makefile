@@ -1,5 +1,8 @@
 # Created by: Zach Garner <zach@neurosoft.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	kawa
 PORTVERSION=	3.1.1

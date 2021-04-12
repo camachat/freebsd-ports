@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	python-pcre
 DISTVERSION=	0.7
 CATEGORIES=	devel python

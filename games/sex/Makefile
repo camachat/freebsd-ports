@@ -1,5 +1,8 @@
 # Created by: Nick Johnson <freebsd@spatula.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sex
 PORTVERSION=	1.0

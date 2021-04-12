@@ -1,8 +1,14 @@
 # Created by: Joe Marcus Clarke <marcus@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	gtksourceview
 PORTVERSION=	4.8.0
+=======
+
+PORTNAME=	gtksourceview
+PORTVERSION=	4.8.1
+>>>>>>> upstream/main
 CATEGORIES=	x11-toolkits gnome
 MASTER_SITES=	GNOME
 PKGNAMESUFFIX=	4

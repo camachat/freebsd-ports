@@ -1,5 +1,8 @@
 # Created by: sumikawa
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	kbanner
 PORTVERSION=	2.1

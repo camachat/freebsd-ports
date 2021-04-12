@@ -1,5 +1,8 @@
 # Created by: dawe <daweonline@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Statistics-TTest
 PORTVERSION=	1.1.0

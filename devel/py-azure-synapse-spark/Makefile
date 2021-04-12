@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	azure-synapse-spark
 DISTVERSION=	0.2.0
 CATEGORIES=	devel python

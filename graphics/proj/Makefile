@@ -1,5 +1,8 @@
 # Created by: jedgar@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	proj
 PORTVERSION=	7.2.1

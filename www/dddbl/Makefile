@@ -1,5 +1,8 @@
 # Created by: Torsten Zühlsdorff <ports@toco-domains.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dddbl
 PORTVERSION=	2.0.1

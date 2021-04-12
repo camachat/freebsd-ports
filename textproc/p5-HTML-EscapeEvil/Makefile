@@ -1,5 +1,8 @@
 # Created by: Anton Berezin <tobez@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HTML-EscapeEvil
 PORTVERSION=	0.05

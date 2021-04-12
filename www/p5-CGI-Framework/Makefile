@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	CGI-Framework
 PORTVERSION=	0.23
 PORTREVISION=	2

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	DBIx-Class-MooseColumns
 PORTVERSION=	0.22
 PORTREVISION=	2

@@ -1,5 +1,8 @@
 # Created by: Niels Kristensen <niels@kristensen.io>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	IPC-PerlSSH
 PORTVERSION=	0.17

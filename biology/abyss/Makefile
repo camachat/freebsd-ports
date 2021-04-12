@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	abyss
 DISTVERSION=	2.2.5
 CATEGORIES=	biology

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fast-histogram
 DISTVERSION=	0.9
 CATEGORIES=	misc python

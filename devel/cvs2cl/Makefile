@@ -1,5 +1,8 @@
 # Created by: knu@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cvs2cl
 PORTVERSION=	2.73

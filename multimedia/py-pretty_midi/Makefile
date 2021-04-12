@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pretty_midi
 DISTVERSION=	0.2.9
 CATEGORIES=	multimedia python

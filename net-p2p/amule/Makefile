@@ -1,5 +1,8 @@
 # Created by: Ganael LAPLANCHE <ganael.laplanche@martymac.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	amule
 PORTVERSION=	2.3.2

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	guake
 PORTVERSION=	3.4.0
 PORTREVISION=	2

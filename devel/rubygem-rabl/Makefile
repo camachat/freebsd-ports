@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rabl
 PORTVERSION=	0.14.1
 CATEGORIES=	devel rubygems

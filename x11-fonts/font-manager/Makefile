@@ -1,8 +1,14 @@
 # Created by: Zhihao Yuan <lichray@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	font-manager
 PORTVERSION=	0.8.5
+=======
+
+PORTNAME=	font-manager
+PORTVERSION=	0.8.6
+>>>>>>> upstream/main
 CATEGORIES=	x11-fonts gnome
 
 MAINTAINER=	ehaupt@FreeBSD.org
@@ -13,7 +19,10 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 
 BUILD_DEPENDS=	cmake:devel/cmake \
 		itstool:textproc/itstool \
+<<<<<<< HEAD
 		ninja:devel/ninja \
+=======
+>>>>>>> upstream/main
 		valac:lang/vala \
 		yelp-build:textproc/yelp-tools
 LIB_DEPENDS=	libfontconfig.so:x11-fonts/fontconfig \

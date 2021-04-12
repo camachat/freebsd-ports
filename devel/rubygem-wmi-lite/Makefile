@@ -1,5 +1,8 @@
 # Created by: renchap@cocoa-x.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wmi-lite
 PORTVERSION=	1.0.0

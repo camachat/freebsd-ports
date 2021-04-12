@@ -1,5 +1,8 @@
 # Created by: Nakata Maho <chat95@mbox.kyoto-inet.or.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pymol
 DISTVERSIONPREFIX=	v

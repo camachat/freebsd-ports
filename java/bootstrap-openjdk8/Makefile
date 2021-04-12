@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	openjdk8
 PORTVERSION=	${DISTVERSION_${JDK_ARCH}}
 PORTREVISION=	1

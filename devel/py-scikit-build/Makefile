@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	scikit-build
 DISTVERSION=	0.11.1
 CATEGORIES=	devel python

@@ -1,5 +1,8 @@
 # Created by: r.neese
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sphinxbase
 PORTVERSION=	0.8

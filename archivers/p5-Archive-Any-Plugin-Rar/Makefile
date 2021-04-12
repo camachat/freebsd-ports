@@ -1,5 +1,8 @@
 # Created by: Anes Mukhametov <anes@anes.su>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Archive-Any-Plugin-Rar
 PORTVERSION=	0.02

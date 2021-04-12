@@ -1,5 +1,8 @@
 # Created by: mm@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PKGNAMESUFFIX=	-nox11
 PORTSCOUT=	ignore:1

@@ -1,5 +1,8 @@
 # Created by: Shigeyuki FUKUSHIMA <shige@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	flim
 PORTVERSION=	1.14.9.${SNAPDATE}

@@ -1,5 +1,8 @@
 # Created by: samm
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	o3read
 PORTVERSION=	0.0.4

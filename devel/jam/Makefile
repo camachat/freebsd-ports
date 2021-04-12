@@ -1,5 +1,8 @@
 # Created by: Jeffrey Hsu <hsu@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jam
 PORTVERSION=	2.6

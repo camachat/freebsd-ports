@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	black-hole-solver
 DISTVERSION=	1.10.1
 CATEGORIES=	games

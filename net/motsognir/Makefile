@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	motsognir
 PORTVERSION=	1.0.12
 CATEGORIES=	net

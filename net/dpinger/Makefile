@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dpinger
 PORTVERSION=	3.0
 DISTVERSIONPREFIX=	v

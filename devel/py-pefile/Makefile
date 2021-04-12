@@ -1,5 +1,8 @@
 # Created by: Antoine Brodin <antoine@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pefile
 PORTVERSION=	2019.4.18

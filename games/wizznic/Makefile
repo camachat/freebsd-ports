@@ -1,5 +1,8 @@
 # Created by: Rusmir Dusko <nemysis@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wizznic
 PORTVERSION=	1.1

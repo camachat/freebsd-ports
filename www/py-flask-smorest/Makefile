@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	flask-smorest
 PORTVERSION=	0.29.0
 CATEGORIES=	www devel python

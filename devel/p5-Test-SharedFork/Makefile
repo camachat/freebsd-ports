@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Test-SharedFork
 PORTVERSION=	0.35
 CATEGORIES=	devel perl5

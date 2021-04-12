@@ -1,5 +1,8 @@
 # Created by: gtodd@bellanet.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	freebsd-snapshot
 DISTVERSION=	20091208.1

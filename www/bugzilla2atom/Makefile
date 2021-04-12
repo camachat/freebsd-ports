@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bugzilla2atom
 PORTVERSION=	g20190711
 PORTREVISION=	1

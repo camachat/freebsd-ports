@@ -1,5 +1,8 @@
 # Created by: Mons Anderson <mons@cpan.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	uni-perl
 PORTVERSION=	0.91

@@ -1,5 +1,8 @@
 # Created by: Henry Hu <henry.hu.sh@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	telegramqml
 PORTVERSION=	0.9.2

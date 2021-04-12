@@ -1,5 +1,8 @@
 # Created by: Roman Bogorodskiy <bogorodskiy@inbox.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fbcmd
 PORTVERSION=	0.5.1

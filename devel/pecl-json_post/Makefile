@@ -1,5 +1,8 @@
 # Created by: Gasol Wu <gasol.wu@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	json_post
 PORTVERSION=	1.0.2

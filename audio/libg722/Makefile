@@ -1,5 +1,8 @@
 # Created by: sobomax
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libg722
 DISTVERSIONPREFIX=	v_

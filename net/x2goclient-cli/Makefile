@@ -1,5 +1,8 @@
 # Created by: arved
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	x2goclient-cli
 DISTVERSION=	3.0.1-1.2

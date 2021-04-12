@@ -1,5 +1,8 @@
 # Created by: Herbert J. Skuhra <h.skuhra@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gst123
 PORTVERSION=	0.3.3

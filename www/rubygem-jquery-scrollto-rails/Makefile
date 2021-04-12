@@ -1,5 +1,8 @@
 # Created by: Johannes Meixner <johannes@perceivon.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jquery-scrollto-rails
 PORTVERSION=	1.4.3

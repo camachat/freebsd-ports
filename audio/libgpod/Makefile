@@ -1,5 +1,8 @@
 # Created by: Devon Ryan <dpryan@dpryan.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libgpod
 PORTVERSION=	0.8.3

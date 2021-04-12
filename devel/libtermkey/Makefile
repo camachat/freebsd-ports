@@ -1,5 +1,8 @@
 # Created by: Anton Tornqvist <antont@inbox.lv>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libtermkey
 PORTVERSION=	0.22

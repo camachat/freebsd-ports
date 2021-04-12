@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rouge
 PORTVERSION=	3.18.0
 CATEGORIES=	textproc rubygems

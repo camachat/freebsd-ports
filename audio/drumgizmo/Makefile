@@ -1,5 +1,8 @@
 # Created by: Goran Mekić <meka@tilda.center>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	drumgizmo
 PORTVERSION=	0.9.19

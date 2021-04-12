@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	urbit
 DISTVERSIONPREFIX=	${PORTNAME}-
 DISTVERSION=	0.6.0

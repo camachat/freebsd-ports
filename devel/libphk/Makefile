@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libphk
 PORTVERSION=	0.3.20080902
 PORTREVISION=	1

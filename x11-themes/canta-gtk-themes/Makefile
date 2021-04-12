@@ -1,5 +1,8 @@
 # Created by: Alexander Vereeken <Alexander88207@protonmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	canta-gtk-themes
 DISTVERSION=	2020-05-17

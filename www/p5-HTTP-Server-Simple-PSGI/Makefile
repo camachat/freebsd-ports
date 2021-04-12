@@ -1,5 +1,8 @@
 # Created by: ports@c0decafe.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HTTP-Server-Simple-PSGI
 PORTVERSION=	0.16

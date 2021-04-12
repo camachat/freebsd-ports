@@ -1,5 +1,8 @@
 # Created by: Piotr Kubaj <pkubaj@anongoth.pl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libglade2
 PORTVERSION=	2.6.4

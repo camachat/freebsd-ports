@@ -1,5 +1,8 @@
 # Created by: Bob Eager <bob@eager.cx>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ecce
 DISTVERSION=	2.9d

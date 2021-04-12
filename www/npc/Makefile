@@ -1,5 +1,8 @@
 # Created by: Yasuhiro Fukuma <yasuf@big.or.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	npc
 PORTVERSION=	0.83

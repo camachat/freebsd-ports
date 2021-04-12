@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	IO-Socket-Timeout
 PORTVERSION=	0.32
 PORTREVISION=	1

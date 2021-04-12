@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	diffpdf
 PORTVERSION=	2.1.3
 PORTREVISION=	28

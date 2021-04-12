@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Squatting-On-PSGI
 PORTVERSION=	0.06
 PORTREVISION=	1

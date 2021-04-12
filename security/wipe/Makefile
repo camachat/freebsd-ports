@@ -1,5 +1,8 @@
 # Created by: Edson Brandi <ebrandi@fugspbr.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wipe
 PORTVERSION=	2.3.1

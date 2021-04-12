@@ -1,5 +1,8 @@
 # Created by: Jun Kuriyama <kuriyama@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	magit
 PORTVERSION=	2.90.1

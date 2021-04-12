@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Unix-setuid
 PORTVERSION=	0.02
 CATEGORIES=	security perl5

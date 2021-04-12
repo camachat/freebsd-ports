@@ -1,5 +1,8 @@
 # Created by: Michael Schout <mschout@gkg.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pam_pwdfile
 PORTVERSION=	1.0

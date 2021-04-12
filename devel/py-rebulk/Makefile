@@ -1,5 +1,8 @@
 # Created by: Andrej Ebert <andrej@ebert.su>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rebulk
 PORTVERSION=	3.0.1

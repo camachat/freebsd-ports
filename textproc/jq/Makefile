@@ -1,5 +1,8 @@
 # Created by: Jui-Nan Lin <jnlin@csie.nctu.edu.tw>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jq
 DISTVERSIONPREFIX=	${PORTNAME}-

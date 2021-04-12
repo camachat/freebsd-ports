@@ -1,5 +1,8 @@
 # Created by: Boris Popov <bp@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nut
 PORTVERSION=	2.7.4

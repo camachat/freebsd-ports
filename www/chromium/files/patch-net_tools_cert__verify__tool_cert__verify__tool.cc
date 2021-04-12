@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- net/tools/cert_verify_tool/cert_verify_tool.cc.orig	2020-11-13 06:36:46 UTC
+=======
+--- net/tools/cert_verify_tool/cert_verify_tool.cc.orig	2021-03-12 23:57:27 UTC
+>>>>>>> upstream/main
 +++ net/tools/cert_verify_tool/cert_verify_tool.cc
 @@ -29,7 +29,7 @@
  #include "net/url_request/url_request_context_builder.h"

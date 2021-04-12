@@ -1,5 +1,8 @@
 # Created by: Talal Al Dik (tad@vif.com)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sngrep
 DISTVERSION=	1.4.8

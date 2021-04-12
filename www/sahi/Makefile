@@ -1,5 +1,8 @@
 # Created by: Nicola Vitale <nivit@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sahi
 PORTVERSION=	3.5.${SAHI_BUILD}

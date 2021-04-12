@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	jtc
 DISTVERSION=	1.76
 CATEGORIES=	textproc

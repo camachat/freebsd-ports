@@ -1,5 +1,8 @@
 # Created by: mi@aldan.algebra.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gemini
 PORTVERSION=	1.0

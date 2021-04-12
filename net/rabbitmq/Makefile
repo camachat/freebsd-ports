@@ -1,5 +1,8 @@
 # Created by: Phillip Neumann <pneumann@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rabbitmq
 DISTVERSION=	3.8.3

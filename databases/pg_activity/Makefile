@@ -1,5 +1,8 @@
 # Created by: Jason Helfman <jgh@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pg_activity
 PORTVERSION=	1.5.0

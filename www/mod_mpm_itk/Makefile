@@ -1,5 +1,8 @@
 # Created by: Lukasz Wasikowski <lukasz@wasikowski.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mod_mpm_itk
 PORTVERSION=	2.4.7

@@ -1,5 +1,8 @@
 # Created by: asami
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xgraph
 PORTVERSION=	11.3.2.20000910

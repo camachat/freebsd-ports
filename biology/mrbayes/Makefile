@@ -1,5 +1,8 @@
 # Created by: mzaki@biol.s.u-tokyo.ac.jp
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mrbayes
 DISTVERSIONPREFIX=	v

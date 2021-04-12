@@ -1,5 +1,8 @@
 # Created by: Stephen Montgomery-Smith <stephen@math.missouri.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	octave-forge-generate_html
 PORTVERSION=	0.3.2

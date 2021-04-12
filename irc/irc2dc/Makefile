@@ -1,5 +1,8 @@
 # Created by: Maxim Ignatenko
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	irc2dc
 PORTVERSION=	0.1

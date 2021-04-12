@@ -1,5 +1,8 @@
 # Created by: roberto
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	getline
 PORTVERSION=	3.9

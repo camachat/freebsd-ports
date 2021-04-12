@@ -1,5 +1,8 @@
 # Created by: Dryice Liu <dryice@dryice.name>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	routes
 PORTVERSION=	2.5.1

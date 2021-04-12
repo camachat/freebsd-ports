@@ -1,5 +1,8 @@
 # Created by: Jose Alonso Cardenas Marquez <acm@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTREVISION=	18
 PKGNAMESUFFIX=	-video-glide64mk2

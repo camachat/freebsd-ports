@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cpputest
 PORTVERSION=	4.0
 DISTVERSIONPREFIX=	v

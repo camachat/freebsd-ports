@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xcb-util-errors
 PORTVERSION=	1.0
 CATEGORIES=	x11

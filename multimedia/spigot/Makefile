@@ -1,5 +1,8 @@
 # Created by: james@cs.uwm.edu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	spigot
 PORTVERSION=	1.7

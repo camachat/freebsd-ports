@@ -1,5 +1,8 @@
 # Created by: Satoshi Taoka <taoka@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Wnn7
 PORTVERSION=	2001.10.17

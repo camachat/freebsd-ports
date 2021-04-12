@@ -1,5 +1,8 @@
 # Created by: Eric P. Scott <eps+pbug0703@ana.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lcdtest
 PORTVERSION=	1.18

@@ -1,5 +1,8 @@
 # Created by: Andreas Kohout <shanee@rabbit.augusta.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xtar
 PORTVERSION=	1.4

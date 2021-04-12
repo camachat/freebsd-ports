@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	wayland
 PORTVERSION=	1.15.0
 DISTVERSIONSUFFIX=	-1.el7

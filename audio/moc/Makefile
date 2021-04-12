@@ -1,5 +1,8 @@
 # Created by: Revis Zinkov <rzinkov@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	moc
 PORTVERSION=	2.5.2

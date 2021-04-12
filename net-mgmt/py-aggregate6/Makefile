@@ -1,5 +1,8 @@
 # Created by: Muhammad Moinur Rahman <bofh@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	aggregate6
 PORTVERSION=	1.0.12

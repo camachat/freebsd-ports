@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	peaclock
 DISTVERSION=	0.4.3
 PORTREVISION=	1
+=======
+PORTNAME=	peaclock
+DISTVERSION=	0.4.3
+PORTREVISION=	2
+>>>>>>> upstream/main
 CATEGORIES=	deskutils
 
 MAINTAINER=	yuri@FreeBSD.org

@@ -1,5 +1,8 @@
 # Created by: Torsten Zuehlsdorff <tz@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	u2f
 PORTVERSION=	1.0.0

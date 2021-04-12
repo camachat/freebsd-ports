@@ -1,5 +1,8 @@
 # Created by: Mathieu Arnold <m@absolight.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Test-Pod
 PORTVERSION=	1.52

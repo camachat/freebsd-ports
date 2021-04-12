@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	oxygen
 PORTVERSION=	1.4.1
 PORTREVISION=	3

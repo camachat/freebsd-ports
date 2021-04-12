@@ -1,5 +1,8 @@
 # Created by: Alex Kapranoff <kappa@FreeBSD.org.ua>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-Whois-Raw
 PORTVERSION=	2.99031

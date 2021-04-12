@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Log-Defer
 PORTVERSION=	0.311
 PORTREVISION=	2

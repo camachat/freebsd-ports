@@ -1,5 +1,8 @@
 # Created by: Kai Wang <kaiw27@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fish
 DISTVERSION=	3.2.1

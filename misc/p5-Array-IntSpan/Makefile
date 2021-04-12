@@ -1,5 +1,8 @@
 # Created by: Seamus Venasse <svenasse@polaris.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Array-IntSpan
 PORTVERSION=	2.004

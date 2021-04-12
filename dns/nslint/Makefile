@@ -1,5 +1,8 @@
 # Created by: dglo@ssec.wisc.edu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nslint
 PORTVERSION=	3.1

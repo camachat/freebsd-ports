@@ -1,6 +1,10 @@
 #!/bin/sh
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+
+>>>>>>> upstream/main
 # PROVIDE: akpop3d
 # REQUIRE: DAEMON
 # BEFORE: LOGIN

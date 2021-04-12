@@ -1,5 +1,8 @@
 # Created by: <koshy@india.hp.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sgrep
 PORTVERSION=	0.99

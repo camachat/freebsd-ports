@@ -1,5 +1,8 @@
 # Created by: Eric Anholt <anholt@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libXres
 PORTVERSION=	1.2.0

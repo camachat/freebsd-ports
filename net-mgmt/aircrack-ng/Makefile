@@ -1,5 +1,8 @@
 # Created by: Lars Engels <lars.engels@0x20.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	aircrack-ng
 DISTVERSION=	1.5.2

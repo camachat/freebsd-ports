@@ -1,9 +1,12 @@
 #!/bin/sh
 
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
 
+=======
+>>>>>>> upstream/main
 # PROVIDE: bitwarden_rs
 # REQUIRE: LOGIN DAEMON NETWORKING
 # KEYWORD: rust

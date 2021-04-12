@@ -1,5 +1,8 @@
 # Created by: Maxim Sobolev <sobomax@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	icebreaker
 PORTVERSION=	1.9.8

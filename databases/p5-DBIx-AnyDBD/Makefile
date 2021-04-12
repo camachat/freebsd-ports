@@ -1,5 +1,8 @@
 # Created by: Seamus Venasse <svenasse@polaris.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	DBIx-AnyDBD
 PORTVERSION=	2.03

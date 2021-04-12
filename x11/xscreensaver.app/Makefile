@@ -1,5 +1,8 @@
 # Created by: hemi@puresimplicity.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	XScreenSaver.App
 PORTVERSION=	2.3

@@ -1,5 +1,8 @@
 # Created by: alm
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bsmtrace
 PORTVERSION=	1.4

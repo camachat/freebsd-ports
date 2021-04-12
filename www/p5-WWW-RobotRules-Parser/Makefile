@@ -1,5 +1,8 @@
 # Created by: Masahiro Teramoto <markun@onohara.to>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	WWW-RobotRules-Parser
 PORTVERSION=	0.04001

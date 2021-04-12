@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	shell-toolbox
 DISTVERSION=	20190528
 CATEGORIES=	devel

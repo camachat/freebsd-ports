@@ -1,5 +1,8 @@
 # Created by: Lowell Gilbert <lgfbsd@be-well.ilk.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	isabella-ttf
 PORTVERSION=	1.202

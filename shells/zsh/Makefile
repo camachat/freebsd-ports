@@ -1,5 +1,8 @@
 # Created by: torstenb
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	zsh
 DISTVERSION=	5.8

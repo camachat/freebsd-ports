@@ -1,5 +1,8 @@
 # Created by: Oleg R. Muhutdinov <mor@WhiteLuna.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Convert-Bencode
 PORTVERSION=	1.03

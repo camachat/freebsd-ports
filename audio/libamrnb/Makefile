@@ -1,5 +1,8 @@
 # Created by: Tatsuki Makino <tatsuki_makino@hotmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libamrnb
 PORTVERSION=	11.0.0.0

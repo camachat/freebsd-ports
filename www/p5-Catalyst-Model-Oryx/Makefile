@@ -1,5 +1,8 @@
 # Created by: Zach Thompson <hideo@lastamericanempire.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Catalyst-Model-Oryx
 PORTVERSION=	0.01

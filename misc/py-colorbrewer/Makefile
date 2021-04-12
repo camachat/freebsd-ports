@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	colorbrewer
 DISTVERSION=	0.2.0
 CATEGORIES=	misc python

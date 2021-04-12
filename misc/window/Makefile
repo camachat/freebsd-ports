@@ -1,5 +1,8 @@
 # Created by: Tom Rhodes <trhodes@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	window
 PORTVERSION=	1.0

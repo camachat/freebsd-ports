@@ -1,5 +1,8 @@
 # Created by: wenheping@gmail.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rtree
 PORTVERSION=	0.9.7

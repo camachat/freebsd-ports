@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sisl
 DISTVERSIONPREFIX=	SISL-
 DISTVERSION=	4.6.0-44

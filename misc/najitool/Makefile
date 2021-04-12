@@ -1,5 +1,8 @@
 # Created by: NECDET COKYAZICI <cokyazici@yahoo.co.uk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	najitool
 PORTVERSION=	0.8.4

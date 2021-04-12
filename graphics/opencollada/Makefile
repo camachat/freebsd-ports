@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	opencollada
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.6.68

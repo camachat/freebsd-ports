@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	actiona
 DISTVERSIONPREFIX=	v
 DISTVERSION=	3.10.1

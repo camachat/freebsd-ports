@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME?=	husky
 PORTVERSION=	1.9.20191207
 PORTEPOCH?=	0

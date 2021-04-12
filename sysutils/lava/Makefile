@@ -1,5 +1,8 @@
 # Created by: Dave Cottlehuber <dch@skunkwerks.at>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lava
 PORTVERSION=	1.0.1

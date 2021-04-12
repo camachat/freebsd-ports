@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	spglib
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.16.1

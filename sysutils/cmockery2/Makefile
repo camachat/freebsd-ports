@@ -1,5 +1,8 @@
 # Created by: Harshavardhana
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 #
 
 PORTNAME=	cmockery2

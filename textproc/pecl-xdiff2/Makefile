@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xdiff
 PORTVERSION=	2.0.1
 CATEGORIES=	textproc pear

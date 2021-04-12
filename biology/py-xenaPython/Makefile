@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xenaPython
 DISTVERSION=	1.0.14
 CATEGORIES=	biology python

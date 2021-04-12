@@ -1,5 +1,8 @@
 # Created by: Aaron Landwehr <aaron@snaphat.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	usrinfo
 PORTVERSION=	.10

@@ -1,5 +1,8 @@
 # Created by: Matthew George <mdg@secureworks.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ifstated
 PORTVERSION=	5.1

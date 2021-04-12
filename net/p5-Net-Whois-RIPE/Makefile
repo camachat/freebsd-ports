@@ -1,8 +1,14 @@
 # Created by: ijliao
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	Net-Whois-RIPE
 PORTVERSION=	2.007004
+=======
+
+PORTNAME=	Net-Whois-RIPE
+PORTVERSION=	2.008001
+>>>>>>> upstream/main
 CATEGORIES=	net perl5
 MASTER_SITES=	CPAN
 MASTER_SITE_SUBDIR=	CPAN:AASSAD

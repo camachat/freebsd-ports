@@ -1,5 +1,8 @@
 # Created by: Frederic Culot <culot@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Test-CheckDeps
 PORTVERSION=	0.010

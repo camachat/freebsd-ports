@@ -1,5 +1,8 @@
 # Created by: David Yeske <dyeske@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mrxvt
 PORTVERSION=	0.4.2

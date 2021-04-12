@@ -1,5 +1,8 @@
 # Created by: Alexander Vereeken <Alexander88207@protonmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	flat-remix
 PORTVERSION=	20210322

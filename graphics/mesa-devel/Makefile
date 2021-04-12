@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	mesa
 DISTVERSION=	21.0-branchpoint-3716
 DISTVERSIONSUFFIX=	-gba8ddc0c683
+=======
+PORTNAME=	mesa
+DISTVERSION=	21.0-branchpoint-4390
+DISTVERSIONSUFFIX=	-g51a812bb601
+>>>>>>> upstream/main
 CATEGORIES=	graphics
 PKGNAMESUFFIX=	-devel
 

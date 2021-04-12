@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	psycopg2cffi
 DISTVERSION=	2.9.0
 CATEGORIES=	databases python

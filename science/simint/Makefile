@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	simint
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.8

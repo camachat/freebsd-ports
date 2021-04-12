@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dhcpcd-ui
 PORTVERSION=	0.7.8
 CATEGORIES=	net

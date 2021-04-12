@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fnccheck
 PORTVERSION=	3.2.0
 PORTREVISION=	4

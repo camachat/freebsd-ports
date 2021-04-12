@@ -1,5 +1,8 @@
 # Created by: Jonathan Weiss (<jw@innerewut.de>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rake
 PORTVERSION=	13.0.3

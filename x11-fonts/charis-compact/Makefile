@@ -1,5 +1,8 @@
 # Created by: bf <bf@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	CharisSILCompact
 PORTVERSION=	4.114

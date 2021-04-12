@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cyrus-sasl
 PORTVERSION=	2.1.27
 CATEGORIES=	security

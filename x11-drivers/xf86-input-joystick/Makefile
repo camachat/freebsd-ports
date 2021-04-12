@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xf86-input-joystick
 PORTVERSION=	1.6.3
 PORTREVISION=	3

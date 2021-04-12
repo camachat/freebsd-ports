@@ -1,5 +1,8 @@
 # Created by: Alexey V. Degtyarev
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	check_puppet
 PORTVERSION=	1.3

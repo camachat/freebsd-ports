@@ -1,7 +1,10 @@
 #!/bin/sh
 #
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # Start or stop rblmilter
 #
 # PROVIDE: rblmilter

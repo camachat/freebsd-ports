@@ -1,5 +1,8 @@
 # Created by: Julien Laffaye <jlaffaye@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pelican
 PORTVERSION=	4.2.0

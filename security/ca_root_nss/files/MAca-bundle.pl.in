@@ -35,8 +35,11 @@ use strict;
 use Carp;
 use MIME::Base64;
 
+<<<<<<< HEAD
 my $VERSION = '$FreeBSD$';
 
+=======
+>>>>>>> upstream/main
 #   configuration
 print <<EOH;
 ##
@@ -47,7 +50,10 @@ print <<EOH;
 ##  root CA list (the file `certdata.txt').
 ##
 ##  Extracted from nss-%%VERSION_NSS%%
+<<<<<<< HEAD
 ##  with $VERSION
+=======
+>>>>>>> upstream/main
 ##
 EOH
 my $debug = 0;

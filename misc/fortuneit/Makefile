@@ -1,5 +1,8 @@
 # Created by: gmarco@giovannelli.it
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fortuneit
 PORTVERSION=	1.99

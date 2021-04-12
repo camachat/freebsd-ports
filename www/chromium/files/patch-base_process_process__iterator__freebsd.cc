@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- base/process/process_iterator_freebsd.cc.orig	2021-01-18 21:28:45 UTC
+=======
+--- base/process/process_iterator_freebsd.cc.orig	2021-03-12 23:57:15 UTC
+>>>>>>> upstream/main
 +++ base/process/process_iterator_freebsd.cc
 @@ -10,6 +10,10 @@
  #include <sys/sysctl.h>

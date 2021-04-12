@@ -1,5 +1,8 @@
 # Created by: Dryice Liu <dryice@dryice.name>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mako
 PORTVERSION=	1.0.14

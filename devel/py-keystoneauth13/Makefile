@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	keystoneauth1
 PORTVERSION=	3.18.0
 CATEGORIES=	devel python

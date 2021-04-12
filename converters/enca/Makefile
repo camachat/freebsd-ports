@@ -1,5 +1,8 @@
 # Created by: Alexandr Kovalenko <never@nevermind.kiev.ua>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	enca
 PORTVERSION=	1.19

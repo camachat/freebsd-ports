@@ -1,5 +1,8 @@
 #!/bin/sh
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 # PROVIDE: pot_early
 # REQUIRE: NETWORKING syslogd pf

@@ -1,5 +1,8 @@
 # Created by: Andrey Zakhvatov
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libxalloc
 PORTVERSION=	1.0.4

@@ -1,5 +1,8 @@
 # Created by: benlutz@datacomm.ch
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	uqm
 PORTVERSION=	0.7.0

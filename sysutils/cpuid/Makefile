@@ -1,5 +1,8 @@
 # Created by: uffe@uffe.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cpuid
 DISTVERSION=	20200127

@@ -1,5 +1,8 @@
 # Created by: giffunip
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	laspack
 PORTVERSION=	1.12.2

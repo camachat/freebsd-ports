@@ -1,5 +1,8 @@
 # Created by: obraun@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cpphs
 PORTVERSION=	1.20.9.1

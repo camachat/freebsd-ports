@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Mail-Box-IMAP4-SSL
 PORTVERSION=	0.03
 CATEGORIES=	mail perl5

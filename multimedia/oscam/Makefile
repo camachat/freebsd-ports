@@ -1,5 +1,8 @@
 # Created by: Franz Bettag <franz@bett.ag>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	oscam
 PORTVERSION=	1.20.20201119

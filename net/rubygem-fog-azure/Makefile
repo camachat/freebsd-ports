@@ -1,5 +1,8 @@
 # Created by: Torsten Zuehlsdorff <tz@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fog-azure
 PORTVERSION=	0.0.2

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mono_logger
 PORTVERSION=	1.1.0
 CATEGORIES=	devel ruby

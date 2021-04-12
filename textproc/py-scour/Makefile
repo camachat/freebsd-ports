@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	scour
 PORTVERSION=	0.38.1
 DISTVERSIONSUFFIX=	.post1

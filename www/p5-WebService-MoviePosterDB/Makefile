@@ -1,5 +1,8 @@
 # Created by: Christopher Key <cjk32@cam.ac.uk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	WebService-MoviePosterDB
 PORTVERSION=	0.18

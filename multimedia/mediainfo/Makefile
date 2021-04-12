@@ -1,5 +1,8 @@
 # Created by: freebsd-ports@evilcode.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mediainfo
 PORTVERSION=	20.09

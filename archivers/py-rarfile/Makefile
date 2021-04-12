@@ -1,5 +1,8 @@
 # Created by: Kevin Golding <ports@caomhin.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rarfile
 PORTVERSION=	4.0

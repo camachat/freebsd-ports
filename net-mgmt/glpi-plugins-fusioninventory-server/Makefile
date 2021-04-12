@@ -1,5 +1,8 @@
 # Created by: Veniamin Gvozdikov <vg@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	server
 PORTVERSION=	${GLPI_VER}.${FUNV_VER}

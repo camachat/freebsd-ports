@@ -1,5 +1,8 @@
 # Created by: John Marino <marino@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTREVISION=	1
 PKGNAMEPREFIX=	gnatcross-

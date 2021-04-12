@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xmh
 PORTVERSION=	1.0.3
 CATEGORIES=	x11 mail

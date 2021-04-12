@@ -1,5 +1,8 @@
 # Created by: Andrew St. Jean <andrew@arda.homeunix.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	courierpasswd
 PORTVERSION=	1.1.3

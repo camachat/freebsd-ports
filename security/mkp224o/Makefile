@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mkp224o
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.5.0

@@ -12,8 +12,11 @@
 # Maxim Sobolev
 # ----------------------------------------------------------------------------
 #
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # MAINTAINER= ports@FreeBSD.org
 
 display_warn () {

@@ -1,5 +1,8 @@
 # Created by: Dima Dorfman <dd@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	http_ping
 PORTVERSION=	20050629

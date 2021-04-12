@@ -1,5 +1,8 @@
 # Created by: Johann Visagie <wjv@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	phpbb
 PORTVERSION=	2.0.23

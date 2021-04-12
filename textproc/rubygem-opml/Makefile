@@ -1,5 +1,8 @@
 # Created by: TERAMOTO Masahiro <markun@onohara.to>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	opml
 PORTVERSION=	1.0.0

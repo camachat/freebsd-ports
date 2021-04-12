@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Parse-LocalDistribution
 PORTVERSION=	0.15
 CATEGORIES=	devel perl5

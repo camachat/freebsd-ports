@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	potnet
 DISTVERSION=	0.4.4
 PORTREVISION=	11

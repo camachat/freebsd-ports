@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mate-applets
 PORTVERSION=	1.24.1
 CATEGORIES=	x11 mate

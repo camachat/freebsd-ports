@@ -1,8 +1,14 @@
 # Created by: Alexey Dokuchaev <danfe@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	openttd
 DISTVERSION=	1.10.3
+=======
+
+PORTNAME=	openttd
+DISTVERSION=	1.11.0
+>>>>>>> upstream/main
 PORTREVISION=	1
 CATEGORIES=	games
 MASTER_SITES=	https://proxy.binaries.openttd.org/openttd-releases/${DISTVERSION}/
@@ -16,6 +22,7 @@ LICENSE=	GPLv2
 LIB_DEPENDS=	libpng.so:graphics/png \
 		liblzo2.so:archivers/lzo2
 
+<<<<<<< HEAD
 USES=		cpe gmake pkgconfig tar:xz
 HAS_CONFIGURE=	yes
 CONFIGURE_ENV=	STRIP="${STRIP_CMD} ${STRIP}"
@@ -143,3 +150,40 @@ post-install-DOCS-on:
 	${INSTALL_DATA} ${PORTDOCS:S,^,${WRKSRC}/docs/,} ${STAGEDIR}${DOCSDIR}
 
 .include <bsd.port.post.mk>
+=======
+USES=		cmake compiler:c++17-lang cpe pkgconfig tar:xz
+CMAKE_ARGS=	-DCMAKE_INSTALL_BINDIR:PATH=bin \
+		-DCMAKE_INSTALL_DATADIR:PATH=share
+
+WRKSRC=		${WRKDIR}/${PORTNAME}-${DISTVERSION}
+
+SUB_FILES=	pkg-message
+
+DESKTOP_ENTRIES="OpenTTD" "${COMMENT}" "${PORTNAME}" "${PORTNAME}" \
+		"Game;Simulation;StrategyGame;" false
+
+OPTIONS_DEFINE=	DOCS FLUIDSYNTH SAVE_PASSWORDS SERVER
+SERVER_PREVENTS=	FLUIDSYNTH
+
+FLUIDSYNTH_LIB_DEPENDS=	libfluidsynth.so:audio/fluidsynth
+
+SAVE_PASSWORDS_DESC=	Save passwords between server restarts
+SAVE_PASSWORDS_EXTRA_PATCHES=	${FILESDIR}/extra-patch-save-passwords
+
+SERVER_DESC=		Build dedicated server only (no GUI)
+SERVER_USES_OFF=	gnome sdl
+SERVER_USE_OFF=		SDL=sdl
+SERVER_CMAKE_ON=	-DOPTION_DEDICATED:BOOL=ON
+SERVER_LIB_DEPENDS_OFF=	libfontconfig.so:x11-fonts/fontconfig \
+			libfreetype.so:print/freetype2 \
+			libicui18n.so:devel/icu \
+			libicu-le-hb.so:devel/icu-le-hb \
+			libiculx.so:devel/icu-lx
+SERVER_VARS=		USE_RC_SUBR=${PORTNAME}
+SERVER_VARS_OFF=	INSTALLS_ICONS=yes
+
+post-install-SERVER-on:
+	@${REINPLACE_CMD} -E '/icons|pixmaps/d' ${TMPPLIST}
+
+.include <bsd.port.mk>
+>>>>>>> upstream/main

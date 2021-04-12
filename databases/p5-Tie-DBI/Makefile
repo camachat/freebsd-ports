@@ -1,5 +1,8 @@
 # Created by: clive
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Tie-DBI
 PORTVERSION=	1.08

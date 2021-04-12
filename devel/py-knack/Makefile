@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	knack
 DISTVERSION=	0.8.0rc2
 CATEGORIES=	devel python

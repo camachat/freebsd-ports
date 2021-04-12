@@ -1,5 +1,8 @@
 # Created by: clsung@dragon2.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-Nslookup
 PORTVERSION=	2.04

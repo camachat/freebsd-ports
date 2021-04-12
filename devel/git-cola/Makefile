@@ -1,9 +1,16 @@
 # Created by: Jonathan Anderson <jonathan@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		git-cola
 DISTVERSIONPREFIX=	v
 DISTVERSION=		3.9
+<<<<<<< HEAD
+=======
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=		devel
 
 MAINTAINER=		dch@FreeBSD.org

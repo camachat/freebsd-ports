@@ -1,5 +1,8 @@
 # Created by: Matthias Fechner <mfechner@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	countries
 PORTVERSION=	3.0.1

@@ -1,5 +1,8 @@
 # Created by: Masahiro Teramoto <markun@onohara.to>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	DateTime-Util-Calc
 PORTVERSION=	0.13002

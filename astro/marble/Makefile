@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	marble
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
 CATEGORIES=	astro education kde kde-applications

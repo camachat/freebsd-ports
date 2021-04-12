@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	diff-pdf
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.5

@@ -1,5 +1,8 @@
 # Created by: Lars Eggert <larse@isi.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jdb
 PORTVERSION=	1.14

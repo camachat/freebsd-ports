@@ -1,5 +1,8 @@
 # Created by: Oliver Fromme
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cssc
 PORTVERSION=	1.4.1

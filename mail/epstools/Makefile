@@ -1,5 +1,8 @@
 # Created by: ismail@enderunix.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	epstools
 PORTVERSION=	1.8

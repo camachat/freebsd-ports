@@ -1,5 +1,8 @@
 # Created by: HONDA Yasuhiro <honda@kashio.info.mie-u.ac.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	yc.el
 PORTVERSION=	5.2.1

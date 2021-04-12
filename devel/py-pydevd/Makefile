@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pydevd
 PORTVERSION=	1.1.1
 PORTREVISION=	2

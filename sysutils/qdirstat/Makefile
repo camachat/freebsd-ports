@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	qdirstat
 PORTVERSION=	1.7
+=======
+PORTNAME=	qdirstat
+PORTVERSION=	1.7.1
+>>>>>>> upstream/main
 CATEGORIES=	sysutils
 
 MAINTAINER=	kbowling@FreeBSD.org

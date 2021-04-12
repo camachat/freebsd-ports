@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Time-Moment
 PORTVERSION=	0.44
 CATEGORIES=	devel perl5

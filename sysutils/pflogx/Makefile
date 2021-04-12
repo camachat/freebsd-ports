@@ -1,5 +1,8 @@
 # Created by: clsung
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pflogx
 PORTVERSION=	0.86

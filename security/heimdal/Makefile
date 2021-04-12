@@ -1,5 +1,8 @@
 # Created by: nectar@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	heimdal
 PORTVERSION=	7.7.0

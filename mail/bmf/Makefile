@@ -1,5 +1,8 @@
 # Created by: Sean Chittenden <seanc@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bmf
 PORTVERSION=	0.9.4

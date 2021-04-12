@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	lxi-tools
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.21

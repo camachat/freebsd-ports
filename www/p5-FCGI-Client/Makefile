@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	FCGI-Client
 PORTVERSION=	0.08
 PORTREVISION=	1

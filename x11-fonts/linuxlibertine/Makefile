@@ -1,5 +1,8 @@
 # Created by: Björn König <bkoenig@alpha-tierchen.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	linuxlibertine
 PORTVERSION=	4.7.5

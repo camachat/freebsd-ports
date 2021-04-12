@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # MAINTAINER: portmgr@FreeBSD.org
 
 actions: [file]

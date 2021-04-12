@@ -1,5 +1,8 @@
 # Created by: Hung-Yi Chen <gaod@hychen.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	solr
 PORTVERSION=	2.5.1

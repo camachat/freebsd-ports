@@ -1,10 +1,17 @@
 # Created by: Marc G. Fournier <scrappy@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 DISTVERSION?=	9.6.21
 # PORTREVISION must be ?= otherwise, all slave ports get this PORTREVISION and
 # not their own.  Probably best to keep it at ?=0 when reset here too.
+<<<<<<< HEAD
 PORTREVISION?=	0
+=======
+PORTREVISION?=	1
+>>>>>>> upstream/main
 PKGNAMESUFFIX?=	${PORTVERSION:R:S/.//}${COMPONENT}
 
 MAINTAINER?=	pgsql@FreeBSD.org

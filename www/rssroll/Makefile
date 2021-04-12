@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rssroll
 PORTVERSION=	0.6.2
 CATEGORIES=	www

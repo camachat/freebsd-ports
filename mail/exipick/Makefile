@@ -1,5 +1,8 @@
 # Created by: Vsevolod Stakhov <vsevolod@highsecure.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	exipick
 PORTVERSION=	20100323.0

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	us
 PORTVERSION=	2.0.2
 CATEGORIES=	devel

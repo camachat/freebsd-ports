@@ -1,9 +1,16 @@
 # Created by: Piotr Kubaj <pkubaj@anongoth.pl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	openrct2
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.3.3
+<<<<<<< HEAD
+=======
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	games
 
 MAINTAINER=	pkubaj@FreeBSD.org

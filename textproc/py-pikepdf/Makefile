@@ -1,12 +1,21 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	pikepdf
 DISTVERSION=	2.9.1
+=======
+PORTNAME=	pikepdf
+DISTVERSION=	2.10.0
+>>>>>>> upstream/main
 CATEGORIES=	textproc python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
+<<<<<<< HEAD
 MAINTAINER=	kai@FreeBSD.org
+=======
+MAINTAINER=	wen@FreeBSD.org
+>>>>>>> upstream/main
 COMMENT=	Read and write PDFs with Python, powered by qpdf
 
 LICENSE=	MPL20

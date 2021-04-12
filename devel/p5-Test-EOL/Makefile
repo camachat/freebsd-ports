@@ -1,5 +1,8 @@
 # Created by: milki@rescomp.berkeley.edu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Test-EOL
 PORTVERSION=	1.5

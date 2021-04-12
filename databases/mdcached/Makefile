@@ -1,5 +1,8 @@
 # Created by: Ivan Voras <ivoras@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mdcached
 PORTVERSION=	1.0.9

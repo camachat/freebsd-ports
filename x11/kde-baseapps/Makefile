@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kde-baseapps
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
 PORTREVISION=	1

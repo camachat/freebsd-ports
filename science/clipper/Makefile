@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	clipper
 DISTVERSION=	2.1.20180802
 PORTREVISION=	3

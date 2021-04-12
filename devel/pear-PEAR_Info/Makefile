@@ -1,5 +1,8 @@
 # Created by: chinsan <chinsan.tw@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	PEAR_Info
 PORTVERSION=	1.9.2

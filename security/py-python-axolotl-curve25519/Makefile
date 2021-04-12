@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		python-axolotl-curve25519
 PORTVERSION=		0.4.1
 DISTVERSIONSUFFIX=	.post2

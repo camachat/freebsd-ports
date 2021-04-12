@@ -1,5 +1,8 @@
 # Created by: Gabor Kovesdan
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Crypt-License
 PORTVERSION=	2.04

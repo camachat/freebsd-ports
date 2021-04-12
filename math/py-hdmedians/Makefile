@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	hdmedians
 PORTVERSION=	0.14.2
 CATEGORIES=	math python

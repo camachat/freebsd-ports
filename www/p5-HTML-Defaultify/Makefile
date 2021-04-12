@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	HTML-Defaultify
 PORTVERSION=	1.01
 PORTREVISION=	1

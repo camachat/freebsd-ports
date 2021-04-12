@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	postgrest
 PORTVERSION=	7.0.1
 PORTREVISION=	2

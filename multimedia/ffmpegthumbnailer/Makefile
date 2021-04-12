@@ -1,5 +1,8 @@
 # Created by: Dierk Sacher <dierk@blaxxtarz.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ffmpegthumbnailer
 PORTVERSION=	2.2.2

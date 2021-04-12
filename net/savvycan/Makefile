@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	savvycan
 PORTVERSION=	1.0.173
 PORTEPOCH=	1

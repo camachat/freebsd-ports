@@ -1,5 +1,8 @@
 # Created by: Michael Nottebrock <michaelnottebrock@gmx.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ices
 PORTVERSION=	2.0.3

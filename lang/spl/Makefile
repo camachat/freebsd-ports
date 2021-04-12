@@ -1,5 +1,8 @@
 # Created by: Hye-Shik Chang <perky@fallin.lv>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	spl
 PORTVERSION=	1.2.1

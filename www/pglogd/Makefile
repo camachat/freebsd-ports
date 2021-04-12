@@ -1,5 +1,8 @@
 # Created by: Allie Micka <allie@pajunas.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pglogd
 PORTVERSION=	2.3

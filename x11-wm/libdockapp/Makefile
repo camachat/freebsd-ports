@@ -1,5 +1,8 @@
 # Created by: Jim Mock <jim@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libdockapp
 PORTVERSION=	0.7.2

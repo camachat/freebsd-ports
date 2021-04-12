@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	argparse
 PORTVERSION=	0.7.1
 CATEGORIES=	devel

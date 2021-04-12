@@ -1,5 +1,8 @@
 # Created by: Boris Samorodov <bsam@FreeBSDD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	blackbox_exporter
 PORTVERSION=	0.17.0

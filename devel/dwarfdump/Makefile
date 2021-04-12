@@ -1,5 +1,8 @@
 # Created by: joerg@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dwarfdump
 PORTVERSION=	20161124

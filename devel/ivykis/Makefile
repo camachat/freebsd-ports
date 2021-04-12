@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ivykis
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.42.4

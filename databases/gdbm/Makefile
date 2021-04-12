@@ -1,5 +1,8 @@
 # Created by: Brent J. Nordquist <bjn@visi.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gdbm
 PORTVERSION=	1.19

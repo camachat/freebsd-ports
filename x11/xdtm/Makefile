@@ -1,5 +1,8 @@
 # Created by: gpalmer
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xdtm
 PORTVERSION=	2.5.8

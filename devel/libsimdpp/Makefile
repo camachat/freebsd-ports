@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libsimdpp
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.1-400

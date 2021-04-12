@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libsolv
 DISTVERSION=	0.7.17
 CATEGORIES=	misc

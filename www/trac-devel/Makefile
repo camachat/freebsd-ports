@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	trac
 DISTVERSION=	1.5.2
 PORTREVISION=	1

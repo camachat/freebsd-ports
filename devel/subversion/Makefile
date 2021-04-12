@@ -1,5 +1,8 @@
 # Created by: rooneg@electricjellyfish.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTREVISION=	0
 

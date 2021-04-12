@@ -1,5 +1,8 @@
 # Created by: Marzhan Mykola <delgod@portaone.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libalarm
 PORTVERSION=	1.0

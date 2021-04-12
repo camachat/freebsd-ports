@@ -1,5 +1,8 @@
 # Created by: Thomas Gellekum <tg@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	opendx
 PORTVERSION=	4.4.4

@@ -1,5 +1,8 @@
 # Created by: michael johnson <ahze@ahze.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	supertux
 PORTVERSION=	0.1.3

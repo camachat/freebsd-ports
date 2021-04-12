@@ -1,5 +1,8 @@
 # Created by: Chia-liang Kao <clkao@CirX.ORG>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dagrab
 PORTVERSION=	0.3.5

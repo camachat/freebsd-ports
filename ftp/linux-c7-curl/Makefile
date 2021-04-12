@@ -1,5 +1,8 @@
 # Created by: Piotr Kubaj <pkubaj@anongoth.pl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	curl
 PORTVERSION=	7.29.0

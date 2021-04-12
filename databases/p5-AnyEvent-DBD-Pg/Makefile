@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	AnyEvent-DBD-Pg
 PORTVERSION=	0.03
 PORTREVISION=	3

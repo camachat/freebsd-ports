@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	or-tools
 DISTVERSIONPREFIX=	v
 DISTVERSION=	8.2
@@ -35,6 +38,16 @@ SCIP_DESC=		Use the SCIP solver # SCIP package isn't built because of licensing 
 SCIP_CMAKE_BOOL=	USE_SCIP
 SCIP_LIB_DEPENDS=	libscip.so:math/SCIP
 
+<<<<<<< HEAD
+=======
+post-patch:
+	@${REINPLACE_CMD} -e '/absl::container/s,^,#,' \
+		${WRKSRC}/ortools/constraint_solver/CMakeLists.txt \
+		${WRKSRC}/ortools/glop/CMakeLists.txt \
+		${WRKSRC}/ortools/linear_solver/CMakeLists.txt \
+		${WRKSRC}/ortools/sat/CMakeLists.txt
+
+>>>>>>> upstream/main
 post-install:
 	@${FIND} ${STAGEDIR}${PREFIX} -type d -empty -delete
 

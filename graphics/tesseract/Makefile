@@ -1,9 +1,16 @@
 # Created by: Andrew Pantyukhin <infofarmer@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	tesseract
 PORTVERSION=	4.1.1
 PORTREVISION=	3
+=======
+
+PORTNAME=	tesseract
+PORTVERSION=	4.1.1
+PORTREVISION=	4
+>>>>>>> upstream/main
 CATEGORIES=	graphics
 
 MAINTAINER=	pkubaj@FreeBSD.org

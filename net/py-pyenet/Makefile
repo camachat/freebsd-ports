@@ -1,5 +1,8 @@
 # Created by: Ilia Skalozubov <freebsd@skinc.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pyenet
 DISTVERSION=	1.3.13.post7

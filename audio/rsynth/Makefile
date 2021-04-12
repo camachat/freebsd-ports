@@ -1,5 +1,8 @@
 # Created by: faulkner@mpd.tandem.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rsynth
 PORTVERSION=	2.0

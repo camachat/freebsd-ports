@@ -1,5 +1,8 @@
 # Created by: Alexander Best <arundel@gmx.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vba
 PORTVERSION=	1.7.2

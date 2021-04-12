@@ -1,5 +1,8 @@
 # Created by: Fernan Aguero <fernan@iib.unsam.edu.ar>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	DBIx-Class-ResultSet-HashRef
 PORTVERSION=	1.002

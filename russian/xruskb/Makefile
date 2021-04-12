@@ -1,5 +1,8 @@
 # Created by: Igor Vinokurov <igor@zynaps.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xruskb
 PORTVERSION=	1.15.4

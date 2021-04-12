@@ -1,5 +1,8 @@
 # Created by: Zach Thompson <hideo@lastamericanempire.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Catalyst-View-GraphViz
 PORTVERSION=	0.05

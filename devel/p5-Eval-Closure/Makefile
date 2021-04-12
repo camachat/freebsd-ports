@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Eval-Closure
 PORTVERSION=	0.14
 CATEGORIES=	devel perl5

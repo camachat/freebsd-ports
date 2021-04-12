@@ -1,5 +1,8 @@
 # Created by: Chris Hutchinson <portmaster@BSDforge.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xvt
 PORTVERSION=	3.0.1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	reaver
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.6.6

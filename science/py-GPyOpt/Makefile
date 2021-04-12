@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	GPyOpt
 DISTVERSION=	1.2.6
 CATEGORIES=	science python

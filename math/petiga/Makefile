@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	petiga
 DISTVERSION=	g20210307
 CATEGORIES=	math python

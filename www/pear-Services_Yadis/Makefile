@@ -1,5 +1,8 @@
 # Created by: Ditesh Shashikant Gathani <ditesh@gathani.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Services_Yadis
 PORTVERSION=	0.5.3

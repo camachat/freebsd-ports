@@ -1,5 +1,8 @@
 # Created by: Murray Stokely <murray@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	eterm
 PORTVERSION=	0.9.6

@@ -1,5 +1,8 @@
 # Created by: Eric Freeman <freebsdports@chillibear.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sax-machine
 PORTVERSION=	1.3.2

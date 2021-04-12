@@ -1,5 +1,8 @@
 # Created by: gordon@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	logfury
 PORTVERSION=	0.1.2

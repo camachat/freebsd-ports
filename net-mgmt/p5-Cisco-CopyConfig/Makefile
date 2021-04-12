@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Cisco-CopyConfig
 PORTVERSION=	1.4
 CATEGORIES=	net-mgmt perl5

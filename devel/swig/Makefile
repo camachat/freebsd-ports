@@ -1,5 +1,8 @@
 # Created by: jkh
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	swig
 PORTVERSION=	4.0.2

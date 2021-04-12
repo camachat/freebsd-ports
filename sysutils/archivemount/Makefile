@@ -1,5 +1,8 @@
 # Created by: Evgeny Zhirnov <jirnov@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	archivemount
 DISTVERSION=	0.8.12

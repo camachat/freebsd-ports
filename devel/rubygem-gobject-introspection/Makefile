@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gobject-introspection
 PORTVERSION=	3.4.3
 CATEGORIES=	devel rubygems

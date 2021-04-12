@@ -1,5 +1,8 @@
 # Created by: Sun Chang-Ming
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	loki
 PORTVERSION=	0.1.7

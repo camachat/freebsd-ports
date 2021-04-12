@@ -1,5 +1,8 @@
 # Created by: Anton Berezin <tobez@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Set-IntSpan-Fast
 PORTVERSION=	1.15

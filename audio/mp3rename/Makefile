@@ -1,5 +1,8 @@
 # Created by: Sander Janssen <janssen@rendo.dekooi.nl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mp3rename
 PORTVERSION=	0.6

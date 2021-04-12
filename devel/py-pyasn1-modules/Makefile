@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pyasn1-modules
 DISTVERSION=	0.2.8
 CATEGORIES=	devel python

@@ -1,5 +1,8 @@
 # Created by: Kostya Lukin <lukin@okbmei.msk.su>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	adns
 PORTVERSION=	1.6.0

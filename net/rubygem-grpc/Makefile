@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	grpc
 PORTVERSION=	1.36.0
 CATEGORIES=	net rubygems

@@ -1,5 +1,8 @@
 # Created by: Romain Tartiere <romain@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gio-sharp
 PORTVERSION=	2.22.3

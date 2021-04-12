@@ -1,5 +1,8 @@
 # Created by: Satoshi TAOKA <taoka@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nexfontsel
 PORTVERSION=	3.0.1

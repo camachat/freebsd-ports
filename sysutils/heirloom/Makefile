@@ -1,5 +1,8 @@
 # Created by: Cyrille Lefevre <Cyrille.Lefevre@laposte.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	heirloom
 PORTVERSION=	070715

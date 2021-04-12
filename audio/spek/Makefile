@@ -1,5 +1,8 @@
 # Created by: Alexander Kojevnikov <alexander@kojevnikov.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	spek
 PORTVERSION=	0.8.2

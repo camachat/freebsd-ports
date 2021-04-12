@@ -1,5 +1,8 @@
 # Created by: fenner
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xplot
 PORTVERSION=	0.90.7.1

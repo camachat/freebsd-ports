@@ -1,5 +1,8 @@
 # Created by: Ganael Laplanche <ganael.laplanche@martymac.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rtl-sdr
 PORTVERSION=	0.6.0

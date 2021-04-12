@@ -1,5 +1,8 @@
 # Created by: Alexander Yerenkow <yerenkow@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wildfly90
 PORTVERSION=	9.0.2

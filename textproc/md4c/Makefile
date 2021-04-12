@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	md4c
 DISTVERSIONPREFIX=	release-
 DISTVERSION=	0.4.7

@@ -1,7 +1,10 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 
 # PROVIDE: icinga2
 # REQUIRE: LOGIN

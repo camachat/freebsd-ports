@@ -1,5 +1,8 @@
 # Created by: Ryan Steinmetz <zi@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	elasticsearch
 PORTVERSION=	7.11.0

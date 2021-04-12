@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pyjwt
 PORTVERSION=	1.7.1
 CATEGORIES=	www python

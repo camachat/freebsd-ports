@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	dlib
 DISTVERSION=	19.21
 PORTREVISION=	1
+=======
+PORTNAME=	dlib
+DISTVERSION=	19.22
+>>>>>>> upstream/main
 CATEGORIES=	science devel math
 MASTER_SITES=	http://dlib.net/files/
 PKGNAMESUFFIX=	-cpp
@@ -41,9 +46,13 @@ GIF_CMAKE_BOOL=		DLIB_GIF_SUPPORT
 SQLITE_USES=		sqlite
 SQLITE_CMAKE_BOOL=	DLIB_LINK_WITH_SQLITE3
 
+<<<<<<< HEAD
 # uses gcc until https://reviews.freebsd.org/D11482 lands
 BLASLAPACK_USE=		gcc=yes
 BLASLAPACK_USES=	blaslapack:openblas fortran
+=======
+BLASLAPACK_USES=	blaslapack:openblas
+>>>>>>> upstream/main
 BLASLAPACK_CMAKE_OFF=	-DDLIB_USE_BLAS=0 -DDLIB_USE_LAPACK=0 -DDLIB_USE_MKL_FFT=0
 
 # for PYTHON_PKGNAMEPREFIX

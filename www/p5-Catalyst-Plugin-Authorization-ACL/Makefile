@@ -1,5 +1,8 @@
 # Created by: Lars Balker Rasmussen <lbr@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Catalyst-Plugin-Authorization-ACL
 PORTVERSION=	0.16

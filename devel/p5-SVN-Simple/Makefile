@@ -1,5 +1,8 @@
 # Created by: Autrijus Tang <autrijus@autrijus.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	SVN-Simple
 PORTVERSION=	0.28

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rex-struct2
 PORTVERSION=	0.1.3
 CATEGORIES=	security rubygems

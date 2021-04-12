@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Linux-Cpuinfo
 PORTVERSION=	1.12
 CATEGORIES=	sysutils perl5

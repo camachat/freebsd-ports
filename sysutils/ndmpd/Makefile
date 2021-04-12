@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ndmpd
 PORTVERSION=	1.2
 PORTREVISION=	1

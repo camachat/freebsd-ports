@@ -1,5 +1,8 @@
 # Created by: Landon Fuller <landonf@opendarwin.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	zconfig
 PORTVERSION=	3.0.4

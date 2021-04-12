@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Devel-StrictMode
 PORTVERSION=	0.003
 CATEGORIES=	devel perl5

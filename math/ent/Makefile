@@ -1,5 +1,8 @@
 # Created by: Horia Racoviceanu <horia@racoviceanu.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ent
 PORTVERSION=	0.20080128

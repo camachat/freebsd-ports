@@ -1,5 +1,8 @@
 # Created by: Zhen REN <bg1tpt@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Services_Digg
 PORTVERSION=	0.4.7

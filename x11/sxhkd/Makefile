@@ -1,5 +1,8 @@
 # Created by: Anton Tornqvist <antont@inbox.lv>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sxhkd
 PORTVERSION=	0.6.2

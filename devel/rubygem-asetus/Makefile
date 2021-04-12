@@ -1,5 +1,8 @@
 # Created by: Nick Hilliard <nick@foobar.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	asetus
 PORTVERSION=	0.3.0

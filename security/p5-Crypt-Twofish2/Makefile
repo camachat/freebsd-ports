@@ -1,5 +1,8 @@
 # Created by: nork@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Crypt-Twofish2
 PORTVERSION=	1.02

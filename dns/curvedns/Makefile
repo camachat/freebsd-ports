@@ -1,5 +1,8 @@
 # Created by: Leo Vandewoestijne <freebsd@dns-lab.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	curvedns
 PORTVERSION=	0.88.b

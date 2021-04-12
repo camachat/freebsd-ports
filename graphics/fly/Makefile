@@ -1,5 +1,8 @@
 # Created by: Juergen Unger <j.unger@choin.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fly
 PORTVERSION=	2.0.1

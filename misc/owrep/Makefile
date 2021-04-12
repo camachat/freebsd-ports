@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	owrep
 DISTVERSION=	1.2
 CATEGORIES=	misc

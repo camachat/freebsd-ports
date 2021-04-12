@@ -1,5 +1,8 @@
 # Created by: Oliver Eikemeier
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tenshi
 PORTVERSION=	0.17

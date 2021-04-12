@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rmagick
 PORTVERSION=	2.16.0
 PORTREVISION=	6

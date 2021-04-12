@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bsdisks
 DISTVERSION=	0.25
 CATEGORIES=	sysutils

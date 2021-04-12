@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	POEx-Role-PSGIServer
 PORTVERSION=	1.110670
 PORTREVISION=	1

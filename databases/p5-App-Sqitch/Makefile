@@ -1,5 +1,8 @@
 # Created by: Henrik Hodne <henrik@hodne.io>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	App-Sqitch
 PORTVERSION=	0.9994

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	govendor
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.0.9-6

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cloudflare
 PORTVERSION=	2.8.15
 CATEGORIES=	dns python

@@ -1,5 +1,8 @@
 # Created by: J.R. Oldroyd <fbsd@opal.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	webtrees
 PORTVERSION=	1.7.18

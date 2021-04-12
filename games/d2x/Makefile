@@ -1,5 +1,8 @@
 # Created by: Radim Kolar
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	d2x
 PORTVERSION=	0.2.5

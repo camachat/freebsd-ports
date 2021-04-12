@@ -1,5 +1,8 @@
 # Created by: Choe, Cheng-Dae
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	formencode
 PORTVERSION=	1.3.0

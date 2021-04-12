@@ -1,5 +1,8 @@
 # Created by: Jeff Brown <jabrown@caida.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	clisp
 PORTVERSION=	2.49.93+

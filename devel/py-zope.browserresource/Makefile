@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	zope.browserresource
 PORTVERSION=	3.10.3
 PORTREVISION=	1

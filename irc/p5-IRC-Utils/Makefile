@@ -1,5 +1,8 @@
 # Created by: TERAMOTO Masahiro <markun@onohara.to>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	IRC-Utils
 PORTVERSION=	0.12

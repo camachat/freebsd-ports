@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	retroarch-assets
 DISTVERSION=	g20200317
 CATEGORIES=	games

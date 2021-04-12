@@ -1,5 +1,8 @@
 # Created by: Jun-ichiro itojun Itoh <itojun@itojun.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	newsfetch
 PORTVERSION=	1.21

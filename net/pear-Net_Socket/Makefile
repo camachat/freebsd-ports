@@ -1,5 +1,8 @@
 # Created by: Thierry Thomas (<thierry@pompo.net>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net_Socket
 PORTVERSION=	1.0.14

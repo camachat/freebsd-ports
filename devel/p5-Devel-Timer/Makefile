@@ -1,5 +1,8 @@
 # Created by: Cory R. King <coryking@mozimediacom>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Devel-Timer
 PORTVERSION=	0.04

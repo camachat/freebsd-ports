@@ -1,5 +1,8 @@
 # Created by: Thierry Thomas <thierry@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	${DICT}-aspell
 SPELLVERSION=	5-gd-0.1.1-1

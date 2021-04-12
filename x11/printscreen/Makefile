@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	printscreen
 PORTVERSION=	1.4
 PORTREVISION=	1

@@ -1,5 +1,8 @@
 # Created by: Alexander Kriventsov
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	net2ftp
 PORTVERSION=	1.3

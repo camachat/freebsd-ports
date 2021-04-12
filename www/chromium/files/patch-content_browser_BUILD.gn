@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 --- content/browser/BUILD.gn.orig	2021-01-18 21:28:57 UTC
 +++ content/browser/BUILD.gn
 @@ -2132,6 +2132,15 @@ source_set("browser") {
+=======
+--- content/browser/BUILD.gn.orig	2021-03-12 23:57:24 UTC
++++ content/browser/BUILD.gn
+@@ -2153,6 +2153,15 @@ source_set("browser") {
+>>>>>>> upstream/main
      deps += [ "//third_party/speech-dispatcher" ]
    }
  
@@ -14,5 +20,9 @@
 +  }
 +
    # ChromeOS also defines linux but their memory-monitors conflict.
+<<<<<<< HEAD
    if (is_chromeos) {
+=======
+   if (is_chromeos_ash) {
+>>>>>>> upstream/main
      sources += [

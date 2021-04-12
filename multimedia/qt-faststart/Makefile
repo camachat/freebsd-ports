@@ -1,5 +1,8 @@
 # Created by: J.R. Oldroyd <fbsd@opal.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	qt-faststart
 PORTVERSION=	0.2

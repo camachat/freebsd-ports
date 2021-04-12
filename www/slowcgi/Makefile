@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	slowcgi
 PORTVERSION=	6.3.20180905
 PORTREVISION=	1

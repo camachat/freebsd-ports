@@ -1,5 +1,8 @@
 # Created by: Morten Slot Kristensen
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dzen
 PORTVERSION=	0.9.5

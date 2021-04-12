@@ -1,5 +1,8 @@
 # Created by: Rui Lopes (<rgl ruilopes com>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	daemons
 PORTVERSION=	1.3.1

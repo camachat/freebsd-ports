@@ -1,5 +1,8 @@
 # Created by: minoura@netbsd.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xcruiser
 PORTVERSION=	0.30

@@ -1,5 +1,8 @@
 # Created by: Michael Johnson <ahze@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ldouble
 PORTVERSION=	0.1

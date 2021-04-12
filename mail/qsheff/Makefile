@@ -1,5 +1,8 @@
 # Created by: Ozkan KIRIK <ozkan@enderunix.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	qsheff-II
 DISTVERSION=	2.1-r3

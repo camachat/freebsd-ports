@@ -1,5 +1,8 @@
 # Created by: Devin Teske <dteske@vicor.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tzdialog
 PORTVERSION=	1.2

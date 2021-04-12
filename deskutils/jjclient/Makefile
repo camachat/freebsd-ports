@@ -1,5 +1,8 @@
 # Created by: Lucas Holt <luke@justjournal.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jjclient
 PORTVERSION=	1.0.2

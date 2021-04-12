@@ -1,5 +1,8 @@
 # Created by: Thomas Sandford <freebsduser@paradisegreen.co.uk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	reed-solomon
 PORTVERSION=	4.0

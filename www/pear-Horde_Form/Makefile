@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Horde_Form
 PORTVERSION=	2.0.20
 CATEGORIES=	www pear

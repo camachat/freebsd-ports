@@ -1,5 +1,8 @@
 # Created by: Denise H. G. <darcsis@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wavegain
 PORTVERSION=	1.2.8

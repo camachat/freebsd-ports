@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	castxml
 PORTVERSION=	g20181115
 PORTREVISION=	3

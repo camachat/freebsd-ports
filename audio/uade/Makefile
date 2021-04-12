@@ -1,5 +1,8 @@
 # Created by: Martin Blapp <mbr@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	uade
 PORTVERSION=	2.13

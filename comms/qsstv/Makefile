@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	qsstv
 PORTVERSION=	9.3.3
 PORTREVISION=	3

@@ -1,5 +1,8 @@
 # Created by: Mitchell Smith <mjs@bur.st>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	grails
 DISTVERSION=	1.3.6

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rntrack
 PORTVERSION=	2.1.10
 PORTREVISION=	1

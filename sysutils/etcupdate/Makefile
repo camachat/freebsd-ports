@@ -1,5 +1,8 @@
 # Created by: jhb
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	etcupdate
 PORTVERSION=	1.1

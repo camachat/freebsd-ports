@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bredbandskollen
 PORTVERSION=	0.20190705
 PORTREVISION=	1

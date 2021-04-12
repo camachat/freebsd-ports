@@ -1,5 +1,8 @@
 # Created by: antoine@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ordered-set
 PORTVERSION=	3.1.1

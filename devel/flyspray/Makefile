@@ -1,5 +1,8 @@
 # Created by: Nick Hilliard <nick@foobar.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	flyspray
 PORTVERSION=	0.9.9.7

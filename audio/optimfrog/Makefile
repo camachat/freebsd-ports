@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	optimfrog
 PORTVERSION=	5.100
 CATEGORIES=	audio

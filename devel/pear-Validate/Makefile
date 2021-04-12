@@ -1,5 +1,8 @@
 # Created by: Antonio Carlos Venancio Junior (<antonio@php.net>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Validate
 PORTVERSION=	0.8.5

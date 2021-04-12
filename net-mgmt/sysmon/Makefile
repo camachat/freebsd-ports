@@ -1,5 +1,8 @@
 # Created by: Manuel Kreutz <mk@nomtec.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sysmon
 PORTVERSION=	0.93

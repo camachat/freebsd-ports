@@ -1,8 +1,14 @@
 # Created by: Kenneth Vestergaard Schmidt <kvs@pil.dk>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	emacs
 DISTVERSION=	28.0.50.20210315
+=======
+
+PORTNAME=	emacs
+DISTVERSION=	28.0.50.20210405
+>>>>>>> upstream/main
 PORTEPOCH=	2
 CATEGORIES=	editors
 PKGNAMESUFFIX=	-devel
@@ -26,7 +32,11 @@ USES=		autoreconf:build cpe gmake localbase:ldflags ncurses pkgconfig
 CPE_VENDOR=	gnu
 USE_GITHUB=	yes
 GH_ACCOUNT=	emacs-mirror
+<<<<<<< HEAD
 GH_TAGNAME=	068fdb2c
+=======
+GH_TAGNAME=	81940e9
+>>>>>>> upstream/main
 
 .if ${FLAVOR:U} != nox
 USES+=		desktop-file-utils gnome xorg

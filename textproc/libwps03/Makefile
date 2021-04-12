@@ -1,5 +1,8 @@
 # Created by: Michael Johnson <ahze@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libwps
 PORTVERSION=	0.3.1

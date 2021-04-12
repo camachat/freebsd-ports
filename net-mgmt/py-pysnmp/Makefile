@@ -1,5 +1,8 @@
 # Created by: Martin Jackson <mhjacks@swbell.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pysnmp
 PORTVERSION=	4.4.9

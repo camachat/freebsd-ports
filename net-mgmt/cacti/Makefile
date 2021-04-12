@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cacti
 PORTVERSION=	1.2.16
 CATEGORIES=	net-mgmt www

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	crosextrafonts
 PORTVERSION=	20130214
 PORTREVISION=	4

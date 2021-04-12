@@ -1,5 +1,8 @@
 # Created by: Piotr Kubaj <pkubaj@anongoth.pl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libogg
 PORTVERSION=	1.3.0

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	lg
 PORTVERSION=	1.9.s20140622
 PORTREVISION=	1

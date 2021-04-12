@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xtoolchain
 PORTVERSION=	0.4
 PORTREVISION=	1

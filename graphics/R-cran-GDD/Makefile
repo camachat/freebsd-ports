@@ -1,5 +1,8 @@
 # Created by: Steven Kreuzer <skreuzer@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	GDD
 DISTVERSION=	0.1-13.1

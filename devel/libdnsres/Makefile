@@ -1,5 +1,8 @@
 # Created by: Phil Oleson <oz@nixil.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libdnsres
 PORTVERSION=	0.1a

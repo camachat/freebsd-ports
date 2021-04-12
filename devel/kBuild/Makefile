@@ -1,5 +1,8 @@
 # Created by: Bruce Simpson
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	kBuild
 DISTVERSION=	${KBUILD_VERSION}

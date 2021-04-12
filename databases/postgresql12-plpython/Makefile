@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	postgresql
 CATEGORIES=	databases python
 # Keep the ?=, it is used as master by the other plpython ports.

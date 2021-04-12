@@ -1,5 +1,8 @@
 # Created by: Steven Kreuzer <skreuzer@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lzfse
 PORTVERSION=	20160707

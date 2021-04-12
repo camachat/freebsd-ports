@@ -1,5 +1,8 @@
 # Created by: Fernan Aguero <fernan@iib.unsam.edu.ar>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Catalyst-Plugin-Scheduler
 PORTVERSION=	0.10

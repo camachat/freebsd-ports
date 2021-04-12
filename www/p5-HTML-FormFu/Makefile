@@ -1,5 +1,8 @@
 # Created by: Andrej Zverev <andrey.zverev@electro-com.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HTML-FormFu
 PORTVERSION=	2.07

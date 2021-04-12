@@ -1,5 +1,8 @@
 # Created by: jack
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	asmem
 PORTVERSION=	1.12

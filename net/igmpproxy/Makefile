@@ -1,5 +1,8 @@
 # Created by: asami
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	igmpproxy
 DISTVERSION=	0.3

@@ -1,5 +1,8 @@
 # Created by: Warner Losh <imp@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Acme-Damn
 PORTVERSION=	0.06

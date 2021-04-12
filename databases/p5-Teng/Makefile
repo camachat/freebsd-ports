@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Teng
 PORTVERSION=	0.28
 CATEGORIES=	databases perl5

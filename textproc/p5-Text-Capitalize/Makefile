@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # Created by: Dmitry Marakasov <amdmi3@amdmi3.ru>
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Text-Capitalize
 PORTVERSION=	1.5
 CATEGORIES=	textproc perl5

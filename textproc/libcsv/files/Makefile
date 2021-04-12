@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 LIB = 	csv
 SRCS=	libcsv.c
 INCS=	csv.h

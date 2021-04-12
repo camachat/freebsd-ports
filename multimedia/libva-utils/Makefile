@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	libva-utils
 PORTVERSION=	2.11.0
+=======
+PORTNAME=	libva-utils
+PORTVERSION=	2.11.1
+>>>>>>> upstream/main
 CATEGORIES=	multimedia
 
 MAINTAINER=	jbeich@FreeBSD.org

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libunrar6
 PORTVERSION=	6.0.4
 CATEGORIES=	archivers

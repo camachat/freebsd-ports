@@ -1,5 +1,8 @@
 # Created by: Emmanuel Vadot <manu@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	opensmtpd-filter-rspamd
 PORTVERSION=	0.1.7

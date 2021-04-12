@@ -1,5 +1,8 @@
 # Created by: Nicolas de Bari Embriz <nbari@dalmp.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dalmp
 PORTVERSION=	3.1.0

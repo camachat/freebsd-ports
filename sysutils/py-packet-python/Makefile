@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	packet-python
 DISTVERSION=	1.37.1
 CATEGORIES=	sysutils python

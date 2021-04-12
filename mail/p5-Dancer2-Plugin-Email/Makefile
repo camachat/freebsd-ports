@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Dancer2-Plugin-Email
 PORTVERSION=	0.0202
 CATEGORIES=	mail perl5

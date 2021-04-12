@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	openroad
 DISTVERSION=	2021_03_09
 DISTVERSIONSUFFIX=	_stable

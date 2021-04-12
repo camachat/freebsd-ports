@@ -1,5 +1,8 @@
 # Created by: Fernan Aguero  <fernan@iib.unsam.edu.ar>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Catalyst-Controller-BindLex
 PORTVERSION=	0.03

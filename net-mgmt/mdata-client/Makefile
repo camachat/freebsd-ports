@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mdata-client
 PORTVERSION=	20151001
 CATEGORIES=	net-mgmt

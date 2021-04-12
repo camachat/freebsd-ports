@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sameboy
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.14.2

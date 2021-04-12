@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # Created by: Dmitry Marakasov <amdmi3@FreeBSD.org>
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tanks-of-freedom
 PORTVERSION=	0.7.0
 DISTVERSIONSUFFIX=-beta
@@ -14,9 +17,12 @@ LICENSE_FILE=	${WRKSRC}/LICENSE.md
 
 RUN_DEPENDS=	godot2:devel/godot2
 
+<<<<<<< HEAD
 DEPRECATED=	Uses EOL Python 2.7 via devel/godot2
 EXPIRATION_DATE=2021-06-23
 
+=======
+>>>>>>> upstream/main
 USE_GITHUB=	yes
 GH_ACCOUNT=	w84death
 GH_PROJECT=	Tanks-of-Freedom

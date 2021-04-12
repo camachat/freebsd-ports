@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	astroid
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.15

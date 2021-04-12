@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libcint
 DISTVERSIONPREFIX=	v
 DISTVERSION=	4.0.7

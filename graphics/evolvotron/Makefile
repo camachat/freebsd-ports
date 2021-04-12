@@ -1,5 +1,8 @@
 # Created by: David Yeske <dyeske@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	evolvotron
 DISTVERSION=	0.7.1

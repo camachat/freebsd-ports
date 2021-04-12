@@ -1,5 +1,8 @@
 # Created by: Jim Mock <jim@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wmbutton
 PORTVERSION=	0.6.1

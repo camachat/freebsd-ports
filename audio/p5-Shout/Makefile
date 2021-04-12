@@ -1,5 +1,8 @@
 # Created by: leo
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Shout
 PORTVERSION=	2.1

@@ -1,5 +1,8 @@
 # Created by: Tassilo Philipp <tphilipp@potion-studios.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		gdb
 PORTVERSION=		7.3.1

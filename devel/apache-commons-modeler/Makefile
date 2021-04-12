@@ -1,5 +1,8 @@
 # Created by: Nemo Liu <nemoliu@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	commons-modeler
 PORTVERSION=	2.0.1

@@ -1,7 +1,10 @@
 #-*- tab-width: 4; -*-
 # ex:ts=4
+<<<<<<< HEAD
 #
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 # ** Please run changes to this file by eadler@ first **
 

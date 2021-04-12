@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Term-ReadPassword
 PORTVERSION=	0.11
 PORTREVISION=	1

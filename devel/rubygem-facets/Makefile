@@ -1,5 +1,8 @@
 # Created by: Yarema <yds@CoolRat.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	facets
 PORTVERSION=	3.1.0

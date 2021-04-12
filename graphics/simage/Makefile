@@ -1,5 +1,8 @@
 # Created by: roland.jesse@gmx.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	simage
 PORTVERSION=	1.7.0

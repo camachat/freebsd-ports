@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ags
 DISTVERSION=	3.4.4.1
 CATEGORIES=	games

@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	yt-dlp
 DISTVERSION=	2021.03.24.1
+=======
+PORTNAME=	yt-dlp
+DISTVERSION=	2021.04.03
+>>>>>>> upstream/main
 CATEGORIES=	www
 
 MAINTAINER=	yuri@FreeBSD.org

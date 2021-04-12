@@ -1,5 +1,8 @@
 # Created by: Geoffroy Desvernay <dgeo@centrale-marseille.fr>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	AnyEvent-DNS-EtcHosts
 PORTVERSION=	0.0103

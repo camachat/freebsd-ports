@@ -1,5 +1,8 @@
 # Created by: Tom Sparks <tsparks@appliedops.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	yali
 PORTVERSION=	1.1

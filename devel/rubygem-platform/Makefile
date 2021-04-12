@@ -1,5 +1,8 @@
 # Created by: IWATSUKI Hiroyuki <don@na.rim.or.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	platform
 PORTVERSION=	0.4.0

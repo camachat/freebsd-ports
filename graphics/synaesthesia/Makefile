@@ -1,5 +1,8 @@
 # Created by: Pete Fritchman <petef@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	synaesthesia
 PORTVERSION=	2.4

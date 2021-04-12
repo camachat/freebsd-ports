@@ -1,8 +1,14 @@
 # Created by: Mathieu Arnold <m@absolight.net>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	DateTime-Calendar-Julian
 PORTVERSION=	0.103
+=======
+
+PORTNAME=	DateTime-Calendar-Julian
+PORTVERSION=	0.104
+>>>>>>> upstream/main
 CATEGORIES=	devel perl5
 MASTER_SITES=	CPAN
 PKGNAMEPREFIX=	p5-

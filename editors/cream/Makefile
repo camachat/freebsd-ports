@@ -1,5 +1,8 @@
 # Created by: Janos Mohacsi <janos.mohacsi@bsd.hu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cream
 PORTVERSION=	0.43

@@ -1,5 +1,8 @@
 # Created by: Lars Balker Rasmussen <lbr@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Catalyst-Engine-Apache
 PORTVERSION=	1.16

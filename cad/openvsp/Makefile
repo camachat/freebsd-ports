@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	openvsp
 DISTVERSIONPREFIX=	${GH_PROJECT}_
 DISTVERSION=	3.20.0

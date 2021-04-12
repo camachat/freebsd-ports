@@ -1,5 +1,8 @@
 # Created by: Gasol Wu <gasol.wu@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	phpdoc
 PORTVERSION=	20120214

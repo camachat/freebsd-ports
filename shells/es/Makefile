@@ -1,5 +1,8 @@
 # Created by: erich@rrnet.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	es
 PORTVERSION=	0.9.b1

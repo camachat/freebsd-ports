@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xml-simple
 PORTVERSION=	1.1.5
 CATEGORIES=	textproc rubygems

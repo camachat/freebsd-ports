@@ -1,5 +1,8 @@
 # Created by: Vsevolod Stakhov <vsevolod@highsecure.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	htpdate
 PORTVERSION=	1.2.2

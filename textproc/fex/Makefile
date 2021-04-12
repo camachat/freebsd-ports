@@ -1,5 +1,8 @@
 # Created by: Ryan Steinmetz <zi@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fex
 PORTVERSION=	2.0.0

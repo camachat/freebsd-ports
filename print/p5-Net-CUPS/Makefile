@@ -1,5 +1,8 @@
 # Created by: Gvozdikov Veniamin <g.veniamin@googlemail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-CUPS
 PORTVERSION=	0.64

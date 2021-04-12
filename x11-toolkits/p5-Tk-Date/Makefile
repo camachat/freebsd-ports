@@ -1,5 +1,8 @@
 # Created by: vanilla
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Tk-Date
 PORTVERSION=	0.44

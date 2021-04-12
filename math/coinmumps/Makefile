@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	coinmumps
 DISTVERSIONPREFIX=	releases/
 DISTVERSION=	1.6.2

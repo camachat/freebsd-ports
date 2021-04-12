@@ -1,5 +1,8 @@
 # Created by: Alex Dupre <ale@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	scala-docs
 PORTVERSION=	2.13.4

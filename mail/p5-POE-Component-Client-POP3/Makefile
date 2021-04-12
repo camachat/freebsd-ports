@@ -1,5 +1,8 @@
 # Created by: Sergey Skvortsov <skv@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	POE-Component-Client-POP3
 PORTVERSION=	0.02

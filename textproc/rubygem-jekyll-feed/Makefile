@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	jekyll-feed
 PORTVERSION=	0.15.1
 CATEGORIES=	textproc rubygems

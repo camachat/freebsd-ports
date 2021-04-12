@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xdo
 PORTVERSION=	0.5.7
 CATEGORIES=	x11

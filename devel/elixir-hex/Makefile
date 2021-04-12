@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	hex
 DISTVERSION=	0.20.5
 DISTVERSIONPREFIX=	v

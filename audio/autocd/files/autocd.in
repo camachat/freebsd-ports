@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 #!/bin/sh
 #
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 #
 
 # PROVIDE: autocd

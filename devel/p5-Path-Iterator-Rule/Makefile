@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Path-Iterator-Rule
 PORTVERSION=	1.008
 PORTREVISION=	1

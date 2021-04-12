@@ -1,5 +1,8 @@
 # Created by: Juan Salaverria <rael@vectorstar.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lostirc
 PORTVERSION=	0.4.6

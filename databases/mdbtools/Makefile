@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mdbtools
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.9.1

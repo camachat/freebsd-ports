@@ -1,5 +1,8 @@
 # Created by: Winston Weinert <winstonw@lavabit.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	roboto-fonts-ttf
 PORTVERSION=	2.134

@@ -1,8 +1,14 @@
 # Created by: Dan Langille <dan@freebsddiary.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	logcheck
 PORTVERSION=	1.3.22
+=======
+
+PORTNAME=	logcheck
+PORTVERSION=	1.3.23
+>>>>>>> upstream/main
 CATEGORIES=	security
 MASTER_SITES=	DEBIAN_POOL
 DISTNAME=	${PORTNAME}_${PORTVERSION}

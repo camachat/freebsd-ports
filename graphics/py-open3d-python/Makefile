@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	open3d-python
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.2

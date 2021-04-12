@@ -1,5 +1,8 @@
 # Created by: The Anarcat <anarcat@anarcat.dyndns.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ecasound
 PORTVERSION=	2.9.3

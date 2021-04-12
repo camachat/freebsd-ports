@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rex-powershell
 PORTVERSION=	0.1.88
 CATEGORIES=	security rubygems

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	biber
 PORTVERSION=	2.1
 DISTVERSIONPREFIX=	v

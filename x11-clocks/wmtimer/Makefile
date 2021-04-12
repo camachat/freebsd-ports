@@ -1,5 +1,8 @@
 # Created by: Patrick Li <pat@databits.net> et al
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wmtimer
 PORTVERSION=	2.92

@@ -1,5 +1,8 @@
 # Created by: Eric Freeman <freebsdports@chillibear.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	holidays
 PORTVERSION=	8.4.1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ascent
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.6.0

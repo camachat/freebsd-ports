@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	algebra
 PORTVERSION=	0.2.3
 CATEGORIES=	math rubygems

@@ -1,5 +1,8 @@
 # Created by: Dave Cottlehuber <dch@skunkwerks.at>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	structlog
 PORTVERSION=	18.2.0

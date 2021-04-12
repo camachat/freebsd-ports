@@ -1,5 +1,8 @@
 # Created by: Justin Stanford <jus@security.za.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ripmime
 PORTVERSION=	1.4.0.10

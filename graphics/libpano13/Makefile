@@ -1,5 +1,8 @@
 # Created by: Vasil Dimov <vd@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libpano13
 PORTVERSION=	2.9.19

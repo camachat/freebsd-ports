@@ -1,5 +1,8 @@
 # Created by: Fukang Chen <loader@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	File-Copy-Link
 PORTVERSION=	0.140

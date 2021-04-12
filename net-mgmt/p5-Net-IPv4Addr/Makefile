@@ -1,5 +1,8 @@
 # Created by: Brad Hendrickse <bradh@uunet.co.za>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-IPv4Addr
 PORTVERSION=	0.10

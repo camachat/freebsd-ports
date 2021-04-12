@@ -1,5 +1,8 @@
 # Created by: Dima Sivachenko <dima@Chg.RU>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fltk
 PORTVERSION=	1.3.5

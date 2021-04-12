@@ -1,5 +1,8 @@
 # Created by: Alejandro Pulver <alepulver@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	r1q2
 PORTVERSION=	8012

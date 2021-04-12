@@ -1,5 +1,8 @@
 # Created by: Torsten Zuhlsdorff <ports@toco-domains.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rqrcode-rails3
 PORTVERSION=	0.1.7

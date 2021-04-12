@@ -1,5 +1,8 @@
 # Created by: J.R. Oldroyd <fbsd@opal.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xorriso
 PORTVERSION=	1.5.0

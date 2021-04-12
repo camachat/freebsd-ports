@@ -1,5 +1,8 @@
 # Created by: Patrick Li <pat@databits.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	starplot
 PORTVERSION=	0.95.5

@@ -1,5 +1,8 @@
 # Created by: Mike Makonnen <mtm@identd.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	asmixer
 PORTVERSION=	0.5

@@ -1,5 +1,8 @@
 # Created by: Rodrigo OSORIO <rodrigo@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	podcastdl
 PORTVERSION=	0.3.3

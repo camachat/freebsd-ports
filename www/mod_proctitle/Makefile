@@ -1,5 +1,8 @@
 # Created by: stas
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mod_proctitle
 PORTVERSION=	0.4.1

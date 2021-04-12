@@ -1,5 +1,8 @@
 # Created by: Carlos J. Puga Medina <cpm@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	codesearch-py
 DISTVERSION=	g20190528

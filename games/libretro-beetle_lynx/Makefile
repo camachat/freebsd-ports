@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libretro-beetle_lynx
 PORTVERSION=	0.20210114
 CATEGORIES=	games

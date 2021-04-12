@@ -1,5 +1,8 @@
 # Created by: shanee@rabbit.augusta.de
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	zorro
 PORTVERSION=	1.1.8

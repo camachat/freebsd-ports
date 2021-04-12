@@ -1,5 +1,8 @@
 # Created by: Phillip Neumann <pneumann@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fsharp
 PORTVERSION=	10.2.1

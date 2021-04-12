@@ -1,5 +1,8 @@
 # Created by: Mikolaj Golub <trociny@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cmogstored
 PORTVERSION=	1.8.1

@@ -1,5 +1,8 @@
 # Created by: cjm2
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nenscript
 PORTVERSION=	1.13.3

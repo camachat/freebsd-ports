@@ -1,5 +1,8 @@
 # Created by: Yen-Ming Lee <leeym@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	LWP-UserAgent-Determined
 PORTVERSION=	1.07

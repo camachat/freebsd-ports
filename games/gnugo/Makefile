@@ -1,5 +1,8 @@
 # Created by: jseger@scds.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gnugo
 PORTVERSION=	3.8

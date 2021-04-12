@@ -1,5 +1,8 @@
 # Created by: stas
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rawtherapee
 PORTVERSION=	5.8

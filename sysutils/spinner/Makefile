@@ -1,5 +1,8 @@
 # Created by: mich@freebsdcluster.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	spinner
 PORTVERSION=	1.2.4

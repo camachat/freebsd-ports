@@ -1,5 +1,8 @@
 # Created by: Andriy Pylypenko <bamby@sippysoft.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dal
 PORTVERSION=	20081016

@@ -1,5 +1,8 @@
 # Created by: Kevin Hung <khung@nullaxiom.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dhcp_probe
 PORTVERSION=	1.3.0

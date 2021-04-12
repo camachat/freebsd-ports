@@ -1,7 +1,11 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+
+>>>>>>> upstream/main
 # PROVIDE: ufdbguardd
 # REQUIRE: LOGIN
 # KEYWORD: shutdown

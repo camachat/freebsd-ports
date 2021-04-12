@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	OpenHMD
 DISTVERSION=	0.3.0
 PORTREVISION=	1

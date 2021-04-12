@@ -1,5 +1,8 @@
 # Created by: Seiya Yanagita <s_yanagita@ybb.ne.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	scim-uim
 PORTVERSION=	0.2.0

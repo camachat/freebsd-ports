@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	beanstalkd
 PORTVERSION=	1.10
 DISTVERSIONPREFIX=	v

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	DBD-cego
 PORTVERSION=	1.5.0
 CATEGORIES=	databases perl5

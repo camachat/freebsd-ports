@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fox
 DISTVERSION=	4.1.2-91
 PORTREVISION=	4

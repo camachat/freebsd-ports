@@ -1,5 +1,8 @@
 # Created by: Yukihiro Nakai <nakai@mlab.t.u-tokyo.ac.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xrubik
 PORTVERSION=	5.5.2

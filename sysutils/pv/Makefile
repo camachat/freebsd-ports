@@ -1,5 +1,8 @@
 # Created by: Daniel Roethlisberger <daniel@roe.ch>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pv
 PORTVERSION=	1.6.6

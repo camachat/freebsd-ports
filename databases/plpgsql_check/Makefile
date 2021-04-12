@@ -1,5 +1,8 @@
 # Created by: Jov <amutu@amutu.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	plpgsql_check
 PORTVERSION=	1.15.3

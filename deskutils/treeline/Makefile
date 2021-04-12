@@ -1,5 +1,8 @@
 # Created by: Tobias Roth <ports@fsck.ch>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	treeline
 PORTVERSION=	3.1.4

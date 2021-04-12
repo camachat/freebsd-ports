@@ -1,5 +1,8 @@
 # Created by: Stephen Roome <steve@pepcross.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xglurbules
 PORTVERSION=	3.3

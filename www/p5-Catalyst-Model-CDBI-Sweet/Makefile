@@ -1,5 +1,8 @@
 # Created by: Travis Campbell <hcoyote@ghostar.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Catalyst-Model-CDBI-Sweet
 PORTVERSION=	0.06

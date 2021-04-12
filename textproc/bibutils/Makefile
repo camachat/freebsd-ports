@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bibutils
 PORTVERSION=	6.10
 CATEGORIES=	textproc

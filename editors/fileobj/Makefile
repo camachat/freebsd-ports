@@ -1,5 +1,8 @@
 # Created by: Rimvydas Jasinskas <zrj@ef.irc>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fileobj
 PORTVERSION=	0.7.55

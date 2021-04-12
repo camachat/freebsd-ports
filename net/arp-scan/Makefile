@@ -1,5 +1,8 @@
 # Created by: Wen Heping <wenheping@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	arp-scan
 PORTVERSION=	1.9.7

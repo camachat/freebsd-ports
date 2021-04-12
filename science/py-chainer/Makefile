@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	chainer
 DISTVERSION=	7.7.0
 PORTREVISION=	1

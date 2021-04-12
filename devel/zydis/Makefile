@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	zydis
 DISTVERSIONPREFIX=	v
 DISTVERSION=	3.1.0

@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 .el.elc:
 	if test '$(EMACS)' != no; then \
 	  am__dir=. am__subdir_includes=''; \

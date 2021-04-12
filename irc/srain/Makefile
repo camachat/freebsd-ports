@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	srain
 DISTVERSION=	1.1.0
 CATEGORIES=	irc

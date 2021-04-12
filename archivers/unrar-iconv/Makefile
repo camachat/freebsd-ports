@@ -1,5 +1,8 @@
 # Created by: Yarodin <yarodin@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PKGNAMESUFFIX=	-iconv
 

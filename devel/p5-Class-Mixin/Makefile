@@ -1,5 +1,8 @@
 # Created by: Anes Mukhametov <anes@anes.su>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Class-Mixin
 PORTVERSION=	1.00

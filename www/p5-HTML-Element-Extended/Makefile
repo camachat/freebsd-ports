@@ -1,5 +1,8 @@
 # Created by: Garrett A. Wollman
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HTML-Element-Extended
 PORTVERSION=	1.18

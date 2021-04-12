@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Qudo
 PORTVERSION=	0.0213
 PORTREVISION=	1

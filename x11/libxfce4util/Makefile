@@ -1,5 +1,8 @@
 # Created by: James Earl <jdearl@telus.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libxfce4util
 PORTVERSION=	4.16.0

@@ -1,5 +1,8 @@
 # Created by: Mark Felder <feld@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	matrix-synapse-ldap3
 PORTVERSION=	0.1.4

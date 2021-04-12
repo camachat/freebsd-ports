@@ -1,5 +1,8 @@
 # Created by: Zak Johnson <zakj@nox.cx>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sendok
 PORTVERSION=	0.9.2

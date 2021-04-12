@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	openbox-arc-theme
 PORTVERSION=	20170104
 CATEGORIES=	x11-themes

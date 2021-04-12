@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	phybs
 PORTVERSION=	20140717
 CATEGORIES=	sysutils

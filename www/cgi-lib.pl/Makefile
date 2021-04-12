@@ -1,5 +1,8 @@
 # Created by: sada
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cgi-lib_pl
 PORTVERSION=	2.18

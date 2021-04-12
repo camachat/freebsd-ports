@@ -1,5 +1,8 @@
 # Created by: sada
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mikachan
 PORTVERSION=	9.1

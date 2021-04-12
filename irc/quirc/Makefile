@@ -1,5 +1,8 @@
 # Created by: Chris Piazza <cpiazza@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	quirc
 PORTVERSION=	0.9.84

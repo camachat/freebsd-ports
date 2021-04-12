@@ -1,5 +1,8 @@
 # Created by: Kirill Ponomarew <ponomarew@oberon.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libidn
 DISTVERSION=	1.35

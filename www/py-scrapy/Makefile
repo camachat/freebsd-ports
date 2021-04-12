@@ -1,5 +1,8 @@
 # Created by: Qing Feng <qingfeng@douban.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Scrapy
 DISTVERSION=	1.6.0

@@ -1,5 +1,8 @@
 # Created by: David Kalliecharan <dave@dal.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hy
 PORTVERSION=	0.19.0

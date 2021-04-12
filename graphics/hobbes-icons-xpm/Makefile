@@ -1,5 +1,8 @@
 # Created by: pgs
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hobbes-icons-xpm3
 PORTVERSION=	1.0

@@ -1,5 +1,8 @@
 # Created by: Roy Marples <roy@marples.name>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dhcpcd
 PORTVERSION=	9.4.0

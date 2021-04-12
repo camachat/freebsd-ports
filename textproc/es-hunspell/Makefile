@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	hunspell
 PORTVERSION=	2.2
 CATEGORIES=	textproc spanish

@@ -1,5 +1,8 @@
 # Created by: Pedro Giffuni
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	DoE.base
 DISTVERSION=	1.1-3

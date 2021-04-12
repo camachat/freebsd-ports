@@ -1,5 +1,10 @@
 # Created by: Emanuel Haupt <ehaupt@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+#
+# Note: finance/electrum requires this exact version
+>>>>>>> upstream/main
 
 PORTNAME=	QDarkStyle
 PORTVERSION=	2.8.1

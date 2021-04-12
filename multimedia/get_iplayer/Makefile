@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	get_iplayer
 PORTVERSION=	3.27
 DISTVERSIONPREFIX=	v

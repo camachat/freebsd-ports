@@ -1,5 +1,8 @@
 # Created by: Tobias Gion <freebsd@gionet.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	guichan
 PORTVERSION=	0.8.2

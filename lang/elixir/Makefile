@@ -1,5 +1,8 @@
 # Created by: Li-Wen Hsu <lwhsu@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	elixir
 DISTVERSIONPREFIX=	v

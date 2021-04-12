@@ -1,5 +1,8 @@
 # Created by: erik@smluc.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	qscheme
 PORTVERSION=	0.5.1

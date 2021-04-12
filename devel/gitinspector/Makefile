@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gitinspector
 PORTVERSION=	0.4.4
 DISTVERSIONPREFIX=	v

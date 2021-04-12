@@ -1,5 +1,8 @@
 # Created by: Antoine Brodin <antoine@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	stix
 PORTVERSION=	1.2.0.11

@@ -1,5 +1,8 @@
 # Created by: Lars Erik Gullerud <lerik@nolink.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	radix
 PORTVERSION=	0.10.0

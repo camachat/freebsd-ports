@@ -1,5 +1,8 @@
 # Created by: Tyler Spivey
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	beep
 PORTVERSION=	1.0

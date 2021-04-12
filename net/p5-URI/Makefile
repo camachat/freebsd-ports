@@ -1,5 +1,8 @@
 # Created by: ache
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	URI
 PORTVERSION=	5.07

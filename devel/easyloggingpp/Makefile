@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	easyloggingpp
 DISTVERSIONPREFIX=	v
 DISTVERSION=	9.97.0

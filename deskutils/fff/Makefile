@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fff
 DISTVERSION=	2.2
 CATEGORIES=	deskutils

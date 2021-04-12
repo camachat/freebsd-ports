@@ -1,5 +1,8 @@
 # Created by: Travis Poppe <tlp@liquidx.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wargus
 PORTVERSION=	2.4.2
@@ -12,9 +15,12 @@ COMMENT=	Warcraft 2 mod that allows you to play Warcraft 2 with Stratagus
 LICENSE=	GPLv2+
 LICENSE_FILE=	${WRKSRC}/COPYING
 
+<<<<<<< HEAD
 DEPRECATED=	Uses EOL Python 2.7 via games/stratagus
 EXPIRATION_DATE=2021-06-23
 
+=======
+>>>>>>> upstream/main
 RUN_DEPENDS=	stratagus:games/stratagus \
 		ffmpeg2theora:multimedia/ffmpeg2theora \
 		cdparanoia:audio/cdparanoia

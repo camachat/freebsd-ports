@@ -1,5 +1,8 @@
 # Created by: nivit@email.it
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	slimeforest
 PORTVERSION=	158

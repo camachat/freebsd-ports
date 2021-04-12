@@ -1,5 +1,8 @@
 # Created by: Shin-ya MURAKAMI <murashin@gfd-dennou.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	narray_miss
 PORTVERSION=	1.4.0

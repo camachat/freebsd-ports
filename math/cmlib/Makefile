@@ -1,5 +1,8 @@
 # Created by: Anton Shterenlikht <mexas@bris.ac.uk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cmlib
 PORTVERSION=	3.0

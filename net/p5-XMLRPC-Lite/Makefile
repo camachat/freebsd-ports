@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	XMLRPC-Lite
 PORTVERSION=	0.717
 CATEGORIES=	net perl5

@@ -1,5 +1,8 @@
 # Created by: Jean-Yves Lefort <jylefort@brutele.be>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	unmakeself
 PORTVERSION=	1.1

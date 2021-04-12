@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libcoap
 DISTVERSIONPREFIX=	v
 DISTVERSION=	4.2.1

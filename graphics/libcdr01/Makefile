@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	libcdr
 PORTVERSION=	0.1.6
 PORTREVISION=	1
+=======
+PORTNAME=	libcdr
+PORTVERSION=	0.1.6
+PORTREVISION=	2
+>>>>>>> upstream/main
 CATEGORIES=	graphics devel
 MASTER_SITES=	LODEV
 PKGNAMESUFFIX=	01

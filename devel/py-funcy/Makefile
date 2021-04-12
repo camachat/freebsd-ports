@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	funcy
 DISTVERSION=	1.15
 CATEGORIES=	devel python

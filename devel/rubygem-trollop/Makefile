@@ -1,5 +1,8 @@
 # Created by: Dennis Herrmann <adox@mcx2.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	trollop
 PORTVERSION=	2.9.10

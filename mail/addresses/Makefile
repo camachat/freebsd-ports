@@ -1,5 +1,8 @@
 # Created by: Miguel Mendez <flynn@energyhq.es.eu.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	addresses
 PORTVERSION=	0.4.8

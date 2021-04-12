@@ -1,5 +1,8 @@
 # Created by: NAKAJI Hiroyuki <nakaji@jp.freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nqueens
 PORTVERSION=	1.0

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pkg_jail
 PORTVERSION=	2.10
 DISTVERSIONPREFIX=	v

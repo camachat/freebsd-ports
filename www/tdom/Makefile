@@ -1,5 +1,8 @@
 # Created by: Aldert Nooitgedagt
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tDOM
 PORTVERSION=	0.9.1

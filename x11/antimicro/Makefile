@@ -1,5 +1,8 @@
 # Created by: Anton Toernqvist <antont@inbox.lv>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	antimicro
 PORTVERSION=	2.23

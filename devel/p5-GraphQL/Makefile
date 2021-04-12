@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	GraphQL
 PORTVERSION=	0.49
 CATEGORIES=	devel perl5

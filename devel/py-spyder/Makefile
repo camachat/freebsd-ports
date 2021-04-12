@@ -1,5 +1,8 @@
 # Created by: Rod Person <rodperson@rodperson.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	spyder
 DISTVERSIONPREFIX=	v

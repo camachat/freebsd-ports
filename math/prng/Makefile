@@ -1,5 +1,8 @@
 # Created by: bf <bf@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	prng
 DISTVERSION=	3.0.2

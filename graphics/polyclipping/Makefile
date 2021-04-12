@@ -1,5 +1,8 @@
 # Created by: Nikolay Korotkiy <sikmir@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	polyclipping
 PORTVERSION=	6.4.2

@@ -1,5 +1,8 @@
 # Created by: Alexey V. Antipovsky <kemm@in-line.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Date-Simple
 PORTVERSION=	3.03

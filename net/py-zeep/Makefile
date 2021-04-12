@@ -1,5 +1,8 @@
 # Created by: Muhammad Moinur Rahman <bbofh@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	zeep
 PORTVERSION=	4.0.0

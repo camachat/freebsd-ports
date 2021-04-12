@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ruut
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.6.1

@@ -1,5 +1,8 @@
 # Created by: Phil Oleson
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dv2sub
 PORTVERSION=	0.3

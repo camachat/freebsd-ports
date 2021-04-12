@@ -1,5 +1,8 @@
 # Created by: Felippe de Meirelles Motta <lippemail@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Test-YAML-Meta
 PORTVERSION=	0.22

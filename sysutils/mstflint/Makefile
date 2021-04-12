@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mstflint
 DISTVERSIONPREFIX=	v
 DISTVERSION=	4.16.0-1

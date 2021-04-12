@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	l10n
 DISTVERSION=	${QT5_VERSION}
 CATEGORIES=	misc

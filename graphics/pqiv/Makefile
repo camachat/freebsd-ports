@@ -1,5 +1,8 @@
 # Created by: Martin Tournoij <carpetsmoker@xs4all.nl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pqiv
 PORTVERSION=	2.11

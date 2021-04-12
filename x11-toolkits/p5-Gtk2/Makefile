@@ -1,5 +1,8 @@
 # Created by: clsung@dragon2.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Gtk2
 PORTVERSION=	1.24993

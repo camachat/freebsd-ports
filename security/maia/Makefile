@@ -1,5 +1,8 @@
 # Created by: Janky Jay <ek@purplehat.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	maia
 DISTVERSION=	1.0.4

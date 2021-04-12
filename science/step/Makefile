@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	step
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
 CATEGORIES=	science education kde kde-applications

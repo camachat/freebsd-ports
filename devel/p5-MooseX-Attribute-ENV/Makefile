@@ -1,5 +1,8 @@
 # Created by: alan <Alan@Wave2.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	MooseX-Attribute-ENV
 PORTVERSION=	0.02

@@ -1,5 +1,8 @@
 # Created by: Ying-Chieh Liao <ijliao@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	librsync
 PORTVERSION=	2.3.1

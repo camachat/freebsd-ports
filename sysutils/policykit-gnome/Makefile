@@ -1,5 +1,8 @@
 # Created by: Joe Marcus Clarke <marcus@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 #   $MCom: ports/sysutils/policykit-gnome/Makefile,v 1.6 2008/10/03 17:19:43 marcus Exp $
 
 PORTNAME=	policykit-gnome

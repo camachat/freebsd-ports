@@ -1,5 +1,8 @@
 # Created by: Jean-Yves Lefort <jylefort@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	freetennis
 PORTVERSION=	0.4.8

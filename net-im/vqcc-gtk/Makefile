@@ -1,5 +1,8 @@
 # Created by: Saulius Menkevicius <bob@nulis.lt>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vqcc-gtk
 PORTVERSION=	0.5

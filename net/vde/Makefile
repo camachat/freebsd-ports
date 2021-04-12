@@ -1,5 +1,8 @@
 # Created by: Craig Boston <craig@yekse.gank.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vde
 PORTVERSION=	1.5.7

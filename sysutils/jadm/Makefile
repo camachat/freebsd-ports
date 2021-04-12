@@ -1,5 +1,8 @@
 # Created by: Nikolay Dachev <jadm@dachev.info>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jadm
 PORTVERSION=	1.0

@@ -1,5 +1,8 @@
 %!PS-Adobe-3.0 Resource-CIDFont
+<<<<<<< HEAD
 %%Creator: $FreeBSD$
+=======
+>>>>>>> upstream/main
 %%BeginResource: CIDFont (%%FONTNAME%%)
 
 (%%FONTNAME%%)

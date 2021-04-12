@@ -1,7 +1,12 @@
 bin/graphicator
 bin/simgrid-colorizer
+<<<<<<< HEAD
 bin/simgrid_update_xml
 bin/simgrid_convert_TI_traces
+=======
+bin/simgrid_convert_TI_traces
+bin/simgrid_update_xml
+>>>>>>> upstream/main
 bin/smpicc
 bin/smpicxx
 bin/smpirun
@@ -61,15 +66,22 @@ include/simgrid/s4u/Mailbox.hpp
 include/simgrid/s4u/Mutex.hpp
 include/simgrid/s4u/NetZone.hpp
 include/simgrid/s4u/Semaphore.hpp
+<<<<<<< HEAD
 include/simgrid/s4u/Storage.hpp
+=======
+>>>>>>> upstream/main
 include/simgrid/s4u/VirtualMachine.hpp
 include/simgrid/semaphore.h
 include/simgrid/simdag.h
 include/simgrid/simix.h
 include/simgrid/simix.hpp
+<<<<<<< HEAD
 include/simgrid/simix/blocking_simcall.hpp
 include/simgrid/smpi/replay.hpp
 include/simgrid/storage.h
+=======
+include/simgrid/smpi/smpi_replay.hpp
+>>>>>>> upstream/main
 include/simgrid/version.h
 include/simgrid/vm.h
 include/simgrid/zone.h
@@ -99,7 +111,10 @@ include/xbt/ex.h
 include/xbt/file.hpp
 include/xbt/function_types.h
 include/xbt/functional.hpp
+<<<<<<< HEAD
 include/xbt/future.hpp
+=======
+>>>>>>> upstream/main
 include/xbt/graph.h
 include/xbt/log.h
 include/xbt/log.hpp
@@ -108,6 +123,10 @@ include/xbt/misc.h
 include/xbt/module.h
 include/xbt/parmap.h
 include/xbt/parse_units.hpp
+<<<<<<< HEAD
+=======
+include/xbt/promise.hpp
+>>>>>>> upstream/main
 include/xbt/random.hpp
 include/xbt/range.hpp
 include/xbt/replay.hpp
@@ -121,7 +140,11 @@ include/xbt/utility.hpp
 include/xbt/virtu.h
 include/xbt/xbt_os_time.h
 lib/libsimgrid.so
+<<<<<<< HEAD
 lib/libsimgrid.so.3.26
+=======
+lib/libsimgrid.so.3.27
+>>>>>>> upstream/main
 lib/simgrid/smpimain
 lib/simgrid/smpireplaymain
 libdata/pkgconfig/simgrid.pc

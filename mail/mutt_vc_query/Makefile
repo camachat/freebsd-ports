@@ -1,5 +1,8 @@
 # Created by: Oliver Braun
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mutt_vc_query
 PORTVERSION=	002

@@ -1,5 +1,8 @@
 # Created by: Jean-Baptiste Quenot <jb.quenot@caraldi.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rxtx
 PORTVERSION=	2.2p2

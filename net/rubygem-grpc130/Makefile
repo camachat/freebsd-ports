@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	grpc
 PORTVERSION=	1.30.2
 PORTREVISION=	3

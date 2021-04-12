@@ -1,5 +1,8 @@
 # Created by: Anton Yuzhaninov <citrin@citrin.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libmp3splt
 PORTVERSION=	0.9.2

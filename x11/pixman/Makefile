@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pixman
 PORTVERSION=	0.40.0
 PORTREVISION=	1

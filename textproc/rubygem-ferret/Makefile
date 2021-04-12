@@ -1,5 +1,8 @@
 # Created by: Cheng-Lung Sung <clsung@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ferret
 PORTVERSION=	0.11.8.7

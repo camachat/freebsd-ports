@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Drawpile
 DISTVERSION=	2.1.17
 PORTREVISION=	1

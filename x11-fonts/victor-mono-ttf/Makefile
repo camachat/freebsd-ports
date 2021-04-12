@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	victor-mono
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.4.2

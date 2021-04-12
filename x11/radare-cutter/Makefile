@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	radare-cutter
 PORTVERSION=	0.1.1
 PORTEPOCH=	1

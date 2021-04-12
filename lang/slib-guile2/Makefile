@@ -1,5 +1,8 @@
 # Created by: Kimura Fuyuki <fuyuki@nigredo.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	slib
 PORTVERSION=	3b6 # Keep this in sync with lang/slib

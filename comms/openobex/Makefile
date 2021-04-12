@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	openobex
 PORTVERSION=	1.7.2
 CATEGORIES=	comms net

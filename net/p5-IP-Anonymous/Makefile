@@ -1,5 +1,8 @@
 # Created by: Paul Schmehl <pauls@utdallas.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	IP-Anonymous
 PORTVERSION=	0.04

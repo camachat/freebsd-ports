@@ -1,5 +1,8 @@
 # Created by: Chris Larsen <darth@vader.dk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	WWW-Curl
 PORTVERSION=	4.17

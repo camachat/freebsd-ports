@@ -1,5 +1,8 @@
 # Created by: Petr Holub <hopet@ics.muni.cz>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bbftp-client
 PORTVERSION=	3.2.1

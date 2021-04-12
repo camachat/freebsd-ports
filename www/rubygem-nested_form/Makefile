@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	nested_form
 PORTVERSION=	0.3.2
 CATEGORIES=	www rubygems

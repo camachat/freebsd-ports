@@ -1,5 +1,8 @@
 # Created by: Andrew Turner <andrew+ports@fubar.geek.nz>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gettext
 PORTVERSION=	1.5

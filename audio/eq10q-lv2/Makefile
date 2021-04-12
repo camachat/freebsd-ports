@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	eq10q
 DISTVERSION=	2.2
 PORTREVISION=	3

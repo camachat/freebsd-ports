@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sinatra-contrib
 PORTVERSION=	2.1.0
 CATEGORIES=	www rubygems

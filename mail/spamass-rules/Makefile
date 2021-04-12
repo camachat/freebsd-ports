@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	spamass-rules
 PORTVERSION=	20190101
 CATEGORIES=	mail

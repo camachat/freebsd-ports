@@ -1,5 +1,8 @@
 # Created by: Evgeniy Kosov <evgeniy@kosov.su>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Log-Any-Adapter-Log4perl
 PORTVERSION=	0.09

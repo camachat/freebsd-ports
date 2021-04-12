@@ -1,5 +1,8 @@
 # Created by: Denis Pokataev <catone@cpan.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Date-Calc-XS
 PORTVERSION=	6.4

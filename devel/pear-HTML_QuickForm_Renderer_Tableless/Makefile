@@ -1,5 +1,8 @@
 # Created by: Chris St Denis <chris@smartt.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HTML_QuickForm_Renderer_Tableless
 PORTVERSION=	0.6.2

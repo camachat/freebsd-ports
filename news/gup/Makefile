@@ -1,5 +1,8 @@
 # Created by: Denis Shaposhnikov <dsh@vlink.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gup
 PORTVERSION=	0.4

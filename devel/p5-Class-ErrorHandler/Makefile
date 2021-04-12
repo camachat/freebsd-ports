@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Class-ErrorHandler
 PORTVERSION=	0.04
 CATEGORIES=	devel perl5

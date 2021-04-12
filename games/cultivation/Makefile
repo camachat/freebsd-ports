@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # Created by: Dmitry Marakasov <amdmi3@amdmi3.ru>
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cultivation
 PORTVERSION=	8
 PORTREVISION=	6

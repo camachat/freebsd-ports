@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		carbonzipper
 DISTVERSION=		0.74
 CATEGORIES=		net-mgmt

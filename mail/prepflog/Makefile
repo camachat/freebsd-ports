@@ -1,5 +1,8 @@
 # Created by: Terry Sposato
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	prepflog
 PORTVERSION=	0.4.1

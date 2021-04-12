@@ -1,5 +1,8 @@
 # Created by: darius@dons.net.au
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tclreadline
 PORTVERSION=	2.3.8

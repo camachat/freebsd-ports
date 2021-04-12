@@ -1,5 +1,8 @@
 # Created by: numisemis at yahoo dot com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	julius
 PORTVERSION=	4.1.2

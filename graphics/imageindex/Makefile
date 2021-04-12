@@ -1,5 +1,8 @@
 # Created by: John Reynolds <johnjen@reynoldsnet.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	imageindex
 PORTVERSION=	2.0

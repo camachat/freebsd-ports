@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libmwaw
 PORTVERSION=	0.3.15
 CATEGORIES=	textproc

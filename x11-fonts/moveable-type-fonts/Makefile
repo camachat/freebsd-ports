@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	moveable-type-fonts
 PORTVERSION=	20100801
 PORTREVISION=	2

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Firefox-Marionette
 PORTVERSION=	1.00
 CATEGORIES=	www perl5

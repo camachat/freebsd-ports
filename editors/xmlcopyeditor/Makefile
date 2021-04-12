@@ -1,5 +1,8 @@
 # Created by: José García Juanino <jjuanino@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xmlcopyeditor
 PORTVERSION=	1.2.1.3

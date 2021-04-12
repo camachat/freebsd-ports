@@ -1,5 +1,8 @@
 # Created by: Alejandro Pulver <alepulver@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	3zb2
 PORTVERSION=	0.97

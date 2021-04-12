@@ -1,9 +1,16 @@
 # Created by: Michael Johnson <ahze@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	tracker
 PORTVERSION=	2.3.4
 PORTREVISION=	2
+=======
+
+PORTNAME=	tracker
+PORTVERSION=	2.3.4
+PORTREVISION=	3
+>>>>>>> upstream/main
 CATEGORIES=	sysutils gnome
 MASTER_SITES=	GNOME
 

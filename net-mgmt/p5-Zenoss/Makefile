@@ -1,5 +1,8 @@
 # Created by: Phil Phillips
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Zenoss
 PORTVERSION=	1.11

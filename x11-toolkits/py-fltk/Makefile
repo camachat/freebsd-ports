@@ -1,5 +1,8 @@
 # Created by: Radim Kolar
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fltk
 PORTVERSION=	1.3.4.1

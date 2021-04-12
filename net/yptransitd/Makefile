@@ -1,5 +1,8 @@
 # Created by: Michael Joyner <mjoyner@hq.dyns.cx>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	yptransitd
 PORTVERSION=	0.5

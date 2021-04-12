@@ -1,5 +1,8 @@
 # Created by: Gustau Perez <gustau.perez@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gnome-maps
 DISTVERSION=	3.38.4

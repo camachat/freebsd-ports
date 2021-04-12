@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	syslog
 PORTVERSION=	1.0.5
 CATEGORIES=	devel

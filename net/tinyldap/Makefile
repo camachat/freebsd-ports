@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tinyldap
 PORTVERSION=	0.0.${SNAPSHOT}
 CATEGORIES=	net

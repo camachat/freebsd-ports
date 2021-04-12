@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	openh264
 DISTVERSIONPREFIX=v
 DISTVERSION=	2.1.1

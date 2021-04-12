@@ -1,5 +1,8 @@
 # Created by: nadav@cs.technion.ac.il
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	elmar
 PORTVERSION=	3.3

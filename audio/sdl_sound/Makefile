@@ -1,5 +1,8 @@
 # Created by: David Yeske <dyeske@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sdl_sound
 PORTVERSION=	1.0.3

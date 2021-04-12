@@ -1,5 +1,8 @@
 # Created by: IWASHITA Yoji <shuna@pop16.odn.ne.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	celrw
 PORTVERSION=	0.16

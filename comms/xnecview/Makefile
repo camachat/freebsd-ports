@@ -1,5 +1,8 @@
 # Created by: Søren Straarup <xride@x12.dk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xnecview
 PORTVERSION=	1.36

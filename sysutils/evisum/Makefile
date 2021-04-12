@@ -1,5 +1,8 @@
 # Created by: Peter TKATHENKO <peter@flytrace.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	evisum
 PORTVERSION=	0.5.10

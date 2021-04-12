@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTREVISION=	0
+=======
+PORTREVISION=	1
+>>>>>>> upstream/main
 PKGNAMESUFFIX=	-icu
 
 COMMENT=	Harfbuzz ICU support

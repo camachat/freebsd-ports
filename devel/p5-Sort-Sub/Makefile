@@ -1,5 +1,8 @@
 # Created by: Zane C. Bowers-Hadley <vvelox@vvelox.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Sort-Sub
 PORTVERSION=	0.120

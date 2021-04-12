@@ -1,5 +1,8 @@
 # Created by: Masahiro Teramoto <markun@onohara.to>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	File-Mork
 PORTVERSION=	0.3

@@ -1,5 +1,8 @@
 # Created by: Craig Rodrigues <rodrigc@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	serf
 PORTVERSION=	1.3.9

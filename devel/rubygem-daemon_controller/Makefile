@@ -1,5 +1,8 @@
 # Created by: Jacob Atzen <jatzen@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	daemon_controller
 PORTVERSION=	1.2.0

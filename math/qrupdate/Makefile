@@ -1,5 +1,8 @@
 # Created by: Robert Jenssen
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	qrupdate
 PORTVERSION=	1.1.2

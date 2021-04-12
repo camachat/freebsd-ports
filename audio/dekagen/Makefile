@@ -1,5 +1,8 @@
 # Created by: Martin Kraft <martin.kraft@fal.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dekagen
 PORTVERSION=	1.0.2

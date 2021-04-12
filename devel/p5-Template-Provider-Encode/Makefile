@@ -1,5 +1,8 @@
 # Created by: Murilo Opsfelder <mopsfelder@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Template-Provider-Encode
 PORTVERSION=	0.02

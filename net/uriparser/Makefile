@@ -1,5 +1,8 @@
 # Created by: Ed Schouten <ed@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	uriparser
 DISTVERSION=	0.9.5

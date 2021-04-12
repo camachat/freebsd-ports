@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	latex-beamer
 PORTVERSION=	3.57
 DISTVERSIONPREFIX=	v

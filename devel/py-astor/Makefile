@@ -1,5 +1,8 @@
 # Created by: David Kalliecharan <dave@dal.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	astor
 PORTVERSION=	0.8.1

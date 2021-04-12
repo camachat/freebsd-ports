@@ -1,5 +1,8 @@
 # Created by: Klaus Goger <klaus.goger@reflex.at>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	SDL
 PORTVERSION=	2.548

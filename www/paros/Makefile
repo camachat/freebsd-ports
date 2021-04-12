@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	paros
 PORTVERSION=	3.2.13
 PORTREVISION=	2

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD: /tmp/pcvs/ports/print/ghostscript9/Makefile.drivers,v 1.4 2012-06-12 12:22:25 hrs Exp $
 
+=======
+>>>>>>> upstream/main
 OPTIONS_SVGALIB= \
 	GS_lvga256 \
 	GS_vgalib

@@ -1,5 +1,8 @@
 # Created by: Roman Shterenzon <roman@xpert.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fwbuilder
 PORTVERSION=	5.3.7

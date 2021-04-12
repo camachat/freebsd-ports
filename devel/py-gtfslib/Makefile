@@ -1,5 +1,8 @@
 # Created by: Loïc BARTOLETTI <lbartoletti@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gtfslib
 PORTVERSION=	1.0.0

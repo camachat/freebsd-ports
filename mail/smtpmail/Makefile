@@ -1,5 +1,8 @@
 # Created by: Kirill Ponomarew <ponomarew@oberon.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	smtpmail
 PORTVERSION=	0.4.5

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	nest
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.20.1

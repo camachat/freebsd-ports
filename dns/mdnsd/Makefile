@@ -1,5 +1,8 @@
 # Created by: Dan Pelleg <daniel+mdnsd@pelleg.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mdnsd
 DISTVERSIONPREFIX=	v

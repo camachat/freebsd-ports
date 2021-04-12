@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	streamio-ffmpeg
 PORTVERSION=	3.0.2
 PORTREVISION=	3

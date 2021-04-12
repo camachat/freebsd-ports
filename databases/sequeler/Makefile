@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sequeler
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.8.0

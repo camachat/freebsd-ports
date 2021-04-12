@@ -1,5 +1,8 @@
 # Created by: Daniel O'Connor
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rrdtool
 DISTVERSION=	0.1.15

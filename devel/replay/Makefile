@@ -1,5 +1,8 @@
 # Created by: alfred@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	devel-replay
 PORTVERSION=	1.0.4

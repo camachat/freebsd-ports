@@ -1,5 +1,8 @@
 # Created by: Jean-Sébastien Pédron <dumbbell@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	osm-gps-map
 PORTVERSION=	1.1.0

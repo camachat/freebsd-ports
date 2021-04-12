@@ -1,5 +1,8 @@
 # Created by: Antonio Carlos Venancio Junior (<antonio@inf.ufsc.br>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	MDB_QueryTool
 PORTVERSION=	1.2.3

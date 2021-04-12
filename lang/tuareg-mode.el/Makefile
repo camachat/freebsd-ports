@@ -1,5 +1,8 @@
 # Created by: dd
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tuareg-mode
 PORTVERSION=	2.0.8

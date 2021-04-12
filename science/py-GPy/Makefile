@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	GPy
 DISTVERSION=	1.9.9
 PORTREVISION=	1

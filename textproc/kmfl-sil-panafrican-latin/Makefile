@@ -1,5 +1,8 @@
 # Created by: Nikola Lecic <nikola.lecic@anthesphoria.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	kmfl-sil-panafrican-latin
 PORTVERSION=	20090831

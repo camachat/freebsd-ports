@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ros-rosinstall_generator
 DISTVERSION=	0.1.18
 CATEGORIES=	devel

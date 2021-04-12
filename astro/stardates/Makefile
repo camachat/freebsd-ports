@@ -1,5 +1,8 @@
 # Created by: freebsd-ports@henrik.synth.no
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	stardates
 PORTVERSION=	1.6.1

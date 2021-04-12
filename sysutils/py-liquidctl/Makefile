@@ -1,8 +1,14 @@
 # Created by: Emanuel Haupt <ehaupt@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	liquidctl
 PORTVERSION=	1.5.1
+=======
+
+PORTNAME=	liquidctl
+PORTVERSION=	1.6.0
+>>>>>>> upstream/main
 CATEGORIES=	sysutils python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}

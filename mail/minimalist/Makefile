@@ -1,5 +1,8 @@
 # Created by: gmarco@scotty.masternet.it
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	minimalist
 PORTVERSION=	2.5.3

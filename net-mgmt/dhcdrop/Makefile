@@ -1,5 +1,8 @@
 # Created by: Nick F <ffault@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dhcdrop
 PORTVERSION=	0.5

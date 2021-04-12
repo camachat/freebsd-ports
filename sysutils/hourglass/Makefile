@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	hourglass
 PORTVERSION=	1.0.1
 DISTVERSIONSUFFIX=	b

@@ -1,5 +1,8 @@
 # Created by: Akinori MUSHA aka knu <knu@idaemons.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	zfs-snapshot-clean
 PORTVERSION=	0.2.0

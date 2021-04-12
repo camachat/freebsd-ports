@@ -1,5 +1,8 @@
 # Created by: KIKUCHI Koichiro <koichiro@rworks.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wmi
 PORTVERSION=	1.3.16

@@ -1,5 +1,8 @@
 # Created by: lichray@gmail.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pinpoint
 DISTVERSION=	0.1.4

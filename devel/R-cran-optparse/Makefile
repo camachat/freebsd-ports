@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	optparse
 DISTVERSION=	1.6.6
 CATEGORIES=	devel

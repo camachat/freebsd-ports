@@ -1,5 +1,8 @@
 # Created by: Yoshihiko Sarumaru <mistral@imasy.or.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	astah
 PORTVERSION=	6.9.0

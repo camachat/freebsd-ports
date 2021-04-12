@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Module-Install-ReadmeFromPod
 PORTVERSION=	0.30
 CATEGORIES=	devel perl5

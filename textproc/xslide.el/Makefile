@@ -1,5 +1,8 @@
 # Created by: Leo Kim <leo@florida.sarang.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xslide.el
 PORTVERSION=	0.2.2

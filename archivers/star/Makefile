@@ -1,5 +1,8 @@
 # Created by: Andreas Klemm <andreas@klemm.gtn.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	star
 PORTVERSION=	1.6

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	google-cloud-translate
 PORTVERSION=	1.3.1
 PORTREVISION=	1

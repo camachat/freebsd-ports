@@ -1,5 +1,8 @@
 # Created by: clsung
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Tree-Suffix
 PORTVERSION=	0.22

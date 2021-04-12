@@ -1,5 +1,8 @@
 # Created by: giffunip
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gsfonts
 PORTVERSION=	8.11

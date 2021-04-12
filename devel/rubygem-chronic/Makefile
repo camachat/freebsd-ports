@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	chronic
 PORTVERSION=	0.10.2
 CATEGORIES=	devel rubygems

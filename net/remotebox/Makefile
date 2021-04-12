@@ -1,5 +1,8 @@
 # Created by: Haowu Ge <ghw@7axu.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	remotebox
 DISTVERSION=	2.5

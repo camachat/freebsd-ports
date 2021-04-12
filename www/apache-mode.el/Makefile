@@ -1,5 +1,8 @@
 # Created by: Max N. Boyarov <m.boyarov@bsd.by>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	apache-mode.el
 PORTVERSION=	2.0

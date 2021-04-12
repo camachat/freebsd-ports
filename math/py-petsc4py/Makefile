@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	petsc4py
 DISTVERSION=	3.10.0
 PORTREVISION=	2

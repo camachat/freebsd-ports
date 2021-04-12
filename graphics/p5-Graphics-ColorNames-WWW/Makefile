@@ -1,5 +1,8 @@
 # Created by: Tomoyuki Sakurai <cherry@trombik.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Graphics-ColorNames-WWW
 PORTVERSION=	1.14

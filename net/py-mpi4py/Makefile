@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mpi4py
 DISTVERSION=	3.0.3
 PORTREVISION=	1

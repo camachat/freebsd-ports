@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	domoticz
 PORTVERSION=	2020.2
 PORTREVISION=	1

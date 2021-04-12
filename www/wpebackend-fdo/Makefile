@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	wpebackend-fdo
 PORTVERSION=	1.4.1
 CATEGORIES=	www

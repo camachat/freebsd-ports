@@ -1,5 +1,8 @@
 # Created by: Justin Stanford <jus@security.za.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	File-Remove
 PORTVERSION=	1.58

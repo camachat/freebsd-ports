@@ -1,5 +1,8 @@
 # Created by: Mykola Dzham <i@levsha.me>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bino
 PORTVERSION=	1.6.5

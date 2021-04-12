@@ -1,5 +1,8 @@
 # Created by: olevole@olevole.ru
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	spice-gtk
 PORTVERSION=	0.37

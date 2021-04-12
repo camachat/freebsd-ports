@@ -1,5 +1,8 @@
 # Created by: Masanori Kiriake <seiken@nbs.co.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ack
 PORTVERSION=	1.39

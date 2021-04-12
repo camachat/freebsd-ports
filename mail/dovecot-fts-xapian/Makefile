@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	fts-xapian
 DISTVERSION=	1.4.8
+=======
+PORTNAME=	fts-xapian
+DISTVERSION=	1.4.8
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	mail
 PKGNAMEPREFIX=	dovecot-
 

@@ -1,5 +1,8 @@
 # Created by: Sergey Kandaurov <pluknet@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	simpleproxy
 PORTVERSION=	3.4

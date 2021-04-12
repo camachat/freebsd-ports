@@ -1,5 +1,8 @@
 # Created by: Derek Schrock <dereks@lifeofadishwasher.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xmlrpc
 PORTVERSION=	1.0.0

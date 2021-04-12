@@ -1,5 +1,8 @@
 # Created by: Lars Eggert <lars@eggert.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tcpsplit
 PORTVERSION=	0.2

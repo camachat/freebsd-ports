@@ -1,5 +1,8 @@
 # Created by: Anton Berezin <tobez@tobez.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Sort-ArbBiLex
 PORTVERSION=	4.01

@@ -1,5 +1,8 @@
 # Created by: Mikhail Teterin
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	je
 PORTVERSION=	6.2.31

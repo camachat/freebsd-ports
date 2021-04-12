@@ -1,5 +1,8 @@
 # Created by: Damjan Marion <dmarion@open.hr>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gftp
 PORTVERSION=	2.0.19

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xeus
 DISTVERSION=	0.24.4
 PORTREVISION=	1

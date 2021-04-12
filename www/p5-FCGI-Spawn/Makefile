@@ -1,5 +1,8 @@
 # Created by: Peter <peter@vereshagin.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	FCGI-Spawn
 PORTVERSION=	0.16.7

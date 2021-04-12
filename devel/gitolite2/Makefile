@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gitolite
 PORTVERSION=	2.3.1
 DISTVERSIONPREFIX=	v

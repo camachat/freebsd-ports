@@ -1,5 +1,8 @@
 # Created by: chinsan <chinsan.tw@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	CSS
 PORTVERSION=	1.09

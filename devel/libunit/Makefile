@@ -1,10 +1,17 @@
 # Created by: Sergey A. Osokin <osa@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libunit
 PORTVERSION=	${UNIT_VERSION}
 MASTER_SITES?=	https://unit.nginx.org/download/
 DISTNAME=	unit-${PORTVERSION}
+<<<<<<< HEAD
+=======
+DISTINFO_FILE=	${.CURDIR}/../../www/unit/distinfo
+>>>>>>> upstream/main
 
 MAINTAINER=	osa@FreeBSD.org
 COMMENT=	Development kit for dynamic web application server

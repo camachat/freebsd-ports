@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	arduino
 PORTVERSION=	1.8.5
 PORTREVISION=	1

@@ -1,5 +1,8 @@
 # Created by: devin@spamcop.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Log-Agent-Logger
 PORTVERSION=	0.200

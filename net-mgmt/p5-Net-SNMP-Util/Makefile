@@ -1,5 +1,8 @@
 # Created by: Hsin-Han You <hhyou@cs.nctu.edu.tw>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-SNMP-Util
 PORTVERSION=	1.04

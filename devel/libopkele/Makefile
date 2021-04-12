@@ -1,5 +1,8 @@
 # Created by: Sutra Zhou <zhoushuqun@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libopkele
 PORTVERSION=	2.0.4

@@ -1,5 +1,8 @@
 # Created by: Dennis Herrmann <adox@mcx2.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cutmp3
 PORTVERSION=	3.0.1

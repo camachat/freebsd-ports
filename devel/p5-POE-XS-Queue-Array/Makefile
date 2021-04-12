@@ -1,5 +1,8 @@
 # Created by: Zach Thompson <hideo@lastamericanempire.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	POE-XS-Queue-Array
 PORTVERSION=	0.006

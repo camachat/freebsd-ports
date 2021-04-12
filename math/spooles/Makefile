@@ -1,5 +1,8 @@
 # Created by: Pedro Giffuni <giffunip@asme.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	spooles
 PORTVERSION=	2.2

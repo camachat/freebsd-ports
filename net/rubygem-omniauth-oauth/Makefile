@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	omniauth-oauth
 PORTVERSION=	1.1.0
 CATEGORIES=	net rubygems

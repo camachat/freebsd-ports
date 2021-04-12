@@ -1,5 +1,8 @@
 # Created by: arved
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	XML-Elemental
 PORTVERSION=	2.11

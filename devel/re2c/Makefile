@@ -1,5 +1,8 @@
 # Created by: Eivind Eklund <eivind@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	re2c
 PORTVERSION=	0.14.3

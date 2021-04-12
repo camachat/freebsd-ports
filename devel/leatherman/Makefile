@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	leatherman
 PORTVERSION=	1.12.4
 CATEGORIES=	devel

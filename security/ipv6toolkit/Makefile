@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ipv6toolkit
 PORTVERSION=	2.0
 DISTVERSIONPREFIX=	v

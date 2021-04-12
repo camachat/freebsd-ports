@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	onedrive
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.4.10

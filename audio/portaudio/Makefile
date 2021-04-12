@@ -1,5 +1,8 @@
 # Created by: michaelnottebrock@gmx.net and lioux@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	portaudio
 PORTVERSION=	19.6.0

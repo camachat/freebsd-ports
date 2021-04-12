@@ -1,5 +1,8 @@
 # Created by: Andrew Thompson <thompsa@freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Nagios-Plugin-Beanstalk
 PORTVERSION=	0.04

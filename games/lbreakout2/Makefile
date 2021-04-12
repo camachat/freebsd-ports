@@ -1,5 +1,8 @@
 # Created by: verm@drunkmonk.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lbreakout2
 PORTVERSION=	2.6.5

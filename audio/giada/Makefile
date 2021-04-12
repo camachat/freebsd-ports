@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	giada
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.17.1

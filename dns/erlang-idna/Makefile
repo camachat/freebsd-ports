@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	idna
 PORTVERSION=	5.1.2
 CATEGORIES=	dns

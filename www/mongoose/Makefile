@@ -1,5 +1,8 @@
 # Created by: Boris Lytochkin (lytboris@gmail.com)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mongoose
 PORTVERSION=	5.6

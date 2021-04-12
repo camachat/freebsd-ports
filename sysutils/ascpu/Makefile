@@ -1,5 +1,8 @@
 # Created by: Dima Sivachenko <dima@chg.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ascpu
 PORTVERSION=	1.11

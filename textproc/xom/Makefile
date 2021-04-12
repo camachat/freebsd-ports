@@ -1,5 +1,8 @@
 # Created by: Herve Quiroz <hq@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xom
 PORTVERSION=	1.2.11

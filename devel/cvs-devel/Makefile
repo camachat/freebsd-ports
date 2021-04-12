@@ -1,5 +1,8 @@
 # Created by: Balwinder S Dheeman <bdheeman@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cvs
 PORTVERSION=	1.12.13

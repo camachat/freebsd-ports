@@ -1,5 +1,8 @@
 # Created by: swallace
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xrisk
 PORTVERSION=	2.15

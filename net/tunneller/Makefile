@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tunneller
 DISTVERSIONPREFIX=	release-
 DISTVERSION=	0.6

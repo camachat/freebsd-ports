@@ -1,5 +1,8 @@
 # Created by: Jason Helfman <jhelfman@experts-exchange.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	compass
 PORTVERSION=	1.0.3

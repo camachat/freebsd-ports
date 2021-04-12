@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gtkplatform
 DISTVERSION=	0.2.4-11
 DISTVERSIONSUFFIX=	-g1149f4f

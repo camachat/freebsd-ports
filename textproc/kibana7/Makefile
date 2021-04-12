@@ -1,5 +1,8 @@
 # Created by: Tom Judge <tj@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	kibana
 PORTVERSION=	7.10.1

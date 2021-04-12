@@ -1,5 +1,8 @@
 # Created by: Pav Lucistnik <pav@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bird
 PORTVERSION=	1.6.8

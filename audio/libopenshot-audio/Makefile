@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libopenshot-audio
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.2.0-29

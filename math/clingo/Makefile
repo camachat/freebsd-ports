@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	clingo
 DISTVERSIONPREFIX=	v
 DISTVERSION=	5.4.1

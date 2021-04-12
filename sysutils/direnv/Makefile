@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	direnv
 PORTVERSION=	2.27.0
 DISTVERSIONPREFIX=	v

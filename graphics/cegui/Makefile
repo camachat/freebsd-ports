@@ -1,5 +1,8 @@
 # Created by: Oliver Lehmann <oliver@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cegui
 PORTVERSION=	0.8.7
@@ -111,11 +114,14 @@ CMAKE_ARGS+=		-DCEGUI_BUILD_PYTHON_MODULES=OFF # python support doesn't build
 
 .include <bsd.port.pre.mk>
 
+<<<<<<< HEAD
 .if ${PORT_OPTIONS:MLUA}
 DEPRECATED=	Uses EOL Python 2.7 via lang/tolua++
 EXPIRATION_DATE=2021-06-23
 .endif
 
+=======
+>>>>>>> upstream/main
 .if ${PORT_OPTIONS:MEXPAT} || ${PORT_OPTIONS:MXERCES} || ${PORT_OPTIONS:MLIBXML2} || ${PORT_OPTIONS:MRAPIDXML} || ${PORT_OPTIONS:MTINYXML}
 PLIST_SUB+=	XMLPARSERS=""
 .else

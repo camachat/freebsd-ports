@@ -1,5 +1,8 @@
 # Created by: bf@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libflame
 DISTVERSION=	5.2.0

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Lingua-Stem-Snowball-No
 PORTVERSION=	1.2
 PORTREVISION=	2

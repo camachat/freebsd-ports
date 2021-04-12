@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mailest
 PORTVERSION=	0.9.24
 DISTVERSIONPREFIX=	${PORTNAME}-

@@ -1,5 +1,8 @@
 # Created by: Tobias Kortkamp <t@tobik.me>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	okc321
 PORTVERSION=	1.1

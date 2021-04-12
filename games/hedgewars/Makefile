@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # Created by: Dmitry Marakasov <amdmi3@FreeBSD.org>
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	hedgewars
 PORTVERSION=	1.0.0
 PORTREVISION=	4
@@ -15,6 +18,11 @@ COMMENT=	Free Worms-like turn based strategy game
 LICENSE=	GPLv2 GFDL
 LICENSE_COMB=	multi
 
+<<<<<<< HEAD
+=======
+BROKEN_i386=	ld: error: duplicate symbol: LandDirty_dimension_info
+
+>>>>>>> upstream/main
 LIB_DEPENDS=	libphysfs.so:devel/physfs \
 		libpng.so:graphics/png
 

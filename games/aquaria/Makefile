@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	aquaria
 DISTVERSIONPREFIX=	OSE-v
 DISTVERSION=	1.002-22

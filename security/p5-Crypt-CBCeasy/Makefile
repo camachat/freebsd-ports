@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Crypt-CBCeasy
 PORTVERSION=	0.24
 PORTREVISION=	2

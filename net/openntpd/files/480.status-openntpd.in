@@ -1,7 +1,10 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 
 if [ -r /etc/defaults/periodic.conf ] ; then
     . /etc/defaults/periodic.conf

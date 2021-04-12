@@ -1,8 +1,14 @@
 # Created by: chinsan <chinsan@mail2000.com.tw>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	phpmyfaq
 PORTVERSION=	3.0.7
+=======
+
+PORTNAME=	phpmyfaq
+PORTVERSION=	3.0.8
+>>>>>>> upstream/main
 CATEGORIES=	www
 MASTER_SITES=	https://download.phpmyfaq.de/files/
 

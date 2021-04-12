@@ -1,5 +1,8 @@
 # Created by: Nicola Vitale <nivit@email.it>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	espeak
 PORTVERSION=	1.48.04

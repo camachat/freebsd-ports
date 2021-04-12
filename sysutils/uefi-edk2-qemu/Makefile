@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	uefi-edk2-qemu
 DISTVERSION=	g20191122
 CATEGORIES=	sysutils

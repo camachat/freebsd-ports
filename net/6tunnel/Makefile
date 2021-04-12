@@ -1,5 +1,8 @@
 # Created by: Vassili Tchersky <vt@bsdjeunz.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	6tunnel
 DISTVERSION=	0.13

@@ -1,5 +1,8 @@
 # Created by: Shigeyuki Fukushima <shige@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	css-mode-elisp
 PORTVERSION=	0.11

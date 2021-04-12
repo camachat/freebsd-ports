@@ -1,5 +1,8 @@
 # Created by: Rob Evers <rob@debank.tv>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	moregroupware
 PORTVERSION=	0.7.4

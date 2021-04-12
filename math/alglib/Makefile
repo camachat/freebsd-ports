@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	alglib
 DISTVERSION=	3.17.0
 CATEGORIES=	math science

@@ -1,5 +1,8 @@
 # Created by: Joerg Pulz <Joerg.Pulz@frm2.tum.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ldapvi
 PORTVERSION=	1.7

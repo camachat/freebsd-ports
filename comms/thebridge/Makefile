@@ -1,5 +1,8 @@
 # Created by: db
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	thebridge
 PORTVERSION=	1.09

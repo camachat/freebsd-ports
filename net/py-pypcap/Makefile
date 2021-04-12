@@ -1,5 +1,8 @@
 # Created by: George V. Neville-Neil
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pypcap
 DISTVERSION=	1.2.3

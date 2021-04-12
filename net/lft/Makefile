@@ -1,5 +1,8 @@
 # Created by: Marco P. Rodrigues <drkangel@drkangel.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lft
 PORTVERSION=	3.91

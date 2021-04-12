@@ -1,5 +1,8 @@
 # Created by: Cheng-Lung Sung <clsung@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-Frame-Dump
 PORTVERSION=	1.18

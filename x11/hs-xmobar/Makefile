@@ -1,5 +1,8 @@
 # Created by: Samy Al Bahra <sbahra@kerneled.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xmobar
 PORTVERSION=	0.37

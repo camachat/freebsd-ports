@@ -1,5 +1,8 @@
 # Created by: Andrey <gugu@zoo.rambler.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Math-BigInt-Pari
 PORTVERSION=	1.3006

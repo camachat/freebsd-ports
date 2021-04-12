@@ -1,5 +1,8 @@
 # Created by: Jordan DeLong <fracture@allusion.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	prboom
 PORTVERSION=	2.5.0

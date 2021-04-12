@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	aphpbreakdown
 DISTVERSION=	2.2.2
 CATEGORIES=	devel www

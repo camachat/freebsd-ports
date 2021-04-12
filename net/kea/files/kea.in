@@ -1,6 +1,10 @@
 #!/bin/sh
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+
+>>>>>>> upstream/main
 # PROVIDE: kea
 # REQUIRE: NETWORK netif routing %%REQ_MYSQL%% %%REQ_PGSQL%%
 # KEYWORD: shutdown

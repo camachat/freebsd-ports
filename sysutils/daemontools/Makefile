@@ -1,5 +1,8 @@
 # Created by: Dom Mitchell <dom@myrddin.demon.co.uk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	daemontools
 PORTVERSION=	0.76

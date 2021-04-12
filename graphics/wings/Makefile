@@ -1,5 +1,8 @@
 # Created by: olgeni@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wings
 PORTVERSION=	2.2.5

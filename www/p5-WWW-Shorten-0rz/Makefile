@@ -1,5 +1,8 @@
 # Created by: Tsung-Han Yeh <snowfly@yuntech.edu.tw>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	WWW-Shorten-0rz
 PORTVERSION=	0.074

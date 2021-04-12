@@ -1,5 +1,8 @@
 # Created by: Christer Edwards <christer.edwards@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ioflo
 PORTVERSION=	2.0.0

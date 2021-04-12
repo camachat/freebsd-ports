@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	popup
 PORTVERSION=	1.0
 CATEGORIES=	textproc

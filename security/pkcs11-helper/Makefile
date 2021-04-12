@@ -1,5 +1,8 @@
 # Created by: Alex Dupre <ale@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pkcs11-helper
 PORTVERSION=	1.27.0

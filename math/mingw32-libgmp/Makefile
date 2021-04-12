@@ -1,5 +1,8 @@
 # Created by: Timothy Bourke <timbob@bigpond.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libgmp
 PORTVERSION=	6.0.0

@@ -1,5 +1,8 @@
 # Created by: Mark Felder <feld@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME?=	percona
 DISTVERSION=	5.7.31-34

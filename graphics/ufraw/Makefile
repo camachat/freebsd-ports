@@ -1,9 +1,16 @@
 # Created by: Mark Murray <markm@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	ufraw
 PORTVERSION=	0.22
 PORTREVISION=	17
+=======
+
+PORTNAME=	ufraw
+PORTVERSION=	0.22
+PORTREVISION=	18
+>>>>>>> upstream/main
 CATEGORIES=	graphics
 
 MAINTAINER=	rodrigo@FreeBSD.org
@@ -20,7 +27,11 @@ LIB_DEPENDS=	libtiff.so:graphics/tiff \
 
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--enable-extras
+<<<<<<< HEAD
 USES=		compiler:c++11-lang gettext gmake jpeg pkgconfig autoreconf gnome
+=======
+USES=		compiler:c++11-lang desktop-file-utils gettext gmake jpeg pkgconfig autoreconf gnome
+>>>>>>> upstream/main
 
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-lpthread -L${LOCALBASE}/lib

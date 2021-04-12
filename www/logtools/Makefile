@@ -1,5 +1,8 @@
 # Created by: Mark Huizer; Eindhoven
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	logtools
 PORTVERSION=	0.13e

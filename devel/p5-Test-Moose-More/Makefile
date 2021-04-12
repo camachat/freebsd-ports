@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Test-Moose-More
 PORTVERSION=	0.050
 CATEGORIES=	devel perl5

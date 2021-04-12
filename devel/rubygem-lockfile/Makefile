@@ -1,5 +1,8 @@
 # Created by: Dennis Herrmann <adox@mcx2.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lockfile
 PORTVERSION=	2.1.3

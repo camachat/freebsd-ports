@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	premailer
 PORTVERSION=	3.1.1
 CATEGORIES=	mail python

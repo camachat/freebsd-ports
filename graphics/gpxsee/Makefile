@@ -1,5 +1,8 @@
 # Created by: Nikolay Korotkiy <sikmir@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gpxsee
 DISTVERSION=	7.32

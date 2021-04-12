@@ -1,5 +1,8 @@
 # Created by: Eric Turgeon <ericturgeon.bsd@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lxrandr
 PORTVERSION=	0.3.1

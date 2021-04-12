@@ -1,5 +1,8 @@
 # Created by: Douglas Thrift <douglas@douglasthrift.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	yard-chef
 PORTVERSION=	2.0.0

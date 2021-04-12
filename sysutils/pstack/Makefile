@@ -1,5 +1,8 @@
 # Created by: Peter Edwards <pmedwards@eircom.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pstack
 PORTVERSION=	1.3

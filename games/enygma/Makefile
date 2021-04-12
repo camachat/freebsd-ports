@@ -1,5 +1,8 @@
 # Created by: Wouter Reckman <gennerate@zonnet.nl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	enygma
 PORTVERSION=	1.04

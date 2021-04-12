@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	webob
 PORTVERSION=	1.8.6
 CATEGORIES=	www python

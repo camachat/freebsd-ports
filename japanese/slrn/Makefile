@@ -1,5 +1,8 @@
 # Created by: Takashi Mega <mega@minz.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	slrn
 PORTVERSION=	0.9.6.2

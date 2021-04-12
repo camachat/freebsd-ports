@@ -1,5 +1,8 @@
 # Created by: sec@42.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sic
 PORTVERSION=	0.23a

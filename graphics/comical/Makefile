@@ -1,5 +1,8 @@
 # Created by: John McAree <john@mcaree.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	comical
 PORTVERSION=	0.8

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gworkspace
 PORTVERSION=	0.9.4
 PORTREVISION=	5

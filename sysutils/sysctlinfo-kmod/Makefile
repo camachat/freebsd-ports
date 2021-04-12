@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sysctlinfo-kmod
 DISTVERSION=	20210222
 CATEGORIES=	sysutils

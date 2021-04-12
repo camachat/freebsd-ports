@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	frand
 PORTVERSION=	0.1
 DISTVERSIONPREFIX=	v

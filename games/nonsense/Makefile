@@ -1,5 +1,8 @@
 # Created by: roam@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nonsense
 PORTVERSION=	0.6

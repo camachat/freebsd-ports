@@ -1,5 +1,8 @@
 # Created by: chris
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	spampd
 PORTVERSION=	2.53

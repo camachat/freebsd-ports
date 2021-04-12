@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sabredav
 PORTVERSION=	3.2.2
 PORTREVISION=	1

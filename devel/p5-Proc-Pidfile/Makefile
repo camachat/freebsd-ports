@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Proc-Pidfile
 PORTVERSION=	1.06
 PORTREVISION=	1

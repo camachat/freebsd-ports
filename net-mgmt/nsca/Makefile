@@ -1,5 +1,8 @@
 # Created by: Paul Dlug <paul@nerdlabs.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nsca
 PORTVERSION=	2.9.2

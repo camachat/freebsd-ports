@@ -1,5 +1,8 @@
 # Created by: Wen heping <wenheping@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	efront
 DISTVERSION=	3.6.14

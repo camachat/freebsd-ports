@@ -1,5 +1,8 @@
 # Created by: Alexander Leidinger
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	openhab2
 PORTVERSION=	2.5.11

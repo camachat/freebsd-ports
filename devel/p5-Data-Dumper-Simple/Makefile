@@ -1,5 +1,8 @@
 # Created by: clsung
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Data-Dumper-Simple
 PORTVERSION=	0.11

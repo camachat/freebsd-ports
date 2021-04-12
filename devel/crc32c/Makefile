@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	crc32c
 DISTVERSION=	1.1.1
 CATEGORIES=	devel

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Devel-Trace
 PORTVERSION=	0.12
 PORTREVISION=	1

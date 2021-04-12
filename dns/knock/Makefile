@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	knock
 DISTVERSION=	4.1.0-27
 DISTVERSIONSUFFIX=	-ge2c98df

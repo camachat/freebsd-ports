@@ -1,5 +1,8 @@
 # Created by: buganini@gmail.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	opencc
 PORTVERSION=	11.5

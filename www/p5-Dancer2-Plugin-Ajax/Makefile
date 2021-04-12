@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Dancer2-Plugin-Ajax
 PORTVERSION=	0.400000
 CATEGORIES=	www perl5

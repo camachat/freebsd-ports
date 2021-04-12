@@ -1,5 +1,8 @@
 # Created by: Bernard Spil <brnrd@freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	notes
 PORTVERSION=	4.0.4

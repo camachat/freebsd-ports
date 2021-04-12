@@ -1,5 +1,8 @@
 # Created by: olgeni@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gtk-xfce-engine
 PORTVERSION=	3.2.0

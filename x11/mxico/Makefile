@@ -1,5 +1,8 @@
 # Created by: NAKATA, Maho <maho@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 # NB: Do not delete or wrap post-install section, since we have to provide
 #     READMEj and README

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sudo-font
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.52

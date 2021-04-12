@@ -1,5 +1,8 @@
 # Created by: Fotis Zabaras <fotis@zabaras.eu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pyzabbix
 PORTVERSION=	0.8.2

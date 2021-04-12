@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	erlfdb
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.3.1
+=======
+PORTNAME=	erlfdb
+DISTVERSIONPREFIX=	v
+DISTVERSION=	1.3.3
+>>>>>>> upstream/main
 CATEGORIES=	databases
 
 MAINTAINER=	dch@FreeBSD.org

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	getmail6
 DISTVERSIONPREFIX=	v
 DISTVERSION=	6.15

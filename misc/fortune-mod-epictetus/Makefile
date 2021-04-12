@@ -1,5 +1,8 @@
 # Created by: Andy Kosela <akosela@andykosela.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fortune-mod-epictetus
 PORTVERSION=	0.2

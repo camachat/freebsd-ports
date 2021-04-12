@@ -1,5 +1,8 @@
 # Created by: Kris Moore <kmoore@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sphinx-intl
 PORTVERSION=	0.9.5

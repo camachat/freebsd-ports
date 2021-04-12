@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bsd
 PORTVERSION=	1.0.20170329
 CATEGORIES=	devel python

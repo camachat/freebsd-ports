@@ -1,5 +1,8 @@
 # Created by: Erwin Lansing <erwin@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Sub-Uplevel
 PORTVERSION=	0.2800

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	vegeta
 DISTVERSIONPREFIX=	v
 DISTVERSION=	12.8.4

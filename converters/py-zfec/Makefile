@@ -1,5 +1,8 @@
 # Created by: Kevin Lo <kevlo@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	zfec
 PORTVERSION=	1.5.5

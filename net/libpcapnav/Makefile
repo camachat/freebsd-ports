@@ -1,5 +1,8 @@
 # Created by: Yann Berthier <yb@sainte-barbe.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libpcapnav
 PORTVERSION=	0.8

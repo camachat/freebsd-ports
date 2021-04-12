@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 LIB = 	NunniMCAX
 SRCS=	NunniCXMLParser.c NunniCXMLParserFSM.c NunniHashtable.c NunniStack.c
 INCS=	NunniMCAX.h

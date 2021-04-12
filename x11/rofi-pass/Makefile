@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rofi-pass
 DISTVERSION=	2.0.2
 PORTREVISION=	2

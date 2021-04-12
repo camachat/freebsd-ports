@@ -1,5 +1,8 @@
 # Created by: Cory R. King <coryking@mozimedia.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Digest-TransformPath
 PORTVERSION=	1.00

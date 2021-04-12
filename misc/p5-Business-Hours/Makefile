@@ -1,5 +1,8 @@
 # Created by: Matthew Seaman
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Business-Hours
 PORTVERSION=	0.13

@@ -1,5 +1,8 @@
 # Created by: Travis Poppe <tlp@liquidx.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gens
 PORTVERSION=	2.15.5

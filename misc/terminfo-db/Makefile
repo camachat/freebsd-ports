@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	terminfo
 PORTVERSION=	20201128
 DISTVERSIONSUFFIX=	.src

@@ -1,5 +1,8 @@
 # Created by: clsung
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Module-Starter
 PORTVERSION=	1.77

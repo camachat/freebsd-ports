@@ -1,5 +1,8 @@
 # Created by: Marcin Cieslak <saper@SYSTEM.PL>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mtasc
 PORTVERSION=	1.14

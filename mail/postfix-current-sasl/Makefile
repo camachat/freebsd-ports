@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PKGNAMESUFFIX?=	-current-sasl
 
 MAINTAINER=	ohauer@FreeBSD.org

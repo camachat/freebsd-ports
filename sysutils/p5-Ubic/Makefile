@@ -1,5 +1,8 @@
 # Created by: Dmitry Yashin <dmitry@yashin.su>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Ubic
 PORTVERSION=	1.58

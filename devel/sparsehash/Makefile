@@ -1,5 +1,8 @@
 # Created by: Vasil Dimov <vd@datamax.bg>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sparsehash
 PORTVERSION=	2.0.4

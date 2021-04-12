@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	azure-mgmt-dns
 PORTVERSION=	3.0.0
 CATEGORIES=	devel python

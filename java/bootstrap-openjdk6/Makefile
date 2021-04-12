@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	openjdk6
 PORTVERSION=	${DISTVERSION_${ARCH}}
 CATEGORIES=	java devel

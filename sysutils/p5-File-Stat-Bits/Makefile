@@ -1,5 +1,8 @@
 # Created by: Jim Pirzyk pirzyk@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	File-Stat-Bits
 PORTVERSION=	1.01

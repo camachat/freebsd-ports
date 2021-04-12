@@ -1,5 +1,8 @@
 # Created by: Philippe Le Berre <philippe@le-berre.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ftpproxy
 PORTVERSION=	1.2.3

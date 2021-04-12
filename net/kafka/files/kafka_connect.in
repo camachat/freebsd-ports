@@ -1,6 +1,10 @@
 #!/bin/sh
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+
+>>>>>>> upstream/main
 # PROVIDE: kafka_connect
 # REQUIRE: NETWORKING SERVERS DAEMON
 # KEYWORD: shutdown

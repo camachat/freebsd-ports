@@ -1,5 +1,8 @@
 # Created by: Raaf <freebsd@luna.afraid.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pwcbsd
 PORTVERSION=	1.4.1

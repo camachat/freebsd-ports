@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	g2o
 DISTVERSION=	20201223
 DISTVERSIONSUFFIX=	_git

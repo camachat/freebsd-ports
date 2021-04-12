@@ -1,5 +1,8 @@
 # Created by: Andrey Kostenko <andrey@kostenko.name>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Pod-Eventual
 PORTVERSION=	0.094001

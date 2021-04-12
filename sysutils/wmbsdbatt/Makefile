@@ -1,5 +1,8 @@
 # Created by: Josef El-Rayes <josef@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wmbsdbatt
 PORTVERSION=	0.1

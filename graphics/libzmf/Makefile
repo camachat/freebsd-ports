@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	libzmf
 PORTVERSION=	0.0.2
 PORTREVISION=	22
+=======
+PORTNAME=	libzmf
+PORTVERSION=	0.0.2
+PORTREVISION=	23
+>>>>>>> upstream/main
 CATEGORIES=	graphics
 MASTER_SITES=	LODEV
 

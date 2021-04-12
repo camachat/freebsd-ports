@@ -1,5 +1,8 @@
 # Created by: Abel Chow <achow@transoft.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME?=	tidy
 DISTVERSION=	090315-cvs

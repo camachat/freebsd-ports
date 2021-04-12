@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PREFIX?=/usr/local
 BINDIR=	${PREFIX}/bin
 PROG=	parchive

@@ -1,5 +1,8 @@
 # Created by: nbm
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sip
 PORTVERSION=	${SIP_VERSION}

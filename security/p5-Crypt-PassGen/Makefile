@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Crypt-PassGen
 PORTVERSION=	0.06
 PORTREVISION=	1

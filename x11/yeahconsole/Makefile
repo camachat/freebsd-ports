@@ -1,5 +1,8 @@
 # Created by: Satoshi Asami <asami@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	yeahconsole
 PORTVERSION=	0.3.4

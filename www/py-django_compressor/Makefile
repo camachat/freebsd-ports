@@ -1,5 +1,8 @@
 # Created by: Lung-Pin Chang <changlp@cs.nctu.edu.tw>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	django_compressor
 PORTVERSION=	2.4

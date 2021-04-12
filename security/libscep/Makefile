@@ -1,5 +1,8 @@
 # Created by: Sergei Vyshenski <svysh.fbsd@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libscep
 PORTVERSION=	0.08

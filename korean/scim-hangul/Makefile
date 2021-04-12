@@ -1,5 +1,8 @@
 # Created by: Junho CHOI <junho.choi@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	scim-hangul
 PORTVERSION=	0.4.0

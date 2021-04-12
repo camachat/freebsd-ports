@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ipaex
 PORTVERSION=	00401
 CATEGORIES=	japanese x11-fonts

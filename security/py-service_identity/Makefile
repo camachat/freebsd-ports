@@ -1,5 +1,8 @@
 # Created by: Axel Rau <axel.rau@chaos1.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	service_identity
 PORTVERSION=	18.1.0

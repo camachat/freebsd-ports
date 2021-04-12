@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Flask-Admin
 PORTVERSION=	1.5.6
 CATEGORIES=	www python

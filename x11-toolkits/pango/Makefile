@@ -1,5 +1,8 @@
 # Created by: Maxim Sobolev <sobomax@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pango
 PORTVERSION=	1.42.4

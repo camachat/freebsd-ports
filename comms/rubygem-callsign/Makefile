@@ -1,5 +1,8 @@
 # Created by: Rick Elrod <codeblock@eighthbit.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	callsign
 PORTVERSION=	2.2.0

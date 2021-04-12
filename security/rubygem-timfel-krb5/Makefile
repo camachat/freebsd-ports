@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	timfel-krb5-auth
 PORTVERSION=	0.8.3
 CATEGORIES=	security rubygems

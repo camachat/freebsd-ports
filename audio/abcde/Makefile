@@ -1,5 +1,8 @@
 # Created by: Munish Chopra <mchopra@engmail.uwaterloo.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	abcde
 DISTVERSION=	2.9.3

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		mtxclient
 DISTVERSIONPREFIX=	v
 DISTVERSION=		0.4.1

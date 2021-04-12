@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ffsend
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.2.68

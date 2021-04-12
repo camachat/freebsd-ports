@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gcc
 PORTVERSION=	9.1.0
 PORTREVISION=	2

@@ -1,5 +1,8 @@
 # Created by: Matthew Seaman
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	barman
 DISTVERSION=	2.12

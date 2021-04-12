@@ -1,8 +1,14 @@
 # Created by: Gerald Pfeifer <gerald@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	wine
 DISTVERSION=	6.4
+=======
+
+PORTNAME=	wine
+DISTVERSION=	6.6
+>>>>>>> upstream/main
 PORTEPOCH=	1
 CATEGORIES=	emulators
 MASTER_SITES=	SF/${PORTNAME}/Source \
@@ -89,7 +95,11 @@ LDAP_USE=		OPENLDAP=yes
 LIBXSLT_CONFIGURE_WITH=	xslt
 LIBXSLT_LIB_DEPENDS=	libxslt.so:textproc/libxslt
 
+<<<<<<< HEAD
 MONO_RUN_DEPENDS=	${DATADIR}/mono/wine-mono-6.0.0-x86.msi:emulators/wine-mono-devel
+=======
+MONO_RUN_DEPENDS=	wine-mono-devel>0:emulators/wine-mono-devel
+>>>>>>> upstream/main
 
 MPG123_CONFIGURE_WITH=	mpg123
 MPG123_LIB_DEPENDS=	libmpg123.so:audio/mpg123

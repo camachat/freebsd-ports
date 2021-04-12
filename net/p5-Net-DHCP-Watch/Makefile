@@ -1,5 +1,8 @@
 # Created by: Lawrence Chen <beastie@tardisi.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-DHCP-Watch
 PORTVERSION=	2.03

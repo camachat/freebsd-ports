@@ -1,5 +1,8 @@
 # Created by: Cyrille Lefevre <clefevre@citeweb.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gengetopt
 PORTVERSION=	2.23

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	aiosqlite
 PORTVERSION=	0.15.0
 CATEGORIES=	databases python

@@ -1,5 +1,8 @@
 # Created by: Kurt Lidl <kurt.lidl@cello.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Data-Rx
 PORTVERSION=	0.200007

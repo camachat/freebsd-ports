@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rencode
 PORTVERSION=	1.0.6
 PORTREVISION=	1

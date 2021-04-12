@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ridl
 DISTVERSIONPREFIX=	v
 DISTVERSION=	g20190530

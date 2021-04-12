@@ -1,5 +1,8 @@
 # Created by: Nik Clayton <nik@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libtap
 PORTVERSION=	1.12.0

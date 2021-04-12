@@ -1,5 +1,8 @@
 # Created by: Bernard Spil <brnrd@freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	talk
 PORTVERSION=	11.1.1

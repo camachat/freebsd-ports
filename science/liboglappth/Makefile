@@ -1,5 +1,8 @@
 # Created by: Nakata Maho <maho@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	liboglappth
 PORTVERSION=	1.0.0

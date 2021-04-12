@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cufflinks
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.2.1-89

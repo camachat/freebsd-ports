@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	spiff
 PORTVERSION=	1.0.8
 DISTVERSIONPREFIX=	v

@@ -1,5 +1,8 @@
 # Created by: Maxim Sobolev <sobomax@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Business-OnlinePayment-AuthorizeNet
 PORTVERSION=	3.23

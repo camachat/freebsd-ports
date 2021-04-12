@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dwarf2json
 DISTVERSION=	g20200326
 CATEGORIES=	devel

@@ -1,5 +1,8 @@
 # Created by: Conrad Meyer <cem@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lkl
 DISTVERSION=	4.16.g20180628

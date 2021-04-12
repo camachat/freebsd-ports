@@ -1,5 +1,8 @@
 # Created by: Douglas Thrift
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dtpstree
 PORTVERSION=	1.0.3

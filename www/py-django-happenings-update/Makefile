@@ -1,5 +1,8 @@
 # Created by: Kevin Golding <ports@caomhin.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	django-happenings-update
 PORTVERSION=	0.4.4

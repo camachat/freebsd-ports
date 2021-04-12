@@ -1,5 +1,8 @@
 # Created by: Ade Lovett <ade@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	CGI-Minimal
 PORTVERSION=	1.30

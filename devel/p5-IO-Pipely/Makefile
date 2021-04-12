@@ -1,5 +1,8 @@
 # Created by: Mathieu Arnold
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	IO-Pipely
 PORTVERSION=	0.005

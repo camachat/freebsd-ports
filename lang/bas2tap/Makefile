@@ -1,5 +1,8 @@
 # Created by: rene
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bas2tap
 PORTVERSION=	2.6

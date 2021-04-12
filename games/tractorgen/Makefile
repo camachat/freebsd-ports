@@ -1,5 +1,8 @@
 # Created by: elfrink@introcom.nl
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tractorgen
 PORTVERSION=	0.31.7

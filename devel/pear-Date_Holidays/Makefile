@@ -1,5 +1,8 @@
 # Created by: Thomas Abthorpe <thomas@goodking.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Date_Holidays
 PORTVERSION=	0.21.8

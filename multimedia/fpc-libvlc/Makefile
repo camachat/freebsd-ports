@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 CATEGORIES=	multimedia lang
 PKGNAMESUFFIX=	-libvlc
 

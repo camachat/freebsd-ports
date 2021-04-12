@@ -1,9 +1,15 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	deno
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.8.2
 PORTREVISION=	1
+=======
+PORTNAME=	deno
+DISTVERSIONPREFIX=	v
+DISTVERSION=	1.8.3
+>>>>>>> upstream/main
 CATEGORIES=	www
 
 MAINTAINER=	mikael@FreeBSD.org

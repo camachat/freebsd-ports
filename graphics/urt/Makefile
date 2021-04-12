@@ -1,5 +1,8 @@
 # Created by: cfs@ing.puc.cl (original)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	urt
 PORTVERSION=	3.1b1

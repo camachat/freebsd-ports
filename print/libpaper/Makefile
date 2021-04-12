@@ -1,5 +1,8 @@
 # Created by: lofi@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libpaper
 PORTVERSION=	1.1.24.4

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	nekobi
 DISTVERSION=	g20180825
 PORTREVISION=	2

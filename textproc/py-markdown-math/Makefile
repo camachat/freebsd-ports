@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	markdown-math
 PORTVERSION=	0.6
 CATEGORIES=	textproc python

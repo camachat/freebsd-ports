@@ -1,5 +1,8 @@
 # Created by: David Shane Holden <dpejesh@yahoo.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTVERSION=		2.4.5
 PORTREVISION=		1

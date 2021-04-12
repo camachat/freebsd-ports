@@ -1,5 +1,8 @@
 # Created by: Alexey Dokuchaev <danfe@regency.nsu.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tt
 PORTVERSION=	15.1

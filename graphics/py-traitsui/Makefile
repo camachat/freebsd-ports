@@ -1,5 +1,8 @@
 # Created by: Vladimir Chukharev
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	traitsui
 PORTVERSION=	7.1.1

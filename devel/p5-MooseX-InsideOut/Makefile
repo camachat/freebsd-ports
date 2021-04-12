@@ -1,5 +1,8 @@
 # Created by: gugu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	MooseX-InsideOut
 PORTVERSION=	0.106

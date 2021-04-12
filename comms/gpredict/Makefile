@@ -1,5 +1,8 @@
 # Created by: Matt Dawson <matt@mattsnetwork.co.uk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gpredict
 DISTVERSION=	2.2.1

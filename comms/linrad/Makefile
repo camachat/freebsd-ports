@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	linrad
 PORTVERSION=	4.02
 PORTREVISION=	6

@@ -1,5 +1,8 @@
 # Created by: Michael C . Wu <keichii@iteration.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	auto-tw-l10n
 PORTVERSION=	1.16

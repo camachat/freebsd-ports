@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rules
 DISTVERSION=	2.0.1
 CATEGORIES=	www python

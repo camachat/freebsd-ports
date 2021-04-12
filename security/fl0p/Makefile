@@ -1,5 +1,8 @@
 # Created by: trasz <trasz@pin.if.uz.zgora.pl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fl0p
 PORTVERSION=	0.0.2.b

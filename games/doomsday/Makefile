@@ -1,5 +1,8 @@
 # Created by: Igor Pokrovsky <ip@doom.homeunix.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	doomsday
 PORTVERSION=	2.3.0

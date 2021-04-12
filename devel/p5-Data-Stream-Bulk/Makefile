@@ -1,5 +1,8 @@
 # Created by: Yen-Ming Lee <leeym@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Data-Stream-Bulk
 PORTVERSION=	0.11

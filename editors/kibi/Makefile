@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kibi
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.2.2

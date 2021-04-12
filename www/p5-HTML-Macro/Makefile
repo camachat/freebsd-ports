@@ -1,5 +1,8 @@
 # Created by: Groovis <groovis@groovis.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HTML-Macro
 PORTVERSION=	1.30

@@ -1,5 +1,8 @@
 # Created by: Nicola Vitale <nivit@email.it>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	morla
 PORTVERSION=	0.16.1

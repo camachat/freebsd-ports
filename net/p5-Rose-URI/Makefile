@@ -1,5 +1,8 @@
 # Created by: Wen Heping <wen@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Rose-URI
 PORTVERSION=	1.02

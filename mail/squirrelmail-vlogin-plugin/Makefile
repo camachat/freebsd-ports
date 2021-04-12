@@ -1,5 +1,8 @@
 # Created by: Matt Emmerton <matt@gsicomp.on.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vlogin
 PORTVERSION=	3.10.2

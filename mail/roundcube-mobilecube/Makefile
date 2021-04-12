@@ -1,5 +1,8 @@
 # Created by: Alexey V. Degtyarev <alexey@renatasystems.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mobilecube
 PORTVERSION=	${THEME_VERSION}.${THEME_BUILD}

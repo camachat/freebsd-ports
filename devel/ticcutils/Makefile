@@ -1,9 +1,16 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	ticcutils
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.20
 PORTREVISION=	12
+=======
+PORTNAME=	ticcutils
+DISTVERSIONPREFIX=	v
+DISTVERSION=	0.20
+PORTREVISION=	13
+>>>>>>> upstream/main
 CATEGORIES=	devel textproc
 
 MAINTAINER=	yuri@FreeBSD.org

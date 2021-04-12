@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	klee
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.2

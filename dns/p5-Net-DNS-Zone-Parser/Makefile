@@ -1,5 +1,8 @@
 # Created by: Jimmy Bergman jimmy@sigint.se
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-DNS-Zone-Parser
 PORTVERSION=	0.02

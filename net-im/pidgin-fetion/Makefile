@@ -1,5 +1,8 @@
 # Created by: Alexander Logvinov <ports@logvinov.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fetion
 PORTVERSION=	0.98.5.2

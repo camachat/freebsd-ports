@@ -1,5 +1,8 @@
 # Created by: Nick Hibma <n_hibma@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Sys-Gamin
 PORTVERSION=	0.1

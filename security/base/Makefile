@@ -1,5 +1,8 @@
 # Created by: Linh Pham <question+fbsdports@closedsrc.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	base
 PORTVERSION=	1.4.5

@@ -1,5 +1,8 @@
 # Created by: mwest@uct.ac.za
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lbdb
 PORTVERSION=	0.42.1

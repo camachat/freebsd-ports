@@ -1,5 +1,8 @@
 # Created by: Travis Poppe <tlp@liquidx.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	stratagus
 PORTVERSION=	2.4.2
@@ -12,9 +15,12 @@ COMMENT=	Free cross-platform real-time strategy gaming engine
 LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/COPYING
 
+<<<<<<< HEAD
 DEPRECATED=	Uses EOL Python 2.7 via lang/tolua++
 EXPIRATION_DATE=2021-06-23
 
+=======
+>>>>>>> upstream/main
 LIB_DEPENDS=	libpng.so:graphics/png \
 		libtolua++-${LUA_VER}.so:lang/tolua++
 

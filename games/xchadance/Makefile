@@ -1,5 +1,8 @@
 # Created by: issei <issei@jp.FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xchadance
 PORTVERSION=	1.0

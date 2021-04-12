@@ -1,5 +1,8 @@
 # Created by: Christopher N. Harrell <cnh@ivmg.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	NetAddr-IP
 PORTVERSION=	4.079

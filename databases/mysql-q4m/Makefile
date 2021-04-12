@@ -1,5 +1,8 @@
 # Created by: Akinori MUSHA aka knu <knu@idaemons.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	q4m
 PORTVERSION=	0.9.14

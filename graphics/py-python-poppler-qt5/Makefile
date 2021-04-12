@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	python-poppler-qt5
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.75.0

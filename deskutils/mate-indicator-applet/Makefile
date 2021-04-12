@@ -1,5 +1,8 @@
 # Created by: Eric Turgeon <ericbsd@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 PORTNAME=	mate-indicator-applet
 PORTVERSION=	1.24.0
 CATEGORIES=	deskutils mate

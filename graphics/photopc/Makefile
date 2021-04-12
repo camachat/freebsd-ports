@@ -1,5 +1,8 @@
 # Created by: Douglas Carmichael <dcarmich@mcs.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	photopc
 PORTVERSION=	3.07

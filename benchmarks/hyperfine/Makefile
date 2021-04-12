@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	hyperfine
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.11.0

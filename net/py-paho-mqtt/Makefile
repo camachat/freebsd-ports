@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	paho-mqtt
 PORTVERSION=	1.5.0
 CATEGORIES=	net python

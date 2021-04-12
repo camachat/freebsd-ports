@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	art
 DISTVERSION=	1.8.3
+=======
+PORTNAME=	art
+DISTVERSION=	1.8.4
+>>>>>>> upstream/main
 CATEGORIES=	graphics
 MASTER_SITES=	https://bitbucket.org/agriggio/art/downloads/
 PKGNAMESUFFIX=	-raw-image-editor

@@ -1,5 +1,8 @@
 # Created by: mjhsieh
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hypermail
 PORTVERSION=	2.4.0

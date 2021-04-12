@@ -1,5 +1,8 @@
 # Created by: Stefan Walter <sw@gegenunendlich.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	foiltex
 PORTVERSION=	2.1.4b

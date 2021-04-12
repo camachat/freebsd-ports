@@ -1,5 +1,8 @@
 # Created by: kftseng@iyard.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Crypt-OpenSSL-X509
 PORTVERSION=	1.902

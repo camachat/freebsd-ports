@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	box2d-py
 DISTVERSION=	2.3.8
 PORTREVISION=	1

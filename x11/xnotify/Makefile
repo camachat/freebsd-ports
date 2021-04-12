@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xnotify
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.8.1

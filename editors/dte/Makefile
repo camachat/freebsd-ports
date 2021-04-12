@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dte
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.9.1

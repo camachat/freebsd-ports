@@ -1,5 +1,8 @@
 # Created by: Alexander Hausner <alex@hugo.bmg.gv.at>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ifdepd
 PORTVERSION=	20110412

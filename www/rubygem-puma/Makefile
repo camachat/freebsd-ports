@@ -1,5 +1,8 @@
 # Created by: Steve Wills <swills@freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	puma
 PORTVERSION=	5.1.1

@@ -1,5 +1,8 @@
 # Created by: Dmitry Liakh <dliakh@ukr.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Cache-Memcached-libmemcached
 PORTVERSION=	0.02011

@@ -1,7 +1,11 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+
+>>>>>>> upstream/main
 # PROVIDE: openntpd
 # REQUIRE: DAEMON ntpdate
 # BEFORE:  LOGIN

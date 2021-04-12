@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 # Do not add:
 #	- toolchain related
 #	- arch-dependent values

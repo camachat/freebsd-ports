@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libunistring
 PORTVERSION=	0.9.10
 PORTREVISION=	1

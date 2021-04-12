@@ -1,5 +1,8 @@
 # Created by: Richard Gallamore <ultima@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	parso
 DISTVERSION=	0.8.1

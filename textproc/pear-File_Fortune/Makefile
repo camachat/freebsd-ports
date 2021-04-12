@@ -1,5 +1,8 @@
 # Created by: Zhen REN <bg1tpt@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	File_Fortune
 PORTVERSION=	1.0.0

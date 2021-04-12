@@ -1,5 +1,8 @@
 # Created by: Xavier Beaudouin <kiwi@oav.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ovs
 PORTVERSION=	1.05

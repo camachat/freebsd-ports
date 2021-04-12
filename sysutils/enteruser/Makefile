@@ -1,5 +1,8 @@
 # Created by: Danny Howard <dannyman@toldme.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	enteruser
 PORTVERSION=	1.0

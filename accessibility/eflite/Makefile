@@ -1,5 +1,8 @@
 # Created by: David K. Gerry
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	eflite
 PORTVERSION=	0.4.1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rubocop
 PORTVERSION=	1.7.0
 PORTREVISION=	1

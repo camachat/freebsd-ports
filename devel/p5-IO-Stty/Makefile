@@ -1,5 +1,8 @@
 # Created by: Stephon Chen <stephon@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	IO-Stty
 PORTVERSION=	0.04

@@ -1,5 +1,8 @@
 # Created by: Rusmir Dusko <nemysis@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	entombed
 PORTVERSION=	2007.07.04

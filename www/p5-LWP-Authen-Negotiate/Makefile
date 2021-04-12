@@ -1,5 +1,8 @@
 # Created by: Tom Judge <tj@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	LWP-Authen-Negotiate
 PORTVERSION=	0.08

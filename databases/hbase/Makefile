@@ -1,5 +1,8 @@
 # Created by: Dmitry Sivachenko <mitya@yandex-team.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hbase
 PORTVERSION=	1.2.1
@@ -10,7 +13,11 @@ MASTER_SITES=	APACHE/${PORTNAME}/${PORTVERSION} \
 DISTFILES=	${DISTNAME}-src${EXTRACT_SUFX} FreeBSD-${PORTNAME}-${PORTVERSION}-maven-repository.tar.gz:maven
 DIST_SUBDIR=	hadoop
 
+<<<<<<< HEAD
 MAINTAINER=	kbowling@FreeBSD.org
+=======
+MAINTAINER=	ports@FreeBSD.org
+>>>>>>> upstream/main
 COMMENT=	Hadoop database, a distributed, scalable, big data store
 
 LICENSE=	APACHE20

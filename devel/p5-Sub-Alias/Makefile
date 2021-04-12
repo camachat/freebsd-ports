@@ -1,5 +1,8 @@
 # Created by: Peter Vereshagin <peter@vereshagin.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Sub-Alias
 PORTVERSION=	1.0.0

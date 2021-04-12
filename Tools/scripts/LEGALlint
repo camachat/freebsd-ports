@@ -1,5 +1,8 @@
 #!/bin/sh
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTSDIR="${PORTSDIR:-/usr/ports}"
 

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	nextpnr
 DISTVERSION=	g20200804
 PORTREVISION=	1

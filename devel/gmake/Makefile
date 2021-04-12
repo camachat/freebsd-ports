@@ -1,5 +1,8 @@
 # Created by: jkh
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gmake
 PORTVERSION=	4.3

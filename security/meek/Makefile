@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	meek
 DISTVERSION=	0.35.0
 CATEGORIES=	security

@@ -1,5 +1,8 @@
 # Created by: aaron@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	weblint++
 PORTVERSION=	1.15

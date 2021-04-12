@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	TFTP
 PORTVERSION=	1.0
 DISTVERSIONSUFFIX=	b3

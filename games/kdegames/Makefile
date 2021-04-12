@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kdegames
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
 CATEGORIES=	games kde

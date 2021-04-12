@@ -1,5 +1,8 @@
 # Created by: Dirk Froemberg <dirk@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	openssl
 PORTVERSION=	1.0.2.20170706
@@ -26,8 +29,11 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	PeterMosmans
 GH_TAGNAME=	c9ba19c
 
+<<<<<<< HEAD
 BROKEN_FreeBSD_13=	eng_cryptodev.c:250:19: error: use of undeclared identifier 'CRIOGET'
 BROKEN_FreeBSD_14=	eng_cryptodev.c:250:19: error: use of undeclared identifier 'CRIOGET'
+=======
+>>>>>>> upstream/main
 .if ${/usr/bin/ld:L:tA} == /usr/bin/ld.lld
 BROKEN_i386=	ld: error: unknown argument: -Bforcearchive
 .endif

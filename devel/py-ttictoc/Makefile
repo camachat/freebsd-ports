@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ttictoc
 PORTVERSION=	0.5.6
 PORTREVISION=	1

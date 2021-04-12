@@ -1,5 +1,8 @@
 # Created by: Katsuji ISHIKAWA <katsuji.ishikawa@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mosh
 PORTVERSION=	0.2.7

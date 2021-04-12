@@ -1,5 +1,8 @@
 # Created by: Dominic Mitchell <dom@happygiraffe.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Audio-Wav
 PORTVERSION=	0.14

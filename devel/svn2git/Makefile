@@ -1,5 +1,8 @@
 # Created by: David Naylor <naylor.b.david@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	svn2git
 PORTVERSION=	1.0.18

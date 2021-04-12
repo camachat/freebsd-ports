@@ -1,5 +1,8 @@
 # Created by: Veniamin Gvozdikov <vg@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libpo6
 PORTVERSION=	0.8.0

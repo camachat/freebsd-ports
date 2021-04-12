@@ -1,5 +1,8 @@
 # Created by: Oliver Braun <obraun@informatik.unibw-muenchen.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	slrnface
 PORTVERSION=	2.1.1

@@ -1,5 +1,8 @@
 # Created by johalun0@gmail.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libgudev
 PORTVERSION=	234

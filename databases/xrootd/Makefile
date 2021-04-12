@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xrootd
 DISTVERSION=	4.10.0
 PORTREVISION=	1

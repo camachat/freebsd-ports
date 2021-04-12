@@ -1,5 +1,8 @@
 # Created by: dillon
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	crw
 PORTVERSION=	1.03

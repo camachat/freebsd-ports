@@ -1,5 +1,8 @@
 # Created by: Sascha Klauder <sklauder@trimind.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gogglesmm
 PORTVERSION=	1.2.2

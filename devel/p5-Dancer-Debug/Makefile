@@ -1,5 +1,8 @@
 # Created by: Geistteufel <geistteufel@yahoo.fr>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Dancer-Debug
 PORTVERSION=	0.03

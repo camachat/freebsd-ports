@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	erlang
 DISTVERSIONPREFIX=	OTP-
 DISTVERSION=	21.3.8.21
+=======
+PORTNAME=	erlang
+DISTVERSIONPREFIX=	OTP-
+DISTVERSION=	21.3.8.22
+>>>>>>> upstream/main
 PORTEPOCH=	1
 CATEGORIES=	lang parallel java
 PKGNAMESUFFIX=	-java
@@ -22,15 +28,27 @@ USE_JAVA=	yes
 USE_PERL5=	build
 
 GNU_CONFIGURE=	yes
+<<<<<<< HEAD
 MAKE_JOBS_UNSAFE=yes
+=======
+MAKE_JOBS_UNSAFE=	yes
+>>>>>>> upstream/main
 
 PLIST_SUB=	APP_VERSION=${APP_VERSION}
 
 APP_VERSION=	1.9.1
 APP_DIR=	${PREFIX}/lib/erlang/lib/jinterface-${APP_VERSION}
 
+<<<<<<< HEAD
 CONFIGURE_ARGS+=--enable-threads --without-odbc --with-javac --without-wx
 CONFIGURE_ENV+=	ac_cv_prog_JAVAC="${JAVAC}"
+=======
+CONFIGURE_ARGS+=	--enable-threads \
+			--with-javac \
+			--without-odbc \
+			--without-wx
+CONFIGURE_ENV+=		ac_cv_prog_JAVAC="${JAVAC}"
+>>>>>>> upstream/main
 
 pre-configure:
 	@if [ ! $$(${CAT} ${WRKSRC}/lib/jinterface/vsn.mk | ${GREP} -E "JINTERFACE_VSN *=" | ${CUT} -w -f3) = ${APP_VERSION} ]; then \

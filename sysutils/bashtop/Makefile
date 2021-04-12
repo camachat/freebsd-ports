@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bashtop
 DISTVERSION=	0.9.25
 PORTREVISION=	1

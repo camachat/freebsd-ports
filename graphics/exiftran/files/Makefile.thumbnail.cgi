@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PROG=	thumbnail.cgi
 
 .PATH: ${.CURDIR}/../..

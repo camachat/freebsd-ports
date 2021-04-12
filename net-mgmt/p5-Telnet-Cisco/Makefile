@@ -1,5 +1,8 @@
 # Created by: Michael Lyngbøl <lyngbol@wheel.dk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-Telnet-Cisco
 PORTVERSION=	1.11

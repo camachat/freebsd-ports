@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	consul
 PORTVERSION=	1.9.4
 DISTVERSIONPREFIX=	v

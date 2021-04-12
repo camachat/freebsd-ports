@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	clthreads
 DISTVERSION=	2.4.2
 CATEGORIES=	devel

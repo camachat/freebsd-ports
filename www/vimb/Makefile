@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	vimb
 DISTVERSION=	3.6.0
 CATEGORIES=	www

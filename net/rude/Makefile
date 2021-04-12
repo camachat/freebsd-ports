@@ -1,5 +1,8 @@
 # Created by: Janos.Mohacsi@bsd.hu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rude
 PORTVERSION=	0.70

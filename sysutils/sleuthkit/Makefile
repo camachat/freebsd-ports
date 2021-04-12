@@ -1,5 +1,8 @@
 # Created by: Pieter Danhieux <opr@bsdaemon.be>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sleuthkit
 PORTVERSION=	4.7.0

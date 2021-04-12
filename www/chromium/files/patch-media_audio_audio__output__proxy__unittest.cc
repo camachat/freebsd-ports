@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- media/audio/audio_output_proxy_unittest.cc.orig	2020-11-13 06:36:44 UTC
+=======
+--- media/audio/audio_output_proxy_unittest.cc.orig	2021-03-12 23:57:26 UTC
+>>>>>>> upstream/main
 +++ media/audio/audio_output_proxy_unittest.cc
 @@ -412,7 +412,7 @@ class AudioOutputProxyTest : public testing::Test {
      // |stream| is closed at this point. Start() should reopen it again.

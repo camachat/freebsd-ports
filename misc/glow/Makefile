@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	glow
 DISTVERSION=	g20200721
 PORTREVISION=	2

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bareos17-webui
 PORTVERSION=	17.2.5
 PORTREVISION=	2

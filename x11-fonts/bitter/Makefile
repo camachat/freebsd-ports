@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bitter
 DISTVERSIONPREFIX=	v.
 DISTVERSION=	2.110

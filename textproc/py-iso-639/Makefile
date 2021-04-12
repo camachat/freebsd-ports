@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	iso-639
 PORTVERSION=	0.4.5
 PORTREVISION=	1

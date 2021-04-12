@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sly-quicklisp
 PORTVERSION=	20200707
 PORTREVISION=	1

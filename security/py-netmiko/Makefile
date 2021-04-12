@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	netmiko
 DISTVERSIONPREFIX=	v
 DISTVERSION=	3.1.1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	lpSolve
 PORTVERSION=	5.6.15
 PORTREVISION=	1

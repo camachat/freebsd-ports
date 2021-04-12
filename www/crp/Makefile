@@ -1,5 +1,8 @@
 # Created by: Lars Eggert <lars.eggert@gmx.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	crp
 PORTVERSION=	20031012

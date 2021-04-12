@@ -1,5 +1,8 @@
 # Created by: Steve Woodford <scw@netbsd.hut.fi>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tits
 PORTVERSION=	1.3.0

@@ -1,5 +1,8 @@
 # Created by: Sergei Vyshenski <svysh.fbsd@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Crypt-Argon2
 PORTVERSION=	0.010

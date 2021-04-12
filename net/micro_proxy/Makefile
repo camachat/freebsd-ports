@@ -1,5 +1,8 @@
 # Created by: Emanuel Haupt <ehaupt@critical.ch>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	micro_proxy
 PORTVERSION=	20140814

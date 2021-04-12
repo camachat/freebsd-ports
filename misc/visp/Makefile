@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	visp
 DISTVERSION=	3.4.0
 CATEGORIES=	misc

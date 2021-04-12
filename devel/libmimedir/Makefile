@@ -1,5 +1,8 @@
 # Created by: Sam Lawrance <boris@brooknet.com.au>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libmimedir
 PORTVERSION=	0.5.1

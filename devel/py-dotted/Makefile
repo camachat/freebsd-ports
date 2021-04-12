@@ -1,5 +1,8 @@
 # Created by: Muhammad Moinur Rahman <bofh@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dotted
 PORTVERSION=	0.1.8

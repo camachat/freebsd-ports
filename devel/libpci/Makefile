@@ -1,5 +1,8 @@
 # Created by: Samy Al Bahra <samy@kerneled.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libpci
 PORTVERSION=	3.7.0

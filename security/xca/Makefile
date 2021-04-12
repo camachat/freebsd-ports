@@ -1,5 +1,8 @@
 # Created by: Valentin Zahariev <curly@e-card.bg>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xca
 PORTVERSION=	2.3.0

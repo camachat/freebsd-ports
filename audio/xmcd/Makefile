@@ -1,5 +1,8 @@
 # Created by: Gennady Sorokopud <gena@NetVision.net.il>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xmcd
 PORTVERSION=	3.3.2

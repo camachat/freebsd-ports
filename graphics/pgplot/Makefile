@@ -1,5 +1,8 @@
 # Created by: jmz
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pgplot
 PORTVERSION=	5.2.2

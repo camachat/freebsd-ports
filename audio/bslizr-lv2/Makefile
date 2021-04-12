@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	bslizr
 DISTVERSION=	1.2.12
+=======
+PORTNAME=	bslizr
+DISTVERSION=	1.2.14
+>>>>>>> upstream/main
 CATEGORIES=	audio
 PKGNAMESUFFIX=	-lv2
 

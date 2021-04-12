@@ -1,5 +1,8 @@
 # Created by: bkhl@elektrubadur.se
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cg
 PORTVERSION=	0.4

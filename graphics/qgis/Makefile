@@ -1,9 +1,16 @@
 # Created by: Laurent Courty
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	qgis
 DISTVERSIONPREFIX=	final-
 DISTVERSION=	3_18_1
+<<<<<<< HEAD
+=======
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	graphics geography
 
 PATCH_SITES=	https://github.com/${GH_ACCOUNT}/${GH_PROJECT}/commit/
@@ -46,6 +53,10 @@ LIB_DEPENDS=	libexiv2.so:graphics/exiv2 \
 		libhdf5.so:science/hdf5 \
 		libnetcdf.so:science/netcdf \
 		libOpenCL.so:devel/ocl-icd \
+<<<<<<< HEAD
+=======
+		libpdal_base.so:math/pdal \
+>>>>>>> upstream/main
 		libproj.so:graphics/proj \
 		libprotobuf-lite.so:devel/protobuf \
 		libqjson-qt5.so:devel/qjson \
@@ -128,7 +139,11 @@ CMAKE_ARGS+=	-DCMAKE_BUILD_TYPE:STRING=Release \
 		-DCMAKE_POLICY_DEFAULT_CMP0056:STRING=NEW
 CMAKE_ON=	BUILD_TESTING ENABLE_TESTS USE_OPENCL WITH_3D WITH_ASTYLE \
 		WITH_BINDINGS WITH_CUSTOM_WIDGETS WITH_INTERNAL_MDAL \
+<<<<<<< HEAD
 		WITH_POSTGRESQL
+=======
+		WITH_POSTGRESQL WITH_PDAL
+>>>>>>> upstream/main
 CMAKE_OFF=	WITH_GLOBE WITH_QWTPOLAR
 
 CONFLICTS_INSTALL=	qgis-ltr

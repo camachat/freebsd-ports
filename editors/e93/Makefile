@@ -1,5 +1,8 @@
 # Created by: Satoshi Asami (asami)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	e93
 PORTVERSION=	1.4.3

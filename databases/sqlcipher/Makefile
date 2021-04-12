@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sqlcipher
 DISTVERSIONPREFIX=	v
 DISTVERSION=	3.4.2

@@ -1,5 +1,8 @@
 # Created by: Walter Venable <weaseal@users.sourceforge.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	undernet-ircu
 PORTVERSION=	2.10.12.19

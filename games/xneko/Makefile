@@ -1,5 +1,8 @@
 # Created by: markm
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xneko
 PORTVERSION=	1.0

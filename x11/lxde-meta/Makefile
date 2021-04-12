@@ -1,5 +1,8 @@
 # Created by: Daniel Walter <sahne@0x90.at>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lxde-meta
 PORTVERSION=	1.0

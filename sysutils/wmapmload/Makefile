@@ -1,5 +1,8 @@
 # Created by: pat
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wmapmload
 PORTVERSION=	0.3.4

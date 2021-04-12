@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	lookbook
 DISTVERSION=	1.1.0
 CATEGORIES=	deskutils

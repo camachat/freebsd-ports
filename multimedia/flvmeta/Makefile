@@ -1,5 +1,8 @@
 # Created by: Earl Gay <earl@eeg3.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	flvmeta
 PORTVERSION=	1.0.11

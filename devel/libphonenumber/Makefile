@@ -1,8 +1,15 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	libphonenumber
 DISTVERSIONPREFIX=	v
 DISTVERSION=	8.12.20
+=======
+PORTNAME=	libphonenumber
+DISTVERSIONPREFIX=	v
+DISTVERSION=	8.12.20
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	devel
 
 MAINTAINER=	kde@FreeBSD.org

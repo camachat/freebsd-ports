@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libcfu
 DISTVERSION=	0.04a
 PORTREVISION=	3

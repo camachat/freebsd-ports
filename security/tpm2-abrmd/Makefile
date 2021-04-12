@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tpm2-abrmd
 DISTVERSION=	2.4.0
 CATEGORIES=	security

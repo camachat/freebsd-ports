@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xdg-desktop-portal-wlr
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.2.0

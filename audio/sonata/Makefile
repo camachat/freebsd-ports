@@ -1,5 +1,8 @@
 # Created by: Nicola Vitale <nivit@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		sonata
 DISTVERSION=		1.7b1-22

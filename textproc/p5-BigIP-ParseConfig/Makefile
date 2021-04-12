@@ -1,5 +1,8 @@
 # Created by: Sergey A. Osokin <osa@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	BigIP-ParseConfig
 PORTVERSION=	1.1.9

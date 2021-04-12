@@ -1,5 +1,8 @@
 # Created by: Sergei Vyshenski <svysh.fbsd@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	XML-Parser-Lite
 PORTVERSION=	0.722

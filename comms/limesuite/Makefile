@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	limesuite
 DISTVERSIONPREFIX=	v
 DISTVERSION=	20.10.0

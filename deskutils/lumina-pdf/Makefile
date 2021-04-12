@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	lumina-pdf
 DISTVERSION=	1.6.0
 PORTREVISION=	13

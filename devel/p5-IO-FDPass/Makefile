@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	IO-FDPass
 PORTVERSION=	1.2
 CATEGORIES=	devel perl5

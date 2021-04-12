@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Fiona
 DISTVERSION=	1.8.18
 PORTREVISION=	1

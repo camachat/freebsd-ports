@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	signon
 DISTVERSION=	8.60
 CATEGORIES=	sysutils kde

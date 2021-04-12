@@ -1,5 +1,8 @@
 # Created by: Akinori MUSHA aka knu <knu@idaemons.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bio
 PORTVERSION=	1.5.1

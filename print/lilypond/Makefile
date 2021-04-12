@@ -1,5 +1,8 @@
 # Created by: patrick, trevor
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lilypond
 DISTVERSION=	2.22.0

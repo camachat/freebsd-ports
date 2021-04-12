@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	hashcat
 PORTVERSION=	5.1.0
 DISTVERSIONPREFIX=	v

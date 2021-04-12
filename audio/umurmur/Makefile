@@ -1,5 +1,8 @@
 # Created by: Ayumi Mitsui <ayu@commun.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	umurmur
 DISTVERSION=	0.2.17

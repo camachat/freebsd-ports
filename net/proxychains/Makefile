@@ -1,5 +1,8 @@
 # Created by: Patrick MARIE <mycroft@virgaria.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	proxychains
 PORTVERSION=	3.1

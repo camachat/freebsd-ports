@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tamzen-font
 DISTVERSIONPREFIX=	Tamzen-
 DISTVERSION=	1.11.5

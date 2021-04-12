@@ -1,5 +1,8 @@
 # Created by: Ryan Steinmetz
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	check_email_delivery
 PORTVERSION=	0.7.1b

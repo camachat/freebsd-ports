@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bugzilla
 PORTVERSION=	5.0.4
 PORTREVISION=	2

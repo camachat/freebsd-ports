@@ -1,5 +1,8 @@
 # Created by: Matthew West <mwest@uct.ac.za>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xmotd
 DISTVERSION=	1.17.3b

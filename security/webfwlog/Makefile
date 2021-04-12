@@ -1,5 +1,8 @@
 # Created by: Bob Hockney <zeus@ix.netcom.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	webfwlog
 PORTVERSION=	1.1.1

@@ -1,5 +1,8 @@
 # Created by: Gregory Shapiro <gshapiro@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Date-Pcalc
 PORTVERSION=	6.1

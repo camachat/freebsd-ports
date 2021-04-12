@@ -1,5 +1,8 @@
 # Created by: Cheng-Lung Sung <clsung@dragon2.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	XML-Atom
 PORTVERSION=	0.42

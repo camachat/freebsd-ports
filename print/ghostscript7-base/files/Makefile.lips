@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 # LIPS - additional driver for Canon LIPS II+/III/IVc/IV printers
 # http://www.ucatv.ne.jp/~taeko/software/gs/
 

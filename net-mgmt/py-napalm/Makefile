@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	napalm
 DISTVERSION=	3.2.0
 CATEGORIES=	net-mgmt python

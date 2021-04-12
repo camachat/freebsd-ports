@@ -1,5 +1,8 @@
 # Created by: rene
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bf2c
 PORTVERSION=	1.3.1

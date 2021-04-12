@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	graphlan
 DISTVERSION=	1.1.3
 PORTREVISION=	1

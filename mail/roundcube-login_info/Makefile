@@ -1,5 +1,8 @@
 # Created by: Mark Felder <feld@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	login_info
 DISTVERSION=	1.2

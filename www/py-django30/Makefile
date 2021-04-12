@@ -1,8 +1,14 @@
 # Created by: Jose Alonso Cardenas Marquez <acardenas@bsd.org.pe>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	django
 PORTVERSION=	3.0.13
+=======
+
+PORTNAME=	django
+PORTVERSION=	3.0.14
+>>>>>>> upstream/main
 CATEGORIES=	www python
 MASTER_SITES=	CHEESESHOP \
 		https://www.djangoproject.com/m/releases/${PORTVERSION}/
@@ -35,7 +41,11 @@ SHEBANG_FILES=	django/bin/django-admin.py \
 		django/conf/project_template/manage.py-tpl
 
 CONFLICTS_INSTALL=	${PYTHON_PKGNAMEPREFIX}django111 ${PYTHON_PKGNAMEPREFIX}django22 \
+<<<<<<< HEAD
 			${PYTHON_PKGNAMEPREFIX}django31
+=======
+			${PYTHON_PKGNAMEPREFIX}django31 ${PYTHON_PKGNAMEPREFIX}django32
+>>>>>>> upstream/main
 
 CPE_VENDOR=	djangoproject
 

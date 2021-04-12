@@ -1,5 +1,8 @@
 # Created by: UMENO Takashi
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ninix-aya
 PORTVERSION=	5.0.9

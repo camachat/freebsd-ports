@@ -1,5 +1,8 @@
 # Created by: Thierry Thomas (<thierry@pompo.net>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Auth
 PORTVERSION=	1.6.4

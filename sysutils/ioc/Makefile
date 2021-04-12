@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ioc
 PORTVERSION=	0.8.2
 CATEGORIES=	sysutils

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	meck
 PORTVERSION=	0.8.12
 CATEGORIES=	devel

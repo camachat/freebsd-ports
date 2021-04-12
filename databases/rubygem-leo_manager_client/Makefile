@@ -1,5 +1,8 @@
 # Created by: Mikolaj Golub <trociny@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	leo_manager_client
 PORTVERSION=	0.4.13

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	better-bencode
 PORTVERSION=	0.2.1
 CATEGORIES=	converters devel python

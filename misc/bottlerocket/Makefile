@@ -1,5 +1,8 @@
 # Created by: Mike Smith <msmith@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bottlerocket
 PORTVERSION=	0.04c

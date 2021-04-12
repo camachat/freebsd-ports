@@ -1,5 +1,8 @@
 # Created by: simonm@dcs.gla.ac.uk
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cgoban
 PORTVERSION=	1.9.14

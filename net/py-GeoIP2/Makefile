@@ -1,5 +1,8 @@
 # Created by: Olivier Cochard-Labbé <olivier@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	GeoIP2
 PORTVERSION=	4.1.0

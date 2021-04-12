@@ -1,5 +1,8 @@
 # Created by: Kubilay Kocak <koobs@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	slackclient
 PORTVERSION=	2.1.0

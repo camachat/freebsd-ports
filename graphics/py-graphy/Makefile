@@ -1,5 +1,8 @@
 # Created by: Sahil Tandon <sahil@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	graphy
 PORTVERSION=	1.0

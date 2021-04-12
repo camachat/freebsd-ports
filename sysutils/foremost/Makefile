@@ -1,5 +1,8 @@
 # Created by: Yonatan <Yonatan@xpert.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	foremost
 PORTVERSION=	1.5.7

@@ -1,5 +1,8 @@
 # Created by: Anton Voronin <anton@urc.ac.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pr
 PORTVERSION=	1.1

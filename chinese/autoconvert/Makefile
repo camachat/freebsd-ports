@@ -1,5 +1,8 @@
 # Created by: Yin-Jieh Chen <yinjieh@csie.nctu.edu.tw>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	autoconvert
 PORTVERSION=	0.3.16

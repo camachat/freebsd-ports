@@ -1,5 +1,8 @@
 # Created by: nork@cityfujisawa.ne.jp
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Convert-ASCII-Armour
 PORTVERSION=	1.4

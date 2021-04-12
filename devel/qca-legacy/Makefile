@@ -1,5 +1,8 @@
 # Created by: Vsevolod Stakhov <vsevolod@highsecure.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	qca
 PORTVERSION=	2.2.1

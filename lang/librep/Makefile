@@ -1,5 +1,8 @@
 # Created by: Yukihiro Nakai <nakai@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	librep
 PORTVERSION=	0.92.7

@@ -1,5 +1,8 @@
 # Created by: dgilbert@velocet.ca
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gutenprint
 PORTVERSION=	5.3.3

@@ -1,5 +1,8 @@
 # Created by: janos.mohacsi@bsd.hu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	FileHandle-Fmode
 PORTVERSION=	0.14

@@ -1,5 +1,8 @@
 # Created by: chuckr
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	itcl
 PORTVERSION=	3.4.1

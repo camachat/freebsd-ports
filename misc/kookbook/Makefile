@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kookbook
 DISTVERSION=	0.2.1
 PORTREVISION=	1

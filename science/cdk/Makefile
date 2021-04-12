@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cdk
 DISTVERSIONPREFIX=	cdk-
 DISTVERSION=	2.3

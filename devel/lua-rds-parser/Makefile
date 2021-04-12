@@ -1,5 +1,8 @@
 # Created by: osa
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lua-rds-parser
 PORTVERSION=	0.06

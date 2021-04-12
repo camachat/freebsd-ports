@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Perlbal-Plugin-PSGI
 PORTVERSION=	0.03
 PORTREVISION=	1

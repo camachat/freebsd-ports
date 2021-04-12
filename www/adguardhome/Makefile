@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	adguardhome
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.105.2

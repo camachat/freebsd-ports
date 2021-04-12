@@ -1,5 +1,8 @@
 # Created by: Johannes Meixner <johannes@perceivon.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	railties
 PORTVERSION=	5.2.4.5

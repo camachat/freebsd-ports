@@ -1,5 +1,8 @@
 # Created by: torstenb
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	metamail
 PORTVERSION=	2.7

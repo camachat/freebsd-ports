@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ricty
 PORTVERSION=	4.1.1
 PORTREVISION=	1

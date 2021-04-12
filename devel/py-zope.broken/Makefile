@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	zope.broken
 PORTVERSION=	3.6.0
 PORTREVISION=	1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	btpd
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.16

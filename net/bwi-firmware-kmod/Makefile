@@ -1,5 +1,8 @@
 # Created by: Andrew Thompson <thompsa@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bwi-firmware
 PORTVERSION=	${FWVERSION}

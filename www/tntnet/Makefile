@@ -1,5 +1,8 @@
 # Created by: Juergen Lock <nox@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tntnet
 PORTVERSION=	2.2.1

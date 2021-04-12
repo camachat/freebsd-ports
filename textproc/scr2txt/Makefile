@@ -1,5 +1,8 @@
 # Created by: nik
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	scr2txt
 PORTVERSION=	1.2

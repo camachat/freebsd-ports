@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	virt-manager
 PORTVERSION=	3.2.0
 CATEGORIES=	deskutils net-mgmt

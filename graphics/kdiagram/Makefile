@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kdiagram
 DISTVERSION=	2.8.0
 CATEGORIES=	graphics kde

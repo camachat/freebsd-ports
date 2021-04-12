@@ -1,5 +1,8 @@
 # Created by: Cyrille Lefevre <cyrille.lefevre@laposte.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gzip
 PORTVERSION=	1.10

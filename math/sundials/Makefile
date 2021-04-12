@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sundials
 DISTVERSION=	3.1.2
 PORTREVISION=	11

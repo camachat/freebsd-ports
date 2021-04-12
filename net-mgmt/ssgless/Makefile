@@ -1,5 +1,8 @@
 # Created by: Pavel I Volkov
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ssgless
 PORTVERSION=	1.3

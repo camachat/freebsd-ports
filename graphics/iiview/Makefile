@@ -1,5 +1,8 @@
 # Created by: Martin Sugioarto <martin.sugioarto@udo.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	iiview
 PORTVERSION=	0.31

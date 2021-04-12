@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	distel
 PORTVERSION=	4.1.1
 PORTREVISION=	6

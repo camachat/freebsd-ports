@@ -1,5 +1,8 @@
 # Created by: Zsolt Udvari <udvzsolt@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	zathura-pdf-mupdf
 DISTVERSION=	0.3.5

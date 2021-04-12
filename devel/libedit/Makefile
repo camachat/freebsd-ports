@@ -1,5 +1,8 @@
 # Created by: jasone
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libedit
 PORTVERSION=	${EDITVERSION}.${EDITDATE}

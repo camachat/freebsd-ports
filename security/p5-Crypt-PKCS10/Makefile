@@ -1,5 +1,8 @@
 # Created by: Sergei Vyshenski <svysh.fbsd@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Crypt-PKCS10
 PORTVERSION=	2.001

@@ -1,5 +1,8 @@
 # Created by: LEVAI Daniel <leva@ecentrum.hu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		kc
 PORTVERSION=		2.4.2

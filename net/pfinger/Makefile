@@ -1,5 +1,8 @@
 # Created by: Ying-Chieh Liao <ijliao@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pfinger
 PORTVERSION=	0.7.10

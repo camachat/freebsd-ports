@@ -1,5 +1,8 @@
 # Created by: Lutz Boehne <lboehne@damogran.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	udis86
 PORTVERSION=	1.7.2

@@ -1,5 +1,8 @@
 # Created by: Dom Mitchell <dom@happygiraffe.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	l0pht-watch
 PORTVERSION=	1.1

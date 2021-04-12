@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	libplacebo
@@ -8,6 +9,13 @@ CATEGORIES=	graphics
 PATCH_SITES=	https://github.com/${GH_ACCOUNT}/${GH_PROJECT}/commit/
 PATCHFILES+=	ac44e8f14acb.patch:-p1 # https://code.videolan.org/videolan/libplacebo/-/issues/131
 
+=======
+PORTNAME=	libplacebo
+DISTVERSIONPREFIX=	v
+DISTVERSION=	3.120.1
+CATEGORIES=	graphics
+
+>>>>>>> upstream/main
 MAINTAINER=	jbeich@FreeBSD.org
 COMMENT=	Reusable library for GPU-accelerated video/image rendering
 
@@ -18,6 +26,10 @@ USES=		compiler:c11 localbase:ldflags meson pkgconfig python:3.6+,build
 USE_GITHUB=	yes
 USE_LDCONFIG=	yes
 GH_ACCOUNT=	haasn
+<<<<<<< HEAD
+=======
+MESON_ARGS=	-Ddemos=false
+>>>>>>> upstream/main
 
 OPTIONS_DEFINE=	LCMS2 OPENGL TEST VULKAN
 OPTIONS_DEFAULT=LCMS2 OPENGL SHADERC

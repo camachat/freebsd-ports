@@ -1,5 +1,8 @@
 # Created by: snowchyld
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Hash-Merge
 PORTVERSION=	0.302

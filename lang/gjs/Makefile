@@ -1,5 +1,8 @@
 # Created by: Pawel Worach <pawel.worach@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gjs
 PORTVERSION=	1.66.0

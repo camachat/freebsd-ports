@@ -1,5 +1,8 @@
 # Created by: autrijus@autrijus.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	VCP
 PORTVERSION=	0.9.20050110

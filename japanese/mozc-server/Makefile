@@ -1,5 +1,8 @@
 # Created by: Daichi GOTO <daichi@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mozc
 PORTVERSION=	2.23.2815.102.01

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	shairplay
 PORTVERSION=	0.9.0.20150921
 CATEGORIES=	audio

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	blackout
 DISTVERSION=	g20140730
 CATEGORIES=	x11-fonts

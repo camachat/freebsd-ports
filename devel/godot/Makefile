@@ -1,8 +1,15 @@
 # Created by: Shane Ambler <FreeBSD@Shaneware.biz>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	godot
 DISTVERSION=	3.2.3
+=======
+
+PORTNAME=	godot
+DISTVERSION=	3.2.3
+PORTREVISION=	1
+>>>>>>> upstream/main
 DISTVERSIONSUFFIX=	-stable
 CATEGORIES=	devel games
 
@@ -28,7 +35,12 @@ USE_GL=		gl glew glu
 USE_GITHUB=	yes
 GH_ACCOUNT=	godotengine
 
+<<<<<<< HEAD
 MAKE_ARGS+=		platform=x11 builtin_libpng=False verbose=True
+=======
+MAKE_ARGS+=		platform=x11 builtin_libpng=False \
+			builtin_freetype=False builtin_zlib=False verbose=True
+>>>>>>> upstream/main
 MAKE_ARGS+=		${MAKE_ARGS_${CHOSEN_COMPILER_TYPE}}
 MAKE_ARGS_clang=	use_llvm=True use_lld=True
 CXXFLAGS_i386=		${CXXFLAGS_i386_${CHOSEN_COMPILER_TYPE}}

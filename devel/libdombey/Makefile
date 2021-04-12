@@ -1,5 +1,8 @@
 # Created by: James Bailie <jimmy@mammothcheese.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libdombey
 PORTVERSION=	5.56

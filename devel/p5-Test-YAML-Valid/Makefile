@@ -1,5 +1,8 @@
 # Created by: Lars Thegler <lth@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Test-YAML-Valid
 PORTVERSION=	0.04

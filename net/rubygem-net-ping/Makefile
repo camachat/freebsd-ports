@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	net-ping
 PORTVERSION=	2.0.8
 CATEGORIES=	net rubygems

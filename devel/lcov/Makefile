@@ -1,5 +1,8 @@
 # Created by: Romain Tartiere <romain@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lcov
 PORTVERSION=	1.14

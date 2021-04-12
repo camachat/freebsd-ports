@@ -1,5 +1,8 @@
 # Created by: Li-Wen Hsu <lwhsu@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	amqplib
 PORTVERSION=	1.0.2

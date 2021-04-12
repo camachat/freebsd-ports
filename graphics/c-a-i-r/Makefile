@@ -1,5 +1,8 @@
 # Created by: buganini@gmail.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	c-a-i-r
 PORTVERSION=	2.19

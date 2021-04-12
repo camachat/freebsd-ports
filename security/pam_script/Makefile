@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pam_script
 PORTVERSION=	1.1.9
 CATEGORIES=	security

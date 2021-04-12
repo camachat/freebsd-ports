@@ -1,5 +1,8 @@
 # Created by: Kimo <kimor79@yahoo.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mysql2
 PORTVERSION=	0.5.3

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ldap2pf
 PORTVERSION=	20170424
 CATEGORIES=	net

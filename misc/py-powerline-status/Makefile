@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	powerline-status
 PORTVERSION=	2.8.1
 PORTREVISION=	1

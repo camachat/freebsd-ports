@@ -1,5 +1,8 @@
 # Created by: ericb@thedeepsky.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mp3_check
 PORTVERSION=	1.98

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	setuptools
 PORTVERSION=	44.0.0
 CATEGORIES=	devel python

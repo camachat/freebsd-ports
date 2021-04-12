@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	taskctl
 PORTVERSION=	1.3.0
 DISTVERSIONPREFIX=	v

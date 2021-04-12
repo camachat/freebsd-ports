@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Data-Localize
 PORTVERSION=	0.00027
 PORTREVISION=	1

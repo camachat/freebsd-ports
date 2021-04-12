@@ -1,5 +1,8 @@
 # Created by: Andrei Lavreniyuk <andy.lavr@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	torsocks
 DISTVERSION=	2.3.0

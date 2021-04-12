@@ -1,5 +1,8 @@
 # Created by: donnex
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pwsafe
 DISTVERSION=	0.2.0-155

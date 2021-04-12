@@ -1,5 +1,8 @@
 # Created by: Daniel Roethlisberger <daniel@roe.ch>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nmap-parser
 PORTVERSION=	0.3.5

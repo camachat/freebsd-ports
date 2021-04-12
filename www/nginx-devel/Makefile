@@ -1,8 +1,14 @@
 # Created by: Sergey A. Osokin <osa@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME?=	nginx
 PORTVERSION=	1.19.8
+=======
+
+PORTNAME?=	nginx
+PORTVERSION=	1.19.9
+>>>>>>> upstream/main
 PORTREVISION=	1
 CATEGORIES=	www
 MASTER_SITES=	https://nginx.org/download/ \

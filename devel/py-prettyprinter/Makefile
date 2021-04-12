@@ -1,5 +1,8 @@
 # Created by: Patrice Clement <monsieurp@gentoo.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	prettyprinter
 PORTVERSION=	0.13.2

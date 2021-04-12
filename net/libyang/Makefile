@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libyang
 PORTVERSION=	1.0.184
 DISTVERSIONPREFIX=	v

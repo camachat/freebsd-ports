@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mclk
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.2.1

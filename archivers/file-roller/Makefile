@@ -1,5 +1,8 @@
 # Created by: Anders Nordby <anders@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	file-roller
 PORTVERSION=	3.38.0

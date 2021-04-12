@@ -1,5 +1,8 @@
 # Created by: Neil Blakey-Milner
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	publicfile
 PORTVERSION=	0.52

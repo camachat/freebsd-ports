@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 AJP_DESC=			3rd party ajp module
 ARRAYVAR_DESC=			3rd party array_var module
 AWS_AUTH_DESC=			3rd party aws auth module

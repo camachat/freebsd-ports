@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 CATEGORIES=	databases lang
 PKGNAMESUFFIX=	-gdbm
 

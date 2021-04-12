@@ -1,5 +1,8 @@
 # Created by: Mark Felder <feld@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	streamparse
 PORTVERSION=	3.16.0

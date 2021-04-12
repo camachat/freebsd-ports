@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	qwt5-qt5
 PORTVERSION=	5.2.3g20200902
 CATEGORIES=	x11-toolkits

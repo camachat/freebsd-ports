@@ -1,5 +1,8 @@
 # Created by: ache
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	arc
 PORTVERSION=	5.21p

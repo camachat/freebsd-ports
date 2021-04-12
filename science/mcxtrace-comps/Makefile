@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mcxtrace-comps
 DISTVERSION=	1.2
 CATEGORIES=	science

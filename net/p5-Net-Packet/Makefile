@@ -1,5 +1,8 @@
 # Created by: GomoR <netpkt@gomor.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-Packet
 DISTVERSION=	3.27

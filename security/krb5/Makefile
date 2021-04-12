@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 VERSIONS=		117 118 119
 KRB5_VERSION?=		119
 

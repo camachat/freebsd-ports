@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	simutrans
 DISTVERSION=	121-0
 CATEGORIES=	games

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gxplugins
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.8

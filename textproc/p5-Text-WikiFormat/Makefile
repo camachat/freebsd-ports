@@ -1,5 +1,8 @@
 # Created by: Alexander Zhuravlev <zaa@zaa.pp.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Text-WikiFormat
 PORTVERSION=	0.81

@@ -1,5 +1,8 @@
 # Created by: Erwin Lansing <erwin@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Date-Piece
 PORTVERSION=	0.0.3

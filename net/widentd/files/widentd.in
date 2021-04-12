@@ -1,8 +1,12 @@
 #!/bin/sh
 # Start or stop widentd
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+
+>>>>>>> upstream/main
 # PROVIDE: widentd
 # REQUIRE: DAEMON
 # BEFORE: LOGIN

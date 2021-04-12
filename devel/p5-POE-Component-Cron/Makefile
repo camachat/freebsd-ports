@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	POE-Component-Cron
 PORTVERSION=	0.021
 PORTREVISION=	2

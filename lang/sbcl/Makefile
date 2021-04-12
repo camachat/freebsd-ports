@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 # All *-sbcl ports and any other port with SBCL fasl files must get a
 # PORTREVISION bump when lang/sbcl is updated.  The compiled fasl files are
 # pinned to exact versions of everything used to build them.
@@ -16,7 +19,11 @@ DISTFILES=	${DISTNAME}${EXTRACT_SUFX}
 MAINTAINER=	krion@FreeBSD.org
 COMMENT=	Common Lisp development system derived from the CMU CL system
 
+<<<<<<< HEAD
 LICENSE=	PD BSD2CLAUSE
+=======
+LICENSE=	BSD2CLAUSE PD
+>>>>>>> upstream/main
 LICENSE_COMB=	dual
 LICENSE_FILE=	${WRKSRC}/COPYING
 
@@ -29,6 +36,7 @@ RUN_DEPENDS=	cl-asdf>=0:devel/cl-asdf
 USES=		gmake makeinfo tar:bzip2
 
 BOOTVERSION=	1.2.7
+<<<<<<< HEAD
 SBCL_BOOT_LIST=	${BOOTVERSION}-x86-64-freebsd \
 		${BOOTVERSION}-x86-freebsd \
 		${BOOTVERSION}-x86-64-dragonfly
@@ -42,6 +50,19 @@ WRKSRC=		${WRKDIR}/${PORTNAME}-${PORTVERSION}
 
 MAKE_SH_ARGS?=	--prefix="${PREFIX}" \
 		--xc-host="${XC_HOST}"
+=======
+SBCL_BOOT_LIST=	${BOOTVERSION}-x86-64-freebsd ${BOOTVERSION}-x86-freebsd \
+		${BOOTVERSION}-x86-64-dragonfly
+
+CONMODULES=	asdf sb-aclrepl sb-bsd-sockets sb-cltl2 sb-concurrency sb-cover \
+		sb-executable sb-gmp sb-grovel sb-introspect sb-md5 sb-mpfr \
+		sb-posix sb-queue sb-rotate-byte sb-rt sb-simple-streams \
+		sb-sprof
+
+WRKSRC=		${WRKDIR}/${PORTNAME}-${PORTVERSION}
+
+MAKE_SH_ARGS?=	--prefix="${PREFIX}" --xc-host="${XC_HOST}"
+>>>>>>> upstream/main
 
 # You can use the DYNAMIC_SPACE_SIZE knob to change the size of SBCL dynamically-allocated memory.
 # Default for arch: i386 = 512Mb, amd64 = 1Gb.
@@ -52,7 +73,11 @@ MAKE_SH_ARGS+=	--dynamic-space-size=${DYNAMIC_SPACE_SIZE}
 SUB_FILES=	pkg-message sbclrc
 
 # All options explained into file: ${WRKSRC}/base-target-features.lisp-expr
+<<<<<<< HEAD
 OPTIONS_DEFINE=	DOCS QSHOW RENAME SAFEPOINT THREADS UNICODE XREF ZLIB
+=======
+OPTIONS_DEFINE=		DOCS QSHOW RENAME SAFEPOINT THREADS UNICODE XREF ZLIB
+>>>>>>> upstream/main
 OPTIONS_DEFAULT=	RENAME SBCL THREADS UNICODE
 
 QSHOW_DESC=	C runtime with low-level debugging output
@@ -60,7 +85,11 @@ RENAME_DESC=	Rename suffix .core to _core
 SAFEPOINT_DESC=	Using safepoints instead of signals
 XREF_DESC=	XREF data for SBCL internals
 
+<<<<<<< HEAD
 OPTIONS_SINGLE=	BOOTSTRAP
+=======
+OPTIONS_SINGLE=			BOOTSTRAP
+>>>>>>> upstream/main
 OPTIONS_SINGLE_BOOTSTRAP=	ABCL CCL CMUCL SBCL
 
 ABCL_DESC=	Armed Bear Common Lisp
@@ -82,10 +111,17 @@ CCL_BUILD_DEPENDS=	ccl:lang/ccl
 CMUCL_VARS=		XC_HOST="lisp -nositeinit -noinit -batch -quiet"
 CMUCL_BUILD_DEPENDS=	lisp:lang/cmucl
 
+<<<<<<< HEAD
 DOCS_VARS=		INFO="asdf sbcl"
 
 QSHOW_VARS=		MAKE_SH_ARGS+="--with-sb-qshow"
 QSHOW_VARS_OFF=		MAKE_SH_ARGS+="--without-sb-qshow"
+=======
+DOCS_VARS=	INFO="asdf sbcl"
+
+QSHOW_VARS=	MAKE_SH_ARGS+="--with-sb-qshow"
+QSHOW_VARS_OFF=	MAKE_SH_ARGS+="--without-sb-qshow"
+>>>>>>> upstream/main
 
 RENAME_PLIST_SUB=	CORE_SUFFIX="_core"
 RENAME_PLIST_SUB_OFF=	CORE_SUFFIX=".core"
@@ -94,8 +130,13 @@ SAFEPOINT_VARS=		MAKE_SH_ARGS+="--with-sb-safepoint --with-sb-thruption --with-s
 SAFEPOINT_VARS_OFF=	MAKE_SH_ARGS+="--without-sb-safepoint --without-sb-thruption --without-sb-wtimer"
 SAFEPOINT_IMPLIES=	THREADS
 
+<<<<<<< HEAD
 SBCL_VARS=		XC_HOST="${BOOT_WRKSRC}/src/runtime/sbcl --core ${BOOT_WRKSRC}/output/${CORE} --noinform --disable-debugger --no-sysinit --no-userinit"
 SBCL_DISTFILES=		${PORTNAME}-${SBCL_BOOT_LIST:M${ARCHOS_PATTERN}}-binary${EXTRACT_SUFX}:binaries
+=======
+SBCL_VARS=	XC_HOST="${BOOT_WRKSRC}/src/runtime/sbcl --core ${BOOT_WRKSRC}/output/${CORE} --noinform --disable-debugger --no-sysinit --no-userinit"
+SBCL_DISTFILES=	${PORTNAME}-${SBCL_BOOT_LIST:M${ARCHOS_PATTERN}}-binary${EXTRACT_SUFX}:binaries
+>>>>>>> upstream/main
 
 THREADS_VARS=		MAKE_SH_ARGS+="--with-sb-thread"
 THREADS_VARS_OFF=	MAKE_SH_ARGS+="--without-sb-thread"
@@ -103,11 +144,19 @@ THREADS_VARS_OFF=	MAKE_SH_ARGS+="--without-sb-thread"
 UNICODE_VARS=		MAKE_SH_ARGS+="--with-sb-unicode"
 UNICODE_VARS_OFF=	MAKE_SH_ARGS+="--without-sb-unicode"
 
+<<<<<<< HEAD
 XREF_VARS=		MAKE_SH_ARGS+="--with-sb-xref-for-internals"
 XREF_VARS_OFF=		MAKE_SH_ARGS+="--without-sb-xref-for-internals"
 
 ZLIB_VARS=		MAKE_SH_ARGS+="--with-sb-core-compression"
 ZLIB_VARS_OFF=		MAKE_SH_ARGS+="--without-sb-core-compression"
+=======
+XREF_VARS=	MAKE_SH_ARGS+="--with-sb-xref-for-internals"
+XREF_VARS_OFF=	MAKE_SH_ARGS+="--without-sb-xref-for-internals"
+
+ZLIB_VARS=	MAKE_SH_ARGS+="--with-sb-core-compression"
+ZLIB_VARS_OFF=	MAKE_SH_ARGS+="--without-sb-core-compression"
+>>>>>>> upstream/main
 
 PORTDOCS=	*
 
@@ -120,16 +169,27 @@ BOOT_WRKSRC=	${WRKDIR}/${PORTNAME}-${SBCL_BOOT_LIST:M${ARCHOS_PATTERN}}
 .if defined (PLUS_BOOTSTRAPS)
 . for B in ${SBCL_BOOT_LIST}
 .  if ! ${DISTFILES:Msbcl-${B}-*}
+<<<<<<< HEAD
 DISTFILES:=	${DISTFILES} ${PORTNAME}-${B}-binary${EXTRACT_SUFX}:binaries
+=======
+DISTFILES:=	${DISTFILES} \
+		${PORTNAME}-${B}-binary${EXTRACT_SUFX}:binaries
+>>>>>>> upstream/main
 .  endif
 . endfor
 .endif
 
 # Old FreeBSD bootstraps feature the older core name for SBCL bootstrap
 .if ${OPSYS} == FreeBSD
+<<<<<<< HEAD
 CORE=	sbcl.core
 .else
 CORE=	sbcl_core
+=======
+CORE=		sbcl.core
+.else
+CORE=		sbcl_core
+>>>>>>> upstream/main
 .endif
 
 post-patch-RENAME-on:

@@ -27,8 +27,11 @@
 #   % portsvar.sh -a -w kde
 #   list all variables through bsd.port.mk including kde
 #
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # MAINTAINER= ports@FreeBSD.org
 
 usage_msg="usage:

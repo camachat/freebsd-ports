@@ -1,5 +1,8 @@
 # Created by: Aaron LI <aly@aaronly.me>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	playerctl
 DISTVERSION=	2.3.1

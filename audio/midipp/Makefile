@@ -1,5 +1,8 @@
 # Created by: Hans Petter Selasky <hselasky@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	midipp
 DISTVERSIONPREFIX=	v

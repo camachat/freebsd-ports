@@ -1,5 +1,8 @@
 # Created by: mdodd
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	scorched3d
 PORTVERSION=	0.${SCORCH_VERSION}${SCORCH_REVISION}

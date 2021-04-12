@@ -1,5 +1,8 @@
 # Created by: Jesse Smith <jessefrgsmith@yahoo.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cpulimit
 PORTVERSION=	2.2

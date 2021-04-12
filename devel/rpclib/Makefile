@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rpclib
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.2.1

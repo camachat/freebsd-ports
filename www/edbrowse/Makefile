@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	edbrowse
 DISTVERSIONPREFIX=	v
 DISTVERSION=	3.7.7

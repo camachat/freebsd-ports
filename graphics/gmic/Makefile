@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	gmic
 DISTVERSION=	2.9.6
+=======
+PORTNAME=	gmic
+DISTVERSION=	2.9.6
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	graphics
 MASTER_SITES=	https://gmic.eu/files/source/
 DISTNAME=	${PORTNAME}_${DISTVERSION}
@@ -19,8 +25,13 @@ BROKEN_i386=	error: "c++ crashes, clang-5 and 6 fail: undefined reference to `__
 LIB_DEPENDS=	libcurl.so:ftp/curl \
 		libfftw3.so:math/fftw3 \
 		libGraphicsMagick++.so:graphics/GraphicsMagick \
+<<<<<<< HEAD
 		libIlmImf.so:graphics/openexr \
 		libImath.so:graphics/ilmbase \
+=======
+		libOpenEXR.so:graphics/openexr \
+		libImath.so:math/Imath \
+>>>>>>> upstream/main
 		libopencv_core.so:graphics/opencv \
 		libpng.so:graphics/png \
 		libtiff.so:graphics/tiff

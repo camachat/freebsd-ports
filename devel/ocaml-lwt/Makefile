@@ -1,5 +1,8 @@
 # Created by: jaapb@kerguelen.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lwt
 PORTVERSION=	2.5.2

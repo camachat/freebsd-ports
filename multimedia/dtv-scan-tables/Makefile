@@ -1,5 +1,8 @@
 # Created by: Dreamcat4 <dreamcat4@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dtv-scan-tables
 PORTVERSION=	20200902

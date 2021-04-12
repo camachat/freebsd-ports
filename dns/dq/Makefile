@@ -1,5 +1,8 @@
 # Created by: Piotr Kubaj <pkubaj@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dq
 PORTVERSION=	20181021

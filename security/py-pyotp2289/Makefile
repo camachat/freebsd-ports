@@ -1,5 +1,8 @@
 # Created by: Simeon Simeonov <sgs@pichove.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pyotp2289
 PORTVERSION=	1.0.0

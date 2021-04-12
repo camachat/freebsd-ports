@@ -1,5 +1,8 @@
 # Created by: Jov <amutu@amutu.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mac_nonet
 DISTVERSION=	g20150821

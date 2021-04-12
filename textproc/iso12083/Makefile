@@ -1,5 +1,8 @@
 # Created by: jfieber
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	iso12083
 PORTVERSION=	1993

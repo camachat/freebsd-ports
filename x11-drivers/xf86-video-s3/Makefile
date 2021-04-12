@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xf86-video-s3
 PORTVERSION=	0.7.0
 PORTREVISION=	1

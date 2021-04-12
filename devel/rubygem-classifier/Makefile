@@ -1,5 +1,8 @@
 # Created by: Peter Schuller <peter.schuller@infidyne.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	classifier
 PORTVERSION=	1.3.5

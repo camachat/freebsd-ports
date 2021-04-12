@@ -1,5 +1,8 @@
 # Created by: Ivan Dreckman <ivannashdreckman@fastmail.fm>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	zxfer
 PORTVERSION=	1.1.7

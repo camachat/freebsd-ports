@@ -1,5 +1,8 @@
 # Created by: Veniamin Gvozdikov <vg@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	re
 PORTVERSION=	1.4.1

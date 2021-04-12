@@ -1,5 +1,8 @@
 # Created by: dlowe
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bulk_mailer
 PORTVERSION=	1.13

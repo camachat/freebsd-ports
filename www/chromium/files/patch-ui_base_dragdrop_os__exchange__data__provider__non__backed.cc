@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 --- ui/base/dragdrop/os_exchange_data_provider_non_backed.cc.orig	2021-01-19 11:52:33 UTC
 +++ ui/base/dragdrop/os_exchange_data_provider_non_backed.cc
 @@ -93,14 +93,14 @@ void OSExchangeDataProviderNonBacked::SetPickledData(
+=======
+--- ui/base/dragdrop/os_exchange_data_provider_non_backed.cc.orig	2021-03-12 23:57:48 UTC
++++ ui/base/dragdrop/os_exchange_data_provider_non_backed.cc
+@@ -100,14 +100,14 @@ void OSExchangeDataProviderNonBacked::SetPickledData(
+>>>>>>> upstream/main
  }
  
  bool OSExchangeDataProviderNonBacked::GetString(base::string16* data) const {
@@ -17,7 +23,11 @@
  
    if ((formats_ & OSExchangeData::STRING) == 0)
      return false;
+<<<<<<< HEAD
 @@ -177,7 +177,7 @@ bool OSExchangeDataProviderNonBacked::HasCustomFormat(
+=======
+@@ -184,7 +184,7 @@ bool OSExchangeDataProviderNonBacked::HasCustomFormat(
+>>>>>>> upstream/main
    return base::Contains(pickle_data_, format);
  }
  

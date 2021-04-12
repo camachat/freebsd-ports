@@ -1,5 +1,8 @@
 # Created by: Fumihiko Kimura <jfkimura@yahoo.co.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 CATEGORIES=	japanese www ruby
 

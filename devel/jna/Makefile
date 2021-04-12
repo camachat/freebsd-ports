@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	jna
 PORTVERSION=	5.7.0
 CATEGORIES=	devel java

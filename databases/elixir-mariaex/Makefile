@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mariaex
 PORTVERSION=	0.8.4
 DISTVERSIONPREFIX=	v

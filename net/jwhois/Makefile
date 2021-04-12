@@ -1,5 +1,8 @@
 # Created by: matusita@jp.FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jwhois
 PORTVERSION=	4.0

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	web2c
 PORTVERSION=	20150521
 PORTREVISION=	3

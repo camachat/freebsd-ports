@@ -540,6 +540,10 @@ include/folly/lang/Cast.h
 include/folly/lang/CheckedMath.h
 include/folly/lang/CustomizationPoint.h
 include/folly/lang/Exception.h
+<<<<<<< HEAD
+=======
+include/folly/lang/Extern.h
+>>>>>>> upstream/main
 include/folly/lang/Keep.h
 include/folly/lang/Launder.h
 include/folly/lang/Ordering.h

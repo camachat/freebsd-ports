@@ -1,5 +1,8 @@
 # Created by: Radim Kolar <hsn@sendmail.cz>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dhrystone
 PORTVERSION=	2.1

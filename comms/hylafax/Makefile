@@ -1,5 +1,8 @@
 # Created by: Julian Stacey <jhs@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hylafax
 PORTVERSION=	6.0.7

@@ -1,5 +1,8 @@
 # Created by: Jov <amutu@amutu.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cstore_fdw
 PORTVERSION=	1.7.0

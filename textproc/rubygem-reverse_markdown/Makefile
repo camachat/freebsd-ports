@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	reverse_markdown
 PORTVERSION=	1.0.4
 CATEGORIES=	textproc rubygems

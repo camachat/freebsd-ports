@@ -1,5 +1,8 @@
 # Created by: Cheng-Lung Sung <clsung@dragon2.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Mail-Mbox-MessageParser
 PORTVERSION=	1.5111

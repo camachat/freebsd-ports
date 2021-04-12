@@ -1,5 +1,8 @@
 # Created by: Yar Tikhiy <yar@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mp3ck
 PORTVERSION=	0.04

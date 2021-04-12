@@ -1,5 +1,8 @@
 # Created by: Ilya A. Arkhipov <rum1cro@yandex.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	opengfx
 PORTVERSION=	0.6.0

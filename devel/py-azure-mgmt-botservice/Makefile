@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	azure-mgmt-botservice
 PORTVERSION=	0.3.0
 CATEGORIES=	devel python

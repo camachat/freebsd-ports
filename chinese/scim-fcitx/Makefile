@@ -1,5 +1,8 @@
 # Created by: Yinghong Liu <relaxbsd@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	scim
 PORTVERSION=	3.1.1

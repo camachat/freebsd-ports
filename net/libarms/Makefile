@@ -1,5 +1,8 @@
 # Created by: shigeru@iij.ad.jp
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libarms
 PORTVERSION=	5.01

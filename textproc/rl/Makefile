@@ -1,5 +1,8 @@
 # Created by: David Sze <dsze@alumni.uwaterloo.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rl
 PORTVERSION=	0.2.7

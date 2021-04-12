@@ -1,5 +1,8 @@
 # Created by: Dmitry Liakh <dliakh@ukr.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Text-xSV
 PORTVERSION=	0.21

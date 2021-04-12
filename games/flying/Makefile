@@ -1,5 +1,8 @@
 # Created by: searle
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	flying
 PORTVERSION=	6.20

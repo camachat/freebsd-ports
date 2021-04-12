@@ -1,5 +1,8 @@
 # Created by: johans
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ljclive
 PORTVERSION=	0.4.10

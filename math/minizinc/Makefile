@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	minizinc
 DISTVERSION=	2.5.5
 CATEGORIES=	math lang

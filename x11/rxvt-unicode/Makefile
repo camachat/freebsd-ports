@@ -1,5 +1,8 @@
 # Created by: gpalmer@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rxvt-unicode
 PORTVERSION=	9.22

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	signon-ui
 PORTVERSION=	0.17
 PORTREVISION=	7

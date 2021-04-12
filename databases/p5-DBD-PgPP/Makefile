@@ -1,5 +1,8 @@
 # Created by: Lubomir Marinov <lubomir_m@abv.bg>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	DBD-PgPP
 PORTVERSION=	0.08

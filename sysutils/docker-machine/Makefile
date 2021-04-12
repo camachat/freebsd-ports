@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		docker-machine
 PORTVERSION=		0.16.2
 DISTVERSIONPREFIX=	v

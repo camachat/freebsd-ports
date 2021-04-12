@@ -1,5 +1,8 @@
 # Created by: Anton Lysenok <bart@tapolsky.net.ua>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	clonehdd
 PORTVERSION=	2.0.3

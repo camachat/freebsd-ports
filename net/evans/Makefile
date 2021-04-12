@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	evans
 DISTVERSION=	0.9.1
 CATEGORIES=	net

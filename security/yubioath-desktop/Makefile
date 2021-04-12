@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	yubioath-desktop
 DISTVERSIONPREFIX=	yubioath-desktop-
 DISTVERSION=	5.0.4

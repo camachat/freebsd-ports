@@ -1,5 +1,8 @@
 # Created by: jfitz@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	afterstep
 PORTVERSION=	1.0

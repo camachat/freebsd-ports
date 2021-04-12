@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kartograph
 DISTVERSION=	0.6.8
 PORTREVISION=	1

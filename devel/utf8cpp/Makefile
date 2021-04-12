@@ -1,5 +1,8 @@
 # Created by: Keith Gaughan <k@stereochro.me>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	utf8cpp
 PORTVERSION=	3.1.2

@@ -1,5 +1,8 @@
 /* -*- ugly-hack-mode -*- */
+<<<<<<< HEAD
 /* $FreeBSD$ */
+=======
+>>>>>>> upstream/main
 
 #include <sys/stat.h>
 

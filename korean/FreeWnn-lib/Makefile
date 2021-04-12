@@ -1,5 +1,8 @@
 # Created by: Satoshi TAOKA <taoka@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 CATEGORIES=	korean
 PKGNAMESUFFIX=	-lib

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	aclip
 DISTVERSION=	0.6.0.1
 CATEGORIES=	x11

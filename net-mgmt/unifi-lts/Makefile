@@ -1,5 +1,8 @@
 # Created by: Alban MAIRE <a.maire@s2mi.fr>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	unifi
 PORTVERSION=	5.6.40

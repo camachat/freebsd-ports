@@ -1,5 +1,8 @@
 # Created by: T. William Wells <bill@twwells.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	BerkeleyDB
 PORTVERSION=	0.64

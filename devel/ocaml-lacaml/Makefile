@@ -1,5 +1,8 @@
 # Created by: Stanislav Sedov <ssedov@mbsd.msk.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lacaml
 PORTVERSION=	8.0.7

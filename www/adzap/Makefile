@@ -1,5 +1,8 @@
 # Created by: Kris Kennaway <kris@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	adzap
 PORTVERSION=	20110915

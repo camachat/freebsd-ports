@@ -1,5 +1,8 @@
 # Created by: Murray Stokely <murray@cdrom.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nasm
 PORTVERSION=	2.15.05

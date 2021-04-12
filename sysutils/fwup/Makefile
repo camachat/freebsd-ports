@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fwup
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.8.4

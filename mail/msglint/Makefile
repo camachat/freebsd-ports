@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	msglint
 PORTVERSION=	1.04
 CATEGORIES=	mail

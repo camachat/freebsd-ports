@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- base/process/process_metrics.h.orig	2020-11-13 06:36:34 UTC
+=======
+--- base/process/process_metrics.h.orig	2021-03-12 23:57:15 UTC
+>>>>>>> upstream/main
 +++ base/process/process_metrics.h
 @@ -47,7 +47,7 @@ namespace base {
  // Full declaration is in process_metrics_iocounters.h.
@@ -128,7 +132,11 @@
 +#endif  // defined(OS_ANDROID) || defined(OS_LINUX) || defined(OS_CHROMEOS) || defined(OS_BSD) ||
          // defined(OS_AIX) defined(OS_FUCHSIA)
  
+<<<<<<< HEAD
  #if defined(OS_CHROMEOS) || BUILDFLAG(IS_LACROS)
+=======
+ #if BUILDFLAG(IS_CHROMEOS_ASH) || BUILDFLAG(IS_CHROMEOS_LACROS)
+>>>>>>> upstream/main
 @@ -406,11 +406,11 @@ struct BASE_EXPORT SystemMemoryInfoKB {
  // Exposed for memory debugging widget.
  BASE_EXPORT bool GetSystemMemoryInfo(SystemMemoryInfoKB* meminfo);
@@ -151,7 +159,11 @@
 +#endif  // defined(OS_LINUX) || defined(OS_CHROMEOS) || defined(OS_ANDROID) || defined(OS_BSD) ||
          // defined(OS_AIX)
  
+<<<<<<< HEAD
  #if defined(OS_CHROMEOS) || BUILDFLAG(IS_LACROS)
+=======
+ #if BUILDFLAG(IS_CHROMEOS_ASH) || BUILDFLAG(IS_CHROMEOS_LACROS)
+>>>>>>> upstream/main
 @@ -597,7 +597,7 @@ class BASE_EXPORT SystemMetrics {
    FRIEND_TEST_ALL_PREFIXES(SystemMetricsTest, SystemMetrics);
  

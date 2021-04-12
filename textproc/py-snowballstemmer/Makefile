@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	snowballstemmer
 PORTVERSION=	1.2.1
 CATEGORIES=	textproc python

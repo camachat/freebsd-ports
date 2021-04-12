@@ -1,5 +1,8 @@
 # Created by: Daniel Roethlisberger <daniel@roe.ch>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	grit
 PORTVERSION=	2.5.0

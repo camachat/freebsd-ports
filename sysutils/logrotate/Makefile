@@ -1,5 +1,8 @@
 # Created by: Yuan-Chen Cheng <ycheng@sinica.edu.tw>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	logrotate
 PORTVERSION=	3.13.0

@@ -1,5 +1,8 @@
 # Created by: Roger Hardiman <roger@freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ptlib
 PORTVERSION=	2.10.11

@@ -1,5 +1,8 @@
 # Created by: Li-Wen Hsu <lwhsu@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mod_h264_streaming
 PORTVERSION=	2.2.7

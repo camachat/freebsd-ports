@@ -1,5 +1,8 @@
 # Created by: Ilya A. Arkhipov <rum1cro@yandex.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pyscss
 PORTVERSION=	1.3.5

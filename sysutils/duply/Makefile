@@ -1,5 +1,8 @@
 # Created by: Michael Ranner <michael@ranner.eu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	duply
 PORTVERSION=	2.1

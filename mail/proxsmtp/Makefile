@@ -1,5 +1,8 @@
 # Created by: Dario Freni <saturnero@gufi.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	proxsmtp
 PORTVERSION=	1.10

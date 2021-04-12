@@ -1,5 +1,8 @@
 # Created by: rfarmer@predatorlabs.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	javahelp
 PORTVERSION=	2.0.05.20170719

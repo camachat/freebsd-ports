@@ -1,5 +1,8 @@
 # Created by: Alex Samorukov <samm@os2.kiev.ua>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rawstudio
 PORTVERSION=	2.0

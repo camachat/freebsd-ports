@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mmtf-python
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.1.2

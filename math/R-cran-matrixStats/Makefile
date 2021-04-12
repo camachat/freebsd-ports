@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	matrixStats
 PORTVERSION=	0.58.0
 CATEGORIES=	math

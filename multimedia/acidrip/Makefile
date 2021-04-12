@@ -1,5 +1,8 @@
 # Created by: michael johnson <ahze@ahze.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	acidrip
 PORTVERSION=	0.14

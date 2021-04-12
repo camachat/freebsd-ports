@@ -1,5 +1,8 @@
 # Created by: Ulrich Spoerlein <uspoerlein@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mp3wrap
 PORTVERSION=	0.5

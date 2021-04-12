@@ -1,5 +1,8 @@
 # Created by: Rich Neswold <rneswold@mcs.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wmnet
 PORTVERSION=	1.2

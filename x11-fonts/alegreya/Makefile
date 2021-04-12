@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	alegreya
 PORTVERSION=	2.008
 PORTREVISION=	1

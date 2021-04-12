@@ -31,6 +31,7 @@ include/mfx/mfxvp9.h
 include/mfx/mfxvstructures.h
 lib/libmfx-tracer.so
 lib/libmfx-tracer.so.1
+<<<<<<< HEAD
 lib/libmfx-tracer.so.1.34
 lib/libmfx.so
 lib/libmfx.so.1
@@ -38,6 +39,15 @@ lib/libmfx.so.1.34
 lib/libmfxhw%%ARCH_SUFX%%.so
 lib/libmfxhw%%ARCH_SUFX%%.so.1
 lib/libmfxhw%%ARCH_SUFX%%.so.1.34
+=======
+lib/libmfx-tracer.so.1.35
+lib/libmfx.so
+lib/libmfx.so.1
+lib/libmfx.so.1.35
+lib/libmfxhw%%ARCH_SUFX%%.so
+lib/libmfxhw%%ARCH_SUFX%%.so.1
+lib/libmfxhw%%ARCH_SUFX%%.so.1.35
+>>>>>>> upstream/main
 lib/mfx/libmfx_h264la_hw%%ARCH_SUFX%%.so
 lib/mfx/libmfx_hevc_fei_hw%%ARCH_SUFX%%.so
 lib/mfx/libmfx_hevcd_hw%%ARCH_SUFX%%.so

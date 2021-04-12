@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	msgpack
 PORTVERSION=	3.3.0
 DISTVERSIONPREFIX=	cpp-

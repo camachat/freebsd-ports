@@ -1,5 +1,8 @@
 # Created by: dk
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fmsx
 PORTVERSION=	5.4

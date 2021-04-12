@@ -1,6 +1,9 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 # This wrappers allows to deals build system calling bison with certain long option
 # and messing with arguments orders

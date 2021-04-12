@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dsbsu
 PORTVERSION=	0.2
 CATEGORIES=	sysutils

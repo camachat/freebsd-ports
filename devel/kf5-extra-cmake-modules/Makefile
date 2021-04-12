@@ -1,8 +1,15 @@
 # Created by: Yuri Victorovich <yuri@rawbw.com>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	extra-cmake-modules
 DISTVERSION=	${KDE_FRAMEWORKS_VERSION}
+=======
+
+PORTNAME=	extra-cmake-modules
+DISTVERSION=	${KDE_FRAMEWORKS_VERSION}
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	devel kde kde-frameworks
 
 MAINTAINER=	kde@FreeBSD.org

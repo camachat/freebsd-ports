@@ -1,5 +1,8 @@
 # Created by: Carlo Strub
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wemux
 PORTVERSION=	3.2.0

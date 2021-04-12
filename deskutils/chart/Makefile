@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	chart
 DISTVERSIONPREFIX=	v
 DISTVERSION=	3.0.0

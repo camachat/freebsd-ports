@@ -1,5 +1,8 @@
 # Created by: Romain Tartiere <romain@blogreen.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mono-basic
 PORTVERSION=	4.7

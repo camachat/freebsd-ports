@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 CATEGORIES=	archivers
 
 MASTERDIR=	${.CURDIR}/../../lang/php80

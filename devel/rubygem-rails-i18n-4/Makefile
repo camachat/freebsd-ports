@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rails-i18n
 PORTVERSION=	4.0.9
 PORTREVISION=	1

@@ -1,5 +1,8 @@
 # Created by: smace
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	trn
 PORTVERSION=	4.0.b77

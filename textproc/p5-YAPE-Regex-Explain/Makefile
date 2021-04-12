@@ -1,5 +1,8 @@
 # Created by: Mathieu Arnold <m@absolight.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	YAPE-Regex-Explain
 PORTVERSION=	4.01

@@ -1,5 +1,8 @@
 # Created by: Ganael Laplanche <ganael.laplanche@martymac.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	par2cmdline-tbb
 PORTVERSION=	20100203

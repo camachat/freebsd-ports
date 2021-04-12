@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Net-Works
 PORTVERSION=	0.22
 CATEGORIES=	net perl5

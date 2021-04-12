@@ -1,5 +1,8 @@
 # Created by: Anes Mukhametov <anes@anes.su>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	MooseX-Role-Matcher
 PORTVERSION=	0.05

@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 s,@CC@,%%CC%%,
 s,@INSTALL@,/usr/bin/install,
 s,@SH@,/bin/sh,

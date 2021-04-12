@@ -1,5 +1,8 @@
 # Created by: Alexey V. Degtyarev
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	slapd-cyrus
 PORTVERSION=	1.00

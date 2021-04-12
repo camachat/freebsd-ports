@@ -1,5 +1,8 @@
 # Created by: <ports@c0decafe.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-Async-XMPP
 PORTVERSION=	0.003

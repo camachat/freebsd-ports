@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	zmq
 PORTVERSION=	2.1.4
 PORTREVISION=	1

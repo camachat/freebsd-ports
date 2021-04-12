@@ -1,5 +1,8 @@
 # Created by: Joe Marcus Clarke <marcus@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 #   $MCom: ports/x11-toolkits/gtksourceview2/Makefile,v 1.96 2010/09/29 12:42:49 kwm Exp $
 
 PORTNAME=	gtksourceview2
@@ -19,7 +22,11 @@ PORTSCOUT=	ignore:1
 
 USES+=		gettext gmake gnome libtool:keepla pathfix pkgconfig
 USE_LDCONFIG=	yes
+<<<<<<< HEAD
 USE_GNOME=	gnomeprefix gtk20 libxml2 intlhack referencehack
+=======
+USE_GNOME=	gnomeprefix gtk20 gconf2 libxml2 intlhack referencehack
+>>>>>>> upstream/main
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--enable-compile-warnings=no --enable-glade-catalog=no
 CPPFLAGS+=	-I${LOCALBASE}/include

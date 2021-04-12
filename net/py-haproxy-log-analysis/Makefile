@@ -1,5 +1,8 @@
 # Created by: Dmitry Sivachenko <mitya@yandex-team.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	haproxy-log-analysis
 PORTVERSION=	2.0

@@ -1,5 +1,8 @@
 # Created by: Steven Enderle <enderle@mdn.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bestfit
 PORTVERSION=	0.2.0

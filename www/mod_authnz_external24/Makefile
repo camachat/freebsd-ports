@@ -1,5 +1,8 @@
 # Created by: Jose Garcia Juanino <jjuanino@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mod_authnz_external
 PORTVERSION=	3.3.2

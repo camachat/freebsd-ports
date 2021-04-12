@@ -1,5 +1,8 @@
 # Created by: Mathieu Arnold
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	DateTime-Format-Strptime
 PORTVERSION=	1.78

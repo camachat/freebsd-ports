@@ -1,5 +1,8 @@
 # Created by: Waitman Gobble <waitman@waitman.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	double-conversion
 DISTVERSIONPREFIX=	v

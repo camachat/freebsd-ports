@@ -1,5 +1,8 @@
 # Created by: Bernhard Froehlich <decke@bluelife.at>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	virtualbox-ose
 PORTVERSION=	5.2.44

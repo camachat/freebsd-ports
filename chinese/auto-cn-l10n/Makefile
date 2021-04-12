@@ -1,5 +1,8 @@
 # Created by: Yinghong Liu <relaxbsd@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	auto-cn-l10n
 PORTVERSION=	1.1

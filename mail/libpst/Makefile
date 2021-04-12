@@ -1,5 +1,8 @@
 # Created by: Nate Underwood <natey@natey.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libpst
 PORTVERSION=	0.6.75

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Rex
 PORTVERSION=	1.13.2
 CATEGORIES=	sysutils perl5

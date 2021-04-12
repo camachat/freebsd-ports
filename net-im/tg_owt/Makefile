@@ -1,5 +1,8 @@
 # Created by: Henry Hu <henry.hu.sh@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tg_owt
 PORTVERSION=	0.0.20210207

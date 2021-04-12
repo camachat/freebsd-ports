@@ -1,5 +1,8 @@
 # Created by: jjachuf@gmail.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	plotly
 PORTVERSION=	4.14.3

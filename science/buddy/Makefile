@@ -1,5 +1,8 @@
 # Created by: Leland Wang <llwang@infor.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	buddy
 PORTVERSION=	2.4

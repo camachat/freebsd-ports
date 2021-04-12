@@ -1,5 +1,8 @@
 # Created by: Josh Carroll <josh.carroll@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wdiag
 PORTVERSION=	0.10.2

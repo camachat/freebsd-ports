@@ -1,5 +1,8 @@
 # Created by: Thierry Thomas (<thierry@pompo.net>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Crypt_CBC
 PORTVERSION=	1.0.1

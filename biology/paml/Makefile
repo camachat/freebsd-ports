@@ -1,5 +1,8 @@
 # Created by: dbader@eece.unm.edu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	paml
 PORTVERSION=	4.9j

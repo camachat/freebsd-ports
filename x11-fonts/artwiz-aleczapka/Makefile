@@ -1,5 +1,8 @@
 # Created by: Matt Lancereau <matt@rimasec.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	artwiz-aleczapka-en
 PORTVERSION=	1.3

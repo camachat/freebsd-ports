@@ -1,5 +1,8 @@
 # Created by: Andreas Kohn
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mercurial
 PORTVERSION=	5.5

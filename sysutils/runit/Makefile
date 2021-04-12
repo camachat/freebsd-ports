@@ -1,5 +1,8 @@
 # Created by: Sergei Kolobov <sergei@kolobov.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	runit
 PORTVERSION=	2.1.2

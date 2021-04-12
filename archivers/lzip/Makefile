@@ -1,5 +1,8 @@
 # Created by: Sylvio Cesar <sylvio@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lzip
 PORTVERSION=	1.21

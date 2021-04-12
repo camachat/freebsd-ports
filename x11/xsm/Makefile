@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xsm
 PORTVERSION=	1.0.4
 CATEGORIES=	x11

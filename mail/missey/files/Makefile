@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 SRCS_M	=	main.c pop3d.c auth.c plcat.c mydaemon.c listen.c mylog.c cfg.c checkip.c
 SRCS_B	=	bent.c
 

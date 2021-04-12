@@ -1,5 +1,8 @@
 # Created by: Vasiliy Ch <blttll@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ciso
 PORTVERSION=	1.0.0

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pyftpdlib
 PORTVERSION=	1.5.6
 CATEGORIES=	ftp python

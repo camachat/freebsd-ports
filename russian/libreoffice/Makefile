@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 CATEGORIES=	russian
 LO_I18N=	ru
 LO_HAS_HELPPACK=	yes

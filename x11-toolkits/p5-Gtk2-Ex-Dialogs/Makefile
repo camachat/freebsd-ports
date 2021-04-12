@@ -1,5 +1,8 @@
 # Created by: Paul Schmehl <pauls@utdallas.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Gtk2-Ex-Dialogs
 PORTVERSION=	0.11

@@ -1,5 +1,8 @@
 # Created by: Kozlov Sergey <kozlov.sergey.404@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	django-tables2
 DISTVERSION=	2.3.4

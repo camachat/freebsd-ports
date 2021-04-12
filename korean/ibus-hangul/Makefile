@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ibus-hangul
 PORTVERSION=	1.5.1
 CATEGORIES=	korean

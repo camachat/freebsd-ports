@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	eprover
 DISTVERSIONPREFIX=	E-
 DISTVERSION=	2.0

@@ -1,5 +1,8 @@
 # Created by: Thomas Dreibholz <dreibh@iem.uni-due.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sctplib
 PORTVERSION=	1.0.24

@@ -1,5 +1,8 @@
 # Created by: Mikael URANKAR and Loïc BARTOLETTI
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	grass
 PORTVERSION=	7.8.5

@@ -1,5 +1,8 @@
 # Created by: Kevin Bowling <kbowling@freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	timescaledb
 PORTVERSION=	2.1.1

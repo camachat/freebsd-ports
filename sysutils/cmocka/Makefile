@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cmocka
 PORTVERSION=	1.1.5
 CATEGORIES=	sysutils

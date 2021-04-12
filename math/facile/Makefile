@@ -1,5 +1,8 @@
 # Created by: arved
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	facile
 PORTVERSION=	1.1.3

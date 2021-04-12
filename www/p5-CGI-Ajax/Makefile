@@ -1,5 +1,8 @@
 # Created by: Lars Thegler <lth@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	CGI-Ajax
 PORTVERSION=	0.707

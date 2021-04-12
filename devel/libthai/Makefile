@@ -1,5 +1,8 @@
 # Created by: Thawatchai Piyawat <piyawat@usablelabs.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libthai
 DISTVERSION=	0.1.28

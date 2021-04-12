@@ -1,5 +1,8 @@
 # Created by: cpm
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	alef
 PORTVERSION=	1.0

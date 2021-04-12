@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mongodb
 DISTVERSIONPREFIX=	r
 DISTVERSION=	3.6.23

@@ -1,5 +1,8 @@
 # Created by: Danilo G. Baio <dbaio@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Validate_ISPN
 PORTVERSION=	0.7.0

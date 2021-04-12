@@ -1,5 +1,8 @@
 # Created by: Stephen Montgomery-Smith <stephen@math.missouri.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	octave-forge-zenity
 PORTVERSION=	0.5.7

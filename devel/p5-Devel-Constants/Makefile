@@ -1,5 +1,8 @@
 # Created by: tobez
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Devel-Constants
 PORTVERSION=	1.04

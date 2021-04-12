@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	acme-tiny
 DISTVERSION=	4.1.0
 CATEGORIES=	security python

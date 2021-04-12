@@ -1,5 +1,8 @@
 # Created by: Janos Mohacsi <janos.mohacsi@bsd.hu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pathological
 PORTVERSION=	1.1.3

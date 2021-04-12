@@ -1,5 +1,8 @@
 # Created by: Chris Piazza <cpiazza@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ezbounce
 PORTVERSION=	1.99.15

@@ -1,5 +1,8 @@
 # Created by: Dan Piponi <wmtop@tanelorn.demon.co.uk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wmtop
 PORTVERSION=	0.84

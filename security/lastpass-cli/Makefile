@@ -1,5 +1,8 @@
 # Created by: Thomas Hurst <tom@hur.st>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lastpass-cli
 PORTVERSION=	1.3.3

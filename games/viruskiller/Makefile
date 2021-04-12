@@ -1,5 +1,8 @@
 # Created by: markand
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	viruskiller
 PORTVERSION=	1.03

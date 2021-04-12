@@ -1,5 +1,8 @@
 # Created by: Matthieu BOUTHORS <matthieu@labs.fr>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sslscan
 DISTVERSION=	1.11.12

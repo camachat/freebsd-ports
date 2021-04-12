@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 /* $FreeBSD$ */
 
+=======
+>>>>>>> upstream/main
 #define	_REGEX_RE_COMP	1
 #define	HAVE_LANGINFO_H	1
 #define	HAVE_LANGINFO_CODESET	1

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- third_party/angle/src/libANGLE/Display.cpp.orig	2021-01-18 21:31:44 UTC
+=======
+--- third_party/angle/src/libANGLE/Display.cpp.orig	2021-03-13 00:03:31 UTC
+>>>>>>> upstream/main
 +++ third_party/angle/src/libANGLE/Display.cpp
 @@ -55,7 +55,7 @@
  #        include "libANGLE/renderer/gl/wgl/DisplayWGL.h"
@@ -36,7 +40,11 @@
  #        if defined(ANGLE_USE_X11)
              if (platformType == EGL_PLATFORM_X11_EXT && rx::IsVulkanXcbDisplayAvailable())
              {
+<<<<<<< HEAD
 @@ -1650,7 +1650,7 @@ static ClientExtensions GenerateClientExtensions()
+=======
+@@ -1646,7 +1646,7 @@ static ClientExtensions GenerateClientExtensions()
+>>>>>>> upstream/main
      extensions.x11Visual = true;
  #endif
  

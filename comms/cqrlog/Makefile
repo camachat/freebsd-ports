@@ -1,5 +1,8 @@
 # Created by: Stephen Hurd <shurd@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cqrlog
 PORTVERSION=	2.4.0

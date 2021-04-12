@@ -1,5 +1,8 @@
 # Created by: Steve Wills <steve@mouf.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Chemistry-File-VRML
 PORTVERSION=	0.10

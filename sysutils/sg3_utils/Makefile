@@ -1,5 +1,8 @@
 # Created by: Denis Barov <dindin@dindin.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sg3_utils
 DISTVERSION=	1.45

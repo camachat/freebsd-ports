@@ -1,5 +1,8 @@
 # Created by: Nosov Artem <chip-set@mail.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wput
 PORTVERSION=	0.6.2

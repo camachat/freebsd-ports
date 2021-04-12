@@ -1,5 +1,8 @@
 # Created by: Janos.Mohacsi@dante.org.uk
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sipcalc
 PORTVERSION=	1.1.6

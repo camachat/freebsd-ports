@@ -1,5 +1,8 @@
 # Created by: Juergen Lock <nox@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	m2vrequantiser
 PORTVERSION=	1.1

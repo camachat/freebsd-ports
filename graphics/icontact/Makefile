@@ -1,5 +1,8 @@
 # Created by: Mark Pulford <mark@kyne.com.au>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	icontact
 PORTVERSION=	1.5

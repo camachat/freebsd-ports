@@ -1,5 +1,8 @@
 # Created by: Pawel Pekala <pawel@freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libravatar
 PORTREVISION=	0

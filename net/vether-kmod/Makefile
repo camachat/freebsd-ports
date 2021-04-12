@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	vether-kmod
 DISTVERSION=	g20190422
 CATEGORIES=	net

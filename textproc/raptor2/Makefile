@@ -1,9 +1,16 @@
 # Created by: ijliao
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	raptor2
 PORTVERSION=	2.0.15
 PORTREVISION=	17
+=======
+
+PORTNAME=	raptor2
+PORTVERSION=	2.0.15
+PORTREVISION=	18
+>>>>>>> upstream/main
 CATEGORIES=	textproc
 MASTER_SITES=	http://download.librdf.org/source/ \
 		SF/librdf/${PORTNAME}/${PORTVERSION}

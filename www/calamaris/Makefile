@@ -1,5 +1,8 @@
 # Created by: Dima Sivachenko <dima@Chg.RU>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	calamaris
 PORTVERSION=	2.59

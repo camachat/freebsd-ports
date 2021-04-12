@@ -1,5 +1,8 @@
 # Created by: Murray Nesbitt <freebsd@nesbitt.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	flasher
 PORTVERSION=	1.3

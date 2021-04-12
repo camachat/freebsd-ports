@@ -1,5 +1,8 @@
 # Created by: Stephen Montgomery-Smith <stephen@math.missouri.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vmd
 DISTVERSION=	1.9.3

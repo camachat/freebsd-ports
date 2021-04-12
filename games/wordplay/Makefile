@@ -1,5 +1,8 @@
 # Created by: Ben Smithurst <ben@scientia.demon.co.uk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wordplay
 PORTVERSION=	7.22

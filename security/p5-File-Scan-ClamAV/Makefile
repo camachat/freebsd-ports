@@ -1,5 +1,8 @@
 # Created by: Jan-Peter Koopmann <Jan-Peter.Koopmann@seceidos.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	File-Scan-ClamAV
 PORTVERSION=	1.95

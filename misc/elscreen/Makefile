@@ -1,5 +1,8 @@
 # Created by: Yoichi NAKAYAMA <yoichi@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	elscreen
 PORTVERSION=	1.4.6.20180320

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	codec2
 DISTVERSION=	0.8.1
 PORTREVISION=	2

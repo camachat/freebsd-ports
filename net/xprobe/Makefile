@@ -1,5 +1,8 @@
 # Created by: Kris Kennaway <kris@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xprobe2
 PORTVERSION=	0.3

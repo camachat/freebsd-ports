@@ -1,5 +1,8 @@
 # Created by: Zeus Panchenko <zeus@gnu.org.ua>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Array-Utils
 PORTVERSION=	0.5

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	DAV
 PORTVERSION=	1.3.4
 PORTREVISION=	2

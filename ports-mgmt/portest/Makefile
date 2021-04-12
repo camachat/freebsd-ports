@@ -1,5 +1,8 @@
 # Created by: Richard Gallamore <ultima@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	portest
 PORTVERSION=	0.1.9

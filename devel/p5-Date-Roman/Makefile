@@ -1,5 +1,8 @@
 # Created by: Philip Paeps <philip@paeps.cx>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Date-Roman
 PORTVERSION=	1.06

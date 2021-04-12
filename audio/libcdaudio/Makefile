@@ -1,5 +1,8 @@
 # Created by: Thomas Gellekum <tg@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libcdaudio
 PORTVERSION=	0.99.12p2

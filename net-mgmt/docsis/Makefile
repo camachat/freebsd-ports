@@ -1,5 +1,8 @@
 # Created by: James Flemer <jflemer@acm.jhu.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	docsis
 PORTVERSION=	0.9.8

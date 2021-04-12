@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cachex
 PORTVERSION=	3.0.3
 DISTVERSIONPREFIX=	v

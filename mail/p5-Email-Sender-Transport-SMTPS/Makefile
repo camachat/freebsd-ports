@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Email-Sender-Transport-SMTPS
 PORTVERSION=	0.03
 PORTREVISION=	1

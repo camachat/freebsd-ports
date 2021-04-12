@@ -1,5 +1,8 @@
 # Created by: Dima Sivachenko <dima@chg.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pvm
 PORTVERSION=	3.4.6

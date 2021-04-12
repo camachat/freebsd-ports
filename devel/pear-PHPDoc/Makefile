@@ -1,5 +1,8 @@
 # Created by: Gerrit Beine (<gerrit@beine-computer.de>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	PHPDoc
 PORTVERSION=	0.1.0

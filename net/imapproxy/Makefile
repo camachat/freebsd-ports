@@ -1,5 +1,8 @@
 # Created by: Lasse L. Johnsen (lasse@freebsdcluster.org)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	imapproxy
 PORTVERSION=	1.0

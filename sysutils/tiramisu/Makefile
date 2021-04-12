@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tiramisu
 DISTVERSION=	1.0
 CATEGORIES=	sysutils

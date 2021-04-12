@@ -1,5 +1,8 @@
 # Created by: mm@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	adodb
 PORTVERSION=	5.21.0

@@ -1,5 +1,8 @@
 # Created by: Gabor Kovesdan
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Digest-Crc32
 PORTVERSION=	0.01

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	yara
 DISTVERSION=	4.0.5
 DISTVERSIONPREFIX=	v

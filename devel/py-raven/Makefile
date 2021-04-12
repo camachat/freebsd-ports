@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	raven
 PORTVERSION=	6.10.0
 PORTREVISION=	1

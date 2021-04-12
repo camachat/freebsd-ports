@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	gnome-builder
 PORTVERSION=	3.38.1
+=======
+PORTNAME=	gnome-builder
+PORTVERSION=	3.38.1
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	devel gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	std
 PORTVERSION=	0.0.20191230
 CATEGORIES=	japanese x11-fonts

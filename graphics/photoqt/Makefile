@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	photoqt
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.6

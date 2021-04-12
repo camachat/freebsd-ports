@@ -1,5 +1,8 @@
 # Created by: petef@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Digest-MD2
 PORTVERSION=	2.04

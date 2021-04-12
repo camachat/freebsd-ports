@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Moose-Test
 PORTVERSION=	0.01
 PORTREVISION=	1

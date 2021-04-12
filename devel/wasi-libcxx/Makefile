@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libcxx
 DISTVERSION=	11.0.0
 CATEGORIES=	devel lang

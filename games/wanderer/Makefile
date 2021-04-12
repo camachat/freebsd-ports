@@ -1,5 +1,8 @@
 # Created by: marina@surferz.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wanderer
 PORTVERSION=	3.2

@@ -1,5 +1,8 @@
 # Created by: rene@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dcf77pi
 PORTVERSION=	3.7.1.1

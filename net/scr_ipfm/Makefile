@@ -1,5 +1,8 @@
 # Created by: HSIN-HSIUNG CHANG
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	scr_ipfm
 PORTVERSION=	0.64

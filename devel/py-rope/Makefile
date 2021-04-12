@@ -1,5 +1,8 @@
 # Created by: Jose Jachuf <jjachuf@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rope
 DISTVERSION=	0.18.0

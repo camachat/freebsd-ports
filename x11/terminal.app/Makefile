@@ -1,5 +1,8 @@
 # Created by: gurkan@phys.ethz.ch
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	terminal.app
 PORTVERSION=	0.9.9

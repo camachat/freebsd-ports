@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rrd-ffi
 PORTVERSION=	0.2.14
 PORTREVISION=	2

@@ -1,5 +1,8 @@
 # Created by: Tz-Huan Huang <tzhuan@csie.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fann
 PORTVERSION=	2.2.0

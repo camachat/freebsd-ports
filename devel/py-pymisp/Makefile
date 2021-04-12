@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pymisp
 PORTVERSION=	2.4.128
 CATEGORIES=	devel python

@@ -1,5 +1,8 @@
 # Created by: Johannes Meixner <johannes@perceivon.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ace-rails-ap
 PORTVERSION=	4.1.5

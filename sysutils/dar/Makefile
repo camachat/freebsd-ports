@@ -1,5 +1,8 @@
 # Created by: Edson Brandi <ebrandi@fugspbr.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dar
 PORTVERSION=	2.5.14

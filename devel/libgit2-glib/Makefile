@@ -1,11 +1,18 @@
 # Created by: Gustau Perez <gustau.perez@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 # Also update devel/libgit2, devel/rubygem-rugged, devel/py-pygit2
 
 PORTNAME=	libgit2-glib
 PORTVERSION=	0.99.0.1
+<<<<<<< HEAD
 PORTREVISION=	1
+=======
+PORTREVISION=	2
+>>>>>>> upstream/main
 CATEGORIES=	devel gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome

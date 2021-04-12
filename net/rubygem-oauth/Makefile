@@ -1,5 +1,8 @@
 # Created by: wenheping <wenheping@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	oauth
 PORTVERSION=	0.5.4

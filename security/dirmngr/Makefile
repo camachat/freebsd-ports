@@ -1,5 +1,8 @@
 # Created by: michaelnottebrock@gmx.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dirmngr
 PORTVERSION=	1.1.0

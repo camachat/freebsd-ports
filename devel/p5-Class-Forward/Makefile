@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Class-Forward
 PORTVERSION=	0.100006
 PORTREVISION=	1

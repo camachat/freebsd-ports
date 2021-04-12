@@ -1,5 +1,8 @@
 # Created by: Marzhan Mykola <delgod@portaone.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Hash-MultiKey
 PORTVERSION=	0.06

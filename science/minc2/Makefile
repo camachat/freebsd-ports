@@ -1,5 +1,8 @@
 # Created by: jbacon
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	minc
 PORTVERSION=	2.2.00

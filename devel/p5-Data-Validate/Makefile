@@ -1,5 +1,8 @@
 # Created by: Steven Kreuzer <skreuzer@exit2shell.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Data-Validate
 PORTVERSION=	0.09

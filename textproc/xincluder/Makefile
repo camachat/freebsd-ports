@@ -1,5 +1,8 @@
 # Created by: Ernst de Haan <znerd@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xincluder
 PORTVERSION=	1.0.d11

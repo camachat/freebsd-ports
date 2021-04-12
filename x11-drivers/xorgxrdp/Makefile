@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xorgxrdp
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.2.15

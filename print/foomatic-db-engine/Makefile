@@ -1,5 +1,8 @@
 # Created by: Martin Ranne <gasp@ridcully.dnsalias.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	foomatic-db-engine
 PORTVERSION=	4.0.13

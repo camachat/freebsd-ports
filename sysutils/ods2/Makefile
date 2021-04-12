@@ -1,5 +1,8 @@
 # Created by: Thierry Dussuet <dussuett@wigwam.ethz.ch>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ods2
 PORTVERSION=	1.3

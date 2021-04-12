@@ -1,5 +1,8 @@
 # Created by: erikhb@bgnett.no
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libiodbc
 DISTVERSIONPREFIX=	v

@@ -1,5 +1,8 @@
 # Created by: marck@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	arpdig
 PORTVERSION=	0.5.6

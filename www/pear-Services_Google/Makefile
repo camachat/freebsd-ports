@@ -1,5 +1,8 @@
 # Created by: Wen heping <wenheping@gmail.com>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Services_Google
 PORTVERSION=	0.2.0

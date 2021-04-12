@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	oneshot
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.3.1
+=======
+PORTNAME=	oneshot
+DISTVERSIONPREFIX=	v
+DISTVERSION=	1.4.1
+>>>>>>> upstream/main
 CATEGORIES=	www
 
 MAINTAINER=	lcook@FreeBSD.org

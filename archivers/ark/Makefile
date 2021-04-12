@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ark
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
 CATEGORIES=	archivers kde kde-applications

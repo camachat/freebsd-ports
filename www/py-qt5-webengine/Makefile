@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	webengine
 DISTVERSION=	${PYQT_VERSION}
 CATEGORIES=	www devel python

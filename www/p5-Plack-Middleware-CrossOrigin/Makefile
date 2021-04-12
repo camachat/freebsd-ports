@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Plack-Middleware-CrossOrigin
 PORTVERSION=	0.014
 CATEGORIES=	www perl5

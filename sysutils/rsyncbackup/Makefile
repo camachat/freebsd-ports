@@ -1,5 +1,8 @@
 # Created by: Daniel Bond
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rsyncbackup
 PORTVERSION=	1.1

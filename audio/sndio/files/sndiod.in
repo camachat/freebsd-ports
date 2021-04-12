@@ -1,7 +1,11 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+
+>>>>>>> upstream/main
 # PROVIDE: sndiod
 # REQUIRE: NETWORKING sysctl
 # BEFORE:  DAEMON

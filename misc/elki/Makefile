@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	elki
 DISTVERSIONPREFIX=	release
 DISTVERSION=	0.7.1-1166

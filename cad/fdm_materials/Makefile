@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fdm_materials
 PORTEPOCH=	1
 DISTVERSION=	4.7.1

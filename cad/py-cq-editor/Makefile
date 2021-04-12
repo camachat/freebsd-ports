@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cq-editor
 DISTVERSION=	0.1.2
 PORTREVISION=	6

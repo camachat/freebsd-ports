@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	filtron
 PORTVERSION=	g20180218
 PORTREVISION=	1

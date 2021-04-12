@@ -1,5 +1,8 @@
 # Created by: Kevin Bowling <k@kev009.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libnss-cache
 PORTVERSION=	0.18

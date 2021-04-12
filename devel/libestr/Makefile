@@ -1,5 +1,8 @@
 # Created by: Jim Riggs <ports@christianserving.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libestr
 PORTVERSION=	0.1.11

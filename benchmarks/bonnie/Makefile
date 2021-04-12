@@ -1,5 +1,8 @@
 # Created by: se
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bonnie
 PORTVERSION=	2.0.6

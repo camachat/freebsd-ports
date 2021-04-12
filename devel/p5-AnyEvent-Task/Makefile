@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	AnyEvent-Task
 PORTVERSION=	0.801
 PORTREVISION=	1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	freetype-gl
 DISTVERSION=	g20210208
 PORTREVISION=	2

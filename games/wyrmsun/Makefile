@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # Created by: Dmitry Marakasov <amdmi3@FreeBSD.org>
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	wyrmsun
 PORTVERSION=	4.1.3
 DISTVERSIONPREFIX=	v
@@ -12,9 +15,12 @@ COMMENT=	Strategy game based on history, mythology and fiction
 LICENSE=	GPLv2+
 LICENSE_FILE=	${WRKSRC}/license.txt
 
+<<<<<<< HEAD
 DEPRECATED=	Uses EOL Python 2.7 via games/wyrmgus
 EXPIRATION_DATE=2021-06-23
 
+=======
+>>>>>>> upstream/main
 RUN_DEPENDS=	wyrmgus:games/wyrmgus
 
 USE_GITHUB=	yes

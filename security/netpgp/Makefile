@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	netpgp
 PORTVERSION=	20140220
 CATEGORIES=	security

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Test-YAML
 PORTVERSION=	1.07
 CATEGORIES=	devel perl5

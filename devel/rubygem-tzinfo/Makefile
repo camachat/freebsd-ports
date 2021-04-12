@@ -1,5 +1,8 @@
 # Created by: Rui Lopes (rgl ruilopes com)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tzinfo
 PORTVERSION=	2.0.4

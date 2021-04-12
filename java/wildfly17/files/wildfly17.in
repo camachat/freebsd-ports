@@ -1,8 +1,11 @@
 #!/bin/sh
 #
 # %%APP_SHORTNAME%% startup script.
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 
 # PROVIDE: %%APP_SHORTNAME%%
 # REQUIRE: NETWORKING SERVERS

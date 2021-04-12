@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	psimd
 PORTVERSION=	g20180906
 CATEGORIES=	devel

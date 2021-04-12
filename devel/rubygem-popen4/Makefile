@@ -1,5 +1,8 @@
 # Created by: rpsfa@rit.edu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	popen4
 PORTVERSION=	0.1.4

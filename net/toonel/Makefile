@@ -1,5 +1,8 @@
 # Created by: Veniamin Gvozdikov <vg@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	toonel
 PORTVERSION=	0.0.50.50

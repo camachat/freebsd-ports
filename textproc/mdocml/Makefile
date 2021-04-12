@@ -1,5 +1,8 @@
 # Created by: Ulrich Spoerlein <uspoerlein@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mdocml
 PORTVERSION=	1.14.5

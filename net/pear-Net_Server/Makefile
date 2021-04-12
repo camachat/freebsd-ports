@@ -1,5 +1,8 @@
 # Created by: Gerrit Beine (<tux@pinguru.net>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net_Server
 PORTVERSION=	1.0.3

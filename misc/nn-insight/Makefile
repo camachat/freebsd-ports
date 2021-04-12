@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	nn-insight
 DISTVERSION=	1.0.5
 CATEGORIES=	misc # machine-learning

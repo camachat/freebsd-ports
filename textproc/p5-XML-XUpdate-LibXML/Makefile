@@ -1,5 +1,8 @@
 # Created by: Lev Serebryakov <lev@serebryakov.spb.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	XML-XUpdate-LibXML
 PORTVERSION=	0.6.0

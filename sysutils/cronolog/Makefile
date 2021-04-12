@@ -1,5 +1,8 @@
 # Created by: Mark Blackman <tmb_ports@maddog.u-net.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cronolog
 PORTVERSION=	1.6.2

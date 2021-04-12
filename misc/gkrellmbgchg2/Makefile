@@ -1,5 +1,8 @@
 # Created by: Chris Stuart <firewolf@lightningfire.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gkrellmbgchg2
 PORTVERSION=	0.1.11

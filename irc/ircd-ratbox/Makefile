@@ -1,5 +1,8 @@
 # Created by: Shaun Amott <shaun@inerd.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ircd-ratbox
 PORTVERSION=	3.0.10

@@ -1,5 +1,8 @@
 # Created by: John-Mark Gurney <jmg@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nist-kat
 DISTVERSION=	0.0.2015.02.23

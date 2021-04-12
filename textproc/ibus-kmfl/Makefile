@@ -1,5 +1,8 @@
 # Created by: Nikola Lecic <nikola.lecic@anthesphoria.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ibus-kmfl
 PORTVERSION=	1.0.3

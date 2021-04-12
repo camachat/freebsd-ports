@@ -1,5 +1,8 @@
 # Created by: Martin Blapp <mb@imp.ch>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mtx
 PORTVERSION=	1.3.12

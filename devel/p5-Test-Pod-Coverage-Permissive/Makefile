@@ -1,5 +1,8 @@
 # Created by: andrey@kostenko.name
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Test-Pod-Coverage-Permissive
 PORTVERSION=	0.05

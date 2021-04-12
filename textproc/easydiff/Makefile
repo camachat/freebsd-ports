@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	easydiff
 PORTVERSION=	0.4.0
 PORTREVISION=	9

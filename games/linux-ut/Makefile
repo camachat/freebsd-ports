@@ -1,5 +1,8 @@
 # Created by: Sean Farley <sean-freebsd@farley.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	linux-ut
 PORTVERSION=	${UTVERSION}

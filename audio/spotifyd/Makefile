@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	spotifyd
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.3.0

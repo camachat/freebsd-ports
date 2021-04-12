@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	quickjail
 PORTVERSION=	0.2.1
 CATEGORIES=	sysutils

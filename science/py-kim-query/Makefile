@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kim-query
 DISTVERSION=	1.1.0
 CATEGORIES=	science python

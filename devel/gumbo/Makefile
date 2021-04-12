@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gumbo
 PORTVERSION=	0.10.1
 DISTVERSIONPREFIX=	v

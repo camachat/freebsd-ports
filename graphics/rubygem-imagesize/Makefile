@@ -1,5 +1,8 @@
 # Created by: Rick Elrod <codeblock@eighthbit.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	imagesize
 PORTVERSION=	0.1.1

@@ -1,5 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@rtfm.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	yapra
 PORTVERSION=	0.2.2

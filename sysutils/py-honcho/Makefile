@@ -1,5 +1,8 @@
 # Created by: Fukang Chen <loader@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	honcho
 PORTVERSION=	1.0.1

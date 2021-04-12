@@ -1,5 +1,8 @@
 # Created by: Alejandro Pulver <alejandro@varnet.biz>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hacx
 PORTVERSION=	1.0

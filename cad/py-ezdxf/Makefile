@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ezdxf
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.15.2

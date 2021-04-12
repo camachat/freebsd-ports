@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	wstools
 PORTVERSION=	0.4.8
 CATEGORIES=	textproc python

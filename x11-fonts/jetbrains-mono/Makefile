@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	jetbrains-mono
 PORTVERSION=	2.225
 PORTEPOCH=	1

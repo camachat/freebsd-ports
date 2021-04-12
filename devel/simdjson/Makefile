@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	simdjson
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.6.0

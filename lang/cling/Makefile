@@ -1,9 +1,16 @@
 # Created by: Mahdi Mokhtari <mokhi64@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=		cling
 DISTVERSION=		0.5-2018-08-13
 PORTREVISION=		4
+=======
+
+PORTNAME=		cling
+DISTVERSION=		0.5-2018-08-13
+PORTREVISION=		5
+>>>>>>> upstream/main
 CATEGORIES=		lang devel
 MASTER_SITES=		https://root.cern.ch/download/cling/
 DISTNAME=		${PORTNAME}_${DISTVERSION:C/^[0-9]\.[0-9]-//}_sources
@@ -50,8 +57,12 @@ PLIST_SUB+=		LLVM_SUFFIX=${LLVM_SUFFIX} LLVM_RELEASE=${LLVM_RELEASE}
 CMAKE_BUILD_TYPE=	Release
 CMAKE_INSTALL_PREFIX=	${LLVM_PREFIX}
 
+<<<<<<< HEAD
 CMAKE_ARGS+=	-DINSTALL_LAYOUT=FREEBSD \
 	    --target ${PORTNAME}
+=======
+CMAKE_ARGS+=	-DINSTALL_LAYOUT=FREEBSD
+>>>>>>> upstream/main
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|%%LLVM_PREFIX%%|${LLVM_PREFIX}|g' \

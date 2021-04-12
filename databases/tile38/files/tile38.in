@@ -1,7 +1,10 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD: $
 #
+=======
+>>>>>>> upstream/main
 
 # PROVIDE: tile38
 # REQUIRE: LOGIN

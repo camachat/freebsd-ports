@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	termplay
 DISTVERSION=	2.0.6
 PORTREVISION=	6

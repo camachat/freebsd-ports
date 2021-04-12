@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	HTML-ExtractContent
 PORTVERSION=	0.11
 CATEGORIES=	www perl5

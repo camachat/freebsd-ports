@@ -1,5 +1,8 @@
 # Created by: Ying-Chieh Liao <ijliao@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	itext
 PORTVERSION=	4.2.0

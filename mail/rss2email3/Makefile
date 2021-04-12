@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rss2email
 DISTVERSIONPREFIX=	v
 DISTVERSION=	3.12.3

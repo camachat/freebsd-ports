@@ -1,5 +1,8 @@
 # Created by: Russell Francis
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gutenfetch
 PORTVERSION=	1.5

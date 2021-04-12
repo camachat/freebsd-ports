@@ -1,5 +1,8 @@
 # Created by: Lefteris Chatzibarbas <lefcha@hellug.gr>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	imapfilter
 PORTVERSION=	2.7.5

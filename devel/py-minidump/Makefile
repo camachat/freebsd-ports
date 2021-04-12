@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	minidump
 DISTVERSION=	0.0.13
 CATEGORIES=	devel python

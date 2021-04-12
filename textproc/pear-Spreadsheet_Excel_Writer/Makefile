@@ -1,5 +1,8 @@
 # Created by: Pav Lucistnik <pav@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Spreadsheet_Excel_Writer
 PORTVERSION=	0.9.4

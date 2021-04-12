@@ -1,5 +1,8 @@
 # Created by: Simon Marlow <simonmar@microsoft.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ghc
 PORTVERSION=	${GHC_VERSION}

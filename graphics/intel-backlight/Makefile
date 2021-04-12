@@ -1,5 +1,8 @@
 # Created by: Michael Gmelin <freebsd@grem.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		intel-backlight
 DISTVERSION=		20200418

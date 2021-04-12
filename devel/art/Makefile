@@ -1,5 +1,8 @@
 # Created by: Vladimir Gorelov <virtual.lark@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	art
 PORTVERSION=	0.9.02

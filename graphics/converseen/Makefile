@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	converseen
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.9.9.0

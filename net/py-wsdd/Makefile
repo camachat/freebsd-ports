@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	wsdd
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.6.4

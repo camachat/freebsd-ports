@@ -1,5 +1,8 @@
 # Created by: FreeBSD GNOME Team <gnome@freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gnome-2048
 PORTVERSION=	3.38.2

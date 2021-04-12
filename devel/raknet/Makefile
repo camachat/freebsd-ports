@@ -1,5 +1,8 @@
 # Created by: Andrew Baznikin <dikiy@scn.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	raknet
 PORTVERSION=	3.9.2

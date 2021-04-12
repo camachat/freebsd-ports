@@ -1,5 +1,8 @@
 # Created by: Tilman Linneweh <arved@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	alienwah
 PORTVERSION=	1.13

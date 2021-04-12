@@ -1,5 +1,8 @@
 # Created by: Joe Clarke
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	openslp
 PORTVERSION=	2.0.0

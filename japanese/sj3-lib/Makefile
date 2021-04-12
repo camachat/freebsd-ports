@@ -1,5 +1,8 @@
 # Created by: Hidekazu Kuroki <hidekazu@cs.titech.ac.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sj3
 PORTVERSION=	2.0.1.20

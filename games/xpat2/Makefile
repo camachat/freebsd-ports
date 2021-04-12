@@ -1,5 +1,8 @@
 # Created by: Matthew Hunt <mph@pobox.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xpat2
 PORTVERSION=	1.07

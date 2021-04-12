@@ -1,5 +1,8 @@
 # Created by: Chris D. Faulhaber <jedgar@fxp.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	code2html
 PORTVERSION=	0.9.1

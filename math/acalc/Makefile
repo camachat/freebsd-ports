@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	acalc
 PORTVERSION=	0.3
 CATEGORIES=	math

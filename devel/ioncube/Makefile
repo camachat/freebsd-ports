@@ -1,5 +1,8 @@
 # Created by: Svyatoslav Lempert <svyatoslav.lempert@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ioncube
 DISTVERSION=	10.4.1

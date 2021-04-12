@@ -1,5 +1,8 @@
 # Created by: Aaron Straup Cope
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	resume-extensions
 PORTVERSION=	0.5

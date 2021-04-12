@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Data-Dump
 PORTVERSION=	1.23
 PORTREVISION=	1

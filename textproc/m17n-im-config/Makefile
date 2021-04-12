@@ -1,5 +1,8 @@
 # Created by: Nikola Lecic <nikola.lecic@anthesphoria.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	m17n-im-config
 PORTVERSION=	0.9.0

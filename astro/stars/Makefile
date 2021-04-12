@@ -1,5 +1,8 @@
 # Created by: searle
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	stars
 PORTVERSION=	1.0

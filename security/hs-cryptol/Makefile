@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cryptol
 DISTVERSION=	2.10.0
 CATEGORIES=	security lang haskell

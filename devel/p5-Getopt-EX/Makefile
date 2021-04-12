@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Getopt-EX
 PORTVERSION=	1.15.0
 DISTVERSIONPREFIX=	v

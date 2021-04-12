@@ -1,8 +1,14 @@
 # Created by: Alexey V. Degtyarev <alexey@renatasystems.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	botocore
 PORTVERSION=	1.20.36
+=======
+
+PORTNAME=	botocore
+PORTVERSION=	1.20.49
+>>>>>>> upstream/main
 CATEGORIES=	devel python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}

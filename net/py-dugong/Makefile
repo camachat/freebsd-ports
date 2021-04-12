@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dugong
 PORTVERSION=	3.7.5
 CATEGORIES=	net python

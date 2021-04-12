@@ -1,5 +1,8 @@
 # Created by: Stanislav Svirid <count@211.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	creole
 PORTVERSION=	1.4.9

@@ -1,5 +1,8 @@
 # Created by: Green Dog <fiziologus@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fifechan
 PORTVERSION=	0.1.5

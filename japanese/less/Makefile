@@ -1,5 +1,8 @@
 # Created by: Nobuhiro Yasutomi <nobu@psrc.isac.co.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	less
 PORTVERSION=	382.262.03.01

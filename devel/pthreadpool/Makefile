@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pthreadpool
 DISTVERSION=	0.1-126
 DISTVERSIONSUFFIX=	-gb8374f8

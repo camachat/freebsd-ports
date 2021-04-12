@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- chrome/browser/performance_monitor/process_metrics_history.h.orig	2020-11-13 06:36:37 UTC
+=======
+--- chrome/browser/performance_monitor/process_metrics_history.h.orig	2021-03-12 23:57:18 UTC
+>>>>>>> upstream/main
 +++ chrome/browser/performance_monitor/process_metrics_history.h
 @@ -71,7 +71,7 @@ class ProcessMetricsHistory {
    uint64_t disk_usage_ = 0;

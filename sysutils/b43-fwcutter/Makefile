@@ -1,5 +1,8 @@
 # Created by: Scot Hetzel <swhetzel@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	b43-fwcutter
 PORTVERSION=	019

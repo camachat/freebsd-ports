@@ -1,5 +1,8 @@
 # Created by: TAKAHASHI Kaoru <kaoru@kaisei.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Test-URI
 PORTVERSION=	1.083

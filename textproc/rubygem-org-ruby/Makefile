@@ -1,5 +1,8 @@
 # Created by: Johannes Meixner <johannes@perceivon.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	org-ruby
 PORTVERSION=	0.9.12

@@ -1,5 +1,8 @@
 # Created by: Andrew Stuart <elitetek@tekrealm.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gkrellshoot
 PORTVERSION=	0.4.4

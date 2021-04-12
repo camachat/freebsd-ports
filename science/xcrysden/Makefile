@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xcrysden
 DISTVERSION=	1.6.2
 CATEGORIES=	science

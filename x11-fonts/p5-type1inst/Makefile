@@ -1,5 +1,8 @@
 # Created by: giffunip@asme.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	type1inst
 PORTVERSION=	0.6.1

@@ -1,8 +1,14 @@
 # Created by: Akinori MUSHA aka knu <knu@idaemons.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	jruby
 PORTVERSION=	9.2.5.0
+=======
+
+PORTNAME=	jruby
+PORTVERSION=	9.2.17.0
+>>>>>>> upstream/main
 DISTVERSIONPREFIX=	bin-
 CATEGORIES=	lang ruby java
 MASTER_SITES=	http://jruby.org.s3.amazonaws.com/downloads/${PORTVERSION}/
@@ -37,6 +43,10 @@ PORTEXAMPLES=	*
 post-patch:
 	@${RM} -r \
 		${WRKSRC}/lib/jni/*AIX \
+<<<<<<< HEAD
+=======
+		${WRKSRC}/lib/jni/*DragonFlyBSD \
+>>>>>>> upstream/main
 		${WRKSRC}/lib/jni/*Linux \
 		${WRKSRC}/lib/jni/*OpenBSD \
 		${WRKSRC}/lib/jni/*SunOS \

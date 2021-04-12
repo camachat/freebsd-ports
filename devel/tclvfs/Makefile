@@ -1,5 +1,8 @@
 # Created by: gahr@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tclvfs
 PORTVERSION=	20080503

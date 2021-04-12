@@ -1,5 +1,8 @@
 # Created by: Cheng-Lung Sung
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	POE-Component-RSSAggregator
 PORTVERSION=	1.11

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	lsop
 PORTVERSION=	0.2
 DISTVERSIONPREFIX=	v

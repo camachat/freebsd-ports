@@ -1,5 +1,8 @@
 # Created by: Dmitry Sivachenko <mitya@yandex-team.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pycares
 PORTVERSION=	3.1.1

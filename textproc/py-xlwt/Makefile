@@ -1,5 +1,8 @@
 # Created by: Dikshie
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xlwt
 PORTVERSION=	1.3.0

@@ -1,5 +1,8 @@
 # Created by: Philip M. Gollucci <philip@p6m7g8.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	DBIx-Browse
 PORTVERSION=	2.09

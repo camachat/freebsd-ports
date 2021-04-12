@@ -1,5 +1,8 @@
 # Created by: Udo Schweigert <ust@cert.siemens.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	coolmail
 PORTVERSION=	1.3

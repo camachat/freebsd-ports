@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pencil2d
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.6.6

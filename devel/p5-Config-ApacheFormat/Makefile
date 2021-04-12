@@ -1,5 +1,8 @@
 # Created by: Martin Tournoij <carpetsmoker@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Config-ApacheFormat
 PORTVERSION=	1.2

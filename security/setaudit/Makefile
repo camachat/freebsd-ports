@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	setaudit
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.0.3

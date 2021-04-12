@@ -1,5 +1,8 @@
 # Created by: Anish Mistry
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fusefs
 DISTVERSION=	2.9.9

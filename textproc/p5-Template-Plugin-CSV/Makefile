@@ -1,5 +1,8 @@
 # Created by: Geoffroy Desvernay <dgeo@centrale-marseille.fr>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Template-Plugin-CSV
 PORTVERSION=	0.04

@@ -1,5 +1,8 @@
 # Created by: William Grzybowski <william88@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	subliminal
 PORTVERSION=	2.1.0

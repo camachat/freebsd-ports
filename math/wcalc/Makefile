@@ -1,5 +1,8 @@
 # Created by: Amarendra Godbole <amarendra.godbole@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wcalc
 PORTVERSION=	2.5

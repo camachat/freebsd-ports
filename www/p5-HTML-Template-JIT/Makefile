@@ -1,5 +1,8 @@
 # Created by: alex@kapranoff.ru
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HTML-Template-JIT
 PORTVERSION=	0.05

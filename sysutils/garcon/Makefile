@@ -1,5 +1,8 @@
 # Created by: Oliver Lehmann <oliver@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	garcon
 PORTVERSION=	4.16.1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	orange3-educational
 DISTVERSION=	0.1.8
 PORTREVISION=	3

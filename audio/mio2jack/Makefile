@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mio2jack
 PORTVERSION=	g20180501
 PORTREVISION=	1

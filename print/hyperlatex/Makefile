@@ -1,5 +1,8 @@
 # Created by: Robert Withrow <witr@rwwa.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Hyperlatex
 DISTVERSION=	2.9a

@@ -1,5 +1,8 @@
 # Created by: Carlo Strub
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	django-mptt
 PORTVERSION=	0.12.0

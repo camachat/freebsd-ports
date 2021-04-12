@@ -1,5 +1,8 @@
 # Created by: Foxfair Hu <foxfair@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Crypt-Anubis
 PORTVERSION=	1.0.4

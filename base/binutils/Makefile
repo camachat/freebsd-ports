@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	binutils
 PORTVERSION=	2.33.1
 PORTEPOCH=	0

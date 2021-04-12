@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	zenxml
 PORTVERSION=	2.4
 CATEGORIES=	textproc

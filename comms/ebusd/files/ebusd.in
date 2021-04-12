@@ -1,7 +1,10 @@
 #!/bin/sh
 
+<<<<<<< HEAD
 # $FreeBSD$
 # 
+=======
+>>>>>>> upstream/main
 # PROVIDE: ebusd
 # REQUIRE: LOGIN cleanvar
 # KEYWORD: shutdown

@@ -1,5 +1,8 @@
 # Created by: Aldis Berjoza <aldis@bsdroot.lv>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	geany-plugins
 PORTVERSION=	${GEANY_VER}

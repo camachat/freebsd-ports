@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mgenplus
 PORTVERSION=	20150602
 PORTREVISION=	1

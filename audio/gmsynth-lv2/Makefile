@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gmsynth
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.5.0

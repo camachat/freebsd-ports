@@ -1,5 +1,8 @@
 # Created by: Bruce M Simpson
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	PCSC-Card
 PORTVERSION=	1.4.14

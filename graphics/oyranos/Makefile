@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	oyranos
 PORTVERSION=	0.9.6
 PORTREVISION=	11

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	arcan
 DISTVERSION=	0.6.0.1
 PORTREVISION=	3

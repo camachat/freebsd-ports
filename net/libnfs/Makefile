@@ -1,5 +1,8 @@
 # Created by: Manuel Creach <manuel.creach@icloud.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libnfs
 PORTVERSION=	4.0.0

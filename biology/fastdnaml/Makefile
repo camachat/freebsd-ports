@@ -1,5 +1,8 @@
 # Created by: Motomichi Matsuzaki <mzaki@e-mail.ne.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fastdnaml
 PORTVERSION=	1.2.2

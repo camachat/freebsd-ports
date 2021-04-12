@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libvirt-dbus
 PORTVERSION=	1.4.0
 CATEGORIES=	devel

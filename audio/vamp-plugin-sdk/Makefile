@@ -1,5 +1,8 @@
 # Created by: mathias.picker@gmx.de
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vamp-plugin-sdk
 DISTVERSION=	2.9.0

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	flowgger
 DISTVERSION=	0.2.10
 PORTREVISION=	4

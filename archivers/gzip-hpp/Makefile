@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gzip-hpp
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.1.0-1

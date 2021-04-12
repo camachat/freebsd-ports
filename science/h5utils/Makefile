@@ -1,5 +1,8 @@
 # Created by: Klaus Aehlig <aehlig@linta.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	h5utils
 DISTVERSION=	1.13.1

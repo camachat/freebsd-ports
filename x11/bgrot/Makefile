@@ -1,5 +1,8 @@
 # Created by: Matthew Fuller <fullermd@futuresouth.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bgrot
 PORTVERSION=	1.31

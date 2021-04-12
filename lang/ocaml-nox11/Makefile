@@ -1,5 +1,8 @@
 # Created by: Eugene Ossintsev
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ocaml-nox11
 CATEGORIES=	lang

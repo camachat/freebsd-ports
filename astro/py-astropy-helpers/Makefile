@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	astropy-helpers
 DISTVERSION=	4.0.1
 CATEGORIES=	astro

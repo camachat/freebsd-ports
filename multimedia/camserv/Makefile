@@ -1,5 +1,8 @@
 # Created by: Chuck Hein <chein@FreeBSD.org> & Jim Overholt <overholt@isdw.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	camserv
 PORTVERSION=	0.5.1

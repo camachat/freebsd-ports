@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	djangocms-admin-style
 DISTVERSION=	2.0.2
 CATEGORIES=	www python

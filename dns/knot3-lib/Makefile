@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 # Define PORTREVISION in ${MASTERDIR}
 COMMENT=	Knot3 lib (required by knot-resolver)
 PKGNAMESUFFIX=	3-lib

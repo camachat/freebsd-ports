@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	httplib2
 PORTVERSION=	0.19.0
 PORTREVISION=	1

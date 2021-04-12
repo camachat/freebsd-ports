@@ -1,5 +1,8 @@
 # Created by: John W. O'Brien <john@saltant.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Flask-Kerberos
 PORTVERSION=	1.0.4

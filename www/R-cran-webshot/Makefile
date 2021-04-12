@@ -1,5 +1,8 @@
 # Created by: Guangyuan Yang <ygy@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	webshot
 DISTVERSION=	0.5.2

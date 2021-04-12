@@ -1,5 +1,8 @@
 # Created by: Yen-Ming Lee <leeym@leeym.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	razor-agents
 PORTVERSION=	2.84

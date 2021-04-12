@@ -1,5 +1,8 @@
 # Created by: Chris St Denis <chris@ctgameinfo.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HTML_QuickForm_advmultiselect
 PORTVERSION=	1.5.1

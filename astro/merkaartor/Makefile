@@ -1,5 +1,8 @@
 # Created by: Slaven Rezic <slaven@rezic.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	merkaartor
 PORTVERSION=	0.18.2

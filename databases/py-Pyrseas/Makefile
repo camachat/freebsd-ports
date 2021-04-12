@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Pyrseas
 PORTVERSION=	0.9.0
 DISTVERSIONPREFIX=	v

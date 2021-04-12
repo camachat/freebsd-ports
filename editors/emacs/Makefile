@@ -1,5 +1,8 @@
 # Created by: MANTANI Nobutaka <nobutaka@nobutaka.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	emacs
 DISTVERSION=	27.2

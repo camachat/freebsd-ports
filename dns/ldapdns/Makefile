@@ -1,5 +1,8 @@
 # Created by: Paul Dlug <paul@aps.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ldapdns
 PORTVERSION=	2.07

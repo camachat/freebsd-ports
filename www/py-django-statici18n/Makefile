@@ -1,5 +1,8 @@
 # Created by: Ultima
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	django-statici18n
 PORTVERSION=	2.0.1

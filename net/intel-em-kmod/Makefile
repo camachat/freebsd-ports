@@ -1,5 +1,8 @@
 # Created by: Franco Fichtner <franco@opnsense.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	em
 PORTVERSION=	7.7.8

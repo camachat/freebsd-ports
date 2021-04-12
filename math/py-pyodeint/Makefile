@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pyodeint
 DISTVERSION=	0.10.4
 CATEGORIES=	math python

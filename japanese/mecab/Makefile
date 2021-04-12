@@ -1,5 +1,8 @@
 # Created by: Akinori MUSHA aka knu <knu@idaemons.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mecab
 PORTVERSION=	0.996

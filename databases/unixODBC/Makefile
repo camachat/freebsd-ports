@@ -1,5 +1,8 @@
 # Created by: Nick Sayer <nsayer@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	unixODBC
 PORTVERSION=	2.3.9

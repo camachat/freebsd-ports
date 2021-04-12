@@ -1,8 +1,14 @@
 # Created by: Mario Sergio Fujikawa Ferreira <lioux@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	mkvtoolnix
 PORTVERSION=	55.0.0
+=======
+
+PORTNAME=	mkvtoolnix
+PORTVERSION=	56.0.0
+>>>>>>> upstream/main
 CATEGORIES=	multimedia audio
 MASTER_SITES=	http://www.bunkus.org/videotools/mkvtoolnix/sources/ \
 		https://mkvtoolnix.download/sources/

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pymaven-patch
 DISTVERSION=	0.3.0
 CATEGORIES=	devel python

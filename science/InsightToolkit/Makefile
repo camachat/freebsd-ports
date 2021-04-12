@@ -1,5 +1,8 @@
 # Created by: bacon@smithers.neuro.mcw.edu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	InsightToolkit
 PORTVERSION=	5.0.1

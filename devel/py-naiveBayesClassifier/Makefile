@@ -1,5 +1,8 @@
 # Created by: Dan Langille <dvl@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	naiveBayesClassifier
 PORTVERSION=	0.1.3

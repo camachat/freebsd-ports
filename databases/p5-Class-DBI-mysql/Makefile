@@ -1,5 +1,8 @@
 # Created by: andrew@scoop.co.nz
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Class-DBI-mysql
 PORTVERSION=	1.00

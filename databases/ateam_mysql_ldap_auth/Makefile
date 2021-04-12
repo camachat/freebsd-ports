@@ -1,5 +1,8 @@
 # Created by: Ganbold Tsagaankhuu <ganbold@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ateam_mysql_ldap_auth
 PORTVERSION=	1.0

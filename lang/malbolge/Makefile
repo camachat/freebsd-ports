@@ -1,5 +1,8 @@
 # Created by: Dereckson <dereckson@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	malbolge
 PORTVERSION=	0.1.1

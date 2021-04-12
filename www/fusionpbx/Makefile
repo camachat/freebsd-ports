@@ -1,5 +1,8 @@
 # Created by: Richard Neese <r.neese@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fusionpbx
 PORTVERSION=	4.4.1

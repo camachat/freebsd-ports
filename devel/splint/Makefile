@@ -1,5 +1,8 @@
 # Created by: moeding
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	splint
 PORTVERSION=	3.1.2

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gettext
 PORTVERSION=	0.15.0
 DISTVERSIONPREFIX=	v

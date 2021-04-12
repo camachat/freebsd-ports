@@ -1,9 +1,16 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	cargo-generate
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.5.3
 PORTREVISION=	1
+=======
+PORTNAME=	cargo-generate
+DISTVERSIONPREFIX=	v
+DISTVERSION=	0.5.3
+PORTREVISION=	2
+>>>>>>> upstream/main
 CATEGORIES=	devel
 
 MAINTAINER=	lcook@FreeBSD.org

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	molmod
 DISTVERSION=	1.4.8
 CATEGORIES=	science python

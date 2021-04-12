@@ -1,5 +1,8 @@
 # Created by: Lukas Maly <Iam@LukasMaly.NET>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gpscorrelate
 PORTVERSION=	1.6.1

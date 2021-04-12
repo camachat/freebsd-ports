@@ -1,5 +1,8 @@
 # Created by: Matthew Will <mwill@spingen.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cvschangelogbuilder
 PORTVERSION=	2.5

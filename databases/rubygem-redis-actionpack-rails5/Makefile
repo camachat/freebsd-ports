@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	redis-actionpack
 PORTVERSION=	5.2.0
 CATEGORIES=	databases rubygems

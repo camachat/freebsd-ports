@@ -1,5 +1,8 @@
 # Created by: Uffe Jakobsen <uffe@uffe.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sysvbanner
 PORTVERSION=	1.0.15

@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	texlive
 PORTVERSION=	20150521
 PORTREVISION=	63
+=======
+PORTNAME=	texlive
+PORTVERSION=	20150521
+PORTREVISION=	64
+>>>>>>> upstream/main
 CATEGORIES=	print
 MASTER_SITES=	TEX_CTAN/systems/texlive/Source/
 PKGNAMESUFFIX=	-base

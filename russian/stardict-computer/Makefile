@@ -1,5 +1,8 @@
 # Created by: Gvozdikov Veniamin <g.veniamin@googlemail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	stardict-computer
 PORTVERSION=	2.4.2

@@ -1,5 +1,8 @@
 # Created by: Hondareyte <lhondareyte@laposte.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	minipro
 PORTVERSION=	0.3

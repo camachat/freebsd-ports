@@ -1,5 +1,8 @@
 # Created by: Olivier Duchateau <duchateau.olivier@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Flask
 DISTVERSION=	1.1.2

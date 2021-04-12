@@ -1,5 +1,8 @@
 # Created by: Vsevolod Stakhov
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	zerowait
 PORTVERSION=	0.8d

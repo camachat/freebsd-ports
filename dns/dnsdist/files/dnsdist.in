@@ -1,7 +1,11 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+
+>>>>>>> upstream/main
 # PROVIDE: dnsdist
 # REQUIRE: FILESYSTEMS defaultroute netwait resolv
 # BEFORE: NETWORKING

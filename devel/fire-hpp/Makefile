@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fire-hpp
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.2

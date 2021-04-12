@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	jgraphx
 PORTVERSION=	4.2.2
 DISTVERSIONPREFIX=	v

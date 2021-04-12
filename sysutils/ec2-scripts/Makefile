@@ -1,5 +1,8 @@
 # Created by: Colin Percival
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ec2-scripts
 PORTVERSION=	1.10

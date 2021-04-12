@@ -1,5 +1,8 @@
 # Created by: Alexander Y. Grigoryev <alexander.4mail@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cnagios
 PORTVERSION=	0.33

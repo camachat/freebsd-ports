@@ -1,5 +1,8 @@
 # Created by: Motomichi Matsuzaki <mzaki@biol.s.u-tokyo.ac.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	phred
 PORTVERSION=	0.020425.c

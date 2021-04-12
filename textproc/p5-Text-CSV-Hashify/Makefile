@@ -1,5 +1,8 @@
 # Created by: tj@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Text-CSV-Hashify
 PORTVERSION=	0.11

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	DBIx-Class-InflateColumn-Serializer
 PORTVERSION=	0.09
 CATEGORIES=	databases perl5

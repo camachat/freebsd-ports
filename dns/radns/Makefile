@@ -1,5 +1,8 @@
 # Created by: Michael Cardell Widerkrantz <mc@hack.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	radns
 DISTVERSION=	20110809-2

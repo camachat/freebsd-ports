@@ -1,5 +1,8 @@
 # Created by: roam@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sysgather
 DISTVERSION=	1.0pre10

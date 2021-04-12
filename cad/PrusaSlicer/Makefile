@@ -1,9 +1,16 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	PrusaSlicer
 DISTVERSIONPREFIX=version_
 DISTVERSION=	2.3.0
 PORTREVISION=	2
+=======
+PORTNAME=	PrusaSlicer
+DISTVERSIONPREFIX=version_
+DISTVERSION=	2.3.0
+PORTREVISION=	3
+>>>>>>> upstream/main
 CATEGORIES=	cad
 
 MAINTAINER=	teodorsigaev@gmail.com
@@ -14,7 +21,11 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 LIB_DEPENDS=	libtbb.so:devel/tbb \
 		libboost_log.so:devel/boost-libs \
+<<<<<<< HEAD
 		libHalf.so:graphics/ilmbase \
+=======
+		libImath.so:math/Imath \
+>>>>>>> upstream/main
 		libnlopt.so:math/nlopt \
 		libcurl.so:ftp/curl \
 		libexpat.so:textproc/expat2 \
@@ -27,7 +38,11 @@ BUILD_DEPENDS=	cereal>=1.3.0.10:devel/cereal \
 		cgal>=5.0.2:math/cgal
 
 USES=		cmake desktop-file-utils eigen:3 gettext gl iconv pkgconfig
+<<<<<<< HEAD
 CMAKE_ARGS=	-DwxWidgets_CONFIG_EXECUTABLE="${WX_CONFIG}" \
+=======
+CMAKE_ARGS+=	-DwxWidgets_CONFIG_EXECUTABLE="${WX_CONFIG}" \
+>>>>>>> upstream/main
 		-DSLIC3R_GTK=3 \
 		-DSLIC3R_FHS=1
 USE_GITHUB=	yes

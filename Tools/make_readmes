@@ -1,5 +1,8 @@
 #!/usr/bin/perl
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 $PORTSDIR="/usr/ports";
 $TEMPLATES=$ENV{TEMPLATES} || "${PORTSDIR}/Templates";

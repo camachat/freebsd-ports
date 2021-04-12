@@ -1,5 +1,8 @@
 # Created by: Brad Davis <brd@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	JIRA-REST
 PORTVERSION=	0.020

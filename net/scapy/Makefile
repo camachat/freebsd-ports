@@ -1,5 +1,8 @@
 # Created by: vanhu <vanhu@netasq.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	scapy
 PORTVERSION=	2.4.4

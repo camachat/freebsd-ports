@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	apns2
 PORTVERSION=	0.3.0
 CATEGORIES=	devel python

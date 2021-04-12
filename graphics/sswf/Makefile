@@ -1,5 +1,8 @@
 # Created by: anhot
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sswf
 PORTVERSION=	1.8.4

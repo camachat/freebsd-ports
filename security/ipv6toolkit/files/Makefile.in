@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PREFIX?=	/usr/local
 LOCALBASE?=	/usr/local
 .if ${.CURDIR:T} == addr6

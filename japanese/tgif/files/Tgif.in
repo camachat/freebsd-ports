@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 ! $FreeBSD$
+=======
+>>>>>>> upstream/main
 Tgif.UseNKF:			true
 Tgif.CopyAndPasteJIS:		true
 Tgif.GridSystem:		Metric

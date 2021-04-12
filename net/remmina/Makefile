@@ -1,8 +1,15 @@
 # Created by: Alexander Logvinov <ports@logvinov.com>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	remmina
 DISTVERSION=	1.4.11
+=======
+
+PORTNAME=	remmina
+DISTVERSION=	1.4.11
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	net gnome
 
 MAINTAINER=	woodsb02@FreeBSD.org
@@ -34,8 +41,12 @@ USE_GNOME=	atk cairo gdkpixbuf2 glib20 gtk30 pango
 USE_XORG=	ice sm x11 xext xkbfile
 USE_LDCONFIG=	yes
 INSTALLS_ICONS=	yes
+<<<<<<< HEAD
 CMAKE_ARGS=	--build=build \
 		-DWITH_APPINDICATOR:BOOL=false
+=======
+CMAKE_ARGS=	-DWITH_APPINDICATOR:BOOL=false
+>>>>>>> upstream/main
 SHEBANG_FILES=	data/desktop/remmina-file-wrapper.in
 bash_CMD=	${SH}
 

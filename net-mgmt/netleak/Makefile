@@ -1,5 +1,8 @@
 # Created by: Vaida Bogdan
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	netleak
 PORTVERSION=	0.1a

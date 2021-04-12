@@ -1,5 +1,8 @@
 # Created by: Emil J.V. Björsell (Jev)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	barcode
 PORTVERSION=	0.98

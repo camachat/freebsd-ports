@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tcpkali
 PORTVERSION=	1.1.1
 DISTVERSIONPREFIX=	v

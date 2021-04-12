@@ -1,5 +1,8 @@
 # Created by: M.Indlekofer@gmx.de
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	asr10
 PORTVERSION=	1.0

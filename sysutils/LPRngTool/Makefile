@@ -1,5 +1,8 @@
 # Created by: papowell@lprng.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	LPRngTool
 PORTVERSION=	1.3.2

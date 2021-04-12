@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	orion
 DISTVERSION=	1.6.7-12
 DISTVERSIONSUFFIX=	-gec8400c

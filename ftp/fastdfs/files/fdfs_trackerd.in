@@ -1,7 +1,10 @@
 #!/bin/sh
 
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # PROVIDE: fdfs_trackerd
 # REQUIRE: LOGIN
 # KEYWORD: shutdown

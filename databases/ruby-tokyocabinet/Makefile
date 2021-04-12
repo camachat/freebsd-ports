@@ -1,5 +1,8 @@
 # Created by: Damian Gerow <dgerow@afflictions.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tokyocabinet
 PORTVERSION=	1.31

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	monty
 DISTVERSION=	2021.3.3
 CATEGORIES=	devel python

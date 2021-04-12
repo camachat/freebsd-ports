@@ -1,5 +1,8 @@
 # Created by: Andreev Maxim
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xarchiver
 PORTVERSION=	0.5.4.15

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	av
 PORTVERSION=	0.9.0
 PORTREVISION=	1

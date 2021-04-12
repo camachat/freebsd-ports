@@ -1,5 +1,8 @@
 # Created by: Sandro Sigala
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cutils
 PORTVERSION=	1.6

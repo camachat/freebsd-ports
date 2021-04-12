@@ -1,5 +1,8 @@
 # Created by: Nick Hilliard <nick@foobar.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Structures_DataGrid_Renderer_Pager
 PORTVERSION=	0.1.3

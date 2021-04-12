@@ -1,5 +1,8 @@
 # Created by: Mikhail T. (m.tsatsenko@gmail.com)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	imaputils
 DISTVERSION=	1.0.5

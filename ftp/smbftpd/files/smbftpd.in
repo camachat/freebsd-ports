@@ -1,7 +1,10 @@
 #!/bin/sh
 
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # PROVIDE: smbftpd
 # REQUIRE: NETWORKING SERVERS
 # BEFORE: DAEMON

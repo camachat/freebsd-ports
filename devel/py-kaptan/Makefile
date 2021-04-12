@@ -1,5 +1,8 @@
 # Created by: Tony Narlock <tony@git-pull.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	kaptan
 PORTVERSION=	0.5.12

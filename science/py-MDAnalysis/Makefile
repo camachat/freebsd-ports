@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	MDAnalysis
 DISTVERSION=	0.19.2
 PORTREVISION=	2

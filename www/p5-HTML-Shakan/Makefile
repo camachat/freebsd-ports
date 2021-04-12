@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	HTML-Shakan
 PORTVERSION=	2.00
 PORTREVISION=	2

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ecos
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.0.8

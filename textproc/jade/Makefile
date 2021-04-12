@@ -1,5 +1,8 @@
 # Created by: jfieber
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jade
 PORTVERSION=	1.2.1

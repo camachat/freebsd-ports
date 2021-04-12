@@ -1,5 +1,8 @@
 # Created by: Roman Bogorodskiy <bogorodskiy@inbox.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hot-babe
 PORTVERSION=	0.2.2

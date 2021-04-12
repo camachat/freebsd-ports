@@ -1,5 +1,8 @@
 # Created by: Philippe Audeoud <jadawin@tuxaco.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	SNMP-Persist
 PORTVERSION=	0.05

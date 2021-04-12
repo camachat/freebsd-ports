@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Perl-Metrics-Lite
 PORTVERSION=	0.080
 PORTREVISION=	1

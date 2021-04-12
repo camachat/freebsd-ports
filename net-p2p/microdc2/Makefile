@@ -1,5 +1,8 @@
 # Created by: Pankov Pavel <pankov_p@mail.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	microdc2
 PORTVERSION=	0.15.6

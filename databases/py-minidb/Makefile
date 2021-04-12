@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	minidb
 DISTVERSION=	2.0.4
 CATEGORIES=	databases python

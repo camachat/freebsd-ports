@@ -1,5 +1,8 @@
 # Created by: Oleg Mamontov <oleg@mamontov.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	XML-FeedPP
 PORTVERSION=	0.95

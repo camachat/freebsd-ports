@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ggplot2
 PORTVERSION=	3.3.3
 CATEGORIES=	graphics

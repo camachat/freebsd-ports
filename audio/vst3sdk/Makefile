@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	vst3sdk
 DISTVERSIONPREFIX=	v
 DISTVERSION=	3.7.1_build_50-1

@@ -1,5 +1,8 @@
 # Created by: Bill Fenner <fenner@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-NBName
 PORTVERSION=	0.26

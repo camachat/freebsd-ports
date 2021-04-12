@@ -1,5 +1,8 @@
 # MAINTAINER: rust@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 BEGIN {
 	gh_tuple_len = 0

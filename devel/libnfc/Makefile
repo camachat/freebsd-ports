@@ -1,5 +1,8 @@
 # Created by: Romain Tartiere <romain@blogreen.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libnfc
 PORTVERSION=	1.7.1

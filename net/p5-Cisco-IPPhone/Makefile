@@ -1,5 +1,8 @@
 # Created by: Simun Mikecin < numisemis at yahoo dot com >
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Cisco-IPPhone
 PORTVERSION=	0.05

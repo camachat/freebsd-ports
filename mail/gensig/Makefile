@@ -1,5 +1,8 @@
 # Created by: arensb@ooblick.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gensig
 PORTVERSION=	2.3

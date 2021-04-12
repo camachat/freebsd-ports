@@ -1,9 +1,15 @@
 # Created by: Joe Marcus Clarke <marcus@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	vte
 PORTVERSION=	0.62.1
 PORTREVISION=	1
+=======
+
+PORTNAME=	vte
+PORTVERSION=	0.64.0
+>>>>>>> upstream/main
 CATEGORIES=	x11-toolkits gnome
 MASTER_SITES=	GNOME
 PKGNAMESUFFIX=	3
@@ -24,7 +30,11 @@ LIB_DEPENDS=	libgnutls.so:security/gnutls \
 PORTSCOUT=	limitw:1,even
 
 USES=		compiler:c++11-lang gettext gnome localbase meson \
+<<<<<<< HEAD
 		pkgconfig tar:xz
+=======
+		pkgconfig python:3.6+ tar:bzip2
+>>>>>>> upstream/main
 USE_LDCONFIG=	yes
 USE_GNOME=	cairo gdkpixbuf2 gtk30 introspection:build
 
@@ -39,4 +49,9 @@ MESON_ARGS=	-Da11y=true \
 
 PLIST_SUB=	VERSION=2.91
 
+<<<<<<< HEAD
+=======
+BINARY_ALIAS=	python3=${PYTHON_CMD}
+
+>>>>>>> upstream/main
 .include <bsd.port.mk>

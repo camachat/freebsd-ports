@@ -1,5 +1,8 @@
 # Created by: Michael Vasilenko <acid@stu.cn.ua>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	links
 PORTVERSION=	1.04

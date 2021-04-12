@@ -1,5 +1,8 @@
 # Created by: Pav Lucistnik <pav@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gphotofs
 PORTVERSION=	0.5

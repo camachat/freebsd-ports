@@ -1,5 +1,8 @@
 # Created by: Maciek Korzen <eaquer@ceti.pl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	trf
 PORTVERSION=	0.4

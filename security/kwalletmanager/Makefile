@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kwalletmanager
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
 CATEGORIES=	security kde kde-applications

@@ -1,5 +1,8 @@
 # Created by: Raymond Pasco <ray@cultofray.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	kevedit
 PORTVERSION=	0.5.1

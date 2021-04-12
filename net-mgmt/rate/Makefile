@@ -1,5 +1,8 @@
 # Created by: mich@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rate
 PORTVERSION=	0.9

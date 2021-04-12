@@ -1,5 +1,8 @@
 # Created by: Jean-Yves Lefort <jylefort@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	icon-slicer
 PORTVERSION=	0.3

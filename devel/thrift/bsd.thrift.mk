@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # to use:
 # in your makefile, set:
 # PORTVERSION=	${THRIFT_PORTVERSION}

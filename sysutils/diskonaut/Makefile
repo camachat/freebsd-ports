@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	diskonaut
 PORTVERSION=	0.11.0
 PORTREVISION=	5

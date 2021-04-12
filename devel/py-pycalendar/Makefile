@@ -1,5 +1,8 @@
 # Created by: Roland van Laar <roland@micite.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pycalendar
 PORTVERSION=	2.0

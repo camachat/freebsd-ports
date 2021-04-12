@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	got
 PORTVERSION=	0.51
+=======
+PORTNAME=	got
+PORTVERSION=	0.52
+>>>>>>> upstream/main
 CATEGORIES=	devel
 MASTER_SITES=	https://gameoftrees.org/releases/
 

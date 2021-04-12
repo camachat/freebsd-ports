@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 MASTERDIR=	${.CURDIR}/../u-boot-master
 
 EXTRA_PATCHES=	${.CURDIR}/files/

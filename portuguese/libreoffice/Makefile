@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 CATEGORIES=	portuguese
 LO_I18N=	pt
 LO_HAS_HELPPACK=	yes

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	nxengine
 PORTVERSION=	2.6.4
 DISTVERSIONPREFIX=	v

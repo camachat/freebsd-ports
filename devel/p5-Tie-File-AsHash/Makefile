@@ -1,5 +1,8 @@
 # Created by: Ruben de Groot <rdg@bzerk.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Tie-File-AsHash
 PORTVERSION=	0.08

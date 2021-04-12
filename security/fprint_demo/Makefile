@@ -1,5 +1,8 @@
 # Created by: barner
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fprint_demo
 PORTVERSION=	20080303

@@ -1,5 +1,8 @@
 # Created by: gerard
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Captcha-reCAPTCHA-Mailhide
 PORTVERSION=	0.94

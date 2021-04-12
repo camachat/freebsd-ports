@@ -1,5 +1,8 @@
 # Created by: Ditesh Shashikant Gathani <ditesh@gathani.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Validate_AU
 PORTVERSION=	0.1.4

@@ -1,5 +1,8 @@
 # Created by: Dmitri Goutnik <dg@syrec.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	encryptpad
 DISTVERSIONPREFIX=	v

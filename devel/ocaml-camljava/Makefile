@@ -1,5 +1,8 @@
 # Created by: Stanislav Sedov <ssedov@mbsd.msk.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	camljava
 PORTVERSION=	0.3

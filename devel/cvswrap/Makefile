@@ -1,5 +1,8 @@
 # Created by: alfred
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cvswrap
 PORTVERSION=	0.2

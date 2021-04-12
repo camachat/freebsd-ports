@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	addresses
 PORTVERSION=	0.4.8
 PORTREVISION=	9

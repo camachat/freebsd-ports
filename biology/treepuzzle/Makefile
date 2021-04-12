@@ -1,5 +1,8 @@
 # Created by: lentferj
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	treepuzzle
 PORTVERSION=	5.2

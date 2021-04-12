@@ -1,5 +1,8 @@
 # Created by: Ralf S. Engelschall
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	str
 PORTVERSION=	0.9.12

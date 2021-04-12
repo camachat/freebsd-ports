@@ -1,5 +1,8 @@
 # Created by: chuynh@biolateral.com.au
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tRNAscan-SE
 PORTVERSION=	2.0.5

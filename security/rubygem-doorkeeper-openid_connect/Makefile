@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	doorkeeper-openid_connect
 PORTVERSION=	1.7.5
 PORTREVISION=	1

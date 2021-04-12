@@ -1,5 +1,8 @@
 # Created by: Keith Gaughan <k@stereochro.me>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cheroot
 PORTVERSION=	8.5.2

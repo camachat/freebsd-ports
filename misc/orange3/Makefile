@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	orange3
 DISTVERSION=	3.28.0
 PORTREVISION=	1

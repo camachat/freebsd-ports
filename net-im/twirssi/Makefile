@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	twirssi
 PORTVERSION=	2.8.0
 CATEGORIES=	net-im

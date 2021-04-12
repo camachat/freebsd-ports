@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pymatgen
 DISTVERSION=	2022.0.5
 CATEGORIES=	science python

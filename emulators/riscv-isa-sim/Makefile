@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	riscv-isa-sim
 DISTVERSION=	git
 PORTREVISION=	20201102

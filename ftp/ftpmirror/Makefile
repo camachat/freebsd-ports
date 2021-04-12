@@ -1,5 +1,8 @@
 # Created by: Yasuhiro Fukuma <yasuf@big.or.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ftpmirror
 PORTVERSION=	1.96

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tome4
 DISTVERSION?=	1.7.2
 PORTREVISION?=	0

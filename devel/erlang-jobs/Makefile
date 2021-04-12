@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	jobs
 PORTVERSION=	0.7.2
 CATEGORIES=	devel

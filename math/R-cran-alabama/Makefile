@@ -1,5 +1,8 @@
 # Created by: Devin Teske <dteske@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	alabama
 DISTVERSION=	2015.3-1

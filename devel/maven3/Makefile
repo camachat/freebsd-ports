@@ -1,5 +1,8 @@
 # Created by: Herve Quiroz <hq@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	maven3
 DISTVERSION=	3.0.5

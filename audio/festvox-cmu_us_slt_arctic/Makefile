@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	festvox-${VOICE}
 PORTVERSION=	0.95
 CATEGORIES=	audio

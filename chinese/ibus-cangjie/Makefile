@@ -1,5 +1,8 @@
 # Created by: blubee <hello@blubee.me>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		ibus-cangjie
 PORTVERSION=		2.4

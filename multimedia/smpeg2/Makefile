@@ -1,5 +1,8 @@
 # Created by: Vladimir Kondratiev <wulf@mail.mipt.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	smpeg2
 PORTVERSION=	2.0.0

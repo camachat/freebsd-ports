@@ -1,5 +1,8 @@
 # Created by: Philip M. Gollucci <pgpollucci@p6m7g8.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	prawn-graph
 PORTVERSION=	1.0.6

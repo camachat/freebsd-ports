@@ -1,5 +1,8 @@
 # Created by: Jordan Irwin <antumdeluge@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tlwg-ttf
 PORTVERSION=	0.6.1

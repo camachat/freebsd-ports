@@ -1,5 +1,8 @@
 # Created by: Pierre-Emmanuel Andre <pea@raveland.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pgfouine
 PORTVERSION=	1.2

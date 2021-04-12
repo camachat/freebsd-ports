@@ -1,10 +1,17 @@
 # Created by: Tobias Kortkamp <t@tobik.me>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	imv
 DISTVERSIONPREFIX=	v
 DISTVERSION=	4.1.0
+<<<<<<< HEAD
 PORTREVISION=	4
+=======
+PORTREVISION=	5
+>>>>>>> upstream/main
 CATEGORIES=	graphics
 
 MAINTAINER=	eduardo@FreeBSD.org

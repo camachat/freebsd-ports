@@ -1,5 +1,8 @@
 # Created by: Samuel Tardieu <sam@inf.enst.fr>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ltxml
 PORTVERSION=	1.2.9

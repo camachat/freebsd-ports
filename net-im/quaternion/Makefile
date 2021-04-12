@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	Quaternion
 DISTVERSION=	0.0.95-beta3
+=======
+PORTNAME=	Quaternion
+DISTVERSION=	0.0.95-beta3
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	net-im
 
 MAINTAINER=	adridg@FreeBSD.org
@@ -12,7 +18,11 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 
 LIB_DEPENDS=	libqt5keychain.so:security/qtkeychain \
 		libsecret-1.so:security/libsecret
+<<<<<<< HEAD
 BUILD_DEPENDS=	libquotient>=0.6.4:net-im/libquotient
+=======
+BUILD_DEPENDS=	libquotient>=0.6.6:net-im/libquotient
+>>>>>>> upstream/main
 
 USES=		cmake compiler:c++17-lang gettext-runtime gnome \
 		localbase:ldflags qt:5 tar:xz

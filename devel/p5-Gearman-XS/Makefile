@@ -1,5 +1,8 @@
 # Created by: Alex Kapranoff <ka@nadoby.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Gearman-XS
 PORTVERSION=	0.12

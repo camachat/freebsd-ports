@@ -1,5 +1,8 @@
 # Created by: milki <milki@rescomp.berkeley.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Bot-Training-StarCraft
 PORTVERSION=	0.03

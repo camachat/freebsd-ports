@@ -1,5 +1,8 @@
 # Created by: Johan Strom <johan@stromnet.se>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	owfs
 PORTVERSION=	3.2p4

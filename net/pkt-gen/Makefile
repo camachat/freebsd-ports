@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pkt-gen
 PORTVERSION=	g2017.08.06
 PORTREVISION=	1

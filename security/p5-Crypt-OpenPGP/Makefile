@@ -1,5 +1,8 @@
 # Created by: Michael Haro <mharo@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Crypt-OpenPGP
 PORTVERSION=	1.12

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sfizz
 DISTVERSION=	0.4.0
 PORTREVISION=	1

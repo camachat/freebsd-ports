@@ -1,5 +1,8 @@
 # Created by: Markus Brueffer <markus@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tpb
 PORTVERSION=	0.6.4

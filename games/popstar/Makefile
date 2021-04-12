@@ -1,5 +1,8 @@
 # Created by: Rusmir Dusko <nemysis@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	popstar
 PORTVERSION=	0.0.2

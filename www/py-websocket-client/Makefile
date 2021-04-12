@@ -1,9 +1,15 @@
 # Created by: Alfred Perlstein <alfred@freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	websocket-client
 PORTVERSION=	0.56.0
 PORTREVISION=	1
+=======
+
+PORTNAME=	websocket-client
+PORTVERSION=	0.58.0
+>>>>>>> upstream/main
 CATEGORIES=	www python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	axom
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.4.0

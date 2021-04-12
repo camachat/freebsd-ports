@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libretro-desmume2015
 PORTVERSION=	0.20210131
 CATEGORIES=	games

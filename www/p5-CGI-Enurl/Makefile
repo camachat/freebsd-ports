@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	CGI-Enurl
 PORTVERSION=	1.07
 PORTREVISION=	2

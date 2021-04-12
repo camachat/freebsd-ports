@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	spectacle
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.0

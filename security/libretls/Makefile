@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libretls
 PORTVERSION=	3.3.1p1
 CATEGORIES=	security devel

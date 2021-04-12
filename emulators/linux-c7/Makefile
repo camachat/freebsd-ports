@@ -1,5 +1,8 @@
 # Created by: Piotr Kubaj
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	linux-c7
 PORTVERSION=	${LINUX_DIST_VER}

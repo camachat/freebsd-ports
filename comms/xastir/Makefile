@@ -1,5 +1,8 @@
 # Created by: Carl Makin <carl@stagecraft.cx>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xastir
 DISTVERSIONPREFIX=	Release-

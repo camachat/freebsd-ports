@@ -1,5 +1,8 @@
 # Created by: Davíð Steinn Geirsson <david@isnic.is>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Redis-RateLimit
 PORTVERSION=	1.0002

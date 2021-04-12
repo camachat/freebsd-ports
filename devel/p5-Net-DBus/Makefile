@@ -1,5 +1,8 @@
 # Created by: Roman Bogorodskiy <novel@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-DBus
 PORTVERSION=	1.2.0

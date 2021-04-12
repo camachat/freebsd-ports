@@ -1,5 +1,8 @@
 # Created by: Thierry Thomas <tthomas@mail.dotcom.fr>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	newsx
 PORTVERSION=	1.6

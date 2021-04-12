@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	System-Sub
 PORTVERSION=	0.162800
 CATEGORIES=	devel perl5

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tagutil
 PORTVERSION=	3.1
 DISTVERSIONPREFIX=	v

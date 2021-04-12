@@ -1,8 +1,15 @@
 # Created by: obrien@cs.ucdavis.edu
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	tin
 PORTVERSION=	2.4.5
+=======
+
+PORTNAME=	tin
+PORTVERSION=	2.4.5
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES+=	news
 MASTER_SITES=	ftp://ftp.tin.org/pub/news/clients/tin/v${PORTVERSION:R}/ \
 		ftp://ftp.sunet.se/pub/news/readers/tin/v${PORTVERSION:R}/ \

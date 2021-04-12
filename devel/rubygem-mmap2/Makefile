@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mmap2
 PORTVERSION=	2.2.9
 PORTREVISION=	1

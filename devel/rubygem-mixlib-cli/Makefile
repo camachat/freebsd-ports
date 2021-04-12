@@ -1,5 +1,8 @@
 # Created by: renchap@cocoa-x.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mixlib-cli
 PORTVERSION=	2.1.8

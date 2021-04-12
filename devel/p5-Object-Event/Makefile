@@ -1,5 +1,8 @@
 # Created by: Mons Anderson <mons@cpan.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Object-Event
 PORTVERSION=	1.220

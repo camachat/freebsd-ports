@@ -1,5 +1,8 @@
 # Created by: Gerrit Beine (<tux@pinguru.net>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HTTP_Server
 PORTVERSION=	0.4.1

@@ -1,5 +1,8 @@
 # Created by: Sean Chittenden <seanc@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wfb2sql
 PORTVERSION=	0.6

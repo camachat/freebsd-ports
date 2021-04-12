@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	zope.browser
 PORTVERSION=	2.1.0
 CATEGORIES=	devel python zope

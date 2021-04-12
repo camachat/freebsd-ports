@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	chessx
 PORTVERSION=	1.5.4
 CATEGORIES=	games

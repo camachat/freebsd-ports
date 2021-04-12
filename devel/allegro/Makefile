@@ -1,5 +1,8 @@
 # Created by: Jimmy Olgeni <olgeni@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	allegro
 DISTVERSION=	4.4.3.1

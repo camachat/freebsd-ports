@@ -1,5 +1,8 @@
 # Created by: Espen Volden aka voldern <voldern@hoeggen.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	data_objects
 PORTVERSION=	0.10.17

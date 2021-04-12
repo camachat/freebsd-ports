@@ -1,5 +1,8 @@
 # Created by: Mohammad S. Babaei <info@babaei.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dbixx
 PORTVERSION=	0.0.4

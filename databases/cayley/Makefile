@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cayley
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.7.5-2

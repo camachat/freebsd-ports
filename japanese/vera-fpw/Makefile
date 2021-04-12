@@ -1,5 +1,8 @@
 # Created by: Satoshi Taoka <taoka@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vera-fpw
 PORTVERSION=	${VERA_VER}.${VERAFPW_VER}

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	validators
 DISTVERSION=	0.18.2
 CATEGORIES=	devel python

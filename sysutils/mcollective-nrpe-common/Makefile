@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME?=	mcollective-nrpe-common
 PORTVERSION=	3.1.0
 CATEGORIES=	sysutils

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	qspin
 DISTVERSION=	2.3.2
 CATEGORIES=	science education

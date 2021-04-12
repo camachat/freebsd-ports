@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xcftools
 PORTVERSION=	1.0.8.20130212
 PORTREVISION=	1

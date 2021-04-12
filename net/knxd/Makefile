@@ -1,5 +1,8 @@
 # Created by: mfechner@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	knxd
 PORTVERSION=	0.14.39

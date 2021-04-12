@@ -1,5 +1,8 @@
 # Created by: Babak Farrokhi <farrokhi@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pager
 PORTVERSION=	3.3

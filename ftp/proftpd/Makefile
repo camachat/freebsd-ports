@@ -1,5 +1,8 @@
 # Created by: Stephane Legrand
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME?=	proftpd
 .if !defined(DISTVERSION)

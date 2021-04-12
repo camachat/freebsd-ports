@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Class-DBI-ToSax
 PORTVERSION=	0.10
 PORTREVISION=	1

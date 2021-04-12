@@ -1,5 +1,8 @@
 # Created by: Dan Langille <dvl@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pytimeparse
 PORTVERSION=	1.1.5

@@ -1,5 +1,8 @@
 # Created by: otaviof@gmail.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Apache-Htgroup
 PORTVERSION=	1.23

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kmix
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
 CATEGORIES=	audio kde kde-applications

@@ -1,5 +1,8 @@
 # Created by: Leland Wang <llwang@infor.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	words
 PORTVERSION=	1.97F

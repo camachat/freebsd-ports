@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Algorithm-Line-Bresenham
 PORTVERSION=	0.11
 CATEGORIES=	graphics perl5

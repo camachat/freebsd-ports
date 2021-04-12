@@ -1,5 +1,8 @@
 # Created by: Hirohisa Yamaguchi <umq@ueo.co.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	batv-milter
 PORTVERSION=	0.5.0

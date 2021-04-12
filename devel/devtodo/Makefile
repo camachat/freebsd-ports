@@ -1,5 +1,8 @@
 # Created by: Pete Fritchman <petef@databits.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	devtodo
 PORTVERSION=	0.1.20

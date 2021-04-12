@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Tie-RegexpHash
 PORTVERSION=	0.17
 CATEGORIES=	devel perl5

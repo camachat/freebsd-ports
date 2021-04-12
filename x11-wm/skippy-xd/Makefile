@@ -1,5 +1,8 @@
 # Created by: Michael Johnson <ahze@ahze.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	skippy-xd
 PORTVERSION=	0.5.0

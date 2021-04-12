@@ -1,3 +1,6 @@
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 !ping_exporter
 *.*						/var/log/ping_exporter.log

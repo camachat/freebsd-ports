@@ -1,5 +1,8 @@
 # Created by: Phillip Neumann <pneumann@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	icon-naming-utils
 PORTVERSION=	0.8.90

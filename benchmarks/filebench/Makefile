@@ -1,5 +1,8 @@
 # Created by: Tom Judge <tom@tomjudge.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	filebench
 DISTVERSION=	1.5-alpha3-27

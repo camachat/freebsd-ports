@@ -1,5 +1,8 @@
 # Created by: Luca Pizzamiglio <luca.pizzamiglio@trivago.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xdebug
 DISTVERSION=	3.0.3

@@ -1,5 +1,8 @@
 # Created by: wosch
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	uk-postcodes
 PORTVERSION=	2.2

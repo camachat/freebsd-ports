@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sql
 DISTVERSION=	${QT5_VERSION}
 PORTREVISION=	1

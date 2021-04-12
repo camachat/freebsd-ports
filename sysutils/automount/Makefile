@@ -1,5 +1,8 @@
 # Created by: Slawomir Wojciech Wojtczak <vermaden@interia.pl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	automount
 DISTVERSION=	1.7.2
@@ -16,8 +19,13 @@ PLIST_FILES=	sbin/automount etc/devd/automount_devd.conf etc/automount.conf.samp
 NO_BUILD=	yes
 NO_ARCH=	yes
 
+<<<<<<< HEAD
 OPTIONS_DEFINE=		NTFS3G EXT4 EXFAT HFS XFS MTP
 OPTIONS_DEFAULT=	NTFS3G EXT4 EXFAT MTP
+=======
+OPTIONS_DEFINE=		NTFS3G EXT4 EXFAT
+OPTIONS_DEFAULT=	NTFS3G EXT4
+>>>>>>> upstream/main
 NTFS3G_DESC=		Enable NTFS write support with ntfs-3g over FUSE
 NTFS3G_RUN_DEPENDS=	fusefs-ntfs>=0:sysutils/fusefs-ntfs
 EXT4_DESC=		Support EXT2/3/4 filesystem
@@ -25,6 +33,7 @@ EXT4_RUN_DEPENDS=	fusefs-ext2>=0:sysutils/fusefs-ext2
 EXFAT_DESC=		Support Microsoft exFAT filesystem
 EXFAT_RUN_DEPENDS=	fusefs-exfat>=0:sysutils/fusefs-exfat \
 			exfat-utils>=0:sysutils/exfat-utils
+<<<<<<< HEAD
 HFS_DESC=		Support HFS+ filesystem
 HFS_RUN_DEPENDS=	hfsfuse:sysutils/fusefs-hfsfuse
 XFS_DESC=		Support XFS filesystem
@@ -32,6 +41,8 @@ XFS_RUN_DEPENDS=	fusefs-lkl>=0:sysutils/fusefs-lkl
 MTP_DESC=		Support MTP filesystem
 MTP_RUN_DEPENDS=	jmtpfs:sysutils/fusefs-jmtpfs \
 			zenity>=0:x11/zenity
+=======
+>>>>>>> upstream/main
 
 do-install:
 	${INSTALL_SCRIPT} ${WRKDIR}/automount ${STAGEDIR}${PREFIX}/sbin

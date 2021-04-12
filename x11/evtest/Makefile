@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	evtest
 DISTVERSIONPREFIX=	${PORTNAME}-
 DISTVERSION=	1.34

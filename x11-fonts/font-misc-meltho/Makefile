@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	font-misc-meltho
 PORTVERSION=	1.0.3
 PORTREVISION=	4

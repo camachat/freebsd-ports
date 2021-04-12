@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # Provides support for KDE and KF5-based ports.
 #
 # Feature:	kde
@@ -133,6 +136,10 @@ GL_SITE=		https://invent.kde.org
 GL_ACCOUNT=		${_invent_category}
 GL_PROJECT=		${_invent_name}
 GL_COMMIT=		${_invent_hash}
+<<<<<<< HEAD
+=======
+WRKSRC=			${WRKDIR}/${GL_PROJECT}-${GL_COMMIT}-${GL_COMMIT}
+>>>>>>> upstream/main
 .      endif
 .    endif
 

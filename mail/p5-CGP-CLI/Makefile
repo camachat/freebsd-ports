@@ -1,5 +1,8 @@
 # Created by: Alexander Kriventsov <avk@vl.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	CGP-CLI
 PORTVERSION=	2.7.5

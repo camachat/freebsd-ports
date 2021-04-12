@@ -1,5 +1,8 @@
 # Created by: Jonathan Weiss (<jw@innerewut.de>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	actionpack
 PORTVERSION=	4.2.11.3

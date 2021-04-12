@@ -1,5 +1,8 @@
 # Created by: Martin Klaffenboeck <martin.klaffenboeck@gmx.at>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	glabels
 PORTVERSION=	3.4.1

@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	transitions
 DISTVERSION=	0.8.7
+=======
+PORTNAME=	transitions
+DISTVERSION=	0.8.8
+>>>>>>> upstream/main
 CATEGORIES=	devel python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}

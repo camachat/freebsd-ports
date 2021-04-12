@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 ELECTRON_VER=	11.3.0
+=======
+ELECTRON_VER=	11.4.2
+>>>>>>> upstream/main
 ELECTRON_VER_MAJOR=	${ELECTRON_VER:C/\..*//}

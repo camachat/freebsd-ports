@@ -1,6 +1,9 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 case " $@ " in
 *" --version "*) echo "m4 (GNU M4) 1.4.18" ;;

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libcli
 PORTVERSION=	1.9.6
 PORTREVISION=	1

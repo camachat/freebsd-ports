@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	linphone
 PORTVERSION=	3.12.0
 PORTREVISION=	2

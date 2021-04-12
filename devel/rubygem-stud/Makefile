@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	stud
 PORTVERSION=	0.0.23
 CATEGORIES=	devel rubygems

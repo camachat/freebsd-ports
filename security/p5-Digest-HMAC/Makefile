@@ -1,5 +1,8 @@
 # Created by: nork@cityfujisawa.ne.jp
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Digest-HMAC
 PORTVERSION=	1.03

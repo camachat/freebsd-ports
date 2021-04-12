@@ -1,5 +1,8 @@
 # Created by: johans
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	eif
 PORTVERSION=	1.3.4

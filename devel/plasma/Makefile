@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	plasma
 DISTVERSION=	g20180708
 PORTREVISION=	1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libvdwxc
 DISTVERSION=	0.4.6.20190510
 CATEGORIES=	science

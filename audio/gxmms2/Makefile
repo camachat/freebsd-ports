@@ -1,5 +1,8 @@
 # Created by: Alexander Botero-Lowry <alex@foxybanana.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gxmms2
 PORTVERSION=	0.7.1

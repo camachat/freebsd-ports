@@ -1,5 +1,8 @@
 # Created by: Quinton Dolan <q@onthenet.com.au>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	frontbase
 PORTVERSION=	2.5.6

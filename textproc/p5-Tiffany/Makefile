@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Tiffany
 PORTVERSION=	1.01
 PORTREVISION=	1

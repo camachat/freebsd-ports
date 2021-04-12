@@ -1,5 +1,8 @@
 # Created by: Travis Campbell <hcoyote@ghostar.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	MasonX-WebApp
 PORTVERSION=	0.12

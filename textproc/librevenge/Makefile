@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	librevenge
 PORTVERSION=	0.0.4
 PORTREVISION=	13

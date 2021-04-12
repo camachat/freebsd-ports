@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ruby-termios
 PORTVERSION=	1.0.2
 CATEGORIES=	comms rubygems

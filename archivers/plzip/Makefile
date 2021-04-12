@@ -1,5 +1,8 @@
 # Created by: Albert Vernon <f3cun3c02@sneakemail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	plzip
 PORTVERSION=	1.8

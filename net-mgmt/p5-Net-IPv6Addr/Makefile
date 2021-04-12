@@ -1,5 +1,8 @@
 # Created by: JJ Behrens <jj@nttmcl.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-IPv6Addr
 PORTVERSION=	1.01

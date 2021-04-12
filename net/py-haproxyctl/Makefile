@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	haproxyctl
 PORTVERSION=	0.5
 PORTREVISION=	1

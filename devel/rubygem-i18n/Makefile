@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	i18n
 PORTVERSION=	1.8.9
 PORTEPOCH=	2

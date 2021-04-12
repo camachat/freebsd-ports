@@ -1,5 +1,8 @@
 # Created by: Greg Lewis <glewis@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	astzclock
 PORTVERSION=	1.0

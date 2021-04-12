@@ -1,5 +1,8 @@
 # Created by: James FitzGibbon <jfitz@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	qcc
 PORTVERSION=	1.01

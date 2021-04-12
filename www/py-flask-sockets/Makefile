@@ -1,5 +1,8 @@
 # Created by: antoine@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Flask-Sockets
 PORTVERSION=	0.2.1

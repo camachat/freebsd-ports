@@ -1,5 +1,8 @@
 # Created by: rene
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	boinc-setiathome
 PORTVERSION=	8.00

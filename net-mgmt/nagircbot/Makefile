@@ -1,5 +1,8 @@
 # Created by: anarcat@anarcat.ath.cx
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nagircbot
 PORTVERSION=	0.0.33

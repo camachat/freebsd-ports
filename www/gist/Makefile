@@ -1,5 +1,8 @@
 # Created by: Ricky E. <codeblock@eighthbit.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gist
 PORTVERSION=	5.1.0

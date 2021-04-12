@@ -1,5 +1,8 @@
 # Created by: Mikhail Teterin
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	skem
 PORTVERSION=	1.0.2

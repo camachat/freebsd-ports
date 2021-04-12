@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- gpu/ipc/service/gpu_memory_buffer_factory.cc.orig	2020-11-13 06:36:44 UTC
+=======
+--- gpu/ipc/service/gpu_memory_buffer_factory.cc.orig	2021-03-12 23:57:25 UTC
+>>>>>>> upstream/main
 +++ gpu/ipc/service/gpu_memory_buffer_factory.cc
 @@ -12,7 +12,7 @@
  #include "gpu/ipc/service/gpu_memory_buffer_factory_io_surface.h"

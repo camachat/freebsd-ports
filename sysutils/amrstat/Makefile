@@ -1,5 +1,8 @@
 # Created by: Bjoern A. Zeeb <bzeeb+freebsd+ports@zabbadoz.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	amrstat
 PORTVERSION=	20070216

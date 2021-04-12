@@ -1,5 +1,8 @@
 # Created by: Bill Brinzer <bill.brinzer@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	CatalystX-Component-Traits
 PORTVERSION=	0.19

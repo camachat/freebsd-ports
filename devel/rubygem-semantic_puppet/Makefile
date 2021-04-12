@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	semantic_puppet
 PORTVERSION=	1.0.2
 CATEGORIES=	devel rubygems

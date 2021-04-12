@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	asterisk
 PORTVERSION=	13.38.2
 PORTREVISION=	1

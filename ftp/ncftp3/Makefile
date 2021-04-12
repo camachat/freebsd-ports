@@ -1,5 +1,8 @@
 # Created by: ache
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ncftp
 PORTVERSION=	3.2.6

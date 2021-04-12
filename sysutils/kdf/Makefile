@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kdf
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
 CATEGORIES=	sysutils kde kde-applications

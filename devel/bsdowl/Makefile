@@ -1,5 +1,8 @@
 # Created by: Michael Le Barbier GrÃ¼newald <michipili@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bsdowl
 PORTVERSION=	2.2.1

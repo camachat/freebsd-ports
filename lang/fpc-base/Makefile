@@ -1,5 +1,8 @@
 # Created by: John Merryweather Cooper <coop9211@uidaho.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	base
 PORTVERSION=	3.2.0

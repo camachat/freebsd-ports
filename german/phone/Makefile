@@ -1,5 +1,8 @@
 # Created by: wosch
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	phone
 PORTVERSION=	1.20170802

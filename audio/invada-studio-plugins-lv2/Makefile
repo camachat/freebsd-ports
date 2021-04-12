@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	invada-studio-plugins
 DISTVERSIONPREFIX=	lv2_
 DISTVERSION=	1.2.0

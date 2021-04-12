@@ -1,5 +1,8 @@
 # Created by: Scott McWhirter <scott@surreytech.co.uk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	T2
 PORTVERSION=	0.10

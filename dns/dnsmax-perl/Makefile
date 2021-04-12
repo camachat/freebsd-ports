@@ -1,5 +1,8 @@
 # Created by: Dan Smith <dan@algenta.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dnsmax-perl
 PORTVERSION=	1.0.1

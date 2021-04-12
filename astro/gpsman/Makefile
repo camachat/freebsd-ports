@@ -1,5 +1,8 @@
 # Created by: David Wolfskill
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gpsman
 PORTVERSION=	6.4.4.2

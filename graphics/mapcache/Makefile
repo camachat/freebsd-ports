@@ -1,5 +1,8 @@
 # Created by: Ryan Melcer <rmelcer@iteris.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		mapcache
 DISTVERSION=		1.10.0

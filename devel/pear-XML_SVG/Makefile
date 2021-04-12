@@ -1,5 +1,8 @@
 # Created by: Thierry Thomas (<thierry@FreeBSD.org>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	XML_SVG
 PORTVERSION=	1.1.0

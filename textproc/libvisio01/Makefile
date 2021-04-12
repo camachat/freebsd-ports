@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	libvisio
 PORTVERSION=	0.1.7
 PORTREVISION=	3
+=======
+PORTNAME=	libvisio
+PORTVERSION=	0.1.7
+PORTREVISION=	4
+>>>>>>> upstream/main
 CATEGORIES=	textproc devel
 MASTER_SITES=	LODEV/${PORTNAME}
 PKGNAMESUFFIX=	01

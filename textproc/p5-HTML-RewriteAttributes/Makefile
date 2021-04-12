@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	HTML-RewriteAttributes
 PORTVERSION=	0.05
 PORTREVISION=	1

@@ -1,5 +1,8 @@
 # Created by: wlloyd@slap.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	spandsp
 PORTVERSION=	0.0.6

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libdrm
 PORTVERSION=	2.4.97
 DISTVERSIONSUFFIX=	-2.el7

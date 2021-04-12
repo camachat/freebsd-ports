@@ -1,5 +1,8 @@
 # Created by: asami
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xtic
 PORTVERSION=	1.12

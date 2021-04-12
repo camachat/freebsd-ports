@@ -1,5 +1,8 @@
 # Created by: Alistair King <alistair@caida.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wandio
 PORTVERSION=	1.0.5

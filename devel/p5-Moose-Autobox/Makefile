@@ -1,5 +1,8 @@
 # Created by: Bill Brinzer <bill.brinzer@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Moose-Autobox
 PORTVERSION=	0.15

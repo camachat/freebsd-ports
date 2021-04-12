@@ -1,5 +1,8 @@
 # Created by: Martin Wilke
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	py3status
 PORTVERSION=	3.18

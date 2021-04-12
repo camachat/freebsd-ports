@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ali
 PORTVERSION=	0.5.4
 DISTVERSIONPREFIX=	v

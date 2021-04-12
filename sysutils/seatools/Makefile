@@ -1,5 +1,8 @@
 # Created by: Boris Samorodov <bsam@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		seatools
 PORTVERSION=		2.54

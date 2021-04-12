@@ -1,5 +1,8 @@
 # Created by: Ying-Chieh Liao <ijliao@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	darkice
 PORTVERSION=	1.4

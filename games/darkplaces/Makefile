@@ -1,5 +1,8 @@
 # Created by: Alejandro Pulver <alejandro@varnet.biz>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	darkplaces
 PORTVERSION=	20140513

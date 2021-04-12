@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pytest-shutil
 PORTVERSION=	1.7.0
 CATEGORIES=	devel python

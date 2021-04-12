@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Net-Divert
 PORTVERSION=	0.01
 PORTREVISION=	2

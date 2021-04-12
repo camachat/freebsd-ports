@@ -1,8 +1,14 @@
 # Created by: David O'Brien <obrien@cs.ucdavis.edu>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	vim
 PORTVERSION=	8.2.2569
+=======
+
+PORTNAME=	vim
+PORTVERSION=	8.2.2725
+>>>>>>> upstream/main
 DISTVERSIONPREFIX=	v
 CATEGORIES=	editors
 

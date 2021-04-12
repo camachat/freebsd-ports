@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Math-Vec
 PORTVERSION=	1.01
 PORTREVISION=	1

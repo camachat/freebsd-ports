@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xkcdpass
 DISTVERSIONPREFIX=	${PORTNAME}-
 DISTVERSION=	1.17.4

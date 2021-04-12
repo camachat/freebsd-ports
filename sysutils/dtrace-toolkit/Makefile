@@ -1,5 +1,8 @@
 # Created by: Steven Kreuzer <steven@exit2shell.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dtrace-toolkit
 PORTVERSION=	1.0

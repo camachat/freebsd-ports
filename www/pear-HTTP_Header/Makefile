@@ -1,5 +1,8 @@
 # Created by: Alex Miller (<asm@asm.kiev.ua>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HTTP_Header
 PORTVERSION=	1.2.1

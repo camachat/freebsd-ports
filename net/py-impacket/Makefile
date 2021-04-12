@@ -1,5 +1,8 @@
 # Created by: Marcin Jessa <yazzy@yazzy.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	impacket
 PORTVERSION=	0.9.17

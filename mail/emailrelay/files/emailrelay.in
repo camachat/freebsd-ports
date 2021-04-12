@@ -1,7 +1,10 @@
 #!/bin/sh
 #
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # A shell-script wrapper for E-MailRelay for use in the FreeBSD rc.d system.
 #
 # Additional command-line options for the emailrelay daemon are sourced from

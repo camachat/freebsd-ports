@@ -1,5 +1,8 @@
 # Created by: Gleb Kurtsou <gleb@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pefs
 DISTVERSION=	2018-11-26

@@ -1,5 +1,8 @@
 # Created by: Lars Koeller <Lars.Koeller@Uni-Bielefeld.DE>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fftw
 PORTVERSION=	2.1.5

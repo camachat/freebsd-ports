@@ -1,5 +1,8 @@
 # Created by: Phil Maker <pjm@gnu.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nana
 PORTVERSION=	2.5

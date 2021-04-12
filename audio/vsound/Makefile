@@ -1,5 +1,8 @@
 # Created by: Rahul Siddharthan <rsidd@online.fr>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vsound
 PORTVERSION=	0.6

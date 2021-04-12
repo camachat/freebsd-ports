@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	snmpclitools
 PORTVERSION=	0.6.1
 PORTREVISION=	1

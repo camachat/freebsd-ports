@@ -1,5 +1,8 @@
 # Created by: David Carlier
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	deviceatlas-enterprise-c
 PORTVERSION=	2.3.4

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Net-Amazon-Signature-V4
 PORTVERSION=	0.18
 PORTREVISION=	1

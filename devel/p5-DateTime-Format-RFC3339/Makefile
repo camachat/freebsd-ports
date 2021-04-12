@@ -1,5 +1,8 @@
 # Created by: Dan Rench <citric@cubicone.tmetic.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	DateTime-Format-RFC3339
 PORTVERSION=	1.0.5

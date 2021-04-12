@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	wpa_supplicant
 PORTVERSION=	${COMMIT_DATE}
 CATEGORIES=	security net
@@ -11,8 +14,13 @@ COMMENT=	Supplicant (client) for WPA/802.1x protocols
 USE_GITHUB=	yes
 GH_ACCOUNT=	cschuber
 GH_PROJECT=	hostap
+<<<<<<< HEAD
 GH_TAGNAME=	e72e32253
 COMMIT_DATE=	2021.03.25
+=======
+GH_TAGNAME=	5f082c158
+COMMIT_DATE=	2021.03.28
+>>>>>>> upstream/main
 
 BROKEN_FreeBSD_11=	Does not support OpenSSL 1.0.2
 

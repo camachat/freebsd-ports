@@ -1,5 +1,8 @@
 # Created by: Lars Thegler <lth@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Template-Plugin-Number-Format
 PORTVERSION=	1.06

@@ -1,5 +1,8 @@
 # Created by: Sergey Skvortsov <skv@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	XML-Generator-DBI
 PORTVERSION=	1.00

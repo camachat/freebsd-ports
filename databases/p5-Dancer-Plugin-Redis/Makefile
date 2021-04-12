@@ -1,5 +1,8 @@
 # Created by: Grzegorz Blach <gblach@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Dancer-Plugin-Redis
 PORTVERSION=	0.8

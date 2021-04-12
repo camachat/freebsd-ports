@@ -1,5 +1,8 @@
 # Created by: skreuzer@exit2shell.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	relative
 PORTVERSION=	0.04

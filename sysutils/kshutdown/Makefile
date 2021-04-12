@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kshutdown
 DISTVERSION=	5.2
 CATEGORIES=	sysutils kde

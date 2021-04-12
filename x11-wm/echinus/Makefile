@@ -1,5 +1,8 @@
 # Created by: hrkfrd@gmail.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	echinus
 PORTVERSION=	0.4.9

@@ -1,5 +1,8 @@
 # Created by: Andrew Turner <andrew+ports@fubar.geek.nz>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pty
 PORTVERSION=	1.25

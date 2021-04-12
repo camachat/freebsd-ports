@@ -1,5 +1,8 @@
 # Created by: Felix Palmen <felix@palmen-it.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	opencbm-plugin-xa1541
 PORTVERSION=	${OCBM_VERSION}

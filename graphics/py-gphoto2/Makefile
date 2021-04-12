@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gphoto2
 PORTVERSION=	2.0.0
 CATEGORIES=	graphics python

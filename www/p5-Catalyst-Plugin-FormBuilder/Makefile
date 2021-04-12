@@ -1,5 +1,8 @@
 # Created by: Fernan Aguero
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Catalyst-Plugin-FormBuilder
 PORTVERSION=	1.07

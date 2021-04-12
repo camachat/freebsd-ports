@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	molgif
 DISTVERSION=	g20180108
 PORTREVISION=	1

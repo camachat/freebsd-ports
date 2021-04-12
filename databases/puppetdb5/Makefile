@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	puppetdb
 PORTVERSION=	5.2.19
 CATEGORIES=	databases java

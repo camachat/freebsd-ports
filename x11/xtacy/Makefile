@@ -1,5 +1,8 @@
 # Created by: matt@bdd.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xtacy
 PORTVERSION=	1.14

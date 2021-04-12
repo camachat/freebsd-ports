@@ -1,5 +1,8 @@
 # Created by: ports
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tnftpd
 PORTVERSION=	20200704

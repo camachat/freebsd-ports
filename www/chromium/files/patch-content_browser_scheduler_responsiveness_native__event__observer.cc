@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- content/browser/scheduler/responsiveness/native_event_observer.cc.orig	2020-11-13 06:36:42 UTC
+=======
+--- content/browser/scheduler/responsiveness/native_event_observer.cc.orig	2021-03-12 23:57:24 UTC
+>>>>>>> upstream/main
 +++ content/browser/scheduler/responsiveness/native_event_observer.cc
 @@ -15,7 +15,7 @@
  

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	extras
 PORTVERSION=	1.0.0
 PORTREVISION=	1

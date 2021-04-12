@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	choria
 PORTVERSION=	0.20.2
 DISTVERSIONPREFIX=v

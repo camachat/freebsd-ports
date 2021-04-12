@@ -1,5 +1,8 @@
 # Created by: Denis Pokataev <catone@cpan.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	URI-Escape-XS
 PORTVERSION=	0.14

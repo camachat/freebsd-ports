@@ -1,5 +1,8 @@
 # Created by: Alan Eldridge <alane@geeksrus.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cvsbook
 PORTVERSION=	1.21

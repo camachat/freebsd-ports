@@ -1,5 +1,8 @@
 # Created by: Foxfair Hu <foxfair@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	XML-SimpleObject-LibXML
 PORTVERSION=	0.60

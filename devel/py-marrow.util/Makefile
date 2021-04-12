@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	marrow.util
 PORTVERSION=	1.2.3
 CATEGORIES=	devel python

@@ -1,5 +1,8 @@
 # Created by: markm
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xroach
 PORTVERSION=	4.4

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	wofi
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.2.4

@@ -1,5 +1,8 @@
 # Created by: kuriyama
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ipadic
 PORTVERSION=	2.7.0

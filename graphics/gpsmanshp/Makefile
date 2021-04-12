@@ -1,5 +1,8 @@
 # Created by: John Hay
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gpsmanshp
 PORTVERSION=	1.2.3

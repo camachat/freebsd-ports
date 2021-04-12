@@ -1,5 +1,8 @@
 # Created by: Ka Ho Ng <khng300@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fcitx5-table-other
 DISTVERSION=	5.0.2

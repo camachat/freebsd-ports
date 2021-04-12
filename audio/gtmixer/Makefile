@@ -1,5 +1,8 @@
 # Created by: Putrya Statislav
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gtmixer
 PORTVERSION=	1.0.2

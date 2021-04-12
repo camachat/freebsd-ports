@@ -1,5 +1,8 @@
 # Created by: John D. "Trix" Farrar <trix@basement.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	logwatch
 PORTVERSION=	7.5.1

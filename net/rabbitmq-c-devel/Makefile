@@ -1,5 +1,8 @@
 # Created by: Geoff Garside
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rabbitmq-c
 PORTVERSION=	0.10.0

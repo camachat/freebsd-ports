@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	haven
 DISTVERSION=	2.3.1
 CATEGORIES=	math

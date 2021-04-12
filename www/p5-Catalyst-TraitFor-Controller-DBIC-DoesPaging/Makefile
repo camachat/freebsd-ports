@@ -1,5 +1,8 @@
 # Created by: Alex Bakhtin <Alex.Bakhtin@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Catalyst-TraitFor-Controller-DBIC-DoesPaging
 PORTVERSION=	1.001000

@@ -1,5 +1,8 @@
 # Created by: Antonio Carlos Venancio Junior (<antonio@inf.ufsc.br>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	MDB2
 DISTVERSION=	2.5.0b5

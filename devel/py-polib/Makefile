@@ -1,5 +1,8 @@
 # Created by: Oleg Ukraincev <oleg@ht-systems.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	polib
 PORTVERSION=	1.1.0

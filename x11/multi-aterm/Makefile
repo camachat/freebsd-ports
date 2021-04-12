@@ -1,5 +1,8 @@
 # Created by: Sebastian Yepes <esn@x123.info>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	multi-aterm
 PORTVERSION=	0.2.1

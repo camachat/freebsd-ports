@@ -1,5 +1,8 @@
 # Created by: Brian Handy <handy@physics.montana.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xosview
 DISTVERSION=	1.21

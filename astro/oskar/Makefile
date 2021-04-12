@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	OSKAR
 DISTVERSION=	2.7.6
 PORTREVISION=	1

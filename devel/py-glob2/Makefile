@@ -1,5 +1,8 @@
 # Created by: Fukang Chen <loader@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	glob2
 PORTVERSION=	0.7

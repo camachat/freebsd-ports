@@ -1,5 +1,8 @@
 # Created by: Stephon Chen <stephon@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Term-QRCode
 PORTVERSION=	0.01

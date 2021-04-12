@@ -1,5 +1,8 @@
 # Created by: Dima Dorfman <dima@unixfreak.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	shuffle
 PORTVERSION=	20010603

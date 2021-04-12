@@ -1,5 +1,8 @@
 # Created by: Craig Leres <leres@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cf
 PORTVERSION=	1.2.5

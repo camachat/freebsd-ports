@@ -1,5 +1,8 @@
 # Created by: Jun Kuriyama <kuriyama@opt.phys.waseda.ac.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dsssl-docbook-modular
 PORTVERSION=	1.79

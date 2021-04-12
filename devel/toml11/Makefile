@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		toml11
 DISTVERSIONPREFIX=	v
 DISTVERSION=		3.6.1

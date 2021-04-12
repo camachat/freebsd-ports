@@ -1,5 +1,8 @@
 # Created by: Lars Thegler <lth@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Email-Folder-POP3
 PORTVERSION=	1.015

@@ -1,5 +1,8 @@
 # Created by: Juergen Lock <nox@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vdradmin-am
 PORTVERSION=	3.6.10

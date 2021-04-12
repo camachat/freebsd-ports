@@ -1,5 +1,8 @@
 # Created by: Douglas Carmichael <dcarmich@mcs.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	amiwm
 PORTVERSION=	0.21.pl2

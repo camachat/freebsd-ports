@@ -1,5 +1,8 @@
 # Created by: Dereckson <dereckson@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Crypt-Random-Source
 PORTVERSION=	0.12

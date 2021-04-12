@@ -1,5 +1,8 @@
 # Created by: Jim Geovedi <jim@corebsd.or.id>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xmlsec1
 PORTVERSION=	1.2.29

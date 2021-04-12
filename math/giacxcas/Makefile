@@ -1,5 +1,8 @@
 # Created by: Frederic Han <han@math.jussieu.fr>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	giacxcas
 DISTVERSION=	1.6.0-7

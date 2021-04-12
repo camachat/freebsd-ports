@@ -1,5 +1,8 @@
 # Created by: TAKAHASHI Kaoru <kaoru@kaisei.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Business-PayPal-IPN
 PORTVERSION=	1.94

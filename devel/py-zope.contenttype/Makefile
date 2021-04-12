@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	zope.contenttype
 PORTVERSION=	3.5.5
 PORTREVISION=	1

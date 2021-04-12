@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	acidwarp-sdl
 PORTVERSION=	g2020062101
 CATEGORIES=	graphics

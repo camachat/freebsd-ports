@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bitmark
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.13.2

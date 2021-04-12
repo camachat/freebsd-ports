@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	wireguard-go
 PORTVERSION=	0.0.20210323
 PORTEPOCH=	1

@@ -1,5 +1,8 @@
 # Created by: gmarco@giovannelli.it
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pmars
 PORTVERSION=	0.9.2

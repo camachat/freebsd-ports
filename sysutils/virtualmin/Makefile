@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	virtualmin
 PORTVERSION=	6.15
 PORTEPOCH=	1

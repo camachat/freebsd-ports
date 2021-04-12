@@ -1,5 +1,8 @@
 # Created by: <hvo.pm@xs4all.nl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Dancer2-Plugin-Interchange6
 PORTVERSION=	0.204

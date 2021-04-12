@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	RT-Client-REST
 PORTVERSION=	0.60
 PORTEPOCH=	1

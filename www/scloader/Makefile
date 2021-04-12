@@ -1,5 +1,8 @@
 # Created by: Radim Kolar <hsn@sanatana.dharma>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	scloader
 PORTVERSION=	0.32

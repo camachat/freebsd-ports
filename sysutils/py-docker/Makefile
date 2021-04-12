@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	docker
 PORTVERSION=	3.7.0
 CATEGORIES=	sysutils python

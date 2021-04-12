@@ -1,5 +1,8 @@
 # Created by: Julian Assange
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lincity
 PORTVERSION=	1.13.1

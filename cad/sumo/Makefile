@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sumo
 DISTVERSION=	1.2.0
 PORTREVISION=	4

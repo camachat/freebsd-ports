@@ -1,5 +1,8 @@
 # Created by: Alex Ivasyuv <siegerstein@pochta.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	blender
 PORTVERSION=	2.3

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	merkletools
 DISTVERSION=	1.0.3
 PORTREVISION=	1

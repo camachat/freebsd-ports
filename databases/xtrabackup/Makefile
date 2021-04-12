@@ -1,5 +1,8 @@
 # Created by: Alex Samorukov <samm@freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xtrabackup
 DISTVERSION=	2.4.21

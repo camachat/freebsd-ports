@@ -1,5 +1,8 @@
 # Created by: Meno Abels <meno.abels@adviser.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	crm114
 PORTVERSION=	20100106

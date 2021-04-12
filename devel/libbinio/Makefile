@@ -1,5 +1,8 @@
 # Created by: Emanuel Haupt <ehaupt@critical.ch>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libbinio
 PORTVERSION=	1.5

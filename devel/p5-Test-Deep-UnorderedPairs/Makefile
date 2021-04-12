@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Test-Deep-UnorderedPairs
 PORTVERSION=	0.006
 CATEGORIES=	devel perl5

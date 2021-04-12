@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	uctodata
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.8

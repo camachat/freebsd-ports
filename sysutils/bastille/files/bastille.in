@@ -1,8 +1,12 @@
 #!/bin/sh
 
 # Bastille jail startup script
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+
+>>>>>>> upstream/main
 # PROVIDE: bastille
 # REQUIRE: LOGIN
 # KEYWORD: shutdown

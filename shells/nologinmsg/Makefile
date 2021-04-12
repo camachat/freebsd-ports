@@ -1,5 +1,8 @@
 # Created by: Richard Rose <freebsd-security@rikrose.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nologinmsg
 PORTVERSION=	1.0

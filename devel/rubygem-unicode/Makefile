@@ -1,5 +1,8 @@
 # Created by: Alexey V. Degtyarev <alexey@renatasystems.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	unicode
 PORTVERSION=	0.4.4.4

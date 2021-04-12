@@ -1,5 +1,8 @@
 # Created by: uminac
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cpipe
 PORTVERSION=	3.0.2

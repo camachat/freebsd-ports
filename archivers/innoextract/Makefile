@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	innoextract
 PORTVERSION=	1.9
 CATEGORIES=	archivers

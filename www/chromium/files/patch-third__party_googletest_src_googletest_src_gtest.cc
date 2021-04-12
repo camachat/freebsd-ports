@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- third_party/googletest/src/googletest/src/gtest.cc.orig	2020-11-13 06:42:16 UTC
+=======
+--- third_party/googletest/src/googletest/src/gtest.cc.orig	2021-03-13 00:03:34 UTC
+>>>>>>> upstream/main
 +++ third_party/googletest/src/googletest/src/gtest.cc
 @@ -117,6 +117,7 @@
  

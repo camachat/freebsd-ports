@@ -1,5 +1,8 @@
 # Created by: Tobias C. Berner <tcberner@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	grantlee
 DISTVERSION=	${GRANTLEE_VERSION}

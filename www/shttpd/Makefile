@@ -1,5 +1,8 @@
 # Created by: Sergey Lyubka (valenok@gmail.com)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	shttpd
 PORTVERSION=	1.42

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	onscripter
 PORTVERSION=	20200722
 CATEGORIES=	games

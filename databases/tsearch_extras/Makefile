@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tsearch_extras
 PORTVERSION=	0.3
 PORTREVISION=	2

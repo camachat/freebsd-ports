@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	c2man
 PORTVERSION=	${VERSION}.${PATCHLEVEL}
 CATEGORIES=	textproc

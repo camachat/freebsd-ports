@@ -1,5 +1,8 @@
 # Created by: Thierry Thomas (<thierry@thomas.as>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	kronolith
 PORTVERSION=	4.2.29

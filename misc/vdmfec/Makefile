@@ -1,5 +1,8 @@
 # Created by: Harald Schmalzbauer <freebsd@omnilan.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vdmfec
 PORTVERSION=	1.0

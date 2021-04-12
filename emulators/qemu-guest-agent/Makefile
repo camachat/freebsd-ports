@@ -1,5 +1,8 @@
 # Created by: Kaltashkin Eugene <zhecka@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	qemu
 DISTVERSION=	5.0.1

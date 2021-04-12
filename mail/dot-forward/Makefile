@@ -1,5 +1,8 @@
 # Created by: Uffe Jakobsen <uffe@uffe.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dot-forward
 PORTVERSION=	0.71

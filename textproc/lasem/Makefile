@@ -1,5 +1,8 @@
 # Created by: Olivier Duchateau <olivierd@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lasem
 PORTVERSION=	0.5.1

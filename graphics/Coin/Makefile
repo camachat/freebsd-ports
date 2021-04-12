@@ -1,5 +1,8 @@
 # Created by: roland.jesse@gmx.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Coin
 PORTVERSION=	4.0.0
@@ -7,7 +10,11 @@ DISTVERSIONPREFIX=	Coin-
 PORTREVISION=	1
 CATEGORIES=	graphics
 
+<<<<<<< HEAD
 PATCH_SITES=	https://github.com/myfreeweb/coin/commit/
+=======
+PATCH_SITES=	https://github.com/unrelentingtech/coin/commit/
+>>>>>>> upstream/main
 PATCHFILES+=	3053d28b74d.patch:-p1 # Unbreak non-X11
 
 MAINTAINER=	cmt@FreeBSD.org

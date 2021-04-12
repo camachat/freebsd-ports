@@ -1,5 +1,8 @@
 # Created by: Anton Yudin <toha@toha.org.ua>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	commons-dbcp
 PORTVERSION=	2.8.0

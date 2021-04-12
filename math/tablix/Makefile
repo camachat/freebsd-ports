@@ -1,5 +1,8 @@
 # Created by: amir.husaini@gmail.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tablix2
 PORTVERSION=	0.3.5

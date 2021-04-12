@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pgpmoose
 PORTVERSION=	1.19
 PORTREVISION=	1

@@ -1,5 +1,8 @@
 # Created by: Alex Semenyaka <alex@rinet.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	proguard
 PORTVERSION=	7.0.0

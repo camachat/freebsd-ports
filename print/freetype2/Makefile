@@ -1,5 +1,8 @@
 # Created by: jseger@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	freetype2
 DISTVERSION=	2.10.4

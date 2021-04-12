@@ -1,5 +1,8 @@
 # Created by: Ryan Steinmetz <rpsfa@rit.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dm-pager
 PORTVERSION=	1.1.0

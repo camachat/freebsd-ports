@@ -1,5 +1,8 @@
 # Created by: t.vanklaveren@student.utwente.nl
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libogg
 PORTVERSION=	1.3.4

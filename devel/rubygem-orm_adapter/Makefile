@@ -1,5 +1,8 @@
 # Created by: rpsfa@rit.edu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	orm_adapter
 PORTVERSION=	0.5.0

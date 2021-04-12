@@ -1,5 +1,8 @@
 # Created by: Jay Sachs <sachs@cs.williams.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	plugger
 PORTVERSION=	5.1.5

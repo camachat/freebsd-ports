@@ -1,5 +1,8 @@
 # Created by: "Meikel Brandmeyer" <ocaml-sqlite3-port@kotka.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sqlite3
 PORTVERSION=	4.0.5

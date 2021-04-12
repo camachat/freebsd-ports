@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dssim
 DISTVERSION=	3.0.1
 PORTREVISION=	1

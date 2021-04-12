@@ -1,5 +1,8 @@
 # Created by: Eric A. Griff <eric@talesfromthereal.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	WDDX
 PORTVERSION=	1.02

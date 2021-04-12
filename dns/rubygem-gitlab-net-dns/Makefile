@@ -1,5 +1,8 @@
 # Created by: rpsfa@rit.edu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gitlab-net-dns
 PORTVERSION=	0.9.1

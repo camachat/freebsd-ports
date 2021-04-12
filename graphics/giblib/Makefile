@@ -1,5 +1,8 @@
 # Created by: Jeremy Norris <ishmael27@home.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	giblib
 PORTVERSION=	1.2.4

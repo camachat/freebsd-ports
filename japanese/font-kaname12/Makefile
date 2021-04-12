@@ -1,5 +1,8 @@
 # Created by: Mita Yoshio <mita@jp.FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	kaname12
 PORTVERSION=	1.1

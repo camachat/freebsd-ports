@@ -1,5 +1,8 @@
 # Created by: Sheldon Hearn <sheldonh@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Config-General
 PORTVERSION=	2.63

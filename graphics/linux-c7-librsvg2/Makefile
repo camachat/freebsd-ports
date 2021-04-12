@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	librsvg2
 PORTVERSION=	2.40.20
 DISTVERSIONSUFFIX=	-1.el7

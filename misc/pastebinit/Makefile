@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pastebinit
 PORTVERSION=	1.5.1
 CATEGORIES=	misc python

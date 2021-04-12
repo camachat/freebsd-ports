@@ -1,5 +1,8 @@
 # Created by: Volker Stolz <vs@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gastex
 PORTVERSION=	3.0

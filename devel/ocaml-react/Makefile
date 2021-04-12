@@ -1,5 +1,8 @@
 # Created by: Jaap Boender <jaapb@kerguelen.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	react
 PORTVERSION=	1.2.1

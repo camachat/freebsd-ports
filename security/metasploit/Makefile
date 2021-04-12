@@ -1,5 +1,8 @@
 # Created by: Yonatan <onatan@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	metasploit
 PORTVERSION=	6.0.23

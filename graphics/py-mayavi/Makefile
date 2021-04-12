@@ -1,5 +1,8 @@
 # Created by: Vladimir Chukharev
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mayavi
 DISTVERSION=	4.7.2

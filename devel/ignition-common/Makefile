@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ignition-common
 DISTVERSION=	3.0.0
 PORTREVISION=	4

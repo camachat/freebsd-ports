@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		vcflib
 DISTVERSIONPREFIX=	v
 DISTVERSION=		1.0.0-rc1-130

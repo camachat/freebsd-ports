@@ -1,5 +1,8 @@
 # Created by: Benjamin Lutz
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	psearch
 PORTVERSION=	2.1.0

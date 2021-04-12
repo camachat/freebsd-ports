@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xsettingsd
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.0.0-2

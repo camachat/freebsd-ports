@@ -1,5 +1,8 @@
 # Created by: Igor Pokrovsky <tiamat@comset.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gl2ps
 PORTVERSION=	1.4.2

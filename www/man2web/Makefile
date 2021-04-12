@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	man2web
 PORTVERSION=	0.88
 PORTREVISION=	2

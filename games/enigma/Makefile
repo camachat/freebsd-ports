@@ -1,5 +1,8 @@
 # Created by: Edwin Groothuis
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	enigma
 PORTVERSION=	1.21

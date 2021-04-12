@@ -1,5 +1,8 @@
 # Created by: michael johnson <ahze@ahze.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	minisapserver
 PORTVERSION=	0.3.8

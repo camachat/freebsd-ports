@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTVERSION=	2.7.17
 PORTREVISION=	1
 PKGNAMESUFFIX=	27

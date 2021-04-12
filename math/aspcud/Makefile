@@ -1,5 +1,8 @@
 # Created by: Vsevolod Stakhov <vsevolod@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	aspcud
 PORTVERSION=	1.9.4

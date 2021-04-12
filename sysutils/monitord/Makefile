@@ -1,5 +1,8 @@
 # Created by: walt
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	monitord
 PORTVERSION=	0.4.1

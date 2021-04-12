@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	singular
 DISTVERSIONPREFIX=	Release-
 DISTVERSION=	4-2-0

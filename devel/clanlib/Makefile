@@ -1,5 +1,8 @@
 # Created by: Maxim Sobolev <sobomax@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	clanlib
 PORTVERSION=	2.3.7
@@ -13,12 +16,19 @@ MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Cross-platform game SDK
 
 LICENSE=	ZLIB
+<<<<<<< HEAD
 
 BROKEN_i386=		typedef redefinition with different types ('ptrdiff_t' (aka 'int') vs 'khronos_intptr_t' (aka 'long'))
+=======
+LICENSE_FILE=	${WRKSRC}/COPYING
+
+BROKEN_i386=	typedef redefinition with different types ('ptrdiff_t' (aka 'int') vs 'khronos_intptr_t' (aka 'long'))
+>>>>>>> upstream/main
 
 LIB_DEPENDS=	libpng.so:graphics/png \
 		libmikmod.so:audio/libmikmod \
 		libvorbis.so:audio/libvorbis \
+<<<<<<< HEAD
 		libfontconfig.so:x11-fonts/fontconfig \
 		libpcre.so:devel/pcre
 
@@ -27,6 +37,18 @@ USES=		compiler:c++11-lib gl gmake jpeg libtool localbase:ldflags \
 USE_XORG=	x11
 USE_LDCONFIG=	yes
 USE_GL=		yes
+=======
+		libogg.so:audio/libogg \
+		libfontconfig.so:x11-fonts/fontconfig \
+		libpcre.so:devel/pcre \
+		libfreetype.so:print/freetype2
+
+USES=		compiler:c++11-lib gl gmake jpeg libtool localbase:ldflags \
+		pathfix pkgconfig sqlite tar:tgz xorg
+USE_XORG=	x11 xrender
+USE_LDCONFIG=	yes
+USE_GL=		gl
+>>>>>>> upstream/main
 
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--disable-docs \

@@ -1,5 +1,8 @@
 # Created by: James Earl <jdearl@telus.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xfce4-wm
 PORTVERSION=	4.16.1

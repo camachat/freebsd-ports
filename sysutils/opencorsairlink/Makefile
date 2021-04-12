@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	OpenCorsairLink
 DISTVERSION=	g20191001
 CATEGORIES=	sysutils

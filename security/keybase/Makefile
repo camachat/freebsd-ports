@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	keybase
 PORTVERSION=	5.6.1
 DISTVERSIONPREFIX=	v

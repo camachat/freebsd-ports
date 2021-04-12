@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dsbwrtsysctl
 PORTVERSION=	0.1.5
 CATEGORIES=	sysutils

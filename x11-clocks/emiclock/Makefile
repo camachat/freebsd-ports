@@ -1,5 +1,8 @@
 # Created by: Nobuhiro Yasutomi
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	emiclock
 PORTVERSION=	2.0.2

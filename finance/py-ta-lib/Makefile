@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ta-lib
 DISTVERSIONPREFIX=	TA_Lib-
 DISTVERSION=	0.4.17

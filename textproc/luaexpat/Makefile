@@ -1,5 +1,8 @@
 # Created by: Andrew Lewis <freeghb@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	luaexpat
 PORTVERSION=	1.3.0

@@ -1,8 +1,14 @@
 # Created by: Wen Heping <wenheping@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	pg8000
 PORTVERSION=	1.17.0
+=======
+
+PORTNAME=	pg8000
+PORTVERSION=	1.19.2
+>>>>>>> upstream/main
 CATEGORIES=	databases python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}

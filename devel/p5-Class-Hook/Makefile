@@ -1,5 +1,8 @@
 # Created by: Brian Skrab <brian@quynh-and-brian.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Class-Hook
 PORTVERSION=	0.05

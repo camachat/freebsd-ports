@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 --- third_party/angle/BUILD.gn.orig	2021-01-18 21:31:44 UTC
 +++ third_party/angle/BUILD.gn
 @@ -162,10 +162,17 @@ config("extra_warnings") {
@@ -29,6 +30,20 @@
        "-Wundefined-reinterpret-cast",
        "-Wunneeded-internal-declaration",
 @@ -425,6 +430,7 @@ angle_static_library("angle_gpu_info_util") {
+=======
+--- third_party/angle/BUILD.gn.orig	2021-03-13 00:03:31 UTC
++++ third_party/angle/BUILD.gn
+@@ -194,7 +194,7 @@ config("extra_warnings") {
+       "-Wunreachable-code",
+       "-Wshorten-64-to-32",
+     ]
+-    if (!use_xcode_clang) {
++    if (!use_xcode_clang && !is_bsd) {
+       # Mac catalyst uses a clang version that doesn't have these.
+       cflags += [
+         "-Wdeprecated-copy",
+@@ -433,6 +433,7 @@ angle_static_library("angle_gpu_info_util") {
+>>>>>>> upstream/main
          "X11",
          "Xi",
          "Xext",

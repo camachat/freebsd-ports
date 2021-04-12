@@ -1,5 +1,8 @@
 #!/bin/sh
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 # This file for common functions used for port scripts.
 #
 # MAINTAINER: portmgr@FreeBSD.org

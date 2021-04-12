@@ -1,5 +1,8 @@
 # Created by: Choe, Cheng-Dae
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nevow
 PORTVERSION=	0.14.0

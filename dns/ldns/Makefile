@@ -1,5 +1,8 @@
 # Created by: Konstantin Saurbier <saurbier@math.uni-bielefeld.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ldns
 PORTVERSION=	1.7.1

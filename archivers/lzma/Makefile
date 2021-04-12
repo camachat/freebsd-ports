@@ -1,5 +1,8 @@
 # Created by: Radim Kolar <hsn@netmag.cz>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lzma
 PORTVERSION=	19.00

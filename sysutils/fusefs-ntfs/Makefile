@@ -1,5 +1,8 @@
 # Created by: Max Khon
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ntfs
 PORTVERSION=	2017.3.23

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 CATEGORIES=	www
 PKGNAMESUFFIX=	-web
 PORTREVISION=	1

@@ -1,5 +1,8 @@
 # Created by: wen@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pymongo
 PORTVERSION=	3.11.3

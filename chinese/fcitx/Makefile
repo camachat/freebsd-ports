@@ -1,5 +1,8 @@
 # Created by: Shen Chuan-Hsing <statue@freebsd.sinica.edu.tw>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fcitx
 PORTVERSION=	4.2.9.7

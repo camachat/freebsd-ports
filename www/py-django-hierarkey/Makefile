@@ -1,5 +1,8 @@
 # Created by: 
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	django-hierarkey
 PORTVERSION=	1.0.3

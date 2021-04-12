@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	smlnj
 PORTVERSION=	110.98
 CATEGORIES=	lang

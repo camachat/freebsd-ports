@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	modernish
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.16.5

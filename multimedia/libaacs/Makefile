@@ -1,5 +1,8 @@
 # Created by: kamikaze@bsdforen.de
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libaacs
 DISTVERSION=	0.11.0

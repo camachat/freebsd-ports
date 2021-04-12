@@ -1,9 +1,16 @@
 # Created by: elvstone@gmail.com
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	znc
 PORTVERSION=	1.8.2
 PORTREVISION=	1
+=======
+
+PORTNAME=	znc
+PORTVERSION=	1.8.2
+PORTREVISION=	2
+>>>>>>> upstream/main
 CATEGORIES=	irc
 MASTER_SITES=	https://znc.in/releases/ \
 		https://znc.in/releases/archive/

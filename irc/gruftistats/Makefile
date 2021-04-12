@@ -1,5 +1,8 @@
 # Created by: Matthew West <mwest@uct.ac.za>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gruftistats
 PORTVERSION=	0.2.4

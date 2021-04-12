@@ -1,5 +1,8 @@
 # Created by: Vsevolod Lobko <seva@sevasoft.kiev.ua>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	milter
 PORTVERSION=	1.0.4

@@ -1,5 +1,8 @@
 # Created by: Markus Dolze
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	iograph
 PORTVERSION=	0.9.1

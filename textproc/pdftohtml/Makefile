@@ -1,5 +1,8 @@
 # Created by: Soeren Boll Overgaard <boll@tolkien.dk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pdftohtml
 PORTVERSION=	0.40a

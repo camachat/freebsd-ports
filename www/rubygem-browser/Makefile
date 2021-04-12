@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	browser
 PORTVERSION=	4.2.0
 CATEGORIES=	www rubygems

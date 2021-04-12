@@ -1,5 +1,8 @@
 # Created by: wosch
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	uk-phone
 PORTVERSION=	2.7

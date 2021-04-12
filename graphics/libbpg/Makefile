@@ -1,5 +1,8 @@
 # Created by: Matthieu Volat <mazhe@alkumuna.eu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libbpg
 PORTVERSION=	0.9.7

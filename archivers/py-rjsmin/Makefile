@@ -1,5 +1,8 @@
 # Created by: Richard Gallamore <ultima@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rjsmin
 PORTVERSION=	1.1.0

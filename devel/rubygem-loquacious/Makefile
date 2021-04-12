@@ -1,5 +1,8 @@
 # Created by: Ryan Steinmetz (<rpsfa@rit.edu>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	loquacious
 PORTVERSION=	1.9.1

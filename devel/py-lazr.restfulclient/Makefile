@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	lazr.restfulclient
 PORTVERSION=	0.14.3
 CATEGORIES=	devel python

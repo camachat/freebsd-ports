@@ -1,5 +1,8 @@
 # Created by: Dikshie <dikshie@sfc.wide.ad.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xlrd
 PORTVERSION=	2.0.1

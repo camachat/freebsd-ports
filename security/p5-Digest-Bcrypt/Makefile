@@ -1,5 +1,8 @@
 # Created by: Henk van Oers <hvo.pm@xs4all.nl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Digest-Bcrypt
 PORTVERSION=	1.209

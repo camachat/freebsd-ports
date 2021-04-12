@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	munch
 PORTVERSION=	2.5.0
 CATEGORIES=	devel python

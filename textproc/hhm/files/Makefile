@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PROG=	hhm
 
 LDADD=	-L${PREFIX}/lib -llzxcomp -lm

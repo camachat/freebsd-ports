@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mu4e-maildirs
 PORTVERSION=	0.8.20180606
 PORTREVISION=	3

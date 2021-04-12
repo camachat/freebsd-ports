@@ -1,5 +1,8 @@
 # Created by: Brad Huntting <huntting@glarp.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	qcl
 PORTVERSION=	0.6.4

@@ -1,5 +1,8 @@
 # Created by: Andrew L. Neporada <andrew@chg.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pspp
 PORTVERSION=	1.4.1

@@ -1,5 +1,8 @@
 # Created by: Matthias Petermann <matthias@petermann-it.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	elementary
 PORTVERSION=	0.15.2

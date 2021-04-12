@@ -1,5 +1,8 @@
 # Created by: William Grzybowski <wg@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	patchelf
 DISTVERSION=	0.12

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	nvc
 DISTVERSIONPREFIX=	r
 DISTVERSION=	1.5.0

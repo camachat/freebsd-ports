@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	so-synth
 DISTVERSIONPREFIX=	upstream/
 DISTVERSION=	1.5

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	yg.lockfile
 PORTVERSION=	2.3
 PORTREVISION=	2

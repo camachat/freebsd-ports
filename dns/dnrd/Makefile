@@ -1,5 +1,8 @@
 # Created by: George Reid <greid@ukug.uk.freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dnrd
 PORTVERSION=	2.20.3

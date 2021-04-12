@@ -1,5 +1,8 @@
 # Created by: Vaida Bogdan
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ibsh
 PORTVERSION=	0.3e

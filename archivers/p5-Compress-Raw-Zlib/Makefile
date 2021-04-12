@@ -1,5 +1,8 @@
 # Created by: Thomas Abthorpe <thomas@goodking.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Compress-Raw-Zlib
 PORTVERSION=	2.101

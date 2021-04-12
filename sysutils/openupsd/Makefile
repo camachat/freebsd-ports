@@ -1,5 +1,8 @@
 # Created by: Tim Bishop <tim@bishnet.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	openupsd
 PORTVERSION=	0.3.1

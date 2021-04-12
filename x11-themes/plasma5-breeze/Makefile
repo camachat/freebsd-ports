@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	breeze
 DISTVERSION=	${KDE_PLASMA_VERSION}
 CATEGORIES=	x11-themes kde kde-plasma

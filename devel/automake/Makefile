@@ -1,5 +1,8 @@
 # Created by: Ade Lovett <ade@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	automake
 PORTVERSION=	1.16.3

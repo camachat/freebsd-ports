@@ -1,5 +1,8 @@
 # Created by: Dima Panov <fluffy@Fluffy.Khv.RU>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	polkit-qt-1
 DISTVERSION=	0.113.0

@@ -1,5 +1,8 @@
 # Created by: Nicolas Jombart <Nicolas.Jombart@hsc-labs.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Parallel-ForkManager
 PORTVERSION=	2.02

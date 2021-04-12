@@ -1,5 +1,8 @@
 # Created by: timur@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=			${SAMBA4_BASENAME}411
 PORTVERSION=			${SAMBA4_VERSION}

@@ -1,5 +1,8 @@
 # Created by: Grzegorz Blach <gblach@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jupp
 PORTVERSION=	3.1.38

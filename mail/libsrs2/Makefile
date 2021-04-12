@@ -1,5 +1,8 @@
 # Created by: snowchyld
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libsrs2
 PORTVERSION=	1.0.18

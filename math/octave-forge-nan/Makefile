@@ -1,5 +1,8 @@
 # Created by: Stephen Montgomery-Smith <stephen@math.missouri.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	octave-forge-nan
 PORTVERSION=	3.5.3

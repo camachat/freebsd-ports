@@ -1,5 +1,8 @@
 # Created by: Travis Campbell <hcoyote@ghostar.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HTML-Diff
 PORTVERSION=	0.561

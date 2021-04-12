@@ -1,5 +1,8 @@
 # Created by: joes@seaport.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	qpage
 PORTVERSION=	3.3

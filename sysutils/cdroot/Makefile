@@ -1,5 +1,8 @@
 # Created by: Brian Dean <bsd@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cdroot
 PORTVERSION=	1.2.6

@@ -1,5 +1,8 @@
 # Created by: Brendan Molloy <brendan+freebsd@bbqsrc.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	licensee
 PORTVERSION=	8.9.2

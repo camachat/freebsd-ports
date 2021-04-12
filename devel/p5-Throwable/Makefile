@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Throwable
 PORTVERSION=	0.200013
 CATEGORIES=	devel perl5

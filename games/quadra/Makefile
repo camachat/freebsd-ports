@@ -1,5 +1,8 @@
 # Created by: Karsten Brandt <kbrandt@sdf-eu.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	quadra
 PORTVERSION=	1.3.0

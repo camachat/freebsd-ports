@@ -1,5 +1,8 @@
 # Created by: Guangyuan Yang <ygy@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pkgbuild
 DISTVERSION=	1.2.0

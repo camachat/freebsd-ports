@@ -1,5 +1,8 @@
 # Created by: Jona Joachim <walkingshadow@grummel.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	aros-sdk
 PORTVERSION=	0.20060207

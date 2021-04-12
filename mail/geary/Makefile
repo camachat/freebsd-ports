@@ -1,5 +1,8 @@
 # Created by: Gustau Perez <gustau.perez@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	geary
 PORTVERSION=	3.32.2

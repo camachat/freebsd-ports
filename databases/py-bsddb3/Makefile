@@ -1,5 +1,8 @@
 # Created by: Hye-Shik Chang <perky@python.or.kr>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bsddb3
 PORTVERSION=	6.2.9

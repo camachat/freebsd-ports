@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	skinlf
 PORTVERSION=	6.7
 DISTVERSIONSUFFIX=	-20060722

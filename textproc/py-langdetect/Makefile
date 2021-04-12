@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	langdetect
 PORTVERSION=	1.0.7
 CATEGORIES=	textproc python

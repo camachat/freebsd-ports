@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Alien-Build
 PORTVERSION=	2.38
 CATEGORIES=	devel perl5

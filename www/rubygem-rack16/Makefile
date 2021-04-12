@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 # XXX: If updating this port, please check compatibality with at least the following ports,
 # XXX: preferably, the full rubygem-* tree.  rack version requirements are specified with ~>
 # XXX: which requires *EXACTLY* that version.

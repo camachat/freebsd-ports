@@ -1,5 +1,8 @@
 # Created by: Michael Moll <kvedulv@kvedulv.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jekyll-paginate
 PORTVERSION=	1.1.0

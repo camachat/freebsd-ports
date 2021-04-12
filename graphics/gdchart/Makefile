@@ -1,5 +1,8 @@
 # Created by: Anders Nordby <anders@fix.no>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gdchart
 PORTVERSION=	0.11.5

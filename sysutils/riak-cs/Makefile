@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	riak-cs
 PORTVERSION=	2.1.0
 PORTREVISION=	4

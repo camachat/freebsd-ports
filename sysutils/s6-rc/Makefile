@@ -1,5 +1,8 @@
 # Created by: Andris Raugulis <moo@arthepsy.eu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	s6-rc
 PORTVERSION=	0.5.2.1

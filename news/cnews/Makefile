@@ -1,5 +1,8 @@
 # Created by: adam
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cnews
 PORTVERSION=	cr.g

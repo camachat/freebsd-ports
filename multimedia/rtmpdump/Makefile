@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rtmpdump
 DISTVERSION=	2.4.20190330
 CATEGORIES=	multimedia net

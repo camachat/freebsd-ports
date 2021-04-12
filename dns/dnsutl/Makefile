@@ -1,5 +1,8 @@
 # Created by: Karl Dietz (Karl.Dietz@frankfurt.netsurf.de)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dnsutl
 PORTVERSION=	1.12

@@ -1,5 +1,8 @@
 # Created by: Vanilla I. Shu <vanilla@MinJe.com.TW>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hfsutils
 PORTVERSION=	3.2.6

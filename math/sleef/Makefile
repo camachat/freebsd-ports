@@ -1,8 +1,15 @@
 # Created by: Johannes M Dieterich <jmd@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	sleef
 DISTVERSION=	3.5.0
+=======
+
+PORTNAME=	sleef
+DISTVERSION=	3.5.0
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	math
 
 MAINTAINER=	jmd@FreeBSD.org

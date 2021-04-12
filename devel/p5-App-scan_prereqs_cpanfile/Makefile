@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	App-scan_prereqs_cpanfile
 PORTVERSION=	1.03
 CATEGORIES=	devel perl5

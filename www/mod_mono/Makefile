@@ -1,5 +1,8 @@
 # Created by: Tom McLaughlin <tmclaugh@sdf.lonestar.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mod_mono
 PORTVERSION=	3.13

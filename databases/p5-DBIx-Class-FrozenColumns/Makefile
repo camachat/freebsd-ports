@@ -1,5 +1,8 @@
 # Created by: Vladimir Timofeev <vovkasm@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	DBIx-Class-FrozenColumns
 PORTVERSION=	0.09

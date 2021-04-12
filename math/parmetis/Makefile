@@ -1,5 +1,8 @@
 # Created by: Eoin Lawless (eoin@maths.tcd.ie)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ParMetis
 PORTVERSION=	4.0.3

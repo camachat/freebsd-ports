@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ebsynth
 PORTVERSION=	0.0.0.20190510
 PORTREVISION=	1

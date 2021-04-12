@@ -1,5 +1,8 @@
 # Created by: Roman Shterenzon <roman@xpert.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gq
 PORTVERSION=	1.3.4

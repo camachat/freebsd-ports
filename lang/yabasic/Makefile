@@ -1,5 +1,8 @@
 # Created by: Frank Gruender <elwood@mc5sys.in-berlin.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	yabasic
 PORTVERSION=	2.89.1

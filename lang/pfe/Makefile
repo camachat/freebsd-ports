@@ -1,5 +1,8 @@
 # Created by: patrick
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pfe
 PORTVERSION=	0.33.71

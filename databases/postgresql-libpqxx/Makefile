@@ -1,5 +1,8 @@
 # Created by: Palle Girgensohn <girgen@pingpong.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libpqxx
 PORTVERSION=	7.2.0

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dvipsk
 PORTVERSION=	5.995
 PORTREVISION=	2

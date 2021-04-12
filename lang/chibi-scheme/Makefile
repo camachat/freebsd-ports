@@ -1,5 +1,8 @@
 # Created by: Tobias Kortkamp <tobias.kortkamp@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	chibi-scheme
 DISTVERSION=	0.9.1

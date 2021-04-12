@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mythes
 DISTVERSION=	02_09_l
 PORTREVISION=	1

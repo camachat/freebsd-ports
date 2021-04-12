@@ -1,5 +1,8 @@
 # Created by: Denis Generalov <gd.workbox@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	knc
 PORTVERSION=	1.7.1

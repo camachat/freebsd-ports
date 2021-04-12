@@ -1,5 +1,8 @@
 # Created by: Nicola Stanislao Vitale <nivit@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Pallets-Sphinx-Themes
 PORTVERSION=	1.2.3

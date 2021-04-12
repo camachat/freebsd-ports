@@ -1,5 +1,8 @@
 # Created by: netchild@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	icc
 PORTVERSION=	8.1.038

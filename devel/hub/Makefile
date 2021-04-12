@@ -1,5 +1,8 @@
 # Created by: Simon Olofsson <simon@olofsson.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hub
 PORTVERSION=	2.14.2

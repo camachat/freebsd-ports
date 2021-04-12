@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	dav1d
 DISTVERSION=	0.8.2
+=======
+PORTNAME=	dav1d
+DISTVERSION=	0.8.2
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	multimedia
 
 MAINTAINER=	jbeich@FreeBSD.org

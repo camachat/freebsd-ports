@@ -1,5 +1,8 @@
 # Created by: Hye-Shik Chang
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pycurl
 PORTVERSION=	7.43.0.6

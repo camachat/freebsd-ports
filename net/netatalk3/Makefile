@@ -1,5 +1,8 @@
 # Created by: stb
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	netatalk
 PORTVERSION=	3.1.12

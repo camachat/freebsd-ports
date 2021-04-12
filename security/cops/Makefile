@@ -1,5 +1,8 @@
 # Created by: oly
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cops
 PORTVERSION=	1.04

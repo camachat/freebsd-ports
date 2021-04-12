@@ -1,5 +1,8 @@
 # Created by: Guy P.
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	CGI-Response
 PORTVERSION=	0.03

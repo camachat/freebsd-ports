@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	qtpass
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.3.2

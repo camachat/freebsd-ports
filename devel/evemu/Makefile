@@ -1,5 +1,8 @@
 # Created by: Vladimir Kondratyev <wulf@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	evemu
 PORTVERSION=	2.7.0

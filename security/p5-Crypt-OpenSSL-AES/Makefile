@@ -1,5 +1,8 @@
 # Created by: John Ferrell <jdferrell3@yahoo.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Crypt-OpenSSL-AES
 PORTVERSION=	0.02

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gtk3
 PORTVERSION=	3.22.30
 DISTVERSIONSUFFIX=	-6.el7

@@ -1,5 +1,8 @@
 # Created by: jmacd
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xdelta
 PORTVERSION=	1.1.4

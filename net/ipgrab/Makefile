@@ -1,5 +1,8 @@
 # Created by: Aaron Zauner <az_mail@gmx.at>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ipgrab
 PORTVERSION=	0.9.10

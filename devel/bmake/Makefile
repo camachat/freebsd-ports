@@ -1,8 +1,14 @@
 # Created by: Mikolaj Golub <to.my.trociny@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	bmake
 PORTVERSION=	20210206
+=======
+
+PORTNAME=	bmake
+PORTVERSION=	20210314
+>>>>>>> upstream/main
 CATEGORIES=	devel
 MASTER_SITES=	ftp://ftp.netbsd.org/pub/NetBSD/misc/sjg/
 

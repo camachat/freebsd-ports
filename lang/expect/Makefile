@@ -1,5 +1,8 @@
 # Created by: pst
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	expect
 PORTVERSION=	5.45.4

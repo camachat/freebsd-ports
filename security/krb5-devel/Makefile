@@ -1,5 +1,8 @@
 # Created by: nectar@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		krb5
 PORTVERSION=		1.19.${MIT_COMMIT_DATE}
@@ -7,8 +10,13 @@ CATEGORIES=		security
 .if !defined(MASTERDIR)
 PKGNAMESUFFIX=		-devel
 .endif
+<<<<<<< HEAD
 HASH=			8ffab893e
 MIT_COMMIT_DATE=	2021.03.23
+=======
+HASH=			52c340095
+MIT_COMMIT_DATE=	2021.03.31
+>>>>>>> upstream/main
 
 PATCH_SITES=		http://web.mit.edu/kerberos/advisories/
 PATCH_DIST_STRIP=	-p2

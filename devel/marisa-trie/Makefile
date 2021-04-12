@@ -1,5 +1,8 @@
 # Created by: Iblis Lin <iblis@hs.ntnu.edu.tw>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	marisa-tire
 PORTVERSION=	0.24

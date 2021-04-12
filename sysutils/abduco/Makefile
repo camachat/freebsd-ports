@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	abduco
 PORTVERSION=	0.6
 CATEGORIES=	sysutils

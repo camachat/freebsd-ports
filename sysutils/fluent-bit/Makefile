@@ -1,5 +1,8 @@
 # Created by: Palle Girgensohn <girgen@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fluent-bit
 DISTVERSIONPREFIX=	v

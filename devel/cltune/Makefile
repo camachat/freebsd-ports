@@ -1,5 +1,8 @@
 # Created by: Johannes M Dieterich <jmd@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cltune
 PORTVERSION=	2.7.0

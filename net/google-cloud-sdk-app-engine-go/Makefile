@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	google-cloud-sdk-app-engine-go
 DISTVERSION=	g20181102165140
 CATEGORIES=	net

@@ -1,5 +1,8 @@
 # Created by: Joseph Koshy <jkoshy@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fonttools
 PORTVERSION=	4.21.1

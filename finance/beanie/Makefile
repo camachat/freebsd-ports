@@ -1,5 +1,8 @@
 # Created by: Dermot Tynan <dtynan@kalopa.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	beanie
 PORTVERSION=	0.8.2

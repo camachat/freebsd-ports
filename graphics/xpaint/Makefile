@@ -1,5 +1,8 @@
 # Created by: Steven Wallace <swallace@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xpaint
 PORTVERSION=	2.9.10.3

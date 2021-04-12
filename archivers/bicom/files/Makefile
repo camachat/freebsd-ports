@@ -1,7 +1,10 @@
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
 
+=======
+>>>>>>> upstream/main
 CXX ?=	c++
 
 IDIR =	-I./bialib

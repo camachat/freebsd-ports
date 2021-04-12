@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 
 $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 --- clang/tools/clang-format/git-clang-format.orig
 +++ clang/tools/clang-format/git-clang-format
 @@ -90,7 +90,7 @@

@@ -1,5 +1,8 @@
 # Created by: Martin Kammerhofer
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	autoconf-archive
 PORTVERSION=	0.${DISTDATE:C/-/./g}

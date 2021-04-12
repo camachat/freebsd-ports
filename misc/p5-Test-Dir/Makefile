@@ -1,5 +1,8 @@
 # Created by: Xavier Beaudouin <kiwi@oav.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Test-Dir
 PORTVERSION=	1.014

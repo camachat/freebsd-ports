@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dash.el
 PORTVERSION=	2.18.1
 PORTREVISION=	1

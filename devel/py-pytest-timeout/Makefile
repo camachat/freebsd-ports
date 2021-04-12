@@ -1,8 +1,14 @@
 # Created by: Fukang Chen <loader@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	pytest-timeout
 PORTVERSION=	1.3.4
+=======
+
+PORTNAME=	pytest-timeout
+PORTVERSION=	1.4.2
+>>>>>>> upstream/main
 CATEGORIES=	devel python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}

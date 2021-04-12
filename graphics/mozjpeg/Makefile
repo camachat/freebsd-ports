@@ -1,5 +1,8 @@
 # Created by: Horia Racoviceanu <horia@racoviceanu.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mozjpeg
 PORTVERSION=	4.0.3

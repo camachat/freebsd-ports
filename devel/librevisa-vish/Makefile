@@ -1,5 +1,8 @@
 # Created by: Uffe Jakobsen <uffe@uffe.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	librevisa-vish
 PORTVERSION=	0.0.20130714

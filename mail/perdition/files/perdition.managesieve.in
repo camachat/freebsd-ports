@@ -1,7 +1,11 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+
+>>>>>>> upstream/main
 # PROVIDE: perdition_managesieve
 # REQUIRE: DAEMON
 # KEYWORD: shutdown

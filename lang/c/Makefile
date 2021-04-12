@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	c
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.11
+=======
+PORTNAME=	c
+DISTVERSIONPREFIX=	v
+DISTVERSION=	0.14
+>>>>>>> upstream/main
 CATEGORIES=	lang
 
 MAINTAINER=	portmaster@BSDforge.com

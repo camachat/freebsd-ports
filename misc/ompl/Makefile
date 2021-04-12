@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ompl
 DISTVERSION=	1.5.2
 CATEGORIES=	misc comms

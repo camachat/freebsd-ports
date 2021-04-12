@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cvs
 PORTVERSION=	1.20120905
 PORTREVISION?=	7

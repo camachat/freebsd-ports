@@ -1,5 +1,8 @@
 # Created by: Alex Kapranoff <alex@kapranoff.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	CGI-Application-Plugin-ConfigAuto
 PORTVERSION=	1.33

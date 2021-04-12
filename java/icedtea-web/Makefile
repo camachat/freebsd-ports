@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	icedtea-web
 PORTVERSION=	1.8.4
 DISTVERSIONPREFIX=	icedtea-web-

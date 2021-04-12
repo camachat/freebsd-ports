@@ -1,5 +1,8 @@
 # Created by: Maxime Henrion <mux@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Math-BigInt-GMP
 PORTVERSION=	1.6007

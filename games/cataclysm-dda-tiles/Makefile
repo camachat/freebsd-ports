@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PKGNAMESUFFIX=	-tiles
 
 MASTERDIR=	${.CURDIR}/../cataclysm-dda

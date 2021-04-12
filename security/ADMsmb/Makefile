@@ -1,5 +1,8 @@
 # Created by: Jacek Serwatynski <tutus@trynet.eu.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ADMsmb
 PORTVERSION=	0.3

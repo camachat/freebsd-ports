@@ -1,5 +1,8 @@
 # Created by: Johann Visagie <johann@egenetics.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	AcePerl
 PORTVERSION=	1.92

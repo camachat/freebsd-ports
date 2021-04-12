@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	matlab-installer
 PORTVERSION=	0.2
 PORTREVISION=	4

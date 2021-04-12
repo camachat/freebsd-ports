@@ -1,5 +1,8 @@
 # Created by: mr
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	oleo
 PORTVERSION=	1.99.16

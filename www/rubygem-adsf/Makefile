@@ -1,5 +1,8 @@
 # Created by: Douglas Thrift <douglas@douglasthrift.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	adsf
 PORTVERSION=	1.4.1

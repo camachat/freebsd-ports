@@ -1,5 +1,8 @@
 # Created by: Eygene Ryabinkin <rea-fbsd@codelabs.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	slim-themes
 PORTVERSION=	1.0.1

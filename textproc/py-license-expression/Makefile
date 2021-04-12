@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	license-expression
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.99

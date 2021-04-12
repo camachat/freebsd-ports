@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	terraform-provider-vultr
 PORTVERSION=	0.1.10
 DISTVERSIONPREFIX=	v

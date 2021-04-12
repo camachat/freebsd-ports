@@ -1,5 +1,8 @@
 # Created by: Joep Grooten <joep@di.nl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	doxygen
 PORTVERSION=	1.9.0

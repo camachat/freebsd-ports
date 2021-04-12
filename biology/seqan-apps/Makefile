@@ -1,5 +1,8 @@
 # Created by: Hannes Hauswedell <h2+fbsdports@fsfe.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	seqan-apps
 DISTVERSIONPREFIX=	seqan-v

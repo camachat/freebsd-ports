@@ -1,5 +1,8 @@
 # Created by: Frank Fenor <frank@fenor.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tcludp
 PORTVERSION=	1.0.11

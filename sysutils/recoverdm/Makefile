@@ -1,5 +1,8 @@
 # Created by: Jeffrey H. Johnson <CPE1704TKS@bellsouth.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	recoverdm
 PORTVERSION=	0.20

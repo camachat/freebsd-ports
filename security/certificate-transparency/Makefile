@@ -1,9 +1,16 @@
 # Created by: Edward Tomasz Napierala <trasz@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	certificate-transparency
 PORTVERSION=	20161015
 PORTREVISION=	46
+=======
+
+PORTNAME=	certificate-transparency
+PORTVERSION=	20161015
+PORTREVISION=	47
+>>>>>>> upstream/main
 CATEGORIES=	security
 
 MAINTAINER=	ports@FreeBSD.org

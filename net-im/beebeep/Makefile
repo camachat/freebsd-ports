@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	beebeep
 DISTVERSIONPREFIX=code-
 DISTVERSION=	5.8.4

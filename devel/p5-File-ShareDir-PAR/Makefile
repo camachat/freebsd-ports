@@ -1,5 +1,8 @@
 # Created by: Cezary Morga <cm@therek.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	File-ShareDir-PAR
 PORTVERSION=	0.06

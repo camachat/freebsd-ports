@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bsdec2-image-upload
 PORTVERSION=	1.4.1
 CATEGORIES=	net

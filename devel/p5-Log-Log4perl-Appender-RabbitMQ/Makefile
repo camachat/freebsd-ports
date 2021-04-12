@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Log-Log4perl-Appender-RabbitMQ
 PORTVERSION=	0.200002
 CATEGORIES=	devel perl5

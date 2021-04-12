@@ -1,5 +1,8 @@
 # Created by: Sergey Skvortsov <skv@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Class-DBI
 PORTVERSION=	3.0.17

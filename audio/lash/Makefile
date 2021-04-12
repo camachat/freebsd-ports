@@ -1,5 +1,8 @@
 # Created by: Edward Tomasz Napierala <trasz@pin.if.uz.zgora.pl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lash
 PORTVERSION=	0.5.4

@@ -1,5 +1,8 @@
 # Created by: Leland Wang <llwang@infor.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dvorak7min
 PORTVERSION=	1.6.1

@@ -1,5 +1,8 @@
 # Created by: Bernard Spil <brnrd@freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	circles
 PORTVERSION=	0.21.0

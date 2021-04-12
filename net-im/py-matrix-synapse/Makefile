@@ -1,9 +1,16 @@
 # Created by: Brendan Molloy <brendan+freebsd@bbqsrc.net>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	matrix-synapse
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.29.0
+=======
+
+PORTNAME=	matrix-synapse
+DISTVERSIONPREFIX=	v
+DISTVERSION=	1.31.0
+>>>>>>> upstream/main
 CATEGORIES=	net-im python
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 

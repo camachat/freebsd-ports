@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sounddevice
 DISTVERSION=	0.4.1
 CATEGORIES=	audio python

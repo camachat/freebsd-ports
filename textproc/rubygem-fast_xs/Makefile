@@ -1,5 +1,8 @@
 # Created by: Scott Sanders <scott@jssjr.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fast_xs
 PORTVERSION=	0.8.0

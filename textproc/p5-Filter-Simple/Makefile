@@ -1,5 +1,8 @@
 # Created by: philip@p6m7g8.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Filter-Simple
 PORTVERSION=	0.94

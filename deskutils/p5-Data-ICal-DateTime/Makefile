@@ -1,5 +1,8 @@
 # Created by: Matthew Seaman <matthew@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Data-ICal-DateTime
 PORTVERSION=	0.82

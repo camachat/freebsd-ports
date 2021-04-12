@@ -1,5 +1,8 @@
 # Created by: David Shane Holden <dpejesh@yahoo.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		parallax
 PORTVERSION=		1.0.6

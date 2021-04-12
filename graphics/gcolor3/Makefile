@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gcolor3
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.3.1

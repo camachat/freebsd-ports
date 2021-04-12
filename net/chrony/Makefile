@@ -1,8 +1,15 @@
 # Created by: Masaki TAGAWA <masaki@club.kyutech.ac.jp>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	chrony
 DISTVERSION=	4.0
+=======
+
+PORTNAME=	chrony
+DISTVERSION=	4.0
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	net
 MASTER_SITES=	https://download.tuxfamily.org/chrony/ \
 		LOCAL/mandree
@@ -28,6 +35,10 @@ CONFIGURE_ARGS=	--chronyvardir=/var/db/${PORTNAME} \
 		--mandir=${MANPREFIX}/man \
 		--prefix=${PREFIX} \
 		--sysconfdir=${PREFIX}/etc \
+<<<<<<< HEAD
+=======
+		--enable-ntp-signd \
+>>>>>>> upstream/main
 		--without-tomcrypt
 
 ALL_TARGET=	all

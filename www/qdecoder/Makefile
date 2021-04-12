@@ -1,5 +1,8 @@
 # Created by: CHOI Junho <cjh@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	qdecoder
 PORTVERSION=	12.0.8

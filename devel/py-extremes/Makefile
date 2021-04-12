@@ -1,5 +1,8 @@
 # Created by: alexander smishlajev
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Extremes
 PORTVERSION=	1.1.1

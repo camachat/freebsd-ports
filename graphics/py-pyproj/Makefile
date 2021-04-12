@@ -1,5 +1,8 @@
 # Created by: TAOKA Fumiyoshi
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pyproj
 PORTVERSION=	3.0.0

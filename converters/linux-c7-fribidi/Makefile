@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fribidi
 PORTVERSION=	1.0.2
 DISTVERSIONSUFFIX=	-1.el7_7.1

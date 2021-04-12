@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bibtex
 DISTVERSION=	0.4.2.3
 CATEGORIES=	textproc

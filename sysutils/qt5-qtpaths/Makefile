@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	qtpaths
 DISTVERSION=	${QT5_VERSION}
 CATEGORIES=	sysutils

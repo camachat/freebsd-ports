@@ -1,5 +1,8 @@
 # Created by: antoine@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	python-snappy
 PORTVERSION=	0.5.4

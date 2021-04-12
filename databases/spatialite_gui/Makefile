@@ -1,5 +1,8 @@
 # Created by: lbartoletti <lbartoletti@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	spatialite_gui
 PORTVERSION=	1.7.1

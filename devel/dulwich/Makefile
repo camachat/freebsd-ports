@@ -1,5 +1,8 @@
 # Created by: Marco Broeder <marco.broeder@posteo.eu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dulwich
 PORTVERSION=	0.19.16

@@ -1,5 +1,8 @@
 # Created by: Tillman Hodgson <tillman@seekingfire.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	latd
 PORTVERSION=	1.31

@@ -1,5 +1,8 @@
 # Created by: Keith Gaughan <k@stereochro.me>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	greyfix
 PORTVERSION=	0.4.0

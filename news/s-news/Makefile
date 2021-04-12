@@ -1,5 +1,8 @@
 # Created by: Andrey Slusar <anray@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	s-news
 PORTVERSION=	0.1.11

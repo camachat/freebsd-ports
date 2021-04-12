@@ -1,7 +1,11 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+
+>>>>>>> upstream/main
 # PROVIDE: postfix mail
 # REQUIRE: %%REQUIRE%%
 # KEYWORD: shutdown

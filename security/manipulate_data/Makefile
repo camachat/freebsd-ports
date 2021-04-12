@@ -1,5 +1,8 @@
 # Created by: Vaida Bogdan <vaida.bogdan@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	manipulate_data
 PORTVERSION=	1.3

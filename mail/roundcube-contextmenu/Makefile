@@ -1,5 +1,8 @@
 # Created by: Alexander Moisseev <moiseev@mezonplus.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	contextmenu
 PORTVERSION=	3.2.1

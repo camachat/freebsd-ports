@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	File-Rename
 PORTVERSION=	1.10
+=======
+PORTNAME=	File-Rename
+PORTVERSION=	1.20
+>>>>>>> upstream/main
 CATEGORIES=	sysutils perl5
 MASTER_SITES=	CPAN
 PKGNAMEPREFIX=	p5-

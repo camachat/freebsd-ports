@@ -1,5 +1,8 @@
 # Created by: Andrea Sozzi <as@g-cows.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	g-cows
 PORTVERSION=	1.12

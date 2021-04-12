@@ -1,5 +1,8 @@
 # Created by: Khairil Yusof <kaeru@inigo-tech.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pytz
 PORTVERSION=	2020.5

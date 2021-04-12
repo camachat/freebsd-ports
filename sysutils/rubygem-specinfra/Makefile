@@ -1,5 +1,8 @@
 # Created by: Yuichiro NAITO <naito.yuichiro@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	specinfra
 PORTVERSION=	2.82.16

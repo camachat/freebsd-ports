@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
+<<<<<<< HEAD
 #
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 exec %%PREFIX%%/bin/$(basename $0) ${1+"$@"}

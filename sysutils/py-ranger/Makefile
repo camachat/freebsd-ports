@@ -1,5 +1,8 @@
 # Created by: Jin-Sih Lin <linpct@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ranger
 PORTVERSION=	1.9.3

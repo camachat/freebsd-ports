@@ -1,7 +1,10 @@
 #!/bin/sh
 
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # PROVIDE: ncs_signaling
 # REQUIRE: DAEMON nats
 # KEYWORD: shutdown

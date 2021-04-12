@@ -1,5 +1,8 @@
 # Created by: Cy Schubert <cy@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xforward
 PORTVERSION=	1.0

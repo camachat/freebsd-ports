@@ -1,5 +1,8 @@
 # Created by: Dave Grochowski
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xorg-cf-files
 PORTVERSION=	1.0.6

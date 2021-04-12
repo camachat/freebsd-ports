@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
 
+=======
+>>>>>>> upstream/main
     COMMENT = Astronomical ports
 
     SUBDIR += R-cran-maptools
@@ -104,9 +107,13 @@
     SUBDIR += qmapshack
     SUBDIR += readosm
     SUBDIR += rmap
+<<<<<<< HEAD
     SUBDIR += roadmap
     SUBDIR += routino
     SUBDIR += saoimage
+=======
+    SUBDIR += routino
+>>>>>>> upstream/main
     SUBDIR += sextractor
     SUBDIR += siril
     SUBDIR += sofa

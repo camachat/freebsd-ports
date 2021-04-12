@@ -1,5 +1,8 @@
 # Created by: roman@xpert.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Convert-TNEF
 PORTVERSION=	0.18

@@ -1,5 +1,8 @@
 # Created by: Conrad Sabatier <conrads@home.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xless
 PORTVERSION=	1.7

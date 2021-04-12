@@ -1,5 +1,8 @@
 # Created by: DaJoob
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xfce4-taskmanager
 PORTVERSION=	1.4.2

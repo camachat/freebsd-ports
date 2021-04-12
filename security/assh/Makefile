@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	assh
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.11.3

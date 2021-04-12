@@ -1,5 +1,8 @@
 # Created by: Hye-Shik Chang <perky@fallin.lv>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	adns
 DISTVERSION=	1.4

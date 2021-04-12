@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	goawk
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.7.0

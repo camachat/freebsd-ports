@@ -1,5 +1,8 @@
 # Created by: Danilo Egea Gondolfo <danilogondolfo@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	yap
 PORTVERSION=	6.2.2

@@ -1,5 +1,8 @@
 # Created by: Dmitry Sivachenko <mitya@yandex-team.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	calamaris
 PORTVERSION=	2.99.4.5

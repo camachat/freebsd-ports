@@ -1,5 +1,8 @@
 # Created by: Conrad J. Sabatier <conrads@cox.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mkreadmes
 DISTVERSION=	1.3

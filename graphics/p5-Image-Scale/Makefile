@@ -1,5 +1,8 @@
 # Created by: Mark Atkinson <atkin901@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Image-Scale
 PORTVERSION=	0.12

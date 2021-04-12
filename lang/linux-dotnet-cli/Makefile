@@ -1,5 +1,8 @@
 # Created by: David Naylor <dbn@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dotnet-cli
 DISTNAME=	dotnet-runtime-${DISTVERSION}-linux-x64

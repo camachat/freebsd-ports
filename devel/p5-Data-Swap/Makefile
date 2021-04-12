@@ -1,5 +1,8 @@
 # Created by: Parv <parv@pair.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Data-Swap
 PORTVERSION=	0.08

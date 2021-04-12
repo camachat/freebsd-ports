@@ -1,5 +1,8 @@
 # Created by: pauls@utdallas.edu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	CIF-Client
 PORTVERSION=	0.21

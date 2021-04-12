@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	AnyEvent-Filesys-Notify
 PORTVERSION=	1.21
 CATEGORIES=	devel perl5

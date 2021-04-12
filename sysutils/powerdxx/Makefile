@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	powerdxx
 DISTVERSION=	0.4.4
 CATEGORIES=	sysutils

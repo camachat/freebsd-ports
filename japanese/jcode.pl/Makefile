@@ -1,5 +1,8 @@
 # Created by: sada
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jcode.pl
 PORTVERSION=	2.13

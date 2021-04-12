@@ -1,5 +1,8 @@
 # Created by: Brion Moss <brion@queeg.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xtide
 PORTVERSION=	2.15.3

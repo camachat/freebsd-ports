@@ -1,5 +1,8 @@
 # Created by: Sander Vesik <sander@haldjas.folklore.ee>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tkcron
 PORTVERSION=	2.12

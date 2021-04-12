@@ -1,5 +1,8 @@
 # Created by: Patrick Powell <papowell@astart.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pic2fig
 PORTVERSION=	1.4

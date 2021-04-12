@@ -1,5 +1,8 @@
 # Created by: Ben Kibbey <bjk@arbornet.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	userinfo
 PORTVERSION=	2.5

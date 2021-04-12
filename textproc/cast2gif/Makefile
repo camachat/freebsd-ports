@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cast2gif
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.1.0

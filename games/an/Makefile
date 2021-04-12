@@ -1,9 +1,16 @@
 # Created by: proff
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	an
 PORTVERSION=	1.2
 PORTREVISION=	11
+=======
+
+PORTNAME=	an
+PORTVERSION=	1.2
+PORTREVISION=	12
+>>>>>>> upstream/main
 CATEGORIES=	games
 MASTER_SITES=	DEBIAN_POOL
 DISTNAME=	${PORTNAME}_${PORTVERSION}.orig

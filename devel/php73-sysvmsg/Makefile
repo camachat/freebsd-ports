@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 CATEGORIES=	devel
 
 MASTERDIR=	${.CURDIR}/../../lang/php73

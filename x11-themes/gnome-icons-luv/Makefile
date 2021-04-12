@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	luv
 DISTVERSION=	0.4.9.12
 PORTREVISION=	2

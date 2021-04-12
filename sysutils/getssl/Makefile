@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		getssl
 DISTVERSIONPREFIX=	v
 DISTVERSION=		2.22

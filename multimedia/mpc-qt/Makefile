@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mpc-qt
 DISTVERSIONPREFIX=	v
 DISTVERSION=	20.10

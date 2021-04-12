@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	crc32c
 PORTVERSION=	2.2
 CATEGORIES=	devel python

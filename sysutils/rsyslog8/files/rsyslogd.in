@@ -1,8 +1,11 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
 
+=======
+>>>>>>> upstream/main
 
 # PROVIDE: rsyslogd
 # REQUIRE: mountcritremote cleanvar newsyslog ldconfig

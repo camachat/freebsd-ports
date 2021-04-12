@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		nsupdate
 PORTVERSION=		9.16.5
 PORTREVISION=		0

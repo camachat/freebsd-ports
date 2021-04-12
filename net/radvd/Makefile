@@ -1,5 +1,8 @@
 # Created by: Patrick Li <pat@databits.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	radvd
 PORTVERSION=	2.19

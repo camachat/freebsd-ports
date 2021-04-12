@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dub
 PORTVERSION=	1.14.0
 DISTVERSIONPREFIX=	v

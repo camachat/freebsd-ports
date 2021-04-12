@@ -1,5 +1,8 @@
 # Created by: Edwin Groothuis
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hebcal
 PORTVERSION=	4.13

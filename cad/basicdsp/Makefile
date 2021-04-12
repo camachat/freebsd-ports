@@ -1,5 +1,8 @@
 # Created by: Diane Bruce <db@db.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	basicdsp
 PORTVERSION=	1.01

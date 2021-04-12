@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	airspy
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.0.9-18

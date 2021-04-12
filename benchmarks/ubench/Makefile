@@ -1,5 +1,8 @@
 # Created by: Yen-Ming Lee <leeym@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ubench
 PORTVERSION=	0.32

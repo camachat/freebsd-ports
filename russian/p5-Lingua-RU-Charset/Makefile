@@ -1,5 +1,8 @@
 # Created by: Alex Kapranoff <kapr@crosswinds.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Lingua-RU-Charset
 PORTVERSION=	0.02

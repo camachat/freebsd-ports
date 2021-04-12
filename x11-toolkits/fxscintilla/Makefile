@@ -1,5 +1,8 @@
 # Created by: Alexander Novitsky <alecn2002@yandex.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fxscintilla
 PORTVERSION=	2.28.0

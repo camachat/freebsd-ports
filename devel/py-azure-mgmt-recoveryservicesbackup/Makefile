@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	azure-mgmt-recoveryservicesbackup
 PORTVERSION=	0.11.0
 CATEGORIES=	devel python

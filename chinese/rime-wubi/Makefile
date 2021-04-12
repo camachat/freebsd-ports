@@ -1,5 +1,8 @@
 # Created by: Ka Ho Ng <khng300@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rime-wubi
 DISTVERSION=	g20200908

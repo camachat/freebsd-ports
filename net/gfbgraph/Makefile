@@ -1,5 +1,8 @@
 # Created by: Gustau Perez <gustau.perez@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gfbgraph
 PORTVERSION=	0.2.3

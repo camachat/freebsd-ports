@@ -1,5 +1,8 @@
 # Created by: Simon Dick <simond@irrelevant.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	squirrelmail
 PORTVERSION=	20200422

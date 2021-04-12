@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	qmmp
 PORTVERSION=	1.2.0
 PORTREVISION=	10

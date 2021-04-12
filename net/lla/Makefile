@@ -1,5 +1,8 @@
 # Created by: Sunagawa Koji <koj@ofug.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lla
 PORTVERSION=	0.99.1

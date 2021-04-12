@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		cd-hit
 DISTVERSIONPREFIX=	V
 DISTVERSION=		4.8.1

@@ -1,5 +1,8 @@
 # Created by: Giel van Schijndel <me@mortis.eu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	spf-engine
 PORTVERSION=	2.9.2

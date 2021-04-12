@@ -1,5 +1,8 @@
 # Created by: rmallory@csusb.edu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rplay
 PORTVERSION=	3.3.2

@@ -1,5 +1,8 @@
 # Created by: gurkan@phys.ethz.ch
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	price
 PORTVERSION=	1.3.0

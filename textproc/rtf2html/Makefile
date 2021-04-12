@@ -1,5 +1,8 @@
 # Created by: Emanuel Haupt <ehaupt@critical.ch>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rtf2html
 DISTVERSION=	1.1b

@@ -1,5 +1,8 @@
 # Created by: Tatsuya Kuidoh <cdr@ga.xdsl.ne.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xjumpx
 PORTVERSION=	1.4

@@ -1,5 +1,8 @@
 # Created by: swallace
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xrobots
 PORTVERSION=	1.0

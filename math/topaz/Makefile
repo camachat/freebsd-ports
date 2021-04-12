@@ -1,5 +1,8 @@
 # Created by: Issei Suzuki <issei@jp.FreeBSD.ORG>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	topaz
 DISTVERSION=	3_41

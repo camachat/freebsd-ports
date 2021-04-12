@@ -1,5 +1,8 @@
 # Created by: Stephen Montgomery-Smith <stephen@FreeBSD.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	octave-forge-queueing
 PORTVERSION=	1.2.7

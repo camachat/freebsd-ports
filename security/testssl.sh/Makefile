@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	testssl.sh
 DISTVERSION=	3.0.4
 CATEGORIES=	security

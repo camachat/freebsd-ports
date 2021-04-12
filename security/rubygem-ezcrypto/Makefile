@@ -1,5 +1,8 @@
 # Created by: Steven Kreuzer
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ezcrypto
 PORTVERSION=	0.7.2

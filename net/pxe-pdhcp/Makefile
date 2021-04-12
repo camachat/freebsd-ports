@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pxe-pdhcp
 PORTVERSION=	0.0.2007
 CATEGORIES=	net

@@ -1,5 +1,8 @@
 # Created by: Scott Blachowicz <scott+ports@sabami.seaslug.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nmh
 PORTVERSION=	1.7.1

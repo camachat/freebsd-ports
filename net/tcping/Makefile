@@ -1,5 +1,8 @@
 # Created by: Dryice Liu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tcping
 PORTVERSION=	1.3.6

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Data-Inherited
 PORTVERSION=	1.100860
 PORTREVISION=	1

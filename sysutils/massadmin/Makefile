@@ -1,5 +1,8 @@
 # Created by: Sascha Klauder <sklauder@trimind.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	massadmin
 PORTVERSION=	2.3

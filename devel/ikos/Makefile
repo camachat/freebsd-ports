@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ikos
 DISTVERSIONPREFIX=	v
 DISTVERSION=	3.0

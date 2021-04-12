@@ -1,5 +1,8 @@
 # Created by: sobomax
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	perceptualdiff
 PORTVERSION=	2.1

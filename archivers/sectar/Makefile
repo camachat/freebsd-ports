@@ -1,5 +1,8 @@
 # Created by: George Reid <greid@ukug.uk.freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sectar
 PORTVERSION=	1.02

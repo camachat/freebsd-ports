@@ -1,5 +1,8 @@
 # Created by: Muhammad Moinur Rahman <bofh@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bcunit
 PORTVERSION=	3.0.2

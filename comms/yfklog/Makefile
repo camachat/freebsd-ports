@@ -1,5 +1,8 @@
 # Created by: db
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	yfklog
 PORTVERSION=	0.6.0

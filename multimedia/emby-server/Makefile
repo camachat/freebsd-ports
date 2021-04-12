@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	emby-server
 PORTVERSION=	4.5.4.0
 PORTREVISION=	1

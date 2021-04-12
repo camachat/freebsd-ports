@@ -1,5 +1,8 @@
 # Created by: jmacd
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	scheme48
 PORTVERSION=	1.9.2

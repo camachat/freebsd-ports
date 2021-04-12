@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dwatch-gource
 DISTVERSION=	0.9
 CATEGORIES=	sysutils

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # Provide support for building Haskell packages using Cabal.
 #
 # Feature:	cabal

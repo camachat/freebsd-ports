@@ -1,5 +1,8 @@
 # Created by: Satoshi Asami <asami@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xli
 PORTVERSION=	1.17.0

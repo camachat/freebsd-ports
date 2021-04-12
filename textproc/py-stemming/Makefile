@@ -1,5 +1,8 @@
 # Created by: Rene Ladan <rene@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	stemming
 PORTVERSION=	1.0.1

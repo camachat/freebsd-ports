@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mcfly
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.5.5

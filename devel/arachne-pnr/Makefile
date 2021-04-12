@@ -1,5 +1,8 @@
 # Created by: Johnny Sorocil <jsorocil@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	arachne-pnr
 PORTVERSION=	g20181021

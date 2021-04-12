@@ -1,5 +1,8 @@
 # Created by: cjr@cruwe.de
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	glassfish
 PORTVERSION=	4.1

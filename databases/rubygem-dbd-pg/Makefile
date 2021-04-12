@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dbd-pg
 PORTVERSION=	0.3.9
 PORTREVISION=	5

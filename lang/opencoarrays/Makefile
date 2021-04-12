@@ -1,5 +1,8 @@
 # Created by: Anton Shterenlikht
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	opencoarrays
 DISTVERSION=	2.9.0

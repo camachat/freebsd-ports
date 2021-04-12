@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tlsdate
 PORTVERSION=	0.0.13
 DISTVERSIONPREFIX=	${PORTNAME}-

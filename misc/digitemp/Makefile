@@ -1,5 +1,8 @@
 # Created by: Evaldas Auryla <ea@zaib.as>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	digitemp
 PORTVERSION=	3.7.2

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	vcf-split
 DISTVERSION=	0.1.1
 CATEGORIES=	biology

@@ -1,5 +1,8 @@
 # Created by: George Hartzell <hartzell@alerce.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	CGI-Application-Plugin-Stream
 PORTVERSION=	2.12

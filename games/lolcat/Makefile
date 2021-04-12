@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	lolcat
 DISTVERSIONPREFIX=	v
 DISTVERSION=		1.2-0

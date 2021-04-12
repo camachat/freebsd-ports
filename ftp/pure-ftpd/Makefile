@@ -1,5 +1,8 @@
 # Created by: Frank DENIS
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pure-ftpd
 PORTVERSION=	1.0.49

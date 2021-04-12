@@ -1,5 +1,8 @@
 # Created by: Enrico M. Crisostomo <enrico.m.crisostomo@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fswatch
 DISTVERSION=	1.13.0

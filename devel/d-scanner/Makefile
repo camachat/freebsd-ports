@@ -1,5 +1,8 @@
 # Created by: Alonso Cardenas Marquez <acm@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	d-scanner
 PORTVERSION=	0.7.0

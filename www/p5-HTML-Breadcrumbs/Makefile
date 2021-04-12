@@ -1,5 +1,8 @@
 # Created by: andrew@scoop.co.nz
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HTML-Breadcrumbs
 PORTVERSION=	0.7

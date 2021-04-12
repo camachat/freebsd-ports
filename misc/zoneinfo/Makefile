@@ -1,5 +1,8 @@
 # Created by: Edwin Groothuis <edwin@mavetju.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	zoneinfo
 DISTVERSION=	2021a

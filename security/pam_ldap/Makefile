@@ -1,5 +1,8 @@
 # Created by: Joe Clarke <marcus@marcuscom.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pam_ldap
 PORTVERSION=	186

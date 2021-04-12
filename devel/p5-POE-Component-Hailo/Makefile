@@ -1,5 +1,8 @@
 # Created by: milki <milki@rescomp.berkeley.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	POE-Component-Hailo
 PORTVERSION=	0.11

@@ -1,5 +1,8 @@
 # Created by: Lars Thegler <lth@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Digest-MD5-M4p
 PORTVERSION=	0.01

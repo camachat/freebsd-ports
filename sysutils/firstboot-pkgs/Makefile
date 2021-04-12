@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	firstboot-pkgs
 PORTVERSION=	1.6
 CATEGORIES=	sysutils

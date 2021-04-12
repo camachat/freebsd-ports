@@ -1,5 +1,8 @@
 # Created by: Sahil Tandon <sahil@tandon.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	MooseX-Types-Common
 PORTVERSION=	0.001014

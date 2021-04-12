@@ -1,5 +1,8 @@
 # Created by: swallace
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	magic
 DISTVERSION=	8.3.145

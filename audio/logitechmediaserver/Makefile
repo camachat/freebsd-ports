@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	logitechmediaserver
 PORTVERSION=	7.9.2.g2018.12.10
 CATEGORIES=	audio

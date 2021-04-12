@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libcrossguid
 PORTVERSION=	20150803
 PORTREVISION=	6

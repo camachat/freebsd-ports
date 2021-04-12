@@ -1,5 +1,8 @@
 # Created by: Joe Barbish
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dns2blackhole
 PORTVERSION=	0.1

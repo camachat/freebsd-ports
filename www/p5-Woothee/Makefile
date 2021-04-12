@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Woothee
 PORTVERSION=	1.10.0
 DISTVERSIONPREFIX=	v

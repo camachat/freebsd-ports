@@ -1,5 +1,8 @@
 # Created by: Michael Reifenberger <mr@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	openscad
 PORTVERSION=	2021.01.01

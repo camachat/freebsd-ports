@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 # Generated with `make gomod-vendor'
 
 GH_TUPLE=	\

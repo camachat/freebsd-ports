@@ -1,5 +1,8 @@
 # Created by: Chuck Hein <geekdude@pacbell.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mpexpr
 PORTVERSION=	1.2

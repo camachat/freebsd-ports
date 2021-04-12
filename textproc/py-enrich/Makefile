@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	enrich
 PORTVERSION=	1.2.6
 CATEGORIES=	textproc python

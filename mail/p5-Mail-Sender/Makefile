@@ -1,5 +1,8 @@
 # Created by: Ben Smithurst <ben@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Mail-Sender
 PORTVERSION=	0.903

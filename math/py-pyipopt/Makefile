@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pyipopt
 DISTVERSION=	g20180409
 PORTREVISION=	2

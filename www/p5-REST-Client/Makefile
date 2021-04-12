@@ -1,5 +1,8 @@
 # Created by: Paul Schmehl <pauls@utdallas.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	REST-Client
 PORTVERSION=	273

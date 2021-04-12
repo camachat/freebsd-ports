@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
 
+=======
+>>>>>>> upstream/main
     COMMENT = Graphics tools and libraries
 
     SUBDIR += 4va
@@ -347,7 +350,10 @@
     SUBDIR += iec16022
     SUBDIR += iiview
     SUBDIR += ikona
+<<<<<<< HEAD
     SUBDIR += ilmbase
+=======
+>>>>>>> upstream/main
     SUBDIR += imageindex
     SUBDIR += imageviewer
     SUBDIR += imageworsener
@@ -894,7 +900,10 @@
     SUBDIR += py-s2
     SUBDIR += py-scikit-image
     SUBDIR += py-seqdiag
+<<<<<<< HEAD
     SUBDIR += py-skimage
+=======
+>>>>>>> upstream/main
     SUBDIR += py-sorl-thumbnail
     SUBDIR += py-spectra
     SUBDIR += py-svg.path

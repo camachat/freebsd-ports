@@ -1,5 +1,8 @@
 # Created by: Takefu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	POE-Quickie
 PORTVERSION=	0.18

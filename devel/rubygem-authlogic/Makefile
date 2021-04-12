@@ -1,5 +1,8 @@
 # Created by: Alexander Logvinov <avl@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	authlogic
 PORTVERSION=	6.1.0

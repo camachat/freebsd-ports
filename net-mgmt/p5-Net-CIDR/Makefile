@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Net-CIDR
 PORTVERSION=	0.20
 CATEGORIES=	net-mgmt perl5

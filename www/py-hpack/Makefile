@@ -1,5 +1,8 @@
 # Created by: Shaun Amott <shaun@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hpack
 PORTVERSION=	4.0.0

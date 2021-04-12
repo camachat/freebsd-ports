@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	jitterentropy
 PORTVERSION=	0.1
 CATEGORIES=	devel python

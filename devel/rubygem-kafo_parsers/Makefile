@@ -1,5 +1,8 @@
 # Created by: Michael Moll <kvedulv at kvedulv.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	kafo_parsers
 PORTVERSION=	1.1.2

@@ -1,5 +1,8 @@
 # Created by: Serge Gagnon <gagnon__s@videotron.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	utftools
 PORTVERSION=	1.6

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTVERSION=	8.4.0
 PKGNAMEPREFIX=	arm-none-eabi-
 GCC_TARGET=	arm-none-eabi

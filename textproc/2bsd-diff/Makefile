@@ -1,5 +1,8 @@
 # Created by: risner@stdio.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	diff
 PORTVERSION=	2.11.1

@@ -1,5 +1,8 @@
 # Created by: Igor Pokrovsky <ip@doom.homeunix.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	otk
 PORTVERSION=	0.96

@@ -1,5 +1,8 @@
 # Created by: cpm <cpm@fbsd.es>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	malo-firmware
 PORTVERSION=	${FWVERSION}

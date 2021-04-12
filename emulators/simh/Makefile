@@ -1,5 +1,8 @@
 # Created by: jraynard
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	simh
 PORTVERSION=	3.9.0

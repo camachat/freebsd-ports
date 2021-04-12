@@ -1,5 +1,8 @@
 # Created by: Alex Kapranoff <alex@kapranoff.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Test-NoWarnings
 PORTVERSION=	1.04

@@ -1,5 +1,8 @@
 # Created by: Oleg A. Mamontov <oleg@mamontov.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Hash-Union
 PORTVERSION=	0.03

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Dist-Metadata
 PORTVERSION=	0.926
 PORTREVISION=	1

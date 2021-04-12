@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	neomutt
 PORTVERSION=	20210205
 CATEGORIES=	mail

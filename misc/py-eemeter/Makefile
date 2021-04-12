@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	eemeter
 DISTVERSION=	3.0.0
 CATEGORIES=	misc python

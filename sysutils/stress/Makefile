@@ -1,5 +1,8 @@
 # Created by: Dmitri Nikulin <setagllib@optusnet.com.au>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	stress
 PORTVERSION=	1.0.4

@@ -1,5 +1,8 @@
 # Created by: n-shigemura@ensure.jp
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Number-Phone-JP
 PORTVERSION=	0.20190521

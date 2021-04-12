@@ -1,5 +1,8 @@
 # Created by: Paul Dlug <paul@aps.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	radmind
 PORTVERSION=	1.15.3

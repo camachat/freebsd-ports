@@ -1,5 +1,8 @@
 # Created by: Martin Kammerhofer
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	portless
 PORTVERSION=	0.2.7

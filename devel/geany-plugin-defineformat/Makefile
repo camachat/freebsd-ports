@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	geany-plugin-defineformat
 PORTVERSION=	${GEANY_VER}
 CATEGORIES=	devel

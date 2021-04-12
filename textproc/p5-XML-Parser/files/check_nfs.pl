@@ -1,6 +1,9 @@
 #!/usr/bin/perl
+<<<<<<< HEAD
 #
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 use strict;
 use warnings;

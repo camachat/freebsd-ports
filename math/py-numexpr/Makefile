@@ -1,5 +1,8 @@
 # Created by: Ju Pengfei <ju.pengfei@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	numexpr
 PORTVERSION=	2.7.2

@@ -1,5 +1,8 @@
 # Created by: Loren M. Lang
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dirvish
 PORTVERSION=	1.2.1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Net-RabbitFoot
 PORTVERSION=	1.03
 PORTREVISION=	2

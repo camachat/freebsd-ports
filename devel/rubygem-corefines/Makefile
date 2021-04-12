@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	corefines
 PORTVERSION=	1.11.0
 CATEGORIES=	devel rubygems

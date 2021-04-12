@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	inih
 DISTVERSIONPREFIX=	r
 DISTVERSION=	53

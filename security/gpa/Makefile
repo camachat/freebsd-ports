@@ -1,5 +1,8 @@
 # Created by: Clive Lin <clive@CirX.ORG>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gpa
 PORTVERSION=	0.10.0

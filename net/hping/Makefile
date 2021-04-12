@@ -1,5 +1,8 @@
 # Created by: Roman Shterenzon <roman@xpert.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hping
 PORTVERSION=	2.0.0r3

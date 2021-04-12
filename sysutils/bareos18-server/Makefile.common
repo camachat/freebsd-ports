@@ -1,5 +1,8 @@
 # Created by: Alonso Cardenas <acm@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 post-build:
 .if ${PKGNAMEPREFIX} == "nagios-check_"

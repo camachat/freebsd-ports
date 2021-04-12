@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	newrelic_rpm
 PORTVERSION=	4.7.1.340
 CATEGORIES=	devel rubygems

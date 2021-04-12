@@ -1,5 +1,8 @@
 # Created by: Gustavo Perez Querol <gustau.perez@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	brutalchess
 PORTVERSION=	0.5.2

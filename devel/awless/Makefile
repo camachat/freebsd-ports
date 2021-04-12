@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	awless
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.1.11

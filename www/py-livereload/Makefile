@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	livereload
 DISTVERSION=	2.6.1
 CATEGORIES=	www python

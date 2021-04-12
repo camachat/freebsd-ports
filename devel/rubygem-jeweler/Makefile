@@ -1,5 +1,8 @@
 # Created by: Douglas Thrift
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jeweler
 PORTVERSION=	2.3.9

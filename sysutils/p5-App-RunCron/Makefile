@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	App-RunCron
 PORTVERSION=	0.08
 CATEGORIES=	sysutils perl5

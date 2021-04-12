@@ -1,5 +1,8 @@
 # Created by: Anton Berezin <tobez@plab.ku.dk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	PDL
 PORTVERSION=	2.019

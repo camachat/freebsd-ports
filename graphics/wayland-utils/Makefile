@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	wayland-utils
 DISTVERSIONPREFIX=	${PORTNAME}-
 DISTVERSION=	1.0.0

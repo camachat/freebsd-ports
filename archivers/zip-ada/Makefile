@@ -1,5 +1,8 @@
 # Created by: John Marino <marino@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	zip-ada
 DISTVERSION=	55

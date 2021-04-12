@@ -1,5 +1,8 @@
 # Created by: James Hunt <james.hunt@ubuntu.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	procenv
 PORTVERSION=	0.51

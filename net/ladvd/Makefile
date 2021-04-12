@@ -1,5 +1,8 @@
 # Created by: sten@blinkenlights.nl
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ladvd
 PORTVERSION=	1.1.2

@@ -1,5 +1,8 @@
 # Created by: se@freebsd.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hexpeek
 DISTVERSIONPREFIX=	v

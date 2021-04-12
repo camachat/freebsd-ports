@@ -1,5 +1,8 @@
 # Created by: Corey Smith <corsmith@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	zerotier
 DISTVERSION=	1.6.4

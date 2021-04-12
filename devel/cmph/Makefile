@@ -1,5 +1,8 @@
 # Created by: Jesse Kempf (jessekempf@gmail.com)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cmph
 PORTVERSION=	2.0

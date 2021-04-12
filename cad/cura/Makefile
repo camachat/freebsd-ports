@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Cura
 DISTVERSION=	4.8.0
 PORTREVISION=	7

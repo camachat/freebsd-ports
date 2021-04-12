@@ -1,5 +1,8 @@
 # Created by: johalun
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mesa-gallium-xa
 PORTVERSION=	${MESAVERSION}

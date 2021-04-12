@@ -1,5 +1,8 @@
 # Created by: Peter Johnson <johnson.peter@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dblatex
 DISTVERSION=	0.3.11

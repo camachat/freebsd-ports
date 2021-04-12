@@ -1,5 +1,8 @@
 # Created by: mwest@uct.ac.za
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	glui
 PORTVERSION=	2.36

@@ -1,8 +1,14 @@
 # Created by: Mark Felder <feld@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	ffdec
 DISTVERSION=	14.3.0
+=======
+
+PORTNAME=	ffdec
+DISTVERSION=	14.4.0
+>>>>>>> upstream/main
 CATEGORIES=	multimedia java
 MASTER_SITES=	https://github.com/jindrapetrik/jpexs-decompiler/releases/download/version${PORTVERSION}/
 DISTNAME=	${PORTNAME}_${DISTVERSION}

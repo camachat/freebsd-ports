@@ -1,5 +1,8 @@
 # Created by: Gustau Perez <gustau.perez@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 #   $MCom: ports/trunk/multimedia/snappy/Makefile 19571 2014-04-25 18:12:46Z kwm $
 
 PORTNAME=	snappy

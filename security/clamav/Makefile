@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	clamav
 PORTVERSION=	0.103.1
+=======
+PORTNAME=	clamav
+PORTVERSION=	0.103.2
+>>>>>>> upstream/main
 PORTEPOCH=	1
 CATEGORIES=	security
 MASTER_SITES=	https://www.clamav.net/downloads/production/

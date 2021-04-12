@@ -1,5 +1,8 @@
 # Created by: Gerrit Beine (<tux@pinguru.net>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Image_Color
 PORTVERSION=	1.0.4

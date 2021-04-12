@@ -1,5 +1,8 @@
 # Created by: lukin
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	filerunner
 PORTVERSION=	19.07.08.17

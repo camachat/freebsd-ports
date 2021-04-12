@@ -1,5 +1,8 @@
 # Created by: Wojciech A. Koszek <wkoszek@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fxload
 PORTVERSION=	20140224

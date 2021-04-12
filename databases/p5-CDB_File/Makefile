@@ -1,5 +1,8 @@
 # Created by: Jon Nistor <nistor@snickers.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	CDB_File
 PORTVERSION=	1.02

@@ -1,5 +1,8 @@
 # Created by: Remington Lang <MrL0Lz@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	openvpn-admin
 PORTVERSION=	1.9.4

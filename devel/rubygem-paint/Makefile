@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	paint
 PORTVERSION=	2.2.1
 CATEGORIES=	devel

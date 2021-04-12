@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Data-MessagePack
 PORTVERSION=	0.48
 PORTREVISION=	1

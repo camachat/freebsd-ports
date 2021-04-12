@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	harvid
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.8.2

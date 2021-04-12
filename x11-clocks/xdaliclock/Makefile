@@ -1,5 +1,8 @@
 # Created by: gpalmer
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xdaliclock
 PORTVERSION=	2.44

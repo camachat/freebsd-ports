@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fig2dev
 PORTVERSION=	3.2.7
 PORTREVISION=	1

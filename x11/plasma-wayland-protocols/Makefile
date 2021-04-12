@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	plasma-wayland-protocols
 DISTVERSION=	1.1.1
+=======
+PORTNAME=	plasma-wayland-protocols
+DISTVERSION=	1.2.1
+DISTVERSIONPREFIX=	v
+>>>>>>> upstream/main
 CATEGORIES=	x11 kde
 MASTER_SITES=	KDE/stable/${PORTNAME}/
 

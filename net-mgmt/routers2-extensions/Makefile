@@ -1,5 +1,8 @@
 # Created by: Xavier Beaudouin <kiwi@oav.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	routers2-extensions
 PORTVERSION=	2.23

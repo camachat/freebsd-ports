@@ -1,5 +1,8 @@
 # Created by: Ryo MIYAMOTO
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dungeon
 PORTVERSION=	3.2

@@ -1,5 +1,8 @@
 # Created by: Michael Gmelin <grembo@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jsonref
 PORTVERSION=	0.2

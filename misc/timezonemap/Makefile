@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	timezonemap
 DISTVERSION=	0.4.5.1
 CATEGORIES=	misc gnome

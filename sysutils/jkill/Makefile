@@ -1,5 +1,8 @@
 # Created by: Pavel Novikov
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jkill
 PORTVERSION=	1.0

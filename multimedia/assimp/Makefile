@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	assimp
 DISTVERSIONPREFIX=	v
 DISTVERSION=	5.0.1

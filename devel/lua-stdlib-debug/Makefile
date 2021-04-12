@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	stdlib-debug
 PORTVERSION=	1.0.1
 DISTVERSIONPREFIX=	v

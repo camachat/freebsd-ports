@@ -1,5 +1,8 @@
 # Created by: smyru@heron.pl
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gnugadu2
 PORTVERSION=	2.3.0

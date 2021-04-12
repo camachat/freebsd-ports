@@ -1,5 +1,8 @@
 # Created by: KANOU Hiroki <kanou@mil.allnet.ne.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	kochi
 PORTVERSION=	20030809

@@ -1,7 +1,11 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+
+>>>>>>> upstream/main
 # PROVIDE: opentracker_ipv6
 # REQUIRE: LOGIN
 # KEYWORD: shutdown

@@ -1,5 +1,8 @@
 # Created by: che@bein.link
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	khal
 DISTVERSION=	0.10.2

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	compat8x
 PORTVERSION=	8.4.804000.20151116
 CATEGORIES=	misc

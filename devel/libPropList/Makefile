@@ -1,5 +1,8 @@
 # Created by: Glenn Johnson
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libproplist
 PORTVERSION=	0.10.1

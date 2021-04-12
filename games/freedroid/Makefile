@@ -1,5 +1,8 @@
 # Created by: <benlutz@datacomm.ch>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	freedroid
 PORTVERSION=	1.0.2

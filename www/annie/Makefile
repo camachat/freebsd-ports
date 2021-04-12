@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	annie
 DISTVERSION=	0.10.3
 CATEGORIES=	www

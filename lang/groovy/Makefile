@@ -1,5 +1,8 @@
 # Created by: Herve Quiroz <hq@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	groovy
 DISTVERSION=	2.4.21

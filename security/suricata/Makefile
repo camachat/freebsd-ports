@@ -1,5 +1,8 @@
 # Created by: Patrick Tracanelli <eksffa@freebsdbrasil.com.br>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	suricata
 DISTVERSION=	5.0.6

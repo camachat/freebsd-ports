@@ -1,5 +1,8 @@
 # Created by: Sergey Skvortsov <skv@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	DBD-mysql
 PORTVERSION=	4.050

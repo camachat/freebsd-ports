@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Plack-Middleware-SocketIO
 PORTVERSION=	0.00904
 PORTREVISION=	2

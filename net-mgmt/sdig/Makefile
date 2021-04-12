@@ -1,5 +1,8 @@
 # Created by: Russell A. Jackson <rjackson@cserv62.csub.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sdig
 PORTVERSION=	0.45

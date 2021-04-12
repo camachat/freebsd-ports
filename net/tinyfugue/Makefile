@@ -1,5 +1,8 @@
 # Created by: mike@binghamton.edu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tf
 PORTVERSION=	5.0b8

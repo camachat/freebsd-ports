@@ -1,5 +1,8 @@
 # Created by: lbartoletti <lbartoletti@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	freexl
 DISTVERSION=	1.0.6

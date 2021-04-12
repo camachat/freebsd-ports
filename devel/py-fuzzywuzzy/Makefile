@@ -1,5 +1,8 @@
 # Created by: Dan Langille <dvl@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fuzzywuzzy
 PORTVERSION=	0.15.1

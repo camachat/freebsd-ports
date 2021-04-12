@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cava
 DISTVERSION=	0.7.3
 CATEGORIES=	audio

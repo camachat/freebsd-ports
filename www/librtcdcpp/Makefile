@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	librtcdcpp
 DISTVERSION=	g20180627
 PORTREVISION=	5

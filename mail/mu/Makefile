@@ -1,5 +1,8 @@
 # Created by: rea@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mu
 PORTVERSION=	1.2

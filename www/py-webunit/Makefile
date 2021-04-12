@@ -1,5 +1,8 @@
 # Created by: Li-Wen Hsu <lwhsu@lwhsu.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	webunit
 PORTVERSION=	1.3.10

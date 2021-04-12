@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		kexi
 DISTVERSION=		3.2.0
 PORTREVISION=	2

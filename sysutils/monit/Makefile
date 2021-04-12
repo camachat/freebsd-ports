@@ -1,5 +1,8 @@
 # Created by: Martin Pala <martinp@tildeslash.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	monit
 PORTVERSION=	5.28.0

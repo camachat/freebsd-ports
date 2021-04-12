@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	checkrestart
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.5.0

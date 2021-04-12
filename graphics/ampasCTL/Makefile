@@ -1,9 +1,16 @@
 # Created by: nork@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	ampasCTL
 PORTVERSION=	1.5.2
 PORTREVISION=	11
+=======
+
+PORTNAME=	ampasCTL
+PORTVERSION=	1.5.2
+PORTREVISION=	12
+>>>>>>> upstream/main
 CATEGORIES=	graphics devel
 
 MAINTAINER=	ports@FreeBSD.org
@@ -14,8 +21,13 @@ LICENSE_NAME=	AMPAS
 LICENSE_FILE=	${WRKSRC}/LICENSE
 LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 
+<<<<<<< HEAD
 LIB_DEPENDS=	libImath.so:graphics/ilmbase \
 		libIlmImf.so:graphics/openexr \
+=======
+LIB_DEPENDS=	libImath.so:math/Imath \
+		libOpenEXR.so:graphics/openexr \
+>>>>>>> upstream/main
 		libtiff.so:graphics/tiff \
 		libAcesContainer.so:graphics/ampasACES-container
 
@@ -27,6 +39,12 @@ GH_ACCOUNT=	ampas
 GH_PROJECT=	CTL
 GH_TAGNAME=	57b48a2
 
+<<<<<<< HEAD
+=======
+CFLAGS+=	-I${LOCALBASE}/include/OpenEXR -I${LOCALBASE}/include/Imath
+LDFLAGS+=	-L${LOCALBASE}/lib
+
+>>>>>>> upstream/main
 OPTIONS_DEFINE=	DOCS
 
 PORTDOCS=	*

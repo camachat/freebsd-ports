@@ -1,5 +1,8 @@
 # Created by: marius nuennerich
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mumble
 PORTVERSION=	1.3.3

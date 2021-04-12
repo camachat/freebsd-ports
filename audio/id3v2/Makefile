@@ -1,5 +1,8 @@
 # Created by: David MacKenzie <djm@pix.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	id3v2
 PORTVERSION=	0.1.12

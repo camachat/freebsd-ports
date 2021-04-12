@@ -1,5 +1,8 @@
 # Created by: Erik Greenwald <erik@smluc.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	readline
 PORTVERSION=	0.1

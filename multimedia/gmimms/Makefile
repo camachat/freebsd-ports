@@ -1,5 +1,8 @@
 # Created by: Yinghong.Liu <liu_yinghong@yahoo.com.cn>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gmimms
 DISTVERSION=	0.0.9

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	prosody-modules
 PORTVERSION=	20200302
 CATEGORIES=	net-im

@@ -1,5 +1,8 @@
 # Created by: Bernhard Froehlich <decke@bluelife.at>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jgnash
 PORTVERSION=	2.21.0

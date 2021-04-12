@@ -1,5 +1,8 @@
 # Created by: toni.viemero@iki.fi
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	W3C-LogValidator
 PORTVERSION=	1.4

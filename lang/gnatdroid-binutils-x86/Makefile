@@ -1,5 +1,8 @@
 # Created by: John Marino <marino@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTREVISION=	0
 PKGNAMESUFFIX=	-x86

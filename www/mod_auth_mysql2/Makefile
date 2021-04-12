@@ -1,5 +1,8 @@
 # Created by: Clement Laforet <clement@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mod_auth_mysql
 PORTVERSION=	1.11

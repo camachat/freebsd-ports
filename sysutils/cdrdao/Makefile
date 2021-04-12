@@ -1,5 +1,8 @@
 # Created by: futatuki
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME?=	cdrdao
 PORTVERSION=	1.2.4

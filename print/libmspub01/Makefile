@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	libmspub
 PORTVERSION=	0.1.4
 PORTREVISION=	17
+=======
+PORTNAME=	libmspub
+PORTVERSION=	0.1.4
+PORTREVISION=	18
+>>>>>>> upstream/main
 CATEGORIES=	print graphics devel
 MASTER_SITES=	LODEV/${PORTNAME}
 PKGNAMESUFFIX=	01

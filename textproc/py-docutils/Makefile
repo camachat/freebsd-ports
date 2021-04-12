@@ -1,8 +1,14 @@
 # Created by: ijliao
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	docutils
 PORTVERSION=	0.16
+=======
+
+PORTNAME=	docutils
+PORTVERSION=	0.17
+>>>>>>> upstream/main
 CATEGORIES=	textproc python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}

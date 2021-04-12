@@ -1,5 +1,8 @@
 # Created by: Ka Ho Ng <khng300@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ibus-rime
 DISTVERSION=	1.5.0

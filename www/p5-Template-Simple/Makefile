@@ -1,5 +1,8 @@
 # Created by: Ken McGlothlen <ken.mcglothlen@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Template-Simple
 PORTVERSION=	0.06

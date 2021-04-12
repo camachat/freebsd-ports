@@ -1,5 +1,8 @@
 # Created by: Stefan Zehl <sec@42.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libsidplay
 PORTVERSION=	1.36.59

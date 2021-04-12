@@ -1,5 +1,8 @@
 # Created by: vanilla@
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	plv8
 PORTVERSION=	1.4.8

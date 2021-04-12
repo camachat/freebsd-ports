@@ -1,5 +1,8 @@
 # Created by: Alexander Moisseev <moiseev@mezonplus.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rsync-bpc
 PORTVERSION=	3.1.3.0

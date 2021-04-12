@@ -1,5 +1,8 @@
 # Created by: Simon Barner <barner@gmx.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xcheckers
 PORTVERSION=	2.2.3

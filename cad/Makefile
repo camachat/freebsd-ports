@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
 
+=======
+>>>>>>> upstream/main
     COMMENT = CAD tools
 
     SUBDIR += NASTRAN-95
@@ -120,9 +123,13 @@
     SUBDIR += sweethome3d
     SUBDIR += tkgate
     SUBDIR += tochnog
+<<<<<<< HEAD
     SUBDIR += transcalc
     SUBDIR += uranium
     SUBDIR += varkon
+=======
+    SUBDIR += uranium
+>>>>>>> upstream/main
     SUBDIR += verilator
     SUBDIR += verilog-mode.el
     SUBDIR += veroroute

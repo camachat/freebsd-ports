@@ -1,5 +1,8 @@
 # Created by: Ryan Steinmetz
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	SNMP4Nagios
 PORTVERSION=	0.4

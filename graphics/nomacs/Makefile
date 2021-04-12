@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	nomacs
 PORTVERSION=	3.16
 DISTVERSIONSUFFIX=	.224

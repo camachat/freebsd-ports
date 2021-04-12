@@ -1,5 +1,8 @@
 # Created by: Kevin Bowling <kbowling@freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nsscache
 PORTVERSION=	0.42

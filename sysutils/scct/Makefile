@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	scct
 PORTVERSION=	0.1
 CATEGORIES=	sysutils

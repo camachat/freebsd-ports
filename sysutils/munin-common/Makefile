@@ -1,5 +1,8 @@
 # Created by: Sean Rees <sean@rees.us>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	munin
 PORTVERSION=	${MUNIN_VERSION}

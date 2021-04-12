@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # Created by: Dmitry Marakasov <amdmi3@amdmi3.ru>
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	toycars
 PORTVERSION=	0.3.10
 PORTREVISION=	8

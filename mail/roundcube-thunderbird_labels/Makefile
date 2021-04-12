@@ -1,5 +1,8 @@
 # Created by: Alexander Moisseev <moiseev@mezonplus.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	thunderbird_labels
 PORTVERSION=	1.4.10

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Locale-PO
 PORTVERSION=	0.27
 PORTREVISION=	1

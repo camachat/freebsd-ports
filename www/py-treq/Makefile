@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	treq
 PORTVERSION=	17.8.0
 CATEGORIES=	www python

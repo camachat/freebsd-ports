@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	qutebrowser
 DISTVERSION=	2.1.0
 PORTREVISION=	1
+=======
+PORTNAME=	qutebrowser
+DISTVERSION=	2.1.1
+>>>>>>> upstream/main
 CATEGORIES=	www
 MASTER_SITES=	CHEESESHOP
 

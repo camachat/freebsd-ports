@@ -1,5 +1,8 @@
 # Created by: Andrey Zonov <andrey@zonov.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nvramtool
 PORTVERSION=	r6440

@@ -1,5 +1,8 @@
 # Created by: Robert Gogolok <gogo@cs.uni-sb.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bundler
 PORTVERSION=	1.17.3

@@ -1,5 +1,8 @@
 # Created by: Joey Mingrone <joey@mingrone.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	parcellite
 PORTVERSION=	1.2.1

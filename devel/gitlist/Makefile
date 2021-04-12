@@ -1,5 +1,8 @@
 # Created by: Andre Rikkert de Koe - ARK-ICT <andre@ark-ict.nl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gitlist
 DISTVERSION=	1.0.1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ga
 DISTVERSIONPREFIX=	v
 DISTVERSION=	5.8

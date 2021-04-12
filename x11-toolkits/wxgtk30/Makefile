@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	wx
 PORTVERSION=	3.0.5.1
 DISTVERSIONPREFIX=	v

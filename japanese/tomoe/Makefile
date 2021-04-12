@@ -1,5 +1,8 @@
 # Created by: Hajimu UMEMOTO <ume@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tomoe
 PORTVERSION=	0.6.0

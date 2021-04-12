@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- gpu/ipc/common/gpu_memory_buffer_support.cc.orig	2021-01-18 21:28:59 UTC
+=======
+--- gpu/ipc/common/gpu_memory_buffer_support.cc.orig	2021-03-12 23:57:25 UTC
+>>>>>>> upstream/main
 +++ gpu/ipc/common/gpu_memory_buffer_support.cc
 @@ -16,7 +16,7 @@
  #include "gpu/ipc/common/gpu_memory_buffer_impl_io_surface.h"

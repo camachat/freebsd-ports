@@ -1,5 +1,8 @@
 # Created by: Daniel B. Hemmerich
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	CGI-Upload
 PORTVERSION=	1.11

@@ -1,5 +1,8 @@
 # Created by: trasz <trasz@pin.if.uz.zgora.pl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	openjpeg
 PORTVERSION=	2.4.0

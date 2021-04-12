@@ -1,5 +1,8 @@
 # Created by: Yarema <yds@CoolRat.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ini
 PORTVERSION=	0.1.1

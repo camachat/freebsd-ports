@@ -1,5 +1,8 @@
 # Created by: alexp
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rinetd
 PORTVERSION=	0.62

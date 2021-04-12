@@ -1,5 +1,8 @@
 # Created by: Michaël Grünewald
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	classes
 PORTVERSION=	4.00

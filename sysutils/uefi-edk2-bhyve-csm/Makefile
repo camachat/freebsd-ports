@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	uefi-edk2-bhyve-csm
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.2

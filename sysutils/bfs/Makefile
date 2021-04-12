@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bfs
 DISTVERSION=	2.2
 CATEGORIES=	sysutils

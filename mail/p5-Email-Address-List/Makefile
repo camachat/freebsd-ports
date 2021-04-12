@@ -1,5 +1,8 @@
 # Created by: Matthew Seaman <matthew@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Email-Address-List
 PORTVERSION=	0.06

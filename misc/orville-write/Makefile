@@ -1,5 +1,8 @@
 # Created by: James Howard <howardj@wam.umd.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	orville-write
 PORTVERSION=	2.55

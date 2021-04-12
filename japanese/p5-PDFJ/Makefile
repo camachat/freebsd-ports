@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	PDFJ
 PORTVERSION=	0.90
 PORTREVISION=	3

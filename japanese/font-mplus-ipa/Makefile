@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mplus
 PORTVERSION=	1.0.20060520.p1
 PORTREVISION=	6

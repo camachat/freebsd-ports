@@ -1,5 +1,8 @@
 # Created by: jfitz
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	swatchdog
 PORTVERSION=	3.2.4

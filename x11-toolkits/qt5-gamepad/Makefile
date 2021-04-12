@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gamepad
 DISTVERSION=	${QT5_VERSION}
 PORTREVISION=	2

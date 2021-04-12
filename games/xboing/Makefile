@@ -1,5 +1,8 @@
 # Created by: janek
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xboing
 PORTVERSION=	2.4

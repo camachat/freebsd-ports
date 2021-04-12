@@ -1,5 +1,8 @@
 # Created by: Marc Fonvieille <blackend@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 CATEGORIES=	misc docs
 PKGNAMEPREFIX=	el-

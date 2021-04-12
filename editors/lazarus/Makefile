@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	lazarus
 PORTVERSION=	2.0.10
 DISTVERSIONSUFFIX=	-2

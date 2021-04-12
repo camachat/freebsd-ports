@@ -1,5 +1,8 @@
 # Created by: Oliver Eikemeier
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	miau
 PORTVERSION=	0.6.6

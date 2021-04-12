@@ -1,5 +1,8 @@
 # Created by: Brett Taylor
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tkfont
 PORTVERSION=	1.1

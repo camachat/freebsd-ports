@@ -1,5 +1,8 @@
 # Created by: Yen-Ming Lee <leeym@cae.ce.ntu.edu.tw>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	whichman
 PORTVERSION=	2.4

@@ -1,5 +1,8 @@
 # Created by: jmz
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	iozone
 PORTVERSION=	2.01

@@ -1,8 +1,14 @@
 # Created by: Maxim Sobolev <sobomax@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	robocode
 PORTVERSION=	1.9.3.9
+=======
+
+PORTNAME=	robocode
+PORTVERSION=	1.9.4.1
+>>>>>>> upstream/main
 CATEGORIES=	games education java
 MASTER_SITES=	SF
 DISTNAME=	${PORTNAME}-${DISTVERSION}-setup.jar

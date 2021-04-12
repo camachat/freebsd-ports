@@ -1,5 +1,8 @@
 # Created by: Andrey Slusar <anray@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mknmz-wwwoffle
 PORTVERSION=	0.7.2

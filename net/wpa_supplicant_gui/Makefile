@@ -1,5 +1,8 @@
 # Created by: Ilya Bakulin <webmaster@kibab.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wpa_supplicant_gui
 DISTVERSION=	2.9

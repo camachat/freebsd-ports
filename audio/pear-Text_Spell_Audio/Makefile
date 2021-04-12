@@ -1,5 +1,8 @@
 # Created by: Ditesh Shashikant Gathani <ditesh@gathani.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Text_Spell_Audio
 PORTVERSION=	0.1.0

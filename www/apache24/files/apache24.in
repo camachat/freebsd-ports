@@ -1,6 +1,9 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 # PROVIDE: apache24
 # REQUIRE: LOGIN cleanvar sshd

@@ -1,5 +1,8 @@
 # Created by: Michael Frey <frey@raum3.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net_IDNA
 PORTVERSION=	0.8.1

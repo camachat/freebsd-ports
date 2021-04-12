@@ -1,5 +1,8 @@
 # Created by: Leland Wang <llwang@infor.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	54321
 PORTVERSION=	1.0.2001.11.16

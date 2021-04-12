@@ -1,5 +1,8 @@
 # Created by: Igor Pokrovsky <tiamat@telegraph.spb.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gltt
 PORTVERSION=	2.5.2

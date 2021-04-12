@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	PDF-API2-Simple
 PORTVERSION=	1.1.5
 CATEGORIES=	textproc perl5

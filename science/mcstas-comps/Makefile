@@ -1,5 +1,8 @@
 # Created by: Erik B Knudsen
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mcstas-comps
 PORTVERSION=	2.5

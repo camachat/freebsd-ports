@@ -1,8 +1,11 @@
 #!/bin/sh
 #
 # tracd startup
+<<<<<<< HEAD
 #
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 # PROVIDE: tracd
 # REQUIRE: LOGIN

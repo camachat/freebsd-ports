@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	qbox
 DISTVERSIONPREFIX=	rel
 DISTVERSION=	1_73_1

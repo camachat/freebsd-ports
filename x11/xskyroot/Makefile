@@ -1,5 +1,8 @@
 # Created by: nkazushi@highway.or.jp
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xskyroot
 PORTVERSION=	920428

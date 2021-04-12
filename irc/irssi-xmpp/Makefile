@@ -1,5 +1,8 @@
 # Created by: Philippe Audeoud <jadawin@tuxaco.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	irssi-xmpp
 PORTVERSION=	0.54

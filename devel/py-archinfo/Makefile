@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	archinfo
 DISTVERSIONPREFIX=	v
 DISTVERSION=	${ANGR_VERSION}

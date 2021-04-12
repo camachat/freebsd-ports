@@ -1,5 +1,8 @@
 # Created by: Josh Gilliam <josh@quick.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dict
 PORTVERSION=	1.13.0

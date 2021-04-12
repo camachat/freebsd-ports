@@ -1,5 +1,8 @@
 # Created by: netch@netch.kiev.ua
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	linuxfdisk
 PORTVERSION=	2.11z

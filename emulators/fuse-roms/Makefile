@@ -1,5 +1,8 @@
 # Created by: Vladimir Kondratiev <wulf@mail.mipt.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fuse-roms
 PORTVERSION=	0.9.0

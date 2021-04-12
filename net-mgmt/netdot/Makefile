@@ -1,5 +1,8 @@
 # Created by: Nick Hilliard
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	netdot
 PORTVERSION=	1.0.7

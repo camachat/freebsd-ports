@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kterm
 PORTVERSION=	6.2.0
 DISTVERSIONPREFIX=	v

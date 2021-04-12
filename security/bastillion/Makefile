@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		bastillion
 DISTVERSIONPREFIX=	jetty-v
 DISTVERSION=		3.10_00

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libaio
 PORTVERSION=	0.3.109
 DISTVERSIONSUFFIX=	-13.el7

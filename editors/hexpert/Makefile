@@ -1,5 +1,8 @@
 # Created by: Peter Wemm <peter@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hexpert
 PORTVERSION=	2.4.1

@@ -1,5 +1,8 @@
 # Created by: Pankov Pavel <pankov_p@mail.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	micro_inetd
 PORTVERSION=	2014.08.14

@@ -1,5 +1,8 @@
 # Created by: Vladimir Chukharev
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	robotframework-pabot
 PORTVERSION=	0.99

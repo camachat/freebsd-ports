@@ -1,5 +1,8 @@
 # Created by: Gerrit Beine <gerrit.beine@gmx.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Monitoring-Plugin
 PORTVERSION=	0.40

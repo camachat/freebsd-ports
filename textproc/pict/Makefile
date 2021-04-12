@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pict
 DISTVERSIONPREFIX=	v
 DISTVERSION=	3.7.1

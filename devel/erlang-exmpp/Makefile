@@ -1,5 +1,8 @@
 # Created by: Maxim Ignatenko
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	exmpp
 PORTVERSION=	0.9.9

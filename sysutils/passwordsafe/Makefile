@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	passwordsafe
 DISTVERSION=	1.12.0
 CATEGORIES=	sysutils

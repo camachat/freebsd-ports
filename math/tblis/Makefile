@@ -1,5 +1,8 @@
 # Created by: Johannes M Dieterich <jmd@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tblis
 PORTVERSION=	1.1.2

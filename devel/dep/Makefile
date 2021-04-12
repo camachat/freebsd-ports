@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dep
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.5.4

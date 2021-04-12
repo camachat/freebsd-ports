@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		uchiwa
 PORTVERSION=	0.18.2
 PORTREVISION=	1

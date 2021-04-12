@@ -1,5 +1,8 @@
 # Created by: kuriyama
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Schedule-At
 PORTVERSION=	1.15

@@ -1,5 +1,8 @@
 # Created by: Richard Gallamore <ultima@freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	YouCompleteMe
 DISTVERSION=	g20191130

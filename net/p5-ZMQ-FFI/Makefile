@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ZMQ-FFI
 PORTVERSION=	1.17
 CATEGORIES=	net perl5

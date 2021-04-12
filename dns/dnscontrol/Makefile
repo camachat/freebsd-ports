@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dnscontrol
 DISTVERSIONPREFIX=v
 DISTVERSION=	3.7.0

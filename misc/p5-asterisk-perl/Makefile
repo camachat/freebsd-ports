@@ -1,5 +1,8 @@
 # Created by: Alexander Timoshenko <gonzo@univ.kiev.ua>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	asterisk-perl
 PORTVERSION=	1.08

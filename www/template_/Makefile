@@ -1,5 +1,8 @@
 # Created by: Mun-Kyo Seo <munggo@pmy.lv>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	template_
 PORTVERSION=	2.2.3

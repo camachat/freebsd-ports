@@ -1,5 +1,8 @@
 # Created by: Tatsuki Makino <tatsuki_makino@hotmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Mcrypt
 PORTVERSION=	2.5.7.0

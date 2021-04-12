@@ -1,5 +1,8 @@
 # Created by: wosch
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dict
 PORTVERSION=	1.2

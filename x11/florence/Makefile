@@ -1,5 +1,8 @@
 # Created by: Kris Moore <kmoore@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	florence
 PORTVERSION=	0.6.3

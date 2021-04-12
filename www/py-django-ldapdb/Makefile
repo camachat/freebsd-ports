@@ -1,5 +1,8 @@
 # Created by: Alexander Kriventsov <avk@vl.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	django-ldapdb
 PORTVERSION=	1.4.0

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pdfresurrect
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.22

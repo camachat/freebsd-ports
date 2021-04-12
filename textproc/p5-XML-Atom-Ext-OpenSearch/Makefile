@@ -1,5 +1,8 @@
 # Created by: Denis Pokataev <catone@cpan.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	XML-Atom-Ext-OpenSearch
 PORTVERSION=	0.03

@@ -1,5 +1,8 @@
 # Created by: Marcin Cieslak <saper@system.pl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wackamole
 PORTVERSION=	2.1.5

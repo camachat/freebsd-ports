@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	guile-gnome-platform
 DISTVERSION=	2.16.5
 CATEGORIES=	x11-toolkits

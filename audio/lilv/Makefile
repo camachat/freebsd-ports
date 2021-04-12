@@ -1,5 +1,8 @@
 # Created by: Michael Beer <beerml@sigma6audio.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lilv
 PORTVERSION=	0.24.12

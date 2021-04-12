@@ -1,5 +1,8 @@
 # Created by: Conrad Meyer <cem@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dwarves
 DISTVERSION=	1.19

@@ -1,5 +1,8 @@
 # Created by: Ben Woods <woodsb02@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	icdiff
 PORTVERSION=	2.0.0

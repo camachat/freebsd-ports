@@ -1,5 +1,8 @@
 # Created by: Pedro Giffuni <giffunip@asme.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tochnog
 PORTVERSION=	20140100

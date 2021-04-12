@@ -1,5 +1,8 @@
 # Created by: philip@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tarsnapper
 PORTVERSION=	0.4

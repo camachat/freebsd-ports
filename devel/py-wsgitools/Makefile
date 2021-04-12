@@ -1,5 +1,8 @@
 # Created by: Klaus T. Aehlig <aehlig@linta.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wsgitools
 PORTVERSION=	0.3.1

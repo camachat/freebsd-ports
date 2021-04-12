@@ -1,5 +1,8 @@
 # Created by: Simon 'corecode' Schubert <corecode@corecode.ath.cx>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	susv3
 PORTVERSION=	1.2.20050121

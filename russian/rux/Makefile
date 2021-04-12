@@ -1,5 +1,8 @@
 # Created by: Vyacheslav Anikin <anikinsl@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rux
 PORTVERSION=	0.82

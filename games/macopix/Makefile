@@ -1,5 +1,8 @@
 # Created by: Shinya Esu <esu@yk.rim.or.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	macopix
 PORTVERSION=	1.7.4

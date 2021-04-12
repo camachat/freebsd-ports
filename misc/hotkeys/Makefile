@@ -1,5 +1,8 @@
 # Created by: Andy Pavlo <amp0928@rit.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hotkeys
 PORTVERSION=	0.5.7.1

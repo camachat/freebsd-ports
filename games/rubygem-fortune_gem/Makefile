@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fortune_gem
 PORTVERSION=	0.0.9
 CATEGORIES=	games rubygems

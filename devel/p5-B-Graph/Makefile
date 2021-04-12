@@ -1,5 +1,8 @@
 # Created by: Leo Kim <leo@florida.sarang.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	B-Graph
 PORTVERSION=	0.51

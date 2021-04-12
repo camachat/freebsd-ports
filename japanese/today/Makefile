@@ -1,5 +1,8 @@
 # Created by: ABURAYER Rewsirow <pcs51674@asciinet.or.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	today
 PORTVERSION=	2.12

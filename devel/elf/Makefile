@@ -1,5 +1,8 @@
 # Created by: Samy Al Bahra <samy@kerneled.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	elf
 PORTVERSION=	0.5.4p1

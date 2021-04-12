@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bugzilla
 PORTVERSION=	4.4.9
 CATEGORIES=	japanese

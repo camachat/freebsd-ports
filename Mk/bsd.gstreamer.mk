@@ -4,9 +4,12 @@
 # bsd.gstreamer.mk - Support for gstreamer-plugins-based ports.
 #
 # Created by: Michael Johnson <ahze@FreeBSD.org>
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #    $MCom: ports/Mk/bsd.gstreamer.mk,v 1.56 2013/01/15 21:43:45 kwm Exp $
+=======
+>>>>>>> upstream/main
 
 .if !defined(_POSTMKINCLUDED) && !defined(Gstreamer_Pre_Include)
 

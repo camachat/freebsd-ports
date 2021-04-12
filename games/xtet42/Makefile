@@ -1,5 +1,8 @@
 # Created by: gmarco@giovannelli.it
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xtet42
 PORTVERSION=	2.21

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mod_auth_gssapi
 PORTVERSION=	1.6.3
 DISTVERSIONPREFIX=	v

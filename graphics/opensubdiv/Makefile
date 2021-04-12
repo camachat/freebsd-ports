@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	opensubdiv
 DISTVERSIONPREFIX=	v
 DISTVERSION=	3_4_3

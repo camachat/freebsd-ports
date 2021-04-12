@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	llvm
 DISTVERSION=	9.0.1
 PORTREVISION=	3

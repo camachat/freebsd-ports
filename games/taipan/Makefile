@@ -1,5 +1,8 @@
 # Created by: Dave Walton <dwalton@acm.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	taipan
 PORTVERSION=	0.9

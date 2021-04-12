@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pixz
 PORTVERSION=	1.0.7
 DISTVERSIONPREFIX=	v

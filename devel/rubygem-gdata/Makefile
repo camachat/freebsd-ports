@@ -1,5 +1,8 @@
 # Created by: Cheng-Lung Sung <clsung@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gdata
 PORTVERSION=	1.1.2

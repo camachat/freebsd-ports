@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	loganalyzer
 PORTVERSION=	4.1.11
 CATEGORIES=	sysutils www

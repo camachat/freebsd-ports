@@ -1,5 +1,8 @@
 # Created by: ports@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gtkam
 PORTVERSION=	1.0

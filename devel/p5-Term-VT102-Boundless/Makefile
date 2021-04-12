@@ -1,5 +1,8 @@
 # Created by: Andrey Chernov <ache@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Term-VT102-Boundless
 PORTVERSION=	0.05

@@ -1,5 +1,8 @@
 # Created by: Danilo G. Baio <dbaio@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	httpstat
 PORTVERSION=	1.3.0

@@ -1,5 +1,8 @@
 # Created by: Michal Hanula <michal@hanu.la>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	alertmanager
 DISTVERSIONPREFIX=	v

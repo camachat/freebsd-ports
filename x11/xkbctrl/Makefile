@@ -1,5 +1,8 @@
 # Created by: Yoshiro MIHIRA <sanpei@sanpei.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xkbctrl
 PORTVERSION=	1.0

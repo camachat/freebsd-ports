@@ -1,5 +1,8 @@
 # Created by: Junji NAKANISHI <jun-g@daemonfreaks.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pidgin-twitter
 PORTVERSION=	0.9.2

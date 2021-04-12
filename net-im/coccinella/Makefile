@@ -1,5 +1,8 @@
 # Created by: Marc Bruenink
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	coccinella
 PORTVERSION=	0.96.20

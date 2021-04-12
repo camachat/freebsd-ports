@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 # levmar library (math/levmar) is bundled
 
 PORTNAME=	levmar

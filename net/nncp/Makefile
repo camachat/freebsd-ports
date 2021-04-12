@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	nncp
 DISTVERSION=	6.1.0
+=======
+PORTNAME=	nncp
+DISTVERSION=	6.2.1
+>>>>>>> upstream/main
 CATEGORIES=	net
 MASTER_SITES=	http://www.nncpgo.org/download/
 

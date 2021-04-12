@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	DBIx-QueryLog
 PORTVERSION=	0.41
 CATEGORIES=	databases perl5

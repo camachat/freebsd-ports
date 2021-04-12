@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 /* $FreeBSD$ */
+=======
+>>>>>>> upstream/main
 /* $NetBSD: pkgsrc/audio/xcdplayer/files/cdrom_freebsd.c,v 1.6 2005/12/11 20:48:46 joerg Exp $ */
 /*
  * Copyright (C) 1990 Regents of the University of California.

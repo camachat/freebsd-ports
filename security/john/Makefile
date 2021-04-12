@@ -1,5 +1,8 @@
 # Created by: David O'Brien <obrien@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	john
 # NB: starting from the next version, community-enhanced (jumbo) patch

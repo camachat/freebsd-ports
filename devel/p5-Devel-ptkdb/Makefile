@@ -1,5 +1,8 @@
 # Created by: Alex Kapranoff <kappa@FreeBSD.org.ua>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Devel-ptkdb
 PORTVERSION=	1.1091

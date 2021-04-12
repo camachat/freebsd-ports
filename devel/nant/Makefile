@@ -1,5 +1,8 @@
 # Created by: Christopher Nehren <apeiron+ports@coitusmentis.info>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nant
 PORTVERSION=	0.92

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	hexyl
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.8.0

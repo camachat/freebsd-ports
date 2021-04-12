@@ -1,5 +1,8 @@
 # Created by: rch@richard.eu.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	yudit
 PORTVERSION=	3.0.7

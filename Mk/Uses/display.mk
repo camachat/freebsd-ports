@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # Feature:	display
 # Usage:	USES=display or USES=display:ARGS
 # Valid ARGS:	install (default, implicit), any target

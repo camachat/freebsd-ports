@@ -1,5 +1,8 @@
 # Created by: rene
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	biosfont-demos
 PORTVERSION=	1.3

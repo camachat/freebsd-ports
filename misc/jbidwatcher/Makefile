@@ -1,5 +1,8 @@
 # Created by: Jose Rodriguez <king@v2project.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jbidwatcher
 PORTVERSION=	2.5.6

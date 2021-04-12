@@ -1,5 +1,8 @@
 # Created by: Hung-Yi Chen <gaod@hychen.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-SNMPTrapd
 PORTVERSION=	0.17

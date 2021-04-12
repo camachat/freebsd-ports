@@ -1,5 +1,8 @@
 # Created by: Hakisho Nukama <nukama@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fuel
 DISTVERSION=	1.0.1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	waifu2x-ncnn-vulkan
 DISTVERSION=	20210210
 CATEGORIES=	graphics

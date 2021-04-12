@@ -1,5 +1,8 @@
 # Created by: Cezary Morga <cm@therek.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Parse-ErrorString-Perl
 PORTVERSION=	0.27

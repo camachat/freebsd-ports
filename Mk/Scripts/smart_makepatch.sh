@@ -1,6 +1,9 @@
 #!/bin/sh
 # MAINTAINER: portmgr@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 # This script regenerates patches.  It conserves existing comments and
 # file names, even if the file name does not meet any current or

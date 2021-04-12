@@ -1,5 +1,8 @@
 # Created by: Marcin Cieslak
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xerces-j
 PORTVERSION=	2.12.0

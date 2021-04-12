@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	BTrees
 DISTVERSION=	4.7.2
 CATEGORIES=	devel python

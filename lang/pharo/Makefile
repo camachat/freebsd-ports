@@ -1,5 +1,8 @@
 # Created by: mutoh@openedu.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pharo
 DISTVERSION=	1.4

@@ -1,5 +1,8 @@
 # Created by: Roman Shterenzon <roman@xpert.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	chexedit
 PORTVERSION=	0.9.7

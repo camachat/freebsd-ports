@@ -1,5 +1,8 @@
 # Created by: Thomas Hurst <tom@hur.st>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jdupes
 DISTVERSIONPREFIX=	v

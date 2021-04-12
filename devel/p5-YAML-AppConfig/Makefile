@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	YAML-AppConfig
 PORTVERSION=	0.19
 PORTREVISION=	1

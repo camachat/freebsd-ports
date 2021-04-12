@@ -1,5 +1,8 @@
 # Created by: Archie Cobbs
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	suckblow
 PORTVERSION=	1.1

@@ -1,5 +1,8 @@
 # Created by: Dmitry Semkin <lslarry@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	srg
 PORTVERSION=	1.3.6

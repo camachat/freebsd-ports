@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libretro-gw
 PORTVERSION=	0.20210129
 CATEGORIES=	games

@@ -1,5 +1,8 @@
 # Created by: niels <niels@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	robots
 PORTVERSION=	0.10.1

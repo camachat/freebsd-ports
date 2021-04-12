@@ -1,5 +1,8 @@
 # Created by: Oh Junseon <hollywar@mail.holywar.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	engdic
 PORTVERSION=	0.2

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sqlalchemy
 PORTVERSION=	1.3.23
 CATEGORIES=	databases python

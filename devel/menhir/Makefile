@@ -1,5 +1,8 @@
 # Created by: Jaap Boender <jaapb@kerguelen.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	menhir
 PORTVERSION=	20170712

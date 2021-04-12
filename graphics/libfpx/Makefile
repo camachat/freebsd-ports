@@ -1,5 +1,8 @@
 # Created by: Mikhail Teterin <mi@aldan.algebra.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libfpx
 DISTVERSION=	1.3.1-10

@@ -1,5 +1,8 @@
 # Created by: MITA Yoshio <mita@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xpdf
 PORTVERSION=	4.02

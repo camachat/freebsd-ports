@@ -1,5 +1,8 @@
 # Created by: Jason Harmening <jason.harmening@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libtuner
 PORTVERSION=	1.1.5

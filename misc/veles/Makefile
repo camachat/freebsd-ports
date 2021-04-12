@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	veles
 DISTVERSION=	2018.05.0
 PORTREVISION=	2
+=======
+PORTNAME=	veles
+DISTVERSION=	2018.05.0
+PORTREVISION=	3
+>>>>>>> upstream/main
 CATEGORIES=	misc
 
 PATCH_SITES=	https://github.com/${GH_ACCOUNT}/${PORTNAME}/commit/

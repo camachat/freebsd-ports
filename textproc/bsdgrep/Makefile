@@ -1,5 +1,8 @@
 # Created by: Gabor Kovesdan <gabor@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	grep
 DISTVERSION=	2.6.0

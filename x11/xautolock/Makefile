@@ -1,5 +1,8 @@
 # Created by: Eric Blood <eblood@cs.unr.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xautolock
 PORTVERSION=	2.2

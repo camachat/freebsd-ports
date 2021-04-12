@@ -1,6 +1,10 @@
 #!/bin/sh
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+
+>>>>>>> upstream/main
 # PROVIDE: cvsd
 # REQUIRE: LOGIN syslogd
 # KEYWORD: nojail shutdown

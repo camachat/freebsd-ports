@@ -1,5 +1,8 @@
 # Created by: sumikawa@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Plagger
 PORTVERSION=	0.7.17

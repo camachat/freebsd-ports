@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	vipster
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.19.1b-14

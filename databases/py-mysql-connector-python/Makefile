@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mysql-connector-python
 PORTVERSION=	8.0.23
 CATEGORIES=	databases python

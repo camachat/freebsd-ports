@@ -1,5 +1,8 @@
 # Created by: Dennis Herrmann <dhn@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	i3
 DISTVERSION=	4.19.2

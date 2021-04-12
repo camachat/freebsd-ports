@@ -1,5 +1,8 @@
 # Created by: Alexander Kojevnikov <alexander@kojevnikov.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pinta
 PORTVERSION=	1.5

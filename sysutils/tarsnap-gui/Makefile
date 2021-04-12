@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tarsnap-gui
 PORTVERSION=	1.0.2
 PORTREVISION=	3

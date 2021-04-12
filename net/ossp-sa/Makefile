@@ -1,5 +1,8 @@
 # Created by: Alan Eldridge <alane@geeksrus.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sa
 PORTVERSION=	1.2.6

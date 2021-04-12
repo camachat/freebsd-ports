@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pytest-xprocess
 PORTVERSION=	0.12.1
 CATEGORIES=	devel python

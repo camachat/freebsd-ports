@@ -1,5 +1,8 @@
 # Created by: Babak Farrokhi <farrokhi@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	panoptis
 PORTVERSION=	0.1.4

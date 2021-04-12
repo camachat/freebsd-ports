@@ -1,5 +1,8 @@
 # Created by: Po-Chuan Hsieh <sunpoet@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	net-http
 PORTVERSION=	0.1.1
@@ -13,8 +16,11 @@ LICENSE=	BSD2CLAUSE RUBY
 LICENSE_COMB=	dual
 LICENSE_FILE_BSD2CLAUSE=${WRKSRC}/LICENSE.txt
 
+<<<<<<< HEAD
 BROKEN_RUBY25=	yes
 
+=======
+>>>>>>> upstream/main
 RUN_DEPENDS=	rubygem-net-protocol>=0:net/rubygem-net-protocol \
 		rubygem-uri>=0:net/rubygem-uri
 

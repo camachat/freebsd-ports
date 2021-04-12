@@ -1,5 +1,8 @@
 # Created by: Pascal Vizeli <pvizeli@yahoo.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mp4box
 DISTVERSIONPREFIX=	v

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	GLee
 DISTVERSION=	5.4.0
 CATEGORIES=	graphics

@@ -1,5 +1,8 @@
 # Created by: Romain Tartiere <romain@blogreen.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gtk-nodoka-engine
 PORTVERSION=	0.7.5

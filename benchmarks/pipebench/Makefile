@@ -1,5 +1,8 @@
 # Created by: mich@freebsdcluster.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pipebench
 PORTVERSION=	0.40

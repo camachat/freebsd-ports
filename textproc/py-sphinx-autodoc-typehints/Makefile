@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sphinx-autodoc-typehints
 PORTVERSION=	1.11.1
 CATEGORIES=	textproc python

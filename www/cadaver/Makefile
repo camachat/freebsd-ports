@@ -1,5 +1,8 @@
 # Created by: Alex Povolotsky <tarkhil@over.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cadaver
 PORTVERSION=	0.23.3

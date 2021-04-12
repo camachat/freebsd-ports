@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	HTML-SuperForm
 PORTVERSION=	1.09
 PORTREVISION=	1

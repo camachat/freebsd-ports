@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	base64url
 PORTVERSION=	1.0
 DISTVERSIONPREFIX=	v

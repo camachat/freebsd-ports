@@ -1,5 +1,8 @@
 # Created by: Torsten Zuehlsdorff <tz@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME?=	gitlab-shell
 PORTVERSION?=	13.17.0

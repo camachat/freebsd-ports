@@ -1,5 +1,8 @@
 # Created by: jkh
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xxgdb
 PORTVERSION=	1.12

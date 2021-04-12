@@ -1,5 +1,8 @@
 # Created by: Naito Yuichiro <naito.yuichiro@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tzdiff
 PORTVERSION=	1.1.1

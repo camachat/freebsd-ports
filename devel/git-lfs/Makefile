@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		git-lfs
 DISTVERSIONPREFIX=	v
 DISTVERSION=		2.13.3

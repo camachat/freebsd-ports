@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	grim
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.3.1

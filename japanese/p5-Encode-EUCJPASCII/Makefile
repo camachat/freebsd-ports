@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Encode-EUCJPASCII
 PORTVERSION=	0.03
 CATEGORIES=	japanese converters perl5

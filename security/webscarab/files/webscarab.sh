@@ -1,7 +1,10 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 
 TEST=`/usr/bin/basename $0`
 OPTIONS="-DWebScarab.lite=false"

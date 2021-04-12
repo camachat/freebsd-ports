@@ -1,5 +1,8 @@
 # Created by: FreeBSD GNOME Team <gnome@freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	appstream-glib
 PORTVERSION=	0.7.18

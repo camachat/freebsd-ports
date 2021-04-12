@@ -1,5 +1,8 @@
 # Created by: Ginzburg Oleg
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	netherearth
 PORTVERSION=	0.51

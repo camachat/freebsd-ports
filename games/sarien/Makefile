@@ -1,5 +1,8 @@
 # Created by: Radim Kolar
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sarien
 PORTVERSION=	0.7.0

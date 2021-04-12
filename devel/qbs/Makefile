@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	qbs
 DISTVERSIONPREFIX=	src-
 DISTVERSION=	1.17.0

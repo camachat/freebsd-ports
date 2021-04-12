@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pymaging
 PORTVERSION=	g20130908
 PORTREVISION=	1

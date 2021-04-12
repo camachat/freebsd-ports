@@ -1,5 +1,8 @@
 # Created by: Thinker K.F. Li <thinker@eeebox.branda.to>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	d-feet
 PORTVERSION=	0.3.15

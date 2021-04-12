@@ -1,5 +1,8 @@
 # Created by: Pavel Andreev
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	icqlib
 PORTVERSION=	1.0.0

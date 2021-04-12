@@ -1,5 +1,8 @@
 # Created by: Chris Howey <howeyc@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	parallel
 PORTVERSION=	20210222

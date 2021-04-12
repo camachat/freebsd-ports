@@ -1,5 +1,8 @@
 # Created by: kbyanc
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nqc
 PORTVERSION=	3.1.r6

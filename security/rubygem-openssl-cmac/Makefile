@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	openssl-cmac
 PORTVERSION=	2.0.1
 CATEGORIES=	security rubygems

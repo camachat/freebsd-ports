@@ -1,5 +1,8 @@
 # Created by: Josh Gilliam <josh@quick.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	aspell
 PORTVERSION=	0.60.8

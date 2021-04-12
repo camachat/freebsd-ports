@@ -1,5 +1,8 @@
 # Created by: Thomas Vogt <thomas.vogt@bsdunix.ch>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	foobillard
 PORTVERSION=	3.0a

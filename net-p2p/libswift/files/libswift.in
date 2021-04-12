@@ -1,6 +1,10 @@
 #!/bin/sh
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+
+>>>>>>> upstream/main
 # PROVIDE: libswift
 # REQUIRE: LOGIN NETWORKING SERVERS
 # KEYWORD: shutdown

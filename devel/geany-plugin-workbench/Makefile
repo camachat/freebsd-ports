@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	geany-plugin-workbench
 PORTVERSION=	${GEANY_VER}
+=======
+PORTNAME=	geany-plugin-workbench
+PORTVERSION=	${GEANY_VER}
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	devel
 
 MAINTAINER=	madpilot@FreeBSD.org

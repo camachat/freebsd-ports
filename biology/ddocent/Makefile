@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		dDocent
 DISTVERSIONPREFIX=	v
 DISTVERSION=		2.7.8

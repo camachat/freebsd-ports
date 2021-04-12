@@ -1,5 +1,8 @@
 # Created by: Konstantinos Konstantinidis <kkonstan@daemon.gr>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	perdition
 PORTVERSION=	2.2

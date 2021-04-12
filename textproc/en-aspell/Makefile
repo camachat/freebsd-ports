@@ -1,5 +1,8 @@
 # Created by: Serge Gagnon <ser_gagnon@sympatico.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	${DICT}-aspell
 SPELLVERSION=	6-en-2018.04.16-0

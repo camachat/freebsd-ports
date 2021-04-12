@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Test-LoadAllModules
 PORTVERSION=	0.022
 PORTREVISION=	1

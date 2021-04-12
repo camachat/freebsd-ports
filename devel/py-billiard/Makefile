@@ -1,5 +1,8 @@
 # Created by: William Grzybowski <william88@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	billiard
 PORTVERSION=	3.6.3.0

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	plug
 PORTVERSION=	1.4.5
 DISTVERSIONPREFIX=	v

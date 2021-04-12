@@ -1,5 +1,8 @@
 # Created by: Tomaž Muraus <kami@k5-storitve.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gogoc
 PORTVERSION=	1.2

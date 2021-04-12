@@ -1,9 +1,18 @@
 bin/certificates
 bin/inspector
+<<<<<<< HEAD
 bin/metric-receiver
 bin/multinode
 bin/satellite
 bin/segment-reaper
+=======
+bin/metainfo-loop-benchmark
+bin/metainfo-migration
+bin/metainfo-verifier
+bin/metric-receiver
+bin/multinode
+bin/satellite
+>>>>>>> upstream/main
 bin/storagenode
 bin/storagenode-updater
 bin/storj-admin

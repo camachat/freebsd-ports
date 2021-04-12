@@ -1,5 +1,8 @@
 # Created by: Gerald Pfeifer <gerald@pfeifer.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bibtex2html
 PORTVERSION=	1.99

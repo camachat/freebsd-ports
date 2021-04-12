@@ -1,8 +1,14 @@
 # Created by: "Mahdi Mokhtari <mokhi64@gmail.com>"
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	mysql
 PORTREVISION=	0
+=======
+
+PORTNAME=	mysql
+PORTREVISION=	1
+>>>>>>> upstream/main
 PKGNAMESUFFIX=	80-client
 
 COMMENT=	Multithreaded SQL database (client)

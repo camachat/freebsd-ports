@@ -1,5 +1,8 @@
 # Created by: Ulrich Spoerlein <q@uni.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mp3splt
 PORTVERSION=	2.6.2

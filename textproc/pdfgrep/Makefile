@@ -1,5 +1,8 @@
 # Created by: Michael Ranner <michael@ranner.eu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pdfgrep
 PORTVERSION=	2.1.1

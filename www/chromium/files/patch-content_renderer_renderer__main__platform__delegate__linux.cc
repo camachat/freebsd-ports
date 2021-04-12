@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- content/renderer/renderer_main_platform_delegate_linux.cc.orig	2020-11-13 06:36:43 UTC
+=======
+--- content/renderer/renderer_main_platform_delegate_linux.cc.orig	2021-03-12 23:57:24 UTC
+>>>>>>> upstream/main
 +++ content/renderer/renderer_main_platform_delegate_linux.cc
 @@ -30,6 +30,7 @@ void RendererMainPlatformDelegate::PlatformUninitializ
  }

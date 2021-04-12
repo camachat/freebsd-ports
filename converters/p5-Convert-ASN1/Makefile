@@ -1,5 +1,8 @@
 # Created by: Marc Fournier <scrappy@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Convert-ASN1
 PORTVERSION=	0.27

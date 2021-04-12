@@ -1,5 +1,8 @@
 # Created by: Pedro F. Giffuni
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tfel
 DISTVERSION=	3.2.1-1

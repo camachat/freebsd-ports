@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	I18N-AcceptLanguage
 PORTVERSION=	1.04
 PORTREVISION=	1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Redis-Fast
 PORTVERSION=	0.28
 PORTREVISION=	1

@@ -1,5 +1,8 @@
 # Created by: wosch
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	info2html
 PORTVERSION=	2.0

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		jail_exporter
 DISTVERSIONPREFIX=	v
 DISTVERSION=		0.13.0

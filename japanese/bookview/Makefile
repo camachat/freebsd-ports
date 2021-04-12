@@ -1,5 +1,8 @@
 # Created by: Motoyuki Kasahara <m-kasahr@sra.co.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bookview
 PORTVERSION=	3.2.1

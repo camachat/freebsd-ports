@@ -1,5 +1,8 @@
 # Created by: Roman Bogorodskiy
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	MP3-Tag
 PORTVERSION=	1.15

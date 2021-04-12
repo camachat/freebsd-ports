@@ -1,5 +1,8 @@
 # Created by: <intron@intron.ac>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fandol
 PORTVERSION=	0.3

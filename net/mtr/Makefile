@@ -1,5 +1,8 @@
 # Created by: Bill Fumerola <billf@chc-chimes.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mtr
 PORTVERSION=	0.94

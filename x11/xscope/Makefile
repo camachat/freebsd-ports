@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xscope
 PORTVERSION=	1.4.1
 PORTREVISION=	2

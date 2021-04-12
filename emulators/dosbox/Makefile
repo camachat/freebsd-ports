@@ -1,5 +1,8 @@
 # Created by: Tom Carrick <knyghtmare@knyghtmare.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dosbox
 DISTVERSION=	0.74-3

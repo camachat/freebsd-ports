@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sphinxcontrib-qthelp
 PORTVERSION=	1.0.3
 CATEGORIES=	textproc

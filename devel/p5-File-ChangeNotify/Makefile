@@ -1,5 +1,8 @@
 # Created by: Alexey V. Degtyarev
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	File-ChangeNotify
 PORTVERSION=	0.31

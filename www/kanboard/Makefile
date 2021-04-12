@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kanboard
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.2.16

@@ -1,5 +1,8 @@
 # Created by: Neil Blakey-Milner <nbm@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mod_scgi
 PORTVERSION=	2.0

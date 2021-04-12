@@ -1,5 +1,8 @@
 # Created by: Douglas Thrift <douglas@douglasthrift.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	SecretStorage
 PORTVERSION=	2.3.1

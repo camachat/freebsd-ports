@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gitlab_meta
 PORTVERSION=	7.0
 CATEGORIES=	devel rubygems

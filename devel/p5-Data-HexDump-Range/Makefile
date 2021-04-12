@@ -1,5 +1,8 @@
 # Created by: gebhart@secnetix.de
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Data-HexDump-Range
 PORTVERSION=	0.13.59

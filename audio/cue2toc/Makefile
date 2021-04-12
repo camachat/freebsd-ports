@@ -1,5 +1,8 @@
 # Created by: Pav Lucistnik <pav@oook.cz>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cue2toc
 PORTVERSION=	0.1

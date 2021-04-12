@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gcem
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.13.1

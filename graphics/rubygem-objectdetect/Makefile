@@ -1,5 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@rtfm.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	objectdetect
 PORTVERSION=	0.0.3

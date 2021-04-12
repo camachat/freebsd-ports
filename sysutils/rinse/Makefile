@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rinse
 PORTVERSION=	3.2
 CATEGORIES=	sysutils

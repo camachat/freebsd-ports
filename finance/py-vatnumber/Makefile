@@ -1,5 +1,8 @@
 # Created by: Qian Jin <eric.siroh@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vatnumber
 PORTVERSION=	1.2

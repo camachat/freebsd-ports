@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	liquid-dsp
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.3.2

@@ -1,8 +1,15 @@
 # Created by: Tobias Kortkamp <t@tobik.me>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	stagit
 PORTVERSION=	0.9.5
+=======
+
+PORTNAME=	stagit
+PORTVERSION=	0.9.5
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	www
 MASTER_SITES=	https://codemadness.org/releases/stagit/
 

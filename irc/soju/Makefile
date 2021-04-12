@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	soju
 DISTVERSION=	0.0.20201214
 CATEGORIES=	irc

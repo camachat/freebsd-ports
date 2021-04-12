@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	jsonapi-renderer
 PORTVERSION=	0.2.2
 CATEGORIES=	devel rubygems

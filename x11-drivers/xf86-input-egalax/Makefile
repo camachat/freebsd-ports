@@ -1,5 +1,8 @@
 # Created by: Gleb Smirnoff <glebius@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xf86-input-egalax
 PORTVERSION=	0.3

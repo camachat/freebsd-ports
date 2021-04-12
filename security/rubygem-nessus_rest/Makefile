@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	nessus_rest
 PORTVERSION=	0.1.6
 CATEGORIES=	security rubygems

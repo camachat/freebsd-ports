@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # Created by: Dmitry Marakasov <amdmi3@amdmi3.ru>
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	solarconquest
 PORTVERSION=	0.2
 PORTREVISION=	12

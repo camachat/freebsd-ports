@@ -1,5 +1,8 @@
 # Created by: Autrijus Tang <autrijus@autrijus.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Locale-Maketext-Simple
 PORTVERSION=	0.21

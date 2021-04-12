@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libepoxy
 PORTVERSION=	1.5.2
 DISTVERSIONSUFFIX=	-1.el7

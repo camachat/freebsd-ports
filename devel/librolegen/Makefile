@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	librolegen
 PORTVERSION=	1.0b
 CATEGORIES=	devel

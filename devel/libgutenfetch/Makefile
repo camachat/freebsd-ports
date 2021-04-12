@@ -1,5 +1,8 @@
 # Created by: Russell Francis <johntabularasa@users.sf.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libgutenfetch
 PORTVERSION=	1.2

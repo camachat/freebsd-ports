@@ -1,5 +1,8 @@
 # Created by: Norikatsu Shigemura <nork@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	scim-canna
 PORTVERSION=	1.0.0

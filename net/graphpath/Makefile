@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	graphpath
 PORTVERSION=	1.2
 DISTVERSIONPREFIX=	v

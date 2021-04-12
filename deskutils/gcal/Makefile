@@ -1,5 +1,8 @@
 # Created by: Cyrille Lefevre <clefevre@citeweb.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gcal
 PORTVERSION=	4.1

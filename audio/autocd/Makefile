@@ -1,5 +1,8 @@
 # Created by: Dmitry Afanasiev <KOT@MATPOCKuH.Ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	autocd
 PORTVERSION=	3.02.12b

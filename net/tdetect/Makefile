@@ -1,5 +1,8 @@
 # Created by: shipley@dis.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tdetect
 PORTVERSION=	0.2

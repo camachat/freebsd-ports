@@ -1,5 +1,8 @@
 # Created by: Jung-uk Kim <jkim@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vbetool
 PORTVERSION=	1.1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cachem
 PORTVERSION=	1.0.4
 CATEGORIES=	databases

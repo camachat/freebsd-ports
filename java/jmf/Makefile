@@ -1,5 +1,8 @@
 # Created by: Anton Yudin <toha@toha.org.ua>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jmf
 PORTVERSION=	2.1.1e

@@ -1,5 +1,8 @@
 # Created by: Oleg Ginzburg  (olevole@olevole.ru)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	freetalk
 PORTVERSION=	4.1

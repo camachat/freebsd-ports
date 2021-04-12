@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	kaidan
 DISTVERSION=	0.7.0
+=======
+PORTNAME=	kaidan
+DISTVERSION=	0.7.0
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	net-im kde
 MASTER_SITES=	KDE/unstable/${PORTNAME}/${DISTVERSION}
 

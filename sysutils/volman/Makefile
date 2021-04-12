@@ -1,5 +1,8 @@
 # Created by: Aragon Gouveia <aragon@phat.za.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	volman
 PORTVERSION=	0.7

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xrandr
 PORTVERSION=	1.5.1
 CATEGORIES=	x11

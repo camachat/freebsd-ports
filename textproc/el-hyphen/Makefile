@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	hyphen
 PORTVERSION=	2005.10.17
 PORTREVISION=	1

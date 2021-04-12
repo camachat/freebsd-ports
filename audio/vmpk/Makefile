@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	vmpk
 DISTVERSION=	0.7.2
 CATEGORIES=	audio

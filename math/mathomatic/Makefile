@@ -1,5 +1,8 @@
 # Created by: Roman Neuhauser <neuhauser@sigpipe.cz>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mathomatic
 PORTVERSION=	16.0.5

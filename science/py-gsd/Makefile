@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gsd
 DISTVERSION=	2.4.1
 CATEGORIES=	science python

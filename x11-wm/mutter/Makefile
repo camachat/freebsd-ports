@@ -1,5 +1,8 @@
 # Created by: Pawel Worach <pawel.worach@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mutter
 PORTVERSION=	3.36.6

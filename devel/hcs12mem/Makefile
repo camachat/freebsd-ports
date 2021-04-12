@@ -1,5 +1,8 @@
 # Created by: mk
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hcs12mem
 PORTVERSION=	1.4.1

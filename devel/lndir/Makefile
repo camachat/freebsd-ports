@@ -1,5 +1,8 @@
 # Created by: Carlos A M dos Santos <unixmania@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lndir
 PORTVERSION=	1.0.3

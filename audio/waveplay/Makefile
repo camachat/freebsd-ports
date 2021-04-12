@@ -1,5 +1,8 @@
 # Created by: Yoshihide SONODA <ysonoda@dontaku.csce.kyushu-u.ac.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	waveplay
 PORTVERSION=	2001.09.24

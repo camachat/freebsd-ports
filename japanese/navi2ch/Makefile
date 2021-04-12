@@ -1,5 +1,8 @@
 # Created by: FUJISHIMA Satsuki <sf@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	navi2ch
 PORTVERSION=	2.0.0.d

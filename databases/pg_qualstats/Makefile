@@ -1,5 +1,8 @@
 # Created by: Palle Girgensohn <girgen@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pg_qualstats
 PORTVERSION=	2.0.2

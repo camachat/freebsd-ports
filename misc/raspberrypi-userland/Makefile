@@ -1,5 +1,8 @@
 # Created by: Mikael Urankar <mikael.urankar@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	raspberrypi-userland
 PORTVERSION=	20161026

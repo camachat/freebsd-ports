@@ -1,5 +1,8 @@
 # Created by: Kimo <kimor79@yahoo.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pry-remote-em
 PORTVERSION=	1.1.2

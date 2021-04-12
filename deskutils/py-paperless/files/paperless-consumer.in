@@ -1,7 +1,10 @@
 #!/bin/sh
 
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # PROVIDE: paperless-consumer
 # REQUIRE: LOGIN
 # KEYWORD: shutdown

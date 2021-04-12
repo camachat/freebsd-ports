@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	vegas
 PORTVERSION=	0.1.11
 PORTREVISION=	1

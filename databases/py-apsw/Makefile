@@ -1,5 +1,8 @@
 # Created by: Rusty Nejdl
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	apsw
 PORTVERSION=	3.34.0

@@ -1,5 +1,8 @@
 # Created by: Pedro Giffuni <giffunip@asme.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fastcap
 DISTVERSION=	2.0wr-011109

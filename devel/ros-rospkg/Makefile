@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ros-rospkg
 DISTVERSION=	1.2.0
 CATEGORIES=	devel

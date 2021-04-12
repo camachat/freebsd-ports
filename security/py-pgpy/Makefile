@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pgpy
 PORTVERSION=	0.5.3
 CATEGORIES=	security python

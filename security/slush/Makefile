@@ -1,5 +1,8 @@
 # Created by: shipley@dis.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	slush
 PORTVERSION=	0.1.1

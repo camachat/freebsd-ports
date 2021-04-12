@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	netevent
 DISTVERSION=	0.2.1-79
 PORTREVISION=	2

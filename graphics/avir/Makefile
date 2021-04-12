@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	avir
 DISTVERSION=	2.6
 CATEGORIES=	graphics

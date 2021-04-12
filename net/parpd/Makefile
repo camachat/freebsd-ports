@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	parpd
 DISTVERSION=	1.3
 CATEGORIES=	net

@@ -1,5 +1,8 @@
 # Created by: Nosov Artem <chip-set@mail.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fix-mime-charset
 PORTVERSION=	0.5.3

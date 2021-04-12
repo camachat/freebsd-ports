@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	FluidPlug
 PORTVERSION=	g20181209
 PORTREVISION=	2

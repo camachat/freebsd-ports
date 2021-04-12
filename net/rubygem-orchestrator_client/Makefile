@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	orchestrator_client
 PORTVERSION=	0.5.1
 CATEGORIES=	net rubygems

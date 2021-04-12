@@ -1,5 +1,8 @@
 # Created by: Nikola Kolev <koue@chaosophia.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	samhain
 PORTVERSION=	4.4.3

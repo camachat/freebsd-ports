@@ -1,5 +1,8 @@
 # Created by: Nick Hibma <n_hibma@freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Mongoose
 PORTVERSION=	2.00

@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
 # MAINTAINER:	portmgr@FreeBSD.org
+=======
+# MAINTAINER:	portmgr@FreeBSD.org
+
+>>>>>>> upstream/main
 actions: []
 post-deinstall-lua: <<EOD
 	file = pkg.prefixed_path("%@")

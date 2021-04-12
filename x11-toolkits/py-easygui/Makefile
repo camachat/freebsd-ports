@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	easygui
 PORTVERSION=	0.98.1
 PORTREVISION=	1

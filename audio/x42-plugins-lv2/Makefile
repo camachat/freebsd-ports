@@ -1,8 +1,14 @@
 # Created by: Yuri Victorovich <yuri@rawbw.com>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	x42-plugins
 DISTVERSION=	20210114 # the version is published here: http://gareus.org/misc/x42-plugins.php
+=======
+
+PORTNAME=	x42-plugins
+DISTVERSION=	20210409 # the version is published here: http://gareus.org/misc/x42-plugins.php
+>>>>>>> upstream/main
 CATEGORIES=	audio
 MASTER_SITES=	http://gareus.org/misc/x42-plugins/
 PKGNAMESUFFIX=	-lv2

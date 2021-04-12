@@ -1,5 +1,8 @@
 # Created by: Daniel Harris <dannyboy@subdimension.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	whowatch
 PORTVERSION=	1.4

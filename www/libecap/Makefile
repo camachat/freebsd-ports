@@ -1,5 +1,8 @@
 # Created by: Thomas-Martin Seck <tmseck@web.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libecap
 PORTVERSION=	1.0.1

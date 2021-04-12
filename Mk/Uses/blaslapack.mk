@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # Handle dependencies on Blas / Lapack
 #
 # Feature:	blaslapack

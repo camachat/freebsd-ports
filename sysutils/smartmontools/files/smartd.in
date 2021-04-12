@@ -1,7 +1,10 @@
 #!/bin/sh
 
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # PROVIDE: smartd
 # REQUIRE: root ldconfig devfs syslogd mail
 # KEYWORD: shutdown nojail

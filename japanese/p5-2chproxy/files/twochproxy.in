@@ -1,10 +1,17 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # PROVIDE: twochproxy
 # REQUIRE: LOGIN
 # KEYWORD: shutdown
 #
 # $FreeBSD$
+=======
+
+# PROVIDE: twochproxy
+# REQUIRE: LOGIN
+# KEYWORD: shutdown
+>>>>>>> upstream/main
 
 . /etc/rc.subr
 

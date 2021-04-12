@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gtk-sharp-beans
 PORTVERSION=	2.14.1
 PORTREVISION=	1

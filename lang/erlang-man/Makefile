@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	erlang
 PORTVERSION=	21.3
 PORTREVISION=	2

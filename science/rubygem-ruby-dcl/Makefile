@@ -1,5 +1,8 @@
 # Created by: Shin-ya MURAKAMI <murashin@gfd-dennou.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ruby-dcl
 PORTVERSION=	1.8.1

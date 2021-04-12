@@ -1,5 +1,8 @@
 # Created by: Matt Emmerton <matt@gsicomp.on.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lifelines
 PORTVERSION=	3.1.1

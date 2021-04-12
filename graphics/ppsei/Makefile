@@ -1,5 +1,8 @@
 # Created by: Romain Tartiere <romain@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ppsei
 PORTVERSION=	0.3

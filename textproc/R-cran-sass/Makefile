@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sass
 PORTVERSION=	0.3.1
 CATEGORIES=	textproc

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	hhdate
 PORTVERSION=	3.0.0
 DISTVERSIONPREFIX=	v

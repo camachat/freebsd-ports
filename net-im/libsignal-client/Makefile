@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libsignal-client
 DISTVERSIONPREFIX=	java-
 DISTVERSION=	0.2.3

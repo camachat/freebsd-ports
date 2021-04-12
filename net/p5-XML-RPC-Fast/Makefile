@@ -1,5 +1,8 @@
 # Created by: gugu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	XML-RPC-Fast
 PORTVERSION=	0.8

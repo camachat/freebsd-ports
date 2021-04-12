@@ -1,5 +1,8 @@
 # Created by: Rong-En Fan <rafan@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	MDB2_Driver_pgsql
 DISTVERSION=	1.5.0b4

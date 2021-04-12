@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	HTTP-Session-State-MobileAgentID
 PORTVERSION=	0.46
 PORTREVISION=	1

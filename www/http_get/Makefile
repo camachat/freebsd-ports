@@ -1,5 +1,8 @@
 # Created by: Aaron Zauner <az_mail@gmx.at>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	http_get
 PORTVERSION=	1.0.20140814

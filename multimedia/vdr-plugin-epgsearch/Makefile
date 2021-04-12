@@ -1,5 +1,8 @@
 # Created by: Juergen Lock <nox@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vdr-plugin-epgsearch
 PORTVERSION=	1.0.1s20120322

@@ -1,5 +1,8 @@
 # Created by: Rene Ladan <rene@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lablgtk2
 PORTVERSION=	2.18.11

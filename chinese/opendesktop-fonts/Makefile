@@ -1,5 +1,8 @@
 # Created by: Shen Chuan-Hsing <statue@freebsd.sinica.edu.tw>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	opendesktop-fonts
 PORTVERSION=	1.4.2

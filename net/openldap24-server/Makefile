@@ -1,5 +1,8 @@
 # Created by: Xin LI <delphij@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		openldap
 DISTVERSION=		2.4.58
@@ -66,7 +69,11 @@ BROKEN=			incompatible OpenLDAP version: ${WANT_OPENLDAP_VER}
 .endif
 
 PORTREVISION_CLIENT=	0
+<<<<<<< HEAD
 PORTREVISION_SERVER=	0
+=======
+PORTREVISION_SERVER=	1
+>>>>>>> upstream/main
 OPENLDAP_SHLIB_MAJOR=	2
 OPENLDAP_SHLIB_MINOR=	11.6
 OPENLDAP_MAJOR=		${DISTVERSION:R}

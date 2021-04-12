@@ -1,5 +1,8 @@
 # Created by: igor@zynaps.ru
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	trafshow
 PORTVERSION=	5.2.3

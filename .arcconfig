@@ -1,5 +1,9 @@
 {
 	"repository.callsign" : "P",
+<<<<<<< HEAD
 	"phabricator.uri" : "https://reviews.freebsd.org/",
 	"history.immutable" : true
+=======
+	"phabricator.uri" : "https://reviews.freebsd.org/"
+>>>>>>> upstream/main
 }

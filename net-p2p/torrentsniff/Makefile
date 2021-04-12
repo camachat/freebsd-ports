@@ -1,5 +1,8 @@
 # Created by: Pav Lucistnik <pav@oook.cz>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	torrentsniff
 PORTVERSION=	0.3.0

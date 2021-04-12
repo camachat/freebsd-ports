@@ -1,7 +1,11 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+
+>>>>>>> upstream/main
 # PROVIDE: saltyrtc_server
 # REQUIRE: DAEMON
 # KEYWORD: shutdown

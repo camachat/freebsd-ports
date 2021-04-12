@@ -1,5 +1,8 @@
 # Created by: Herve Quiroz <herve.quiroz@esil.univ-mrs.fr>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	saxon-he
 PORTVERSION=	9.5.1.5

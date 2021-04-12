@@ -1,5 +1,8 @@
 # Created by: Anonymous
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wgetpaste
 PORTVERSION=	2.30

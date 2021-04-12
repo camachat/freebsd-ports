@@ -1,5 +1,8 @@
 # Created by: jeffhung
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	File-Util
 PORTVERSION=	4.161950

@@ -1,5 +1,8 @@
 # Created by: Abel Chow <achow@transoft.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tidy4
 PORTVERSION=	20000804

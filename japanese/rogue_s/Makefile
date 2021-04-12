@@ -1,5 +1,8 @@
 # Created by: Yoshihiko Sarumaru <mistral@imasy.or.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rogue_s
 PORTVERSION=	1.3a

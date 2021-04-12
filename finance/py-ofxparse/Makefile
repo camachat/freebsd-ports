@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ofxparse
 PORTVERSION=	0.20
 PORTREVISION=	2

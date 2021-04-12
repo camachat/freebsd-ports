@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	foswiki
 PORTVERSION=	2.1.6
 PORTREVISION=	1

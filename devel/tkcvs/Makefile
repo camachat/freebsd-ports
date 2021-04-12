@@ -1,5 +1,8 @@
 # Created by: Andreas Kohout <shanee@augusta.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tkcvs
 PORTVERSION=	8.2.3

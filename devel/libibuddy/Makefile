@@ -1,5 +1,8 @@
 # Created by: Rodrigo OSORIO <rodrigo@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libibuddy
 PORTVERSION=	0.0.2

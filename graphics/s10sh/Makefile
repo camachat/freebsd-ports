@@ -1,5 +1,8 @@
 # Created by: John Reynolds <johnjen@reynoldsnet.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	s10sh
 PORTVERSION=	0.2.2

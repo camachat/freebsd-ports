@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pymtbl
 PORTVERSION=	0.5.0
 #PORTREVISION=	1

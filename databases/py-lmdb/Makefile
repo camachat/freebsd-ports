@@ -1,5 +1,8 @@
 # Created by: Keith Gaughan <k@sterechro.me>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lmdb
 PORTVERSION=	0.97

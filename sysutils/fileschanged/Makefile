@@ -1,5 +1,8 @@
 # Created by: Konstantin Reznichenko <kot@premierbank.dp.ua>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fileschanged
 PORTVERSION=	0.6.5

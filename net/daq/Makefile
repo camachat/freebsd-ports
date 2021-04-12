@@ -1,5 +1,8 @@
 # Created by: Dean Freeman (wfreeman@sourcefire.com)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	daq
 PORTVERSION=	2.2.2

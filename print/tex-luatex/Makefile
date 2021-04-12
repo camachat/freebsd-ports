@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	luatex
 PORTVERSION=	0.80.0
 PORTREVISION=	23

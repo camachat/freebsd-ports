@@ -1,5 +1,8 @@
 # Created by: Yuan-Chung Hsiao <ychsiao@ychsiao.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	YAML-Tiny
 PORTVERSION=	1.73

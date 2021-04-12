@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ZopeUndo
 PORTVERSION=	2.12.0
 PORTREVISION=	1

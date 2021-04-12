@@ -1,5 +1,8 @@
 # Created by: Luca Pizzamiglio <pizzamig@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PKGNAMESUFFIX=	-node12
 

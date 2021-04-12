@@ -1,5 +1,8 @@
 # Created by: Henrik Motakef <henrik.motakef@web.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	split-sequence
 PORTVERSION=	20011114.1

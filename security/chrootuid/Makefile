@@ -1,5 +1,8 @@
 # Created by: truckman
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	chrootuid
 PORTVERSION=	1.3

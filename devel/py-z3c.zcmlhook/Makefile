@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	z3c.zcmlhook
 PORTVERSION=	1.0b1
 PORTREVISION=	1

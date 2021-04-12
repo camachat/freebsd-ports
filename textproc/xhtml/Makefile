@@ -1,5 +1,8 @@
 # Created by: kuriyama
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xhtml
 PORTVERSION=	1.0.20020801

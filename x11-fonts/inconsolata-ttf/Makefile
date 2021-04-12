@@ -1,5 +1,8 @@
 # Created by: Ashish Shukla <wahjava@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	inconsolata-ttf
 PORTVERSION=	2.001

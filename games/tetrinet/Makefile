@@ -1,5 +1,8 @@
 # Created by: Fredrik Carlsson <fredrik@wasadata.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tetrinet
 PORTVERSION=	0.11

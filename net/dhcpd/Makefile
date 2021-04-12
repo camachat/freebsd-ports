@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dhcpd
 PORTVERSION=	6.6.20200413
 CATEGORIES=	net

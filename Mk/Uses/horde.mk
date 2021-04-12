@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # Feature:	horde
 # Usage:	USES=horde
 # Valid ARGS:	none

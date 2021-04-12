@@ -1,5 +1,8 @@
 # Created by: Holger Lamm
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	win32-codecs
 DISTVERSION=	20110131

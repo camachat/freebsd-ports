@@ -1,5 +1,8 @@
 # Created by: Nikos Ntarmos <ntarmos@ceid.upatras.gr>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	usbhotkey
 PORTVERSION=	0.4

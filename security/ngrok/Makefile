@@ -1,5 +1,8 @@
 # Created by: John Hixson <jhixson@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ngrok
 PORTVERSION=	2.2.8

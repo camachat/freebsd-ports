@@ -1,5 +1,8 @@
 # Created by: neuroworker@gmail.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	instead
 PORTVERSION=	3.3.4

@@ -1,8 +1,14 @@
 # Created by: Robert Gogolok <gogo@cs.uni-sb.de>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	bundler
 PORTVERSION=	2.2.11
+=======
+
+PORTNAME=	bundler
+PORTVERSION=	2.2.16
+>>>>>>> upstream/main
 PORTEPOCH=	1
 CATEGORIES=	sysutils rubygems
 MASTER_SITES=	RG

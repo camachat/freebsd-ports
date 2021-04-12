@@ -1,5 +1,8 @@
 # Created by: gno@yahoo-inc.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	json-c
 PORTVERSION=	0.15

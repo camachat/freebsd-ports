@@ -1,5 +1,8 @@
 # Created by: Yoshiro MIHIRA <sanpei@sanpei.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cdif
 PORTVERSION=	2.14.20170401

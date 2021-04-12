@@ -1,5 +1,8 @@
 # Created by: andrey@kostenko.name
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	MooseX-Lists
 PORTVERSION=	0.05

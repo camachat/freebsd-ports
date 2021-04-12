@@ -1,8 +1,14 @@
 # Created by: Alexander Vereeken <Alexander88207@protonmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	matcha-gtk-themes
 DISTVERSION=	2021-02-04
+=======
+
+PORTNAME=	matcha-gtk-themes
+DISTVERSION=	2021-04-09
+>>>>>>> upstream/main
 CATEGORIES=	x11-themes
 
 MAINTAINER=	Alexander88207@protonmail.com

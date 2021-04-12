@@ -1,7 +1,11 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD: head/net/minidlna/files/minidlna.in 323762 2013-07-26 23:25:40Z wg $
 #
+=======
+
+>>>>>>> upstream/main
 # PROVIDE: minidlna
 # REQUIRE: LOGIN
 # KEYWORD: shutdown

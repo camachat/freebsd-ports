@@ -1,5 +1,8 @@
 # Created by: Sean Bruno
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Cockatrice
 PORTVERSION=	2.8.0

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	comfortaa-ttf
 PORTVERSION=	3.001
 PORTREVISION=	1

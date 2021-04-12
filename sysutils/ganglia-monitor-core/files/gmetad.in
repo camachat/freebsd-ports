@@ -1,5 +1,8 @@
 #!/bin/sh
+<<<<<<< HEAD
 # $FreeBSD: head/sysutils/ganglia-monitor-core/files/gmetad.in 302141 2012-08-05 23:19:36Z dougb $
+=======
+>>>>>>> upstream/main
 
 # PROVIDE: gmetad
 # REQUIRE: gmond

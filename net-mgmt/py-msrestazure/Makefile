@@ -1,5 +1,8 @@
 # Created by: Johannes Jost Meixner <johannes@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	msrestazure
 DISTVERSION=	0.6.3

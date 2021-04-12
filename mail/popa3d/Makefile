@@ -1,5 +1,8 @@
 # Created by: Sergey Samoyloff <gonza@techline.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	popa3d
 PORTVERSION=	1.0.3

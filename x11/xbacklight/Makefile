@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xbacklight
 PORTVERSION=	1.2.3
 CATEGORIES=	x11

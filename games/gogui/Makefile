@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gogui
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.4.10

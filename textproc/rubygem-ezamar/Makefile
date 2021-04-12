@@ -1,5 +1,8 @@
 # Created by: Jyun-Yan You <jyyou@cs.nctu.edu.tw>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ezamar
 PORTVERSION=	2009.06

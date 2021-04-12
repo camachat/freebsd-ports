@@ -1,5 +1,8 @@
 # Created by: Wen heping <wenheping@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xoops
 PORTVERSION=	2.5.10

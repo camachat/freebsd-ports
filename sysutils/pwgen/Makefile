@@ -1,5 +1,8 @@
 # Created by: Andrew Khlebutin <andrey@hm.perm.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pwgen
 PORTVERSION=	2.08

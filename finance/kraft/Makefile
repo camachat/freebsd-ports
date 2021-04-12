@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kraft
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.96

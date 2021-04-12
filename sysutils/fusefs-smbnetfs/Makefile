@@ -1,5 +1,8 @@
 # Created by: Denis Barov
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	smbnetfs
 PORTVERSION=	0.6.1

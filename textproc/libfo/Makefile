@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libfo
 PORTVERSION=	0.6.3
 DISTVERSIONPREFIX=	v

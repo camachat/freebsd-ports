@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # Created by: Dmitry Marakasov <amdmi3@amdmi3.ru>
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	brickshooter
 PORTVERSION=	0.04
 PORTREVISION=	8

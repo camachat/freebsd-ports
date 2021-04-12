@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	nanogui
 DISTVERSION=	g20190922
 PORTREVISION=	1

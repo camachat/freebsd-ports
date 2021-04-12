@@ -1,5 +1,8 @@
 # Created by: Alex Dupre <sysadmin@alexdupre.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nocc
 PORTVERSION=	1.9.10

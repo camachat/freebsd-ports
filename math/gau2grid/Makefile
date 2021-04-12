@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gau2grid
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.0.7

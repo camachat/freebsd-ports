@@ -1,5 +1,8 @@
 # Created by: <hvo.pm@xs4all.nl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Interchange6-Schema
 PORTVERSION=	0.133

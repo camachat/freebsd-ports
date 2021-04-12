@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sniproxy
 DISTVERSION=	0.6.0
 PORTREVISION=	2

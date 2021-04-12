@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cligj
 PORTVERSION=	0.7.1
 CATEGORIES=	devel python

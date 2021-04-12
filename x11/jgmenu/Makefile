@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	jgmenu
 DISTVERSIONPREFIX=	v
 DISTVERSION=	4.3.0

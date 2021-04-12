@@ -1,5 +1,8 @@
 # Created by: Michael Reifenberger <mr@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bitwarden_rs
 DISTVERSION=	1.19.0

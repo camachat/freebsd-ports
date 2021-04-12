@@ -1,5 +1,8 @@
 # Created by: David Romano <unobe@cpan.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libparserutils
 PORTVERSION=	0.2.4

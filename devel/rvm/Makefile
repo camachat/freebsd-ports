@@ -1,5 +1,8 @@
 # Created by: jaharkes
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rvm
 DISTVERSION=	1.20

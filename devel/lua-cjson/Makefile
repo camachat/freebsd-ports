@@ -1,5 +1,8 @@
 # Created by: osa
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cjson
 PORTVERSION=	2.1.0

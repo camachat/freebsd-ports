@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 # LICENSE_FILE is set in the consumer ports because its location varies
 LICENSE=	NVIDIA
 LICENSE_NAME=	License For Customer Use of NVIDIA Software

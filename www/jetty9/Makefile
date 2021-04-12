@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	jetty
 PORTVERSION=	9.4.29
 CATEGORIES=	www java

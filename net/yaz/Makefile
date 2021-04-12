@@ -1,9 +1,16 @@
 # Created by: Dmitry Sivachenko <dima@Chg.RU>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	yaz
 DISTVERSION=	5.30.3
 PORTREVISION=	1
+=======
+
+PORTNAME=	yaz
+DISTVERSION=	5.30.3
+PORTREVISION=	2
+>>>>>>> upstream/main
 CATEGORIES=	net
 MASTER_SITES=	http://ftp.indexdata.dk/pub/yaz/
 

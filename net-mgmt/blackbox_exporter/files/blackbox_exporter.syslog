@@ -1,3 +1,6 @@
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 !blackbox_exporter
 *.*						/var/log/blackbox_exporter.log

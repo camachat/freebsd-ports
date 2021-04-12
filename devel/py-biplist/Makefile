@@ -1,5 +1,8 @@
 # Created by: William Grzybowski <wg@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	biplist
 PORTVERSION=	1.0.3

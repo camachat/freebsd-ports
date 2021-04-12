@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	susv4
 PORTVERSION=	20180131
 CATEGORIES=	misc

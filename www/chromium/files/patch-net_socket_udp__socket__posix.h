@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- net/socket/udp_socket_posix.h.orig	2020-11-13 06:36:46 UTC
+=======
+--- net/socket/udp_socket_posix.h.orig	2021-03-12 23:57:27 UTC
+>>>>>>> upstream/main
 +++ net/socket/udp_socket_posix.h
 @@ -35,7 +35,7 @@
  

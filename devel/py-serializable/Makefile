@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	serializable
 DISTVERSION=	0.2.1
 CATEGORIES=	devel python

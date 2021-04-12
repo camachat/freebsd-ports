@@ -1,5 +1,8 @@
 # Created by: Timothy Bourke <timbob@bigpond.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pspresent
 PORTVERSION=	1.3

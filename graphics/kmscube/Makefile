@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kmscube
 PORTVERSION=	s20201028
 CATEGORIES=	graphics

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Markups
 PORTVERSION=	3.0.0
 CATEGORIES=	textproc python

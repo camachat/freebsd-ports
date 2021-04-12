@@ -1,5 +1,8 @@
 # Created by: Martin Klaffenboeck <martin.klaffenboeck@gmx.at>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gtkmm
 PORTVERSION=	3.24.2

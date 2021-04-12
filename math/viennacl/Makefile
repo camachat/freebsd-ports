@@ -1,5 +1,8 @@
 # Created by: Pedro Giffuni <pfg@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	viennacl
 PORTVERSION=	1.7.1

@@ -1,5 +1,8 @@
 # Created by: Anders Nordby <anders@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pxe
 PORTVERSION=	1.4.2

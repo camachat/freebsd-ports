@@ -1,5 +1,8 @@
 # Created by: David Bremner <bremner@unb.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Text-BibTeX
 PORTVERSION=	0.88

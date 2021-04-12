@@ -1,5 +1,8 @@
 # Created by: aturetta@commit.it
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Test-LongString
 PORTVERSION=	0.17

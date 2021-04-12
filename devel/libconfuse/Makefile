@@ -1,5 +1,8 @@
 # Created by: Juraj Lutter <otis@sk.freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libconfuse
 PORTVERSION=	3.3

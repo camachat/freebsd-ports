@@ -1,9 +1,16 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	libfolia
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.15
 PORTREVISION=	9
+=======
+PORTNAME=	libfolia
+DISTVERSIONPREFIX=	v
+DISTVERSION=	1.15
+PORTREVISION=	10
+>>>>>>> upstream/main
 CATEGORIES=	textproc
 
 MAINTAINER=	yuri@FreeBSD.org

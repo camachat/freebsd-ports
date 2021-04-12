@@ -1,5 +1,8 @@
 # Created by: Ulrich Spoerlein <q@uni.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ocrad
 DISTVERSION=	0.27

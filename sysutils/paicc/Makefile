@@ -1,5 +1,8 @@
 # Created by: peter
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	paicc
 PORTVERSION=	1.4

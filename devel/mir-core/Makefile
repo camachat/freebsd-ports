@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mir-core
 PORTVERSION=	0.2.1
 DISTVERSIONPREFIX=	v

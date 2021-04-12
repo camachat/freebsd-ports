@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fasm
 PORTVERSION=	g20190920
 CATEGORIES=	cad python

@@ -1,5 +1,8 @@
 # Created by: Matthew Fuller <fullermd@over-yonder.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pwd_unmkdb
 PORTVERSION=	1.3.1

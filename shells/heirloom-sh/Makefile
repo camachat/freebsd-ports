@@ -1,5 +1,8 @@
 # Created by: Danijel Tasov <danielt@pilgerer.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	heirloom-sh
 PORTVERSION=	050706

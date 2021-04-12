@@ -1,5 +1,8 @@
 # Created by: Dru Lavigne <dru@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sphinx_wikipedia
 PORTVERSION=	20150903

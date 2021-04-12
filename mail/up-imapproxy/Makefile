@@ -1,5 +1,8 @@
 # Created by: Martin Blapp
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	imapproxy
 DISTVERSION=	1.2.8-pre20171105

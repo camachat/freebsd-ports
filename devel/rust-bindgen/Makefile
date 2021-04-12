@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	bindgen
 DISTVERSION=	0.56.0
 PORTREVISION=	3
+=======
+PORTNAME=	bindgen
+DISTVERSION=	0.58.1
+>>>>>>> upstream/main
 CATEGORIES=	devel
 MASTER_SITES=	CRATESIO
 PKGNAMEPREFIX=	rust-
@@ -47,7 +52,11 @@ CARGO_CRATES=	aho-corasick-0.7.15 \
 		regex-1.4.2 \
 		regex-syntax-0.6.21 \
 		rustc-hash-1.1.0 \
+<<<<<<< HEAD
 		shlex-0.1.1 \
+=======
+		shlex-1.0.0 \
+>>>>>>> upstream/main
 		strsim-0.8.0 \
 		termcolor-1.1.0 \
 		textwrap-0.11.0 \

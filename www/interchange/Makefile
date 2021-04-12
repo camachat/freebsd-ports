@@ -1,5 +1,8 @@
 # Created by: Seth Kingsley <sethk@meowfishies.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	interchange
 PORTVERSION=	5.6.3

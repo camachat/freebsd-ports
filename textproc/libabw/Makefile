@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libabw
 PORTVERSION=	0.1.3
 CATEGORIES=	textproc

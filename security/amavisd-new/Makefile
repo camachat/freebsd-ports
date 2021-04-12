@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	amavisd-new
 PORTVERSION=	2.12.0
 PORTREVISION=	1

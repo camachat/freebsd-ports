@@ -1,5 +1,8 @@
 # Created by: eivind
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	etcmerge
 PORTVERSION=	0.4

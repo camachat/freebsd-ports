@@ -1,5 +1,8 @@
 # Created by: Juergen Lock <nox@jelal.kn-bremen.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cdlabelgen
 PORTVERSION=	4.3.0

@@ -1,5 +1,8 @@
 # Created by: Martti Kuparinen <martti.kuparinen@iki.fi>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	isakmpd
 PORTVERSION=	20041207

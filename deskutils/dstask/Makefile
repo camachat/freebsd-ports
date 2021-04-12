@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dstask
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.24.1

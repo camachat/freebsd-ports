@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	btest
 DISTVERSION=	0.67
 CATEGORIES=	devel python

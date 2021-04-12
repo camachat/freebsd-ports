@@ -1,7 +1,11 @@
 #!/bin/sh
+<<<<<<< HEAD
 # $FreeBSD$
 
 #
+=======
+
+>>>>>>> upstream/main
 #  Copyright (c) 2010-2014 Andy Kosela <akosela@andykosela.com>
 #  All rights reserved.
 #

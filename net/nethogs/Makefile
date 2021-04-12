@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	nethogs
 PORTVERSION=	0.8.5
 DISTVERSIONPREFIX=	v

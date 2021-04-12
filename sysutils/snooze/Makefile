@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	snooze
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.5

@@ -1,5 +1,8 @@
 # Created by: Patrick Gardella <patrick@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xlog
 PORTVERSION=	2.0.19

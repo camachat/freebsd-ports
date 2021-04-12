@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	MooseX-Types-LoadableClass
 PORTVERSION=	0.015
 CATEGORIES=	devel perl5

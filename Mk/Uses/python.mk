@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # Provide support for Python related ports. This includes detecting Python
 # interpreters, ports providing package and modules for python as well as
 # consumer ports requiring Python at build or run time.

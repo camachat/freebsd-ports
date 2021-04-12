@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	snmp
 PORTVERSION=	1.2.0
 CATEGORIES=	net-mgmt rubygems

@@ -1,5 +1,8 @@
 # Created by: Lukasz Wasikowski <lukasz@wasikowski.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	modman
 PORTVERSION=	1.12

@@ -1,5 +1,8 @@
 # Created by: joerg
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	manck
 PORTVERSION=	1.2

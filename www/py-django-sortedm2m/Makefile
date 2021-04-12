@@ -1,5 +1,8 @@
 # Created by: Kevin Golding <ports@caomhin.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	django-sortedm2m
 PORTVERSION=	3.0.2

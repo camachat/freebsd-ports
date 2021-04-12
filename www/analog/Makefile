@@ -1,5 +1,8 @@
 # Created by: jfitz
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	analog
 PORTVERSION=	6.0

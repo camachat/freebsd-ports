@@ -1,5 +1,8 @@
 # Created by: Alexander Matey <matey@cis.ohio-state.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xxkb
 PORTVERSION=	1.11.1

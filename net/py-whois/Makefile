@@ -1,5 +1,8 @@
 # Created by: Gabriel Dutra <0xdutra@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	whois
 PORTVERSION=	0.9.7

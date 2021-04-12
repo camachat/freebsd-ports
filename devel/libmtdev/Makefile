@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mtdev
 PORTVERSION=	1.1.6
 CATEGORIES=	devel

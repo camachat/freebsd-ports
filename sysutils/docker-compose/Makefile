@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	docker-compose
 PORTVERSION=	1.24.0
 PORTREVISION=	1

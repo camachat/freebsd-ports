@@ -1,5 +1,8 @@
 # Created by: Keith J. Jones <kjones@antihackertoolkit.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	srm
 PORTVERSION=	1.2.15

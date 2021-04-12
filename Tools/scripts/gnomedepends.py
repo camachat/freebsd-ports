@@ -13,8 +13,11 @@
 # Maxim Sobolev
 # ----------------------------------------------------------------------------
 #
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # MAINTAINER= gnome@FreeBSD.org
 #
 # TODO:

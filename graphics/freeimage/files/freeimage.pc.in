@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 $FreeBSD$
+=======
+>>>>>>> upstream/main
 prefix=%%PREFIX%%
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib

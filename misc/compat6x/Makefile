@@ -1,5 +1,8 @@
 # Created by: mnag
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	compat6x
 PORTVERSION=	6.4.604000.200810

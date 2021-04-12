@@ -1,7 +1,10 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 
 # PROVIDE: 3dm2
 # REQUIRE: NETWORKING SERVERS

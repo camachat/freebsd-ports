@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gskrab
 PORTVERSION=	0.0.1
 PORTREVISION=	11

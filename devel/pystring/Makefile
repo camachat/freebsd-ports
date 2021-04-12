@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pystring
 PORTVERSION=	1.1.3
 DISTVERSIONPREFIX=	v

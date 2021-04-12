@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	python-jenkins
 PORTVERSION=	1.7.0
 CATEGORIES=	devel python

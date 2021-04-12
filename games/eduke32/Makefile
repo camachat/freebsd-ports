@@ -1,9 +1,15 @@
 # Created by: alepulver
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	eduke32
 PORTVERSION=	20201209
 PORTREVISION=	1
+=======
+
+PORTNAME=	eduke32
+PORTVERSION=	20210404
+>>>>>>> upstream/main
 CATEGORIES=	games
 MASTER_SITES=	http://dukeworld.com/eduke32/synthesis/${PORTVERSION}-${GITREVISION}/:eduke32 \
 		http://www.duke4.org/files/nightfright/hrp/:hrp \
@@ -39,7 +45,11 @@ USE_GL=		gl glu
 USE_GNOME=	gtk20
 USE_SDL=	sdl2 mixer2
 WRKSRC=		${WRKDIR}/${PORTNAME}_${PORTVERSION}-${GITREVISION}
+<<<<<<< HEAD
 GITREVISION=	9279-b89e16fbe
+=======
+GITREVISION=	9321-7225643e3
+>>>>>>> upstream/main
 DATADIR=	${PREFIX}/share/duke3d
 SUB_FILES=	pkg-message
 MAKEFILE=	GNUmakefile

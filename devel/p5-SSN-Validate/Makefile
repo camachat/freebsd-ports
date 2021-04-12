@@ -1,5 +1,8 @@
 # Created by: tiger <tiger@whitetigersd.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	SSN-Validate
 PORTVERSION=	0.18

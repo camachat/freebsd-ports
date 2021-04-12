@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	prodigal
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.6.3-7

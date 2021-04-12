@@ -1,5 +1,8 @@
 # Created by: Ashish SHUKLA <wahjava@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Pod-Perldoc
 PORTVERSION=	3.25

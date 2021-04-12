@@ -1,5 +1,8 @@
 # Created by: Matthias Andree <mandree@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pkgs_which
 PORTVERSION=	0.4.1

@@ -1,5 +1,8 @@
 # Created by: Vany <ivan@serezhkin.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Perl-Critic-Bangs
 PORTVERSION=	1.08

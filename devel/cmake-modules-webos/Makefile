@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cmake-modules-webos
 DISTVERSION=	1.0b
 CATEGORIES=	devel

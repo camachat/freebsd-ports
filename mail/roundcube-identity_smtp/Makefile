@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	identity_smtp
 PORTVERSION=	20170914
 CATEGORIES=	mail

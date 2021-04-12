@@ -1,5 +1,8 @@
 # Created by: Anton Yuzhaninov <citrin@citrin.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Queue-Beanstalk
 PORTVERSION=	0.02

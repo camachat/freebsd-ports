@@ -1,8 +1,14 @@
 # Created by: Thierry Thomas <thierry@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	uni
 PORTVERSION=	2.0.0
+=======
+
+PORTNAME=	uni
+PORTVERSION=	2.1.0
+>>>>>>> upstream/main
 DISTVERSIONPREFIX=	v
 CATEGORIES=	textproc
 

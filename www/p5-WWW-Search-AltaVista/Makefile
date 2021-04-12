@@ -1,5 +1,8 @@
 # Created by: Fanying Jen <fanying@fynet.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	WWW-Search-AltaVista
 PORTVERSION=	2.154

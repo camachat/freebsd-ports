@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		ldb
 PORTVERSION=		2.0.10
 PORTREVISION=		0

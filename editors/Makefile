@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
 
+=======
+>>>>>>> upstream/main
     COMMENT = Editors
 
     SUBDIR += 2bsd-vi
@@ -47,7 +50,10 @@
     SUBDIR += fpc-ide
     SUBDIR += fte
     SUBDIR += fxite
+<<<<<<< HEAD
     SUBDIR += gate
+=======
+>>>>>>> upstream/main
     SUBDIR += gedit
     SUBDIR += gedit-plugins
     SUBDIR += ghex
@@ -249,7 +255,10 @@
     SUBDIR += textadept
     SUBDIR += texworks
     SUBDIR += the
+<<<<<<< HEAD
     SUBDIR += thoteditor
+=======
+>>>>>>> upstream/main
     SUBDIR += treeform
     SUBDIR += tweak
     SUBDIR += uemacs

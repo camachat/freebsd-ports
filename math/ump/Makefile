@@ -1,5 +1,8 @@
 # Created by: Nicola Vitale <nivit@email.it>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ump
 PORTVERSION=	0.8.6

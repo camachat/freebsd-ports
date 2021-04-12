@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	interactive_rebase_tool
 DISTVERSION=	2.0.0
 PORTREVISION=	1
+=======
+PORTNAME=	interactive_rebase_tool
+DISTVERSION=	2.0.0
+PORTREVISION=	2
+>>>>>>> upstream/main
 CATEGORIES=	devel
 
 MAINTAINER=	petteri.valkonen@iki.fi

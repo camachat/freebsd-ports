@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sas3ircu
 PORTVERSION=	17.00.00.00
 CATEGORIES=	sysutils

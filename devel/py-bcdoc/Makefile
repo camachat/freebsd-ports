@@ -1,5 +1,8 @@
 # Created by: Alexey V. Degtyarev <alexey@renatasystems.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bcdoc
 PORTVERSION=	0.16.0

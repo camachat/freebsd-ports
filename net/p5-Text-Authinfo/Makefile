@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Text-Authinfo
 PORTVERSION=	0.03
 CATEGORIES=	net perl5

@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	dasel
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.13.3
+=======
+PORTNAME=	dasel
+DISTVERSIONPREFIX=	v
+DISTVERSION=	1.13.6
+>>>>>>> upstream/main
 CATEGORIES=	textproc
 
 MAINTAINER=	lcook@FreeBSD.org

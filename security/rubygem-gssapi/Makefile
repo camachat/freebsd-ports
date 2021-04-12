@@ -1,5 +1,8 @@
 # Created by: Joseph Benden <joe@thrallingpenguin.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gssapi
 PORTVERSION=	1.3.0

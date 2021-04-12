@@ -1,5 +1,8 @@
 # Created by: Herbert J. Skuhra <herbert.skuhra@gmx.at>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	artwiz-aleczapka-de
 PORTVERSION=	1.3

@@ -1,5 +1,8 @@
 # Created by: Chad J. Milios <milios@ccsys.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	namecoin
 PORTVERSION=	0.19.1

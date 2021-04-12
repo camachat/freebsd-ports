@@ -1,5 +1,8 @@
 # Created by: xaa@stack.nl
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME?=	xboard
 PORTVERSION?=	4.9.1

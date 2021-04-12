@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Lingua-KO-Romanize-Hangul
 PORTVERSION=	0.20
 CATEGORIES=	korean perl5

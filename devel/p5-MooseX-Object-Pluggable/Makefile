@@ -1,5 +1,8 @@
 # Created by: Ashish SHUKLA <wahjava@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	MooseX-Object-Pluggable
 PORTVERSION=	0.0014

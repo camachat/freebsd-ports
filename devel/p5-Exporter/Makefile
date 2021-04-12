@@ -1,5 +1,8 @@
 # Created by: Tsung-Han Yeh <snowfly@yuntech.edu.tw>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Exporter
 PORTVERSION=	5.68

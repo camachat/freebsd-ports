@@ -1,5 +1,8 @@
 # Created by: Chris Costello <chris@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rtfm
 PORTVERSION=	1.0

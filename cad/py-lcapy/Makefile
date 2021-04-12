@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	lcapy
 DISTVERSION=	g20171202
 PORTREVISION=	4

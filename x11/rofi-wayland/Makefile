@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 DISTVERSION=	1.6.1
 DISTVERSIONSUFFIX=	${PKGNAMESUFFIX}
 PORTREVISION=	0

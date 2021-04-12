@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bingrep
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.8.5

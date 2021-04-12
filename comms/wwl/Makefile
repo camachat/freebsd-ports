@@ -1,5 +1,8 @@
 # Created by: db
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wwl
 PORTVERSION=	1.3

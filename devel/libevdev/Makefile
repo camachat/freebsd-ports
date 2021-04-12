@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libevdev
 PORTVERSION=	1.9.1.20200928
 CATEGORIES=	devel

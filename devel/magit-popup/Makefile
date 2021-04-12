@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	magit-popup
 PORTVERSION=	2.13.3
 DISTVERSIONPREFIX=	v

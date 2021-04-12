@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 BINDIR?=	${PREFIX}/bin
 
 CFLAGS+=	-DUNIX -I${LOCALBASE}/include

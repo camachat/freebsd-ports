@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	DBIx-Class-Tree
 PORTVERSION=	0.03003
 PORTREVISION=	1

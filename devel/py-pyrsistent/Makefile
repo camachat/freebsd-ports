@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pyrsistent
 PORTVERSION=	0.14.11
 PORTREVISION=	1

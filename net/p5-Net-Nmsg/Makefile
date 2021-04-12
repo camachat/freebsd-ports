@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Net-Nmsg
 PORTVERSION=	0.17
 CATEGORIES=	net perl5

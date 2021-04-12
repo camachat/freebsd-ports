@@ -1,5 +1,8 @@
 # Created by: SADA Kenji <sada@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 CATEGORIES=	japanese
 

@@ -1,5 +1,8 @@
 # Created by: wghicks@bellsouth.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tkcon
 PORTVERSION=	2.5

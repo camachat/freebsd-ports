@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ghub
 DISTVERSIONPREFIX=	v
 DISTVERSION=	3.5.1

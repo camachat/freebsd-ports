@@ -1,5 +1,8 @@
 # Created by: Greg Hewgill <greg@hewgill.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	zebedee
 PORTVERSION=	2.5.3

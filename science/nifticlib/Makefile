@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	nifticlib
 PORTVERSION=	2.0.0
 PORTREVISION=	1

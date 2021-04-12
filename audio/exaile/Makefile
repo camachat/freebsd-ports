@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	exaile
 DISTVERSION=	4.1.0
+=======
+PORTNAME=	exaile
+DISTVERSION=	4.1.1
+>>>>>>> upstream/main
 CATEGORIES=	audio
 
 MAINTAINER=	rm@FreeBSD.org

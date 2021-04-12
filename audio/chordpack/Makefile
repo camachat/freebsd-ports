@@ -1,5 +1,8 @@
 # Created by: sethk
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	chordpack
 PORTVERSION=	0.8.1

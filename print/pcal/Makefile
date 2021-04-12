@@ -1,5 +1,8 @@
 # Created by: mwest@uct.ac.za
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pcal
 PORTVERSION=	4.11.0

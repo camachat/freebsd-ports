@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	keybinder
 PORTVERSION=	0.3.2
 DISTVERSIONPREFIX=	keybinder-3.0-v

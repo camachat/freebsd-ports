@@ -1,5 +1,8 @@
 # Created by: Edwin Groothuis <edwin@mavetju.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ipv6calc
 PORTVERSION=	3.0.2

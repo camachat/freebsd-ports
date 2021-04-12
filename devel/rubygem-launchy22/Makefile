@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	launchy
 PORTVERSION=	2.2.0
 CATEGORIES=	devel rubygems

@@ -1,5 +1,8 @@
 # Created by: Christoph Mallon <christoph.mallon@gmx.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libfirm
 PORTVERSION=	1.21.0

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	uhd
 PORTVERSION=	4.0.0.0
 PORTREVISION=	2

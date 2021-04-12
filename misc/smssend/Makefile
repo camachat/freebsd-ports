@@ -1,5 +1,8 @@
 # Created by: Miklos Niedermayer <mico@bsd.hu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	smssend
 PORTVERSION=	3.6

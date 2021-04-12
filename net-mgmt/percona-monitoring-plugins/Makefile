@@ -1,5 +1,8 @@
 # Created by: Alexey V. Degtyarev <alexey@renatasystems.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	percona-monitoring-plugins
 PORTVERSION=	1.1.8

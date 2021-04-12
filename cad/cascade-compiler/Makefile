@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cascade
 PORTVERSION=	g20200105.1
 CATEGORIES=	cad

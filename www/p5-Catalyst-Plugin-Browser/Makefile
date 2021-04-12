@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Catalyst-Plugin-Browser
 PORTVERSION=	0.08
 PORTREVISION=	1

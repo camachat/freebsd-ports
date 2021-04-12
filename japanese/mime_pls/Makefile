@@ -1,5 +1,8 @@
 # Created by: n-shigemura@ensure.jp
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mime_pls
 PORTVERSION=	2.02

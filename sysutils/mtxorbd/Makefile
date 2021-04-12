@@ -1,5 +1,8 @@
 # Created by: rhay
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mtxorbd
 PORTVERSION=	1.0.2

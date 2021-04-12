@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gcc-arm-embedded
 PORTVERSION=	10.2.20201211
 PORTREVISION=	1

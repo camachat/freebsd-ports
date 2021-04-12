@@ -1,5 +1,8 @@
 # Created by: Dan Rench <citric@cubicone.tmetic.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	MIME-Base64-URLSafe
 PORTVERSION=	0.01

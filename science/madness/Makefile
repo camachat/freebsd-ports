@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	madness
 DISTVERSION=	0.10.1.20180823
 PORTREVISION=	12

@@ -1,5 +1,8 @@
 # Created by: t.vanklaveren@student.utwente.nl
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libao
 PORTVERSION=	1.2.0

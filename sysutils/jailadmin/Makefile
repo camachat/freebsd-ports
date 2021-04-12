@@ -1,5 +1,8 @@
 # Created by: Kirk Strauser <kirk@strauser.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jailadmin
 PORTVERSION=	1.9

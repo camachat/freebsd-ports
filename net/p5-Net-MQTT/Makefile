@@ -1,5 +1,8 @@
 # Created by: Alex Bakhtin <Alex.Bakhtin@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-MQTT
 PORTVERSION=	1.143260

@@ -1,5 +1,8 @@
 # Created by: Kristaps Kulis <kristaps.kulis@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gunicorn
 PORTVERSION=	19.9.0

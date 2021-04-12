@@ -1,5 +1,8 @@
 # Created by: b.f. <bf@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tinyxml2
 PORTVERSION=	8.0.0

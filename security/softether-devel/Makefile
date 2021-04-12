@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	softether
 DISTVERSION=	4.34-9745-beta
 PORTREVISION=	3

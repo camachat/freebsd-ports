@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 PROG=	nologinmsg
 SRCS=	nologinmsg.c
 BINDIR=	${PREFIX}/bin

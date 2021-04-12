@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	teleport
 DISTVERSIONPREFIX=	v
 DISTVERSION=	4.3.9

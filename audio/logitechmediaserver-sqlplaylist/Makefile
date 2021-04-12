@@ -1,5 +1,8 @@
 # Created by: Tim Bishop <tdb@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sqlplaylist
 PORTVERSION=	2.5.3859

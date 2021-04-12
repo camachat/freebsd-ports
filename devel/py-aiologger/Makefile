@@ -1,5 +1,8 @@
 # Created by: Kirill Ponomarev <krion@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		aiologger
 PORTVERSION=	0.6.0

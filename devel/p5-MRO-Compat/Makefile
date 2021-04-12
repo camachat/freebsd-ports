@@ -1,5 +1,8 @@
 # Created by: lbr
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	MRO-Compat
 PORTVERSION=	0.13

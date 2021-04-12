@@ -1,6 +1,9 @@
 #!/bin/sh
 # Created by: l33tname <sirl33tname@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 #
 # PROVIDE: gollum
 # REQUIRE: LOGIN

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gabedit
 DISTVERSION=	2.5.1-300720 # the last number is "snapshot"
 CATEGORIES=	science

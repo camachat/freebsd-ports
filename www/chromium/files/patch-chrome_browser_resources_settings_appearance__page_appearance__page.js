@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- chrome/browser/resources/settings/appearance_page/appearance_page.js.orig	2020-11-13 06:36:37 UTC
+=======
+--- chrome/browser/resources/settings/appearance_page/appearance_page.js.orig	2021-03-12 23:57:18 UTC
+>>>>>>> upstream/main
 +++ chrome/browser/resources/settings/appearance_page/appearance_page.js
 @@ -137,7 +137,7 @@ Polymer({
      'defaultFontSizeChanged_(prefs.webkit.webprefs.default_font_size.value)',
@@ -22,12 +26,21 @@
      }
  
      let i18nId;
+<<<<<<< HEAD
 -    // <if expr="is_linux and not chromeos">
 +    // <if expr="is_bsd and not chromeos">
      i18nId = useSystemTheme ? 'systemTheme' : 'classicTheme';
      // </if>
 -    // <if expr="not is_linux or chromeos">
 +    // <if expr="not is_bsd or chromeos">
+=======
+-    // <if expr="is_linux and not chromeos and not lacros">
++    // <if expr="is_posix and not chromeos and not lacros">
+     i18nId = useSystemTheme ? 'systemTheme' : 'classicTheme';
+     // </if>
+-    // <if expr="not is_linux or chromeos or lacros">
++    // <if expr="not is_posix or chromeos or lacros">
+>>>>>>> upstream/main
      i18nId = 'chooseFromWebStore';
      // </if>
      this.themeSublabel_ = this.i18n(i18nId);

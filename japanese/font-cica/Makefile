@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cica
 PORTVERSION=	5.0.2
 #PORTREVISION=	0

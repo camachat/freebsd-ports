@@ -1,5 +1,8 @@
 # Created by: "Choe, Cheng-Dae" whitekid
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sqlobject
 PORTVERSION=	1.6.0

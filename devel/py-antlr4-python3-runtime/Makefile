@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	antlr4-python3-runtime
 PORTVERSION=	4.9
 CATEGORIES=	devel python

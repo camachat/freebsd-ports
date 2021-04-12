@@ -1,5 +1,8 @@
 # Created by: Wei-chun Chao
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-Netmask
 PORTVERSION=	1.9104

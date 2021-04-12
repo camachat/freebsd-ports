@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	jre
 PORTVERSION=	${JRE_VERSION}.${JRE_UPDATE_VERSION}
 CATEGORIES=	java

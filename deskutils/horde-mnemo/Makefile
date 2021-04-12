@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mnemo
 PORTVERSION=	4.2.14
 PORTREVISION=	1

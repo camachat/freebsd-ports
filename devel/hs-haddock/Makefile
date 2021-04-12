@@ -1,5 +1,8 @@
 # Created by: Oliver Braun <obraun@informatik.unibw-muenchen.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	haddock
 PORTVERSION=	2.24.0

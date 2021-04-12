@@ -1,5 +1,8 @@
 # Created by: brock@cotcomsol.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bsnmp-regex
 PORTVERSION=	0.6

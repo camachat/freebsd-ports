@@ -1,5 +1,8 @@
 # Created by: Mathieu Arnold
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Gimp
 PORTVERSION=	2.33

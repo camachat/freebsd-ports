@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xsysstats
 PORTVERSION=	1.51
 PORTREVISION=	5

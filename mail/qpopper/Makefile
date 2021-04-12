@@ -1,5 +1,8 @@
 # Created by: pst
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	qpopper
 PORTVERSION=	4.1.0

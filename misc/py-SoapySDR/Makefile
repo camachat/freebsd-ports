@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	SoapySDR
 DISTVERSIONPREFIX=	soapy-sdr-
 DISTVERSION=	0.7.2

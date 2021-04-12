@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 # ALPS - additional driver for Alps MD-5000
 
 DISTFILES+=	gdevalps-0.21.tar.gz:ports_jp_gs

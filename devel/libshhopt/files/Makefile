@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PREFIX	= /usr/local
 LIBDIR	= $(PREFIX)/lib
 INCSDIR	= $(PREFIX)/include

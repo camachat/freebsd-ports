@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	litecoin
 PORTVERSION=	0.18.1
 DISTVERSIONPREFIX=	v

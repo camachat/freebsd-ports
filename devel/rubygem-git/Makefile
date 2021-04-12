@@ -1,5 +1,8 @@
 # Created by: Daniel Roethlisberger <daniel@roe.ch>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	git
 PORTVERSION=	1.7.0

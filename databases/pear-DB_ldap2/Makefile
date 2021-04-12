@@ -1,5 +1,8 @@
 # Created by: Wen heping <wenheping@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	DB_ldap2
 PORTVERSION=	0.5.1

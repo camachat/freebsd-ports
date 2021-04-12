@@ -1,5 +1,8 @@
 # Created by: Juergen Lock <nox@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	usbredir
 PORTVERSION=	0.8.0

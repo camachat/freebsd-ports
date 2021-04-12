@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dvtm
 PORTVERSION=	0.15
 CATEGORIES=	sysutils

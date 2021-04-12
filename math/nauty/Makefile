@@ -1,5 +1,8 @@
 # Created by: bremner@unb.ca
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nauty
 PORTVERSION=	27r1

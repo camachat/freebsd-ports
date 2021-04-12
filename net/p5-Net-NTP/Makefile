@@ -1,5 +1,8 @@
 # Created by: brd@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-NTP
 PORTVERSION=	1.5

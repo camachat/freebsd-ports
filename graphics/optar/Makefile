@@ -1,5 +1,8 @@
 # Created by: antonakis@gmail.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	optar
 PORTVERSION=	2015.02.09

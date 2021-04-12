@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Hash-Flatten
 PORTVERSION=	1.19
 PORTREVISION=	2

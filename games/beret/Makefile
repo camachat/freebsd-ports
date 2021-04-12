@@ -1,5 +1,8 @@
 # Created by: Alfonso S. Siciliano <alfix86@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	beret
 PORTVERSION=	1.2.1

@@ -1,5 +1,8 @@
 # Created by: Franz Bettag <franz@bett.ag>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	stud
 PORTVERSION=	0.4

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	simplebayes
 PORTVERSION=	1.5.8
 CATEGORIES=	textproc python
@@ -7,7 +10,11 @@ MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
 MAINTAINER=	yuri@FreeBSD.org
+<<<<<<< HEAD
 COMMENT=	Memory-based, optional-persistence naïve bayesian text classifier
+=======
+COMMENT=	Memory-based, optional-persistence naive bayesian text classifier
+>>>>>>> upstream/main
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE

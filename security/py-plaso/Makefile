@@ -1,5 +1,8 @@
 # Created by: Antoine Brodin <antoine@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	plaso
 PORTVERSION=	20201228

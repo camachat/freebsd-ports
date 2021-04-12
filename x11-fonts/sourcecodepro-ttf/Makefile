@@ -1,5 +1,8 @@
 # Created by: Masaki TAGAWA <masaki@club.kyutech.ac.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sourcecodepro
 PORTVERSION=	2.038

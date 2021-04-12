@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	jshon
 DISTVERSION=	20170302.1
 CATEGORIES=	textproc

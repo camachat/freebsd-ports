@@ -1,5 +1,8 @@
 # Created by: Lev Walkin <vlm@lionet.info>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ipcad
 PORTVERSION=	3.7.3

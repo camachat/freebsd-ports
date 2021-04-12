@@ -1,5 +1,8 @@
 # Created by: Matthew N. Dodd <mdodd@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		spamprobe
 PORTVERSION=	1.4d

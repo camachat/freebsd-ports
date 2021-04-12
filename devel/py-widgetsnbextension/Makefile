@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	widgetsnbextension
 PORTVERSION=	3.5.1
 PORTREVISION=	2

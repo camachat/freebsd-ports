@@ -1,5 +1,8 @@
 # Created by: Denis Pokataev <catone@cpan.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	AnyEvent-Run
 PORTVERSION=	0.01

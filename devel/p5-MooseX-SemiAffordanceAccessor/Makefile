@@ -1,5 +1,8 @@
 # Created by: Alexey V. Degtyarev
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	MooseX-SemiAffordanceAccessor
 PORTVERSION=	0.10

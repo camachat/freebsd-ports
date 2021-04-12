@@ -1,5 +1,8 @@
 # Created by: Hideaki Ohmon <ohmon@tom.sfc.keio.ac.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pkfonts${RESOLUTION}
 PORTVERSION=	1.0

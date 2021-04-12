@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	afew
 DISTVERSION=	3.0.1
 CATEGORIES=	mail python

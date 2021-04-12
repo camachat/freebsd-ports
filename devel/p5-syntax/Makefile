@@ -1,5 +1,8 @@
 # Created by: Po-Chien Lin <linpc@cs.nctu.edu.tw>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	syntax
 PORTVERSION=	0.004

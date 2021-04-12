@@ -1,5 +1,8 @@
 # Created by: John Oxley <john@yoafrica.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vexim
 DISTVERSIONPREFIX=	v

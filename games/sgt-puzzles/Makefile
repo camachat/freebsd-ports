@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 # Created by: Dmitry Marakasov <amdmi3@FreeBSD.org>
 # $FreeBSD$
 
 PORTNAME=	puzzles
 PORTVERSION=	20201208
+=======
+PORTNAME=	puzzles
+PORTVERSION=	20210409
+>>>>>>> upstream/main
 CATEGORIES=	games
 MASTER_SITES=	https://www.chiark.greenend.org.uk/~sgtatham/puzzles/ \
 		https://mirror.amdmi3.ru/distfiles/
@@ -15,6 +20,7 @@ COMMENT=	Simon Tatham's Portable Puzzle Collection
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENCE
 
+<<<<<<< HEAD
 COMMITHASH=	84cb4c6
 
 USES=		autoreconf gmake gnome pkgconfig
@@ -73,5 +79,25 @@ check-puzzle-list-completeness: extract
 	@${ECHO_CMD} ${PUZZLE_LIST} | ${FMT} -w 1 | ${SORT} > ${WRKDIR}/puzzle_list.port
 	@${LS} ${WRKSRC}/icons | ${GREP} 48d24.png | ${CUT} -f 1 -d- | ${SORT} > ${WRKDIR}/puzzle_list.upstream
 	@cmp ${WRKDIR}/puzzle_list.port ${WRKDIR}/puzzle_list.upstream
+=======
+COMMITHASH=	69b5e75
+
+BUILD_DEPENDS=	convert:graphics/ImageMagick6-nox11
+
+USES=		cmake gnome perl5 pkgconfig shebangfix
+USE_PERL5=	build
+SHEBANG_FILES=	icons/square.pl icons/cicon.pl
+CMAKE_ARGS=	-DNAME_PREFIX:STRING=sgt-
+
+OPTIONS_SINGLE=	GTK
+OPTIONS_SINGLE_GTK=	GTK2 GTK3
+OPTIONS_DEFAULT=GTK3
+
+GTK_DESC=	Gtk version
+GTK2_CMAKE_ON=	-DPUZZLES_GTK_VERSION=2
+GTK2_USE=	GNOME=gtk20
+GTK3_CMAKE_ON=	-DPUZZLES_GTK_VERSION=3
+GTK3_USE=	GNOME=gtk30
+>>>>>>> upstream/main
 
 .include <bsd.port.mk>

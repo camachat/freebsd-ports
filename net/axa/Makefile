@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	axa
 PORTVERSION=	2.2.0
 PORTREVISION=	2

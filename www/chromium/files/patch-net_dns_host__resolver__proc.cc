@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- net/dns/host_resolver_proc.cc.orig	2020-11-13 06:36:45 UTC
+=======
+--- net/dns/host_resolver_proc.cc.orig	2021-03-12 23:57:27 UTC
+>>>>>>> upstream/main
 +++ net/dns/host_resolver_proc.cc
 @@ -159,7 +159,7 @@ int SystemHostResolverCall(const std::string& host,
    base::ScopedBlockingCall scoped_blocking_call(FROM_HERE,

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dune-metagrid
 DISTVERSION=	g20180822
 CATEGORIES=	math

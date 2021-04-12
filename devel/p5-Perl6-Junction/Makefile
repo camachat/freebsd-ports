@@ -1,5 +1,8 @@
 # Created by: Erwin Lansing <erwin@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Perl6-Junction
 PORTVERSION=	1.60000

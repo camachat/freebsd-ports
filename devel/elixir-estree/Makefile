@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	elixir-estree
 PORTVERSION=	2.6.1
 DISTVERSIONPREFIX=	v

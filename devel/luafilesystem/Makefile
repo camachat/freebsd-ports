@@ -1,5 +1,8 @@
 # Created by: Kelly Hays <kelly.hays@jkhfamily.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	luafilesystem
 DISTVERSIONPREFIX=	v

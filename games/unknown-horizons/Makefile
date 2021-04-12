@@ -1,5 +1,8 @@
 # Created by: GreenDog <fiziologus@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	unknown-horizons
 PORTVERSION=	2019.1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	jenkins-job-builder
 PORTVERSION=	3.9.0
 CATEGORIES=	devel python

@@ -1,5 +1,8 @@
 # Created by: Mario S F Ferreira <lioux@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Math-FFT
 PORTVERSION=	1.36

@@ -1,5 +1,8 @@
 # Created by: miwi
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wordpress
 DISTVERSION=	5.5.3

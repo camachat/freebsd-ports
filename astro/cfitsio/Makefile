@@ -1,5 +1,8 @@
 # Created by: Markus Brueffer <markus@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cfitsio
 PORTVERSION=	3.490

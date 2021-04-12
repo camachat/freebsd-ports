@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	vcglib
 PORTVERSION=	2020.09
 CATEGORIES=	devel

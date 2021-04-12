@@ -1,5 +1,8 @@
 # Created by: Babak Farrokhi <farrokhi@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	aioredis
 PORTVERSION=	1.3.1

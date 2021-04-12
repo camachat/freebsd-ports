@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Signal-Mask
 PORTVERSION=	0.008
 CATEGORIES=	devel perl5

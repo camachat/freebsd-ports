@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gpg-gui
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.2.2

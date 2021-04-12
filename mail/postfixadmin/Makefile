@@ -1,5 +1,8 @@
 # Created by: Rob Evers <rob@debank.tv>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	postfixadmin
 DISTVERSIONPREFIX=	postfixadmin-

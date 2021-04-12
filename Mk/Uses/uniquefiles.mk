@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # Make files or directories 'unique', by adding a prefix or suffix.
 #
 # Feature:		uniquefiles

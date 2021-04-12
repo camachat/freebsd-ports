@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	lfpfonts-var
 PORTVERSION=	0.83
 PORTREVISION=	5

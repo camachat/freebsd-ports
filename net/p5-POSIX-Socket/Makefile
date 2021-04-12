@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	POSIX-Socket
 PORTVERSION=	0.09
 PORTREVISION=	1

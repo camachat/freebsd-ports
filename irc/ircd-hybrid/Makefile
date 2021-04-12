@@ -1,5 +1,8 @@
 # Created by: David Taylor <davidt@yadt.co.uk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ircd-hybrid
 PORTVERSION=	8.2.38

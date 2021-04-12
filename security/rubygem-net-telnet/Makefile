@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	net-telnet
 PORTVERSION=	0.2.0
 CATEGORIES=	security rubygems

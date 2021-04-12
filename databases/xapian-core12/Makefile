@@ -1,5 +1,8 @@
 # Created by: J.F. Dockes
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xapian-core
 PORTVERSION=	1.2.25

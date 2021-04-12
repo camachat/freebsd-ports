@@ -1,5 +1,8 @@
 # Created by: Brian Candler <B.Candler@pobox.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	docbook-utils
 PORTVERSION=	0.6.14

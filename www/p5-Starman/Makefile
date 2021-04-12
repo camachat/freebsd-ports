@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Starman
 PORTVERSION=	0.4014
 CATEGORIES=	www perl5

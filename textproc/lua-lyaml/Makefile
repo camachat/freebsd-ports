@@ -1,5 +1,8 @@
 # Created by: Yarema <yds@Necessitu.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lyaml
 PORTVERSION=	6.2.4

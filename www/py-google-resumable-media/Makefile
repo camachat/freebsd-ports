@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	google-resumable-media
 PORTVERSION=	1.2.0
 CATEGORIES=	www python

@@ -1,7 +1,11 @@
+<<<<<<< HEAD
 #
 # Makefile for today
 #
 # $FreeBSD$
+=======
+# Makefile for today
+>>>>>>> upstream/main
 
 CC ?= cc
 CFLAGS += -DTRANS -DMSG_STYLE -DINTERNAL_KYUREKI_TBL -D_T_SEARCH_DEFPATHS=\"${PREFIX}/etc\" #-DUSE_TERMCAP

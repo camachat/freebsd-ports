@@ -1,5 +1,8 @@
 # Created by: Akinori MUSHA aka knu <knu@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	peco
 PORTVERSION=	0.4.4

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	azure-batch
 PORTVERSION=	10.0.0
 CATEGORIES=	devel python

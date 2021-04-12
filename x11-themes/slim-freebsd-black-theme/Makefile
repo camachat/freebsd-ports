@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	slim-freebsd-black-theme
 DISTVERSION=	1.2
 PORTREVISION=	2

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libcreg
 DISTVERSION=	experimental-20200725
 CATEGORIES=	devel

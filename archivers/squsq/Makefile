@@ -1,5 +1,8 @@
 # Created by: Alexey Dokuchaev <danfe@regency.nsu.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	squsq
 PORTVERSION=	3.3

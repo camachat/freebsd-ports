@@ -1,5 +1,8 @@
 # Created by: Stefan Jahn <stefan.jahn@nemesis-sektor.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	k4dirstat
 PORTVERSION=	3.2.2

@@ -1,7 +1,10 @@
 #!/bin/sh
 
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # PROVIDE: apt_cacher_ng
 # REQUIRE: LOGIN
 # KEYWORD: shutdown

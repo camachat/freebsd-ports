@@ -1,5 +1,8 @@
 # Created by: Clement Laforet <sheepkiller@cultdeadsheep.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	suphp
 PORTVERSION=	0.7.2

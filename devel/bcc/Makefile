@@ -1,5 +1,8 @@
 # Created by: joerg
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bcc
 PORTVERSION=	1995.03.12

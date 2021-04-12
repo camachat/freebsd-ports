@@ -1,5 +1,8 @@
 # Created by: Igor Vinokurov <igor@zynaps.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Apache-DBI
 PORTVERSION=	1.12

@@ -1,5 +1,8 @@
 # Created by: Yuichi Narahara
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sxsame
 PORTVERSION=	3.02

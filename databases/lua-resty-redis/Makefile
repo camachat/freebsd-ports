@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	lua-resty-redis
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.29

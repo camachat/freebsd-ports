@@ -1,5 +1,8 @@
 # Created by: Oleg R. Muhutdinov <mor@WhiteLuna.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-BitTorrent-File
 PORTVERSION=	1.02

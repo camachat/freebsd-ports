@@ -1,7 +1,11 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+
+>>>>>>> upstream/main
 # PROVIDE: amavisd
 # REQUIRE: LOGIN mysql postgresql amavis_p0fanalyzer
 # BEFORE: mail

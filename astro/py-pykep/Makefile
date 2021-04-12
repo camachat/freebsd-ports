@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pykep
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.6

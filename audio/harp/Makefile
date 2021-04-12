@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	harp
 PORTVERSION=	0.6.0
+=======
+PORTNAME=	harp
+PORTVERSION=	0.6.0
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	audio
 
 MAINTAINER=	heckendorfc@gmail.com
@@ -9,9 +15,12 @@ COMMENT=	Minimalist audio player
 
 LICENSE=	GPLv3
 
+<<<<<<< HEAD
 BROKEN_FreeBSD_13=	ld: error: duplicate symbol: h
 BROKEN_FreeBSD_14=	ld: error: duplicate symbol: h
 
+=======
+>>>>>>> upstream/main
 USE_GITHUB=	yes
 GH_ACCOUNT=	heckendorfc
 

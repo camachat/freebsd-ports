@@ -1,5 +1,8 @@
 # Created by: Jason Evans <jasone@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	procmap
 PORTVERSION=	1.0

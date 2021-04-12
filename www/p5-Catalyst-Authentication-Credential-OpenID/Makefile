@@ -1,5 +1,8 @@
 # Created by: andrey@kostenko.name
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Catalyst-Authentication-Credential-OpenID
 PORTVERSION=	0.19

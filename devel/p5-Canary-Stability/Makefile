@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Canary-Stability
 PORTVERSION=	2013
 PORTREVISION=	1

@@ -1,5 +1,8 @@
 # Created by: Mark Kane <mark@mkproductions.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	streamtranscoder
 PORTVERSION=	1.2.8

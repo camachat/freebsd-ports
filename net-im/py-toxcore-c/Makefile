@@ -1,5 +1,8 @@
 # Created by: Yuri Victorovich
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	toxcore-c
 DISTVERSIONPREFIX=	v

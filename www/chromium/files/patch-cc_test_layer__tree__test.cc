@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 --- cc/test/layer_tree_test.cc.orig	2021-01-18 21:28:45 UTC
 +++ cc/test/layer_tree_test.cc
 @@ -676,7 +676,7 @@ LayerTreeTest::LayerTreeTest(viz::RendererType rendere
+=======
+--- cc/test/layer_tree_test.cc.orig	2021-03-12 23:57:15 UTC
++++ cc/test/layer_tree_test.cc
+@@ -673,7 +673,7 @@ LayerTreeTest::LayerTreeTest(viz::RendererType rendere
+>>>>>>> upstream/main
      init_vulkan = true;
    } else if (renderer_type_ == viz::RendererType::kSkiaDawn) {
      scoped_feature_list_.InitAndEnableFeature(features::kSkiaDawn);

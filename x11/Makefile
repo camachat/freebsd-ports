@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
 
+=======
+>>>>>>> upstream/main
     COMMENT = Ports to support the X window system
 
     SUBDIR += 3ddesktop
@@ -29,7 +32,10 @@
     SUBDIR += bgs
     SUBDIR += bitmap
     SUBDIR += bmpanel2
+<<<<<<< HEAD
     SUBDIR += bricons
+=======
+>>>>>>> upstream/main
     SUBDIR += brisk-menu
     SUBDIR += cde
     SUBDIR += cinnamon
@@ -345,7 +351,10 @@
     SUBDIR += tilix
     SUBDIR += tint
     SUBDIR += trayer
+<<<<<<< HEAD
     SUBDIR += tycoon
+=======
+>>>>>>> upstream/main
     SUBDIR += ulauncher
     SUBDIR += urxvt-font-size
     SUBDIR += urxvt-perls
@@ -375,11 +384,17 @@
     SUBDIR += wmctrl
     SUBDIR += wmdrawer
     SUBDIR += wmfocus
+<<<<<<< HEAD
     SUBDIR += wmmatrix
     SUBDIR += wmsystemtray
     SUBDIR += wmutils-core
     SUBDIR += wmutils-opt
     SUBDIR += wmxss
+=======
+    SUBDIR += wmsystemtray
+    SUBDIR += wmutils-core
+    SUBDIR += wmutils-opt
+>>>>>>> upstream/main
     SUBDIR += wob
     SUBDIR += wofi
     SUBDIR += workrave
@@ -396,7 +411,10 @@
     SUBDIR += xbacklight
     SUBDIR += xballoon
     SUBDIR += xbanish
+<<<<<<< HEAD
     SUBDIR += xbanner
+=======
+>>>>>>> upstream/main
     SUBDIR += xbiff
     SUBDIR += xbindkeys
     SUBDIR += xbitmaps
@@ -455,7 +473,10 @@
     SUBDIR += xforward
     SUBDIR += xgamma
     SUBDIR += xgc
+<<<<<<< HEAD
     SUBDIR += xgrab
+=======
+>>>>>>> upstream/main
     SUBDIR += xhost
     SUBDIR += xidle
     SUBDIR += xinit
@@ -486,7 +507,10 @@
     SUBDIR += xmessage
     SUBDIR += xmh
     SUBDIR += xmodmap
+<<<<<<< HEAD
     SUBDIR += xmon
+=======
+>>>>>>> upstream/main
     SUBDIR += xmore
     SUBDIR += xmotd
     SUBDIR += xmsg

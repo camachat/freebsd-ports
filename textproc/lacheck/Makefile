@@ -1,5 +1,8 @@
 # Created by: Uwe Pierau <uwe.pierau@tu-clausthal.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lacheck
 PORTVERSION=	1.26

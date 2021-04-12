@@ -1,5 +1,8 @@
 # Created by: Nathan Ahlstrom <nra@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	stuffit
 PORTVERSION=	5.2.0.611

@@ -1,5 +1,8 @@
 # Created by: Steve Wills <swills@rubick>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	kramdown
 PORTVERSION=	2.3.0

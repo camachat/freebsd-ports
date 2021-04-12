@@ -1,5 +1,8 @@
 # Created by: Bill Brinzer <bill.brinzer@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Capture-Tiny
 PORTVERSION=	0.48

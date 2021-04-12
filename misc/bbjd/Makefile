@@ -1,5 +1,8 @@
 # Created by: Dima Sivachenko
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bbjd
 PORTVERSION=	1.01

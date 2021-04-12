@@ -1,5 +1,8 @@
 # Created by: Rudolf Polzer <freebsd-dr@durchnull.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	treewm
 PORTVERSION=	0.4.5

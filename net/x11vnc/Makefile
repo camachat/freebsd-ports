@@ -1,5 +1,8 @@
 # Created by: Loren M. Lang
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	x11vnc
 PORTVERSION=	0.9.16

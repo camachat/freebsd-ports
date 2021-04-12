@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	libfreehand
 PORTVERSION=	0.1.2
 PORTREVISION=	19
+=======
+PORTNAME=	libfreehand
+PORTVERSION=	0.1.2
+PORTREVISION=	20
+>>>>>>> upstream/main
 CATEGORIES=	graphics
 MASTER_SITES=	LODEV
 

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	monoid
 DISTVERSION=	0.61
 PORTREVISION=	1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	isort
 PORTVERSION=	5.7.0
 CATEGORIES=	devel python

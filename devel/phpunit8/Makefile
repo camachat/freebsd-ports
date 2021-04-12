@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	phpunit
 DISTVERSION=	8.5.2
 CATEGORIES=	devel www

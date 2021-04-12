@@ -1,5 +1,8 @@
 # Created by: David O'Brien <obrien@cs.ucdavis.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lrzsz
 PORTVERSION=	0.12.20

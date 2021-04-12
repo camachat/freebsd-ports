@@ -1,5 +1,8 @@
 # Created by: torstenb
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ircii
 PORTVERSION=	20190117

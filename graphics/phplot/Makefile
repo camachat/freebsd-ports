@@ -1,5 +1,8 @@
 # Created by: yukinopo@livedoor.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	phplot
 PORTVERSION=	6.2.0

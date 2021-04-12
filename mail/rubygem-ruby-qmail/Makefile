@@ -1,5 +1,8 @@
 # Created by: Glen Barber <gjb@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ruby-qmail
 PORTVERSION=	0.1.1

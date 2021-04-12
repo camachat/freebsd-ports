@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	moltemplate
 DISTVERSION=	2.19.7
+=======
+PORTNAME=	moltemplate
+DISTVERSION=	2.19.8
+>>>>>>> upstream/main
 CATEGORIES=	science python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}

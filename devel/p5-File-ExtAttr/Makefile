@@ -1,5 +1,8 @@
 # Created by: Timur I. Bakeyev <bat@cpan.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	File-ExtAttr
 PORTVERSION=	1.09

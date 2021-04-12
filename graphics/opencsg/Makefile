@@ -1,5 +1,8 @@
 # Created by: Michael Reifenberger <mr@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	opencsg
 PORTVERSION=	1.4.2

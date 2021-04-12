@@ -1,5 +1,8 @@
 # Created by: vsevolod
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libev
 DISTVERSION=	4.33

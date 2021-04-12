@@ -1,5 +1,8 @@
 # Created by: Herbert J. Skuhra <h.skuhra@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pal
 PORTVERSION=	0.4.3

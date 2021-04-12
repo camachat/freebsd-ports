@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	edk2
 PORTVERSION=	g202005
 CATEGORIES=	sysutils

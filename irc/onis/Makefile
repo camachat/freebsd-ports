@@ -1,5 +1,8 @@
 # Created by: koji@jet.es
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	onis
 PORTVERSION=	0.8.2

@@ -1,5 +1,8 @@
 # Created by: Janos.Mohacsi@bsd.hu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	netstrain
 PORTVERSION=	3.0

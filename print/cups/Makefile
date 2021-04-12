@@ -1,5 +1,8 @@
 # Created by: Alan Eldridge <alane@geeksrus.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cups
 PORTVERSION=	2.3.3op2

@@ -1,5 +1,8 @@
 # Created by: Janky Jay <ek@purplehat.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	frontaccounting
 DISTVERSION=	2.3.25

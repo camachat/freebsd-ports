@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Pod-Spell
 PORTVERSION=	1.20
 PORTREVISION=	1

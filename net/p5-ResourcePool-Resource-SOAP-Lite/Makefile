@@ -1,5 +1,8 @@
 # Created by: Erwin Lansing <erwin@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ResourcePool-Resource-SOAP-Lite
 PORTVERSION=	1.0103

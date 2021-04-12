@@ -1,5 +1,8 @@
 # Created by: Martin Waschbuesch <martin@waschbuesch.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Plack-Middleware-ExtDirect
 PORTVERSION=	3.20

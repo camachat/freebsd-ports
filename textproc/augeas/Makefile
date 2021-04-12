@@ -1,5 +1,8 @@
 # Created by: Russell Jackson <raj@csub.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	augeas
 PORTVERSION=	1.12.0

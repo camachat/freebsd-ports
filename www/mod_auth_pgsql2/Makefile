@@ -1,5 +1,8 @@
 # Created by: Clement Laforet <sheepkiller@cultdeadsheep.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mod_auth_pgsql
 PORTVERSION=	2.0.3

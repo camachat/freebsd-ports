@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 all:
 	${MAKE} -C qmc2 DISTCFG=1 SDL=1
 	${MAKE} -C qmc2 arcade DISTCFG=1 SDL=1

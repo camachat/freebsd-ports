@@ -1,5 +1,8 @@
 # Created by: Chris D. Faulhaber <jedgar@fxp.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lmmon
 PORTVERSION=	0.65

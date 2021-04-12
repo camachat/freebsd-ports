@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dm-migrations
 PORTVERSION=	1.2.0
 CATEGORIES=	databases rubygems

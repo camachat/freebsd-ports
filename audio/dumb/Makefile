@@ -1,5 +1,8 @@
 # Created by: Andreas Kohn <andreas@syndrom23.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dumb
 PORTVERSION=	0.9.3

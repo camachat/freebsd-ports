@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	hedgewars
 PORTVERSION=	1.0.0
 PORTREVISION=	2

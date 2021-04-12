@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bitlbee-steam
 PORTVERSION=	1.4.2
 DISTVERSIONPREFIX=v

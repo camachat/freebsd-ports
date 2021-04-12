@@ -1,5 +1,8 @@
 # Created by: Michael Moll <kvedulv@kvedulv.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	smart_proxy_salt
 PORTVERSION=	3.1.2

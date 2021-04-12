@@ -1,5 +1,8 @@
 # Created by: Stefan Pauly <stefan@fh-mainz.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cunit
 PORTVERSION=	2.1.3

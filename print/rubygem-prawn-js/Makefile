@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	prawn-js
 PORTVERSION=	0.7.1
 CATEGORIES=	print rubygems

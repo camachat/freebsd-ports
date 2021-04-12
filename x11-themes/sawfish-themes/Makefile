@@ -1,5 +1,8 @@
 # Created by: Alexey Mikhailov <karma@ez.pereslavl.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sawfish-themes
 PORTVERSION=	0.13

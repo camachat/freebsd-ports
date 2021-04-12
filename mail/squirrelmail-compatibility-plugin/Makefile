@@ -1,5 +1,8 @@
 # Created by: Alexander Wittig <alexander@wittig.name>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	compatibility
 PORTVERSION=	2.0.16

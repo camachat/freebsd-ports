@@ -1,5 +1,8 @@
 # Created by: Jose Jachuf <jjachuf@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	firebirdsql
 DISTVERSION=	1.1.4

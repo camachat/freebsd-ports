@@ -1,5 +1,8 @@
 # Created by: greg
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wavplay
 PORTVERSION=	1.4

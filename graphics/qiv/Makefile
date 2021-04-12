@@ -1,5 +1,8 @@
 # Created by: Bill Fumerola <billf@chc-chimes.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	qiv
 PORTVERSION=	2.3.2

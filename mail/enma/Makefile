@@ -1,5 +1,8 @@
 # Created by: Hirohisa Yamaguchi <umq@ueo.co.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	enma
 PORTVERSION=	1.2.0

@@ -1,5 +1,8 @@
 # Created by: Nishika <nishika@cheerful.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	quasi88
 PORTVERSION=	0.6.4

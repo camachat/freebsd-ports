@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	vkd3d
 PORTVERSION=	1.2
 CATEGORIES=	graphics

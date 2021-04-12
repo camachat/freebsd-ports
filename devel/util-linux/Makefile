@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	util-linux
 DISTVERSION=	2.36
 PORTREVISION=	1

@@ -1,5 +1,8 @@
 # Created by: Holger Lamm <holger@eit.uni-kl.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HeroesOfMightAndMagic
 PORTVERSION=	3

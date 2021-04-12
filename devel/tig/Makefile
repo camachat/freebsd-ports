@@ -1,5 +1,8 @@
 # Created by: Denise H. G. <darcsis@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tig
 PORTVERSION=	2.5.3

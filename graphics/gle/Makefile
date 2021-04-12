@@ -1,5 +1,8 @@
 # Created by: David Gilbert <dgilbert@velocet.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gle
 PORTVERSION=	3.1.0

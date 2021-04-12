@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	obs-studio
 DISTVERSION=	26.1.2
 CATEGORIES=	multimedia

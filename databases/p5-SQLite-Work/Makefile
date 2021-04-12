@@ -1,5 +1,8 @@
 # Created by: Chris Larsen <darth@vader.dk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	SQLite-Work
 PORTVERSION=	0.16.01

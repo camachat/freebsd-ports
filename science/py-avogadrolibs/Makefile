@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	avogadrolibs
 DISTVERSION=	1.93.0
 PORTREVISION=	1

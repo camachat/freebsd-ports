@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libzmq4
 DISTVERSIONPREFIX=	v
 DISTVERSION=	4.3.1

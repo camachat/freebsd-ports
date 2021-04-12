@@ -1,5 +1,8 @@
 # Created by: Espen Skoglund <esk@ira.uka.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	binutils
 PORTVERSION=	2.35.1

@@ -1,5 +1,8 @@
 # Created by: Gerrit Beine <gerrit.beine@gmx.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Nagios-Plugin
 PORTVERSION=	0.36

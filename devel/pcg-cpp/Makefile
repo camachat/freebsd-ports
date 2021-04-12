@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pcg-cpp
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.98.1-59

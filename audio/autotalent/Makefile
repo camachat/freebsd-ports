@@ -1,5 +1,8 @@
 # Created by: Rich Neese <r.neese@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	autotalent
 PORTVERSION=	0.2

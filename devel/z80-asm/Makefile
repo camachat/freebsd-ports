@@ -1,5 +1,8 @@
 # Created by: Samy Al Bahra <samy@kerneled.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	z80-asm
 PORTVERSION=	2.4.p3

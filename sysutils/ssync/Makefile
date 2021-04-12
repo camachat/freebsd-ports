@@ -1,5 +1,8 @@
 # Created by: Andrew Shevtsov <nyxo@dnuc.polyn.kiae.su>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ssync
 PORTVERSION=	2.3

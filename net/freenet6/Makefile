@@ -1,5 +1,8 @@
 # Created by: Edwin Groothuis <edwin@mavetju.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	freenet6
 DISTVERSION=	6_0_1

@@ -1,5 +1,8 @@
 # Created by: dhagan@cs.vt.edu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	elm
 PORTVERSION=	2.5.8

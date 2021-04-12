@@ -1,8 +1,14 @@
 # Created by: Sergei Vyshenski <svysh.fbsd@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	Connector
 PORTVERSION=	1.36
+=======
+
+PORTNAME=	Connector
+PORTVERSION=	1.37
+>>>>>>> upstream/main
 CATEGORIES=	devel perl5
 PKGNAMEPREFIX=	p5-
 

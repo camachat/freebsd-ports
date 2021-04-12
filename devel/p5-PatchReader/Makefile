@@ -1,5 +1,8 @@
 # Created by: Toni Viemerö <toni.viemero@iki.fi>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	PatchReader
 PORTVERSION=	0.9.6

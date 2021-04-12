@@ -1,5 +1,8 @@
 # Created by: Martin Neubauer <m.ne@gmx.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	colour
 PORTVERSION=	0.1.5

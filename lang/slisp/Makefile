@@ -1,5 +1,8 @@
 # Created by: Patrick Li <pat@databits.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	slisp
 PORTVERSION=	1.2

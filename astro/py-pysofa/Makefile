@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pysofa
 DISTVERSION=	0.1.1
 PORTREVISION=	2

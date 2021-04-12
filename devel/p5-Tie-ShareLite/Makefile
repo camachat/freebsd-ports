@@ -1,5 +1,8 @@
 # Created by: jnlin@freebsd.cs.nctu.edu.tw
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Tie-ShareLite
 PORTVERSION=	0.03

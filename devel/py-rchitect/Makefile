@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rchitect
 DISTVERSION=	0.3.24
 CATEGORIES=	devel python

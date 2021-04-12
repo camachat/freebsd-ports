@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	clutter-gstreamer
 PORTVERSION=	3.4.3
 CATEGORIES=	multimedia rubygems

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	scoria
 DISTVERSION=	1.0.5
 CATEGORIES=	science python

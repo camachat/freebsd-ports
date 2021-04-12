@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	texi2mdoc
 PORTVERSION=	0.1.2
 CATEGORIES=	textproc

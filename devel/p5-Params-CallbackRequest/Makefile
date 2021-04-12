@@ -1,5 +1,8 @@
 # Created by: Rod Taylor <ports@rbt.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Params-CallbackRequest
 PORTVERSION=	1.20

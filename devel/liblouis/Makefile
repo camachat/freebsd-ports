@@ -1,8 +1,14 @@
 # Created by: Wen Heping <wenheping@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	liblouis
 PORTVERSION=	3.16.1
+=======
+
+PORTNAME=	liblouis
+PORTVERSION=	3.17.0
+>>>>>>> upstream/main
 DISTVERSIONPREFIX=	v
 CATEGORIES=	devel
 

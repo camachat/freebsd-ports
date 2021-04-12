@@ -1,5 +1,8 @@
 # Created by: Rod Taylor <ports@rbt.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Text-WordDiff
 PORTVERSION=	0.09

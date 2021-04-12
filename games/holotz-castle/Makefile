@@ -1,5 +1,8 @@
 # Created by: Pierre-Paul Lavoie <ppl@nbnet.nb.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	holotz-castle
 PORTVERSION=	1.3.14

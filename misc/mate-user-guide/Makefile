@@ -1,5 +1,8 @@
 # Created by: Eric Turgeon <ericbsd@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mate-user-guide
 PORTVERSION=	1.24.0

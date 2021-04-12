@@ -1,5 +1,8 @@
 # Created by: TATEISHI Katsuyuki <katsu@iec.hiroshima-u.ac.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gimageview
 PORTVERSION=	0.2.27

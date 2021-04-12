@@ -1,5 +1,8 @@
 # Created by: David Yeske <dyeske@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	spiralsynthmodular
 PORTVERSION=	0.2.2a

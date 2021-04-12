@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	arb
 DISTVERSION=	2.19.0
 CATEGORIES=	math

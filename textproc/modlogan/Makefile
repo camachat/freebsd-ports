@@ -1,5 +1,8 @@
 # Created by: Alexander@Leidinger.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	modlogan
 PORTVERSION=	0.8.13

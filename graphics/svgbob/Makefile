@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	svgbob
 DISTVERSION=	g20190412
 PORTREVISION=	18

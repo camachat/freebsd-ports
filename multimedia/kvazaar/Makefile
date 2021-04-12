@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kvazaar
 DISTVERSIONPREFIX=	v
 DISTVERSION?=	2.0.0

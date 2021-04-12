@@ -1,9 +1,16 @@
 # Created by: Alexey Dokuchaev <danfe@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	appleseed
 DISTVERSION=	2.1.0-beta
 PORTREVISION=	2
+=======
+
+PORTNAME=	appleseed
+DISTVERSION=	2.1.0-beta
+PORTREVISION=	3
+>>>>>>> upstream/main
 CATEGORIES=	graphics
 
 MAINTAINER=	danfe@FreeBSD.org
@@ -15,8 +22,13 @@ LICENSE_FILE=	${WRKSRC}/LICENSE.txt
 LIB_DEPENDS=	libboost_thread.so:devel/boost-libs \
 		liblz4.so:archivers/liblz4 \
 		libpng.so:graphics/png \
+<<<<<<< HEAD
 		libIlmImf.so:graphics/openexr \
 		libIlmThread.so:graphics/ilmbase \
+=======
+		libIlmThread.so:graphics/openexr \
+		libImath.so:math/Imath \
+>>>>>>> upstream/main
 		libOpenColorIO.so:graphics/opencolorio \
 		libOpenImageIO.so:graphics/openimageio \
 		libxerces-c.so:textproc/xerces-c3 \
@@ -31,6 +43,12 @@ ONLY_FOR_ARCHS_REASON=	not ported to it yet
 USES=		cmake compiler:c++11-lang shebangfix
 SHEBANG_FILES=	scripts/*.py
 
+<<<<<<< HEAD
+=======
+CFLAGS+=	-I${LOCALBASE}/include/Imath
+CFLAGS+=	-I${LOCALBASE}/include/OpenEXR
+
+>>>>>>> upstream/main
 CMAKE_ARGS=	-DWITH_PYTHON2_BINDINGS:BOOL=OFF \
 		-DWITH_DOXYGEN:BOOL=OFF \
 		-DINSTALL_HEADERS:BOOL=OFF \
@@ -71,6 +89,22 @@ STUDIO_IMPLIES=	PYTHON
 post-patch:
 	@${RMDIR} ${WRKSRC}/sandbox/docs/api
 	@${RM} ${WRKSRC}/sandbox/share/cmake/Modules/FindOpenImageIO.cmake
+<<<<<<< HEAD
+=======
+	${REINPLACE_CMD} 's,OpenEXR/Imath,Imath/Imath,' \
+                ${WRKSRC}/sandbox/share/cmake/Modules/FindImath.cmake \
+                ${WRKSRC}/src/appleseed/foundation/meta/tests/test_quaternion.cpp \
+                ${WRKSRC}/src/appleseed/foundation/meta/tests/test_matrix.cpp \
+                ${WRKSRC}/src/appleseed/foundation/meta/tests/test_quaternion.cpp \
+                ${WRKSRC}/src/appleseed/foundation/meta/tests/test_vector.cpp \
+                ${WRKSRC}/src/appleseed/foundation/meta/tests/test_aabb.cpp \
+                ${WRKSRC}/src/appleseed/foundation/meta/tests/test_color.cpp \
+                ${WRKSRC}/src/appleseed/foundation/math/vector.h \
+                ${WRKSRC}/src/appleseed/foundation/math/aabb.h \
+                ${WRKSRC}/src/appleseed/foundation/math/matrix.h \
+                ${WRKSRC}/src/appleseed/foundation/math/quaternion.h \
+                ${WRKSRC}/src/appleseed/foundation/image/color.h
+>>>>>>> upstream/main
 
 .include <bsd.port.mk>
 

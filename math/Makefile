@@ -1,10 +1,17 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
 
+=======
+>>>>>>> upstream/main
     COMMENT = Mathematics
 
     SUBDIR += 4ti2
     SUBDIR += GiNaC
+<<<<<<< HEAD
+=======
+    SUBDIR += Imath
+>>>>>>> upstream/main
     SUBDIR += PDL
     SUBDIR += R
     SUBDIR += R-cran-ADGofTest

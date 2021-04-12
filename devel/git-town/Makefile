@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	git-town
 DISTVERSIONPREFIX=	v
 DISTVERSION=	7.5.0

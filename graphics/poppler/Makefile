@@ -1,5 +1,8 @@
 # Created by: marcus@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	poppler
 DISTVERSION=	21.03.0

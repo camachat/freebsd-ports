@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	csscompressor
 DISTVERSION=	0.9.5
 CATEGORIES=	www python

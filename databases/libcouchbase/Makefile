@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libcouchbase
 PORTVERSION=	2.10.7
 CATEGORIES=	databases

@@ -1,5 +1,8 @@
 # Created by: fenner
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dnstop
 PORTVERSION=	20140915

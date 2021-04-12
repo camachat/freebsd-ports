@@ -1,7 +1,10 @@
 #!/bin/sh
 #
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # Check for rejected mail
 # Log lines that end with ' : IGNORE' will not be reported
 # 

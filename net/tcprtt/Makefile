@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tcprtt
 DISTVERSION=	g20191022
 CATEGORIES=	net

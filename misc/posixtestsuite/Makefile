@@ -1,5 +1,8 @@
 # Created by: Alexey Zelkin <phantom@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	posixtestsuite
 PORTVERSION=	1.5.2

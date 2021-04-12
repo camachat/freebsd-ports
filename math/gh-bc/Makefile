@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	bc
 PORTVERSION=	3.3.4
+=======
+PORTNAME=	bc
+PORTVERSION=	4.0.0
+>>>>>>> upstream/main
 CATEGORIES=	math lang
 PKGNAMEPREFIX=	gh-
 

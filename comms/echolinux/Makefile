@@ -1,5 +1,8 @@
 # Created by: db
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	echolinux
 PORTVERSION=	0.17a

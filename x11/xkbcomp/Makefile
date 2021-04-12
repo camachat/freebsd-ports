@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xkbcomp
 PORTVERSION=	1.4.4
 CATEGORIES=	x11

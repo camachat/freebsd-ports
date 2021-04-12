@@ -1,5 +1,8 @@
 # Created by: hrs@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	PodToHTML
 PORTVERSION=	0.08

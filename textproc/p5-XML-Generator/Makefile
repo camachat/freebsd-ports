@@ -1,5 +1,8 @@
 # Created by: Andreas Heil <ah@linux-hq.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	XML-Generator
 PORTVERSION=	1.04

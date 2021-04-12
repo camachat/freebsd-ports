@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Sorcer
 DISTVERSIONPREFIX=	release-
 DISTVERSION=	1.1.3

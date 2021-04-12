@@ -1,5 +1,8 @@
 # Created by: Sergey Matveychuk <sem@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pxlib
 PORTVERSION=	0.6.8

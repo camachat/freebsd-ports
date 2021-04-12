@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTREVISION=	1
 
 COMMENT=	RFC 2222 SASL (Simple Authentication and Security Layer)

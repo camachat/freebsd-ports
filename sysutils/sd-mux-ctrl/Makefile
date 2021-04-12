@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sd-mux-ctrl
 DISTVERSION=	g20200217
 CATEGORIES=	sysutils

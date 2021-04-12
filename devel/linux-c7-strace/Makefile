@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	strace
 PORTVERSION=	4.24
 DISTVERSIONSUFFIX=	-6.el7

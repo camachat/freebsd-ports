@@ -1,5 +1,8 @@
 # Created by: Mosconi <mosconi.rmg@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Crypt-OpenSSL-CA
 PORTVERSION=	0.24

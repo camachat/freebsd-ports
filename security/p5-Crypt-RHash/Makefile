@@ -1,5 +1,8 @@
 # Created by: perl@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Crypt-RHash
 PORTVERSION=	0.99

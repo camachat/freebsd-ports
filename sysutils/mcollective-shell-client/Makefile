@@ -1,5 +1,8 @@
 # Created by: Bartek Rutkowski <robak@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mcollective-shell-client
 PORTVERSION=	0.0.2

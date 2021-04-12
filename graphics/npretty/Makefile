@@ -1,5 +1,8 @@
 # Created by: Peter Ankerstal <peter@pean.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	npretty
 DISTVERSIONPREFIX=	n

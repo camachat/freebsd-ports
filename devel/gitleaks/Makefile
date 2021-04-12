@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gitleaks
 DISTVERSIONPREFIX=	v
 DISTVERSION=	7.3.0

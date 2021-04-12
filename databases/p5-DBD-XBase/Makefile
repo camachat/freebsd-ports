@@ -1,5 +1,8 @@
 # Created by: Ilia Chipitsine <ilia@jane.cgu.chel.su>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	DBD-XBase
 PORTVERSION=	1.08

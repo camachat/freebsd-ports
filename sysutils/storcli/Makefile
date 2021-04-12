@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	storcli
 DISTVERSION=	7.1211
 CATEGORIES=	sysutils

@@ -1,5 +1,8 @@
 # Created by: SAITO Itsuro <saito@miv.t.u-tokyo.ac.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	a2ps
 PORTVERSION=	1.45

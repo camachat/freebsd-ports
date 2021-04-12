@@ -1,5 +1,8 @@
 # Created by: gurkan@phys.ethz.ch
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jishyo
 PORTVERSION=	0.1

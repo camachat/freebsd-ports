@@ -1,5 +1,8 @@
 # Created by: nectar@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		krb5
 PORTVERSION=		1.17.2

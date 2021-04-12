@@ -1,5 +1,8 @@
 # Created by: Gerald Pfeifer <gerald@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sgb
 PORTVERSION=	20090810

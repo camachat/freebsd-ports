@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sip
 PORTVERSION=	${PYQTSIP_VERSION}
 CATEGORIES=	devel python

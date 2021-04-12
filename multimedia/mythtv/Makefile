@@ -1,5 +1,8 @@
 # Created by: Stacey Son <mythdev@son.org>, Ari Maniatis <ari@ish.com.au>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mythtv
 DISTVERSIONPREFIX=	v

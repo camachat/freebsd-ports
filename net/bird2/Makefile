@@ -1,5 +1,8 @@
 # Created by: Alexander V. Chernikov <melifaro@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bird
 DISTVERSION=	2.0.8

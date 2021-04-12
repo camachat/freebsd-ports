@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	serialport
 PORTVERSION=	1.3.1
 PORTREVISION=	1

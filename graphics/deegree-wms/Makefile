@@ -1,5 +1,8 @@
 # Created by: wenheping@gmail.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wms
 PORTVERSION=	2.5

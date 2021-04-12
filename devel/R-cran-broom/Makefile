@@ -1,8 +1,14 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	broom
 DISTVERSION=	0.7.5
+=======
+
+PORTNAME=	broom
+DISTVERSION=	0.7.6
+>>>>>>> upstream/main
 CATEGORIES=	devel
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 

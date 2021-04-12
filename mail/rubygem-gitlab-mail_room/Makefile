@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	gitlab-mail_room
 PORTVERSION=	0.0.8
+=======
+PORTNAME=	gitlab-mail_room
+PORTVERSION=	0.0.9
+>>>>>>> upstream/main
 CATEGORIES=	mail rubygems
 MASTER_SITES=	RG
 

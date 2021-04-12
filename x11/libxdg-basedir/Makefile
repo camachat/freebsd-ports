@@ -1,5 +1,8 @@
 # Created by: Nikos Ntarmos <ntarmos@cs.uoi.gr>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libxdg-basedir
 PORTVERSION=	1.2.0

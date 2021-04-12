@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ethname
 PORTVERSION=	2.0.1
 DISTVERSIONPREFIX=	v

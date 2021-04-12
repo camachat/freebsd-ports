@@ -1,5 +1,8 @@
 # Created by: Serge Maslov <serge@maslov.biz>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	grepip
 PORTVERSION=	1.0

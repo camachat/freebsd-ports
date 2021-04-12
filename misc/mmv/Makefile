@@ -1,5 +1,8 @@
 # Created by: Michael Elbel (me)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mmv
 PORTVERSION=	1.01b.19

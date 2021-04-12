@@ -1,5 +1,8 @@
 # Created by: Bruce M Simpson
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	opensc
 DISTVERSION=	0.21.0

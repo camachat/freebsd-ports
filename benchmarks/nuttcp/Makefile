@@ -1,5 +1,8 @@
 # Created by: Andy Clark <andrewclarkii@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nuttcp
 PORTVERSION=	8.2.2

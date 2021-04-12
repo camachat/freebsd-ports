@@ -1,5 +1,8 @@
 # Created by: nm@web.am
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	osd
 PORTVERSION=	1.9.0

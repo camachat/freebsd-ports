@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Scrappy
 PORTVERSION=	0.94112090
 PORTREVISION=	1

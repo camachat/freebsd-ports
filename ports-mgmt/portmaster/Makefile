@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	portmaster
 PORTVERSION=	3.19
 PORTREVISION=	27
+=======
+PORTNAME=	portmaster
+PORTVERSION=	3.19
+PORTREVISION=	28
+>>>>>>> upstream/main
 CATEGORIES=	ports-mgmt
 
 MAINTAINER=	se@FreeBSD.org

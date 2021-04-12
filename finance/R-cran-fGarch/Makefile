@@ -1,5 +1,8 @@
 # Created by: David Naylor <naylor.b.david@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fGarch
 DISTVERSION=	3042.83.2

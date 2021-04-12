@@ -1,5 +1,8 @@
 # Created by: Maxim Khon <fjoe@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dahdi-kmod
 PORTVERSION=	${DAHDI_VERSION:S/-//g}

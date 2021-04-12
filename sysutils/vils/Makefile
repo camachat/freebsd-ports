@@ -1,5 +1,8 @@
 # Created by: Jeffrey H. Johnson <CPE1704TKS@bellsouth.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vils
 PORTVERSION=	20020228

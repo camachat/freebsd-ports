@@ -1,5 +1,8 @@
 # Created by: Radim Kolar <hsn@sanatana.dharma>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	flip
 PORTVERSION=	1.19

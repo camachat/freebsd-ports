@@ -1,5 +1,8 @@
 # Created by: Johann Visagie <johann@egenetics.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	File-Temp
 PORTVERSION=	0.2311

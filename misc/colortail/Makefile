@@ -1,5 +1,8 @@
 # Created by: Chris Piazza <cpiazza@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	colortail
 PORTVERSION=	0.3.3

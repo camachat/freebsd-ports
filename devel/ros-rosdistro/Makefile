@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ros-rosdistro
 DISTVERSION=	0.7.5
 CATEGORIES=	devel

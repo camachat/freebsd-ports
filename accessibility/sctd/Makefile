@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sctd
 DISTVERSION=	0.2.0
 PORTREVISION=	3

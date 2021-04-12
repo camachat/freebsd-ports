@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	rich
 PORTVERSION=	10.0.0
+=======
+PORTNAME=	rich
+PORTVERSION=	10.1.0
+>>>>>>> upstream/main
 CATEGORIES=	textproc python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}

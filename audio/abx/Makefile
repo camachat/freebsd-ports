@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	abx
 DISTVERSION=	0.0-b1
 CATEGORIES=	audio

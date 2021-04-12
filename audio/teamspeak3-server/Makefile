@@ -1,5 +1,8 @@
 # Created by: Daniel O'Connor
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	teamspeak3-server
 PORTVERSION=	3.13.3

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	nfcutils
 PORTVERSION=	0.1.2
 DISTVERSIONPREFIX=v

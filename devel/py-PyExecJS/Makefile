@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	PyExecJS
 DISTVERSION=	1.5.1
 PORTREVISION=	1

@@ -1,5 +1,8 @@
 # Created by: kmoore@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	grub2-bhyve
 DISTVERSIONPREFIX=	v

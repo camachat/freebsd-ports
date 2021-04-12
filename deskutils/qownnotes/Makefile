@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	qownnotes
 DISTVERSION=	19.2.0
 PORTREVISION=	1

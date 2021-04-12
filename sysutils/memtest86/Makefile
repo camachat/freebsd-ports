@@ -1,5 +1,8 @@
 # Created by: Radim Kolar
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	memtest86
 PORTVERSION=	4.3.7

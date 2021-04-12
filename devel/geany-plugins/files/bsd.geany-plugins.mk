@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 GEANY_VER=		1.37
 GEANY_PLUGINS_GTK2=	multiterm
 

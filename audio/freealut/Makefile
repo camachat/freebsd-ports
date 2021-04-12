@@ -1,5 +1,8 @@
 # Created by: Oliver Lehmann <oliver@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	freealut
 PORTVERSION=	1.1.0

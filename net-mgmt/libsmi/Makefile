@@ -1,5 +1,8 @@
 # Created by: Marcin Cieslak <saper@system.pl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libsmi
 PORTVERSION=	0.4.8

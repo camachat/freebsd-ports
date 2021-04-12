@@ -1,5 +1,8 @@
 # Created by: Yi-Jheng Lin <yzlin@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bpython
 PORTVERSION=	0.21

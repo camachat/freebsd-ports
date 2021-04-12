@@ -1,5 +1,8 @@
 # Created by: gpalmer
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	amanda
 PORTVERSION=	3.3.9

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	at-spi2-atk
 PORTVERSION=	2.26.2
 DISTVERSIONSUFFIX=	-1.el7

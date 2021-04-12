@@ -1,5 +1,8 @@
 # Created by: buganini@gmail.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gbsdconv
 PORTVERSION=	11.3

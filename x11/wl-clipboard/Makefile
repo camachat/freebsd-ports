@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	wl-clipboard
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.0.0

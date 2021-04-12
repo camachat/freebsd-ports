@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	iocage-devel
 PORTVERSION=	1.0.0.20190810
 PORTREVISION=	3

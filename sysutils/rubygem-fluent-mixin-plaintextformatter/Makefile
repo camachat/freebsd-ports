@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fluent-mixin-plaintextformatter
 PORTVERSION=	0.2.2
 CATEGORIES=	sysutils rubygems

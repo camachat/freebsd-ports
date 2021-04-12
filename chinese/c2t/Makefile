@@ -1,5 +1,8 @@
 # Created by: David O'Brien (obrien@FreeBSD.org)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	c2t
 PORTVERSION=	1.0

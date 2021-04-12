@@ -1,5 +1,8 @@
 # Created by: Palle Girgensohn <girgen@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	beats
 PORTVERSION=	6.8.13

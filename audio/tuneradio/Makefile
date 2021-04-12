@@ -1,5 +1,8 @@
 # Created by: pozar
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tuneradio
 PORTVERSION=	1.3

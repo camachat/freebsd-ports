@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gn
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1823

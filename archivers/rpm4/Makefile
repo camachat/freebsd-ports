@@ -1,5 +1,8 @@
 # Created by: Greg Lewis <glewis@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rpm
 PORTVERSION=	4.16.1.2

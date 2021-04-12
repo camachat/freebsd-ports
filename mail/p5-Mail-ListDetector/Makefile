@@ -1,5 +1,8 @@
 # Created by: petef
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Mail-ListDetector
 PORTVERSION=	1.04

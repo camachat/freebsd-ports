@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mpl-interactions
 DISTVERSION=	0.17.6
 CATEGORIES=	graphics python

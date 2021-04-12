@@ -1,5 +1,8 @@
 # Created by: Matt Harris <mattdharris@users.sourceforge.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libpwstor
 PORTVERSION=	0.1

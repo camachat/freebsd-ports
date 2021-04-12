@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	abstreet
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.2.9-49

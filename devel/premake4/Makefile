@@ -1,5 +1,8 @@
 # Created by: Vitaly Magerya <vmagerya@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	premake4
 PORTVERSION=	4.4.b5

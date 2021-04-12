@@ -1,5 +1,8 @@
 # Created by: Andrew Greenwood <greenwood.andy@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-DNSBL-MultiDaemon
 PORTVERSION=	0.39

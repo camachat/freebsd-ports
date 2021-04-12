@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	iorate
 DISTVERSION=	3-05
 CATEGORIES=	benchmarks

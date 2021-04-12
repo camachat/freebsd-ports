@@ -1,5 +1,8 @@
 # Created by: TAKAHASHI Kaoru <kaoru@kaisei.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Template-Provider-Encoding
 PORTVERSION=	0.10

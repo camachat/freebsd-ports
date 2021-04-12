@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	magit
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.90.1-1142

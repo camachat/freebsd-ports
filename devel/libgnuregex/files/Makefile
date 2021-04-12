@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 LIB=			gnuregex
 SHLIB_MAJOR=	6
 

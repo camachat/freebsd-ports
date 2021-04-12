@@ -1,5 +1,8 @@
 # Created by: Oliver Lehmann
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	courier-authlib
 PORTVERSION=	0.71.2

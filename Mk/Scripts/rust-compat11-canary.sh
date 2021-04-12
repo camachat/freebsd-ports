@@ -1,6 +1,9 @@
 #!/bin/sh
 # MAINTAINER: rust@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 set -eu
 set -o pipefail
 

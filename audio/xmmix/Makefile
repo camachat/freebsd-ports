@@ -1,5 +1,8 @@
 # Created by: Erik Cederstrand <erich@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xmmix
 PORTVERSION=	1.2.2

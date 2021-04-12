@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	aiocoap
 DISTVERSION=	0.3
 CATEGORIES=	net

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	spago
 DISTVERSION=	0.19.1
 CATEGORIES=	devel

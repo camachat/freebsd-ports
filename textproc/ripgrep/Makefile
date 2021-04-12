@@ -1,5 +1,8 @@
 # Created by: Petteri Valkonen <petteri.valkonen@iki.fi>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ripgrep
 DISTVERSION=	12.1.1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	django-context-decorator
 PORTVERSION=	1.5.0
 CATEGORIES=	www python

@@ -1,5 +1,8 @@
 # Created by: Peter Wemm <peter@netplex.com.au>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	transproxy
 PORTVERSION=	1.6

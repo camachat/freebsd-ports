@@ -1,8 +1,14 @@
 # Created by: thierry@pompo.net
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	three.js
 PORTVERSION=	126
+=======
+
+PORTNAME=	three.js
+PORTVERSION=	127
+>>>>>>> upstream/main
 DISTVERSIONPREFIX=	r
 CATEGORIES=	www
 

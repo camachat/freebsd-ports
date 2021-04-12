@@ -1,5 +1,8 @@
 # Created by: Jean-Yves Lefort <jylefort@brutele.be>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	stellarium
 PORTVERSION=	0.21.0

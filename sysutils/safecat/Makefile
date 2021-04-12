@@ -1,5 +1,8 @@
 # Created by: roam@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	safecat
 PORTVERSION=	1.13

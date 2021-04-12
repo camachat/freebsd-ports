@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	u-boot
 PORTVERSION=	2015.07
 PORTREVISION=	3

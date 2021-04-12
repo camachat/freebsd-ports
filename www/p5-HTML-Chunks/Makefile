@@ -1,5 +1,8 @@
 # Created by: Alexander Koch <fbsd@meersau.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HTML-Chunks
 PORTVERSION=	1.55.1

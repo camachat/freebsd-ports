@@ -1,5 +1,8 @@
 # Created by: Pedro F. Giffuni
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jspice3
 DISTVERSION=	2.5-110615

@@ -1,5 +1,8 @@
 # Created by: Koen Martens <gmc@sonologic.nl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-DNS-Resolver-Programmable
 PORTVERSION=	0.009

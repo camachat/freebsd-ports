@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	metasploit_payloads-mettle
 PORTVERSION=	1.0.2
 CATEGORIES=	security rubygems

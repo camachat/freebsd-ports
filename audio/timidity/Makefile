@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	timidity
 PORTVERSION=	0.2i
 PORTREVISION=	1

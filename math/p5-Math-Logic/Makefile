@@ -1,5 +1,8 @@
 # Created by: Mario S F Ferreira <lioux@linf.unb.br> et al.
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Math-Logic
 PORTVERSION=	1.19

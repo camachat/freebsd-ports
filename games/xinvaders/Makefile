@@ -1,5 +1,8 @@
 # Created by: swallace
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xinvaders
 PORTVERSION=	2.1.1

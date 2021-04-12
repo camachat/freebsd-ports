@@ -1,5 +1,8 @@
 # Created by: Andrey V. Elsukov <bu7cher@yandex.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libbegemot
 PORTVERSION=	1.11

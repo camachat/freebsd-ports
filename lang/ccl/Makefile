@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ccl
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.12

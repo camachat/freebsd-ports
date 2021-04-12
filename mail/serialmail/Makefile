@@ -1,5 +1,8 @@
 # Created by: Tom Hukins <tom@eborcom.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	serialmail
 PORTVERSION=	0.75

@@ -1,5 +1,8 @@
 # Created by: Josef El-Rayes <j.el-rayes@daemon.li>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	swiggle
 PORTVERSION=	0.4

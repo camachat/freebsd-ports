@@ -1,5 +1,8 @@
 # Created by: mark@foster.cc
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	scavenge
 PORTVERSION=	2.0

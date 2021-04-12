@@ -1,5 +1,8 @@
 # Created by: Antoine Brodin <antoine@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	XlsxWriter
 PORTVERSION=	1.3.8

@@ -1,5 +1,8 @@
 # Created by: Qing Feng <qingfeng@douban.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tokyopromenade
 PORTVERSION=	0.9.25

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	qmk
 PORTVERSION=	0.0.40
 CATEGORIES=	sysutils python

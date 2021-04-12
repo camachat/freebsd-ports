@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 VOICE=	cmu_us_bdl_arctic
 
 COMMENT=	CMU US English male voice for festival

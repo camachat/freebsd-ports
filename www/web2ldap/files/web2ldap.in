@@ -1,5 +1,8 @@
 #!/bin/sh
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 # PROVIDE: web2ldap
 # REQUIRE: DAEMON NETWORKING

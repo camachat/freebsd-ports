@@ -1,5 +1,8 @@
 # Created by: Shen Chuan-Hsing <statue@freebsd.sinica.edu.tw>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	CJKUnifonts
 PORTVERSION=	0.2.20080216.1

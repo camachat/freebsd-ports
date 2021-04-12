@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	molequeue
 DISTVERSION=	0.9.0
 PORTREVISION=	2

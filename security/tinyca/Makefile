@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tinyca
 PORTVERSION=	0.7.6
 PORTREVISION=	2

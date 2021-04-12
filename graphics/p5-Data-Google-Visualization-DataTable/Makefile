@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Data-Google-Visualization-DataTable
 PORTVERSION=	0.11
 PORTREVISION=	1

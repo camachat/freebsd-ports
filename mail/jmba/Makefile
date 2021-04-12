@@ -1,5 +1,8 @@
 # Created by: Romain Tartiere <romain@blogreen.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jmba
 PORTVERSION=	0.5.5

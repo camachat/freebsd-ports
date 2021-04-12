@@ -1,5 +1,8 @@
 # Created by: Elias Mandouvalos <ocean@compulink.gr>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tn5250
 PORTVERSION=	0.17.4

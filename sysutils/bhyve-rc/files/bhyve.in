@@ -1,7 +1,10 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD: mgmelin
 #
+=======
+>>>>>>> upstream/main
 
 # PROVIDE: bhyve
 # REQUIRE: LOGIN

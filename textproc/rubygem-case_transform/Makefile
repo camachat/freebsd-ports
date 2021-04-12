@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	case_transform
 PORTVERSION=	0.2
 CATEGORIES=	textproc rubygems

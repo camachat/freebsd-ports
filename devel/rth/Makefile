@@ -1,5 +1,8 @@
 # Created by: Jan Siml <jsi@jules.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rth
 PORTVERSION=	1.7.0

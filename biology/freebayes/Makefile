@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		freebayes
 DISTVERSIONPREFIX=	v
 DISTVERSION=		1.2.0

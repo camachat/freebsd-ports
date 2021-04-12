@@ -1,5 +1,8 @@
 # Created by: anders@hack.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pekwm
 DISTVERSIONPREFIX=	release-

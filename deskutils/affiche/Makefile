@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	affiche
 PORTVERSION=	0.6.0
 PORTREVISION=	11

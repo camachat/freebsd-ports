@@ -1,8 +1,14 @@
 # Created by: Johannes Dieterich <dieterich@ogolem.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	clblas
 PORTVERSION=	2.12
+=======
+
+PORTNAME=	clblas
+PORTVERSION=	2.10
+>>>>>>> upstream/main
 DISTVERSIONPREFIX=	v
 PORTREVISION=	13
 CATEGORIES=	math

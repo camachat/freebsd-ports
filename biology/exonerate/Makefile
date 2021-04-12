@@ -1,5 +1,8 @@
 # Created by: Motomichi Matsuzaki <mzaki@niid.go.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	exonerate
 PORTVERSION=	2.4.0

@@ -1,5 +1,8 @@
 # Created by: argv[0] (Iouri V. Ivliev)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	panoglview
 PORTVERSION=	0.2.2

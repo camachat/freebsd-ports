@@ -1,5 +1,8 @@
 # Created by: jesusr
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sipsak
 PORTVERSION=	0.9.6

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libXpresent
 PORTVERSION=	1.0.0
 CATEGORIES=	x11

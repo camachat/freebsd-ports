@@ -1,5 +1,8 @@
 # Created by: Johannes Lundberg <johalun0@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libepoll-shim
 DISTVERSIONPREFIX=	v

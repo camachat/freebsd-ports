@@ -1,5 +1,8 @@
 # Created by: Junho CHOI <junho.choi@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	imhangul
 PORTVERSION=	3.1.1

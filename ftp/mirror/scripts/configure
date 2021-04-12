@@ -1,7 +1,10 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 
 mv ${WRKSRC}/mirror.pl ${WRKSRC}/mirror.pl.bak
 sed <${WRKSRC}/mirror.pl.bak >${WRKSRC}/mirror.pl s+!!PREFIX!!+$PREFIX+g

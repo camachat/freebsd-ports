@@ -1,5 +1,8 @@
 # Created by: Oleg Sharoiko <os@rsu.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	MDB
 PORTVERSION=	1.3.0

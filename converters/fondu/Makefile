@@ -1,5 +1,8 @@
 # Created by: Gvozdikov Veniamin <g.veniamin@googlemail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fondu
 PORTVERSION=	051010

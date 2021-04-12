@@ -1,5 +1,8 @@
 # Created by: Peter Ankerstal <peter@pean.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	zfs-periodic
 PORTVERSION=	1.0.20130213

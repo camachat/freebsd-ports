@@ -1,5 +1,8 @@
 # Created by: Gruen Christian <kiki@bsdro.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Catalyst-View-HTML-Template
 PORTVERSION=	0.03

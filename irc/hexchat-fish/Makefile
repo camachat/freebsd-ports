@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fishlim
 PORTVERSION=	0.0.19
 CATEGORIES=	irc security

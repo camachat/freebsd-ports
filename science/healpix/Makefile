@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	healpix
 DISTVERSION=	3.50
 DISTVERSIONSUFFIX=	_2018Dec10

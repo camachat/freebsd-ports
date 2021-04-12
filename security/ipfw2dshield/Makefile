@@ -1,5 +1,8 @@
 # Created by: Frank W. Josellis <frank@dynamical-systems.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ipfw2dshield
 PORTVERSION=	0.5

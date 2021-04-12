@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ptex
 PORTREVISION=	1
 DISTVERSIONPREFIX=	v

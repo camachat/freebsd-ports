@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	php74
 DISTVERSION=	7.4.16
 PORTREVISION?=	0

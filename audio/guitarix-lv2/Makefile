@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	guitarix
 DISTVERSION=	0.40.0
 PORTREVISION=	2

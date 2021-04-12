@@ -1,5 +1,8 @@
 # Created by: Gary Hayers <Gary@Hayers.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	SAVI-Perl
 PORTVERSION=	0.30

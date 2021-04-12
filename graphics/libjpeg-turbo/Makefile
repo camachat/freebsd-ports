@@ -1,5 +1,8 @@
 # Created by: Denis Podolskiy <bytestore@yandex.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PKGNAMEPREFIX=	lib
 PORTREVISION=	0

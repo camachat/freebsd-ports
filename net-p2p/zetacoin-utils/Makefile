@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 MASTERDIR=	${.CURDIR}/../zetacoin
 PKGNAMESUFFIX=	-utils
 

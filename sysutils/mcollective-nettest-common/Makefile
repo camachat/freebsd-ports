@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME?=	mcollective-nettest-common
 PORTVERSION=	3.0.4
 CATEGORIES=	sysutils

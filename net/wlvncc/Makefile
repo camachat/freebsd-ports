@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	wlvncc
 PORTVERSION=	s20201206
 CATEGORIES=	net

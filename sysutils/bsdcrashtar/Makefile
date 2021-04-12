@@ -1,5 +1,8 @@
 # Created by: Mikolaj Golub <to.my.trociny@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bsdcrashtar
 PORTVERSION=	0.1.3

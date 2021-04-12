@@ -1,5 +1,8 @@
 # Created by: tobez
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	GraphViz-DBI
 PORTVERSION=	1.100860

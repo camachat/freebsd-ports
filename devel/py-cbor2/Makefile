@@ -1,5 +1,8 @@
 # Created by: Dan Langille <dvl@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cbor2
 PORTVERSION=	4.1.2

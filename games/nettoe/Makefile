@@ -1,5 +1,8 @@
 # Created by: Christopher Preston <rbg@gayteenresource.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nettoe
 PORTVERSION=	1.5.1

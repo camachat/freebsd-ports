@@ -1,5 +1,8 @@
 # Created by: František Dvořák <valtri@civ.zcu.cz>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	festlex-czech
 PORTVERSION=	0.2.1

@@ -1,5 +1,8 @@
 # Created by: Edwin Groothuis <edwin2mavetju.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	flatzebra
 PORTVERSION=	0.1.7

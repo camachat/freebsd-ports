@@ -1,5 +1,8 @@
 # Created by: Bernhard Froehlich <decke@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libdvbcsa
 PORTVERSION=	1.1.0

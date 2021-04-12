@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cddlib
 PORTVERSION=	0.94l
 CATEGORIES=	math

@@ -1,5 +1,8 @@
 # Created by: johans
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dmtx-utils
 DISTVERSIONPREFIX=	v

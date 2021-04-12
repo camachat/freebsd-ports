@@ -1,5 +1,8 @@
 # Created by: Andreas Klemm <andreas@klemm.gtn.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bzip
 PORTVERSION=	0.21

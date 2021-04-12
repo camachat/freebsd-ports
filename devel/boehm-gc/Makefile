@@ -1,5 +1,8 @@
 # Created by: Mike McGaughey <mmcg@cs.monash.edu.au>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gc
 PORTVERSION=	8.0.4

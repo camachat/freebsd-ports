@@ -1,5 +1,8 @@
 # Created by: rpsfa@rit.edu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ezprint
 PORTVERSION=	1.0.1

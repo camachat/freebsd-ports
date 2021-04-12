@@ -1,5 +1,8 @@
 # Created by: KANOU Hiroki <kanou@khdd.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fontforge
 PORTVERSION=	20201107

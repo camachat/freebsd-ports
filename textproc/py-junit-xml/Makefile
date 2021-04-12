@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	junit-xml
 PORTVERSION=	1.6
 CATEGORIES=	textproc python

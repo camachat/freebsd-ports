@@ -1,9 +1,15 @@
 # Created by: Andrey Zakhvatov
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	vms-empire
 PORTVERSION=	1.14
 PORTREVISION=	1
+=======
+
+PORTNAME=	vms-empire
+PORTVERSION=	1.16
+>>>>>>> upstream/main
 CATEGORIES=	games
 MASTER_SITES=	http://www.catb.org/~esr/vms-empire/
 
@@ -17,11 +23,14 @@ MAKE_ARGS=	LIBS="${LDFLAGS} -lncurses"
 PORTDOCS=	AUTHORS BUGS HACKING NEWS README
 OPTIONS_DEFINE=	DOCS
 
+<<<<<<< HEAD
 CFLAGS+=		-fcommon
 
 DEPRECATED=	Unmaintained and dead upstream, does not build with -fno-common (llvm 11)
 EXPIRATION_DATE=2021-04-01
 
+=======
+>>>>>>> upstream/main
 PLIST_FILES=	bin/${PORTNAME} \
 		man/man6/${PORTNAME}.6.gz \
 		share/appdata/${PORTNAME}.xml \

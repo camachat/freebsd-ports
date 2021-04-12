@@ -1,5 +1,8 @@
 # Created by: Brian Somers <brian@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	AddressBook
 PORTVERSION=	0.16

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	puppetdb-terminus
 PORTVERSION=	5.2.19
 CATEGORIES=	databases ruby

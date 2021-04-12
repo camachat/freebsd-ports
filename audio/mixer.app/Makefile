@@ -1,5 +1,8 @@
 # Created by: Chris Piazza <cpiazza@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mixer.app
 PORTVERSION=	1.8.0

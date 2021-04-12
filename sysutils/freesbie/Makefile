@@ -1,5 +1,8 @@
 # Created by: Thomas E. Zander <riggs@rrr.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	freesbie
 PORTVERSION=	2.0.20070710

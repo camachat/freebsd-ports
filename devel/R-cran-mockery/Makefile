@@ -1,5 +1,8 @@
 # Created by: Guangyuan Yang <ygy@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mockery
 DISTVERSION=	0.4.2

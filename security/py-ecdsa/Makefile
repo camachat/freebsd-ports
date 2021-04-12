@@ -1,5 +1,8 @@
 # Created by: Neil Booth
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ecdsa
 PORTVERSION=	0.16.0

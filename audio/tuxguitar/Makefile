@@ -1,5 +1,8 @@
 # Created by: Pietro Cerutti (gahr@gahr.ch)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tuxguitar
 PORTVERSION=	1.2

@@ -1,5 +1,8 @@
 # Created by: ru
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tcpmssd
 PORTVERSION=	1.1

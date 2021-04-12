@@ -1,5 +1,8 @@
 # Created by: Dan Rench <citric@cubicone.tmetic.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Regexp-Grammars
 PORTVERSION=	1.057

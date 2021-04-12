@@ -1,8 +1,14 @@
 # Created by: Goran Lowkrantz <glz@hidden-powers.com>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	piwigo
 DISTVERSION=	11.3.0
+=======
+
+PORTNAME=	piwigo
+DISTVERSION=	11.4.0
+>>>>>>> upstream/main
 CATEGORIES=	www
 MASTER_SITES=	https://piwigo.org/download/dlcounter.php?code=${PORTVERSION}&/
 

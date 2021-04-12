@@ -1,5 +1,8 @@
 # Created by: Patrick Li <pat@databits.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	replaceit
 PORTVERSION=	1.0.1

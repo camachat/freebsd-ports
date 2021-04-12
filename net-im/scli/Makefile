@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	scli
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.4.0

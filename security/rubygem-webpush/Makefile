@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	webpush
 PORTVERSION=	0.3.4
 CATEGORIES=	security rubygems

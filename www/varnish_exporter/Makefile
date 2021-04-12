@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		varnish_exporter
 PORTVERSION=		1.5.1
 PORTREVISION=		1

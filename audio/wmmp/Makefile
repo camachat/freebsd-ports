@@ -1,5 +1,8 @@
 # Created by: Nicolas Herry <nicolasherry@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wmmp
 PORTVERSION=	0.12.6

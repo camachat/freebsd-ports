@@ -1,5 +1,8 @@
 # Created by: Alexander Nedotsukov <bland@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	inkscape
 PORTVERSION=	1.0.2

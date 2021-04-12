@@ -1,5 +1,8 @@
 # Created by: Loïc BARTOLETTI <lbartoletti@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	readosm
 PORTVERSION=	1.1.0

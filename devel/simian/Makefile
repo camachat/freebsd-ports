@@ -1,5 +1,8 @@
 # Created by: andreas@syndrom23.de
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	simian
 PORTVERSION=	2.5.10

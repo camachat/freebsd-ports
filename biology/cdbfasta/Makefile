@@ -1,5 +1,8 @@
 # Created by: Dan Siercks <dsiercks@uwm.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cdbfasta
 PORTVERSION=	2010.07.22

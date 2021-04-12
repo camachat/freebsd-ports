@@ -1,5 +1,8 @@
 # Created by: Marco Steinbach <coco@webdev.c0c0.intra>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sqtop
 DISTVERSIONPREFIX=	v

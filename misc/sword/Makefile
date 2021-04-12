@@ -1,9 +1,16 @@
 # Created by: Willem van Engen <wvengen@stack.nl>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	sword
 PORTVERSION=	1.8.1
 PORTREVISION=	11
+=======
+
+PORTNAME=	sword
+PORTVERSION=	1.8.1
+PORTREVISION=	12
+>>>>>>> upstream/main
 CATEGORIES=	misc
 MASTER_SITES=	http://crosswire.org/ftpmirror/pub/sword/source/v${PORTVERSION:R}/
 

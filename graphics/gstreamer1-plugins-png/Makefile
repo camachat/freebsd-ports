@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTREVISION=	0
 CATEGORIES=	graphics
 PKGNAMESUFFIX=	1-plugins-png

@@ -1,7 +1,10 @@
 # BSD Makefile for libublio
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 
 SRCS=	ublio.c
 

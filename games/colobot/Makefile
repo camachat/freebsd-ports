@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	colobot
 DISTVERSIONPREFIX=	${PORTNAME}-gold-
 DISTVERSION=	0.1.12

@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	nats-server
 PORTVERSION=	2.2.0
+=======
+PORTNAME=	nats-server
+PORTVERSION=	2.2.1
+>>>>>>> upstream/main
 DISTVERSIONPREFIX=	v
 CATEGORIES=	net
 

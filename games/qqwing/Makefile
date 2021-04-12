@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	qqwing
 PORTVERSION=	1.3.4
 DISTVERSIONPREFIX=	v

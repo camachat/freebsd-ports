@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	aquantia-atlantic-kmod
 PORTVERSION=	0.0.5
 PORTREVISION=	1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	App-FatPacker
 PORTVERSION=	0.010005
 CATEGORIES=	devel perl5

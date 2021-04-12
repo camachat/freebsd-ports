@@ -1,5 +1,8 @@
 # Created by: Greg Larkin <glarkin@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Data-HashArray
 PORTVERSION=	1.03

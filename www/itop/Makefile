@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	itop
 PORTVERSION=	2.6.1
 CATEGORIES=	www

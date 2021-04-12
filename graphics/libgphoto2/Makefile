@@ -1,5 +1,8 @@
 # Created by: Anders Nordby <anders@fix.no>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libgphoto2
 PORTVERSION=	2.5.26

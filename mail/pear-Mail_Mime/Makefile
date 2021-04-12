@@ -1,5 +1,8 @@
 # Created by: Thierry Thomas (<thierry@pompo.net>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Mail_Mime
 PORTVERSION=	1.10.10

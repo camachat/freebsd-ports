@@ -1,5 +1,8 @@
 # Created by: aaron@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tolua++
 PORTVERSION=	1.0.93
@@ -11,7 +14,11 @@ MASTER_SITES=	http://www.codenix.com/~tolua/ \
 MAINTAINER=	amdmi3@FreeBSD.org
 COMMENT=	Extended version of tolua, a tool to integrate C/C++ code with Lua
 
+<<<<<<< HEAD
 USES=		scons:python2 lua:51 tar:bzip2
+=======
+USES=		scons lua:51 tar:bzip2
+>>>>>>> upstream/main
 MAKE_ARGS=	prefix=${PREFIX} SONAME="libtolua++-${LUA_VER}.so"
 
 CCFLAGS+=	-I${LUA_INCDIR}

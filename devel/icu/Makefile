@@ -1,8 +1,14 @@
 # Created by: dwm
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	icu
 DISTVERSION=	68_2
+=======
+
+PORTNAME=	icu
+DISTVERSION=	69_1
+>>>>>>> upstream/main
 PORTREVISION?=	0 # keep for icu-lx
 PORTEPOCH?=	1
 CATEGORIES?=	devel

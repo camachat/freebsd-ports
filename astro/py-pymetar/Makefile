@@ -1,5 +1,8 @@
 # Created by: Hye-Shik Chang <perky@fallin.lv>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pymetar
 PORTVERSION=	1.2

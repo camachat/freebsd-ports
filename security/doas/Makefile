@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	doas
 PORTVERSION=	6.3p4
 CATEGORIES=	security

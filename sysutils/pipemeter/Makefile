@@ -1,5 +1,8 @@
 # Created by: Len Sassama
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pipemeter
 PORTVERSION=	1.1.5

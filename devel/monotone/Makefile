@@ -1,5 +1,8 @@
 # Created by: Mark A. Wicks <mwicks@kettering.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	monotone
 PORTVERSION=	1.1

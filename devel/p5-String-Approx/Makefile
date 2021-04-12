@@ -1,5 +1,8 @@
 # Created by: Ilia Chipitsine <ilia@cgu.chel.su>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	String-Approx
 PORTVERSION=	3.28

@@ -1,5 +1,8 @@
 # Created by: Alan Eldridge <alane@geeksrus.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xstow
 PORTVERSION=	1.0.2

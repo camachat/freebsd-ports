@@ -1,5 +1,8 @@
 # Created by: Johannes M Dieterich <jmd@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	f18
 DISTVERSION=	g20191019

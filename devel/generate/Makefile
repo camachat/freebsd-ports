@@ -1,5 +1,8 @@
 # Created by: D'Arcy J.M. Cain <darcy@druid.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	generate
 PORTVERSION=	2.8

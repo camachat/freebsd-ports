@@ -1,5 +1,8 @@
 # Created by: tmartin@andrew.cmu.edu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	senken
 PORTVERSION=	0.3.0

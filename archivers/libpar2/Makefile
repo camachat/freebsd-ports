@@ -1,5 +1,8 @@
 # Created by: Jeff Burchell <toxic@doobie.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libpar2
 PORTVERSION=	0.4

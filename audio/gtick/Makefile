@@ -1,5 +1,8 @@
 # Created by: Liam J. Foy <liamfoy@sepulcrum.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gtick
 PORTVERSION=	0.5.5

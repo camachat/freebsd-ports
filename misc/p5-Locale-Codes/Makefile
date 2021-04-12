@@ -1,5 +1,8 @@
 # Created by: James FitzGibbon <jfitz@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Locale-Codes
 PORTVERSION=	3.64

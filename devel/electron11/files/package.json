@@ -1,6 +1,10 @@
 {
   "name": "electron",
+<<<<<<< HEAD
   "version": "11.3.0",
+=======
+  "version": "11.4.2",
+>>>>>>> upstream/main
   "repository": "https://github.com/electron/electron",
   "description": "Build cross platform desktop apps with JavaScript, HTML, and CSS",
   "devDependencies": {

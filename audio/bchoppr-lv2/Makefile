@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	bchoppr
 DISTVERSION=	1.10.4
+=======
+PORTNAME=	bchoppr
+DISTVERSION=	1.10.6
+>>>>>>> upstream/main
 CATEGORIES=	audio
 PKGNAMESUFFIX=	-lv2
 
@@ -17,11 +22,20 @@ LIB_DEPENDS=	libfontconfig.so:x11-fonts/fontconfig \
 
 USES=		compiler:c++11-lang gmake gnome pkgconfig xorg
 USE_GITHUB=	yes
+<<<<<<< HEAD
 GH_ACCOUNT=	sjaehn
 GH_PROJECT=	BChoppr
 USE_GNOME=	cairo
 USE_XORG=	x11
 
+=======
+USE_GNOME=	cairo
+USE_XORG=	x11
+
+GH_ACCOUNT=	sjaehn
+GH_PROJECT=	BChoppr
+
+>>>>>>> upstream/main
 MAKEFILE=	makefile
 
 PLIST_FILES=	lib/lv2/BChoppr.lv2/BChoppr.so \

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pydotplus
 DISTVERSION=	2.0.2
 CATEGORIES=	graphics python

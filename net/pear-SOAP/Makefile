@@ -1,5 +1,8 @@
 # Created by: Thierry Thomas (<thierry@FreeBSD.org>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	SOAP
 PORTVERSION=	0.14.0

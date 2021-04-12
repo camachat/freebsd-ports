@@ -1,5 +1,8 @@
 # Created by: Nemo Liu <nemoliu@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	flexjson
 DISTVERSION=	2.1

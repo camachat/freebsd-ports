@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ntplib
 PORTVERSION=	0.3.4
 CATEGORIES=	net python

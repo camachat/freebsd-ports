@@ -1,6 +1,9 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 ETCDIR=${ETCDIR:=%%ETCDIR%%}
 PREFIX=${PREFIX:=%%PREFIX%%}

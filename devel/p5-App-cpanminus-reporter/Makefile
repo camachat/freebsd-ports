@@ -1,5 +1,8 @@
 # Created by: James E Keenan <jkeenan@cpan.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	App-cpanminus-reporter
 PORTVERSION=	0.17

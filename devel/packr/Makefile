@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	packr
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.8.1

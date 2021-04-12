@@ -1,5 +1,8 @@
 # Created by: Johannes M Dieterich <jmd@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	blis
 PORTVERSION=	0.8.0

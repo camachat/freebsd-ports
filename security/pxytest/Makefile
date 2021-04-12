@@ -1,5 +1,8 @@
 # Created by: Paul Chvostek <paul@it.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pxytest
 PORTVERSION=	1.36

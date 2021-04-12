@@ -1,5 +1,8 @@
 # Created by: Bruce Cran <bruce@cran.org.uk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dfu-util
 PORTVERSION=	0.10

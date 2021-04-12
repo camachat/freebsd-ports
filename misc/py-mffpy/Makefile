@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mffpy
 DISTVERSION=	0.6.2
 CATEGORIES=	misc

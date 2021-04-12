@@ -1,5 +1,8 @@
 # Created by: stas
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	data
 PORTVERSION=	1.38

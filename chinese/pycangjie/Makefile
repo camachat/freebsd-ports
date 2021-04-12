@@ -1,5 +1,8 @@
 # Created by: blubee <hello@blubee.me>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		pycangjie
 PORTVERSION=		1.3

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	polynom
 DISTVERSION=	1.4-0
 PORTREVISION=	2

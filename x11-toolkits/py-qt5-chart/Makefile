@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	chart
 PORTVERSION=	${PYQT5_VERSION}
 CATEGORIES=	x11-toolkits devel python

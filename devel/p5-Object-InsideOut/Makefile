@@ -1,5 +1,8 @@
 # Created by: Geraud Continsouzas <geraud@gcu.info>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Object-InsideOut
 PORTVERSION=	4.05

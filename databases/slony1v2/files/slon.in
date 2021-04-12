@@ -1,10 +1,15 @@
 #!/bin/sh
 #
+<<<<<<< HEAD
 # $FreeBSD$
 # Modified by Brian A. Seklecki <bseklecki@collaborativefusion.com>
 #                               <lavalamp@spiritual-machines.org>
 # $Id$ 
 #
+=======
+# Modified by Brian A. Seklecki <bseklecki@collaborativefusion.com>
+#                               <lavalamp@spiritual-machines.org>
+>>>>>>> upstream/main
 
 # sed -e 's/%%PREFIX%%/\/usr\/local/g' < slon.sh.in > slon
 

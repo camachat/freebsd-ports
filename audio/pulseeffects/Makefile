@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pulseeffects
 DISTVERSIONPREFIX=	v
 DISTVERSION=	4.6.8

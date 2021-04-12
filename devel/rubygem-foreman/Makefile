@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	foreman
 PORTVERSION=	0.87.2
 CATEGORIES=	devel rubygems

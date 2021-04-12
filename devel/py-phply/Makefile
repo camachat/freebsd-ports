@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	phply
 PORTVERSION=	1.2.5
 PORTREVISION=	2

@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	flexget
 DISTVERSIONPREFIX=	v
 PORTVERSION=	3.1.94
+=======
+PORTNAME=	flexget
+DISTVERSIONPREFIX=	v
+PORTVERSION=	3.1.108
+>>>>>>> upstream/main
 CATEGORIES=	www
 
 MAINTAINER=	jbeich@FreeBSD.org
@@ -23,7 +29,11 @@ RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}sqlalchemy13>=1.3.10:databases/py-sqlalchemy
 		${PYTHON_PKGNAMEPREFIX}pyparsing>=2.4.7:devel/py-pyparsing@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}yaml>=4.2:devel/py-yaml@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}progressbar>=2.5:misc/py-progressbar@${PY_FLAVOR} \
+<<<<<<< HEAD
 		${PYTHON_PKGNAMEPREFIX}guessit>=3.0.3:multimedia/py-guessit@${PY_FLAVOR} \
+=======
+		${PYTHON_PKGNAMEPREFIX}guessit>=3.2.0:multimedia/py-guessit@${PY_FLAVOR} \
+>>>>>>> upstream/main
 		${PYTHON_PKGNAMEPREFIX}pynzb>0:news/py-pynzb@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}zxcvbn>0:security/py-zxcvbn@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}plumbum>=1.2:sysutils/py-plumbum@${PY_FLAVOR} \

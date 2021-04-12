@@ -1,5 +1,8 @@
 # Created by: John Alden + Eric Freeman <freebsdports@chillibear.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Config-Wrest
 PORTVERSION=	1.036

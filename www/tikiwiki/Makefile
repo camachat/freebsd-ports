@@ -1,5 +1,8 @@
 # Created by: Babak Farrokhi <babak@farrokhi.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tikiwiki
 DISTVERSION=	21.2

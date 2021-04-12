@@ -1,7 +1,10 @@
 #!/bin/sh
 #
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # Exim hints database maintenance
 # 
 #   contributed by: Oliver Eikemeier <eikemeier@fillmore-labs.com>

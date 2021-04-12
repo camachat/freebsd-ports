@@ -1,5 +1,8 @@
 # Created by: Torsten Zuehlsdorff <ports@toco-domains.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sentry-raven
 PORTVERSION=	3.1.1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xbyak
 DISTVERSIONPREFIX=	v
 DISTVERSION=	5.991

@@ -1,5 +1,8 @@
 # Created by: Matthias Sund <m.sund@arcor.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	codeblocks
 PORTVERSION=	20.03

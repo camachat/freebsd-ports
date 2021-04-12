@@ -1,5 +1,8 @@
 # Created by: Pavel I Volkov <pavelivolkov@googlemail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ccsrch
 PORTVERSION=	1.0.3

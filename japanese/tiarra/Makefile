@@ -1,5 +1,8 @@
 # Created by: Hajimu UMEMOTO <ume@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tiarra
 PORTVERSION=	20100212

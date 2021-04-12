@@ -1,5 +1,8 @@
 # Created by: Daisuke Aoyama <aoyama@peach.ne.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	istgt
 PORTVERSION=	20150713

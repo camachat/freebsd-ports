@@ -1,5 +1,8 @@
 # Created by: Yoichi Asai <yatt@msc.biglobe.ne.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PKGNAMESUFFIX=	-xskin
 

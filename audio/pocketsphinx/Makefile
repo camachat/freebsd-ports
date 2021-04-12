@@ -1,5 +1,8 @@
 # Created by: Richard Neese
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pocketsphinx
 PORTVERSION=	0.8

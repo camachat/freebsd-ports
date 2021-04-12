@@ -1,5 +1,8 @@
 # Created by: glocke@bsdstammtisch.at
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	retroshare
 DISTVERSIONPREFIX=	v

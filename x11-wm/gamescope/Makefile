@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	gamescope
 DISTVERSION=	3.7.1
+=======
+PORTNAME=	gamescope
+DISTVERSION=	3.7.1
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	x11-wm
 
 PATCH_SITES=	https://github.com/${GH_ACCOUNT}/${GH_PROJECT}/commit/
@@ -10,6 +16,11 @@ PATCHFILES+=	620f8f5bc530.patch:-p1 # https://github.com/Plagman/gamescope/pull/
 PATCHFILES+=	892d79b0f37e.patch:-p1 # https://github.com/Plagman/gamescope/pull/119
 PATCHFILES+=	ae60c865d9d8.patch:-p1 # https://github.com/Plagman/gamescope/pull/119
 PATCHFILES+=	d59836199ebe.patch:-p1 # https://github.com/Plagman/gamescope/issues/120
+<<<<<<< HEAD
+=======
+PATCHFILES+=	9d84b38c9042.patch:-p1 # wlroots 0.13
+PATCHFILES+=	a9d8a368d809.patch:-p1 # wlroots 0.13
+>>>>>>> upstream/main
 
 MAINTAINER=	jbeich@FreeBSD.org
 COMMENT=	Micro-compositor from SteamOS

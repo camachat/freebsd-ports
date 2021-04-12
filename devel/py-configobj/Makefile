@@ -1,5 +1,8 @@
 # Created by: Choe, Cheng-Dae
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	configobj
 PORTVERSION=	5.0.6

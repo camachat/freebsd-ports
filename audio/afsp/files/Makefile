@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 LIBRARIES =	lib/libAO.a \
 		lib/libtsp.a
 BINARIES =	bin/CompAudio \

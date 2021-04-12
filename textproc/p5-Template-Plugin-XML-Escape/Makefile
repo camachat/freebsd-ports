@@ -1,5 +1,8 @@
 # Created by: kevit
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Template-Plugin-XML-Escape
 PORTVERSION=	0.02

@@ -1,5 +1,8 @@
 # Created by: Greg Larkin <glarkin@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Amazon-SQS-Simple
 PORTVERSION=	1.06

@@ -1,5 +1,8 @@
 # Created by: Torsten Zuehlsdorff <tz@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	babel-source
 PORTVERSION=	5.8.35

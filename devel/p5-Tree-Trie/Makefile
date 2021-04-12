@@ -1,5 +1,8 @@
 # Created by: gebhart@secnetix.de
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Tree-Trie
 PORTVERSION=	1.9

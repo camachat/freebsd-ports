@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	powerdns
 DISTVERSION=	4.4.1
 CATEGORIES=	dns

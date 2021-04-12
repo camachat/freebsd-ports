@@ -1,5 +1,8 @@
 # Created by: jaharkes
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lwp
 PORTVERSION=	2.8

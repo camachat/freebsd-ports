@@ -1,5 +1,8 @@
 # Created by: jupengfei <jupengfei@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Text-Extract-Word
 PORTVERSION=	0.04

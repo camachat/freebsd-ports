@@ -1,5 +1,8 @@
 # Created by: Natacha Porte <natbsd@instinctive.eu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ddns
 PORTVERSION=	1.0

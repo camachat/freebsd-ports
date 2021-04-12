@@ -1,8 +1,14 @@
 # Created by: Brad Lanam <bll@gentoo.com>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	di
 PORTVERSION=	4.49
+=======
+
+PORTNAME=	di
+PORTVERSION=	4.50
+>>>>>>> upstream/main
 CATEGORIES=	sysutils
 MASTER_SITES=	SF/diskinfo-di
 

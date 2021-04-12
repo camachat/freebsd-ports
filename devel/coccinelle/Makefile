@@ -1,5 +1,8 @@
 # Created by: Andriy Gapon
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	coccinelle
 PORTVERSION=	1.0.7

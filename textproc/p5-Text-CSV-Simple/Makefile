@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Text-CSV-Simple
 PORTVERSION=	1.00
 PORTREVISION=	1

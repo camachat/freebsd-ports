@@ -1,5 +1,8 @@
 # Created by: antoine@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pyaff4
 DISTVERSION=	0.26.post6

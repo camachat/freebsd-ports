@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	core
 DISTVERSION=	${QT5_VERSION}
 PORTREVISION=	2
+=======
+PORTNAME=	core
+DISTVERSION=	${QT5_VERSION}
+PORTREVISION=	3
+>>>>>>> upstream/main
 CATEGORIES=	devel
 PKGNAMEPREFIX=	qt5-
 

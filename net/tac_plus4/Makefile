@@ -1,5 +1,8 @@
 # Created by: Igor Vinokurov <igor@zynaps.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tac_plus
 PORTVERSION=	F4.0.4.28

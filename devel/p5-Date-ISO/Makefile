@@ -1,5 +1,8 @@
 # Created by: Kimura Fuyuki <fuyuki@mj.0038.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Date-ISO
 PORTVERSION=	1.31

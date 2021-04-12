@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gsimplecal
 PORTVERSION=	2.2
 DISTVERSIONPREFIX=	v

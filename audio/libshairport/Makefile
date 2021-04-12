@@ -1,5 +1,8 @@
 # Created by: Manuel Creach <manuel.creach@icloud.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libshairport
 PORTVERSION=	1.2.0.20310

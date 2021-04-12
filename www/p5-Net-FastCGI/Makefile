@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Net-FastCGI
 PORTVERSION=	0.14
 PORTREVISION=	1

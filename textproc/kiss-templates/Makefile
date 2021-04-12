@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		kiss-templates
 PORTVERSION=		0.19
 PORTREVISION=		13

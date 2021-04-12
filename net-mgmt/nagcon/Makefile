@@ -1,5 +1,8 @@
 # Created by: Douglas K. Rand <rand@meridian-enviro.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nagcon
 PORTVERSION=	0.0.32

@@ -1,5 +1,8 @@
 # Created by: Dan Langille <dvl@sourcefire.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	python-jose
 PORTVERSION=	3.0.0

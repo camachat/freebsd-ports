@@ -1,5 +1,8 @@
 # Created by: Michael Moll <ruby@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	smart_proxy_chef
 PORTVERSION=	0.2.0

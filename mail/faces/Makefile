@@ -1,5 +1,8 @@
 # Created by: Lars Koeller <Lars_Koeller@odie.physik2.uni-rostock.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	faces
 PORTVERSION=	1.7.7

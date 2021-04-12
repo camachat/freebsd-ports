@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	PerlPoint-Package
 PORTVERSION=	0.45.2
 PORTREVISION=	2

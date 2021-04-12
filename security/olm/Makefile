@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	olm
 DISTVERSIONPREFIX=
 DISTVERSION=	3.1.4

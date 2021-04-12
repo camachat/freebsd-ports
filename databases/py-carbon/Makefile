@@ -1,5 +1,8 @@
 # Created by: Evan Sarmiento <bsdports@wayfair.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	carbon
 PORTVERSION=	1.1.7

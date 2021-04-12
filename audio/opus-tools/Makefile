@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	opus-tools
 PORTVERSION=	0.2
 CATEGORIES=	audio

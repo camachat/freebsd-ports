@@ -1,5 +1,8 @@
 # Created by: Dima Sivachenko
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	clusterit
 PORTVERSION=	2.5

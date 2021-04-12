@@ -1,5 +1,8 @@
 # Created by: Antonio Carlos Venancio Junior (<antonio@inf.ufsc.br>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Crypt_Blowfish
 DISTVERSION=	1.1.0RC2

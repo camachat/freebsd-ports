@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Sereal-Decoder
 COMMENT=	Perl module for fast, powerful binary deserialization (decoder)
 

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libretro-pcsx_rearmed
 PORTVERSION=	0.20210215
 CATEGORIES=	games

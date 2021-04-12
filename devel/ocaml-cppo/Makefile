@@ -1,5 +1,8 @@
 # Created by: Michael Grunewald
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cppo
 PORTVERSION=	0.9.2

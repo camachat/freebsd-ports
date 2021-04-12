@@ -1,5 +1,8 @@
 # Created by: Romain Tartière <romain@blogreen.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	paprefs
 PORTVERSION=	1.1

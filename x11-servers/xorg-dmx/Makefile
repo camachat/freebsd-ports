@@ -1,5 +1,8 @@
 # Created by: lesi@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xorg-dmx
 

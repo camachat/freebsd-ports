@@ -1,5 +1,8 @@
 # Created by: Pawel Pekala <c0rn@o2.pl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vcalendar
 PORTREVISION=	0

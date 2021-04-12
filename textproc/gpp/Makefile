@@ -1,5 +1,8 @@
 # Created by: Jos Backus <josb@cncdsl.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gpp
 PORTVERSION=	2.24

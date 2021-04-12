@@ -1,5 +1,8 @@
 # Created by: mp39590@gmail.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	acsccid
 PORTVERSION=	1.1.8

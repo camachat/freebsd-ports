@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tuir
 DISTVERSION=	1.29.0
 PORTREVISION=	2

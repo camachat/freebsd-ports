@@ -1,5 +1,8 @@
 # Created by: Jui-Nan Lin <jnlin@csie.nctu.edu.tw>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	trafficserver
 PORTVERSION=	8.1.1

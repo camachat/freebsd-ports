@@ -1,5 +1,8 @@
 # Created by: Wei-chun Chao
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Mail-Sendmail
 PORTVERSION=	0.80

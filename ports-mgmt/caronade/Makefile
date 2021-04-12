@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	caronade
 DISTVERSIONPREFIX=v
 DISTVERSION=	0.4.0

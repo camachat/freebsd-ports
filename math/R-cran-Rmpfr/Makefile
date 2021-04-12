@@ -1,5 +1,8 @@
 # Created by: Jukka A. Ukkonen <jau@iki.fi>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Rmpfr
 DISTVERSION=	0.8-3

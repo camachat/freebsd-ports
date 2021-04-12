@@ -1,5 +1,8 @@
 # Created by: Ganael Laplanche <ganael.laplanche@martymac.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sms1xxx
 PORTVERSION=	20120113

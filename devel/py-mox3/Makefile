@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mox3
 DISTVERSION=	0.28.0
 CATEGORIES=	devel python

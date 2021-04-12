@@ -1,5 +1,8 @@
 # Created by: Vick Khera <vivek@khera.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Business-Stripe
 PORTVERSION=	0.07

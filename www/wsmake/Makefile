@@ -1,5 +1,8 @@
 # Created by: Joseph Koshy <jkoshy@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wsmake
 PORTVERSION=	0.7.901

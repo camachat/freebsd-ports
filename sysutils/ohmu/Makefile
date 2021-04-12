@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ohmu
 PORTVERSION=	1.1.0
 PORTREVISION=	4

@@ -1,5 +1,8 @@
 # Created by: Makoto Matsushita <matusita@jp.freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 KONFONT=	14dot
 

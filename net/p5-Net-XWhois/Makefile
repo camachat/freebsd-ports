@@ -1,5 +1,8 @@
 # Created by: Danny Howard <dannyman@tellme.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-XWhois
 PORTVERSION=	0.90

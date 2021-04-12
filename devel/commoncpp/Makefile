@@ -1,5 +1,8 @@
 # Created by: David Sugar <dyfet@gnu.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	commoncpp
 PORTVERSION=	1.8.1

@@ -1,5 +1,8 @@
 # Created by: pst
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gsm
 DISTVERSION=	1.0.19

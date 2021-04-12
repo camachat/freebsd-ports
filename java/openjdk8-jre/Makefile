@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PKGNAMESUFFIX=	${JDK_MAJOR_VERSION}-jre
 
 COMMENT=	Java Runtime Environment ${JDK_MAJOR_VERSION}

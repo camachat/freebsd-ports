@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libfabric
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.11.2

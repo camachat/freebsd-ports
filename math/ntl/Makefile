@@ -1,5 +1,8 @@
 # Created by: bauerm
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ntl
 PORTVERSION=	11.4.3

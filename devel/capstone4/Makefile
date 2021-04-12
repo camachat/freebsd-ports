@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	capstone
 PORTVERSION=	4.0.1
 CATEGORIES=	devel

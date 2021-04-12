@@ -1,5 +1,8 @@
 # Created by: Charlie & <root@meatwad.mouf.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bacon
 PORTVERSION=	1.2.0

@@ -1,5 +1,8 @@
 # Created by: Bob Zimmermann <rpz@cse.wustl.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gmap
 PORTVERSION=	2020.09.12

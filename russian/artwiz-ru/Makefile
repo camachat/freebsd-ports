@@ -1,5 +1,8 @@
 # Created by: Roman Bogorodskiy <bogorodskiy@inbox.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	artwiz-ru
 PORTVERSION=	20041031

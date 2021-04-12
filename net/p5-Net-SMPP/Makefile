@@ -1,5 +1,8 @@
 # Created by: jhay
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-SMPP
 PORTVERSION=	1.19

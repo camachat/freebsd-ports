@@ -1,5 +1,8 @@
 # Created by: rfarmer@predatorlabs.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jrosetta
 PORTVERSION=	1.0.4

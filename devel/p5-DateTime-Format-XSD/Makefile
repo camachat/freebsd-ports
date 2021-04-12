@@ -1,5 +1,8 @@
 # Created by: Sergey V. Dyatko <Sergey.Dyatko@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	DateTime-Format-XSD
 PORTVERSION=	0.2

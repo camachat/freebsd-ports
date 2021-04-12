@@ -1,7 +1,10 @@
 #!/bin/sh
 
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # PROVIDE: zookeeper
 # REQUIRE: NETWORKING SERVERS DAEMON
 # KEYWORD: shutdown

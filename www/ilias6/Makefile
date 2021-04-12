@@ -1,5 +1,8 @@
 # Created by: Bartlomiej Rutkowski <r@robakdesign.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ilias
 PORTVERSION=	6.8

@@ -1,5 +1,8 @@
 # Created by: Frank Fischer
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	abcl
 PORTVERSION=	1.7.0

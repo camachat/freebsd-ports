@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 TEST_TARGETS=	base_unittests \
 		chromedriver_unittests \
 		crypto_unittests \

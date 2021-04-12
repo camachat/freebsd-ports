@@ -1,5 +1,8 @@
 # Created by: Nikolai Lifanov <lifanov@mail.lifanov.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hashcat-legacy
 PORTVERSION=	2.00

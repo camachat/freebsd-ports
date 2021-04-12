@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	CPAN-Reporter
 PORTVERSION=	1.2018
 CATEGORIES=	devel

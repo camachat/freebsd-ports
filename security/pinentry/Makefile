@@ -1,5 +1,8 @@
 # Created by: Michael Nottebrock <lofi@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pinentry
 PORTVERSION=	1.1.1

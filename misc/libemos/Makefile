@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libemos
 DISTVERSION=	4.5.9
 PORTREVISION=	3

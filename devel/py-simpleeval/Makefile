@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	simpleeval
 PORTVERSION=	0.9.10
 CATEGORIES=	devel python

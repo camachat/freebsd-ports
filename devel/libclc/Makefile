@@ -1,5 +1,8 @@
 # Created by: Koop Mast <kwm@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libclc
 DISTVERSION=	0.4.0.20190527
@@ -14,8 +17,11 @@ LICENSE_NAME=	LLVM Release License
 LICENSE_FILE=	${WRKSRC}/LICENSE.TXT
 LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 
+<<<<<<< HEAD
 BROKEN_powerpc64=	fails to compile: /usr/local/llvm80/include/llvm-c/DataTypes.h:28:10: fatal error: 'cmath' file not found
 
+=======
+>>>>>>> upstream/main
 BUILD_DEPENDS=	llvm${LLVM_DEFAULT}>=4.0:devel/llvm${LLVM_DEFAULT} \
 		libedit>=0:devel/libedit
 

@@ -1,5 +1,8 @@
 # Created by: Christopher Nehren <apeiron@comcast.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Shell-Base
 PORTVERSION=	0.05

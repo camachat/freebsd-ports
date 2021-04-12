@@ -1,5 +1,8 @@
 # Created by: kiesel@schlund.de
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lxsplit
 PORTVERSION=	0.2.4

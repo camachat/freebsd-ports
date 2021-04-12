@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- sandbox/linux/services/libc_interceptor.cc.orig	2020-11-13 06:36:46 UTC
+=======
+--- sandbox/linux/services/libc_interceptor.cc.orig	2021-03-12 23:57:28 UTC
+>>>>>>> upstream/main
 +++ sandbox/linux/services/libc_interceptor.cc
 @@ -11,7 +11,9 @@
  #include <stddef.h>

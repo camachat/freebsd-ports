@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	minimp3
 PORTVERSION=	g20201127
 PORTEPOCH=	1

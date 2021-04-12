@@ -1,5 +1,8 @@
 # Created by: Tobias Kortkamp <t@tobik.me>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libconcurrent
 PORTVERSION=	0.0.20160629

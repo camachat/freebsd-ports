@@ -1,5 +1,8 @@
 # Created by: Anton Berezin <tobez@tobez.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Devel-Modlist
 PORTVERSION=	0.801

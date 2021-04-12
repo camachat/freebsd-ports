@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kpublictransport
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
 CATEGORIES=	devel kde kde-applications

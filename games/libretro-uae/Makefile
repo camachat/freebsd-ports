@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libretro-uae
 PORTVERSION=	0.20200527
 CATEGORIES=	games

@@ -1,8 +1,14 @@
 # Created by: Gea-Suan Lin <gslin@gslin.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	punbb
 PORTVERSION=	1.4.5
+=======
+
+PORTNAME=	punbb
+PORTVERSION=	1.4.6
+>>>>>>> upstream/main
 CATEGORIES=	www
 MASTER_SITES=	http://punbb.informer.com/download/ \
 		http://punbb.informer.com/download/plugins/:plugins \

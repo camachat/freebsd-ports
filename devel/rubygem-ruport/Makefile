@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ruport
 PORTVERSION=	1.7.1
 CATEGORIES=	devel rubygems

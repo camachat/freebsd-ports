@@ -1,5 +1,8 @@
 # Created by: michael johnson <ahze@ahze.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gtkterm2
 PORTVERSION=	0.2.3

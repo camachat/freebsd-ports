@@ -1,5 +1,8 @@
 # Created by: stas@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libunwind
 PORTVERSION=	20201110	# This is the release date on https://download.savannah.gnu.org/releases/libunwind/

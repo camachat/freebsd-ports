@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sabbu
 PORTVERSION=	0.3.0
 PORTREVISION=	20

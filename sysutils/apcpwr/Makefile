@@ -1,5 +1,8 @@
 # Created by: jwd
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		apcpwr
 PORTVERSION=		1.3

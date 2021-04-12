@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	omniauth-shibboleth
 PORTVERSION=	1.3.0
 CATEGORIES=	security rubygems

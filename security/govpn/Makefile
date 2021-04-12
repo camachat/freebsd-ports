@@ -1,5 +1,8 @@
 # Created by: Sergey Matveev <stargrave@stargrave.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	govpn
 DISTVERSION=	7.5

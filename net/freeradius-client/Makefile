@@ -1,5 +1,8 @@
 # Created by: netch@netch.kiev.ua
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	freeradius-client
 PORTVERSION=	1.1.7

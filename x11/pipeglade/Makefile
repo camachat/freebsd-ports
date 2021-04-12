@@ -1,5 +1,8 @@
 # Created by: Bert Burgemeister <trebbu@googlemail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pipeglade
 PORTVERSION=	4.7.0

@@ -1,5 +1,8 @@
 # Created by: domi@saargate.de
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rand
 PORTVERSION=	1.9

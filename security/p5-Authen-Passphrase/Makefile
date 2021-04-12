@@ -1,5 +1,8 @@
 # Created by: brix@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Authen-Passphrase
 PORTVERSION=	0.008

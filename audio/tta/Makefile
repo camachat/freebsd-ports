@@ -1,5 +1,8 @@
 # Created by: Martin Dieringer <Martin.Dieringer@t-online.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tta
 PORTVERSION=	3.4.1

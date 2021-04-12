@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	MouseX-Getopt
 PORTVERSION=	0.3600
 CATEGORIES=	devel perl5

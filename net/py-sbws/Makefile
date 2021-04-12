@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		sbws
 PORTVERSION=		1.1.0
 DISTVERSIONPREFIX=	v

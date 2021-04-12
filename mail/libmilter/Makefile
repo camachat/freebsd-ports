@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libmilter
 PORTVERSION=	8.16.1
 PORTREVISION=	0

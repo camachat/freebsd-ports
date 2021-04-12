@@ -1,9 +1,16 @@
 # Created by: Torsten Blum <torstenb@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	postfix
 DISTVERSION=	3.5.9
 PORTREVISION?=	0
+=======
+
+PORTNAME=	postfix
+DISTVERSION=	3.5.9
+PORTREVISION?=	1
+>>>>>>> upstream/main
 PORTEPOCH=	1
 CATEGORIES=	mail
 MASTER_SITES=	ftp://ftp.porcupine.org/mirrors/postfix-release/ \

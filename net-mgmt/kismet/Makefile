@@ -1,5 +1,8 @@
 # Created by: Thomas Spreng <spreng@socket.ch>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	kismet
 DISTVERSION=	2016-07-R1

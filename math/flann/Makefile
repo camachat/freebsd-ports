@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	flann
 DISTVERSION=	1.9.1-29
 DISTVERSIONSUFFIX=	-g1d04523

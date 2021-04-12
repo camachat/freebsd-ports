@@ -1,5 +1,8 @@
 # Created by: markm@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Text-CSV
 PORTVERSION=	2.00

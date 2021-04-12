@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	IO-Callback
 PORTVERSION=	1.12
 PORTREVISION=	1

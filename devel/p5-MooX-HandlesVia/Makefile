@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	MooX-HandlesVia
 PORTVERSION=	0.001009
 CATEGORIES=	devel perl5

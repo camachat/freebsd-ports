@@ -1,5 +1,8 @@
 # Created by: Tim Bishop <tim@bishnet.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gnubiff
 PORTVERSION=	2.2.13

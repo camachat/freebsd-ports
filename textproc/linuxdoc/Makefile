@@ -1,5 +1,8 @@
 # Created by: jfieber
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	linuxdoc
 PORTVERSION=	1.1

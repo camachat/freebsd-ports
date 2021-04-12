@@ -1,5 +1,8 @@
 # Created by: Torsten Zuhlsdorff <ports@toco-domains.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ruby-saml
 PORTVERSION=	1.9.0

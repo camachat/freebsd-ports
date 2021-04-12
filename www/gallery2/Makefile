@@ -1,5 +1,8 @@
 # Created by: Alex Varju <freebsd-ports@varju.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gallery2
 PORTVERSION=	2.3.2

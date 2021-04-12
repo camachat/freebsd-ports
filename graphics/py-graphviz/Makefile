@@ -1,5 +1,8 @@
 # Created by: lbartoletti <lbartoletti@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	graphviz
 PORTVERSION=	0.10.1

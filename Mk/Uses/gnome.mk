@@ -1,9 +1,12 @@
 #-*- tab-width: 4; -*-
 # ex:ts=4
 #
+<<<<<<< HEAD
 # $FreeBSD$
 #	$NetBSD: $
 #
+=======
+>>>>>>> upstream/main
 # Please view me with 4 column tabs!
 
 # ======================= USERS =================================

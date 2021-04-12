@@ -1,5 +1,8 @@
 # Created by: Darren Pilgrim <ports.maintainer@evilphi.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	postfix-policyd-spf-perl
 PORTVERSION=	2.010

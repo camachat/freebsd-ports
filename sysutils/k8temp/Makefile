@@ -1,5 +1,8 @@
 # Created by: Thomas Hurst <tom@hur.st>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	k8temp
 PORTVERSION=	0.4.1

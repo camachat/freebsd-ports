@@ -1,5 +1,8 @@
 # Created by: Alexander Vereeken <Alexander88207@protonmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	numix-icon-theme-circle
 DISTVERSION=	20.09.19

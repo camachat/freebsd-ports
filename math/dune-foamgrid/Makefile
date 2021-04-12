@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dune-foamgrid
 DISTVERSION=	g20200106
 CATEGORIES=	math

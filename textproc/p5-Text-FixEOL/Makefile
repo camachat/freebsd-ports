@@ -1,5 +1,8 @@
 # Created by: lth@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Text-FixEOL
 PORTVERSION=	1.08

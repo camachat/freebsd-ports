@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	photocollage
 DISTVERSION=	1.4.4
 PORTREVISION=	2

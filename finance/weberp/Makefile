@@ -1,5 +1,8 @@
 # Created by: Wen heping <wenheping@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	weberp
 PORTVERSION=	4.15.1

@@ -1,5 +1,8 @@
 # Created by: sumikawa@kame.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wv
 PORTVERSION=	1.2.9

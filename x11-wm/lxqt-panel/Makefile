@@ -1,8 +1,15 @@
 # Created by: Olivier Duchateau
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	lxqt-panel
 PORTVERSION=	0.16.0
+=======
+
+PORTNAME=	lxqt-panel
+PORTVERSION=	0.16.0
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	x11-wm
 MASTER_SITES=	LXQT
 

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	hspec-discover
 PORTVERSION=	2.7.8
 CATEGORIES=	devel haskell

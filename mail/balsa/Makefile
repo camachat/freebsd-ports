@@ -1,5 +1,8 @@
 # Created by: Glenn Johnson <gljohns@bellsouth.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 #   $MCom$
 
 PORTNAME=	balsa

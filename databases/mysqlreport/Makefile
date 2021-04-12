@@ -1,5 +1,8 @@
 # Created by: Alexander Zhuravlev <zaa@zaa.pp.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mysqlreport
 PORTVERSION=	3.5

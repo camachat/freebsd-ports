@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	trans
 PORTVERSION=	2.1.0
 CATEGORIES=	textproc python

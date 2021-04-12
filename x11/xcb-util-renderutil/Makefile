@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xcb-util-renderutil
 PORTVERSION=	0.3.9
 PORTREVISION=	1

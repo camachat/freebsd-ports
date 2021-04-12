@@ -1,10 +1,17 @@
 # Created by: Grzegorz Blach <gblach@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	mpv
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.33.0
 PORTREVISION=	6
+=======
+
+PORTNAME=	mpv
+DISTVERSIONPREFIX=	v
+DISTVERSION=	0.33.1
+>>>>>>> upstream/main
 PORTEPOCH=	1
 CATEGORIES=	multimedia audio
 MASTER_SITES=	https://waf.io/:waf

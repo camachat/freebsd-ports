@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bosun
 DISTVERSION=	0.9.0
 DISTVERSIONSUFFIX=	-preview

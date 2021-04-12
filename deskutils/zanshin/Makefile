@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	zanshin
 DISTVERSION=	0.5.71
 CATEGORIES=	deskutils kde

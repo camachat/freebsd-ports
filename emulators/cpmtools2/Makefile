@@ -1,5 +1,8 @@
 # Created by: joerg
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cpmtools2
 PORTVERSION=	2.22

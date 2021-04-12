@@ -1,5 +1,8 @@
 # Created by: roam@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	qmail-conf
 PORTVERSION=	0.60

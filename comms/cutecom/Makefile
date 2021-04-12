@@ -1,5 +1,8 @@
 # Created by: Markus Brueffer <markus@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		cutecom
 DISTVERSION=		0.51.0

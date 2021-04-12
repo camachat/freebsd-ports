@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dnaio
 DISTVERSION=	0.5.0	# py-cutadapt 3.2 requires 0.5.x
 CATEGORIES=	biology python

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	irssi-icb
 PORTVERSION=	0.17
 PORTREVISION=	2

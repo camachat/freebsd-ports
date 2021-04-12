@@ -1,5 +1,8 @@
 # Created by: Konstantin Menshikov <kostjnspb@yandex.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	File-Tee
 PORTVERSION=	0.07

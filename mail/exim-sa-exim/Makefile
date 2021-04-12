@@ -1,5 +1,8 @@
 # Created by: Oliver Eikemeier <eik@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PKGNAMESUFFIX=	-sa-exim
 MASTERDIR=	${.CURDIR}/../exim

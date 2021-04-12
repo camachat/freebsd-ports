@@ -1,5 +1,8 @@
 # Created by: Juha Nygard <juha.nygard1@netikka.fi>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fluidsynth
 DISTVERSIONPREFIX=	v

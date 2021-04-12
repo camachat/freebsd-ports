@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ShellCheck
 DISTVERSION=	0.7.1
 PORTREVISION=	2

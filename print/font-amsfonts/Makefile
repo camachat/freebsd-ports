@@ -1,5 +1,8 @@
 # Created by: hrs
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	amsfonts
 PORTVERSION=	3.02

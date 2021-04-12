@@ -1,5 +1,8 @@
 # Created by: Johannes Dieterich <jmd@freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	oclgrind
 PORTVERSION=	20190907

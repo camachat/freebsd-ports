@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dxirc
 PORTVERSION=	1.30.0
 PORTREVISION=	3

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Directory-Queue
 PORTVERSION=	2.0
 CATEGORIES=	devel perl5

@@ -1,5 +1,8 @@
 # Created by: Martin Tournoij <carpetsmoker@xs4all.nl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xrsi
 PORTVERSION=	0.9

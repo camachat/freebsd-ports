@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	numactl
 PORTVERSION=	2.0.12
 DISTVERSIONSUFFIX=	-5.el7

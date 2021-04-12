@@ -1,5 +1,8 @@
 # Created by: Andreas Kohout <shanee@augusta.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	asedit
 PORTVERSION=	1.3.2

@@ -1,5 +1,8 @@
 # Created by: Zach Thompson <lin-chi@lastamericanempire.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	POE-Component-Server-HTTP
 PORTVERSION=	0.09

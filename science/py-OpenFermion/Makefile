@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	OpenFermion
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.11.0

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	abipy
 DISTVERSION=	0.9.0
 CATEGORIES=	science python

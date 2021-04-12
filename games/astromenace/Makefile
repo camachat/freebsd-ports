@@ -1,5 +1,8 @@
 # Created by: Oleg Alexeenkov
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	astromenace
 PORTVERSION=	1.4.1

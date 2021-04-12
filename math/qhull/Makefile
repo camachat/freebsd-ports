@@ -1,5 +1,8 @@
 # Created by: pusto@web.de
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	qhull
 DISTVERSIONPREFIX=	v

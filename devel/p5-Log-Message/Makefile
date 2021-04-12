@@ -1,5 +1,8 @@
 # Created by: aaron@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Log-Message
 PORTVERSION=	0.08

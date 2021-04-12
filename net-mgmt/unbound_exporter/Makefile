@@ -1,5 +1,8 @@
 # Created by: Athanasios Douitsis <aduitsis@cpan.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		unbound_exporter
 PORTVERSION=		0.1

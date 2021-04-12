@@ -1,5 +1,8 @@
 # Created by: Patrick Li <pat@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wmsolar
 PORTVERSION=	1.1

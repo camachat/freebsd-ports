@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PKGNAMEPREFIX=	aarch64-
 PLIST=	${.CURDIR}/pkg-plist
 

@@ -1,5 +1,8 @@
 # Created by: kstailey
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	klh10
 PORTVERSION=	2.0a

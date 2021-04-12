@@ -1,5 +1,8 @@
 # Created by: Johan Strom <johan@stromnet.se>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	openzwave
 PORTVERSION=	1.4.3254

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	netgen
 DISTVERSION=	1.5.173
 CATEGORIES=	cad

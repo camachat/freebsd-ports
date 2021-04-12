@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	2chproxy
 PORTVERSION=	1.0.1
 DISTVERSIONPREFIX=	v

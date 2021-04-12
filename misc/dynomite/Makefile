@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dynomite
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.6.22

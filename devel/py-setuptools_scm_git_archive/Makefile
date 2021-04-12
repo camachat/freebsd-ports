@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	setuptools_scm_git_archive
 PORTVERSION=	1.1
 CATEGORIES=	devel python

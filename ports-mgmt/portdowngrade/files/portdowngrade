@@ -7,8 +7,11 @@
 
 # This script is in the public domain
 
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 usage()
 {
 	<<EOF >/dev/stderr cat

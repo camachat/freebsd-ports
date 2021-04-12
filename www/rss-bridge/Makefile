@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rss-bridge
 DISTVERSION=	2020-11-10
 PORTEPOCH=	1

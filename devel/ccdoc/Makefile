@@ -1,5 +1,8 @@
 # Created by: lonewolf@flame.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ccdoc
 PORTVERSION=	0.8r41

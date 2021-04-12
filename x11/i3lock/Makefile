@@ -1,5 +1,8 @@
 # Created by: Dennis Herrmann <dhn@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	i3lock
 PORTVERSION=	2.13

@@ -1,5 +1,8 @@
 # Created by: Sergey Matveychuk <sem@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	commons-net
 PORTVERSION=	3.8.0

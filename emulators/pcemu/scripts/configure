@@ -1,7 +1,11 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+
+>>>>>>> upstream/main
 # Author:		Jörg Wunsch <joerg@FreeBSD.org>
 # Date of creation:	Mar 27, 1995
 #

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	glooey
 PORTVERSION=	0.3.3
 CATEGORIES=	graphics x11-toolkits python

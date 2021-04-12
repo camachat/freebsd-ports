@@ -15,7 +15,10 @@
 #   (for example, "-lossaudio" with NetBSD 1.6.1)
 ################################################################################
 #
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 TARGET_OS=FREEBSD
 STAGEDIR=%%STAGEDIR%%
 PREFIX=%%PREFIX%%

@@ -1,5 +1,8 @@
 # Created by: Roman Bogorodskiy <bogorodskiy@inbox.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dkftpbench
 PORTVERSION=	0.45

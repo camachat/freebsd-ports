@@ -1,5 +1,8 @@
 # Created by: Chih-Hsin Chang <chihhsin@cs.nctu.edu.tw>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gydict
 PORTVERSION=	1.0

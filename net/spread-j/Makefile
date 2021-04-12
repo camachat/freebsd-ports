@@ -1,5 +1,8 @@
 # Created by: Joshua Goodall <joshua@roughtrade.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	spread
 PORTVERSION=	3.17.3

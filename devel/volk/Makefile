@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	volk
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.2.1

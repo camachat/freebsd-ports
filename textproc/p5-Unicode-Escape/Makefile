@@ -1,5 +1,8 @@
 # Created by: Vadim Vatlin
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Unicode-Escape
 PORTVERSION=	0.0.2

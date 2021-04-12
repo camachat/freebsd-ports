@@ -1,5 +1,8 @@
 # Created by: Jordan Irwin <antumdeluge@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		stendhal
 PORTVERSION=		1.35

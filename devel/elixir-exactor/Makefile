@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	exactor
 PORTVERSION=	2.2.4
 CATEGORIES=	devel

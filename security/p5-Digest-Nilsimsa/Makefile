@@ -1,5 +1,8 @@
 # Created by: Yen-Ming Lee <leeym@leeym.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Digest-Nilsimsa
 PORTVERSION=	0.06

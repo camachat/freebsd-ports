@@ -1,5 +1,8 @@
 #! /usr/bin/awk -f
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 BEGIN {
 	group_number = 0

@@ -1,5 +1,8 @@
 # Created by: Muhammad Moinur Rahman <bofh@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dia2code+
 PORTVERSION=	1.0.0

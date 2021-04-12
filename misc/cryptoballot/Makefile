@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cryptoballot
 DISTVERSION=	g20181015
 PORTREVISION=	2

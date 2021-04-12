@@ -1,5 +1,8 @@
 # Created by: Andrey Simonenko
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ipa_sdb
 PORTVERSION=	1.1.1

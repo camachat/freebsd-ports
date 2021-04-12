@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	generator_spec
 PORTVERSION=	0.9.4
 CATEGORIES=	devel rubygems

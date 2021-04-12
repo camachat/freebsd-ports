@@ -1,5 +1,8 @@
 # Created by: Mark Reidel <ports@mark.reidel.info>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ncmpc
 PORTVERSION=	0.41

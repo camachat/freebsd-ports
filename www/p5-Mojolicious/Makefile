@@ -1,8 +1,14 @@
 # Created by: Murilo Opsfelder <mopsfelder@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	Mojolicious
 PORTVERSION=	9.14
+=======
+
+PORTNAME=	Mojolicious
+PORTVERSION=	9.16
+>>>>>>> upstream/main
 CATEGORIES=	www perl5
 MASTER_SITES=	CPAN
 PKGNAMEPREFIX=	p5-

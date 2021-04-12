@@ -1,5 +1,8 @@
 # Created by: Brent B. Powers <bbp2006@columbia.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-HL7
 PORTVERSION=	0.75

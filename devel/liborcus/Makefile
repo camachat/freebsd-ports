@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	liborcus
 PORTVERSION=	0.16.1
 PORTREVISION=	1

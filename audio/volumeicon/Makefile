@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	volumeicon
 PORTVERSION=	0.5.1
 PORTREVISION=	1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	POE-Component-Schedule
 PORTVERSION=	0.95
 PORTREVISION=	2

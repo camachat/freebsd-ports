@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	delta
 PORTVERSION=	2006.08.03
 PORTREVISION=	1

@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
 
+=======
+>>>>>>> upstream/main
     COMMENT = Shells
 
     SUBDIR += 44bsd-csh
@@ -18,7 +21,10 @@
     SUBDIR += elvish
     SUBDIR += envy
     SUBDIR += es
+<<<<<<< HEAD
     SUBDIR += esh
+=======
+>>>>>>> upstream/main
     SUBDIR += fd
     SUBDIR += fish
     SUBDIR += git-prompt.zsh

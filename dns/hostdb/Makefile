@@ -1,5 +1,8 @@
 # Created by: rodrigc@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hostdb
 PORTVERSION=	1.004

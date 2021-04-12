@@ -1,5 +1,8 @@
 # Created by: bf <bf2006a@yahoo.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME?=	distorm
 DISTVERSION=	20121220-r230

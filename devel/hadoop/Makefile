@@ -1,5 +1,8 @@
 # Created by: Clement Laforet <clement@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hadoop
 PORTVERSION=	1.2.1

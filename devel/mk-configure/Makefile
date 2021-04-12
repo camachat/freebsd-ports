@@ -1,5 +1,8 @@
 # Created by: Mikolaj Golub <to.my.trociny@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mk-configure
 PORTVERSION=	0.36.0

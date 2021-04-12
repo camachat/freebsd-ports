@@ -1,5 +1,8 @@
 # Created by: Simon Dick <simond@irrelevant.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mydns
 PORTVERSION=	1.1.0

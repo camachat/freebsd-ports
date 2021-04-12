@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 OPTIONS_DEFINE=		\
 	ALEMBIC		\
 	ALEMBIC_HDF5	\

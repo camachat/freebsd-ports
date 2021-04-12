@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	net-scp
 PORTVERSION=	1.2.1
 CATEGORIES=	security rubygems

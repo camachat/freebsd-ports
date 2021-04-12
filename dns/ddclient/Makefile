@@ -1,5 +1,8 @@
 # Created by: Dirk Froemberg <dirk@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ddclient
 DISTVERSIONPREFIX=	v

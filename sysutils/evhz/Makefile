@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	evhz
 DISTVERSION=	g20170201
 PORTREVISION=	1

@@ -1,5 +1,8 @@
 # Created by: pst
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	panda-imap
 PORTVERSION=	20130621

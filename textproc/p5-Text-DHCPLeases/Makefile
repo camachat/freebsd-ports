@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Text-DHCPLeases
 PORTVERSION=	1.0
 PORTREVISION=	1

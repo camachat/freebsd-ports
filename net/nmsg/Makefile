@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	nmsg
 PORTVERSION=	0.15.1
 CATEGORIES=	net

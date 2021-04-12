@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bharvestr
 DISTVERSIONPREFIX=	v
 DISTVERSION=	g20201225

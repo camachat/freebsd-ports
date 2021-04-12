@@ -1,7 +1,10 @@
 #!/bin/sh
 
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # PROVIDE: gdnsd
 # REQUIRE: DAEMON
 # REQUIRE: LOGIN

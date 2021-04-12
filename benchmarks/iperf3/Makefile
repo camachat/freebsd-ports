@@ -1,5 +1,8 @@
 # Created by: Bruce A. Mah <bmah@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	iperf
 PORTVERSION=	3.9

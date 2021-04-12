@@ -1,5 +1,8 @@
 # Created by: Pete Fritchman <petef@databits.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Graphics-ColorNames
 PORTVERSION=	2.11

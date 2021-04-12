@@ -1,5 +1,8 @@
 # Created by: Matthias Schmidt
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pkg_search
 PORTVERSION=	1.3

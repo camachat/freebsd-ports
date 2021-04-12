@@ -1,5 +1,8 @@
 # Created by: Loic Pefferkorn <loic-freebsd@loicp.eu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	amqp-utils
 PORTVERSION=	0.5.1

@@ -1,5 +1,8 @@
 # Created by: Ashish SHUKLA <ashish@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libvpx
 DISTVERSIONPREFIX=	v

@@ -1,5 +1,8 @@
 # Created by: Nicola Vitale	<nivit@email.it>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	geogebra
 PORTVERSION=	5.0.625.0

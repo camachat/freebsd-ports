@@ -1,8 +1,14 @@
 # Created by: Gerald Pfeifer <gerald@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	gcc
 PORTVERSION=	10.2.1.s20210320
+=======
+
+PORTNAME=	gcc
+PORTVERSION=	10.2.1.s20210327
+>>>>>>> upstream/main
 CATEGORIES=	lang
 MASTER_SITES=	GCC/snapshots/${DIST_VERSION}
 PKGNAMESUFFIX=	${SUFFIX}-devel

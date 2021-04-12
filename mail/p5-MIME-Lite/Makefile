@@ -1,5 +1,8 @@
 # Created by: Alex Perel <veers@disturbed.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	MIME-Lite
 PORTVERSION=	3.031

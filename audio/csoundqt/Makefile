@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	CsoundQt
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.9.8.1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	nanoc-deploying
 PORTVERSION=	1.0.0
 CATEGORIES=	www rubygems

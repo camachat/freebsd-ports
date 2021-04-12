@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	hypatia_engine
 PORTVERSION=	0.3.1
 PORTREVISION=	4

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cli11
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.9.1

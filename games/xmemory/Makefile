@@ -1,5 +1,8 @@
 # Created by: Dave Chapeskie <dchapes@ddm.on.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xmemory
 PORTVERSION=	3.7

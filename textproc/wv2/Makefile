@@ -1,5 +1,8 @@
 # Created by: lofi@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wv2
 PORTVERSION=	0.4.2

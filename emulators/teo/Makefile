@@ -1,5 +1,8 @@
 # Created by: Thomas Bernard <nanard@free.fr>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	teo
 PORTVERSION=	1.8.4

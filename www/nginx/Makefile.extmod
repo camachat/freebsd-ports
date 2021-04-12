@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 ### External modules
 AJP_GH_TUPLE=		yaoweibin:nginx_ajp_module:a964a0b:ajp
 AJP_CONFIGURE_ON=	--add-module=${WRKSRC_ajp}

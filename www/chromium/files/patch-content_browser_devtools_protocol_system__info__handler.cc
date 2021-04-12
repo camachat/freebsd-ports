@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 --- content/browser/devtools/protocol/system_info_handler.cc.orig	2020-11-13 06:36:42 UTC
 +++ content/browser/devtools/protocol/system_info_handler.cc
 @@ -47,7 +47,7 @@ std::unique_ptr<SystemInfo::Size> GfxSizeToSystemInfoS
@@ -6,6 +7,18 @@
  // Windows builds need more time -- see Issue 873112 and 1004472.
 -#if ((defined(OS_LINUX) || defined(OS_CHROMEOS)) && !defined(NDEBUG)) || \
 +#if ((defined(OS_LINUX) || defined(OS_CHROMEOS) || defined(OS_BSD)) && !defined(NDEBUG)) || \
+=======
+--- content/browser/devtools/protocol/system_info_handler.cc.orig	2021-03-12 23:57:24 UTC
++++ content/browser/devtools/protocol/system_info_handler.cc
+@@ -49,8 +49,8 @@ std::unique_ptr<SystemInfo::Size> GfxSizeToSystemInfoS
+ // Linux and Mac Debug builds need more time -- see Issue 796437, 1046598, and
+ // 1153667.
+ // Windows builds need more time -- see Issue 873112 and 1004472.
+-#if ((defined(OS_LINUX) || defined(OS_CHROMEOS) || defined(OS_MAC)) && \
+-     !defined(NDEBUG)) ||                                              \
++#if ((defined(OS_LINUX) || defined(OS_CHROMEOS) || defined(OS_MAC) || defined(OS_BSD)) && \
++     !defined(NDEBUG)) ||                                                                 \
+>>>>>>> upstream/main
      defined(OS_WIN)
  const int kGPUInfoWatchdogTimeoutMs = 30000;
  #else

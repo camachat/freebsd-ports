@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sentry-raven
 PORTVERSION=	2.5.3
 PORTREVISION=	1

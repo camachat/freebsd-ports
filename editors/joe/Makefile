@@ -1,5 +1,8 @@
 # Created by: torstenb@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	joe
 PORTVERSION=	4.6

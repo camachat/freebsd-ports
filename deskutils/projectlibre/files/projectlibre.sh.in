@@ -1,6 +1,9 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PROJECTLIBRE_HOME="%%DATADIR%%"
 export PROJECTLIBRE_HOME

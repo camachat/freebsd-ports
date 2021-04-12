@@ -1,5 +1,8 @@
 # Created by: Pete Fritchman <petef@databits.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	secpanel
 PORTVERSION=	0.6.1

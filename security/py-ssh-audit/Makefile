@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ssh-audit
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.4.0

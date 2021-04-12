@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xf86-video-nv
 PORTVERSION=	2.1.21
 PORTREVISION=	4

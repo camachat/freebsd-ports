@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 # NOTE: comms/xcwcp is a sub-port of this.  When making changes, ensure
 #       it still works as well.
 

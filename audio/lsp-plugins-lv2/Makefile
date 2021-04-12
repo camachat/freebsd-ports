@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	lsp-plugins
 DISTVERSION=	1.1.29
+=======
+PORTNAME=	lsp-plugins
+DISTVERSION=	1.1.30
+>>>>>>> upstream/main
 CATEGORIES=	audio
 PKGNAMESUFFIX=	-lv2
 

@@ -1,5 +1,8 @@
 # Created by: Samuel Tardieu <sam@rfc1149.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gputils
 DISTVERSION=	1.5.0-1

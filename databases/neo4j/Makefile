@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	neo4j
 DISTVERSION=	3.3.2
 CATEGORIES=	databases java

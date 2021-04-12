@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	openbsm
 DISTVERSION=	1.1-p2
 PORTREVISION=	1

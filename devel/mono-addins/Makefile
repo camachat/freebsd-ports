@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mono-addins
 PORTVERSION=	1.3
 PORTREVISION=	1

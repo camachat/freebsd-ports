@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	python-dtrace
 PORTVERSION=	0.0.11
 CATEGORIES=	devel python

@@ -1,5 +1,8 @@
 # Created by: FreeBSD GNOME Team <gnome@freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	five-or-more
 PORTVERSION=	3.32.2

@@ -1,5 +1,8 @@
 # Created by: Hajimu UMEMOTO <ume@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tcsh_nls
 PORTVERSION=	1.0

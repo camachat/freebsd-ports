@@ -1,5 +1,8 @@
 # Created by: Dylan Simon <dylan@dylex.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	orpie
 PORTVERSION=	1.5.2

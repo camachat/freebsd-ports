@@ -1,5 +1,8 @@
 # Created by: mr
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	m4
 PORTVERSION=	1.4.18

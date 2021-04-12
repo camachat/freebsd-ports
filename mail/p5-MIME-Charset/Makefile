@@ -1,5 +1,8 @@
 # Created by: Olivier Girard <Olivier.Girard@univ-angers.fr>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	MIME-Charset
 PORTVERSION=	1.012.2

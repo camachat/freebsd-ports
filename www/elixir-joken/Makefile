@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	joken
 PORTVERSION=	2.3.0
 DISTVERSIONPREFIX=	v

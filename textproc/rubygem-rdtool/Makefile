@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rdtool
 PORTVERSION=	0.6.38
 PORTREVISION=	3

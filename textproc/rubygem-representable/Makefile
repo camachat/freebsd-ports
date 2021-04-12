@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	representable
 PORTVERSION=	3.0.4
 CATEGORIES=	textproc rubygems

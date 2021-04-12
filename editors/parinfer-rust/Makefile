@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	parinfer-rust
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.4.3

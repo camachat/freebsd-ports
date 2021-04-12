@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	puppetserver-ca
 PORTVERSION=	2.0.2
 CATEGORIES=	sysutils rubygems

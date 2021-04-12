@@ -1,5 +1,8 @@
 # Created by: Roman Shterenzon <roman@xpert.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	id3lib
 PORTVERSION=	3.8.3

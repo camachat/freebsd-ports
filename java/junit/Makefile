@@ -1,5 +1,8 @@
 # Created by: OKAZAKI Tetsurou
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	junit
 PORTVERSION=	4.12

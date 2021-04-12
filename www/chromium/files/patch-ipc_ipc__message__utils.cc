@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- ipc/ipc_message_utils.cc.orig	2021-01-18 21:29:00 UTC
+=======
+--- ipc/ipc_message_utils.cc.orig	2021-03-12 23:57:26 UTC
+>>>>>>> upstream/main
 +++ ipc/ipc_message_utils.cc
 @@ -357,7 +357,7 @@ void ParamTraits<unsigned int>::Log(const param_type& 
    l->append(base::NumberToString(p));

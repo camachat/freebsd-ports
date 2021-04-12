@@ -1,5 +1,8 @@
 # Created by: Scott Sanders <scott@jssjr.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	merb-haml
 PORTVERSION=	1.1.3

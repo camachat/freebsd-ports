@@ -1,5 +1,8 @@
 # Created by: Fabian Keil <fk@fabiankeil.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	zogftw
 PORTVERSION=	0.0.2015.11.21

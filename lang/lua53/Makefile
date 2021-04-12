@@ -1,5 +1,8 @@
 # Created by: GreenDog <fiziologus@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lua
 DISTVERSION=	5.3.6

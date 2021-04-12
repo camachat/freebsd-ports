@@ -1,5 +1,8 @@
 # Created by: mm
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	orc
 PORTVERSION=	0.4.31

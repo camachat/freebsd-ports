@@ -1,5 +1,8 @@
 # Created by: Mathieu Simon <freebsd@simweb.ch>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lldpd
 PORTVERSION=	1.0.8

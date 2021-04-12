@@ -1,5 +1,8 @@
 # Created by: Jens Rehsack <rehsack@liwing.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	WWWdb
 PORTVERSION=	0.8.3

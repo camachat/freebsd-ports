@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	cvxpy
 DISTVERSION=	1.1.11
+=======
+PORTNAME=	cvxpy
+DISTVERSION=	1.1.12
+>>>>>>> upstream/main
 CATEGORIES=	math python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}

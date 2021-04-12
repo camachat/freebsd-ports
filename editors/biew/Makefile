@@ -1,5 +1,8 @@
 # Created by: Michael Vasilenko <acid@stu.cn.ua>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	biew
 PORTVERSION=	6.1.0

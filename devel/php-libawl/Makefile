@@ -1,5 +1,8 @@
 # Created by: Cristiano Rolim Pereira <cristianorolim@hotmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libawl
 DISTVERSIONPREFIX=	r

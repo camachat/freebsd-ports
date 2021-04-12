@@ -1,9 +1,16 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	bat
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.18.0
 PORTREVISION=	1
+=======
+PORTNAME=	bat
+DISTVERSIONPREFIX=	v
+DISTVERSION=	0.18.0
+PORTREVISION=	2
+>>>>>>> upstream/main
 CATEGORIES=	textproc
 
 MAINTAINER=	pizzamig@FreeBSD.org

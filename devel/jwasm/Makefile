@@ -1,5 +1,8 @@
 # Created by: Pedro F. Giffuni
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jwasm
 PORTVERSION=	2.14

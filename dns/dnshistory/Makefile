@@ -1,5 +1,8 @@
 # Created by: adamw
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dnshistory
 PORTVERSION=	1.3

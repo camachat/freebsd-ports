@@ -1,5 +1,8 @@
 # Created by: Olivier Cochard-Labbe <olivier@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	locker
 PORTVERSION=	0.4.0

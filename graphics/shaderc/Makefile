@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	shaderc
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2020.5

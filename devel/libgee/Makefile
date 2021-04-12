@@ -1,5 +1,8 @@
 # Created by: Frank Steinborn <steinex@nognu.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libgee
 PORTVERSION=	0.20.3

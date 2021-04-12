@@ -1,5 +1,8 @@
 # Created by: Parv <parv@pair.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	DBIx-Simple
 PORTVERSION=	1.37

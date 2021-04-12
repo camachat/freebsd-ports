@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	birch
 DISTVERSION=	g20200327
 CATEGORIES=	irc

@@ -1,5 +1,8 @@
 # Created by: Gabriel M. Dutra <0xdutra@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ffuf
 DISTVERSIONPREFIX=v

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	MooseX-LazyRequire
 PORTVERSION=	0.11
 CATEGORIES=	devel perl5

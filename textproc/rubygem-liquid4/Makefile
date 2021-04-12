@@ -1,5 +1,8 @@
 # Created by: peter.schuller@infidyne.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	liquid
 PORTVERSION=	4.0.3

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libssm
 DISTVERSION=	1.4.0
 PORTREVISION=	2

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libArcus
 PORTVERSION=	4.8.0
 PORTREVISION=	3

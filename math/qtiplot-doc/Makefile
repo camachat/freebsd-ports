@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	qtiplot
 DISTVERSION=	0.9.8.9
 PORTREVISION=	1

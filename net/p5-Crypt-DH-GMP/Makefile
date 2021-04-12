@@ -1,5 +1,8 @@
 # Created by: andrey@kostenko.name
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Crypt-DH-GMP
 PORTVERSION=	0.00012

@@ -1,5 +1,8 @@
 # Created by: Matthew Seaman
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sa-utils
 PORTVERSION=	0.04

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cppad
 DISTVERSION=	20210000.6
 CATEGORIES=	math

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tcptestsuite
 DISTVERSION=	g20210322
 PORTEPOCH=	1

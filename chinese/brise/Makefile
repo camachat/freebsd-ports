@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	brise
 PORTVERSION=	0.35
 DISTVERSIONPREFIX=	${PORTNAME}-

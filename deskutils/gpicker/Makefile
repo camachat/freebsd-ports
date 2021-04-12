@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gpicker
 DISTVERSION=	2.3
 CATEGORIES=	deskutils

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	lysdr
 PORTVERSION=	0.0.6
 PORTREVISION=	2

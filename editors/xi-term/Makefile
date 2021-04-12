@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xi-term
 DISTVERSION=	g20190913
 PORTREVISION=	4

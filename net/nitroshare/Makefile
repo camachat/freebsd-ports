@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	nitroshare
 DISTVERSION=	0.3.4-642
 DISTVERSIONSUFFIX=	-g2046ccb

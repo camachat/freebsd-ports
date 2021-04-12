@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	freebsd-release-manifests
 DISTVERSION=	20210329
+=======
+PORTNAME=	freebsd-release-manifests
+DISTVERSION=	20210403
+>>>>>>> upstream/main
 PORTREVISION=	0
 CATEGORIES=	misc
 MASTER_SITES=	#

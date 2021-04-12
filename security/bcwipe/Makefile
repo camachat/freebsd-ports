@@ -1,5 +1,8 @@
 # Created by: crow
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bcwipe
 PORTVERSION=	1.9.13

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mkvalidator
 PORTVERSION=	0.5.0
 CATEGORIES=	multimedia

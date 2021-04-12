@@ -1,5 +1,8 @@
 # Created by: Fabian Keil <fk@fabiankeil.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Event-Lib
 PORTVERSION=	1.03

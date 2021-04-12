@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Types-UUID
 PORTVERSION=	0.004
 CATEGORIES=	devel perl5

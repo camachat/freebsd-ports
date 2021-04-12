@@ -1,5 +1,8 @@
 # Created by: djp
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fortune-mod-bible
 PORTVERSION=	1.0

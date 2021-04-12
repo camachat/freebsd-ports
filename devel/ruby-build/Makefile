@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	ruby-build
 PORTVERSION=	20210309
+=======
+PORTNAME=	ruby-build
+PORTVERSION=	20210405
+>>>>>>> upstream/main
 DISTVERSIONPREFIX=	v
 CATEGORIES=	devel ruby
 DIST_SUBDIR=	rbenv

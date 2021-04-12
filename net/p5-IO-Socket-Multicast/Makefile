@@ -1,5 +1,8 @@
 # Created by: Janos.Mohacsi@dante.org.uk
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	IO-Socket-Multicast
 PORTVERSION=	1.12

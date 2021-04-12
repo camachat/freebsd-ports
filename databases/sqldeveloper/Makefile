@@ -1,5 +1,8 @@
 # Created by: jjuanino@gmail.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sqldeveloper
 DISTVERSION=	20.2.0.175.1842

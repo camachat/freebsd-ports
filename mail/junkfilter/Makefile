@@ -1,5 +1,8 @@
 # Created by: Gregory Sutter <gsutter@zer0.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	junkfilter
 PORTVERSION=	20030115

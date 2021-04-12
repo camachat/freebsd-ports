@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	openseachest
 PORTVERSION=	21.03.01
 DISTVERSIONPREFIX=	v

@@ -1,5 +1,8 @@
 # Created by: andreas
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ntp
 PORTVERSION=	4.2.8p15

@@ -1,5 +1,8 @@
 # Created by: jameskamlyn@gmail.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tableutil
 PORTVERSION=	0.6

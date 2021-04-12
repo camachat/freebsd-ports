@@ -1,5 +1,8 @@
 # Created by: Palle Girgensohn <girgen@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fluent-plugin-graylog
 PORTVERSION=	1.0.1

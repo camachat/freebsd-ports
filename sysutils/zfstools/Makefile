@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	zfstools
 DISTVERSIONPREFIX=v
 DISTVERSION=	0.3.6

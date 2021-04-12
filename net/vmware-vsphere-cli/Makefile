@@ -1,5 +1,8 @@
 # Created by: Ryan Steinmetz <rpsfa@rit.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		vmware-vsphere-cli
 PORTVERSION=		6.7.0

@@ -13,8 +13,11 @@
 # Bartek Rutkowski
 # ----------------------------------------------------------------------------
 #
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # MAINTAINER= robak@FreeBSD.org
 
 #

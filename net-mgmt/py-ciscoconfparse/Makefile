@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ciscoconfparse
 DISTVERSION=	1.5.30
 CATEGORIES=	net-mgmt python

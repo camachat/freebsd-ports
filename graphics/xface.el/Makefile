@@ -1,5 +1,8 @@
 # Created by: Yoichi NAKAYAMA <yoichi@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xface.el
 PORTVERSION=	1.3.6.24

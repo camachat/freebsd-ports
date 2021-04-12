@@ -1,5 +1,8 @@
 # Created by: Charlie Kester <corky1951@comcast.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ised
 PORTVERSION=	2.7.1

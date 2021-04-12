@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	nautilus-python
 DISTVERSION=	1.2.3
 CATEGORIES=	x11-fm gnome python

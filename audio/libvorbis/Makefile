@@ -1,5 +1,8 @@
 # Created by: t.vanklaveren@student.utwente.nl
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libvorbis
 PORTVERSION=	1.3.7

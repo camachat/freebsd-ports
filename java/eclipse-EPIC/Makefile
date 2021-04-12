@@ -1,5 +1,8 @@
 # Created by: tux@pinguru.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	EPIC
 PORTVERSION=	0.6.35

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	hare
 DISTVERSION=	1.0
 CATEGORIES=	sysutils

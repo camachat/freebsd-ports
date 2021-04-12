@@ -1,4 +1,8 @@
 #!/bin/sh
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+
+>>>>>>> upstream/main
 cd %%DATADIR%%
 exec "%%LOCALBASE%%/bin/java" -cp %%JAVAJARDIR%%/bsh.jar:%%JINJAR%% free.jin.JinApplication "$@"

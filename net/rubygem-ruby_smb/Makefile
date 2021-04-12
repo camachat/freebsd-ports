@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ruby_smb
 PORTVERSION=	2.0.7
 CATEGORIES=	net rubygems

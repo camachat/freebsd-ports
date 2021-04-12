@@ -1,5 +1,8 @@
 # Created by: Alex Bakhtin <Alex.Bakhtin@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	App-Build
 PORTVERSION=	0.74

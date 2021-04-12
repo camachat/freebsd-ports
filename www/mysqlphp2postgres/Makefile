@@ -1,5 +1,8 @@
 # Created by: uwe.pierau@tu-clausthal.de
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mysqlphp2postgres
 PORTVERSION=	0.95

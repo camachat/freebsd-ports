@@ -1,5 +1,8 @@
 # Created by: Steve Wills <steve@mouf.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HOP-Lexer
 PORTVERSION=	0.032

@@ -1,5 +1,8 @@
 # Created by: Antonio Carlos Venancio Junior (<antonio@php.net>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HTML_Form
 PORTVERSION=	1.3.1

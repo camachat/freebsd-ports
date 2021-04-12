@@ -1,5 +1,8 @@
 # Created by: grog
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xtset
 PORTVERSION=	1.1

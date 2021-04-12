@@ -1,5 +1,8 @@
 # Created by: anders
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	httplog
 PORTVERSION=	2.1

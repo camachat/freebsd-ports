@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Eval-WithLexicals
 PORTVERSION=	1.003005
 CATEGORIES=	devel perl5

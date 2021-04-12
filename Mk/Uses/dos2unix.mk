@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # Provide support to convert files from dos2unix
 #
 # DOS2UNIX_REGEX	a regular expression to match files that needs to be converted

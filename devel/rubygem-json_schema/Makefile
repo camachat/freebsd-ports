@@ -1,5 +1,8 @@
 # Created by: Stéphane D'Alu <sdalu@sdalu.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	json_schema
 PORTVERSION=	0.20.9

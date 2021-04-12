@@ -1,5 +1,8 @@
 # Created by: Alfred Perlstein <alfred@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mDNSResponder
 PORTVERSION=	1310.80.1

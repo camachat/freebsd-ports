@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	webpacker
 PORTVERSION=	5.2.1
 CATEGORIES=	devel rubygems

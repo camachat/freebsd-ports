@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	paramiko
 PORTVERSION=	1.18.5
 CATEGORIES=	security python

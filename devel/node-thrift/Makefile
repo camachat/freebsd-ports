@@ -1,5 +1,8 @@
 # Created by: Valery Komarov <komarov@valerka.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	thrift
 PORTVERSION=	${THRIFT_PORTVERSION}

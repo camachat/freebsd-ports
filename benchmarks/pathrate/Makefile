@@ -1,5 +1,8 @@
 # Created by: dikshie <dikshie@lapi.itb.ac.id>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pathrate
 PORTVERSION=	2.4.1

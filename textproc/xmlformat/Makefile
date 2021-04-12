@@ -1,5 +1,8 @@
 # Created by: Hiroki Sato <hrs@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xmlformat
 PORTVERSION=	1.04

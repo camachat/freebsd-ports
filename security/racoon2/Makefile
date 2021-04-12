@@ -1,5 +1,8 @@
 # Created by: sumikawa
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	racoon2
 PORTVERSION=	${RACOON2_COMMIT_DATE}

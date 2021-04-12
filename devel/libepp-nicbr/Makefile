@@ -1,5 +1,8 @@
 # Created by: Jean Milanez Melo <jmelo@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libepp-nicbr
 PORTVERSION=	1.15

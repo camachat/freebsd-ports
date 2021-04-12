@@ -1,5 +1,8 @@
 # Created by: Sander Vesik <sander@haldjas.folklore.ee>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tclcheck
 PORTVERSION=	1.1.13

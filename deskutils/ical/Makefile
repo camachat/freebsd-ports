@@ -1,5 +1,8 @@
 # Created by: Eric L. Hernes <erich@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ical
 PORTVERSION=	3.0.4

@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
 
+=======
+>>>>>>> upstream/main
     COMMENT = Multimedia software
 
     SUBDIR += Bento4
@@ -81,7 +84,10 @@
     SUBDIR += gmp-api
     SUBDIR += gmtk
     SUBDIR += gnome-mplayer
+<<<<<<< HEAD
     SUBDIR += gnome-subtitles
+=======
+>>>>>>> upstream/main
     SUBDIR += gnome-twitch
     SUBDIR += gpac-libgpac
     SUBDIR += gpac-mp4box
@@ -211,6 +217,10 @@
     SUBDIR += libva-vdpau-driver
     SUBDIR += libvdpau
     SUBDIR += libvdpau-va-gl
+<<<<<<< HEAD
+=======
+    SUBDIR += libvlcpp
+>>>>>>> upstream/main
     SUBDIR += libvpx
     SUBDIR += libx264
     SUBDIR += libxine
@@ -284,6 +294,10 @@
     SUBDIR += omxplayer
     SUBDIR += openh264
     SUBDIR += openshot
+<<<<<<< HEAD
+=======
+    SUBDIR += opentoonz
+>>>>>>> upstream/main
     SUBDIR += oscam
     SUBDIR += p5-Audio-M4P
     SUBDIR += p5-FFmpeg-Command

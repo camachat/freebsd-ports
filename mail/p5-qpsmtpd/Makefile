@@ -1,5 +1,8 @@
 # Created by: Zane C. Bowers
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	qpsmtpd
 PORTVERSION=	0.93

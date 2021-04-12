@@ -1,5 +1,8 @@
 # Created by: Alexander Botero-Lowry <alex@foxybanana.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tlslite
 PORTVERSION=	0.4.9

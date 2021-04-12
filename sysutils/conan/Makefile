@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	conan
 DISTVERSION=	1.35.0
 CATEGORIES=	sysutils python

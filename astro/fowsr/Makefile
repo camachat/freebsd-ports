@@ -1,5 +1,8 @@
 # Created by: Alexander Leidinger
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fowsr
 PORTVERSION=	${FILEVER}

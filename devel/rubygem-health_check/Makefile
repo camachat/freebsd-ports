@@ -1,5 +1,8 @@
 # Created by: Torsten Zuehlsdorff <ports@toco-domains.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	health_check
 PORTVERSION=	3.0.0

@@ -1,5 +1,8 @@
 # Created by: Alex Dupre <sysadmin@alexdupre.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pdflib
 PORTVERSION=	7.0.5

@@ -1,5 +1,8 @@
 # Created by: k@123.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME?=	lighttpd
 PORTVERSION=	1.4.59

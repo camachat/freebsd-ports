@@ -1,5 +1,8 @@
 # Created by: Gea-Suan Lin
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ShipIt
 PORTVERSION=	0.60

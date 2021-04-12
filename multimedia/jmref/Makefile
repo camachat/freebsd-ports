@@ -1,5 +1,8 @@
 # Created by: Steve Wills <steve@mouf.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jmref
 PORTVERSION=	19.0

@@ -1,5 +1,8 @@
 # Created by: Yoshisato YANAGISAWA
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dkimproxy
 PORTVERSION=	1.4.1

@@ -1,5 +1,8 @@
 # Created by: Jose Alonso Cardenas Marquez <acm@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mupen64plus
 PORTVERSION=	2.5

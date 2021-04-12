@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	m2r
 DISTVERSION=	0.2.1
 PORTREVISION=	1

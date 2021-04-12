@@ -1,5 +1,8 @@
 # Created by: Jose G. Juanino <jjuanino@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xpipe
 DISTVERSION=	g20200503

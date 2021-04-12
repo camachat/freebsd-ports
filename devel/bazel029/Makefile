@@ -1,5 +1,8 @@
 # Created by: Klaus Aehlig <aehlig@linta.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bazel
 DISTVERSION=	0.29.0

@@ -1,5 +1,8 @@
 # Created by: Vladimir Perepelitsa <mons@cpan.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ToolSet
 PORTVERSION=	1.00

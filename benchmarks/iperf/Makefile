@@ -1,5 +1,8 @@
 # Created by: Pete Fritchman <petef@databits.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	iperf
 DISTVERSION=	2.1.0-rc2

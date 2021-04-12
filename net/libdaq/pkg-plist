@@ -11,6 +11,10 @@ lib/daq/daq_dump.so
 lib/daq/daq_fst.so
 lib/daq/daq_netmap.so
 lib/daq/daq_pcap.so
+<<<<<<< HEAD
+=======
+lib/daq/daq_savefile.so
+>>>>>>> upstream/main
 lib/daq/daq_trace.so
 lib/libdaq.a
 lib/libdaq.so
@@ -22,6 +26,10 @@ lib/libdaq_static_dump.a
 lib/libdaq_static_fst.a
 lib/libdaq_static_netmap.a
 lib/libdaq_static_pcap.a
+<<<<<<< HEAD
+=======
+lib/libdaq_static_savefile.a
+>>>>>>> upstream/main
 lib/libdaq_static_trace.a
 libdata/pkgconfig/libdaq.pc
 libdata/pkgconfig/libdaq_static_bpf.pc
@@ -30,4 +38,8 @@ libdata/pkgconfig/libdaq_static_dump.pc
 libdata/pkgconfig/libdaq_static_fst.pc
 libdata/pkgconfig/libdaq_static_netmap.pc
 libdata/pkgconfig/libdaq_static_pcap.pc
+<<<<<<< HEAD
+=======
+libdata/pkgconfig/libdaq_static_savefile.pc
+>>>>>>> upstream/main
 libdata/pkgconfig/libdaq_static_trace.pc

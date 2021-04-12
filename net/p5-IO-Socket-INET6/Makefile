@@ -1,5 +1,8 @@
 # Created by: Janos.Mohacsi@bsd.hu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	IO-Socket-INET6
 PORTVERSION=	2.72

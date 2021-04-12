@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	spirv-tools
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2020.7

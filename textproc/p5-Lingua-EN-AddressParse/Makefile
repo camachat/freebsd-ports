@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Lingua-EN-AddressParse
 PORTVERSION=	1.27
 CATEGORIES=	textproc perl5 geography

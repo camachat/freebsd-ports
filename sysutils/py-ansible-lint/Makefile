@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	ansible-lint
 PORTVERSION=	5.0.6
+=======
+PORTNAME=	ansible-lint
+PORTVERSION=	5.0.7
+>>>>>>> upstream/main
 CATEGORIES=	sysutils python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}

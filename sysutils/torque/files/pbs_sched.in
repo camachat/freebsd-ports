@@ -1,7 +1,10 @@
 #!/bin/sh
 
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # PROVIDE: pbs_sched
 # REQUIRE: pbs_server
 # BEFORE: LOGIN

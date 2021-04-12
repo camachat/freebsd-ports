@@ -1,5 +1,8 @@
 # Created by: fluffy
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PKGNAMESUFFIX=		-table-ldap
 PORTREVISION=		0

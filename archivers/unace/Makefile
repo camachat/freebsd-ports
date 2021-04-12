@@ -1,5 +1,8 @@
 # Created by: Joao Carlos Mendes Luis <jonny@jonny.eng.br>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	unace
 PORTVERSION=	1.2b

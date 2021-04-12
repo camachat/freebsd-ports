@@ -1,5 +1,8 @@
 # Created by: Akito FUJITA <fujita@zoo.ncl.omron.co.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mh
 PORTVERSION=	${VERSION}.j${JP_VERSION}

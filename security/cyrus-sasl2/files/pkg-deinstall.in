@@ -1,7 +1,11 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 #	$FreeBSD$
 #
+=======
+
+>>>>>>> upstream/main
 # Created by: hetzels@westbend.net
 
 #set -vx

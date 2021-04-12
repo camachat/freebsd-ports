@@ -1,5 +1,8 @@
 # Created by: Geoffroy Desvernay <dgeo@centrale-marseille.fr>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	File-ShareDir-Tarball
 PORTVERSION=	0.2.2

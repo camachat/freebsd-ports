@@ -1,8 +1,15 @@
 # Created by: Sergey Akifyev <asa@agava.com>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	libqalculate
 PORTVERSION=	3.17.0
+=======
+
+PORTNAME=	libqalculate
+PORTVERSION=	3.17.0
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	math
 MASTER_SITES=	https://github.com/Qalculate/${PORTNAME}/releases/download/v${PORTVERSION}/
 

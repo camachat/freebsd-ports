@@ -1,5 +1,8 @@
 # Created by: Mahlon E. Smith <mahlon@martini.nu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mdbx
 PORTVERSION=	0.9.3

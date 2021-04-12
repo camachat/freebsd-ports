@@ -1,5 +1,8 @@
 # Created by: jmacd@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mit-scheme
 PORTVERSION=	9.2

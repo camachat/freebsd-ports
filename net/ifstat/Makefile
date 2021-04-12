@@ -1,5 +1,8 @@
 # Created by: spf@xslt.cs.nccu.edu.tw
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ifstat
 PORTVERSION=	1.1

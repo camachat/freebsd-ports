@@ -1,5 +1,8 @@
 # Created by: Danilo Egea Gondolfo <danilo@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cloog
 PORTVERSION=	0.20.0

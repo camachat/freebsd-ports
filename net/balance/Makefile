@@ -1,5 +1,8 @@
 # Created by: Joseph Scott <joseph@randomnetworks.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	balance
 PORTVERSION=	3.57

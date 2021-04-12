@@ -1,5 +1,8 @@
 # Created by: Stefan Bethke <stb@lassitu.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ttf2eot
 PORTVERSION=	0.0.3

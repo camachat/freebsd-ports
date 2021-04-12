@@ -1,5 +1,8 @@
 # Created by: Kimura Fuyuki <fuyuki@hadaly.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sisc
 PORTVERSION=	1.16.6

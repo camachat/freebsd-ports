@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Devel-BeginLift
 PORTVERSION=	0.001003
 PORTREVISION=	1

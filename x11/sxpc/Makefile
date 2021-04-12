@@ -1,5 +1,8 @@
 # Created by: jkh@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sxpc
 PORTVERSION=	1.4

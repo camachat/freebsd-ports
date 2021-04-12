@@ -1,5 +1,8 @@
 # Created by: Christopher Key <cjk32@cam.ac.uk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Audio-M4P
 PORTVERSION=	0.57

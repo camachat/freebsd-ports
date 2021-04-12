@@ -1,5 +1,8 @@
 # Created by: Moritz Warning <moritzwarning@web.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	kadnode
 DISTVERSIONPREFIX=	v

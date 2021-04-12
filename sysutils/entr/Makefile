@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	entr
 PORTVERSION=	4.6
 CATEGORIES=	sysutils

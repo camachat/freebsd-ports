@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Class-DBI-FromCGI
 PORTVERSION=	1.00
 PORTREVISION=	2

@@ -1,5 +1,8 @@
 # Created by: lab@fnurt.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	larswm
 PORTVERSION=	7.5.3

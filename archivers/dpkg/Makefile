@@ -1,5 +1,8 @@
 # Created by: Hye-Shik Chang <perky@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dpkg
 PORTVERSION=	1.19.7

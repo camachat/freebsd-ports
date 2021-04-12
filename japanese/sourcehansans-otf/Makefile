@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		sourcehansans
 PORTVERSION=		2.000
 DISTVERSIONSUFFIX=	R

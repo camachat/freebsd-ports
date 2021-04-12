@@ -1,5 +1,8 @@
 # Created by: Martin Otto
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bsd-splash-changer
 PORTVERSION=	060211

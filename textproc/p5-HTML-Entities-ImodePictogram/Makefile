@@ -1,5 +1,8 @@
 # Created by: Shinsuke Matsui <smatsui@karashi.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HTML-Entities-ImodePictogram
 PORTVERSION=	0.06

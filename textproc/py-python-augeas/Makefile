@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	python-augeas
 PORTVERSION=	1.0.3
 DISTVERSIONPREFIX=	v

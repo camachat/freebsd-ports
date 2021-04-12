@@ -1,5 +1,8 @@
 # Created by: Jim Mock <jim@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	aterm
 PORTVERSION=	1.0.1

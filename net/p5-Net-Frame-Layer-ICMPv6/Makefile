@@ -1,5 +1,8 @@
 # Created by: Mars G Miro <spry@anarchy.in.the.ph>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-Frame-Layer-ICMPv6
 PORTVERSION=	1.09

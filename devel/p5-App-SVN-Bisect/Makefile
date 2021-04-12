@@ -1,5 +1,8 @@
 # Created by: Rui Paulo <rpaulo@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	App-SVN-Bisect
 PORTVERSION=	1.1

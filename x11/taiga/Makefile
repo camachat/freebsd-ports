@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	taiga
 PORTVERSION=	s20200907
 DISTVERSIONSUFFIX=	-34c64aa7c3d7

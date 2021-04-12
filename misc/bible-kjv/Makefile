@@ -1,5 +1,8 @@
 # Created by: Kim Scarborough <user@unknown.nu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bible-kjv
 PORTVERSION=	4.30

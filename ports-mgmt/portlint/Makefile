@@ -1,5 +1,8 @@
 # Created by: Jun-ichiro itojun Hagino <itojun@itojun.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	portlint
 PORTVERSION=	2.19.4

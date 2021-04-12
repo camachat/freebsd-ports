@@ -1,5 +1,8 @@
 # Created by: Shigeyuki Fukushima <shige@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	psgml
 PORTVERSION=	1.4.0

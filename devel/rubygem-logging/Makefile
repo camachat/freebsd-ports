@@ -1,5 +1,8 @@
 # Created by: Ryan Steinmetz (<rpsfa@rit.edu>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	logging
 PORTVERSION=	2.3.0

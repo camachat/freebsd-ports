@@ -1,5 +1,8 @@
 # Created by: Tom Hukins <tom@eborcom.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 # You can define the following to enable further compile time
 # customizations:

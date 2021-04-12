@@ -1,7 +1,10 @@
 #!/bin/sh
 #
 #	pre-configure script for Trn 4.0 port to FreeBSD
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PortsDir=$1
   CurDir=$2

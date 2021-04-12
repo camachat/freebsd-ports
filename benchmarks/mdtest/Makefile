@@ -1,5 +1,8 @@
 # Created by: Chao Shin <quakelee@cn.freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mdtest
 PORTVERSION=	1.9.3

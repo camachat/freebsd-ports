@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pyodesys
 DISTVERSION=	0.13.1
 CATEGORIES=	math python

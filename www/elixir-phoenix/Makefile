@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	phoenix
 PORTVERSION=	1.3.3
 DISTVERSIONPREFIX=	v

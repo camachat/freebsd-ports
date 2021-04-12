@@ -1,5 +1,8 @@
 # Created by: Simon Barner <barner@gmx.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	irrlicht
 PORTVERSION=	1.8.4

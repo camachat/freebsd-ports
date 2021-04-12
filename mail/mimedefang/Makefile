@@ -1,5 +1,8 @@
 # Created by: Andrey V. Pevnev <andrey@mgul.ac.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mimedefang
 PORTVERSION=	2.84

@@ -1,5 +1,8 @@
 # Created by: Stefan Walter <sw@gegenunendlich.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ppower4
 PORTVERSION=	0.9.4

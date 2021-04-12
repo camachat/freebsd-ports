@@ -1,5 +1,8 @@
 # Created by: Bernhard Froehlich <decke@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pvr.hts
 DISTVERSION=	8.3.0

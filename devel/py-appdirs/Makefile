@@ -1,5 +1,8 @@
 # Created by: Thomas Zander <riggs@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	appdirs
 PORTVERSION=	1.4.4

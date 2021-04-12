@@ -1,5 +1,8 @@
 # Created by: dirkx@webweaving.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bluegps-linux
 PORTVERSION=	2.0

@@ -1,5 +1,8 @@
 # Created by: stas
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 COMMENT=	Garbage collection and memory leak detection for C and C++ with threading support
 

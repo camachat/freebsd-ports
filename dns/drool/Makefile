@@ -1,5 +1,8 @@
 # Created by: Jaap Akkerhuis <jaap@NLnetLabs.nl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	drool
 DISTVERSION=	1.1.0

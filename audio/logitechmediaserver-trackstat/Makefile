@@ -1,5 +1,8 @@
 # Created by: Tim Bishop <tdb@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	trackstat
 PORTVERSION=	3.2.3951

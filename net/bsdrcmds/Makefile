@@ -1,5 +1,8 @@
 # Created by: Jeremie Le Hen <jlh@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bsdrcmds
 PORTVERSION=	20171003.01

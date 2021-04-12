@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	zabbix4
 CATEGORIES=	net-mgmt
 PKGNAMESUFFIX=	-java

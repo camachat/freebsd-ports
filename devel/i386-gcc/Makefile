@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PKGNAMEPREFIX=	i386-
 PLIST=	${.CURDIR}/pkg-plist
 

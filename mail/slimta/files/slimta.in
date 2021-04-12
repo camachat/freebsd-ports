@@ -1,7 +1,11 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+
+>>>>>>> upstream/main
 # PROVIDE: slimta
 # REQUIRE: DAEMON FILESYSTEMS NETWORKING
 # KEYWORD: shutdown

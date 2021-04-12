@@ -1,5 +1,8 @@
 # Created by: gugu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HTML-FormFu-Imager
 PORTVERSION=	1.00

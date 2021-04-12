@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	mongodb
 DISTVERSIONPREFIX=	r
 DISTVERSION=	4.4.4
+=======
+PORTNAME=	mongodb
+DISTVERSIONPREFIX=	r
+DISTVERSION=	4.4.5
+>>>>>>> upstream/main
 CATEGORIES=	databases net
 MASTER_SITES=	https://fastdl.mongodb.org/src/ \
 		http://fastdl.mongodb.org/src/

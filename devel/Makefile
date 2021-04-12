@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
 
+=======
+>>>>>>> upstream/main
     COMMENT = Development utilities
 
     SUBDIR += 9base
@@ -50,6 +53,10 @@
     SUBDIR += R-cran-gdata
     SUBDIR += R-cran-generics
     SUBDIR += R-cran-getopt
+<<<<<<< HEAD
+=======
+    SUBDIR += R-cran-git2r
+>>>>>>> upstream/main
     SUBDIR += R-cran-glmnet
     SUBDIR += R-cran-glue
     SUBDIR += R-cran-gmodels
@@ -277,8 +284,11 @@
     SUBDIR += bugzilla50
     SUBDIR += build
     SUBDIR += buildstream
+<<<<<<< HEAD
     SUBDIR += buildtool
     SUBDIR += buildtool-doc
+=======
+>>>>>>> upstream/main
     SUBDIR += bullet
     SUBDIR += busybee
     SUBDIR += byacc
@@ -728,7 +738,10 @@
     SUBDIR += gammaray
     SUBDIR += gauche-readline
     SUBDIR += gaul
+<<<<<<< HEAD
     SUBDIR += gb
+=======
+>>>>>>> upstream/main
     SUBDIR += gbump
     SUBDIR += gcc-arm-embedded
     SUBDIR += gcc-msp430-ti-toolchain
@@ -1533,7 +1546,10 @@
     SUBDIR += modd
     SUBDIR += mongo-c-driver
     SUBDIR += mono-addins
+<<<<<<< HEAD
     SUBDIR += monodevelop
+=======
+>>>>>>> upstream/main
     SUBDIR += monotone
     SUBDIR += mpatrol
     SUBDIR += mph
@@ -1636,7 +1652,10 @@
     SUBDIR += opengrok
     SUBDIR += openocd
     SUBDIR += openwince-include
+<<<<<<< HEAD
     SUBDIR += openzz
+=======
+>>>>>>> upstream/main
     SUBDIR += orc
     SUBDIR += osc
     SUBDIR += ossp-al
@@ -4488,6 +4507,10 @@
     SUBDIR += py-grpcio-tools
     SUBDIR += py-gs_api_client
     SUBDIR += py-gtfslib
+<<<<<<< HEAD
+=======
+    SUBDIR += py-guppy3
+>>>>>>> upstream/main
     SUBDIR += py-gyp
     SUBDIR += py-hash_ring
     SUBDIR += py-heapdict
@@ -6524,6 +6547,10 @@
     SUBDIR += rubygem-ruby-fogbugz021
     SUBDIR += rubygem-ruby-libvirt
     SUBDIR += rubygem-ruby-macho
+<<<<<<< HEAD
+=======
+    SUBDIR += rubygem-ruby-magic-static
+>>>>>>> upstream/main
     SUBDIR += rubygem-ruby-ole
     SUBDIR += rubygem-ruby-prof
     SUBDIR += rubygem-ruby-progressbar
@@ -6707,6 +6734,10 @@
     SUBDIR += rubygem-useragent
     SUBDIR += rubygem-uuid
     SUBDIR += rubygem-uuidtools
+<<<<<<< HEAD
+=======
+    SUBDIR += rubygem-valid
+>>>>>>> upstream/main
     SUBDIR += rubygem-validatable
     SUBDIR += rubygem-validate_email
     SUBDIR += rubygem-validate_url
@@ -6810,7 +6841,10 @@
     SUBDIR += sope2
     SUBDIR += sope4
     SUBDIR += sord
+<<<<<<< HEAD
     SUBDIR += sourcenav
+=======
+>>>>>>> upstream/main
     SUBDIR += sparc64-gcc
     SUBDIR += sparc64-xtoolchain-gcc
     SUBDIR += spark

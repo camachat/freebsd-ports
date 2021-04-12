@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libgav1
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.16.0

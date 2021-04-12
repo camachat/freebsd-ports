@@ -1,5 +1,8 @@
 # Created by: Oliver Braun <obraun@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	darcs
 PORTVERSION=	2.16.3

@@ -1,5 +1,8 @@
 # Created by: mi
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hdf
 PORTVERSION=	4.2.15

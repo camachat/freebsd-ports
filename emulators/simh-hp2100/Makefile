@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	hp2100
 DISTVERSION=	3.11-0.29
 CATEGORIES=	emulators

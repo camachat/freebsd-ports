@@ -1,5 +1,8 @@
 # Created by: David Naylor <naylor.b.david@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wine-mono
 DISTVERSION=	4.9.4

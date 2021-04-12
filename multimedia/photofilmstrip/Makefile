@@ -1,5 +1,8 @@
 # Created by: Charlie Kester <corky1951@comcast.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	photofilmstrip
 PORTVERSION=	3.7.0

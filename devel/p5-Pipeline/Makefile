@@ -1,5 +1,8 @@
 # Created by: Rouslan Iskhakov <rouslan@rshell.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Pipeline
 PORTVERSION=	3.12

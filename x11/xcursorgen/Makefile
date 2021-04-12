@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xcursorgen
 PORTVERSION=	1.0.7
 CATEGORIES=	x11

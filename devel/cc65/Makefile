@@ -1,5 +1,8 @@
 # Created by: Tim Vanderhoek <hoek@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cc65
 PORTVERSION=	2.19

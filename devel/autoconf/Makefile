@@ -1,5 +1,8 @@
 # Created by: ade@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	autoconf
 PORTVERSION=	2.69

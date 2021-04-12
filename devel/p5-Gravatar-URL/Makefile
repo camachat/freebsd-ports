@@ -1,5 +1,8 @@
 # Created by: andrey@kostenko.name
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Gravatar-URL
 PORTVERSION=	1.07

@@ -1,5 +1,8 @@
 # Created by: Hye-Shik Chang <perky@python.or.kr>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jython
 PORTVERSION=	2.7.0

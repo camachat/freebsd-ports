@@ -1,5 +1,8 @@
 # Created by: Jason Burgess <dev@fenux.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Convert-IBM390
 PORTVERSION=	0.30

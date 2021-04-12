@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ayu20
 PORTVERSION=	1.7.a
 PORTREVISION=	3

@@ -1,5 +1,8 @@
 # Created by: Dmitry Frolov <frol@nov.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	freeipmi
 PORTVERSION=	1.6.7

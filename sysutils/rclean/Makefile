@@ -1,5 +1,8 @@
 # Created by: Lapo Luchini <lapo@lapo.it>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rclean
 PORTVERSION=	1.14

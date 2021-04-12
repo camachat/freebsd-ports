@@ -1,5 +1,8 @@
 # Created by: rokaz
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	belier
 PORTVERSION=	1.2

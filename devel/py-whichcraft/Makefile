@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	whichcraft
 PORTVERSION=	0.6.1
 CATEGORIES=	devel python

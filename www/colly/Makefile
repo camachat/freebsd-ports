@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	colly
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.0.0

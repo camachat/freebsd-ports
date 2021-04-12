@@ -1,10 +1,14 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 #$FreeBSD$
 #
 
 # PROVIDE: sniproxy
 # REQUIRE: SERVERS cleanvar
+=======
+
+>>>>>>> upstream/main
 # BEFORE:  DAEMON
 # KEYWORD: shutdown
 

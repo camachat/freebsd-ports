@@ -1,5 +1,8 @@
 # Created by: maho@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	garlic
 PORTVERSION=	1.6

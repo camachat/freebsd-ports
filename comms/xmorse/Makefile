@@ -1,5 +1,8 @@
 # Created by: Sunry Chen <sunrychen@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xmorse
 PORTVERSION=	20041125

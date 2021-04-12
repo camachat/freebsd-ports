@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	chatterino2
 PORTVERSION=	g2020090101
 PORTREVISION=	1

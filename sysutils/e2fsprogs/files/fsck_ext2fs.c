@@ -4,8 +4,11 @@
  * redistributable in accordance with the
  * GNU General Public License v2
  *
+<<<<<<< HEAD
  * $FreeBSD$
  *
+=======
+>>>>>>> upstream/main
  * Upstream: $Id: fsck_ext2fs.c,v 1.6 2006/07/02 11:37:49 emma Exp $
  *
  * format: gindent -kr

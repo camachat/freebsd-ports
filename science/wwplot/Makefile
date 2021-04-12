@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	wwplot
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.0.8

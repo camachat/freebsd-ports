@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	javaproperties
 DISTVERSION=	0.5.2
 CATEGORIES=	devel python

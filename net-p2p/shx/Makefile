@@ -1,5 +1,8 @@
 # Created by: Devin Teske <dteske@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	shx
 PORTVERSION=	0.2.4

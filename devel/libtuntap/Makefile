@@ -1,5 +1,8 @@
 # Created by: Mahdi Mokhtari <mokhi64@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libtuntap
 DISTVERSIONPREFIX=	${PORTNAME}-

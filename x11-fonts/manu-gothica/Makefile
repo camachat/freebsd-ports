@@ -1,5 +1,8 @@
 # Created by: heiner Eichmann <h.eichmann@gmx.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	manu-gothica
 DISTVERSION=	0

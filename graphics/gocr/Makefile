@@ -1,5 +1,8 @@
 # Created by: Kay Lehmann
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gocr
 PORTVERSION=	0.52

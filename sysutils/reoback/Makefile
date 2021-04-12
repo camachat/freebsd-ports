@@ -1,5 +1,8 @@
 # Created by: kiesel
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	reoback
 PORTVERSION=	1.0

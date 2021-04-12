@@ -1,5 +1,8 @@
 # Created by: Ion-Mihai "IOnut" Tetcu <itetcu@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	change-sqlpass
 PORTVERSION=	3.3

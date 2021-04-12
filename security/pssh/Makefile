@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pssh
 PORTVERSION=	2.3.4
 DISTVERSIONPREFIX=	v

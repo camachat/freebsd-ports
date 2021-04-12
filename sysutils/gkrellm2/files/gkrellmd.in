@@ -1,7 +1,10 @@
 #!/bin/sh
 
 # Start or stop gkrellmd
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 # PROVIDE: gkrellmd
 # REQUIRE: DAEMON

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libopenshot
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.2.5-517

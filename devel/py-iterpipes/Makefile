@@ -1,5 +1,8 @@
 # Created by: Sofian Brabez <sbrabez@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	iterpipes
 PORTVERSION=	0.4

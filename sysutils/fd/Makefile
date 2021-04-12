@@ -1,5 +1,8 @@
 # Created by: Andrey Cherkashin <andoriyu@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fd
 DISTVERSIONPREFIX=	v

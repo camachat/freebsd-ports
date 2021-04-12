@@ -1,5 +1,8 @@
 # Created by: jabley@clear.co.nz
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ciscoconf
 PORTVERSION=	1.1

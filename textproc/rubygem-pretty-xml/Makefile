@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pretty-xml
 PORTVERSION=	0.2.2
 CATEGORIES=	textproc rubygems

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	snmptt
 PORTVERSION=	1.4.2
 PORTREVISION=	1

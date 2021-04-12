@@ -1,5 +1,8 @@
 # Created by: J Han <hjh@photino.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lwm
 PORTVERSION=	1.2.4

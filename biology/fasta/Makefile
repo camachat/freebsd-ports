@@ -1,5 +1,8 @@
 # Created by: Johann Visagie <johann@egenetics.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fasta
 PORTVERSION=	21.1.1

@@ -1,5 +1,8 @@
 # Created by: jagapen@home.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libffcall
 PORTVERSION=	2.1

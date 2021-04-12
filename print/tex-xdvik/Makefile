@@ -1,5 +1,8 @@
 # Created by: Kentaro Inagaki <JBD01226@niftyserve.ne.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xdvik
 PORTVERSION=	22.87

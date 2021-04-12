@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	geany-plugin-multiterm
 PORTVERSION=	${GEANY_VER}
 PKGNAMESUFFIX=	-gtk2

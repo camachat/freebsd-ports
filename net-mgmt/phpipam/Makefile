@@ -1,5 +1,8 @@
 # Created by: Jake Smith <jake@xz.cx>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	phpipam
 PORTVERSION=	1.4.2

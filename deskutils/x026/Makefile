@@ -1,5 +1,8 @@
 # Created by: Marcin Cieslak <saper@saper.info>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	x026
 PORTVERSION=	1.2

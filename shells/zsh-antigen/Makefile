@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	zsh-antigen
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.2.3

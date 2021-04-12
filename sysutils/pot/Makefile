@@ -1,5 +1,8 @@
 # Created by: Luca Pizzamiglio <pizzamig@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pot
 PORTVERSION=	0.11.6

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	stegosaurus
 DISTVERSION=	0.0.3
 CATEGORIES=	audio

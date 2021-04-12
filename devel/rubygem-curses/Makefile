@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	curses
 PORTVERSION=	1.3.2
 CATEGORIES=	devel rubygems

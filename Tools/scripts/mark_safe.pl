@@ -1,7 +1,10 @@
 #!/usr/bin/env perl
 
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # MAINTAINER=   ports@FreeBSD.org
 # all committers may commit to this file without approval
 
@@ -27,7 +30,10 @@ local $SIG{__DIE__}  = \&Carp::confess;
 local $SIG{__WARN__} = \&Carp::cluck;
 
 ### version
+<<<<<<< HEAD
 our $VERSION = do { my @r = (q$FreeBSD$ =~ /\d+/g); sprintf "%d." . "%02d" x $#r, @r };
+=======
+>>>>>>> upstream/main
 
 ### globals
 # cmdline options (standard) with defaults
@@ -193,7 +199,11 @@ sub main {
   }
 
   if ($Version) {
+<<<<<<< HEAD
     print PROGNAME . " - v$VERSION\n\n";
+=======
+    print PROGNAME . "\n\n";
+>>>>>>> upstream/main
     return EXIT_SUCCESS;
   }
 

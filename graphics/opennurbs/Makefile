@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	opennurbs
 PORTVERSION=	20130711
 PORTREVISION=	3

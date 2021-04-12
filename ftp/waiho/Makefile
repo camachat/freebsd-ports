@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	waiho
 PORTVERSION=	0.2
 PORTREVISION=	11

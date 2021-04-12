@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		pooler
 DISTVERSIONPREFIX=	v
 DISTVERSION=		1.76

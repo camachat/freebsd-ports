@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	DBIx-Skinny-Schema-Loader
 PORTVERSION=	0.25
 PORTREVISION=	1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	txredisapi
 DISTVERSION=	1.4.7
 PORTREVISION=	1

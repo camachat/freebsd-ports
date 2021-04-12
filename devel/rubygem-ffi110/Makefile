@@ -1,5 +1,8 @@
 # Created by: Christoph Kick
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ffi
 PORTVERSION=	1.10.0

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Test-Name-FromLine
 PORTVERSION=	0.13
 PORTREVISION=	1

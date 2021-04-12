@@ -1,5 +1,8 @@
 # Created by: Konstantin Menshikov <kostjnspb@yandex.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Sys-Load
 PORTVERSION=	0.2

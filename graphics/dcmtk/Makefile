@@ -1,9 +1,16 @@
 # Created by: gahr
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dcmtk
 DISTVERSIONPREFIX=	${PORTNAME:tu}-
 DISTVERSION=	3.6.6
+<<<<<<< HEAD
+=======
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	graphics devel
 
 MAINTAINER=	yuri@FreeBSD.org

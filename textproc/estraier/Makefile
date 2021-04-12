@@ -1,5 +1,8 @@
 # Created by: Michael Johnson <ahze@ahze.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	estraier
 PORTVERSION=	1.2.30

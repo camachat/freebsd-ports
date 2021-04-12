@@ -1,5 +1,8 @@
 # Created by: Anton Shterenlikht
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	slatec
 PORTVERSION=	4.1

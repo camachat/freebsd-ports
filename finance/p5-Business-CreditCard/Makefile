@@ -1,5 +1,8 @@
 # Created by: James FitzGibbon <jfitz@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Business-CreditCard
 PORTVERSION=	0.36

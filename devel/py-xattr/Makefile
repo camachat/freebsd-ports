@@ -1,5 +1,8 @@
 # Created by: bland@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xattr
 PORTVERSION=	0.9.6

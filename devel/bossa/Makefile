@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bossa
 PORTVERSION=	1.9.1
 CATEGORIES=	devel

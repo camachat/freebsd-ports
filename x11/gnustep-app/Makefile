@@ -1,5 +1,8 @@
 # Created by: dirk.meyer@dinoex.sub.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gnustep-app
 PORTVERSION=	2.0.0

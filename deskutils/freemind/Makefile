@@ -1,5 +1,8 @@
 # Created by: cartola (Carlos E. G. Carvalho)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	freemind
 PORTVERSION=	1.0.1

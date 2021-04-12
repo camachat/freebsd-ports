@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	OpenLara
 DISTVERSION=	g20210226
 CATEGORIES=	games

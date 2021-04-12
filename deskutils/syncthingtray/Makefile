@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	syncthingtray
 PORTVERSION=	1.1.2
+=======
+PORTNAME=	syncthingtray
+PORTVERSION=	1.1.5
+>>>>>>> upstream/main
 DISTVERSIONPREFIX=	v
 CATEGORIES=	deskutils
 
@@ -20,8 +25,13 @@ USES=		cmake:insource compiler:c++11-lang iconv kde:5 qt:5
 
 USE_GITHUB=	nodefault
 GH_TUPLE=	Martchus:${PORTNAME}:${DISTVERSIONPREFIX}${DISTVERSION}:syncthingtray/../syncthingtray \
+<<<<<<< HEAD
 		Martchus:cpp-utilities:v5.10.0:cpputilities/../c++utilities \
 		Martchus:qtutilities:v6.3.0:qtutilities/../qtutilities \
+=======
+		Martchus:cpp-utilities:v5.10.2:cpputilities/../c++utilities \
+		Martchus:qtutilities:v6.4.0:qtutilities/../qtutilities \
+>>>>>>> upstream/main
 		Martchus:subdirs:f3b12f9:subdirs/../subdirs
 
 USE_KDE=	plasma-framework

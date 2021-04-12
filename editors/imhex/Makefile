@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	imhex
 PORTVERSION=	1.7.0
 DISTVERSIONPREFIX=	v

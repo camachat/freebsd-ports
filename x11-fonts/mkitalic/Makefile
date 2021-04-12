@@ -1,5 +1,8 @@
 # Created by: KOMATSU Shinichiro
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mkitalic
 PORTVERSION=	1.0

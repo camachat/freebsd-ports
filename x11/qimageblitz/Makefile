@@ -1,5 +1,8 @@
 # Created by: Martin Wilke <miwi@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	qimageblitz
 PORTVERSION=	0.1.0 # a made-up version also used in some linux distros, otherwise we need to add PORTEPOCH

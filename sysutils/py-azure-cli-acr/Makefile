@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	azure-cli-acr
 PORTVERSION=	2.2.9
 CATEGORIES=	sysutils python

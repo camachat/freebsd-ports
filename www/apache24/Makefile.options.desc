@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 # vim: syntax=make ts=8 noet
 # =====================================
 # OPTIONS HEADING

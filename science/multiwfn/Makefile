@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	multiwfn
 DISTVERSIONPREFIX=	v
 DISTVERSION=	3.4.1-0-14

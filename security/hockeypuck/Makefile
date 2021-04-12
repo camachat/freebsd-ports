@@ -1,5 +1,8 @@
 # Created by: Michiel van Baak <michiel@vanbaak.eu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hockeypuck
 DISTVERSION=	g20180725

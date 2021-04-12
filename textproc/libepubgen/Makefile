@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libepubgen
 PORTVERSION=	0.1.1
 CATEGORIES=	textproc

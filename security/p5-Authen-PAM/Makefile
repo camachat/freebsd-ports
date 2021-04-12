@@ -1,5 +1,8 @@
 # Created by: Matt Behrens <matt@zigg.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Authen-PAM
 PORTVERSION=	0.16

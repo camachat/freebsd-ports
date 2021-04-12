@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	fizz
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2021.03.29.00
+=======
+PORTNAME=	fizz
+DISTVERSIONPREFIX=	v
+DISTVERSION=	2021.04.05.00
+>>>>>>> upstream/main
 CATEGORIES=	security
 
 MAINTAINER=	yuri@FreeBSD.org

@@ -1,5 +1,8 @@
 # Created by: Anders Nordby <anders@fix.no>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-ParseWhois
 PORTVERSION=	0.70

@@ -1,5 +1,8 @@
 # Created by: Joseph Benden <joe@thrallingpenguin.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vagrant
 PORTVERSION=	2.2.14

@@ -1,5 +1,8 @@
 # Created by: Matthew Dillon <dillon@backplane.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jikes
 PORTVERSION=	1.22

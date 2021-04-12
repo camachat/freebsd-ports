@@ -1,5 +1,8 @@
 # Created by: Kimura Fuyuki <fuyuki@mj.0038.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	resume
 DISTVERSION=	1_5_1

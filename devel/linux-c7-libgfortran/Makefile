@@ -1,5 +1,8 @@
 # Created by: Piotr Kubaj <emulation@FreeBSD.org$
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libgfortran
 PORTVERSION=	4.8.5

@@ -1,5 +1,8 @@
 # Created by: Jose Alonso Cardenas Marquez <acardenas@bsd.org.pe>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 #
 # Remember to update www/py-django along with this port.
 
@@ -30,7 +33,11 @@ USE_PYTHON=	autoplist distutils
 SHEBANG_FILES=	django/bin/django-admin.py \
 		django/conf/project_template/manage.py-tpl
 
+<<<<<<< HEAD
 CONFLICTS_INSTALL=	${PYTHON_PKGNAMEPREFIX}django2[0-2] ${PYTHON_PKGNAMEPREFIX}django3[0-1]
+=======
+CONFLICTS_INSTALL=	${PYTHON_PKGNAMEPREFIX}django22 ${PYTHON_PKGNAMEPREFIX}django3[0-2]
+>>>>>>> upstream/main
 CPE_VENDOR=		djangoproject
 
 DOCSDIR=	${PREFIX}/share/doc/py-django

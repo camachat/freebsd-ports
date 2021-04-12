@@ -1,5 +1,8 @@
 # Created by: Matthew Luckie <mjl@luckie.org.nz>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cuttlefish
 PORTVERSION=	1.3

@@ -1,5 +1,8 @@
 # Created by: Roar Pettersen <roar@uib.no>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	openlldp
 DISTVERSION=	0.4alpha

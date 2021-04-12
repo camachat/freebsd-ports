@@ -1,5 +1,8 @@
 # Created by: tg@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gv
 PORTVERSION=	3.7.4

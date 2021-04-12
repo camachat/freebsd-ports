@@ -1,5 +1,8 @@
 # Created by: Andrej Zverev <andrey.zverev@electro-com.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Catalyst-Controller-HTML-FormFu
 PORTVERSION=	2.04

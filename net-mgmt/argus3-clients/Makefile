@@ -1,5 +1,8 @@
 # Created by: Stefan Esser <se@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	argus-clients
 PORTVERSION=	3.0.8.2

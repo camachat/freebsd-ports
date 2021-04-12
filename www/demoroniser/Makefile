@@ -1,5 +1,8 @@
 # Created by: Chris D. Faulhaber <jedgar@fxp.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	demoroniser
 PORTVERSION=	1.0.20030916

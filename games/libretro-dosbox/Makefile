@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libretro-dosbox
 PORTVERSION=	0.20201229
 CATEGORIES=	games

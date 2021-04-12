@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	toybox
 PORTVERSION=	0.8.4
 CATEGORIES=	sysutils

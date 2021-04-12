@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	jaraco
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 PORTVERSION=	1

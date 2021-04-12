@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Term-Clui
 PORTVERSION=	1.76
 CATEGORIES=	devel perl5

@@ -1,9 +1,15 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	media-driver
 DISTVERSIONPREFIX=	intel-media-
 DISTVERSION=	21.1.2
 PORTREVISION=	1
+=======
+PORTNAME=	media-driver
+DISTVERSIONPREFIX=	intel-media-
+DISTVERSION=	21.1.3
+>>>>>>> upstream/main
 CATEGORIES=	multimedia
 PKGNAMEPREFIX=	libva-intel-
 

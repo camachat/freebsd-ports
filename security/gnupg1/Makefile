@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gnupg
 PORTVERSION=	1.4.23
 PORTREVISION=	2

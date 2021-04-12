@@ -1,5 +1,8 @@
 # Created by: Harry Newton
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xmailwatcher
 PORTVERSION=	1.6

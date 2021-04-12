@@ -1,5 +1,8 @@
 # Created by: Patrick Rinke <patrick@rinke-bochum.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ucspi-unix
 PORTVERSION=	1.0

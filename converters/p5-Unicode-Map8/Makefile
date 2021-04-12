@@ -1,5 +1,8 @@
 # Created by: Ilia Chipitsine <ilia@jane.cgu.chel.su>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Unicode-Map8
 PORTVERSION=	0.13

@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	irb
 PORTVERSION=	1.3.4
+=======
+PORTNAME=	irb
+PORTVERSION=	1.3.5
+>>>>>>> upstream/main
 CATEGORIES=	devel rubygems
 MASTER_SITES=	RG
 

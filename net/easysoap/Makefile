@@ -1,5 +1,8 @@
 # Created by: Gabriel Ambuehl <gabriel_ambuehl@buz.ch>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	easysoap
 PORTVERSION=	0.8.0

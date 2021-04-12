@@ -1,5 +1,8 @@
 # Created by: sten@blinkenlights.nl
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ffs2recov
 PORTVERSION=	1.0

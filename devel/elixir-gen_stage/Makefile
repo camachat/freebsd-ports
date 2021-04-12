@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gen_stage
 PORTVERSION=	0.14.0
 DISTVERSIONPREFIX=	v

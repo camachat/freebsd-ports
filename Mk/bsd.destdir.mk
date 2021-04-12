@@ -5,8 +5,11 @@
 #
 # Created by: Gabor Kovesdan <gabor@FreeBSD.org>
 #
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # Please make sure all changes to this file are passed through the maintainer.
 
 DESTDIR_Include_MAINTAINER=		portmgr@FreeBSD.org

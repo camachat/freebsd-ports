@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	p4python
 PORTVERSION=	2016.1.1447008
 PORTREVISION=	1

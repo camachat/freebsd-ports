@@ -1,5 +1,8 @@
 # Created by: Travis Poppe <tlp@liquidx.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	irssistats
 PORTVERSION=	0.75

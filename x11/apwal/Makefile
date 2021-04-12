@@ -1,5 +1,8 @@
 # Created by: Volker Stolz <stolz@i2.informatik.rwth-aachen.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	apwal
 PORTVERSION=	0.4.5

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	DateTime-TimeZone-LMT
 PORTVERSION=	1.01
 CATEGORIES=	devel perl5

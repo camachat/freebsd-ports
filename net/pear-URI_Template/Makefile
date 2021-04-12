@@ -1,5 +1,8 @@
 # Created by: wenheping <wenheping@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	URI_Template
 PORTVERSION=	0.3.3

@@ -1,5 +1,8 @@
 # Created by: Jonathan Hanna
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	edict
 PORTVERSION=	19990714

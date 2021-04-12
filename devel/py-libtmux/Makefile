@@ -1,5 +1,8 @@
 # Created by: Tony Narlock <tony@git-pull.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libtmux
 PORTVERSION=	0.8.5

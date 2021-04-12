@@ -1,5 +1,8 @@
 # Created by: Jev Björsell <ports@ecadlabs.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	redis_exporter
 PORTVERSION=	1.10.0

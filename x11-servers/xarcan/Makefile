@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xarcan
 DISTVERSION=	0.6.0
 CATEGORIES=	x11-servers

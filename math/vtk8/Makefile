@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	vtk
 DISTVERSION=	8.2.0
 CATEGORIES=	math graphics

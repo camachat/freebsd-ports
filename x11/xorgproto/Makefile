@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xorgproto
 PORTVERSION=	2020.1
 CATEGORIES=	x11

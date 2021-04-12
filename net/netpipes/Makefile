@@ -1,5 +1,8 @@
 # Created by: doconnor@gsoft.com.au
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	netpipes
 PORTVERSION=	4.2

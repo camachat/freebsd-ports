@@ -1,5 +1,8 @@
 # Created by: Toni Andjelkovic <toni@soth.at>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pcsc-lite
 PORTVERSION=	1.9.0

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	deluge
 DISTVERSION=	2.0.3
 PORTREVISION=	2

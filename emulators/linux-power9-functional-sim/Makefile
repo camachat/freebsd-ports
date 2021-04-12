@@ -1,5 +1,8 @@
 # Created by: Kevin Bowling <kbowling@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	power9-functional-sim
 PORTVERSION=	1.1

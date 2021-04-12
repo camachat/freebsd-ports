@@ -1,5 +1,8 @@
 # Created by: chuckr@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	global
 PORTVERSION=	6.6.5

@@ -1,5 +1,8 @@
 # Created by: Michael Moll <kvedulv@kvedulv.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	logify
 PORTVERSION=	0.2.0

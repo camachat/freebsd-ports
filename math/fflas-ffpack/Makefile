@@ -1,5 +1,8 @@
 # Created by: b.f. <bf@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fflas-ffpack
 PORTVERSION=	2.4.3

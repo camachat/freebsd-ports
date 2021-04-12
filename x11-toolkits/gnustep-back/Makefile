@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gnustep-back
 DISTVERSIONPREFIX=	back-
 DISTVERSION=	0_28_0

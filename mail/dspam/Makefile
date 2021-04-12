@@ -1,5 +1,8 @@
 # Created by: Dominic Marks <dom@wirespeed.org.uk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 # Note to committers: If don't commit a maintainer patch and as a result PKGNAME
 # or user variables (WITH*) changes please add an entry in ${FILESDIR}/UPDATING

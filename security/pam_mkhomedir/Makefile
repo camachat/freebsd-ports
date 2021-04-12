@@ -1,5 +1,8 @@
 # Created by: Martin Mersberger
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pam_mkhomedir
 PORTVERSION=	0.2

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Class-DBI-BaseDSN
 PORTVERSION=	1.22
 PORTREVISION=	2

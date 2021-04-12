@@ -1,5 +1,8 @@
 # Created by: Alex Allan <alex@kamaz.org.uk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	taglookup
 PORTVERSION=	0.2

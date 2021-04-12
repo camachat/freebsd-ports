@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	aird
 PORTVERSION=	1.0
 CATEGORIES=	sysutils

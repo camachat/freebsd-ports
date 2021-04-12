@@ -1,5 +1,8 @@
 # Created by: KIMURA Yasuhiro <yasu@utahime.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	c-sig
 PORTVERSION=	3.8.0.1

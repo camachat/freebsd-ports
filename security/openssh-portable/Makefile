@@ -1,5 +1,8 @@
 # Created by: dwcjr@inethouston.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	openssh
 DISTVERSION=	8.4p1

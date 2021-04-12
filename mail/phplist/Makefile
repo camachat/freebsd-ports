@@ -1,8 +1,14 @@
 # Created by: Nick Hilliard <nick@foobar.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	phplist
 PORTVERSION=	3.6.1
+=======
+
+PORTNAME=	phplist
+PORTVERSION=	3.6.2
+>>>>>>> upstream/main
 CATEGORIES=	mail www
 MASTER_SITES=	SF
 PKGNAMESUFFIX=	${PHP_PKGNAMESUFFIX}

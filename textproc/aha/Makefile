@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	aha
 DISTVERSION=	0.5.1
 CATEGORIES=	textproc devel

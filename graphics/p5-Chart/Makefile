@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Chart
 PORTVERSION=	2.4.10
 CATEGORIES=	graphics perl5

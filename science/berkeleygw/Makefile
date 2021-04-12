@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	BerkeleyGW
 DISTVERSION=	2.0.0
 PORTREVISION=	5

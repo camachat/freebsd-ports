@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tzdata
 PORTVERSION=	0.5.19
 DISTVERSIONPREFIX=	v

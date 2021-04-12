@@ -1,5 +1,8 @@
 # Created by: Matthew Seaman <matthew@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Plack-Middleware-Test-StashWarnings
 PORTVERSION=	0.08

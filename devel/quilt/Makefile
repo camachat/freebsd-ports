@@ -1,5 +1,8 @@
 # Created by: Dirk Jagdmann <doj@cubic.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	quilt
 PORTVERSION=	0.66

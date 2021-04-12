@@ -1,5 +1,8 @@
 # Created by: Christer Edwards <christer.edwards@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	salt
 PORTVERSION=	3002.6

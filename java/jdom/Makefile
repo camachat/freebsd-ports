@@ -1,5 +1,8 @@
 # Created by: Ernst de Haan <znerd@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jdom
 PORTVERSION=	1.1.1

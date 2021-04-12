@@ -1,5 +1,8 @@
 # Created by: Andrew L. Neporada <andrew@chg.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gsl
 PORTVERSION=	2.6

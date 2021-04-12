@@ -1,5 +1,8 @@
 # Created by: Andreas Klemm <andreas@klemm.gtn.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	crossfire-client
 PORTVERSION=	1.75.0

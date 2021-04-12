@@ -1,5 +1,8 @@
 # Created by: Jeremy Karlson
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	adamem
 PORTVERSION=	1.0

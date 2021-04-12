@@ -1,5 +1,8 @@
 # Created by: Renaud Chaput <renchap@cocoa-x.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	chef
 PORTVERSION=	15.15.0

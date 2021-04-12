@@ -1,5 +1,8 @@
 # Created by: Sebastian Yepes F. <esn@x123.info>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	apachetop
 PORTVERSION=	0.18.4

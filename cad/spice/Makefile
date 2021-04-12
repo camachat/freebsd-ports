@@ -1,5 +1,8 @@
 # Created by: Julian Jenkins <kaveman@magna.com.au>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	spice
 PORTVERSION=	3f5.2

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	attr_required
 PORTVERSION=	1.0.1
 CATEGORIES=	devel rubygems

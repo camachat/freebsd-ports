@@ -1,5 +1,8 @@
 # Created by: mharo@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ttcp
 PORTVERSION=	1.12

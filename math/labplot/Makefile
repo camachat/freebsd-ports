@@ -1,5 +1,8 @@
 # Created by: Kay Lehmann <kay_lehmann@web.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	labplot
 DISTVERSION=	2.8.1

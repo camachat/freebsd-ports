@@ -1,5 +1,8 @@
 # Created by: Tatsuki Makino <tatsuki_makino@hotmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	geographiclib
 DISTVERSION=	1.51

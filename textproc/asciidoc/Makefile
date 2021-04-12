@@ -1,5 +1,8 @@
 # Created by: anholt@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	asciidoc
 PORTVERSION=	9.0.5

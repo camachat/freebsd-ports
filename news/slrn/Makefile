@@ -1,5 +1,8 @@
 # Created by: Carey Jones <mcj@acquiesce.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	slrn
 PORTVERSION=	1.0.3a

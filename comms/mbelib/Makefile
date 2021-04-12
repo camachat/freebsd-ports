@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mbelib
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.3.0

@@ -1,5 +1,8 @@
 # Created by: Ayumi M <ayu@commun.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	etqw
 PORTVERSION=	1.5

@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	gui
 DISTVERSION=	${QT5_VERSION}
 PORTREVISION=	3
+=======
+PORTNAME=	gui
+DISTVERSION=	${QT5_VERSION}
+PORTREVISION=	4
+>>>>>>> upstream/main
 CATEGORIES=	x11-toolkits graphics
 PKGNAMEPREFIX=	qt5-
 

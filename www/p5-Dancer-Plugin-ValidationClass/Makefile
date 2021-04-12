@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Dancer-Plugin-ValidationClass
 PORTVERSION=	0.120490
 PORTREVISION=	1

@@ -1,5 +1,8 @@
 # Created by: Ulrich Spoerlein <uspoerlein@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	librcd
 PORTVERSION=	0.1.14

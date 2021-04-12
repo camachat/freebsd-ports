@@ -1,5 +1,8 @@
 # Created by: Michael Kohn <mike@mikekohn.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nakenchat
 DISTVERSION=	3.00b1

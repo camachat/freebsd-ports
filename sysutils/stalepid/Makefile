@@ -1,5 +1,8 @@
 # Created by: roam@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	stalepid
 PORTVERSION=	1.0.2

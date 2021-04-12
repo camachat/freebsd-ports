@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- net/base/address_tracker_linux.cc.orig	2020-11-13 06:36:45 UTC
+=======
+--- net/base/address_tracker_linux.cc.orig	2021-03-12 23:57:27 UTC
+>>>>>>> upstream/main
 +++ net/base/address_tracker_linux.cc
 @@ -5,7 +5,9 @@
  #include "net/base/address_tracker_linux.h"
@@ -18,15 +22,29 @@
    netlink_fd_.reset(socket(AF_NETLINK, SOCK_RAW, NETLINK_ROUTE));
    if (!netlink_fd_.is_valid()) {
      PLOG(ERROR) << "Could not create NETLINK socket";
+<<<<<<< HEAD
 @@ -274,6 +277,7 @@ void AddressTrackerLinux::Init() {
          base::BindRepeating(&AddressTrackerLinux::OnFileCanReadWithoutBlocking,
                              base::Unretained(this)));
    }
+=======
+@@ -274,6 +277,10 @@ void AddressTrackerLinux::Init() {
+         base::BindRepeating(&AddressTrackerLinux::OnFileCanReadWithoutBlocking,
+                             base::Unretained(this)));
+   }
++#else  // !OS_FREEBSD
++  NOTIMPLEMENTED();
++  AbortAndForceOnline();
+>>>>>>> upstream/main
 +#endif // !OS_FREEBSD
  }
  
  void AddressTrackerLinux::AbortAndForceOnline() {
+<<<<<<< HEAD
 @@ -285,6 +289,7 @@ void AddressTrackerLinux::AbortAndForceOnline() {
+=======
+@@ -285,6 +292,7 @@ void AddressTrackerLinux::AbortAndForceOnline() {
+>>>>>>> upstream/main
    connection_type_initialized_cv_.Broadcast();
  }
  
@@ -34,7 +52,11 @@
  AddressTrackerLinux::AddressMap AddressTrackerLinux::GetAddressMap() const {
    AddressTrackerAutoLock lock(*this, address_map_lock_);
    return address_map_;
+<<<<<<< HEAD
 @@ -303,6 +308,7 @@ bool AddressTrackerLinux::IsInterfaceIgnored(int inter
+=======
+@@ -303,6 +311,7 @@ bool AddressTrackerLinux::IsInterfaceIgnored(int inter
+>>>>>>> upstream/main
    const char* interface_name = get_interface_name_(interface_index, buf);
    return ignored_interfaces_.find(interface_name) != ignored_interfaces_.end();
  }
@@ -42,7 +64,11 @@
  
  NetworkChangeNotifier::ConnectionType
  AddressTrackerLinux::GetCurrentConnectionType() {
+<<<<<<< HEAD
 @@ -361,6 +367,7 @@ void AddressTrackerLinux::HandleMessage(const char* bu
+=======
+@@ -361,6 +370,7 @@ void AddressTrackerLinux::HandleMessage(const char* bu
+>>>>>>> upstream/main
                                          bool* address_changed,
                                          bool* link_changed,
                                          bool* tunnel_changed) {
@@ -50,18 +76,29 @@
    DCHECK(buffer);
    // Note that NLMSG_NEXT decrements |length| to reflect the number of bytes
    // remaining in |buffer|.
+<<<<<<< HEAD
 @@ -473,6 +480,10 @@ void AddressTrackerLinux::HandleMessage(const char* bu
+=======
+@@ -473,6 +483,9 @@ void AddressTrackerLinux::HandleMessage(const char* bu
+>>>>>>> upstream/main
          break;
      }
    }
 +#else  // !OS_FREEBSD
 +  NOTIMPLEMENTED();
+<<<<<<< HEAD
 +  AbortAndForceOnline();
+=======
+>>>>>>> upstream/main
 +#endif // !OS_FREEBSD
  }
  
  void AddressTrackerLinux::OnFileCanReadWithoutBlocking() {
+<<<<<<< HEAD
 @@ -500,6 +511,7 @@ bool AddressTrackerLinux::IsTunnelInterfaceName(const 
+=======
+@@ -500,6 +513,7 @@ bool AddressTrackerLinux::IsTunnelInterfaceName(const 
+>>>>>>> upstream/main
  }
  
  void AddressTrackerLinux::UpdateCurrentConnectionType() {
@@ -69,7 +106,11 @@
    AddressTrackerLinux::AddressMap address_map = GetAddressMap();
    std::unordered_set<int> online_links = GetOnlineLinks();
  
+<<<<<<< HEAD
 @@ -525,6 +537,9 @@ void AddressTrackerLinux::UpdateCurrentConnectionType(
+=======
+@@ -525,6 +539,9 @@ void AddressTrackerLinux::UpdateCurrentConnectionType(
+>>>>>>> upstream/main
  
    AddressTrackerAutoLock lock(*this, connection_type_lock_);
    current_connection_type_ = type;

@@ -1,5 +1,8 @@
 # Created by: Craig Leres <leres@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nvi2
 PORTVERSION=	2.2.0

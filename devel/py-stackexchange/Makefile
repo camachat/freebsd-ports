@@ -1,5 +1,8 @@
 # Created by: Carlos J. Puga Medina <cpm@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	stackexchange
 PORTVERSION=	2.2.7

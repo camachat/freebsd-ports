@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tradcpp
 PORTVERSION=	0.5.3
 CATEGORIES=	devel

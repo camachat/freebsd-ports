@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 GNAT_SRCS= \
 	ali-util.adb \
 	ali-util.ads \

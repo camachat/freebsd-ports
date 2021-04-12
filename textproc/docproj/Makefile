@@ -1,5 +1,8 @@
 # Created by: Nik Clayton <nik@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	docproj
 PORTVERSION=	2.0

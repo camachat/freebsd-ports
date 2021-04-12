@@ -1,5 +1,8 @@
 # Created by: lambert@lambertfam.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	aldo
 DISTVERSION=	0.7.7

@@ -1,5 +1,8 @@
 # Created by: Winston Weinert <winstonw@lavabit.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	drawterm
 PORTVERSION=	20140106

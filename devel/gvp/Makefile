@@ -1,5 +1,8 @@
 # Created by: Luke Jee <lukejee@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gvp
 PORTVERSION=	0.3.0

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	OpenSPH
 DISTVERSIONPREFIX=	v
 DISTVERSION=	g20190519

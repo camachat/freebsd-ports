@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cminpack
 PORTVERSION=	1.3.6
 DISTVERSIONPREFIX=	v

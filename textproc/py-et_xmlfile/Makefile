@@ -1,5 +1,8 @@
 # Created by: Antoine Brodin <antoine@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	et_xmlfile
 PORTVERSION=	1.0.1

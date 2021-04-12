@@ -1,7 +1,11 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+
+>>>>>>> upstream/main
 # mta - start multiple MTA instances, e.g. for MailScanner
 
 # PROVIDE: mta mail

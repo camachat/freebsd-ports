@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	maven33
 DISTVERSION=	3.3.9
 PORTREVISION=	1

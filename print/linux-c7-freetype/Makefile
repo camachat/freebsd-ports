@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	freetype
 PORTVERSION=	2.8
 DISTVERSIONSUFFIX=	-14.el7_9.1

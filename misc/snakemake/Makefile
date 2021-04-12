@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	snakemake
 DISTVERSION=	5.32.2
 CATEGORIES=	misc python

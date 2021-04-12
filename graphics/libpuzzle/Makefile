@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libpuzzle
 PORTVERSION=	0.11
 PORTREVISION=	11

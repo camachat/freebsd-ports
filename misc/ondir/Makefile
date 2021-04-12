@@ -1,5 +1,8 @@
 # Created by: ports@c0decafe.net <ports@c0decafe.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ondir
 PORTVERSION=	0.2.4

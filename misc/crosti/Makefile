@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	crosti
 DISTVERSION=	1.14.0
 PORTREVISION=	1

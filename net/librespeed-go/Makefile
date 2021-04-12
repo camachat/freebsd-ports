@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	librespeed-go
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.1.3

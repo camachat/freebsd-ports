@@ -1,5 +1,8 @@
 # Created by: Tobias Rehbein <tobias.rehbein@web.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	stonesoup
 PORTVERSION=	0.23.2

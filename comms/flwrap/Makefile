@@ -1,5 +1,8 @@
 # Created by: Diane Bruce <db@db.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	flwrap
 PORTVERSION=	1.3.5

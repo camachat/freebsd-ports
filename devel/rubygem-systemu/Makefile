@@ -1,5 +1,8 @@
 # Created by: renchap@cocoa-x.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	systemu
 PORTVERSION=	2.6.5

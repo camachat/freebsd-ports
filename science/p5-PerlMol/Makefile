@@ -1,5 +1,8 @@
 # Created by: Steve Wills <steve@mouf.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	PerlMol
 PORTVERSION=	0.3500

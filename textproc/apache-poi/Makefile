@@ -1,5 +1,8 @@
 # Created by: Anton Yudin <toha@toha.org.ua>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	poi
 PORTVERSION=	4.1.2

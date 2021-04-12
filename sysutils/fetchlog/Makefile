@@ -1,5 +1,8 @@
 # Created by: Alexander Haderer <alexander.haderer@loescap.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fetchlog
 PORTVERSION=	1.4

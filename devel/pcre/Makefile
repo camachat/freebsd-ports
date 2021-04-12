@@ -1,5 +1,8 @@
 # Created by: dom
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pcre
 PORTVERSION=	8.44

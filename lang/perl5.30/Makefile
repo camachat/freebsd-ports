@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	perl
 DISTVERSION=	${PERL_VERSION}
 PORTREVISION=	1

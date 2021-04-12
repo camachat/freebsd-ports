@@ -1,5 +1,8 @@
 # Created by: Jeremy Shaffner <jeremy@external.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	GPS
 PORTVERSION=	0.17

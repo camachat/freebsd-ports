@@ -1,5 +1,8 @@
 # Created by: Sulev-Madis Silber <madis555@hot.ee>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Number-Bytes-Human
 PORTVERSION=	0.11

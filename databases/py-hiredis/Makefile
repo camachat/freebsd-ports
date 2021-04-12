@@ -1,5 +1,8 @@
 # Created by: Denis Generalov <gd@rambler-co.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hiredis
 PORTVERSION=	0.2.0

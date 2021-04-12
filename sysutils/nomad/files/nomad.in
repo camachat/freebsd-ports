@@ -1,7 +1,10 @@
 #!/bin/sh
 
+<<<<<<< HEAD
 # $FreeBSD: head/sysutils/nomad/files/nomad.in 386655 2015-05-18 02:05:03Z swills $
 #
+=======
+>>>>>>> upstream/main
 # PROVIDE: nomad
 # REQUIRE: LOGIN
 # KEYWORD: shutdown

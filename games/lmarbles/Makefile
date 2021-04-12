@@ -1,5 +1,8 @@
 # Created by: verm@drunkmonk.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lmarbles
 PORTVERSION=	1.0.8

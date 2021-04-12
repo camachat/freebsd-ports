@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	flask-api
 PORTVERSION=	2.0
 DISTVERSIONPREFIX=	v

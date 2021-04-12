@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 MASTERDIR=	${.CURDIR}/../atf-master
 
 PLAT=	rk3328

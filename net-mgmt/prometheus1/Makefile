@@ -1,5 +1,8 @@
 # Created by: Jev Björsell <ports@ecadlabs.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	prometheus
 PORTVERSION=	1.8.2

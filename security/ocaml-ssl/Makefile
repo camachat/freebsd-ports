@@ -1,5 +1,8 @@
 # Created by: Jaap Boender <jaapb@kerguelen.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ssl
 PORTVERSION=	0.5.3

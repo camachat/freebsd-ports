@@ -1,5 +1,8 @@
 # Created by: nobu@rd.isac.co.jp
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ngraph
 PORTVERSION=	6.3.54

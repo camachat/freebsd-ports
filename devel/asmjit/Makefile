@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	asmjit
 DISTVERSION=	g20200101
 CATEGORIES=	devel

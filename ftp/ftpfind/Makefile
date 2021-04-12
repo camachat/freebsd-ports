@@ -1,5 +1,8 @@
 # Created by: Tomokazu ISHII <t-ishii@tryplanet.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ftpfind
 PORTVERSION=	0.996

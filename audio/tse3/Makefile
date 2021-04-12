@@ -1,5 +1,8 @@
 # Created by: Mathew Kanner <mat@hak.cnd.mcgill.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tse3
 PORTVERSION=	0.3.1

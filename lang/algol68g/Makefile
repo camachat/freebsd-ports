@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	algol68g
 PORTVERSION=	2.8.4
 PORTREVISION=	8

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Attribute-Handlers-Prospective
 PORTVERSION=	0.01
 PORTREVISION=	2

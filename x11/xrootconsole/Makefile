@@ -1,5 +1,8 @@
 # Created by: incabulos@mac.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xrootconsole
 PORTVERSION=	0.6

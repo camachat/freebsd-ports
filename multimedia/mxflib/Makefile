@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mxflib
 PORTVERSION=	1.0.1
 CATEGORIES=	multimedia

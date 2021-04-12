@@ -1,5 +1,8 @@
 # Created by: Marc van Woerkom <3d@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	quake3
 DISTVERSION=	1.11-6

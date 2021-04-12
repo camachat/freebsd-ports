@@ -1,5 +1,8 @@
 # Created by: Takayuki Nakao <t@nakao.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	icanna
 PORTVERSION=	0.9.0

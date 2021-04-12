@@ -17,8 +17,11 @@
 /*                                                                    */
 /*--------------------------------------------------------------------*/
 
+<<<<<<< HEAD
 /* $FreeBSD$ */
 
+=======
+>>>>>>> upstream/main
 /*
  *   Copyright (C) 1993--1995 by Georg Sander, Iris Lemke, and
  *                               the Compare Consortium

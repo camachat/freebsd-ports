@@ -1,5 +1,8 @@
 # Created by: johnh@isi.edu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dontspace
 PORTVERSION=	1.2

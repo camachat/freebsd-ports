@@ -1,5 +1,8 @@
 # Created by: brix@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	WebService-Prowl
 PORTVERSION=	0.08

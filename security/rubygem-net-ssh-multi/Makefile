@@ -1,5 +1,8 @@
 # Created by: Renaud Chaput <renchap@cocoa-x.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	net-ssh-multi
 PORTVERSION=	1.2.1

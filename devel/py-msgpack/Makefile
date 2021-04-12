@@ -1,5 +1,8 @@
 # Created by: Andrey Zonov <andrey@zonov.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	msgpack
 PORTVERSION=	1.0.2

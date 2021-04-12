@@ -1,5 +1,8 @@
 # Created by: ache@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	MIME-Base64
 PORTVERSION=	3.16

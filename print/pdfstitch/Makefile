@@ -1,5 +1,8 @@
 # Created by: Stefan Hagen <ports@textmail.me>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pdfstitch
 DISTVERSIONPREFIX=	v

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	creduce
 DISTVERSION=	2.10.0
 CATEGORIES=	devel

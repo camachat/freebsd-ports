@@ -1,5 +1,8 @@
 # Created by: Max Khon <fjoe@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libmspack
 PORTVERSION=	0.10.1

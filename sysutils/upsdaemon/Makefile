@@ -1,5 +1,8 @@
 # Created by: Ederson de Moura <ederbs@ederbs.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	upsdaemon
 PORTVERSION=	1.0

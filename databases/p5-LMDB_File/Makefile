@@ -1,5 +1,8 @@
 # Created by: vanilla@
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	LMDB_File
 PORTVERSION=	0.12

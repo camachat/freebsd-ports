@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	flex-sdk
 PORTVERSION=	3.5.0.12683
 PORTREVISION=	1

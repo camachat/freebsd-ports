@@ -1,5 +1,8 @@
 # Created by: Olivier Cochard-Labbe <olivier@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wiimms
 DISTVERSION=	2.23a

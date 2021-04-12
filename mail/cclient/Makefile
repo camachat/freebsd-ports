@@ -1,5 +1,8 @@
 # Created by: Kelly Yancey <kbyanc@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cclient
 PORTVERSION=	2007f

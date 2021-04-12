@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ndoutils
 PORTVERSION=	2.1.3
 CATEGORIES=	net-mgmt

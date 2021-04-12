@@ -1,5 +1,8 @@
 # Created by: Andrej Zverev <az@inec.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ne
 PORTVERSION=	3.3.0

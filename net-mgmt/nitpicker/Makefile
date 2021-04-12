@@ -1,5 +1,8 @@
 # Created by: Michael Reifenberger <mr@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nitpicker
 PORTVERSION=	1.2.1

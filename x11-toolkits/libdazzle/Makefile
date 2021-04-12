@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	libdazzle
 DISTVERSION=	3.38.0
+=======
+PORTNAME=	libdazzle
+DISTVERSION=	3.40.0
+>>>>>>> upstream/main
 CATEGORIES=	x11-toolkits
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome

@@ -1,5 +1,8 @@
 # Created by: barnhart@genetics.wustl.edu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hmmer
 PORTVERSION=	3.3

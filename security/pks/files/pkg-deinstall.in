@@ -1,6 +1,9 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD: /tmp/pcvs/ports/security/pks/files/pkg-deinstall.in,v 1.1 2005-10-08 07:44:07 lawrance Exp $
+=======
+>>>>>>> upstream/main
 
 PKGNAME=$1
 STAGE=$2

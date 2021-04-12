@@ -1,5 +1,8 @@
 # Created by: Anton Tornqvist <antont@inbox.lv>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bspwm
 DISTVERSION=	0.9.10

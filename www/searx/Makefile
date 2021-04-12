@@ -1,5 +1,8 @@
 # Created by: Loic Blot <loic.blot@unix-experience.fr>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	searx
 DISTVERSIONPREFIX=	v

@@ -1,5 +1,8 @@
 #! /bin/sh
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 # Maintainer: portmgr@FreeBSD.org
 #
 # This script will find all ELF files in STAGEDIR and then strip and move

@@ -1,5 +1,8 @@
 # Created by: Oleg Alexeenkov <proler@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	watchmen
 PORTVERSION=	0.09

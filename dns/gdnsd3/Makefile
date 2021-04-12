@@ -1,5 +1,8 @@
 # Created by: Allan Jude <allanjude@freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gdnsd
 PORTVERSION=	3.5.1

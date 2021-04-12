@@ -1,5 +1,8 @@
 # Created by: David Shane Holden <dpejesh@yahoo.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		libqb
 PORTVERSION=		2.0.0

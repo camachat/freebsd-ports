@@ -1,5 +1,8 @@
 # Created by: Dan Langille
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gixy
 PORTVERSION=	0.1.20

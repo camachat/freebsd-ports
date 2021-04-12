@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	c-nocem
 PORTVERSION=	3.7
 PORTREVISION=	4

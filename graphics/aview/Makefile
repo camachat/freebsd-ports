@@ -1,5 +1,8 @@
 # Created by: frankch@waru.life.nthu.edu.tw
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	aview
 DISTVERSION=	1.3.0rc1

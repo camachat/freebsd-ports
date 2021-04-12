@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xdm
 PORTVERSION=	1.1.12
 PORTREVISION=	3

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kdepim
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
 CATEGORIES=	deskutils kde

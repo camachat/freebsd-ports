@@ -1,5 +1,8 @@
 # Created by: Andrew Romero <melanhit@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xorg-sgml-doctools
 PORTVERSION=	1.11

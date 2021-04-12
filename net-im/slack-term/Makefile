@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	slack-term
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.5.0

@@ -1,5 +1,8 @@
 # Created by: Markus Brueffer <markus@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fraqtive
 PORTVERSION=	0.4.8

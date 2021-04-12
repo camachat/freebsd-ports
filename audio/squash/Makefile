@@ -1,5 +1,8 @@
 # Created by: Matthias Andree <matthias.andree@gmx.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	squash
 PORTVERSION=	1.0

@@ -1,5 +1,8 @@
 # Created by: Xavier Beaudouin <kiwi@oav.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mod_evasive
 PORTVERSION=	1.10.1

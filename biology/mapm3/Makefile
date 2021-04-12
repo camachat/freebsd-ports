@@ -1,5 +1,8 @@
 # Created by: Tassilo Philipp <tphilipp@potion-studios.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mapm3
 PORTVERSION=	3.0

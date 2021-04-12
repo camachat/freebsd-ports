@@ -1,5 +1,8 @@
 # Created by: Franz Klammer <klammer@webonaut.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HTML_Template_Sigma
 PORTVERSION=	1.3.0

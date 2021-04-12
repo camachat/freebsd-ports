@@ -1,5 +1,8 @@
 # Created by: John Marino <marino@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gcc6-aux
 PORTVERSION=	${SNAPSHOT}
@@ -10,7 +13,11 @@ MASTER_SITES=	http://downloads.dragonlace.net/src/:boot \
 		LOCAL/marino:boot LOCAL/ericbsd:boot GCC/${MS_SUBDIR}
 DISTFILES=	${IDENTIFICATION}.tar.xz
 
+<<<<<<< HEAD
 MAINTAINER=	ericbsd@FreeBSD.org
+=======
+MAINTAINER=	ports@FreeBSD.org
+>>>>>>> upstream/main
 COMMENT=	Version of GCC ${GCC_BRANCH} with full Ada support
 
 LICENSE=	GPLv3 GPLv3RLE

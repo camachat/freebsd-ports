@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	beid
 PORTVERSION=	5.0.8
 DISTVERSIONPREFIX=	v

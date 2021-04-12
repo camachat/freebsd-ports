@@ -1,5 +1,8 @@
 # Created by: gebhart@secnetix.de
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Kafka
 PORTVERSION=	0.8010

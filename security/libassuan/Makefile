@@ -1,5 +1,8 @@
 # Created by: Michael Nottebrock <lofi@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libassuan
 PORTVERSION=	2.5.4

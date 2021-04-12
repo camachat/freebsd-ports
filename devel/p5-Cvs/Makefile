@@ -1,5 +1,8 @@
 # Created by: Philip Drapeau <pdrapeau@advanis.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Cvs
 PORTVERSION=	0.07

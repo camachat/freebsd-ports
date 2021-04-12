@@ -1,5 +1,8 @@
 # Created by: martin.dieringer@gmx.de
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	python-ly
 PORTVERSION=	0.9.6

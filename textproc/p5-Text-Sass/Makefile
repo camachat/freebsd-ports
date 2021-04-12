@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Text-Sass
 PORTVERSION=	0.97
 PORTREVISION=	2

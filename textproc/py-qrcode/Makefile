@@ -1,5 +1,8 @@
 # Created by: Neil Booth
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	qrcode
 PORTVERSION=	6.1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libtommath
 DISTVERSION=	1.2.0
 PORTREVISION=	0

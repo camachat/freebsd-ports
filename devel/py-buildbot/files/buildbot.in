@@ -1,6 +1,9 @@
 #!/bin/sh
 
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 # PROVIDE: buildbot
 # REQUIRE: DAEMON
 # KEYWORD: shutdown

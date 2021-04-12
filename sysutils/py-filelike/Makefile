@@ -1,5 +1,8 @@
 # Created by: Dikshie
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	filelike
 PORTVERSION=	0.4.1

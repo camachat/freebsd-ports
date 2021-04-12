@@ -1,5 +1,8 @@
 # Created by: TOGAWA Satoshi <toga@puyo.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cannadic
 PORTVERSION=	0.95c

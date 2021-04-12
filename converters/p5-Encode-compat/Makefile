@@ -1,5 +1,8 @@
 # Created by: Erwin Lansing <erwin@lansing.dk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Encode-compat
 PORTVERSION=	0.07

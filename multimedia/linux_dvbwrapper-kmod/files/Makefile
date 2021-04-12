@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 .if ${MACHINE_ARCH} == "amd64"
 SFX= 32
 CFLAGS+=-DCOMPAT_FREEBSD32 -DCOMPAT_LINUX32

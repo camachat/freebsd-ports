@@ -1,5 +1,8 @@
 # Created by: Pawel Pekala <pawel@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	smtube
 DISTVERSION=	20.6.0

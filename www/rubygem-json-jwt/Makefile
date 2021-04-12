@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	json-jwt
 PORTVERSION=	1.13.0
 PORTREVISION=	1

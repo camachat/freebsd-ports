@@ -1,5 +1,8 @@
 # Created by: Juergen Lock <nox@jelal.kn-bremen.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	projectx
 PORTVERSION=	0.91.0

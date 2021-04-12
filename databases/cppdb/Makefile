@@ -1,5 +1,8 @@
 # Created by: Mohammad S. Babaei <info@babaei.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cppdb
 PORTVERSION=	0.3.1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	quadprog
 DISTVERSION=	0.1.8
 CATEGORIES=	math python

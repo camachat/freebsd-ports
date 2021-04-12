@@ -1,5 +1,8 @@
 # Created by: Jimmy Olgeni <olgeni@uli.it>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	eGroupware
 PORTVERSION=	20.1.20201217

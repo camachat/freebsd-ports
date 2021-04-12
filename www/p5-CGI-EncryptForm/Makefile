@@ -1,5 +1,8 @@
 # Created by: Steve Wills <steve@mouf.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	CGI-EncryptForm
 PORTVERSION=	1.02

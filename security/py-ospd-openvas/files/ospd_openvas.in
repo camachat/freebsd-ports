@@ -1,7 +1,11 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+
+>>>>>>> upstream/main
 # PROVIDE: ospd_openvas
 # REQUIRE: NETWORKING
 # KEYWORD: shutdown

@@ -1,5 +1,8 @@
 # Created by: Viacheslav Mikerov <SlavaMikerov@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	json
 DISTVERSIONPREFIX=	v

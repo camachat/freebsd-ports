@@ -1,5 +1,8 @@
 # Created by: Jeff Putsch <jdputsch@comcast.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	POE-Filter-XML
 PORTVERSION=	1.140700

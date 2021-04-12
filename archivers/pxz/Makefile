@@ -1,5 +1,8 @@
 # Created by: mm
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pxz
 PORTVERSION=	0.20141018

@@ -1,5 +1,8 @@
 # Created by: Arne Lundberg <arlu@telia.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	qadsl
 PORTVERSION=	1.3.3

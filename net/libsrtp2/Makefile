@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libsrtp
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.3.0

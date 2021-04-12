@@ -1,5 +1,8 @@
 # Created by: Nick Sayer <nsayer@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	poptop
 PORTVERSION=	1.4.0

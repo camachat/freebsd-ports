@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dvdread
 DISTVERSION=	g20160701
 PORTREVISION=	1

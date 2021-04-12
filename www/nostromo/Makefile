@@ -1,5 +1,8 @@
 # Created by: Adrian Steinmann <ast@marabu.ch>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nostromo
 PORTVERSION=	1.9.6

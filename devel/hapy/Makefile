@@ -1,5 +1,8 @@
 # Created by: rousskov
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hapy
 PORTVERSION=	0.0.8

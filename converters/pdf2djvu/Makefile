@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pdf2djvu
 DISTVERSION=	0.9.17.1
 PORTREVISION=	8

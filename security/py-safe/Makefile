@@ -1,5 +1,8 @@
 # Created by: andrej@ebert.su
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	safe
 PORTVERSION=	0.4

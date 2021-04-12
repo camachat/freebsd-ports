@@ -1,5 +1,8 @@
 # Created by: obrien@cs.ucdavis.edu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	minicom
 PORTVERSION=	2.7.1

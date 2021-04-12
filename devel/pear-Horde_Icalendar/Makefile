@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Horde_Icalendar
 PORTVERSION=	2.1.8
 CATEGORIES=	devel www pear

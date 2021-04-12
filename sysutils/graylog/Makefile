@@ -1,5 +1,8 @@
 # Created by: Thomas Bartelmess <thomas@bartelmess.io>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	graylog
 DISTVERSION=	4.0.5

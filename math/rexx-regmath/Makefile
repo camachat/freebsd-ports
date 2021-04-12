@@ -1,5 +1,8 @@
 # Created by: Bob Eager <bob@eager.cx>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	regmath
 PORTVERSION=	1.00

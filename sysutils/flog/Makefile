@@ -1,5 +1,8 @@
 # Created by: Anders Nordby <anders@fix.no>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	flog
 PORTVERSION=	1.8

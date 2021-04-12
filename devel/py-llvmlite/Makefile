@@ -1,5 +1,8 @@
 # Created by: David Kalliecharan <dave@dal.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	llvmlite
 DISTVERSION=	0.34.0

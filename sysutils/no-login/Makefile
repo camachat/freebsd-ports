@@ -1,5 +1,8 @@
 # Created by: Donald Burr <dburr@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nologin
 PORTVERSION=	1.0

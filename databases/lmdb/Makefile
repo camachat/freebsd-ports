@@ -1,5 +1,8 @@
 # Created by: Xin Li <delphij@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lmdb
 PORTVERSION=	0.9.28

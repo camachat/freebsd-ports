@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	CTK
 DISTVERSION=	2018-10-29
 PORTREVISION=	2

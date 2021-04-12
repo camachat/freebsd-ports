@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	igv
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.9.4

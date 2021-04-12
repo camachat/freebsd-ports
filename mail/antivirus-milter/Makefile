@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	antivirus
 PORTVERSION=	3.30
 PORTREVISION=	10

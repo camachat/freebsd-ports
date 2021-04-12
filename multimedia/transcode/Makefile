@@ -1,5 +1,8 @@
 # Created by: Hendrik Scholz <hendrik@scholz.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	transcode
 PORTVERSION=	1.1.7

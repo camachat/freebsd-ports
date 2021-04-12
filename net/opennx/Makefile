@@ -1,5 +1,8 @@
 # Created by: Timothy Beyer <beyert@cs.ucr.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	opennx
 PORTVERSION=	0.16.0.729

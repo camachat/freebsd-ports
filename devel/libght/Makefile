@@ -1,5 +1,8 @@
 # Created by: lbartoletti <lbartoletti@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libght
 PORTVERSION=	0.1.0

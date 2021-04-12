@@ -1,5 +1,8 @@
 # Created by: Yasuhiro KIMURA <yasu@utahime.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	liblockfile
 PORTVERSION=	1.17

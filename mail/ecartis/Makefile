@@ -1,5 +1,8 @@
 # Created by: Trish Lynch <trish@bsdunix.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ecartis
 DISTVERSION=	1.0.0-snap20060813

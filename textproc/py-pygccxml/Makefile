@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pygccxml
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.1.0

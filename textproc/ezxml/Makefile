@@ -1,5 +1,8 @@
 # Created by: Marcin Jessa <yazzy@yazzy.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ezxml
 PORTVERSION=	0.8.6

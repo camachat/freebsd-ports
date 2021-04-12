@@ -1,5 +1,8 @@
 # Created by: Edwin Groothuis (edwin@mavetju.org)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pkg_tree
 PORTVERSION=	1.1

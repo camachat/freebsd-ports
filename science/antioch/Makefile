@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	antioch
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.4.0-156

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	confluent-kafka
 DISTVERSION=	1.2.0
 CATEGORIES=	net python

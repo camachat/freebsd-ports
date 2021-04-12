@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	opencv
 DISTVERSION=	4.5.1
 PORTREVISION=	1
+=======
+PORTNAME=	opencv
+DISTVERSION=	4.5.1
+PORTREVISION=	2
+>>>>>>> upstream/main
 CATEGORIES=	graphics
 
 MAINTAINER=	tcberner@FreeBSD.org
@@ -15,7 +21,11 @@ BUILD_DEPENDS=	vulkan-headers>0:graphics/vulkan-headers \
 		opencl>=0:devel/opencl
 RUN_DEPENDS=	opencl>=0:devel/opencl
 LIB_DEPENDS=	\
+<<<<<<< HEAD
 		libIlmImf.so:graphics/openexr \
+=======
+		libOpenEXR.so:graphics/openexr \
+>>>>>>> upstream/main
 		libavcodec.so:multimedia/ffmpeg \
 		libfreetype.so:print/freetype2 \
 		libgflags.so:devel/gflags \

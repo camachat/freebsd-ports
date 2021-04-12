@@ -1,5 +1,8 @@
 # Created by: eric
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jed
 DISTVERSION=	0.99-19

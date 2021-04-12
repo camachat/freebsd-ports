@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tslib
 DISTVERSION=	1.22
 CATEGORIES=	graphics

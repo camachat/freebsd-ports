@@ -1,5 +1,8 @@
 # Created by: lon_kamikaze@gmx.de
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	veditor
 PORTVERSION=	1.2.2

@@ -1,5 +1,8 @@
 # Created by: Bill Brinzer <bill.brinzer@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	String-RewritePrefix
 PORTVERSION=	0.007

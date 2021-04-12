@@ -1,5 +1,8 @@
 # Created by: UMENO Takashi
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gcompmgr
 PORTVERSION=	0.21

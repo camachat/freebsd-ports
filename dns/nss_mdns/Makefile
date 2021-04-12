@@ -1,5 +1,8 @@
 # Created by: Bruce M. Simpson <bms@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nss_mdns
 PORTVERSION=	0.14.1.20200624

@@ -1,5 +1,8 @@
 # Created by: Alexander Timoshenko <gonzo@univ.kiev.ua>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tkabber
 PORTVERSION=	1.1.2

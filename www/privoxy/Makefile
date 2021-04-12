@@ -1,5 +1,8 @@
 # Created by: John von Essen
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	privoxy
 PORTVERSION=	3.0.32

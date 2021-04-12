@@ -1,5 +1,8 @@
 # Created by: Hiroyuki Hanai <hanai@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tokyotyrant
 PORTVERSION=	1.16

@@ -1,8 +1,12 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 
 #
+=======
+
+>>>>>>> upstream/main
 # PROVIDE: mrtg_daemon
 # REQUIRE: DAEMON bsnmpd snmpd
 # KEYWORD: shutdown

@@ -1,5 +1,8 @@
 # Created by: Stephen Montgomery-Smith <stephen@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	octave-forge-divand
 PORTVERSION=	1.1.2

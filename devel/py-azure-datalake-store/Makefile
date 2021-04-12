@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	azure-datalake-store
 PORTVERSION=	0.0.49
 CATEGORIES=	devel python

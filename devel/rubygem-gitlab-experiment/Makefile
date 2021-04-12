@@ -1,8 +1,14 @@
 # Created by: Matthias Fechner <mfechner@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	gitlab-experiment
 PORTVERSION=	0.4.12
+=======
+
+PORTNAME=	gitlab-experiment
+PORTVERSION=	0.5.1
+>>>>>>> upstream/main
 CATEGORIES=	devel rubygems
 MASTER_SITES=	RG
 
@@ -13,7 +19,11 @@ LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE.txt
 
 RUN_DEPENDS=	rubygem-activesupport60>=3.0:devel/rubygem-activesupport60 \
+<<<<<<< HEAD
 		rubygem-scientist>=1.5.0<2:devel/rubygem-scientist
+=======
+		rubygem-scientist>=1.6.0<2:devel/rubygem-scientist
+>>>>>>> upstream/main
 
 USES=		gem
 USE_RUBY=	yes

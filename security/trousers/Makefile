@@ -1,5 +1,8 @@
 # Created by: Sebastian Schuetz <sschuetz@fhm.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	trousers
 PORTVERSION=	0.3.14

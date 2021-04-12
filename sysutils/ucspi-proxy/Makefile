@@ -1,5 +1,8 @@
 # Created by: Dale Woolridge <dale.woolridge@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ucspi-proxy
 PORTVERSION=	1.1

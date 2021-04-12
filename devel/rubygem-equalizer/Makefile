@@ -1,5 +1,8 @@
 # Created by: Michael Moll <kvedulv at kvedulv.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	equalizer
 PORTVERSION=	0.0.11

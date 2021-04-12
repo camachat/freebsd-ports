@@ -1,5 +1,8 @@
 # Created by: Florian Smeets <flo@smeets.im>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	proctitle
 PORTVERSION=	0.1.2

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	stm32flash
 DISTVERSION=	0.6
 CATEGORIES=	cad

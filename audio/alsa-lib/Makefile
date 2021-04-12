@@ -1,5 +1,8 @@
 # Created by: Aragon Gouveia <aragon@phat.za.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	alsa-lib
 PORTVERSION=	1.1.2

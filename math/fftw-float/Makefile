@@ -1,5 +1,8 @@
 # Created by: Michael Johnson <ahze@ahze.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 COMMENT=	Fast C routines (Single Percision)
 

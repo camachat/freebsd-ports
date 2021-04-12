@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	lab
 PORTVERSION=	0.20.0
 DISTVERSIONPREFIX=	v

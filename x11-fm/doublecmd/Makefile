@@ -1,5 +1,8 @@
 # Created by: Beñat Gonzalez Etxepare <bbtruk@users.sourceforge.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	doublecmd
 PORTVERSION=	0.9.10

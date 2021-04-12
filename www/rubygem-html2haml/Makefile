@@ -1,5 +1,8 @@
 # Created by: Horia Racoviceanu <horia@racoviceanu.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	html2haml
 PORTVERSION=	2.2.0

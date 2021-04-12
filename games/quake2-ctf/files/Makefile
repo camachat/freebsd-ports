@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 SHLIB_NAME=	game.so
 
 SRCS!=		ls *.c

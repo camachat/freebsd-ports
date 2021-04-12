@@ -1,5 +1,8 @@
 # Created by: Anish Mistry <amistry@am-productions.biz>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	File_PDF
 PORTVERSION=	0.3.3

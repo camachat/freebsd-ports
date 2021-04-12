@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	shotcut
 DISTVERSIONPREFIX=	v
 DISTVERSION=	${FULLVERSION}

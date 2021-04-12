@@ -1,5 +1,8 @@
 # Created by: <mr@freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	inspectrum
 PORTVERSION=	g20191102

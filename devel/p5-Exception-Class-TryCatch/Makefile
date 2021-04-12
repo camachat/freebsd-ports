@@ -1,5 +1,8 @@
 # Created by: Felippe de Meirelles Motta <lippemail@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Exception-Class-TryCatch
 PORTVERSION=	1.13

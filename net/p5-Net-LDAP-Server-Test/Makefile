@@ -1,5 +1,8 @@
 # Created by: swills@
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-LDAP-Server-Test
 PORTVERSION=	0.22

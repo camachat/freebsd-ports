@@ -1,5 +1,8 @@
 # Created by: Yinghong Liu <relaxbsd@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	scim-m17n
 PORTVERSION=	0.2.3

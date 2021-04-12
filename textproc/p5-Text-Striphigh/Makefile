@@ -1,5 +1,8 @@
 # Created by: kai
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Text-Striphigh
 PORTVERSION=	0.02

@@ -1,5 +1,8 @@
 # Created by: Patrick M. Hausen (pmh@hausen.com)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		env4801
 PORTVERSION=		0.3

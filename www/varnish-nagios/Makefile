@@ -1,5 +1,8 @@
 # Created by: anders
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	varnish-nagios
 PORTVERSION=	1.1.20151214

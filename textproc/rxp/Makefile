@@ -1,5 +1,8 @@
 # Created by: jkoshy
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rxp
 PORTVERSION=	1.4.4

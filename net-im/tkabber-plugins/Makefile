@@ -1,5 +1,8 @@
 # Created by: Denis Shaposhnikov <dsh@vlink.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tkabber-plugins
 PORTVERSION=	1.1.2

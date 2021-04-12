@@ -1,5 +1,8 @@
 # Created by: Jake Smith <jake@xz.cx>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mysac
 PORTVERSION=	1.1.2

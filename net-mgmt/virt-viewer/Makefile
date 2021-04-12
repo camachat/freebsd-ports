@@ -1,5 +1,8 @@
 # Created by: Jason Helfman <jgh@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	virt-viewer
 PORTVERSION=	9.0

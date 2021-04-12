@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	traverso
 DISTVERSION=	0.49.6
 PORTREVISION=	2

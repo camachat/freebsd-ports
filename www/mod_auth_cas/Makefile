@@ -1,5 +1,8 @@
 # Created by: Kimo <kimor79@yahoo.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mod_auth_cas
 PORTVERSION=	1.2

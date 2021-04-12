@@ -1,5 +1,8 @@
 # Created by: Alexander Churanov <churanov.port.maintainer@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	boost-docs
 COMMENT=	Documentation for libraries from boost.org

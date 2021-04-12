@@ -1,5 +1,8 @@
 # Created by: Shigeyuki Fukushima <shige@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	eblook
 PORTVERSION=	1.6.1

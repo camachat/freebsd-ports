@@ -1,5 +1,8 @@
 # Created by: Satoshi TAOKA
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xcoloredit
 PORTVERSION=	1.2

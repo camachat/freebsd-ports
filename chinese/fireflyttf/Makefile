@@ -1,5 +1,8 @@
 # Created by: Shen Chuan-Hsing <statue@freebsd.sinica.edu.tw>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fireflyttf
 PORTVERSION=	1.3.0

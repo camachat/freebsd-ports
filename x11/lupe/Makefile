@@ -1,5 +1,8 @@
 # Created by: FURUSAWA,Kazuhisa <kazu@jp.freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lupe
 PORTVERSION=	0.08c

@@ -1,5 +1,8 @@
 # Created by: Zane C. Bowers <vvelox@vvelox.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-Server-Mail-ESMTP-AUTH
 PORTVERSION=	0.2

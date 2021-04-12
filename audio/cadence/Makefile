@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cadence
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.9.1

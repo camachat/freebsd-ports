@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	barvinok
 DISTVERSION=	0.41.4
 PORTREVISION=	1

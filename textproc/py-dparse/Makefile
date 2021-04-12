@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dparse
 DISTVERSION=	0.5.1
 CATEGORIES=	textproc python

@@ -1,5 +1,8 @@
 # Created by: Johannes Jost Meixner <johannes@perceivon.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pyganim
 PORTVERSION=	0.9.2

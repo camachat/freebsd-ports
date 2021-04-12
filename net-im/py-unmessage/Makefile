@@ -1,5 +1,8 @@
 # Created by: Yuri Victorovich
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	unmessage
 DISTVERSION=	0.2.0

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	comic-neue
 DISTVERSION=	2.51
 CATEGORIES=	x11-fonts

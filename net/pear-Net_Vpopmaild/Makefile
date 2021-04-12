@@ -1,5 +1,8 @@
 # Created by: Wen heping <wenheping@gmail.com>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net_Vpopmaild
 PORTVERSION=	0.3.2

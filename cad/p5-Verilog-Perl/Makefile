@@ -1,5 +1,8 @@
 # Created by: Otacilio de Araujo Ramos Neto <otacilio.neto@bsd.com.br>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Verilog-Perl
 PORTVERSION=	3.418

@@ -1,5 +1,8 @@
 # Created by: Brendan Molloy <brendan+freebsd@bbqsrc.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pymacaroons
 PORTVERSION=	0.13.0

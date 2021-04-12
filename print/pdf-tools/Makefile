@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pdf-tools
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.90-41

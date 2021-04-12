@@ -1,8 +1,14 @@
 # Created by: Matthias Fechner <mfechner@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	gitlab-fog-azure-rm
 PORTVERSION=	1.0.0
+=======
+
+PORTNAME=	gitlab-fog-azure-rm
+PORTVERSION=	1.0.1
+>>>>>>> upstream/main
 CATEGORIES=	net rubygems
 MASTER_SITES=	RG
 

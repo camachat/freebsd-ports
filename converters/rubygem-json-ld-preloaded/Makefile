@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	json-ld-preloaded
 PORTVERSION=	3.1.4
 CATEGORIES=	converters rubygems

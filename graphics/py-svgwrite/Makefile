@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	svgwrite
 PORTVERSION=	1.4.1
 CATEGORIES=	graphics python

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kooka
 DISTVERSION=	0.61-323
 PORTEPOCH=	1

@@ -1,5 +1,8 @@
 # Created by: nork@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	liveMedia
 DISTVERSION=	2020.11.26

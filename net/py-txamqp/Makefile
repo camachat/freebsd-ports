@@ -1,5 +1,8 @@
 # Created by: Bruce Simpson
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	txamqp
 PORTVERSION=	0.8.2

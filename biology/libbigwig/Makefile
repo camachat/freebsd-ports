@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libbigwig
 DISTVERSION=	0.4.6
 CATEGORIES=	biology

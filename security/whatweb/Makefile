@@ -1,5 +1,8 @@
 # Created by: Niels Heinen
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	whatweb
 DISTVERSION=	0.4.8-${GH_TAGNAME}

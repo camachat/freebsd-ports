@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Furl
 PORTVERSION=	3.07
 CATEGORIES=	www perl5

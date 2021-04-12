@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	geshi
 PORTVERSION=	1.0.9.0
 CATEGORIES=	devel pear www

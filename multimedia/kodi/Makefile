@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kodi
 DISTVERSION=	19.0
 DISTVERSIONSUFFIX=	-${KODI_CODENAME}

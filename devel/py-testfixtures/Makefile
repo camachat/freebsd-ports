@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	testfixtures
 PORTVERSION=	6.17.1
 CATEGORIES=	devel python

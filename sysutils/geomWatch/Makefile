@@ -1,5 +1,8 @@
 # Created by: Boris Kochergin <spawk@acm.poly.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	geomWatch
 PORTVERSION=	1.3.0

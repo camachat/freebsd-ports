@@ -1,5 +1,8 @@
 # Created by: Kirill Ponomarew <krion@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	shaaft
 PORTVERSION=	0.5.0

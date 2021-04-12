@@ -1,5 +1,8 @@
 # Created by: ljo
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	linpack
 PORTVERSION=	1.0

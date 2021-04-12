@@ -1,5 +1,8 @@
 # Created by: Diederik de Groot
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	chan_sccp
 DISTVERSIONPREFIX=	v

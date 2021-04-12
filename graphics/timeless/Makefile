@@ -1,5 +1,8 @@
 # Created by: Jeff Molofee
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	timeless
 PORTVERSION=	1.0

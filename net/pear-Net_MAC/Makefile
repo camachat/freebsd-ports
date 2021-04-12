@@ -1,5 +1,8 @@
 # Created by: Zhen REN <bg1tpt@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net_MAC
 PORTVERSION=	0.1.5

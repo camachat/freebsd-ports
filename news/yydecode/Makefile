@@ -1,5 +1,8 @@
 # Created by: Mikolaj Rydzewski <miki@ceti.pl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	yydecode
 PORTVERSION=	0.2.10

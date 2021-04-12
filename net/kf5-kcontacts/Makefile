@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kcontacts
 DISTVERSION=	${KDE_FRAMEWORKS_VERSION}
 PORTEPOCH=	1

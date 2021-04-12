@@ -1,5 +1,8 @@
 # Created by: lbartoletti <lbartoletti@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	osgearth
 PORTVERSION=	2.10.1

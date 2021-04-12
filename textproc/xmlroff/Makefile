@@ -1,5 +1,8 @@
 # Created by: James Earl
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xmlroff
 PORTVERSION=	0.6.3

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	certbot-apache
 PORTVERSION=	${ACME_VERSION}
 CATEGORIES=	security python

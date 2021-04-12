@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	phrap
 PORTVERSION=	1.090518
 CATEGORIES=	biology

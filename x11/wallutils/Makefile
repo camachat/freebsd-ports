@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	wallutils
 DISTVERSION=	5.9.0
 CATEGORIES=	x11

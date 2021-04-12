@@ -1,5 +1,8 @@
 # Created by: Winston Weinert <winstonw@lavabit.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tabbed
 PORTVERSION=	0.6

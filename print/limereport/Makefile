@@ -1,5 +1,8 @@
 # Created by: Golyashov Sergey <svvord@soft-wizard.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	limereport
 PORTVERSION=	1.5.35

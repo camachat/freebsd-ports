@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	farmhash
 DISTVERSION=	g20190513
 CATEGORIES=	security

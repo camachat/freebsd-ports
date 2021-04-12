@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mqttwarn
 DISTVERSION=	0.18.0
 CATEGORIES=	sysutils python

@@ -1,5 +1,8 @@
 # Created by: Yi-Hsuan Hsin <mhsin@mhsin.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-Google-Calendar
 PORTVERSION=	1.01

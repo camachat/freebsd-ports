@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Devel-PPPort
 PORTVERSION=	3.62
 CATEGORIES=	devel perl5

@@ -1,5 +1,8 @@
 # Created by: MANTANI Nobutaka <nobutaka@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dd_rescue
 PORTVERSION=	1.99.10

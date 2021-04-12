@@ -1,5 +1,8 @@
 # Created by: lth@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	File-Finder
 PORTVERSION=	0.53

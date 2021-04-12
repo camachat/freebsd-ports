@@ -1,5 +1,8 @@
 # Created by: Nosov Artem <chip-set@mail.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	urlgfe
 PORTVERSION=	0.7.1

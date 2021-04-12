@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	seq2gif
 PORTVERSION=	0.10.4
 DISTVERSIONPREFIX=	v

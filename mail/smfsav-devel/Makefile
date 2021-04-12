@@ -1,5 +1,8 @@
 # Created by: Anton Lysenok <bart@tapolsky.net.ua>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	smfsav
 PORTVERSION=	2.1

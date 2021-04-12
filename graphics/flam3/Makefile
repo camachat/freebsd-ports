@@ -1,5 +1,8 @@
 # Created by: John Prather
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	flam3
 DISTVERSIONPREFIX=	v

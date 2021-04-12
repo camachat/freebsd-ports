@@ -1,5 +1,8 @@
 # Created by: David Bushong <david+ports@bushong.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rbot
 PORTVERSION=	20160325

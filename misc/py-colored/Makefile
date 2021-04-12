@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	colored
 DISTVERSION=	1.4.2
 CATEGORIES=	misc python

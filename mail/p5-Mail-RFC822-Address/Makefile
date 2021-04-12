@@ -1,5 +1,8 @@
 # Created by: Simon Barner <barner@in.tum.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Mail-RFC822-Address
 PORTVERSION=	0.3

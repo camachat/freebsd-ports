@@ -1,5 +1,8 @@
 # Created by: Oyvind Albrigtsen
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fvwm-themes
 PORTVERSION=	0.7.0

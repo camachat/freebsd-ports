@@ -1,5 +1,8 @@
 # Created by: Simun Mikecin <numisemis at yahoo.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HTML_AJAX
 PORTVERSION=	0.5.8

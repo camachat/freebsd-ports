@@ -1,9 +1,15 @@
 # Created by: Jacques Vidrine <nectar@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	stella
 PORTVERSION=	6.5.1
 PORTREVISION=	1
+=======
+
+PORTNAME=	stella
+PORTVERSION=	6.5.2
+>>>>>>> upstream/main
 CATEGORIES=	emulators
 
 MAINTAINER=	acm@FreeBSD.org

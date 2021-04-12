@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	scikit-umfpack
 DISTVERSION=	0.3.2
 PORTREVISION=	3

@@ -1,5 +1,8 @@
 # Created by: Timothy Redaelli
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pax-utils
 PORTVERSION=	1.2.2

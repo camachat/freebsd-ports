@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	pcapfix
 PORTVERSION=	1.1.4
+=======
+PORTNAME=	pcapfix
+PORTVERSION=	1.1.5
+>>>>>>> upstream/main
 DISTVERSIONPREFIX=	v
 CATEGORIES=	sysutils
 

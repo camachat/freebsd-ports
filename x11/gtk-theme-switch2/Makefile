@@ -1,5 +1,8 @@
 # Created by: Oleg Pudeyev <oleg@bsdpower.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gtk-theme-switch
 DISTVERSION=	2.0.0rc2

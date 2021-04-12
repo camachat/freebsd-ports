@@ -2,9 +2,13 @@
 #
 # c2mdoc.awk -- Takes tabulated output from cproto(1) and turns it into
 #               mdoc(7) markup.
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+
+>>>>>>> upstream/main
 BEGIN { FS="\t" }
 {
 	printf ".Ft %s\n", $1 ;

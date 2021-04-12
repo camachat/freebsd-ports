@@ -1,5 +1,8 @@
 # Created by: Po-Chuan Hsieh <sunpoet@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rbs
 PORTVERSION=	1.0.6
@@ -14,8 +17,11 @@ LICENSE_COMB=	dual
 LICENSE_FILE_BSD2CLAUSE=${WRKSRC}/BSDL
 LICENSE_FILE_RUBY=	${WRKSRC}/COPYING
 
+<<<<<<< HEAD
 BROKEN_RUBY25=	yes
 
+=======
+>>>>>>> upstream/main
 USES=		gem
 USE_RUBY=	yes
 

@@ -1,5 +1,8 @@
 # Created by: Maurice Castro <maurice@serc.rmit.edu.au>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dc20pack
 PORTVERSION=	1.0

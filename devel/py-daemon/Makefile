@@ -1,5 +1,8 @@
 # Created by: jessekempf@gmail.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	daemon
 PORTVERSION=	2.0.6

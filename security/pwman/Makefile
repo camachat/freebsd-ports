@@ -1,5 +1,8 @@
 # Created by: Anders Nordby <anders@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pwman
 DISTVERSION=	0.4.5

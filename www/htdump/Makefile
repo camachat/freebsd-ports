@@ -1,5 +1,8 @@
 # Created by: Maxime Henrion (mux@FreeBSD.org)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	htdump
 PORTVERSION=	0.9y

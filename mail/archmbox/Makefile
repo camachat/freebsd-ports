@@ -1,5 +1,8 @@
 # Created by: Talal Al-Dik <tad@vif.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	archmbox
 PORTVERSION=	4.10.0

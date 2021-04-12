@@ -1,5 +1,8 @@
 # Created by: asami
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nkf
 PORTVERSION=	2.1.4

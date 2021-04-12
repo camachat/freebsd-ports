@@ -1,5 +1,8 @@
 # Created by: scheidell@secnap.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	PDF-Table
 DISTVERSION=	0.12

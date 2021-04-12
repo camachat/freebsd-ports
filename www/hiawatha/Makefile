@@ -1,5 +1,8 @@
 # Created by: Hugo Leisink
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hiawatha
 PORTVERSION=	10.12

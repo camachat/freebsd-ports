@@ -1,5 +1,8 @@
 # Created by: Jean-Sébastien Pédron <dumbbell@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	parmap
 DISTVERSION=	1.0-rc9

@@ -1,5 +1,8 @@
 # Created by: paulo@isr.uc.pt
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	povray
 PORTVERSION=	3.6.1

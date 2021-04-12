@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Protocol-ACME
 PORTVERSION=	0.16
 PORTREVISION=	1

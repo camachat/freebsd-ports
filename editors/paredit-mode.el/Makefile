@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	paredit-mode.el
 PORTVERSION=	24
 PORTREVISION=	7

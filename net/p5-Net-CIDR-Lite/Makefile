@@ -1,5 +1,8 @@
 # Created by: mharo@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-CIDR-Lite
 PORTVERSION=	0.21

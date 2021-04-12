@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		carbon-relay-ng
 DISTVERSION=		0.10.0
 PORTREVISION=		1

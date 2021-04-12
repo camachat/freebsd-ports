@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Data-Visitor-Tiny
 PORTVERSION=	0.001
 CATEGORIES=	devel perl5

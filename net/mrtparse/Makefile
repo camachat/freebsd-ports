@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mrtparse
 PORTVERSION=	2.0.0
 DISTVERSIONPREFIX=	v

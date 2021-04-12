@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	facter
 PORTVERSION=	3.14.16
 CATEGORIES?=	sysutils

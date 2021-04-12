@@ -1,8 +1,14 @@
 # Created by: Rainer Hurling <rhurlin@gwdg.de>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	spyder-kernels
 PORTVERSION=	1.10.2
+=======
+
+PORTNAME=	spyder-kernels
+PORTVERSION=	1.10.3
+>>>>>>> upstream/main
 CATEGORIES=	devel python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}

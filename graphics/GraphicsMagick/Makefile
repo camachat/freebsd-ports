@@ -1,5 +1,8 @@
 # Created by: Ron van Daal
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	GraphicsMagick
 PORTVERSION=	1.3.36

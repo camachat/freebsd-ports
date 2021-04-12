@@ -1,5 +1,8 @@
 # Created by: adamw
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lz4
 DISTVERSIONPREFIX=	v

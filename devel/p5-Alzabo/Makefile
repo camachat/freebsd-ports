@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Alzabo
 PORTVERSION=	0.92
 PORTREVISION=	1

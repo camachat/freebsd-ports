@@ -1,5 +1,8 @@
 # Created by: Sahil Tandon <sahil@tandon.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Log-Handler
 PORTVERSION=	0.90

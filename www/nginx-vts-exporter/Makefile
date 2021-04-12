@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=			nginx-vts-exporter
 DISTVERSIONPREFIX=	v
 DISTVERSION=		0.10.3

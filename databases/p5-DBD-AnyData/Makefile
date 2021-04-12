@@ -1,5 +1,8 @@
 # Created by: ijlioa
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	DBD-AnyData
 PORTVERSION=	0.110

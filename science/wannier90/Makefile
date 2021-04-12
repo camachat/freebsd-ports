@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	wannier90
 DISTVERSIONPREFIX=	v
 DISTVERSION=	3.1.0

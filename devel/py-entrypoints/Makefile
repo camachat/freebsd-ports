@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	entrypoints
 PORTVERSION=	0.3
 CATEGORIES=	devel python

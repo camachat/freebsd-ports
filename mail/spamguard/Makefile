@@ -1,5 +1,8 @@
 # Created by: Omer Faruk Sen <ofsen@enderunix.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	spamguard
 PORTVERSION=	1.8

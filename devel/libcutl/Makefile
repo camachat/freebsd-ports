@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libcutl
 PORTVERSION=	1.10.0
 PORTREVISION=	17

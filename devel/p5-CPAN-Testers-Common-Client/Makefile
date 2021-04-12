@@ -1,5 +1,8 @@
 # Created by: James E Keenan <jkeenan@cpan.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	CPAN-Testers-Common-Client
 PORTVERSION=	0.14

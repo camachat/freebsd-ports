@@ -1,5 +1,8 @@
 # Created by: Wes Peters <wes@softweyr.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	snobol4
 PORTVERSION=	2.2.1

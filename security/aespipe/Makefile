@@ -1,5 +1,8 @@
 # Created by: Ekkehard 'Ekki' Gehm <gehm@physik.tu-berlin.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	aespipe
 PORTVERSION=	2.4e

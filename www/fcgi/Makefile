@@ -1,5 +1,8 @@
 # Created by: kbyanc
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fcgi
 PORTVERSION=	2.4.0

@@ -1,5 +1,8 @@
 # Created by: John-Mark Gurney <jmg@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tcpcrypt
 PORTVERSION=	0.5

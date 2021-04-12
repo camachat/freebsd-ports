@@ -1,5 +1,8 @@
 # Created by: Thomas Seck <tmseck@netcologne.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	usendmail
 PORTVERSION=	0.1.6

@@ -1,5 +1,8 @@
 # Created by: Oliver Breuninger <ob@seicom.NET>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xmx
 PORTVERSION=	1.1

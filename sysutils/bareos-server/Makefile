@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bareos
 DISTVERSIONPREFIX=	Release/
 DISTVERSION=	20.0.0

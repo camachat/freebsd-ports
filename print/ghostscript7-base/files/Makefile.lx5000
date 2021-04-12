@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 # LX5000 - additional driver for Lexmark 5000/Z51/Z82
 # http://homepage.powerup.com.au/~pbwest/lexmark/lexmark.html
 

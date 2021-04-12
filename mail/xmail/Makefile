@@ -1,5 +1,8 @@
 # Created by: Stephen Roznowski <sjr1@flash.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xmail
 PORTVERSION=	1.6

@@ -1,5 +1,8 @@
 # Created by: Piero Serini <piero@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xearth
 PORTVERSION=	1.2

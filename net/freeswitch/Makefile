@@ -1,5 +1,8 @@
 # Created by: Corey Smith <corsmith@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	freeswitch
 PORTVERSION=	1.10.3

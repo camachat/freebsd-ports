@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libefp
 DISTVERSION=	1.5.0
 CATEGORIES=	science

@@ -1,5 +1,8 @@
 # Created by: Paul Traina <pst@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	kermit
 PORTVERSION=	9.0.304.24

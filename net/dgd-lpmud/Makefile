@@ -1,5 +1,8 @@
 # Created by: adam
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dgd-lpmud
 PORTVERSION=	2.4.5

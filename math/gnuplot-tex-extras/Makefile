@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gnuplot
 PORTVERSION=	5.2.8
 CATEGORIES=	math graphics

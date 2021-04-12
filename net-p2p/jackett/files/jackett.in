@@ -1,9 +1,12 @@
 #!/bin/sh
 #
 # Author: Mark Felder <feld@FreeBSD.org>
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 
 # PROVIDE: jackett
 # REQUIRE: LOGIN

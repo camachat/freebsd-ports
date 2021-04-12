@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dftbplus
 DISTVERSION=	19.1
 PORTREVISION=	1

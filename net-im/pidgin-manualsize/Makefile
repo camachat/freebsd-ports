@@ -1,5 +1,8 @@
 # Created by: Joseph S. Atkinson <jsatkinson@embarqmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	manualsize
 PORTVERSION=	0.7

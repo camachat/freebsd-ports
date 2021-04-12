@@ -1,8 +1,14 @@
 # Created by: Alexander Churanov <churanov.port.maintainer@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	boost-libs
 PORTREVISION=	3
+=======
+
+PORTNAME=	boost-libs
+PORTREVISION=	4
+>>>>>>> upstream/main
 
 COMMENT=	Free portable C++ libraries (without Boost.Python)
 

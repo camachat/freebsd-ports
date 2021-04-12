@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libqmatrixclient
 DISTVERSION=	0.5.3.2
 CATEGORIES=	net-im
@@ -7,6 +10,12 @@ CATEGORIES=	net-im
 MAINTAINER=	adridg@FreeBSD.org
 COMMENT=	Matrix IM support library using Qt technologies
 
+<<<<<<< HEAD
+=======
+DEPRECATED=	Use libQuotient (devel/libquotient) instead
+EXPIRATION_DATE=	2021-05-07
+
+>>>>>>> upstream/main
 LICENSE=	LGPL21
 LICENSE_FILE=	${WRKSRC}/COPYING
 

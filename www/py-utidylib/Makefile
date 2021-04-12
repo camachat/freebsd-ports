@@ -1,5 +1,8 @@
 # Created by: Stefan Esser <se@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	utidylib
 PORTVERSION=	0.6

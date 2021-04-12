@@ -1,5 +1,8 @@
 # Created by: Robert Gogolok <gogo@cs.uni-sb.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	haml
 PORTVERSION=	5.0.4

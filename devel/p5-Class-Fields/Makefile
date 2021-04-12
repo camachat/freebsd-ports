@@ -1,5 +1,8 @@
 # Created by: Sergei Vyshenski
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Class-Fields
 PORTVERSION=	0.204

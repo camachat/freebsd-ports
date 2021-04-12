@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	calindori
 DISTVERSION=	1.4
 CATEGORIES=	deskutils

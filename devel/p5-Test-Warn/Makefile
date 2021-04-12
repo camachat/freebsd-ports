@@ -1,5 +1,8 @@
 # Created by: Brian Minard <bminard@flatfoot.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Test-Warn
 PORTVERSION=	0.36

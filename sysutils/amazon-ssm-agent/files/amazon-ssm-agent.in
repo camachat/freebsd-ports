@@ -1,7 +1,10 @@
 #!/bin/sh
 
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # PROVIDE: amazon-ssm-agent
 # REQUIRE: LOGIN
 # KEYWORD: shutdown

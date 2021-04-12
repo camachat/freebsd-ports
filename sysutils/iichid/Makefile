@@ -1,5 +1,8 @@
 # Created by: jrhett@netconsonance.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	iichid
 DISTVERSION=	0.0.6

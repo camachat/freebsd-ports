@@ -1,5 +1,8 @@
 # Created by: Anton Berezin
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	File-CountLines
 PORTVERSION=	0.0.3

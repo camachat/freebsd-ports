@@ -1,5 +1,8 @@
 # Created by: rafan@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Test-HTML-Tidy
 PORTVERSION=	1.00

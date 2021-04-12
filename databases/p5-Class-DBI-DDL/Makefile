@@ -1,5 +1,8 @@
 # Created by: Daniel Wijnands <daniel@itxl.nl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Class-DBI-DDL
 PORTVERSION=	1.02

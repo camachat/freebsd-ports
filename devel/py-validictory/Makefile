@@ -1,5 +1,8 @@
 # Created by: Thomas Zander <riggs@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	validictory
 PORTVERSION=	1.1.2

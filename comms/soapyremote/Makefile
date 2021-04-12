@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	SoapyRemote
 DISTVERSIONPREFIX=	soapy-remote-
 DISTVERSION=	0.5.2

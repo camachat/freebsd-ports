@@ -1,5 +1,8 @@
 # Created by: Frank Laszlo <laszlof@freebsdmatrix.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	euchre
 PORTVERSION=	0.8

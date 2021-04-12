@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	belle-sip
 PORTVERSION=	1.6.3
 CATEGORIES=	net java

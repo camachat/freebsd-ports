@@ -1,5 +1,8 @@
 # Created by: Brent J. Nordquist <bjn@visi.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	btoa
 PORTVERSION=	5.2

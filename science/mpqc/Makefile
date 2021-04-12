@@ -1,5 +1,8 @@
 # Created by: batman <batman@udel.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mpqc
 PORTVERSION=	2.3.1

@@ -1,5 +1,8 @@
 # Created by: Mita Yoshio <mita@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ghostscript
 PORTVERSION=	7.07

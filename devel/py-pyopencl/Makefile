@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pyopencl
 PORTVERSION=	2018.2
 PORTREVISION=	6

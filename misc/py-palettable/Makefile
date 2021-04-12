@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	palettable
 DISTVERSION=	3.3.0
 CATEGORIES=	misc python

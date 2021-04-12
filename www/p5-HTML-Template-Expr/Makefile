@@ -1,5 +1,8 @@
 # Created by: nork@cityfujisawa.ne.jp
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HTML-Template-Expr
 PORTVERSION=	0.07

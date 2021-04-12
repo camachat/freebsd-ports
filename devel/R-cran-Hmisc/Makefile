@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Hmisc
 DISTVERSION=	3.10-1
 PORTREVISION=	12

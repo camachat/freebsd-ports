@@ -1,8 +1,14 @@
 # Created by: Wen Heping <wenheping@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	rpyc
 PORTVERSION=	4.1.5
+=======
+
+PORTNAME=	rpyc
+PORTVERSION=	5.0.1
+>>>>>>> upstream/main
 CATEGORIES=	devel python
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 

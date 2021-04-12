@@ -1,6 +1,9 @@
 #!/bin/sh
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 
 # PROVIDE: dspam
 # REQUIRE: DAEMON %%MYSQL%% %%PGSQL%% %%CLAMD%%

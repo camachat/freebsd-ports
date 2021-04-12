@@ -1,5 +1,8 @@
 # Created by: Tony Maher <tonym@biolateral.com.au>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	primer3
 PORTVERSION=	2.3.6

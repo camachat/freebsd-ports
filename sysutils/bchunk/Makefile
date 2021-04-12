@@ -1,5 +1,8 @@
 # Created by: bsdx
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bchunk
 DISTVERSION=	1.2.2

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	peda
 DISTVERSIONPREFIX=	v
 DISTVERSION=		1.2

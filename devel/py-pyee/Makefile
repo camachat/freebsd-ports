@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pyee
 PORTVERSION=	6.0.0
 CATEGORIES=	devel python

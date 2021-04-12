@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	shfmt
 DISTVERSIONPREFIX=	v
 DISTVERSION=	3.2.4

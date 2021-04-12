@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	waifu2x-w2xc
 DISTVERSION=	r8
 CATEGORIES=	graphics

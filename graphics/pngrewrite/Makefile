@@ -1,5 +1,8 @@
 # Created by: Daniel Roethlisberger <daniel@roe.ch>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pngrewrite
 PORTVERSION=	1.4.0

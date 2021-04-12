@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 CATEGORIES=	x11-fonts lang
 PKGNAMESUFFIX=	-libfontconfig
 

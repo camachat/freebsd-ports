@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libmemcached
 PORTVERSION=	1.0.18
 PORTREVISION=	7

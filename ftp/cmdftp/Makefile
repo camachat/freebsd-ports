@@ -1,5 +1,8 @@
 # Created by: Andreas Fehlner <fehlner@gmx.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cmdftp
 PORTVERSION=	0.9.8

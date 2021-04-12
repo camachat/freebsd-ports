@@ -1,5 +1,8 @@
 # Created by: Filip Parag <filip@parag.rs>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wikiman
 DISTVERSION=	2.12.2

@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	spectral
 DISTVERSION=	0.22.1
+=======
+PORTNAME=	spectral
+DISTVERSION=	0.22.2
+>>>>>>> upstream/main
 CATEGORIES=	math
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}

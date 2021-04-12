@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	netbox
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.10.8

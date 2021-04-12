@@ -1,5 +1,8 @@
 # Created by: Norberto Lopes <nlopes.ml@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	anonymous-pro
 PORTVERSION=	1.002

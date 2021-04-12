@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	RHVoice-dictionary
 DISTVERSION=	g20190109
 CATEGORIES=	audio

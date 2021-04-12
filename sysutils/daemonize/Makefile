@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	daemonize
 DISTVERSION=	1.7.8
 DISTVERSIONPREFIX=	release-

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xf86-input-synaptics
 PORTVERSION=	1.9.1
 PORTREVISION=	8

@@ -1,5 +1,8 @@
 # Created by: Tomoyuki Sakurai <cherry@trombik.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	XML-RSSLite
 PORTVERSION=	0.15

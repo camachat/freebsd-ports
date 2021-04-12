@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	StreetAddress
 PORTVERSION=	1.0.6
 CATEGORIES=	devel rubygems

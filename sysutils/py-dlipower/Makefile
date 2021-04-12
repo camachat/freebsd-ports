@@ -1,5 +1,8 @@
 # Created by: M. Warner Losh <imp@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dlipower
 PORTVERSION=	1.0.176

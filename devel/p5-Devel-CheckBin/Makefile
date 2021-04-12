@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Devel-CheckBin
 PORTVERSION=	0.04
 CATEGORIES=	devel perl5

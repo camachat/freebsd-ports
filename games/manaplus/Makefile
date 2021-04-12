@@ -1,5 +1,8 @@
 # Created by: Tobias Gion
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	manaplus
 DISTVERSION=	2.1.3.17

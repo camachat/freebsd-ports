@@ -1,5 +1,8 @@
 # Created by: Zeus Panchenko <zeus@gnu.org.ua>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Crypt-HSXKPasswd
 PORTVERSION=	3.6

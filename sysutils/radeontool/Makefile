@@ -1,5 +1,8 @@
 # Created by: takawata@jp.FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	radeontool
 PORTVERSION=	1.5

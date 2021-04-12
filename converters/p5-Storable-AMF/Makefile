@@ -1,5 +1,8 @@
 # Created by: Vladimir Timofeev <vovkasm@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Storable-AMF
 PORTVERSION=	1.00

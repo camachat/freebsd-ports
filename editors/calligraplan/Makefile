@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	calligraplan
 DISTVERSION=	3.3.0
 CATEGORIES=	editors kde

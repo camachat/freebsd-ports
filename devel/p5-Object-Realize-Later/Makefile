@@ -1,5 +1,8 @@
 # Created by: tobez
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Object-Realize-Later
 PORTVERSION=	0.21

@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	internetarchive
 DISTVERSION=	1.9.9
+=======
+PORTNAME=	internetarchive
+DISTVERSION=	2.0.2
+>>>>>>> upstream/main
 CATEGORIES=	www python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}

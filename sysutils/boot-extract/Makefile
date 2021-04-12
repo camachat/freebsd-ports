@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	boot-extract
 PORTVERSION=	g20190614
 CATEGORIES=	sysutils

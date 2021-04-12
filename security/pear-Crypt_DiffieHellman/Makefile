@@ -1,5 +1,8 @@
 # Created by: Ditesh Shashikant Gathani <ditesh@gathani.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Crypt_DiffieHellman
 PORTVERSION=	0.2.6

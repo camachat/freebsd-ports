@@ -1,5 +1,8 @@
 # Created by: Anton Yudin (<contact@toha.org.ua>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dbvis
 PORTVERSION=	11.0.3

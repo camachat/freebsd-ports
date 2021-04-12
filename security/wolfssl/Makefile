@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	wolfssl
 PORTVERSION=	4.7.0
 CATEGORIES=	security devel

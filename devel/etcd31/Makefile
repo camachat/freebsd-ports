@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	etcd
 PORTVERSION=	3.1.20
 DISTVERSIONPREFIX=	v

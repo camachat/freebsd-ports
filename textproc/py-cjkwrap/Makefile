@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cjkwrap
 DISTVERSION=	2.2
 CATEGORIES=	textproc python

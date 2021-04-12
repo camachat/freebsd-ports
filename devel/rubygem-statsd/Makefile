@@ -1,5 +1,8 @@
 # Created by: Evan Sarmiento <bsdports@wayfair.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	statsd
 PORTVERSION=	0.5.4

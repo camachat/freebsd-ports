@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xcb-util-keysyms
 PORTVERSION=	0.4.0
 PORTREVISION=	1

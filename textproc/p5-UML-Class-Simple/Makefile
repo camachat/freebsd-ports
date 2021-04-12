@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	UML-Class-Simple
 PORTVERSION=	0.22
 CATEGORIES=	textproc perl5

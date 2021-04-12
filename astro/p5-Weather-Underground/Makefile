@@ -1,5 +1,8 @@
 # Created by: Simon Olofsson <simon@olofsson.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Weather-Underground
 PORTVERSION=	3.03

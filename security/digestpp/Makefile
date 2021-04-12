@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	digestpp
 DISTVERSION=	g20200907
 CATEGORIES=	security

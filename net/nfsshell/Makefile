@@ -1,5 +1,8 @@
 # Created by: johans@stack.nl
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nfsshell
 PORTVERSION=	20130510

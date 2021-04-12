@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	guidolib
 DISTVERSIONPREFIX=	v
 DISTVERSION=	168

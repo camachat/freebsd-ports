@@ -1,5 +1,8 @@
 # Created by: Franz Klammer <klammer@webonaut.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	png2ico
 PORTVERSION=	2002.12.08

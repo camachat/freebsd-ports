@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	flask-restx
 PORTVERSION=	0.2.0
+=======
+PORTNAME=	flask-restx
+PORTVERSION=	0.3.0
+>>>>>>> upstream/main
 CATEGORIES=	www python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}

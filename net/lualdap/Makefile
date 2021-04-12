@@ -1,5 +1,8 @@
 # Created by: Piotr Florczyk <pf@itwf.pl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lualdap
 PORTVERSION=	1.2.5

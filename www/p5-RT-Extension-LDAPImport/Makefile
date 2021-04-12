@@ -1,5 +1,8 @@
 # Created by: Matthew Seaman
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	RT-Extension-LDAPImport
 PORTVERSION=	0.36

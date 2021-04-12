@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	coppermine
 PORTVERSION=	1.6.10
 DISTVERSIONPREFIX=	v

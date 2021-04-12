@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pyvisa
 PORTVERSION=	1.11.3
 CATEGORIES=	devel python

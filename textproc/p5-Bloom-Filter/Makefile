@@ -1,5 +1,8 @@
 # Created by: Aaron Straup Cope <ascope@cpan.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Bloom-Filter
 PORTVERSION=	1.2

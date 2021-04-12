@@ -1,5 +1,8 @@
 # Created by: KANOU Hiroki <kanou@khdd.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ft2demos
 PORTVERSION=	2.10.4

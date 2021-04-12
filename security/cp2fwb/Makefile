@@ -1,5 +1,8 @@
 # Created by: Christian Brueffer <chris@unixpages.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cp2fwb
 PORTVERSION=	0.6

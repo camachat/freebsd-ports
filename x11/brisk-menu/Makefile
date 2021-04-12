@@ -1,5 +1,8 @@
 # Created by: Eric Turgeon <ericbsd@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	brisk-menu
 DISTVERSIONPREFIX=	v

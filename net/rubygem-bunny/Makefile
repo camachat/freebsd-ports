@@ -1,5 +1,8 @@
 # Created by: renchap@cocoa-x.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bunny
 PORTVERSION=	2.9.0

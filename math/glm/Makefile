@@ -1,5 +1,8 @@
 # Created by: demon@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	glm
 PORTVERSION=	0.9.9.8

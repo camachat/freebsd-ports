@@ -1,5 +1,8 @@
 # Created by: Jouke Witteveen <j.witteveen@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	respond
 PORTVERSION=	1.3

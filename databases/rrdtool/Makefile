@@ -1,5 +1,8 @@
 # Created by: Dmitry Sivachenko <dima@Chg.RU>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rrdtool
 PORTVERSION=	1.7.2

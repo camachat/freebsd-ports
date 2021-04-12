@@ -1,5 +1,8 @@
 # Created by: David Yeske <dyeske@yahoo.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ode
 PORTVERSION=	0.13

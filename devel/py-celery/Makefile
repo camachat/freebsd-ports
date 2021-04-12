@@ -1,5 +1,8 @@
 # Created by: Alexandros Kosiaris <akosiaris+ports@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	celery
 PORTVERSION=	4.4.7

@@ -1,5 +1,8 @@
 # Created by: tobez
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	File-ReadBackwards
 PORTVERSION=	1.05

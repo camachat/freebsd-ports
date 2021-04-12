@@ -1,5 +1,8 @@
 # Created by: piero
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xanim
 PORTVERSION=	2.92.0

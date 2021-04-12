@@ -1,5 +1,8 @@
 # Created by: Denis Podolskiy <bytestore@yandex.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jpeg-turbo
 PORTVERSION=	2.0.6

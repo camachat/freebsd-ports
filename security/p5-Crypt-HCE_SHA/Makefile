@@ -1,5 +1,8 @@
 # Created by: Gregory Neil Shapiro <gshapiro@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Crypt-HCE_SHA
 PORTVERSION=	0.70

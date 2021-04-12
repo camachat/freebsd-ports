@@ -1,5 +1,8 @@
 # Created by: jaharkes
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rpc2
 DISTVERSION=	2.14

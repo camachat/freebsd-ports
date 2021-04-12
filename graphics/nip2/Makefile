@@ -1,5 +1,8 @@
 # Created by: Lev Serebryakov <lev@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nip2
 PORTVERSION=	8.7.1

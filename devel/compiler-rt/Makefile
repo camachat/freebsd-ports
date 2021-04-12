@@ -1,5 +1,8 @@
 # Created by: Brooks Davis
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	compiler-rt
 DISTVERSION=	0.r${SVN_REV}

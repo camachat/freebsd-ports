@@ -1,5 +1,8 @@
 # Created by: Archie Cobbs
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mpd
 DISTVERSION=	5.9

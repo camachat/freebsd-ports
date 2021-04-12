@@ -1,8 +1,15 @@
 # Created by: Olivier Duchateau
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	gspell
 PORTVERSION=	1.9.1
+=======
+
+PORTNAME=	gspell
+PORTVERSION=	1.9.1
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	textproc
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3

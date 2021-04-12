@@ -1,5 +1,8 @@
 # Created by: Hiroyuki Iwatsuki <don@na.rim.or.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PKGNAMEPREFIX=	ruby-
 

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	zstd
 DISTVERSION=	1.4.8.1
 CATEGORIES=	archivers python

@@ -1,5 +1,8 @@
 # Created by: Geoffroy Desvernay <dgeo@centrale-marseille.fr>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	App-local-lib-helper
 PORTVERSION=	0.07

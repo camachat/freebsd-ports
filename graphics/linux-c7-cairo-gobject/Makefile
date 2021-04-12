@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cairo
 PORTVERSION=	1.15.12
 DISTVERSIONSUFFIX=	-4.el7

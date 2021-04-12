@@ -1,5 +1,8 @@
 # Created by: Jamie Heckford <jamie@blackhole.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cd2mp3
 PORTVERSION=	0.82

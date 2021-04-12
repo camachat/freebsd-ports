@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	libe-book
 PORTVERSION=	0.1.3
 PORTREVISION=	19
+=======
+PORTNAME=	libe-book
+PORTVERSION=	0.1.3
+PORTREVISION=	20
+>>>>>>> upstream/main
 CATEGORIES=	textproc
 MASTER_SITES=	SF/libebook/${PORTNAME}-${PORTVERSION}/
 

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	googleapis-common-protos-types
 PORTVERSION=	1.0.6
 CATEGORIES=	devel rubygems

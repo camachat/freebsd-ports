@@ -1,5 +1,8 @@
 # Created by: reed@pugetsoundtechnology.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libwpd
 PORTVERSION=	0.10.3

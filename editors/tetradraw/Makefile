@@ -1,5 +1,8 @@
 # Created by: Frederic Cambus
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tetradraw
 PORTVERSION=	2.0.2

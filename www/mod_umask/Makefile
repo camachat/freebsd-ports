@@ -1,5 +1,8 @@
 # Created by: Ralf Gebhart <gebhart@secnetix.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mod_umask
 PORTVERSION=	0.1.0

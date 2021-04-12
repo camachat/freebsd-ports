@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rack-test
 PORTVERSION=	1.1.0
 CATEGORIES=	www rubygems

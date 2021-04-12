@@ -1,5 +1,8 @@
 # Created by: Lars Koeller <Lars.Koeller@Uni-Bielefeld.DE>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fftw3
 DISTVERSION=	3.3.9

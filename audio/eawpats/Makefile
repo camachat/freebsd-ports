@@ -1,5 +1,8 @@
 # Created by: Jonathan Lennox <lennox@cs.columbia.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	eawpats
 PORTVERSION=	12

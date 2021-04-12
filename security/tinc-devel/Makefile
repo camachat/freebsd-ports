@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tinc
 PORTVERSION=	1.1pre17
 PORTREVISION=	6

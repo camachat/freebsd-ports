@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libglvnd
 PORTVERSION=	1.0.1
 DISTVERSIONSUFFIX=	-0.8.git5baa1e5.el7

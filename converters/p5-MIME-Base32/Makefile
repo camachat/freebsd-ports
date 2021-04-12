@@ -1,5 +1,8 @@
 # Created by: nork@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	MIME-Base32
 PORTVERSION=	1.303

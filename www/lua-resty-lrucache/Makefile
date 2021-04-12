@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	lua-resty-lrucache
 PORTVERSION=	0.10
 DISTVERSIONPREFIX=v

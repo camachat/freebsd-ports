@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	lumina-themes
 PORTVERSION=	201710311100
 PORTREVISION=	2

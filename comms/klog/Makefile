@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	klog
 PORTVERSION=	0.9.8.1
 CATEGORIES=	comms hamradio

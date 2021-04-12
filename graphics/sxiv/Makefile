@@ -1,5 +1,8 @@
 # Created by: Solène RAPENNE <solene@bsd.zplay.eu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sxiv
 DISTVERSIONPREFIX=	v

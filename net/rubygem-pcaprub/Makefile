@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pcaprub
 PORTVERSION=	0.13.0
 CATEGORIES=	net rubygems

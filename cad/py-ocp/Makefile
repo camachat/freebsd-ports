@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	ocp
 DISTVERSION=	7.4-RC2
 PORTREVISION=	1
+=======
+PORTNAME=	ocp
+DISTVERSION=	7.4-RC2
+PORTREVISION=	2
+>>>>>>> upstream/main
 CATEGORIES=	cad
 # Direct access to github is needed because the release added an extra archive which
 # we need to build from, rather than the initial release.
@@ -13,6 +19,11 @@ DISTNAME=	OCP_src_Linux
 MAINTAINER=	ports@nicandneal.net
 COMMENT=	Python wrapper for OCCT generated using pywrap
 
+<<<<<<< HEAD
+=======
+BROKEN=		Mismatch between OpenCascase (7.5) and py-ocp (7.4)
+
+>>>>>>> upstream/main
 LICENSE=	APACHE20
 
 PATCH_DEPENDS=	${LOCALBASE}/include/OpenCASCADE/OpenGl_HaltonSampler.hxx:cad/opencascade
@@ -35,11 +46,14 @@ USE_PYTHON=	flavors
 
 PLIST_FILES=	${PYTHON_SITELIBDIR}/OCP.so
 
+<<<<<<< HEAD
 pre-patch:
 # Copy and patch a header file with a troublesome C++ standard mismatch.
 	${MKDIR} ${OCCT_LOCAL}
 	${CP} ${OCCT}/OpenGl_HaltonSampler.hxx ${OCCT_LOCAL}
 
+=======
+>>>>>>> upstream/main
 do-install:
 	@${MKDIR} ${STAGEDIR}${PYTHON_SITELIBDIR}/
 	${INSTALL_LIB} ${BUILD_WRKSRC}/OCP.so ${STAGEDIR}${PYTHON_SITELIBDIR}

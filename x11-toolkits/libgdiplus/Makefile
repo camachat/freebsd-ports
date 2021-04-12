@@ -1,5 +1,8 @@
 # Created by: Tom McLaughlin <tmclaugh@sdf.lonestar.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libgdiplus
 PORTVERSION=	6.0.4

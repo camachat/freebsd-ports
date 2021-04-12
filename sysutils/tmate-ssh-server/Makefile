@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tmate-ssh-server
 PORTVERSION=	g2020071601
 PORTEPOCH=	1

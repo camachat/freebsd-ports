@@ -1,5 +1,8 @@
 # Created by: Raffaele De Lorenzo  - raffaele.delorenzo@libero.it
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ss5
 DISTVERSION=	3.8.9-8

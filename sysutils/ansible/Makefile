@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ansible
 PORTVERSION?=	2.9.7
 PORTREVISION?=	0

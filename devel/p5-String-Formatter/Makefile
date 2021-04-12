@@ -1,5 +1,8 @@
 # Created by: Geraud CONTINSOUZAS <geraud@gcu.info>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	String-Formatter
 PORTVERSION=	0.102084

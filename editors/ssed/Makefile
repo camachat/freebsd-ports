@@ -1,5 +1,8 @@
 # Created by: verm
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sed
 PORTVERSION=	3.62

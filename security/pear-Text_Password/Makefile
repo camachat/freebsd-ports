@@ -1,5 +1,8 @@
 # Created by: Attila Nagy <bra@fsn.hu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Text_Password
 PORTVERSION=	1.2.1

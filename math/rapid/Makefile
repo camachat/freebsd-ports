@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rapid
 PORTVERSION=	2.01
 CATEGORIES=	math science graphics

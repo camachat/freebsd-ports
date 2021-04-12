@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	erlang-katana
 PORTVERSION=	0.4.0
 CATEGORIES=	devel

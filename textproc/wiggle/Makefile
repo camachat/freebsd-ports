@@ -1,5 +1,8 @@
 # Created by: mandree@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wiggle
 PORTVERSION=	1.3

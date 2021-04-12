@@ -1,5 +1,8 @@
 /*
+<<<<<<< HEAD
  * $FreeBSD$
+=======
+>>>>>>> upstream/main
  * Hand-crafted...
  * The default prefix (/ usr / local) is dynamicly replaced
  * at configure time.

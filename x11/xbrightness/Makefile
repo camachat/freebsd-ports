@@ -1,5 +1,8 @@
 # Created by: Michiel Overtoom <motoom@xs4all.nl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xbrightness
 PORTVERSION=	0.3

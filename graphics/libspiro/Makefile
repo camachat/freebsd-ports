@@ -1,5 +1,8 @@
 # Created by: Naram Qashat <cyberbotx@cyberbotx.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libspiro
 DISTVERSION=	20200505

@@ -1,5 +1,8 @@
 # Created by: Philip Paeps <philip@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	DateTime-Calendar-Discordian
 PORTVERSION=	1.0

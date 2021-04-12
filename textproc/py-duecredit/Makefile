@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	duecredit
 DISTVERSION=	0.8.1
 CATEGORIES=	textproc python

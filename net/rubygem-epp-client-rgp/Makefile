@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	epp-client-rgp
 PORTVERSION=	0.15.2
 CATEGORIES=	net rubygems

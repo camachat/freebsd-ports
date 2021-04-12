@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fs2open
 DISTVERSIONPREFIX=	release_
 DISTVERSION=	21_0_0

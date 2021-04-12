@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	nzbhydra2
 DISTVERSION=	3.13.1
 DISTVERSIONSUFFIX=	-linux

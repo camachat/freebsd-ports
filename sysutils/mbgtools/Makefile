@@ -1,5 +1,8 @@
 # Created by: George Neville-Neil gnn@freebsd.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mbgtools
 DISTVERSION=	fbsd-1.0.0

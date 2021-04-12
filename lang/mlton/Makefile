@@ -1,5 +1,8 @@
 # Created by: Stephen Weeks <sweeks@sweeks.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 # Previouly maintained by Jesper Louis Andersen
 # (jesper.louis.andersen@gmail.com) and Geoffrey Mainland

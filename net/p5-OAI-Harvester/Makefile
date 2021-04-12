@@ -1,5 +1,8 @@
 # Created by: Paul Dlug <paul@aps.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	OAI-Harvester
 PORTVERSION=	1.20

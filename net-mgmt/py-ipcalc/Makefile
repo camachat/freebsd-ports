@@ -1,5 +1,8 @@
 # Created by: ehaupt@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ipcalc
 PORTVERSION=	1.99.0

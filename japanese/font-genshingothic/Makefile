@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	genshingothic
 PORTVERSION=	20150607
 PORTREVISION=	3

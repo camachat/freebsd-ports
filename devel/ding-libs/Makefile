@@ -1,5 +1,8 @@
 # Created by: Andrew Elble <aweits@rit.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ding-libs
 PORTVERSION=	0.6.1

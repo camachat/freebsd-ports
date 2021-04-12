@@ -1,5 +1,8 @@
 # Created by: John Hixson <john@ixsystems.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	django-simple-captcha
 PORTVERSION=	0.5.12

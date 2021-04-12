@@ -1,5 +1,8 @@
 # Created by: Edwin Groothuis <edwin@mavetju.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	subtitleoffsetmodificator
 PORTVERSION=	0.1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gonepass
 DISTVERSION=	g20181221
 PORTREVISION=	1

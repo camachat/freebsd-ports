@@ -1,5 +1,8 @@
 # Created by: Chris Petrik <chris@officialunix.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	diakonos
 DISTVERSIONPREFIX=	v

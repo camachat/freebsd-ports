@@ -1,5 +1,8 @@
 # Created by: dikshie <dikshie@lapi.itb.ac.id>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pathload
 PORTVERSION=	1.3.2

@@ -1,5 +1,8 @@
 # Created by: Luke Jee <lukejee@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gpm
 PORTVERSION=	1.4.0

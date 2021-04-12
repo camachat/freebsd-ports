@@ -1,5 +1,8 @@
 # Created by: Dmitry Yu Okunev dyokunev@ut.mephi.ru
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	clsync
 DISTVERSION=	0.4~rc2

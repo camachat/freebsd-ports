@@ -1,5 +1,8 @@
 # Created by: Pedro F. Giffuni
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	isaac
 PORTVERSION=	4.2

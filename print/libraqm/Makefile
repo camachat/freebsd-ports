@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libraqm
 PORTVERSION=	0.6.0
 CATEGORIES=	print

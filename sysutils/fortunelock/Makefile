@@ -1,5 +1,8 @@
 # Created by: Daniel Harris <dannyboy@subdimension.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fortunelock
 PORTVERSION=	0.1.2

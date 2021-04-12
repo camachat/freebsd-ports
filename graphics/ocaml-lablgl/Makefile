@@ -1,5 +1,8 @@
 # Created by: Ronald Kuehn <rk@ronald.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lablgl
 PORTVERSION=	1.05

@@ -1,5 +1,8 @@
 # Created by: Goran Tal <goran.tal@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dikt
 PORTVERSION=	2s4

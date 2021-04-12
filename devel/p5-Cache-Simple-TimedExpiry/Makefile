@@ -1,5 +1,8 @@
 # Created by: Palle Girgensohn <girgen@pingpong.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Cache-Simple-TimedExpiry
 PORTVERSION=	0.27

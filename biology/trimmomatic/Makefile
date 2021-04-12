@@ -1,5 +1,8 @@
 # Created by: Dan Siercks <dsiercks@uwm.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	trimmomatic
 DISTVERSION=	0.39

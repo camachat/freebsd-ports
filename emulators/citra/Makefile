@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	citra
 PORTVERSION=	s20210306
+=======
+PORTNAME=	citra
+PORTVERSION=	s20210403
+>>>>>>> upstream/main
 PORTREVISION?=	0
 CATEGORIES=	emulators
 
@@ -23,7 +28,11 @@ LIB_DEPENDS=	libboost_serialization.so:devel/boost-libs
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	citra-emu
+<<<<<<< HEAD
 GH_TAGNAME=	8e3c7674d
+=======
+GH_TAGNAME=	b3cab3c45
+>>>>>>> upstream/main
 GH_TUPLE=	citra-emu:ext-boost:36603a1:boost/externals/boost \
 		citra-emu:ext-libressl-portable:7d01cb0:libressl/externals/libressl \
 		citra-emu:ext-soundtouch:060181e:soundtouch/externals/soundtouch \

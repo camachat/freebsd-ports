@@ -25,8 +25,11 @@
 # LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
 # OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 # SUCH DAMAGE.
+<<<<<<< HEAD
 #
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 RCS_ID = %q$Idaemons: /home/cvs/sunshar/sunshar.rb,v 1.13 2004/02/28 14:15:47 knu Exp $
 RCS_REVISION = RCS_ID.split[2]

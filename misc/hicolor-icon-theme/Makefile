@@ -1,5 +1,8 @@
 # Created by: marcus@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hicolor-icon-theme
 PORTVERSION=	0.17

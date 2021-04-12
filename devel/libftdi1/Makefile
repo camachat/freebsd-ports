@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libftdi1
 PORTVERSION=	1.5
 PORTREVISION=	2

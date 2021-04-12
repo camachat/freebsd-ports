@@ -1,5 +1,8 @@
 # Created by: Vladimir Kondratyev <wulf@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	utouch-kmod
 PORTVERSION=	0.0.2

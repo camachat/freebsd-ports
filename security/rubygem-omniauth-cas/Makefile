@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	omniauth-cas
 PORTVERSION=	1.1.1
 CATEGORIES=	security rubygems

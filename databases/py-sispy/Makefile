@@ -1,5 +1,8 @@
 # Created by: Rick Miller
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sispy
 PORTVERSION=	1.1.0

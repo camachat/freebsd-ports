@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	html5_notifier
 PORTVERSION=	0.6.4
 DISTVERSIONPREFIX=	v

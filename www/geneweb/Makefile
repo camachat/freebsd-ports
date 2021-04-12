@@ -1,5 +1,8 @@
 # Created by: Hubert Tournier <hubert@frbsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	geneweb
 DISTVERSIONPREFIX=	distrib-

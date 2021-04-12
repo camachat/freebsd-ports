@@ -1,5 +1,8 @@
 # Created by: Stas Timokhin <devel@stasyan.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	openomf
 PORTVERSION=	0.6.5

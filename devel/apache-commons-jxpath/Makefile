@@ -1,5 +1,8 @@
 # Created by: Nemo Liu <nemoliu@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	commons-jxpath
 PORTVERSION=	1.3

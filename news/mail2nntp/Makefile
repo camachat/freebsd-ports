@@ -1,5 +1,8 @@
 # Created by: gary@hayers.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mail2nntp
 PORTVERSION=	1.0

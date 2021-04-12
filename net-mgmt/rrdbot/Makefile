@@ -1,5 +1,8 @@
 # Created by: Jeremy Chadwick <koitsu@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rrdbot
 PORTVERSION=	0.9.7.d20200312

@@ -1,5 +1,8 @@
 # Created by: Joris Vandalon <joris@vandalon.nl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mp3c
 PORTVERSION=	0.31

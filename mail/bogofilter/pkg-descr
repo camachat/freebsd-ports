@@ -8,4 +8,8 @@ attachments and HTML comments.
 
 The supported database backends are Berkeley DB, QDBM and SQLite3.
 
+<<<<<<< HEAD
 WWW: http://bogofilter.sourceforge.net/
+=======
+WWW: https://bogofilter.sourceforge.io/
+>>>>>>> upstream/main

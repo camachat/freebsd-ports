@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	heirloom-doctools
 PORTVERSION=	160308
 PORTREVISION=	1

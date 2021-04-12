@@ -1,8 +1,14 @@
 # Created by: Ulrich Spoerlein <q@uni.de>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	eggdrop
 PORTVERSION=	1.8.4
+=======
+
+PORTNAME=	eggdrop
+PORTVERSION=	1.9.0
+>>>>>>> upstream/main
 DISTVERSIONPREFIX=	v
 CATEGORIES=	irc
 
@@ -82,7 +88,11 @@ do-install:
 	@${MKDIR} ${STAGEDIR}${DATADIR}/scripts
 .for f in CONTENTS action.fix.tcl autobotchk alltools.tcl botchk \
 	cmd_resolve.tcl compat.tcl dccwhois.tcl getops.tcl klined.tcl notes2.tcl ques5.tcl \
+<<<<<<< HEAD
 	quotepass.tcl quotepong.tcl sentinel.tcl userinfo.tcl weed
+=======
+	quotepong.tcl sentinel.tcl userinfo.tcl weed
+>>>>>>> upstream/main
 	${INSTALL_DATA} ${WRKSRC}/scripts/${f} ${STAGEDIR}${DATADIR}/scripts
 .endfor
 	@${MKDIR} ${STAGEDIR}${DATADIR}/scripts/help

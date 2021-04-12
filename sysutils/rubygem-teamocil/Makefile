@@ -1,5 +1,8 @@
 # Created by: Dennis Herrmann <dhn@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	teamocil
 PORTVERSION=	1.4.2

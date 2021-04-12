@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	uuidtools
 PORTVERSION=	2.1.5
 CATEGORIES=	devel rubygems

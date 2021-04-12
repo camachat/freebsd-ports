@@ -1,5 +1,8 @@
 # Created by: Nick Sayer <nsayer@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Device-SerialPort
 PORTVERSION=	1.040000

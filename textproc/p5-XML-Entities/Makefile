@@ -1,5 +1,8 @@
 # Created by: Tom Judge <tom@tomjudge.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	XML-Entities
 PORTVERSION=	1.0002

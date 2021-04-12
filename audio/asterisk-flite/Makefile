@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	flite
 PORTVERSION=	3.0
 DISTVERSIONPREFIX=	v

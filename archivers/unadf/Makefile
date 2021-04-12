@@ -1,5 +1,8 @@
 # Created by: Per Wigren
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	unadf
 PORTVERSION=	0.7.12

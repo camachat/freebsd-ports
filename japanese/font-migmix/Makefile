@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	migmix
 PORTVERSION=	1.0.20130617
 PORTREVISION=	5

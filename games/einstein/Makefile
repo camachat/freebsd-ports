@@ -1,5 +1,8 @@
 # Created by: edwin@mavetju.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	einstein
 PORTVERSION=	2.0

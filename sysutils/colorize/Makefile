@@ -1,5 +1,8 @@
 # Created by: petef@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	colorize
 PORTVERSION=	0.3.4

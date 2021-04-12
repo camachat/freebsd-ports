@@ -1,5 +1,8 @@
 # Created by: Guangyuan Yang <ygy@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gitcreds
 DISTVERSION=	0.1.1

@@ -1,5 +1,8 @@
 # Created by: Simon 'corecode' Schubert <corecode@corecode.ath.cx>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mime-support
 PORTVERSION=	3.62

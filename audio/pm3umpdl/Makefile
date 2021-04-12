@@ -1,5 +1,8 @@
 # Created by: Zane C. Bowers
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pm3umpdl
 PORTVERSION=	1.0.0

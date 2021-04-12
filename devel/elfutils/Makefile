@@ -1,5 +1,8 @@
 # Created by: Conrad Meyer <cem@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	elfutils
 PORTVERSION=	0.179

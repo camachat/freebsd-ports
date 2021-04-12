@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
 
+=======
+>>>>>>> upstream/main
     COMMENT = Databases and related software
 
     SUBDIR += R-cran-DBI
@@ -41,7 +44,10 @@
     SUBDIR += cegobridge
     SUBDIR += clickhouse
     SUBDIR += cockroach
+<<<<<<< HEAD
     SUBDIR += couchdb2
+=======
+>>>>>>> upstream/main
     SUBDIR += couchdb3
     SUBDIR += courier-authlib-mysql
     SUBDIR += courier-authlib-pgsql
@@ -198,6 +204,10 @@
     SUBDIR += mongodb42
     SUBDIR += mongodb42-tools
     SUBDIR += mongodb44
+<<<<<<< HEAD
+=======
+    SUBDIR += mongodb49
+>>>>>>> upstream/main
     SUBDIR += mroonga
     SUBDIR += mtop
     SUBDIR += mydumper
@@ -555,8 +565,11 @@
     SUBDIR += pecl-rrd
     SUBDIR += percona-pam-for-mysql
     SUBDIR += percona-toolkit
+<<<<<<< HEAD
     SUBDIR += percona55-client
     SUBDIR += percona55-server
+=======
+>>>>>>> upstream/main
     SUBDIR += percona56-client
     SUBDIR += percona56-server
     SUBDIR += percona57-client
@@ -850,7 +863,10 @@
     SUBDIR += recutils
     SUBDIR += redis
     SUBDIR += redis-devel
+<<<<<<< HEAD
     SUBDIR += redis4
+=======
+>>>>>>> upstream/main
     SUBDIR += redis5
     SUBDIR += redis_exporter
     SUBDIR += redisdesktopmanager
@@ -1029,6 +1045,10 @@
     SUBDIR += virtualpg
     SUBDIR += virtuoso
     SUBDIR += vsqlite
+<<<<<<< HEAD
+=======
+    SUBDIR += webdis
+>>>>>>> upstream/main
     SUBDIR += wfb2sql
     SUBDIR += xapian-bindings
     SUBDIR += xapian-bindings12

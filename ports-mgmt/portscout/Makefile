@@ -1,5 +1,8 @@
 # Created by: Shaun Amott <shaun@inerd.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	portscout
 PORTVERSION=	0.8.1.4

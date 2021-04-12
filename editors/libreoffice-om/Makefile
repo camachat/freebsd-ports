@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 LO_I18N=	om
 LO_HAS_HELPPACK=	yes
 

@@ -1,5 +1,8 @@
 # Created by: Matt <matt@xtaz.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	clamassassin
 PORTVERSION=	1.2.4

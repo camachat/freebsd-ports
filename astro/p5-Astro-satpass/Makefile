@@ -1,8 +1,14 @@
 # Created by: Wen Heping <wenheping@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	Astro-satpass
 PORTVERSION=	0.117
+=======
+
+PORTNAME=	Astro-satpass
+PORTVERSION=	0.118
+>>>>>>> upstream/main
 CATEGORIES=	astro perl5
 MASTER_SITES=	CPAN
 PKGNAMEPREFIX=	p5-

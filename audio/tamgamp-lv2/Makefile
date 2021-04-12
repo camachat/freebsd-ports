@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tamgamp
 DISTVERSION=	g20200514
 PORTREVISION=	1

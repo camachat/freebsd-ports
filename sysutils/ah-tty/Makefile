@@ -1,5 +1,8 @@
 # Created by: Michael L. Hostbaek <mich@freebsdcluster.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ah-tty
 PORTVERSION=	0.3.12

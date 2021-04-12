@@ -1,9 +1,12 @@
 #!/bin/sh
 #
 # Author: Bernard Spil <brnrd@FreeBSD.org>
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 
 # PROVIDE: endlessh
 # REQUIRE: LOGIN

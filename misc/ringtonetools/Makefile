@@ -1,5 +1,8 @@
 # Created by: Michael A. Kohn <mike@mikekohn.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ringtonetools
 PORTVERSION=	2.26

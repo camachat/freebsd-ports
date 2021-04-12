@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	uacme
 DISTVERSIONPREFIX=	upstream/
 DISTVERSION=	1.7

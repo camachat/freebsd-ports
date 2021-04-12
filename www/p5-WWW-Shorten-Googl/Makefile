@@ -1,5 +1,8 @@
 # Created by: Jonathan Pater <cowboyneal@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	WWW-Shorten-Googl
 PORTVERSION=	1.02

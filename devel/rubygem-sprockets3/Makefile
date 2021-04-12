@@ -1,5 +1,8 @@
 # Created by: Johannes Jost Meixner <xmj@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sprockets
 PORTVERSION=	3.7.2

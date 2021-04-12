@@ -1,5 +1,8 @@
 # Created by: mb@imp.ch
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jpgtn
 PORTVERSION=	2.06

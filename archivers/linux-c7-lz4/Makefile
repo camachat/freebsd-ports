@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	lz4
 PORTVERSION=	1.8.3
 DISTVERSIONSUFFIX=	-1.el7

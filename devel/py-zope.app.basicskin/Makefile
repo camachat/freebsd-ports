@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	zope.app.basicskin
 PORTVERSION=	3.5.1
 PORTREVISION=	1

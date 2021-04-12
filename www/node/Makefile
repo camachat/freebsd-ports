@@ -1,8 +1,15 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	node
 DISTVERSIONPREFIX=	v
 DISTVERSION=	15.12.0
+=======
+PORTNAME=	node
+DISTVERSIONPREFIX=	v
+DISTVERSION=	15.14.0
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	www
 MASTER_SITES=	http://nodejs.org/dist/v${DISTVERSION}/
 

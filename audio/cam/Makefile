@@ -1,5 +1,8 @@
 # Created by: erich@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cam
 PORTVERSION=	1.02

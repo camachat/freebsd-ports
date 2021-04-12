@@ -1,5 +1,8 @@
 # Created by: Adrian Chadd
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	intel-pcm
 DISTVERSION=	g20210326

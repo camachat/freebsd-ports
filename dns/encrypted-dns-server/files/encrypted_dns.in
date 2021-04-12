@@ -1,7 +1,10 @@
 #!/bin/sh
 
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # PROVIDE: encrypted_dns
 # REQUIRE: NETWORKING
 # KEYWORD: shutdown

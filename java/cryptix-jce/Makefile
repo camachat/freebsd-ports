@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cryptix-jce
 PORTVERSION=	20050328
 PORTREVISION=	2

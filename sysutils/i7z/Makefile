@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	i7z
 PORTVERSION=	0.27.4
 DISTVERSIONPREFIX=	v

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	splat
 PORTVERSION=	1.4.2
 PORTREVISION=	1

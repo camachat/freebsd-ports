@@ -3,9 +3,12 @@
  *
  * You can redistribute it and/or modify it under the same terms as
  * CGI::SpeedyCGI itself.
+<<<<<<< HEAD
  *
  * $FreeBSD$
  *
+=======
+>>>>>>> upstream/main
  */
 
 #include <sys/types.h>

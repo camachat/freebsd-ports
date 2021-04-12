@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kube-controller-manager
 PORTVERSION=	1.13.3
 DISTVERSIONPREFIX=	v

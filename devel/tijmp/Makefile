@@ -1,5 +1,8 @@
 # Created by: Ronald Klop <ronald@echteman.nl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tijmp
 PORTVERSION=	0.7

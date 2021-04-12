@@ -1,5 +1,8 @@
 # Created by: Andrey <gugu@zoo.rambler.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Algorithm-FloodControl
 PORTVERSION=	2.001000

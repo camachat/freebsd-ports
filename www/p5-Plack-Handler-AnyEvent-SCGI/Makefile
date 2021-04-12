@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Plack-Handler-AnyEvent-SCGI
 PORTVERSION=	0.03
 PORTREVISION=	1

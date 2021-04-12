@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- printing/print_settings.h.orig	2021-01-18 21:29:02 UTC
+=======
+--- printing/print_settings.h.orig	2021-03-12 23:57:28 UTC
+>>>>>>> upstream/main
 +++ printing/print_settings.h
 @@ -20,11 +20,11 @@
  #include "ui/gfx/geometry/rect.h"
@@ -39,7 +43,11 @@
 -#endif  // defined(OS_LINUX) || defined(OS_CHROMEOS)
 +#endif  // defined(OS_LINUX) || defined(OS_CHROMEOS) || defined(OS_BSD)
  
+<<<<<<< HEAD
  #if BUILDFLAG(IS_ASH)
+=======
+ #if BUILDFLAG(IS_CHROMEOS_ASH)
+>>>>>>> upstream/main
    void set_send_user_info(bool send_user_info) {
 @@ -321,10 +321,10 @@ class PRINTING_EXPORT PrintSettings {
    // Number of pages per sheet.
@@ -52,5 +60,9 @@
 -#endif  // defined(OS_LINUX) || defined(OS_CHROMEOS)
 +#endif  // defined(OS_LINUX) || defined(OS_CHROMEOS) || defined(OS_BSD)
  
+<<<<<<< HEAD
  #if BUILDFLAG(IS_ASH)
+=======
+ #if BUILDFLAG(IS_CHROMEOS_ASH)
+>>>>>>> upstream/main
    // Whether to send user info.

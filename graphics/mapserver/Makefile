@@ -1,5 +1,8 @@
 # Created by: Douglas K. Rand <rand@meridian-enviro.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		mapserver
 PORTVERSION=		7.6.2

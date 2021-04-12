@@ -1,5 +1,8 @@
 # Created by: Shaun Amott <shaun@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	LMAP-CID2SPF
 PORTVERSION=	0.9

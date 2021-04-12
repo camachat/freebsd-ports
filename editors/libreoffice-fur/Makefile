@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 LO_I18N=	fur
 
 .include "${.CURDIR}/../../editors/libreoffice/Makefile.i18n"

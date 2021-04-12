@@ -1,5 +1,8 @@
 # Created by: redcrash@gmail.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	papi
 PORTVERSION=	5.4.3

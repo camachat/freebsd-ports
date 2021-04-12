@@ -1,5 +1,8 @@
 # Created by: Hye-Shik Chang <perky@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	eyed3
 PORTVERSION=	0.9.4

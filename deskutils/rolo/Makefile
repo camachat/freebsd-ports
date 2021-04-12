@@ -1,5 +1,8 @@
 # Created by: Andrew Hsu <ahsu@users.sf.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rolo
 PORTVERSION=	011

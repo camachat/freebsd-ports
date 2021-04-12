@@ -1,5 +1,8 @@
 # Created by: asaddi@philosophysw.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	newsfish
 PORTVERSION=	1.2.6

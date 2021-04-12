@@ -1,5 +1,8 @@
 # Created by: kris@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fragrouter
 PORTVERSION=	1.6

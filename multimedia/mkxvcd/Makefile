@@ -1,5 +1,8 @@
 # Created by: michael johnson <ahze@ahze.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mkxvcd
 PORTVERSION=	2.0.2
@@ -13,6 +16,12 @@ COMMENT=	Makes high quality X/K/S/VCD movies from many formats
 LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/COPYING
 
+<<<<<<< HEAD
+=======
+DEPRECATED=	Depends on expired multimedia/transcode
+EXPIRATION_DATE=2021-05-01
+
+>>>>>>> upstream/main
 RUN_DEPENDS=	mpeg2enc:multimedia/mjpegtools \
 		bash:shells/bash \
 		mplayer:multimedia/mplayer \

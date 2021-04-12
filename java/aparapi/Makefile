@@ -1,5 +1,8 @@
 # Created by: Johannes Dieterich <dieterich@ogolem.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	aparapi
 PORTVERSION=	1.0.0

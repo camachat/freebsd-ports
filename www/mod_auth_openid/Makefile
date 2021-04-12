@@ -1,5 +1,8 @@
 # Created by: Sutra Zhou <zhoushuqun@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mod_auth_openid
 PORTVERSION=	0.8

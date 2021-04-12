@@ -1,5 +1,8 @@
 # Created by: Oliver Lehmann <oliver@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	varconf
 PORTVERSION=	1.0.1

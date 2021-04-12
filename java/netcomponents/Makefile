@@ -1,5 +1,8 @@
 # Created by: Ernst de Haan <znerd@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	netcomponents
 PORTVERSION=	1.3.8

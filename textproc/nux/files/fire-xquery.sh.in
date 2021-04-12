@@ -1,5 +1,8 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 exec "%%LOCALBASE%%/bin/java" -classpath "`%%LOCALBASE%%/bin/classpath`" nux.xom.tests.XQueryCommand "$@"

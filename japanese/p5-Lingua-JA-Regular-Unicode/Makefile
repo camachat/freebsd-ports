@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Lingua-JA-Regular-Unicode
 PORTVERSION=	0.12
 PORTREVISION=	1

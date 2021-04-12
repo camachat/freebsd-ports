@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	ktexteditor
 DISTVERSION=	${KDE_FRAMEWORKS_VERSION}
+=======
+PORTNAME=	ktexteditor
+DISTVERSION=	${KDE_FRAMEWORKS_VERSION}
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	devel kde kde-frameworks
 
 MAINTAINER=	kde@FreeBSD.org

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		kreport
 DISTVERSION=		3.2.0
 PORTREVISION=		3

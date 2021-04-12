@@ -1,5 +1,8 @@
 # Created by: Matthew Hunt <mph@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xzip
 PORTVERSION=	1.8.2

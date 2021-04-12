@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Template-Plugin-JSON
 PORTVERSION=	0.06
 PORTREVISION=	1

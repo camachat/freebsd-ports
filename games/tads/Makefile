@@ -1,5 +1,8 @@
 # Created by: kris@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tads
 PORTVERSION=	2.5.9

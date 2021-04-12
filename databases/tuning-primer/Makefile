@@ -1,5 +1,8 @@
 # Created by: Joe Horn <joehorn@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tuning-primer
 PORTVERSION=	1.6.r1

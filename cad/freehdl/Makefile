@@ -1,5 +1,8 @@
 # Created by: lon_kamikaze@gmx.de
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	freehdl
 PORTVERSION=	0.0.7

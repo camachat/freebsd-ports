@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	qsudo
 DISTVERSION=	201711240000
 PORTREVISION=	3

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mackerel-agent
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.71.1

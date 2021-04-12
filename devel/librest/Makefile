@@ -1,5 +1,8 @@
 # Created by: Christoph Moench-Tegeder <cmt@burggraben.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rest
 PORTVERSION=	0.8.1

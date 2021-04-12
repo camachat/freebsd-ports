@@ -1,5 +1,8 @@
 # Created by: dom@happygiraffe.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Time-Object
 PORTVERSION=	1.00

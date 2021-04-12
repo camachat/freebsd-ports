@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Log-Dispatch
 PORTVERSION=	2.70
 CATEGORIES=	devel perl5

@@ -1,5 +1,8 @@
 # Created by: sobomax
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	debugedit
 PORTVERSION=	20170411.1

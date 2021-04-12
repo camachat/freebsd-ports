@@ -1,5 +1,8 @@
 # Created by: HIYAMA Takeshi <th@cis.ibaraki.ac.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sl
 PORTVERSION=	5.02

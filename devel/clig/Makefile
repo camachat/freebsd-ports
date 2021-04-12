@@ -1,5 +1,8 @@
 # Created by: Bill Fumerola <billf@chc-chimes.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	clig
 PORTVERSION=	1.9.11.1

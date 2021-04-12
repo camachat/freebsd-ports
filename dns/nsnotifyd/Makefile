@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	nsnotifyd
 PORTVERSION=	1.6
 PORTREVISION=	1

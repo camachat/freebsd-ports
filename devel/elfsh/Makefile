@@ -1,5 +1,8 @@
 # Created by: Samy Al Bahra <samy@kerneled.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	elfsh
 PORTVERSION=	0.51b3

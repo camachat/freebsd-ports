@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	atf
 PORTVERSION=	0.21
 CATEGORIES=	devel

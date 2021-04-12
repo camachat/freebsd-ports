@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pyfaidx
 DISTVERSION=	0.5.9.2
 CATEGORIES=	biology python

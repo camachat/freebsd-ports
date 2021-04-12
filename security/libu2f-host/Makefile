@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libu2f-host
 PORTVERSION=	1.1.10
 DISTVERSIONPREFIX=	${PORTNAME}-

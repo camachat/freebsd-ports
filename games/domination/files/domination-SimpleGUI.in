@@ -1,7 +1,10 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 
 cd "%%DATADIR%%" && exec "%%LOCALBASE%%/bin/java" \
 -cp Domination.jar net.yura.domination.ui.simplegui.RiskGUI "${@}"

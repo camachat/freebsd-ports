@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	lego
 DISTVERSIONPREFIX=	v
 DISTVERSION=	4.3.1

@@ -1,5 +1,8 @@
 # Created by: David Thiel <lx@freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	linenoise-ng
 PORTVERSION=	1.0.0

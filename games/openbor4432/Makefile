@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTVERSION=	4432
 PORTREVISION=	3
 PKGNAMESUFFIX=	${PORTVERSION}

@@ -1,5 +1,8 @@
 # Created by: Göran Runfeldt <goranrunfeldt@home.se>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xtux
 PORTVERSION=	20030306

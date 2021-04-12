@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ptx
 PORTVERSION=	0.0.20111212
 PORTREVISION=	2

@@ -1,5 +1,8 @@
 # Created by: Leo Vandewoestijne <freebsd@dns-lab.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	liburcu
 PORTVERSION=	0.12.1

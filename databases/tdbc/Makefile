@@ -1,5 +1,8 @@
 # Created by: Pietro Cerutti <gahr@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tdbc
 DISTVERSION=	1.1.1

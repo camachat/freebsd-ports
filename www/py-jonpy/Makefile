@@ -1,5 +1,8 @@
 # Created by: Søren Straarup <xride@x12.dk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jonpy
 PORTVERSION=	0.12

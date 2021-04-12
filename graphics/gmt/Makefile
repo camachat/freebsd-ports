@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gmt
 DISTVERSION=	6.1.1
 PORTREVISION=	2

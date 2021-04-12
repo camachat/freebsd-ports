@@ -1,5 +1,8 @@
 # Created by: Jesse McConnell <jesse@gallup.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-Server
 PORTVERSION=	2.009

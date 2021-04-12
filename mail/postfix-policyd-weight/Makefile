@@ -1,5 +1,8 @@
 # Created by: Robert Felber <robtone@ek-muc.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	policyd-weight
 PORTVERSION=	0.1.15.2

@@ -1,7 +1,10 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 
 # PROVIDE: minissdpd
 # REQUIRE: NETWORKING SERVERS DAEMON ldconfig resolv

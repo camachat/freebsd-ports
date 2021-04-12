@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	openvpn-auth-script
 DISTVERSION=	1.0.0.3
 CATEGORIES=	security net net-vpn

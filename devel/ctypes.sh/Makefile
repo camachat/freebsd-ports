@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ctypes.sh
 PORTVERSION=	1.2
 CATEGORIES=	devel

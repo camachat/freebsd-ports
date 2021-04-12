@@ -1,5 +1,8 @@
 # Created by: R.I.Pienaar <rip@devco.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	msmtp
 PORTVERSION=	1.8.15

@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	fennel
 DISTVERSION=	0.8.1
+=======
+PORTNAME=	fennel
+DISTVERSION=	0.9.0
+>>>>>>> upstream/main
 CATEGORIES=	lang
 MASTER_SITES=	https://git.sr.ht/~technomancy/${PORTNAME}/archive/${DISTVERSION}${EXTRACT_SUFX}?dummy=/
 #MASTER_SITES=	https://fennel-lang.org/downloads/

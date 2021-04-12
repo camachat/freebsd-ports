@@ -1,5 +1,8 @@
 # Created by: Igor Serikov <iserikov@acm.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	2d-rewriter
 PORTVERSION=	1.6

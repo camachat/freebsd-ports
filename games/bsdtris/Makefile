@@ -1,5 +1,8 @@
 # Created by: Yonatan <onatan@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bsdtris
 PORTVERSION=	1.1

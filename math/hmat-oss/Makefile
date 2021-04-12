@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	hmat-oss
 DISTVERSION=	1.6.1
 PORTREVISION=	1

@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	elementpath
 DISTVERSION=	2.1.4
+=======
+PORTNAME=	elementpath
+DISTVERSION=	2.2.1
+>>>>>>> upstream/main
 CATEGORIES=	textproc python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	stdlib-normalize
 PORTVERSION=	2.0.3
 DISTVERSIONPREFIX=	v

@@ -1,5 +1,8 @@
 # Created by: Daniel Bryan <sisko@bsdmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cnd
 PORTVERSION=	0.7

@@ -1,8 +1,15 @@
 # Created by: Dmitry N Fomin <fdn@okbire.ru>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	gdisk
 PORTVERSION=	1.0.6
+=======
+
+PORTNAME=	gdisk
+PORTVERSION=	1.0.6
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	sysutils
 MASTER_SITES=	SF/gptfdisk/gptfdisk/${PORTVERSION}
 DISTNAME=	gptfdisk-${PORTVERSION}

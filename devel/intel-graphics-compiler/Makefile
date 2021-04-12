@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	intel-graphics-compiler
 DISTVERSIONPREFIX=	igc-
 DISTVERSION=	1.0.6812
+=======
+PORTNAME=	intel-graphics-compiler
+DISTVERSIONPREFIX=	igc-
+DISTVERSION=	1.0.6909
+>>>>>>> upstream/main
 CATEGORIES=	devel
 
 MAINTAINER=	jbeich@FreeBSD.org
@@ -20,7 +26,11 @@ USES=		bison cmake compiler:c++17-lang python:build
 USE_GITHUB=	yes
 USE_LDCONFIG=	yes
 GH_ACCOUNT=	intel
+<<<<<<< HEAD
 GH_TUPLE=	intel:vc-intrinsics:e657f3b:vcintrin/../vc-intrinsics
+=======
+GH_TUPLE=	intel:vc-intrinsics:069ced1:vcintrin/../vc-intrinsics
+>>>>>>> upstream/main
 CMAKE_OFF=	INSTALL_SPIRVDLL
 CFLAGS+=	-Wno-macro-redefined # __fastcall
 PLIST_SUB=	ARCH_SUFX=${ARCH:S/i386/32/:S/amd//:S/x86_//}
@@ -34,7 +44,11 @@ post-patch:
 		${WRKSRC}/IGC/BiFModule/linux/CMakeLists.txt
 # devel/llvm* have different naming from upstream under PATH
 	@${REINPLACE_CMD} -e '/clang-\$$/s//clang$$/' \
+<<<<<<< HEAD
 		${WRKSRC}/IGC/cmake/find_opencl_clang.cmake
+=======
+		${WRKSRC}/IGC/cmake/igc_find_opencl_clang.cmake
+>>>>>>> upstream/main
 # No need to abort on every benign warning enabled by default
 	@${REINPLACE_CMD} -e 's/"-Werror"//; /-Werror/d' \
 		${WRKSRC}/IGC/CMakeLists.txt

@@ -23,7 +23,10 @@
 .\" SUCH DAMAGE.
 .\"
 .\" %FreeBSD: src/gnu/usr.bin/groff/tmac/mdoc.local,v 1.2.2.19 2003/03/25 10:20:12 murray Exp %
+<<<<<<< HEAD
 .\" $FreeBSD$
+=======
+>>>>>>> upstream/main
 .\"
 .eo
 .ds volume-operating-system FreeBSD

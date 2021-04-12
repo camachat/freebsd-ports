@@ -1,5 +1,8 @@
 # Created by: Andrey Slusar <anray@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	imagick
 PORTVERSION=	3.4.4

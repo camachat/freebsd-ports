@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	jabber
 PORTVERSION=	1.9.0
 PORTREVISION=	4

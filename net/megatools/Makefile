@@ -1,5 +1,8 @@
 # Created by: Max V. Kostikov <max@kostikov.co>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	megatools
 PORTVERSION=	1.10.3

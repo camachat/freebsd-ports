@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xfce4-screensaver
 PORTVERSION=	4.16.0
 PORTREVISION=	1

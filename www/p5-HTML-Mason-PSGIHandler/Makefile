@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	HTML-Mason-PSGIHandler
 PORTVERSION=	0.53
 PORTREVISION=	1

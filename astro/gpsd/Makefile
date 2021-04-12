@@ -1,5 +1,8 @@
 # Created by: Anton Karpov <toxa@toxahost.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gpsd
 PORTVERSION=	3.20

@@ -1,5 +1,8 @@
 # Toplevel Makefile for Xymon
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 BUILDTOPDIR=`pwd`
 CLIENTONLY = yes

@@ -1,5 +1,8 @@
 # Created by: Andrew Turner <andrew+ports@fubar.geek.nz>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libdfui
 PORTVERSION=	4.1.20060122

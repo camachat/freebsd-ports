@@ -1,5 +1,8 @@
 # Created by: allan@saddi.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	yafic
 PORTVERSION=	1.2.2

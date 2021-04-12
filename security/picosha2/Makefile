@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	picosha2
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.0.0-23

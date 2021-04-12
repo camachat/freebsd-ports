@@ -1,5 +1,8 @@
 # Created by: Anders F Bjorklund <afb@users.sourceforge.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 #   $MCom: ports/ports-mgmt/packagekit/Makefile,v 1.26 2010/10/10 15:49:51 marcus Exp $
 
 PORTNAME=	PackageKit

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	plexil
 DISTVERSION=	4.5.0
 PORTREVISION=	1

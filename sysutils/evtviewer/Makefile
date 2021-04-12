@@ -1,5 +1,8 @@
 # Created by: Ganael LAPLANCHE <ganael.laplanche@martymac.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	evtViewer
 PORTVERSION=	0.6

@@ -1,5 +1,8 @@
 # Created by: Maurice Castro <maurice@castro.aus.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	davical
 DISTVERSIONPREFIX=	r

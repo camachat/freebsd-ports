@@ -1,5 +1,8 @@
 # Created by: buganini@gmail.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ruby-bsdconv
 PORTVERSION=	11.3.1

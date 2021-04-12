@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	numpoly
 DISTVERSION=	1.1.2
 CATEGORIES=	math python

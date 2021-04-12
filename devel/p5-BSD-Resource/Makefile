@@ -1,5 +1,8 @@
 # Created by: James FitzGibbon <jfitz@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	BSD-Resource
 PORTVERSION=	1.2911

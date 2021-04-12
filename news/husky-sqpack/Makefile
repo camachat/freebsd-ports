@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	husky-sqpack
 
 COMMENT=	Husky FTN msgbase packer

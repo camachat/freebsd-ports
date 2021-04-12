@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	hieroglyph
 PORTVERSION=	2.1.0
 CATEGORIES=	textproc python

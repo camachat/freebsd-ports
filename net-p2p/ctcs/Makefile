@@ -1,5 +1,8 @@
 # Created by: Dereckson <dereckson@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ctcs
 PORTVERSION=	1.4.1

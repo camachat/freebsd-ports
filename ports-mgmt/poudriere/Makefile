@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	poudriere
 DISTVERSION=	3.3.6
 PORTREVISION=	0

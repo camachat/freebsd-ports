@@ -1,5 +1,8 @@
 # Created by: Baptiste Grenier <gwarf@gwarf.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pydf
 PORTVERSION=	12

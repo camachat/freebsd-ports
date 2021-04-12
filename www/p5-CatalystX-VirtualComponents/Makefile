@@ -1,5 +1,8 @@
 # Created by: Danny Warren <danny@dannywarren.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	CatalystX-VirtualComponents
 PORTVERSION=	0.00004

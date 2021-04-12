@@ -1,5 +1,8 @@
 # Created by: Makoto Matsushita <matusita@jp.FreeBSD.ORG>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dbskkd-cdb
 PORTVERSION=	3.00

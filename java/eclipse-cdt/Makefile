@@ -1,5 +1,8 @@
 # Created by: gldisater@gldis.ca
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cdt
 PORTVERSION=	9.0.1

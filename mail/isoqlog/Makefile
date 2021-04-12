@@ -1,5 +1,8 @@
 # Created by: ofsen@enderunix.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	isoqlog
 PORTVERSION=	2.2.1

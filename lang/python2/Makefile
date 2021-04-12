@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	python2
 PORTVERSION=	${PYTHON_MAJOR_VER}
 PORTREVISION=	3

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	vulkan-validation-layers
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.2.174

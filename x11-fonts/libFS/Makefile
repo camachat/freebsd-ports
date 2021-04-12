@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libFS
 PORTVERSION=	1.0.8
 CATEGORIES=	x11-fonts

@@ -1,5 +1,8 @@
 # Created by: Li-Wen Hsu <lwhsu@lwhsu.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Data-RoundRobin
 PORTVERSION=	0.03

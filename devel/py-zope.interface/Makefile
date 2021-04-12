@@ -1,5 +1,8 @@
 # Created by: Neal Nelson <neal@nelson.name>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	zope.interface
 PORTVERSION=	5.3.0

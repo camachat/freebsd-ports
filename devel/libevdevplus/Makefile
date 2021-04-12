@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	${GH_PROJECT:tl}
 PORTVERSION=	0.1.1
 PORTREVISION=	1

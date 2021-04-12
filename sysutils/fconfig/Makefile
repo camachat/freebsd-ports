@@ -1,5 +1,8 @@
 # Created by: thompsa@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fconfig
 PORTVERSION=	20080329

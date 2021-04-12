@@ -1,5 +1,8 @@
 # Created by: James E Keenan <jkeenan@cpan.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Devel-Platform-Info
 PORTVERSION=	1.00

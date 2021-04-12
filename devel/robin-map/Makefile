@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	robin-map
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.6.3

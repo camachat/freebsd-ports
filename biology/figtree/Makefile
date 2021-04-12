@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	figtree
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.4.4

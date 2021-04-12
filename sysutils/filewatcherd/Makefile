@@ -1,5 +1,8 @@
 # Created by: Natacha Porte <natbsd@instinctive.eu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	filewatcherd
 DISTVERSION=	1.0-beta3

@@ -1,5 +1,8 @@
 # Created by: Lars Engels <lars.engels@0x20.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tvbrowser
 PORTVERSION=	4.2.1

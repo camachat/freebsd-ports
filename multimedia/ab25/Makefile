@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ab25
 PORTVERSION=	0.2.5
 CATEGORIES=	multimedia

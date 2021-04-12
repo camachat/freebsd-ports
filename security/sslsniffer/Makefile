@@ -1,5 +1,8 @@
 # Created by: Jim Geovedi <jim@corebsd.or.id>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sslsniffer
 PORTVERSION=	1.21

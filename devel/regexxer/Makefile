@@ -1,5 +1,8 @@
 # Created by: Rui Lopes <rui@ruilopes.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	regexxer
 PORTVERSION=	0.10

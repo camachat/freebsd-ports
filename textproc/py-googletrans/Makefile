@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	googletrans
 DISTVERSION=	3.0.0
 PORTREVISION=	1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Expect
 PORTVERSION=	1.35
 CATEGORIES=	lang perl5

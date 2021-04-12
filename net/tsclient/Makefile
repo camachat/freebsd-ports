@@ -1,5 +1,8 @@
 # Created by: Koop Mast <einekoai@chello.nl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tsclient
 PORTVERSION=	0.150

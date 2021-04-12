@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	asonic
 PORTVERSION=	2.0.0
 CATEGORIES=	textproc python

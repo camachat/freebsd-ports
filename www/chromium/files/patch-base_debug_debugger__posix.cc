@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- base/debug/debugger_posix.cc.orig	2020-11-13 06:36:34 UTC
+=======
+--- base/debug/debugger_posix.cc.orig	2021-03-12 23:57:15 UTC
+>>>>>>> upstream/main
 +++ base/debug/debugger_posix.cc
 @@ -98,7 +98,7 @@ bool BeingDebugged() {
      KERN_PROC,

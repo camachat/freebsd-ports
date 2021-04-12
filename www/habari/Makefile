@@ -1,5 +1,8 @@
 # Created by: Ayumi M <ayu@commun.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	habari
 PORTVERSION=	0.8

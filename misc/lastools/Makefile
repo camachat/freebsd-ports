@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	LAStools
 DISTVERSION=	g20181019
 PORTREVISION=	1

@@ -1,5 +1,8 @@
 # Created by: David Bremner <bremner@unb.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ipe
 PORTVERSION=	7.2.23

@@ -1,5 +1,8 @@
 # Created by: TAKAHASHI Kaoru
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	leafrogue
 PORTVERSION=	0.72

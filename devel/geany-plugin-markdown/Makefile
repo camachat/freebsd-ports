@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	geany-plugin-markdown
 PORTVERSION=	${GEANY_VER}
 CATEGORIES=	devel

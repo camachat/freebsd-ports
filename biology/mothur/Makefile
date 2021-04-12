@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mothur
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.43.0

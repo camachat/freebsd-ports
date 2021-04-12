@@ -1,5 +1,8 @@
 # Created by: David Naylor <naylor.b.david@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	timeSeries
 DISTVERSION=	3062.100

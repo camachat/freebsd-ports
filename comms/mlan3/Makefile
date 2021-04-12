@@ -1,5 +1,8 @@
 # Created by: hm
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mlan3
 PORTVERSION=	1.00

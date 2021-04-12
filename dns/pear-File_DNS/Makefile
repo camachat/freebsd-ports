@@ -1,5 +1,8 @@
 # Created by: Chris St Denis (<chris@ctgameinfo.com>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	File_DNS
 PORTVERSION=	0.1.0

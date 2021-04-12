@@ -1,5 +1,8 @@
 # Created by: Dima Sivachenko
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	webcrawl
 PORTVERSION=	1.10

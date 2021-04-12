@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	scripts
 PORTVERSION=	1.0.1
 PORTREVISION=	1

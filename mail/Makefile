@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
 
+=======
+>>>>>>> upstream/main
     COMMENT = Electronic mail utilities
 
     SUBDIR += abook
@@ -101,7 +104,10 @@
     SUBDIR += dspam
     SUBDIR += ecartis
     SUBDIR += elm
+<<<<<<< HEAD
     SUBDIR += elmo
+=======
+>>>>>>> upstream/main
     SUBDIR += emailrelay
     SUBDIR += emil
     SUBDIR += enma
@@ -237,6 +243,10 @@
     SUBDIR += minimalist
     SUBDIR += missey
     SUBDIR += mlmmj
+<<<<<<< HEAD
+=======
+    SUBDIR += mlmmj-webview
+>>>>>>> upstream/main
     SUBDIR += mls
     SUBDIR += mmh
     SUBDIR += mmr

@@ -1,5 +1,8 @@
 # Created by: christian
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Text-LevenshteinXS
 PORTVERSION=	0.03

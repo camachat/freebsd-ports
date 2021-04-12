@@ -1,5 +1,8 @@
 # Created by: Anthony Kim
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	spamassassin
 PORTVERSION=	3.4.5

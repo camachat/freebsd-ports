@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	PySCIPOpt
 DISTVERSION=	3.0.2
 CATEGORIES=	math python

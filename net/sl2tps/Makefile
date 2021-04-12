@@ -1,5 +1,8 @@
 # Created by: Archie Cobbs
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sl2tps
 PORTVERSION=	0.4.2

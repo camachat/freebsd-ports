@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	CheMPS2
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.8.10

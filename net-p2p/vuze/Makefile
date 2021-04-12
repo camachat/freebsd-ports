@@ -1,5 +1,8 @@
 # Created by: Jeremy Faulkner <gldisater@gldis.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vuze
 PORTVERSION=	5.7.4.0

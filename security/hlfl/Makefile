@@ -1,5 +1,8 @@
 # Created by: Arnaud Launay <alaunay@hlfl.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hlfl
 PORTVERSION=	0.60.1

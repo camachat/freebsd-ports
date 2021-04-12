@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	yarn
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.22.10

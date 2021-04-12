@@ -1,5 +1,8 @@
 # Created by: Satoru Suzuki <xsuzu@yokohama.riken.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	squirrel_logger
 PORTVERSION=	2.3

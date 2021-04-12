@@ -1,5 +1,8 @@
 # Created by: Dorit Rottner (<rottner@punkt.de>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Payment_DTA
 PORTVERSION=	1.4.3

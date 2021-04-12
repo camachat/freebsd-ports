@@ -1,5 +1,8 @@
 # Created by: mm
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cciss_vol_status
 PORTVERSION=	1.12

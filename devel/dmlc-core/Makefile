@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dmlc-core
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.3-123

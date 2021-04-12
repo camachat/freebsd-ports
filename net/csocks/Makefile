@@ -1,5 +1,8 @@
 # Created by: Raffaele De Lorenzo - raffaele.delorenzo@libero.it
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	csocks
 PORTVERSION=	1.7

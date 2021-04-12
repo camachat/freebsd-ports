@@ -1,5 +1,8 @@
 # Created by: Matthias Andree <matthias.andree@gmx.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTREVISION=	0
 CATEGORIES=	misc devel

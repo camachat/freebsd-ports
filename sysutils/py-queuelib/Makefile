@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	queuelib
 PORTVERSION=	1.5.0
 CATEGORIES=	sysutils python

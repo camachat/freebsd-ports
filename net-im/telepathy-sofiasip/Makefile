@@ -1,5 +1,8 @@
 # Created by: Yuri <yuri@tsoft.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	telepathy-sofiasip
 PORTVERSION=	0.4.5

@@ -1,5 +1,8 @@
 # Created by: Manuel Kasper <mk@neon1.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mod_auth_pubtkt
 PORTVERSION=	0.13

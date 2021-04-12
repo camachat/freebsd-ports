@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	openkim-models
 DISTVERSION=	2021-01-28
 CATEGORIES=	science

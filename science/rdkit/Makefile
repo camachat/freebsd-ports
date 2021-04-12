@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rdkit
 DISTVERSIONPREFIX=	Release_
 DISTVERSION=	2020_09_5

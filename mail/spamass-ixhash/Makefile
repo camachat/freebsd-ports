@@ -1,5 +1,8 @@
 # Created by: Michael Ranner <michael@ranner.eu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	iXhash
 PORTVERSION=	1.5.5

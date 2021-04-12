@@ -1,5 +1,8 @@
 # Created by: spcoltri@unm.edu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sgf2tex
 PORTVERSION=	3.3

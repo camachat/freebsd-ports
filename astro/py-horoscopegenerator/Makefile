@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	horoscopegenerator
 PORTVERSION=	0.1.8
 PORTREVISION=	1

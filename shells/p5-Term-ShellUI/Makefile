@@ -1,5 +1,8 @@
 # Created by: Sergey Matveychuk <sem@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Term-ShellUI
 PORTVERSION=	0.92

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Calendar-Simple
 PORTVERSION=	1.21
 PORTREVISION=	2

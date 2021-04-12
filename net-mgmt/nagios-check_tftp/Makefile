@@ -1,5 +1,8 @@
 # Created by: hr <holgerrepp@googlemail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	check_tftp
 PORTVERSION=	1.0.1

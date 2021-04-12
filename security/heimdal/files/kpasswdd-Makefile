@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 all: kpasswdd-cracklib.so
 
 kpasswdd-cracklib.so: kpasswdd-cracklib.c

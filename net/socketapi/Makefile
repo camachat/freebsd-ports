@@ -1,5 +1,8 @@
 # Created by: Thomas Dreibholz <dreibh@iem.uni-due.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	socketapi
 PORTVERSION=	2.2.16

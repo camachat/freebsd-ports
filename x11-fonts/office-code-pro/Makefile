@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	office-code-pro
 DISTVERSION=	1.004
 CATEGORIES=	x11-fonts

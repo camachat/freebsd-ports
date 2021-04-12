@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # Establish Ada-capable compiler as a build dependency
 # To change default compiler, define ADA_DEFAULT in make.conf
 #

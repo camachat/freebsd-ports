@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	polyphone
 DISTVERSION=	2.2.0.20210109
 CATEGORIES=	audio

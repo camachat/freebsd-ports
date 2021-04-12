@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	brlaser
 DISTVERSIONPREFIX=	v
 DISTVERSION=	6

@@ -1,5 +1,8 @@
 # Created by Matthias Fechner <mfechner@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	enumerable-statistics
 PORTVERSION=	2.0.1

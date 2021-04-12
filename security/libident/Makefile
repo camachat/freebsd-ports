@@ -1,5 +1,8 @@
 # Created by: torstenb@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libident
 PORTVERSION=	0.32

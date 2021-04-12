@@ -1,5 +1,8 @@
 # Created by: Hardy Schumacher <hardy.schumacher@gmx.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	z80ex
 PORTVERSION=	1.1.21

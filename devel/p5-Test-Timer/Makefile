@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Test-Timer
 PORTVERSION=	2.11
 CATEGORIES=	devel perl5

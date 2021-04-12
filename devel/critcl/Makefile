@@ -1,5 +1,8 @@
 # Created by: gahr@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	critcl
 PORTVERSION=	3.1.18.1

@@ -1,5 +1,8 @@
 # Created by: Oliver Eikemeier <eikemeier@fillmore-labs.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	XML-NodeFilter
 PORTVERSION=	0.01

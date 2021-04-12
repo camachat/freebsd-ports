@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xdgpaths
 PORTVERSION=	0.2.5
 PORTREVISION=	1

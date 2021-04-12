@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	openfpgaloader
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.2.5
+=======
+PORTNAME=	openfpgaloader
+DISTVERSIONPREFIX=	v
+DISTVERSION=	0.2.6
+>>>>>>> upstream/main
 CATEGORIES=	cad
 
 MAINTAINER=	yuri@FreeBSD.org

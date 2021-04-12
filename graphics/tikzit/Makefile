@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tikzit
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.1.6

@@ -1,5 +1,8 @@
 # Created by: Olli Hauer
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pulledpork
 PORTVERSION=	0.7.4

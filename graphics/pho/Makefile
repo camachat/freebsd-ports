@@ -1,5 +1,8 @@
 # Created by: Roland Jesse <roland.jesse@gmx.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pho
 PORTVERSION=	1.0

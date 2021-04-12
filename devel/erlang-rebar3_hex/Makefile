@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rebar3_hex
 PORTVERSION=	2.5.0
 DISTVERSIONPREFIX=	v

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	usql
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.8.2

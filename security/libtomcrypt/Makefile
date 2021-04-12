@@ -1,5 +1,8 @@
 # Created by: Yonatan <Yonatan@Xpert.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libtomcrypt
 PORTVERSION=	1.18.2

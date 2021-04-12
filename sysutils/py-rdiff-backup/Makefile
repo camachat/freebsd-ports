@@ -1,5 +1,8 @@
 # Created by: Gerhard Häring <gh@ghaering.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rdiff-backup
 DISTVERSION=	2.0.5

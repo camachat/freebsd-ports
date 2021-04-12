@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	with
 DISTVERSION=	g20180520
 CATEGORIES=	misc

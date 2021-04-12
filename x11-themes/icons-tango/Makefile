@@ -1,5 +1,8 @@
 # Created by: Phillip Neumann <pneumann@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	icons-tango
 PORTVERSION=	0.8.90

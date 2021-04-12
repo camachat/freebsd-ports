@@ -1,5 +1,8 @@
 # Created by: Patrick Alken <alken@colorado.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		ald
 PORTVERSION=		0.1.7

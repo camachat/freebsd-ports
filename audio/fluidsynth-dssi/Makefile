@@ -1,5 +1,8 @@
 # Created by: trasz <trasz@pin.if.uz.zgora.pl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fluidsynth-dssi
 PORTVERSION=	1.0.0

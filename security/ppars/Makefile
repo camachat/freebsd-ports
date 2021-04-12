@@ -1,5 +1,8 @@
 # Created by: Joe Barbish <ppars1@a1poweruser.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ppars
 PORTVERSION=	1.2

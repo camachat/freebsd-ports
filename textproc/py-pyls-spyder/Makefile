@@ -1,5 +1,8 @@
 # Created by: Rainer Hurling <rhurlin@gwdg.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pyls-spyder
 PORTVERSION=	0.3.2

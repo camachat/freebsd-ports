@@ -14,8 +14,11 @@
 # Maxim Sobolev
 # ----------------------------------------------------------------------------
 #
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # MAINTAINER= ports@FreeBSD.org <- any unapproved commits to this file are
 #				     highly discouraged!!!
 #

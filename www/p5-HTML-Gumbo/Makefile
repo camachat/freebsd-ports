@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	HTML-Gumbo
 PORTVERSION=	0.18
 PORTREVISION=	1

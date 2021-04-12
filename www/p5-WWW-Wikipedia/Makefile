@@ -1,5 +1,8 @@
 # Created by: Cheng-Lung Sung <clsung@dragon2.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	WWW-Wikipedia
 PORTVERSION=	2.05

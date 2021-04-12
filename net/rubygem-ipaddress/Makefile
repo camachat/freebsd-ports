@@ -1,5 +1,8 @@
 # Created by: Boris Lytochkin <lytboris@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ipaddress
 PORTVERSION=	0.8.3

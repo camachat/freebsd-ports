@@ -1,5 +1,8 @@
 # Created by: Patrick MARIE <mycroft@virgaria.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mpatrol
 PORTVERSION=	1.4.8

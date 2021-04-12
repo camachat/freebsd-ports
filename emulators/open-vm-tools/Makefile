@@ -1,5 +1,8 @@
 # Created by: mbr@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	open-vm-tools
 PORTVERSION=	11.2.5

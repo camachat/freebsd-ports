@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	nettle
 PORTVERSION=	2.7.1
 DISTVERSIONSUFFIX=	-8.el7

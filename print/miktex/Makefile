@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	miktex
 DISTVERSION=	21.2
+=======
+PORTNAME=	miktex
+DISTVERSION=	21.2
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	print
 MASTER_SITES=	LOCAL/arrowd/miktex:bootstrap
 DISTFILES=	miktex-zzdb1-2.9.tar.lzma:bootstrap \

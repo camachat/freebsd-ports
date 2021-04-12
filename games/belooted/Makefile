@@ -1,5 +1,8 @@
 # Created by: Yinghong Liu <relaxbsd@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	belooted
 PORTVERSION=	0.1.4.1

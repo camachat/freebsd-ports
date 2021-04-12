@@ -1,5 +1,8 @@
 # Created by: Mirko Zinn <mail@derzinn.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	anyjson
 PORTVERSION=	0.3.3

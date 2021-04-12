@@ -1,5 +1,8 @@
 # Created by: Yevgen Drachenko <geka@sippysoft.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wsgi_xmlrpc
 PORTVERSION=	0.2.8

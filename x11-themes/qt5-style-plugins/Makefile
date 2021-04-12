@@ -1,5 +1,8 @@
 # Created by: Marie Loise Nolden <loise@kde.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	qt5-style-plugins
 DISTVERSIONPREFIX=	v

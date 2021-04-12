@@ -1,5 +1,8 @@
 # Created by: mons
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Catalyst-Controller-ActionRole
 PORTVERSION=	0.15

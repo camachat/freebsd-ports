@@ -1,5 +1,8 @@
 # Created by: Yoshihiko Sarumaru <mistral@imasy.or.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libpasori
 PORTVERSION=	02

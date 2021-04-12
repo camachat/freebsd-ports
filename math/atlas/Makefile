@@ -1,5 +1,8 @@
 # Created by: Nakata Maho <maho@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	atlas
 PORTVERSION=	3.8.4

@@ -1,5 +1,8 @@
 # Created by: Shinsuke Matsui <smatsui@karashi.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Shell-Perl
 PORTVERSION=	0.0022

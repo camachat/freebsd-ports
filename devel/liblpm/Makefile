@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	liblpm
 PORTVERSION=	g2020082801
 CATEGORIES=	devel

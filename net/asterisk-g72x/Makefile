@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	g72x
 PORTVERSION=	1.4.3
 PORTREVISION=	3

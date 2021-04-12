@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mysqlclient
 DISTVERSION=	2.0.2
 CATEGORIES=	databases python

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	asterisk
 PORTVERSION=	16.17.0
 CATEGORIES=	net

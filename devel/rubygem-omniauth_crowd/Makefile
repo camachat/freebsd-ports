@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	omniauth_crowd
 PORTVERSION=	2.4.0
 PORTREVISION=	1

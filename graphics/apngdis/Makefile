@@ -1,5 +1,8 @@
 # Created by: nemysis <nemysis@gmx.ch>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	apngdis
 PORTVERSION=	2.9

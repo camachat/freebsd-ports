@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ksnip
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.8.2

@@ -1,5 +1,8 @@
 # Created by: Richard Gallamore <ultima@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	guacamole-server
 DISTVERSION=	1.3.0

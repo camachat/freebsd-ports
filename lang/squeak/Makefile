@@ -1,5 +1,8 @@
 # Created by: Roland Jesse <roland.jesse@gmx.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	squeak
 PORTVERSION=	4.10.2

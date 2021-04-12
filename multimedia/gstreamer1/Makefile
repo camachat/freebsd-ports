@@ -1,5 +1,8 @@
 # Created by: Mario Sergio Fujikawa Ferreira <lioux@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gstreamer
 PORTVERSION=	1.16.2
@@ -11,10 +14,17 @@ PKGNAMESUFFIX=	1
 MAINTAINER=	multimedia@FreeBSD.org
 COMMENT=	Media applications framework
 
+<<<<<<< HEAD
 LICENSE=	LGPL20
 LICENSE_FILE=	${WRKSRC}/COPYING
 
 USES=		bison gettext gmake gnome libtool pathfix perl5 pkgconfig python tar:xz
+=======
+LICENSE=	LGPL20+
+LICENSE_FILE=	${WRKSRC}/COPYING
+
+USES=		bison gmake gnome libtool pathfix perl5 pkgconfig python tar:xz
+>>>>>>> upstream/main
 USE_PERL5=	build
 USE_GNOME=	glib20 introspection:build
 

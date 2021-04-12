@@ -1,5 +1,8 @@
 # Created by: joseph@randomnetworks.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sendip
 PORTVERSION=	2.5

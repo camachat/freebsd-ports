@@ -1,5 +1,8 @@
 # Created by: archfan <mail_me@riseup.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gtk-arc-themes
 DISTVERSION=	20210127
@@ -32,5 +35,12 @@ MESON_ARGS=	-Dthemes=cinnamon,gnome-shell,gtk2,gtk3,metacity,plank,unity,xfwm \
 		-Dcinnamon_version=4.8 \
 		-Dgnome_shell_version=3.38 \
     		-Dgtk3_version=3.24
+<<<<<<< HEAD
+=======
+# Speed up build in Poudriere.  It calls inkscape a bazillion times
+# and each instance tries to connect to 127.0.0.1:9090 which seems
+# to be because of gtk3's broadway backend.  Disable all GDK backends.
+MAKE_ENV=	GDK_BACKEND=""
+>>>>>>> upstream/main
 
 .include <bsd.port.mk>

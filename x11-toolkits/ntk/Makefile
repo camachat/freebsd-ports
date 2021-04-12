@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ntk
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.3.1001

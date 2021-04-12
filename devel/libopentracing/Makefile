@@ -1,5 +1,8 @@
 # Created by: Sergey A. Osokin <osa@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libopentracing
 PORTVERSION=	1.6.0

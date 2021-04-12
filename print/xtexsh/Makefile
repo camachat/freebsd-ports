@@ -1,5 +1,8 @@
 # Created by: Jean-Sebastien Roy <js@jeannot.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xtexsh
 DISTVERSION=	1.4-2

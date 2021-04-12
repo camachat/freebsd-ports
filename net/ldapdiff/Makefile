@@ -1,5 +1,8 @@
 # Created by: Christian Brueffer <chris@unixpages.org)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ldapdiff
 PORTVERSION=	1.4.1

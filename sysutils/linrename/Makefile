@@ -1,5 +1,8 @@
 # Created by: Jonathan Liu <Net147@hotmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	linrename
 PORTVERSION=	2.25.2

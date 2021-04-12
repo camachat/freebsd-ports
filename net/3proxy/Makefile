@@ -1,5 +1,8 @@
 # Created by: tim@relay.nnn.tstu.ru
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	3proxy
 PORTVERSION=	0.9.3

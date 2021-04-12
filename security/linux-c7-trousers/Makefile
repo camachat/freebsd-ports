@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	trousers
 PORTVERSION=	0.3.14
 DISTVERSIONSUFFIX=	-2.el7

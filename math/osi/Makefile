@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Osi
 DISTVERSION=	0.108.6
 PORTREVISION=	1

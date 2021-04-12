@@ -1,5 +1,8 @@
 # Created by: Chris Hutchinson <portmaster@bsdforge.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sansi
 PORTVERSION=	1.0.2

@@ -1,5 +1,8 @@
 # Created by: Laurent LEVIER <llevier@argosnet.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hydra
 DISTVERSIONPREFIX=v

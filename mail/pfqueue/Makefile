@@ -1,5 +1,8 @@
 # Created by: Marcus Alves Grando <mnag@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pfqueue
 PORTVERSION=	0.5.6

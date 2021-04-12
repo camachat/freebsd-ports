@@ -1,5 +1,8 @@
 # Created by: Konstantinos Konstantinidis <kkonstan@daemon.gr>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libvanessa_adt
 PORTVERSION=	0.0.9

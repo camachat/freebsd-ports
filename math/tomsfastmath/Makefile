@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tomsfastmath
 PORTVERSION=	0.13.1
 PORTREVISION=	4

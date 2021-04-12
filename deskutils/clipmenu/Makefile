@@ -1,5 +1,8 @@
 # Created by: Nicola Stanislao Vitale <nivit@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	clipmenu
 DISTVERSION=	6.1.0

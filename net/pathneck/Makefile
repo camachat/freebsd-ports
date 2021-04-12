@@ -1,5 +1,8 @@
 # Created by: Babak Farrokhi <babak@farrokhi.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pathneck
 PORTVERSION=	1.3

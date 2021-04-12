@@ -1,5 +1,8 @@
 # Created by: Frank Wall <fw@moov.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	omping
 PORTVERSION=	0.0.4

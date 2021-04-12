@@ -1,5 +1,8 @@
 # Created by: jmz
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mtools
 PORTVERSION=	4.0.26

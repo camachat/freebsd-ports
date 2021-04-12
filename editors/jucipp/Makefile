@@ -1,9 +1,16 @@
 # Created by: Mohammad S. Babaei <info@babaei.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jucipp
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.6.1
+<<<<<<< HEAD
+=======
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	editors
 
 MAINTAINER=	info@babaei.net

@@ -1,10 +1,17 @@
 # Created by: Randall Hopper <aa8vb@nc.rr.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	osg
 PORTVERSION=	3.6.5
 DISTVERSIONPREFIX=	OpenSceneGraph-
+<<<<<<< HEAD
 PORTREVISION=	18
+=======
+PORTREVISION=	20
+>>>>>>> upstream/main
 CATEGORIES=	graphics
 
 MAINTAINER=	amdmi3@FreeBSD.org
@@ -29,6 +36,11 @@ USE_GL=		gl
 USE_XORG=	x11
 USE_LDCONFIG=	yes
 
+<<<<<<< HEAD
+=======
+CFLAGS+=	-I${LOCALBASE}/include/Imath -DInt64=uint64_t
+
+>>>>>>> upstream/main
 PLIST_SUB=	OSG_VERSION=${PORTVERSION} \
 		OSG_SHLIBVER=161 \
 		OPENTHREADS_VERSION=3.3.1 \
@@ -88,7 +100,11 @@ LUA_VARS_OFF=		FORCE_IGNORE+="Lua51 Lua52"
 NVTT_LIB_DEPENDS=	libnvtt.so:graphics/nvidia-texture-tools
 NVTT_VARS=		FORCE_REQUIRE+=NVTT
 NVTT_VARS_OFF=		FORCE_IGNORE+=NVTT
+<<<<<<< HEAD
 OPENEXR_LIB_DEPENDS=	libIlmImf.so:graphics/openexr
+=======
+OPENEXR_LIB_DEPENDS=	libOpenEXR.so:graphics/openexr libImath.so:math/Imath
+>>>>>>> upstream/main
 OPENEXR_VARS=		FORCE_REQUIRE+=OpenEXR
 OPENEXR_VARS_OFF=	FORCE_IGNORE+=OpenEXR
 PDF_LIB_DEPENDS=	libpoppler-glib.so:graphics/poppler-glib

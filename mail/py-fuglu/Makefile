@@ -1,5 +1,8 @@
 # Created by: Kevin Golding <ports@caomhin.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fuglu
 PORTVERSION=	0.8.0

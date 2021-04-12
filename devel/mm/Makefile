@@ -1,5 +1,8 @@
 # Created by: Ralf S. Engelschall
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mm
 PORTVERSION=	1.4.2

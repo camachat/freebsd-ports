@@ -1,5 +1,8 @@
 # Created by: mbr@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mod_auth_mysql
 PORTVERSION=	3.0.0

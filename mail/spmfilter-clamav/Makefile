@@ -1,5 +1,8 @@
 # Created by: Axel Steiner <ast@treibsand.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	spmfilter-clamav
 PORTVERSION=	0.2.3

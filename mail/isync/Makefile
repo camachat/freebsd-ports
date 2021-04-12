@@ -1,5 +1,8 @@
 # Created by: eivind
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	isync
 PORTVERSION=	1.4.1

@@ -1,5 +1,8 @@
 # Created by: Jase Thew <freebsd@beardz.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	POE-Loop-Glib
 PORTVERSION=	0.038

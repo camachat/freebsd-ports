@@ -1,5 +1,8 @@
 # Created by: Michael Moll <kvedulv at kvedulv.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	coercible
 PORTVERSION=	1.0.0

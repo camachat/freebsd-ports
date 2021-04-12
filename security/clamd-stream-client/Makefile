@@ -1,5 +1,8 @@
 # Created by: glen.j.barber@gmail.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	clamd-stream-client
 DISTVERSION=	1.3

@@ -1,5 +1,8 @@
 # Created by: pat
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wmmaiload
 PORTVERSION=	2.3.0

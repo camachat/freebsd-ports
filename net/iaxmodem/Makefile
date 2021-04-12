@@ -1,5 +1,8 @@
 # Created by: Filippo Natali <filippo.natali@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	iaxmodem
 PORTVERSION=	1.2.0

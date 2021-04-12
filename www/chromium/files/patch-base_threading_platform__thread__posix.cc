@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- base/threading/platform_thread_posix.cc.orig	2020-11-13 06:36:34 UTC
+=======
+--- base/threading/platform_thread_posix.cc.orig	2021-03-12 23:57:15 UTC
+>>>>>>> upstream/main
 +++ base/threading/platform_thread_posix.cc
 @@ -32,6 +32,10 @@
  #include <sys/syscall.h>
@@ -18,14 +22,22 @@
 -#if defined(OS_LINUX) || defined(OS_CHROMEOS)
 +#if defined(OS_LINUX) || defined(OS_CHROMEOS) || defined(OS_BSD)
  
+<<<<<<< HEAD
  // Store the thread ids in local storage since calling the SWI can
+=======
+ // Store the thread ids in local storage since calling the SWI can be
+>>>>>>> upstream/main
  // expensive and PlatformThread::CurrentId is used liberally. Clear
 @@ -159,11 +163,11 @@ class InitAtFork {
    InitAtFork() { pthread_atfork(nullptr, nullptr, internal::ClearTidCache); }
  };
  
 -#endif  // defined(OS_LINUX) || defined(OS_CHROMEOS)
+<<<<<<< HEAD
 +#endif  // defined(OS_LINUX) || defined(OS_CHROMEOS) || defined(OS_BSSD)
+=======
++#endif  // defined(OS_LINUX) || defined(OS_CHROMEOS) || defined(OS_BSD)
+>>>>>>> upstream/main
  
  }  // namespace
  

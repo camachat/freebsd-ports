@@ -1,5 +1,8 @@
 # Created by: ndewing@experts-exchange.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mixlib-shellout
 PORTVERSION=	3.2.2

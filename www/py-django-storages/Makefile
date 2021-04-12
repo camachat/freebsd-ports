@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	django-storages
 PORTVERSION=	1.9.1
 CATEGORIES=	www python

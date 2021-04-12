@@ -1,5 +1,8 @@
 # Created by: Peter Pentchev <roam@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-Akismet
 PORTVERSION=	0.05

@@ -1,5 +1,8 @@
 # Created by: Jean-Yves Lefort <jylefort@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gnome_subr
 PORTVERSION=	1.0

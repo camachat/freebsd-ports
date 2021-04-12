@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	replex
 PORTVERSION=	0.1.6.8
 PORTEPOCH=	1

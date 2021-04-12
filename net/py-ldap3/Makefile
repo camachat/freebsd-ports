@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ldap3
 PORTVERSION=	2.8.1
 CATEGORIES=	net python

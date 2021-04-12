@@ -1,5 +1,8 @@
 # Created by: Alexander Moisseev <moiseev@mezonplus.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	backuppc
 PORTVERSION=	3.3.2

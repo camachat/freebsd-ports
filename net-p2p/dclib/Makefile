@@ -1,5 +1,8 @@
 # Created by: Sverrir Valgeirsson <e96sv@yahoo.se> and
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dclib
 PORTVERSION=	0.3.23

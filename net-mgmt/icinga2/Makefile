@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	icinga2
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.12.3

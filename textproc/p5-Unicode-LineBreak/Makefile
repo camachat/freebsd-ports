@@ -1,5 +1,8 @@
 # Created by: Olivier Girard <Olivier.Girard@univ-angers.fr>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Unicode-LineBreak
 PORTVERSION=	2019.001

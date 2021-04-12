@@ -1,5 +1,8 @@
 # Created by: oyvindmo@initio.no
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ripit
 PORTVERSION=	3.9.0

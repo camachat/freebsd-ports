@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	zsh-syntax-highlighting
 DISTVERSION=	0.7.1
 PORTEPOCH=	1

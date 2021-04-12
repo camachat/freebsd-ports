@@ -1,5 +1,8 @@
 # Created by: asmith
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sem
 PORTVERSION=	0.0.2

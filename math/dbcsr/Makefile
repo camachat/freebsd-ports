@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dbcsr
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.0.1

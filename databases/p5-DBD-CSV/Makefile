@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	DBD-CSV
 PORTVERSION=	0.57
 PORTEPOCH=	1

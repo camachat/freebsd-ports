@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	micropython
 PORTVERSION=	1.5.1
 DISTVERSIONPREFIX=	v

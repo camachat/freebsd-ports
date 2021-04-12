@@ -1,5 +1,8 @@
 # Created by: squell@alumina.nl
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	id3mtag
 PORTVERSION=	0.80

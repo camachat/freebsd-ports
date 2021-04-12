@@ -1,9 +1,16 @@
 # Created by: markm@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	exim
 PORTVERSION?=	${EXIM_VERSION}
 PORTREVISION?=	4
+=======
+
+PORTNAME=	exim
+PORTVERSION?=	${EXIM_VERSION}
+PORTREVISION?=	5
+>>>>>>> upstream/main
 CATEGORIES=	mail
 MASTER_SITES=	EXIM:exim
 MASTER_SITE_SUBDIR=	/exim4/:exim \

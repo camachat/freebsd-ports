@@ -1,5 +1,8 @@
 # Created by: Aaron VonderHaar <avh4@usa.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gnurobots
 PORTVERSION=	1.2.0

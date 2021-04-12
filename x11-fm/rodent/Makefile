@@ -1,5 +1,8 @@
 # Created by: Jens K. Loewe <bsd@tuxproject.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rodent
 PORTVERSION=	5.3.16.3

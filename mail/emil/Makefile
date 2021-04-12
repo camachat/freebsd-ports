@@ -1,5 +1,8 @@
 # Created by: Josh Gilliam <josh@quick.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	emil
 PORTVERSION=	2.1b9

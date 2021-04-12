@@ -1,5 +1,8 @@
 # Created by: George V. Neville-Neil <gnn@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	uftp
 PORTVERSION=	5.0

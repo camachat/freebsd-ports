@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	coredns
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.8.3

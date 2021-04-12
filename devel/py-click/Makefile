@@ -1,5 +1,8 @@
 # Created by: Bartek Rutkowski <ports@robakdesign.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	click
 PORTVERSION=	7.1.2

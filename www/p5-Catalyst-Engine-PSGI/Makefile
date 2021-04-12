@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Catalyst-Engine-PSGI
 PORTVERSION=	0.14
 CATEGORIES=	www perl5

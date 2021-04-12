@@ -1,5 +1,8 @@
 # Created by: Alex Kapranoff <kapr@crosswinds.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HTML-Clean
 PORTVERSION=	1.4

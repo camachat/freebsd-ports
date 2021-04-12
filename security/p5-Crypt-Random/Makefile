@@ -1,5 +1,8 @@
 # Created by: Michael Haro <mharo@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Crypt-Random
 PORTVERSION=	1.52

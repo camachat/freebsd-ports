@@ -1,5 +1,8 @@
 # Created by: Rihaz Jerrin <rihaz.jerrin@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cisco-torch
 PORTVERSION=	0.4

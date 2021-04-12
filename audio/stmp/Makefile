@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	stmp
 PORTVERSION=	0.0.2
 CATEGORIES=	audio

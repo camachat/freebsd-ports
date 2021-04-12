@@ -1,5 +1,8 @@
 # Created by: Yuri Victorovich <yuri@tsoft.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	timbl
 DISTVERSIONPREFIX=	v

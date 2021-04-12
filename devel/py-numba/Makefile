@@ -1,5 +1,8 @@
 # Created by: David Kalliecharan <dave@dal.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	numba
 DISTVERSION=	0.51.2

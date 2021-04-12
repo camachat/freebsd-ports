@@ -1,10 +1,17 @@
 # Created by: Yinghong.Liu <relaxbsd@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	synfigstudio
 PORTVERSION=	1.2.2
 DISTVERSIONPREFIX=v
+<<<<<<< HEAD
 PORTREVISION=	10
+=======
+PORTREVISION=	11
+>>>>>>> upstream/main
 CATEGORIES=	graphics multimedia
 
 MAINTAINER=	woodsb02@FreeBSD.org
@@ -14,8 +21,13 @@ LICENSE=	GPLv2+
 
 BUILD_DEPENDS=	etl>=1.2.2:devel/etl \
 		gsed:textproc/gsed
+<<<<<<< HEAD
 LIB_DEPENDS=	libHalf.so:graphics/ilmbase \
 		libIlmImf.so:graphics/openexr \
+=======
+LIB_DEPENDS=	libImath.so:math/Imath \
+		libOpenEXR.so:graphics/openexr \
+>>>>>>> upstream/main
 		libMagick++-6.so:graphics/ImageMagick6 \
 		libfftw3.so:math/fftw3 \
 		libfontconfig.so:x11-fonts/fontconfig \

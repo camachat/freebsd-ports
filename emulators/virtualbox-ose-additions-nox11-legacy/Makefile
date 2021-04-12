@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PKGNAMESUFFIX=	-additions-nox11-legacy
 
 OPTIONS_EXCLUDE=	DBUS DEBUG OPENGL X11

@@ -1,5 +1,8 @@
 # Created by: Philip Paeps <philip@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Roman
 PORTVERSION=	1.24

@@ -1,5 +1,8 @@
 # Created by: ports@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libexif-gtk
 PORTVERSION=	0.5.0

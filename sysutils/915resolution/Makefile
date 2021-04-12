@@ -1,5 +1,8 @@
 # Created by: Remington Lang <MrL0Lz@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	915resolution
 PORTVERSION=	0.5.3

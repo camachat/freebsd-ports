@@ -1,5 +1,8 @@
 # Created by: Brent J. Nordquist <bjn@visi.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cgiwrap
 PORTVERSION=	4.1

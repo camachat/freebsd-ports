@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fslsfonts
 PORTVERSION=	1.0.5
 CATEGORIES=	x11-fonts

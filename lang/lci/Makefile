@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	lci
 PORTVERSION=	0.11.2
 DISTVERSIONPREFIX=	v

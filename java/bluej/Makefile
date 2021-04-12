@@ -1,5 +1,8 @@
 # Created by: Jeremy <karlj000@unbc.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bluej
 PORTVERSION=	4.2.2

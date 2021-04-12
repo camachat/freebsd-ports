@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	traefik2
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.2.0

@@ -1,5 +1,8 @@
 # Created by: Vidar Karlsen <vidar@karlsen.tech>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	crunch
 PORTVERSION=	3.6

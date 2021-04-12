@@ -1,5 +1,8 @@
 # Created by: giffunip@asme.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lzo2
 PORTVERSION=	2.10

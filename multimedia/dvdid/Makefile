@@ -1,5 +1,8 @@
 # Created by: Christopher Key <cjk32@cam.ac.uk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dvdid
 PORTVERSION=	0.2.0a

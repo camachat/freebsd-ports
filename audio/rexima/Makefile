@@ -1,5 +1,8 @@
 # Created by: Jerry Eriksson <jerry@freebsd.se>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rexima
 PORTVERSION=	1.4

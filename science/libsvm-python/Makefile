@@ -1,5 +1,8 @@
 # Created by: rafan@infor.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTREVISION=	1
 PKGNAMESUFFIX=	-python

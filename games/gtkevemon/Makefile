@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gtkevemon
 PORTVERSION=	1.10.2016.02.17
 PORTREVISION=	4

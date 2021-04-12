@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rblineprof
 PORTVERSION=	0.3.7
 CATEGORIES=	devel rubygems

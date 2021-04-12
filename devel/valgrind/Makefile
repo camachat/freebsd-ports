@@ -1,4 +1,5 @@
 # Created by: Simon Barner <barner@gmx.de>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	valgrind
@@ -26,6 +27,43 @@ CONFLICTS=	valgrind-devel-[0-9]*
 ONLY_FOR_ARCHS=	i386 amd64
 
 LIB32_PATH?=	${DESTDIR}/usr/lib32/libc.so
+=======
+
+PORTNAME=	valgrind
+PORTVERSION=	3.17.0.g20210319
+DISTVERSIONPREFIX=	freebsd-
+#PORTREVISION=	0
+PORTEPOCH=	1
+CATEGORIES=	devel
+MASTER_SITES=	https://valgrind.org/
+
+MAINTAINER=	pjfloyd@wanadoo.fr
+COMMENT=	Memory debugging and profiling tool
+
+LICENSE=	GPLv2
+LICENSE_FILE=	${WRKSRC}/COPYING
+
+ONLY_FOR_ARCHS=	amd64 i386
+
+USES=		pathfix pkgconfig gmake perl5 shebangfix autoreconf
+USE_PERL5=	build
+
+GNU_CONFIGURE=	yes
+SHEBANG_FILES=	callgrind/callgrind_annotate.in callgrind/callgrind_control.in
+SSP_UNSAFE=	yes
+LIB32_PATH?=	/usr/lib32/libc.so
+
+CONFLICTS=	valgrind-[0-9]*
+
+USE_GITHUB=	yes
+GH_ACCOUNT=	paulfloyd
+GH_PROJECT=	freebsd_valgrind
+GH_TAGNAME=	d333c54
+
+CONFIGURE_ENV+=	ac_cv_path_PERL=${PERL}
+
+PORTDOCS=	html
+>>>>>>> upstream/main
 
 OPTIONS_DEFINE=		DOCS MANPAGES MPI
 OPTIONS_DEFINE_amd64=	32BIT
@@ -33,6 +71,7 @@ OPTIONS_DEFAULT=	MANPAGES
 .if exists(${LIB32_PATH})
 OPTIONS_DEFAULT_amd64=	32BIT
 .endif
+<<<<<<< HEAD
 32BIT_DESC=	Enable debugging of 32-bit programs (requires lib32)
 MPI_DESC=	Enable build of MPI wrappers
 
@@ -69,6 +108,23 @@ EXTRA_PATCHES+=	${FILESDIR}/extra-patch-ino64:-p1
 
 .if ${ARCH} == "amd64"
 PLIST_SUB+=	AMD64="" ARCH=amd64
+=======
+OPTIONS_SUB=	yes
+
+32BIT_DESC=	Enable debugging of 32-bit programs (requires lib32)
+MPI_DESC=	Enable build of MPI wrappers
+
+DOCS_BUILD_DEPENDS=	docbook-xsl>=0:textproc/docbook-xsl \
+			xsltproc:textproc/libxslt
+MANPAGES_BUILD_DEPENDS=	docbook-xsl>=0:textproc/docbook-xsl \
+			xsltproc:textproc/libxslt
+MPI_LIB_DEPENDS=	libmpich.so:net/mpich
+
+.include <bsd.port.options.mk>
+
+.if ${ARCH} == "amd64"
+PLIST_SUB+=	AMD64=""
+>>>>>>> upstream/main
 . if !${PORT_OPTIONS:M32BIT}
 CONFIGURE_ARGS+=	--enable-only64bit
 PLIST_SUB+=	X86="@comment "
@@ -80,8 +136,13 @@ distribution or run 'make config' and uncheck 32BIT option
 PLIST_SUB+=	X86=""
 . endif
 .else
+<<<<<<< HEAD
 PLIST_SUB+=	X86="" ARCH=x86
 PLIST_SUB+=	AMD64="@comment "
+=======
+PLIST_SUB+=	AMD64="@comment "
+PLIST_SUB+=	X86=""
+>>>>>>> upstream/main
 .endif
 
 .if !${PORT_OPTIONS:MDOCS}

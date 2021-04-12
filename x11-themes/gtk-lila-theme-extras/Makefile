@@ -1,5 +1,8 @@
 # Created by: Filippo Natali <filippo@widestore.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gtk-lila-theme-extras
 PORTVERSION=	0.4.5

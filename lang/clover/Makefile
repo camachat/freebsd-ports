@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	clover
 PORTVERSION=	${MESAVERSION}
 CATEGORIES=	lang

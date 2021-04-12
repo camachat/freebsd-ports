@@ -1,5 +1,8 @@
 # Created by: Rink Springer <rink@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ClearSilver
 PORTVERSION=	0.10.5

@@ -1,5 +1,8 @@
 # Created by: lance@evitel.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gnu-radius
 PORTVERSION=	1.6.1

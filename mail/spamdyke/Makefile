@@ -1,5 +1,8 @@
 # Created by: Peter Kieser <peter@kieser.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	spamdyke
 PORTVERSION=	5.0.1

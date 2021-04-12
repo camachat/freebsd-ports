@@ -1,5 +1,8 @@
 # Created by: Dominic Mitchell <dom@happygiraffe.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libvorbis
 PORTVERSION=	0.05

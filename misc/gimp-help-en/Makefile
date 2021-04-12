@@ -1,5 +1,8 @@
 # Created by: SimaMoto,RyoTa <liangtai.s4@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gimp-help
 PORTVERSION=	2.10.0

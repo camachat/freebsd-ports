@@ -1,5 +1,8 @@
 # Created by: milki <milki@rescomp.berkeley.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	edavis10-object_daddy
 PORTVERSION=	0.4.3

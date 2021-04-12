@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # Provide support for Xfce related ports.
 #
 # Feature:	xfce

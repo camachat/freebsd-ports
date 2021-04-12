@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	rspamd
 PORTVERSION=	2.7
+=======
+PORTNAME=	rspamd
+PORTVERSION=	2.7
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	mail
 
 MAINTAINER=	vsevolod@FreeBSD.org

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # This file contains logic to ease porting of Go binaries using the
 # `go` command.
 #

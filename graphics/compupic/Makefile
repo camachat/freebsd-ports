@@ -1,5 +1,8 @@
 # Created by: Abel Chow <ozsanh45vds001@sneakemail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	compupic
 PORTVERSION=	5.1.1063

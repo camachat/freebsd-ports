@@ -1,5 +1,8 @@
 # Created by: Cy Schubert <cy@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	zetaback
 DISTVERSION=	${ZETABACK_COMMIT_DATE}

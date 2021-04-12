@@ -1,5 +1,8 @@
 # Created by: janek
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME?=	x3270
 PORTVERSION=	4.0

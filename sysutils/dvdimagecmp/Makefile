@@ -1,5 +1,8 @@
 # Created by: Tim Welch <ports@thepentagon.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dvdimagecmp
 PORTVERSION=	0.3

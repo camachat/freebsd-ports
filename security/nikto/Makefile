@@ -1,5 +1,8 @@
 # Created by: pandzilla
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nikto
 PORTVERSION=	2.1.6

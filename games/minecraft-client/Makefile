@@ -1,5 +1,8 @@
 # Created by: Martin Kropfinger
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	minecraft-client
 PORTVERSION=	1.7.9

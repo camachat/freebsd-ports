@@ -1,6 +1,9 @@
 #!/bin/sh
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 
 # PROVIDE: dkfilter_out
 # REQUIRE: LOGIN

@@ -1,5 +1,8 @@
 # Created by: gelf
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fte
 PORTVERSION=	20110708

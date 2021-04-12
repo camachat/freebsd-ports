@@ -1,5 +1,8 @@
 # Created by: Jon Wilson <jon@phuq.co.uk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	am-utils
 PORTVERSION=	6.2

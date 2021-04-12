@@ -1,5 +1,8 @@
 # Created by: Oleksii Tsai <oleksii.tsai@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	LLnextgen
 PORTVERSION=	0.5.5

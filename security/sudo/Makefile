@@ -1,5 +1,8 @@
 # Created by: erich@rrnet.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sudo
 PORTVERSION=	1.9.6p1
@@ -19,7 +22,10 @@ CPE_VENDOR=	todd_miller
 USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
 LDFLAGS+=	-lgcc
+<<<<<<< HEAD
 LDFLAGS+=	-Wl,-rpath,${PREFIX}/libexec/sudo
+=======
+>>>>>>> upstream/main
 
 CONFIGURE_ARGS=	--sysconfdir=${PREFIX}/etc \
 		--with-ignore-dot \

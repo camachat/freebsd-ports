@@ -1,5 +1,8 @@
 # Created by: Stefan Zehl <sec@42.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wmx
 PORTVERSION=	8

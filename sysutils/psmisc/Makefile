@@ -1,5 +1,8 @@
 # Created by: rantapaa@uswest.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	psmisc
 PORTVERSION=	22.16

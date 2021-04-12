@@ -1,6 +1,9 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 cd %%DATADIR%%
 "%%LOCALBASE%%/bin/java" -Xmx1000m -Xss1m -cp .:doc:bin run.Impact "$@"

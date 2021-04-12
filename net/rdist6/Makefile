@@ -1,5 +1,8 @@
 # Created by: peter
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rdist
 PORTVERSION=	6.1.5

@@ -1,5 +1,8 @@
 # Created by: Dryice Liu	<dryice@dryice.name>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Paste
 PORTVERSION=	3.4.6

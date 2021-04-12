@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
 
+=======
+>>>>>>> upstream/main
     COMMENT = System utilities
 
     SUBDIR += 3dm
@@ -214,7 +217,10 @@
     SUBDIR += coreos-ct
     SUBDIR += coreutils
     SUBDIR += cpdup
+<<<<<<< HEAD
     SUBDIR += cpu
+=======
+>>>>>>> upstream/main
     SUBDIR += cpu-x
     SUBDIR += cpuburn
     SUBDIR += cpuid
@@ -621,7 +627,10 @@
     SUBDIR += logrotate
     SUBDIR += logstalgia
     SUBDIR += logstash-forwarder
+<<<<<<< HEAD
     SUBDIR += logstash5
+=======
+>>>>>>> upstream/main
     SUBDIR += logstash6
     SUBDIR += logstash7
     SUBDIR += logtool
@@ -1306,7 +1315,10 @@
     SUBDIR += sysinfo
     SUBDIR += syslinux
     SUBDIR += syslog-ng
+<<<<<<< HEAD
     SUBDIR += syslog-ng327
+=======
+>>>>>>> upstream/main
     SUBDIR += syslogger
     SUBDIR += sysrc
     SUBDIR += sysvbanner

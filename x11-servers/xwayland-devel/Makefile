@@ -1,9 +1,16 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	xwayland
 DISTVERSIONPREFIX=	xorg-server-
 DISTVERSION=	1.20.0-877
 DISTVERSIONSUFFIX=	-g1b7dca27e
+=======
+PORTNAME=	xwayland
+DISTVERSIONPREFIX=	xorg-server-
+DISTVERSION=	1.20.0-906
+DISTVERSIONSUFFIX=	-g66ce61983
+>>>>>>> upstream/main
 CATEGORIES=	x11-servers
 PKGNAMESUFFIX=	-devel
 

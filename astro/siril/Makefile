@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	siril
 DISTVERSION=	0.99.8.1
 CATEGORIES=	astro graphics

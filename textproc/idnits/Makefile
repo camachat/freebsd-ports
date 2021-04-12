@@ -1,5 +1,8 @@
 # Created by: fenner@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	idnits
 PORTVERSION=	2.16.05

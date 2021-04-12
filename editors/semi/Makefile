@@ -1,5 +1,8 @@
 # Created by: Shigeyuki FUKUSHIMA <shige@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	semi
 PORTVERSION=	${SEMI_VER}.${SNAPDATE}

@@ -1,5 +1,8 @@
 # Created by: Ju Pengfei <jupengfei@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pynn
 PORTVERSION=	0.9.6

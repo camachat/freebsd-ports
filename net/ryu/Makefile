@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ryu
 PORTVERSION=	4.26
 DISTVERSIONPREFIX=	v

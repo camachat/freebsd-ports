@@ -1,5 +1,8 @@
 # Created by: Wes Peters <wes@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	obliterate
 PORTVERSION=	0.5

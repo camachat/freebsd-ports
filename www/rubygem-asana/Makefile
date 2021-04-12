@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	asana
 PORTVERSION=	0.10.3
 CATEGORIES=	www rubygems

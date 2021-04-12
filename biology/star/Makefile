@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	STAR
 DISTVERSION=	2.7.3a
 PORTREVISION=	1

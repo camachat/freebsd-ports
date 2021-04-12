@@ -1,5 +1,8 @@
 # Created by: Craig Leres <leres@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	arduino-irremote
 PORTVERSION=	2.8.1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	verilator
 DISTVERSION=	4.200
 CATEGORIES=	cad

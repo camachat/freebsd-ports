@@ -1,5 +1,8 @@
 # Created by: Stephen Montgomery-Smith <stephen@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	octave-forge-netcdf
 PORTVERSION=	1.0.14

@@ -1,5 +1,8 @@
 # Created by: Jose Garcia Juanino <jjuanino@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	powerarchitect
 PORTVERSION=	1.0.8

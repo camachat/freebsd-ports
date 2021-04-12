@@ -1,5 +1,8 @@
 # Created by: chuckr
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	itk
 PORTVERSION=	3.3

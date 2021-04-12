@@ -1,5 +1,8 @@
 # Created by: peter.thoenen@yahoo.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tor
 DISTVERSION=	0.4.5.7

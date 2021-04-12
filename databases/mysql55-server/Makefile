@@ -1,5 +1,8 @@
 # Created by: Alex Dupre <ale@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME?=	mysql
 PORTVERSION=	5.5.62
@@ -98,6 +101,13 @@ CMAKE_ARGS+=	-DWITH_EMBEDDED_SERVER="ON"
 post-patch:
 	@${REINPLACE_CMD} 's/*.1/${MMAN1}/' ${WRKSRC}/man/CMakeLists.txt
 
+<<<<<<< HEAD
+=======
+post-install:
+	# Empty directory, but check-plist complains
+	@${RMDIR} ${STAGEDIR}${PREFIX}/info || ${TRUE}
+	
+>>>>>>> upstream/main
 .include <bsd.port.pre.mk>
 
 .if ${ARCH} == armv6 || ${ARCH} == armv7

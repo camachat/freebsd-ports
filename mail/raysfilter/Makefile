@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	raysfilter
 PORTVERSION=	1.14
 PORTREVISION=	2

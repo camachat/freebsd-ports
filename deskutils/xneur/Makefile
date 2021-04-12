@@ -1,5 +1,8 @@
 # Created by: Alex "lissyara" Keda <admin@lissyara.su>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xneur
 PORTVERSION=	0.20.0

@@ -1,5 +1,8 @@
 # Created by: Jim Geovedi <jim@corebsd.or.id>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Crypt-Blowfish_PP
 PORTVERSION=	1.12

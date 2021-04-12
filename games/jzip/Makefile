@@ -1,5 +1,8 @@
 # Created by: Matthew Hunt <mph@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jzip
 PORTVERSION=	2.0.1g

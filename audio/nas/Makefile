@@ -1,5 +1,8 @@
 # Created by: jkh
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nas
 PORTVERSION=	1.9.4

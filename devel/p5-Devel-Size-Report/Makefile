@@ -1,5 +1,8 @@
 # Created by: Alexey V. Degtyarev
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Devel-Size-Report
 PORTVERSION=	0.13

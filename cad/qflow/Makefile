@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	qflow
 DISTVERSION=	1.4.95
 CATEGORIES=	cad

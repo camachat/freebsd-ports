@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Tk-Clock
 PORTVERSION=	0.41
 CATEGORIES=	x11-clocks perl5 tk

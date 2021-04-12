@@ -1,5 +1,8 @@
 # Created by: luigi@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	busybox
 PORTVERSION=	1.32.1

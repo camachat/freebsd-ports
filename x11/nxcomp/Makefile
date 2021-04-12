@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	nxcomp
 PORTVERSION=	3.5.0.32
 PORTREVISION=	2

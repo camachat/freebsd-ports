@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	webbrowser
 PORTVERSION=	0.3
 CATEGORIES=	www

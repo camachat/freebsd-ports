@@ -1,9 +1,16 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	openvdb
 DISTVERSIONPREFIX=	v
 DISTVERSION=	8.0.1
 PORTREVISION=	1
+=======
+PORTNAME=	openvdb
+DISTVERSIONPREFIX=	v
+DISTVERSION=	8.0.1
+PORTREVISION=	2
+>>>>>>> upstream/main
 CATEGORIES=	misc
 
 MAINTAINER=	yuri@FreeBSD.org
@@ -14,7 +21,11 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 LIB_DEPENDS=	libblosc.so:archivers/c-blosc \
 		libboost_system.so:devel/boost-libs \
+<<<<<<< HEAD
 		libHalf.so:graphics/ilmbase \
+=======
+		libImath.so:math/Imath \
+>>>>>>> upstream/main
 		libtbb.so:devel/tbb
 
 USES=		cmake compiler:c++11-lang localbase:ldflags pkgconfig
@@ -40,7 +51,11 @@ TOOLS_DESC=		Build CLI tools
 TOOLS_CMAKE_BOOL=	OPENVDB_BUILD_BINARIES OPENVDB_BUILD_VDB_LOD \
 			OPENVDB_BUILD_VDB_RENDER OPENVDB_BUILD_VDB_VIEW
 TOOLS_LIB_DEPENDS=	libglfw.so:graphics/glfw \
+<<<<<<< HEAD
 			libIlmImf.so:graphics/openexr
+=======
+			libOpenEXR.so:graphics/openexr
+>>>>>>> upstream/main
 TOOLS_USES=		gl xorg
 TOOLS_USE=		GL=gl,glu XORG=ice,sm,x11,xcursor,xext,xi,xinerama,xrandr,xxf86vm
 

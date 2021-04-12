@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	chaospy
 DISTVERSION=	4.2.4
 CATEGORIES=	math python

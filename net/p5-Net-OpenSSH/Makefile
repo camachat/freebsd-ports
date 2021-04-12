@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Net-OpenSSH
 PORTVERSION=	0.80
 CATEGORIES=	net perl5

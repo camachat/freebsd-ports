@@ -1,5 +1,8 @@
 # Created by: Alex Bakhtin <Alex.Bakhtin@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	AnyEvent-MQTT
 PORTVERSION=	1.142640

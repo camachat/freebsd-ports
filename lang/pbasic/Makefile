@@ -1,5 +1,8 @@
 # Created by: Julian H. Stacey <jhs@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pbasic
 PORTVERSION=	2.1

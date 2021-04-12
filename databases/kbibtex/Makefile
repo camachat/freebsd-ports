@@ -1,9 +1,16 @@
 # Created by: Markus Brueffer <markus@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	kbibtex
 DISTVERSION=	0.9.2
 PORTREVISION=	12
+=======
+
+PORTNAME=	kbibtex
+DISTVERSION=	0.9.2
+PORTREVISION=	13
+>>>>>>> upstream/main
 CATEGORIES=	databases kde
 MASTER_SITES=	KDE/stable/KBibTeX/${DISTVERSION}
 

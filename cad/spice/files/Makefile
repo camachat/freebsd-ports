@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 all:
 	${SH} util/build FreeBSD default
 

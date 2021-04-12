@@ -1,5 +1,8 @@
 # Created by: Byung-Hee HWANG <bh@izb.knu.ac.kr>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mutagen
 PORTVERSION=	1.42.0

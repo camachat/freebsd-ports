@@ -1,5 +1,8 @@
 # Created by: Marc G. Fournier <scrappy@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 DISTVERSION?=	9.5.25
 # PORTREVISION must be ?= otherwise, all slave ports get this PORTREVISION and

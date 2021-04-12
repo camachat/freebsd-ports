@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libevhtp
 PORTVERSION=	1.2.16
 PORTREVISION=	4

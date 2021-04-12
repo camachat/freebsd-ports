@@ -1,5 +1,8 @@
 # Created by: Kiyoshi Matsui <kmatsui@t3.rim.or.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mcpp
 PORTVERSION=	2.7.2

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dua-cli
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.11.1

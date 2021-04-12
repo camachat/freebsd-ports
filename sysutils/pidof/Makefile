@@ -1,5 +1,8 @@
 # Created by: Roman Bogorodskiy <novel@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pidof
 PORTVERSION=	20050501

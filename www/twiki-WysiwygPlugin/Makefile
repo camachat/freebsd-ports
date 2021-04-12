@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	WysiwygPlugin
 SVNREV=		17720
 PORTREVISION=	1

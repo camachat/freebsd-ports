@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	recon
 PORTVERSION=	2.4.0
 CATEGORIES=	devel

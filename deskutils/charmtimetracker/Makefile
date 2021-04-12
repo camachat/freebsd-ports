@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	charmtimetracker
 DISTVERSION=	1.12.0
 PORTREVISION=	4

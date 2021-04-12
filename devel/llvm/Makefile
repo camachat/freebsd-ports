@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	llvm
 PORTVERSION=	${LLVM_DEFAULT}
 PORTREVISION=	0

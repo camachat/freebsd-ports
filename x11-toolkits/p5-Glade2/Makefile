@@ -1,5 +1,8 @@
 # Created by: ports@c0decafe.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Glade
 PORTVERSION=	1.007

@@ -1,5 +1,8 @@
 # Created by: Brad Jones <brad@kazrak.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Term-Size
 PORTVERSION=	0.207

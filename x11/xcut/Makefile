@@ -1,5 +1,8 @@
 # Created by: Cy Schubert <Cy.Schubert@uumail.gov.bc.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xcut
 PORTVERSION=	0.2

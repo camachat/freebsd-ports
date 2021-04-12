@@ -1,5 +1,8 @@
 # Created by: Oliver Lehmann <oliver@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hpl
 DISTVERSION=	2.3

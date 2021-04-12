@@ -1,5 +1,8 @@
 # Created by: Jean-Yves Lefort <jylefort@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	flightgear-aircraft
 PORTVERSION=	20190826

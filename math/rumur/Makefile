@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rumur
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2020.12.20

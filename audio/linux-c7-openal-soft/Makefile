@@ -1,5 +1,8 @@
 # Created by: Piotr Kubaj <emulation@FreeBSD.org$
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	openal-soft
 PORTVERSION=	1.16.0

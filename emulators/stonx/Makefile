@@ -1,5 +1,8 @@
 # Created by: Tobias Reifenberger <tr@freebsd.mayn.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	stonx
 PORTVERSION=	0.6.7e.6

@@ -1,5 +1,8 @@
 # Created by: rv@gnu.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cons
 PORTVERSION=	2.2.0

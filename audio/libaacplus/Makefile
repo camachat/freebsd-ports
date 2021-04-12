@@ -1,5 +1,8 @@
 # Created by: takefu <takefu@airport.fm>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libaacplus
 PORTVERSION=	2.0.2

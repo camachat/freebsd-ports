@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libretro-beetle_ngp
 PORTVERSION=	0.20210214
 CATEGORIES=	games

@@ -1,5 +1,8 @@
 # Created by: Zane C. Bowers-Hadley <vvelox@vvelox.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-Connection-ncnetstat
 PORTVERSION=	0.7.1

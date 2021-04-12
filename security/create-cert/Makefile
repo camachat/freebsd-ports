@@ -1,5 +1,8 @@
 # Created by: Craig Leres <leres@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	create-cert
 PORTVERSION=	2.9

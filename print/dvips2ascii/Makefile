@@ -1,5 +1,8 @@
 # Created by: eserte@cs.tu-berlin.de
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dvips2ascii
 PORTVERSION=	1.3

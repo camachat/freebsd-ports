@@ -1,5 +1,8 @@
 # Created by: Pawel Pekala <pawel@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	faenza
 PORTVERSION=	1.3.1

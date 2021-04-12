@@ -1,5 +1,8 @@
 # Created by: Sunpoet Po-Chuan Hsieh <sunpoet@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 #
 # If you have compelling evidence that some ports need at least this version of
 # p5-Module-Build-Tiny to build, be sure to update the BUILD_DEPENDS version in

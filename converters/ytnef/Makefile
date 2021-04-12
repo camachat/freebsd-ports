@@ -1,5 +1,8 @@
 # Created by: Rodrigo Graeff <delphus@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ytnef
 PORTVERSION=	1.9.3

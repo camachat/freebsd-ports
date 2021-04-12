@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	symbola
 PORTVERSION=	12
 CATEGORIES=	x11-fonts

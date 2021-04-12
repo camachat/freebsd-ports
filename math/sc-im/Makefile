@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=		sc-im
 DISTVERSIONPREFIX=	v
 DISTVERSION=		0.8.0
+=======
+PORTNAME=		sc-im
+DISTVERSIONPREFIX=	v
+DISTVERSION=		0.8.1
+>>>>>>> upstream/main
 CATEGORIES=		math
 
 MAINTAINER=	bapt@FreeBSD.org

@@ -1,5 +1,8 @@
 # Created by: nils@guru.ims.uni-stuttgart.de
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dmake
 PORTVERSION=	4.13.1

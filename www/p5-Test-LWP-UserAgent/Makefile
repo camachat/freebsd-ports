@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Test-LWP-UserAgent
 PORTVERSION=	0.030
 CATEGORIES=	www perl5

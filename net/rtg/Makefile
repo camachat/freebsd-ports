@@ -1,5 +1,8 @@
 # Created by: Brad Davis <so14k@so14k.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rtg
 PORTVERSION=	0.7.5

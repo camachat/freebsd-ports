@@ -1,5 +1,8 @@
 # Created by: Vasil Dimov <vd@datamax.bg>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	portsearch
 PORTVERSION=	1.3.5

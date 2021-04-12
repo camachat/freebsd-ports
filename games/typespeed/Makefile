@@ -1,5 +1,8 @@
 # Created by: refugee
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	typespeed
 PORTVERSION=	0.6.5

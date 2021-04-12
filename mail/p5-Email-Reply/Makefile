@@ -1,5 +1,8 @@
 # Created by: Kay Abendroth <kay.abendroth@raxion.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Email-Reply
 PORTVERSION=	1.204

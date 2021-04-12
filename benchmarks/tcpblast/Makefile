@@ -1,5 +1,8 @@
 # Created by: mr
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tcpblast
 PORTVERSION=	1.1

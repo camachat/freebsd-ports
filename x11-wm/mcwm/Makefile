@@ -1,5 +1,8 @@
 # Created by: Jakub Lach <jakub_lach@mailplus.pl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mcwm
 PORTVERSION=	20130209

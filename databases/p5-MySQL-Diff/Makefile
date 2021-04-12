@@ -1,5 +1,8 @@
 # Created by: Andrew McNaughton <andrew@scoop.co.nz>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	MySQL-Diff
 PORTVERSION=	0.50

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	web-mode
 PORTVERSION=	15.1
 DISTVERSIONPREFIX=	v

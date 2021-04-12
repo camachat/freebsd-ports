@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	DBIx-Class-InflateColumn-Authen-Passphrase
 PORTVERSION=	0.01
 PORTREVISION=	1

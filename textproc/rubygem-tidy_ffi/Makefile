@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tidy_ffi
 PORTVERSION=	0.1.6
 CATEGORIES=	textproc rubygems

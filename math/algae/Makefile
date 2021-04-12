@@ -1,5 +1,8 @@
 # Created by: Michael Neumann <mneumann@ntecs.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	algae
 PORTVERSION=	4.3.6

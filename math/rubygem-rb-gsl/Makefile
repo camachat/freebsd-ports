@@ -1,5 +1,8 @@
 # Created by: Shin-ya MURAKAMI <murashin@gfd-dennou.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gsl
 PORTVERSION=	2.1.0.2

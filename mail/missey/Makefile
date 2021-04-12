@@ -1,5 +1,8 @@
 # Created by: delphij@FreeBSD.org.cn
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	missey
 PORTVERSION=	1.2.0

@@ -1,5 +1,8 @@
 # Created by: Hye-Shik Chang
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lzma
 PORTVERSION=	0.5.0

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Date_Holidays_USA
 PORTVERSION=	0.1.1
 PORTREVISION=	1

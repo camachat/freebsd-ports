@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	textql
 PORTVERSION=	g20200203
 PORTREVISION=	1

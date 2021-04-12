@@ -3,7 +3,11 @@
 # FreeBSD-specific startup script for Eclipse Platform
 #
 # See: http://www.eclipse.org
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+
+>>>>>>> upstream/main
 JAVA_VERSION="%%JAVA_VERSION%%" exec %%DATADIR%%/eclipse "$@"

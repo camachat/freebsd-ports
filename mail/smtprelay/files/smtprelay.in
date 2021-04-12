@@ -1,7 +1,11 @@
 #!/bin/sh
 #
 # PROVIDE: smtprelay
+<<<<<<< HEAD
 # REQUIRE: networking
+=======
+# REQUIRE: NETWORKING
+>>>>>>> upstream/main
 
 . /etc/rc.subr
 

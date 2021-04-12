@@ -1,5 +1,8 @@
 # Created by: Rod Taylor <ports@rbt.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Geo-Distance
 PORTVERSION=	0.25

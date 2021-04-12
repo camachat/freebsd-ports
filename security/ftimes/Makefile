@@ -1,5 +1,8 @@
 # Created by: Klayton Monroe <klm@uidzero.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		ftimes
 PORTVERSION=		3.11.0

@@ -1,5 +1,8 @@
 # Created by: Andras Horvath <han@log69.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	aaphoto
 PORTVERSION=	0.43.1

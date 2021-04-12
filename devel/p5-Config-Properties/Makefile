@@ -1,5 +1,8 @@
 # Created by: Craig Manley
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Config-Properties
 PORTVERSION=	1.80

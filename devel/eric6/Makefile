@@ -1,5 +1,8 @@
 # Created by: Boris Samorodov <bsam@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 .include "${.CURDIR}/../../devel/eric6/bsd.eric6.mk"
 

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	benford_py
 DISTVERSION=	0.3.3
 CATEGORIES=	math python

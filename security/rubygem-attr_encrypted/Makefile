@@ -1,5 +1,8 @@
 # Created by: Torsten Zuhlsdorff <ports@toco-domains.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	attr_encrypted
 PORTVERSION=	3.1.0

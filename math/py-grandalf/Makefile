@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	grandalf
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.7

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	airborne
 PORTVERSION=	0.3.6
 CATEGORIES=	devel rubygems

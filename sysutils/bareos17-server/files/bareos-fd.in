@@ -1,7 +1,11 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD: head/sysutils/bacula5-server/files/bacula-fd.in 323275 2013-07-19 09:44:58Z rm $
 #
+=======
+
+>>>>>>> upstream/main
 # PROVIDE: bareos_fd
 # REQUIRE: DAEMON
 # KEYWORD: shutdown

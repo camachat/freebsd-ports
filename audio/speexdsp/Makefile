@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	speexdsp
 DISTVERSION=	1.2.0
 CATEGORIES=	audio

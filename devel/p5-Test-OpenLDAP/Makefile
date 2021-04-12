@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Test-OpenLDAP
 PORTVERSION=	0.05
 PORTREVISION=	5

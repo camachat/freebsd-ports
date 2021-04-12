@@ -1,5 +1,8 @@
 # Created by: Loïc BARTOLETTI
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pgmodeler
 PORTVERSION=	0.9.3

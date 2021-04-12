@@ -1,5 +1,8 @@
 # Created by: Dominic Marks <dom@goodforbusiness.co.uk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mod_proxy_xml
 PORTVERSION=	0.1

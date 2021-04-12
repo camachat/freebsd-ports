@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pytest-pycodestyle
 DISTVERSION=	2.2.0
 CATEGORIES=	devel python

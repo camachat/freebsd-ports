@@ -1,5 +1,8 @@
 # Created by: Patrice Clement <monsieurp@gentoo.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hstr
 DISTVERSION=	2.0

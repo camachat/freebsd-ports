@@ -1,5 +1,8 @@
 # Created by: Necati Ersen SISECI <siseci@enderunix.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	voipong
 PORTVERSION=	2.0

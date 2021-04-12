@@ -1,5 +1,8 @@
 # Created by: Tom McLaughlin <tmclaugh@sdf.lonestar.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tnftp
 PORTVERSION=	20200705

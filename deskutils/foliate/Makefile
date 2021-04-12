@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	foliate
 PORTVERSION=	2.6.2
+=======
+PORTNAME=	foliate
+PORTVERSION=	2.6.3
+>>>>>>> upstream/main
 CATEGORIES=	deskutils
 
 MAINTAINER=	fox@FreeBSD.org

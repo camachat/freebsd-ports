@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	2ping
 PORTVERSION=	4.5
 CATEGORIES=	net-mgmt perl5

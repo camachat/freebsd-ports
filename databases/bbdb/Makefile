@@ -1,5 +1,8 @@
 # Created by: Yoichi NAKAYAMA <yoichi@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bbdb
 DISTVERSIONPREFIX=	v

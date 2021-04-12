@@ -1,5 +1,8 @@
 # Created by: erik@habatech.no
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sdts++
 PORTVERSION=	1.5.1

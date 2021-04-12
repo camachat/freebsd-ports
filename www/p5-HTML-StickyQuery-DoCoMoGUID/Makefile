@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	HTML-StickyQuery-DoCoMoGUID
 PORTVERSION=	0.03
 PORTREVISION=	1

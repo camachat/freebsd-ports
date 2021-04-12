@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 CATEGORIES=	sysutils
 
 MASTERDIR=	${.CURDIR}/../../lang/php73

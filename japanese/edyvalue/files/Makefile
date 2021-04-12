@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PROG=		EdyValue
 DPADD=		${LOCALBASE}/lib/libpasori.a
 LDADD=		-L${LOCALBASE}/lib -lpasori

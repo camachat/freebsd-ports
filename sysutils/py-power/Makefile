@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	power
 PORTVERSION=	1.3
 CATEGORIES=	sysutils python

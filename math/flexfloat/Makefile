@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	flexfloat
 DISTVERSION=	g20190814
 CATEGORIES=	math

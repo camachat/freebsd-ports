@@ -1,6 +1,9 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 
 exec %%JAVA_CMD%% -jar -Xmx256m %%JAVASHAREDIR%%/%%JBROFUZZ%%/%%JBROFUZZ%%.jar "$@"

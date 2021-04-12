@@ -1,5 +1,8 @@
 # Created by: William Grzybowski <william88@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	flake8
 PORTVERSION=	3.9.0

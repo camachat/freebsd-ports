@@ -1,5 +1,8 @@
 # Created by: Jesse Smith <jessefrgsmith@yahoo.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	SearchAndRescue
 PORTVERSION=	1.4.0

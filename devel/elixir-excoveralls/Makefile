@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	excoveralls
 PORTVERSION=	0.13.4
 DISTVERSIONPREFIX=	v

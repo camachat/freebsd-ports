@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	deheader
 PORTVERSION=	1.6
 CATEGORIES=	devel

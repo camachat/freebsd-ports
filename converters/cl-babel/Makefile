@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	babel
 PORTVERSION=	2010.01.16
 PORTREVISION=	2

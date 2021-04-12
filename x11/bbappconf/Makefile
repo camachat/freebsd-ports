@@ -1,5 +1,8 @@
 # Created by: Gerrit Beine <tux@pinguru.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bbappconf
 PORTVERSION=	0.0.2

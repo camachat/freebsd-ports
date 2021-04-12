@@ -1,5 +1,8 @@
 # Created by: jkoshy
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ctags
 PORTVERSION=	5.8

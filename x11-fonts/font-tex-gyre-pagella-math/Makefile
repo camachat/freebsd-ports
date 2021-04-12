@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	font-tex-gyre-pagella-math
 DISTVERSION=	1.632
 PORTREVISION=	1

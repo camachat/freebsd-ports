@@ -1,5 +1,8 @@
 # Created by: Rick van der Zwet <info@rickvanderzwet.nl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	XML-TinyXML
 PORTVERSION=	0.34

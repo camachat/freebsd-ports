@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	duff
 PORTVERSION=	0.5.2
 PORTREVISION=	2

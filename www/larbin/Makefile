@@ -1,5 +1,8 @@
 # Created by: Hiten Pandya <hiten@uk.FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	larbin
 PORTVERSION=	2.6.3

@@ -1,5 +1,8 @@
 # Created by: Austin Shafer <ashafer@badland.io>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	packmule
 DISTVERSIONPREFIX=v

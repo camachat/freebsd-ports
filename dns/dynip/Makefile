@@ -1,5 +1,8 @@
 # Created by: Joe Barbish
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dynip
 PORTVERSION=	0.0

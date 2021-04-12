@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rex-ole
 PORTVERSION=	0.1.7
 CATEGORIES=	security rubygems

@@ -1,5 +1,8 @@
 # Created by: John Bayly <freebsd.ports@tipstrade.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-SMS-Clickatell
 PORTVERSION=	0.05

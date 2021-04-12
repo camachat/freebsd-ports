@@ -93,6 +93,10 @@ sbin/auto-passwd-user-expiration
 sbin/auto-password-status
 sbin/auto-pkg-branch
 sbin/auto-pkg-latest
+<<<<<<< HEAD
+=======
+sbin/auto-pkgsrc-branch
+>>>>>>> upstream/main
 sbin/auto-pkgsrc-delete-all
 sbin/auto-pkgsrc-dir
 sbin/auto-pkgsrc-prefix
@@ -130,6 +134,10 @@ sbin/auto-transfer-pw
 sbin/auto-unlock-local-pw
 sbin/auto-unlock-user
 sbin/auto-update-infiniband-modules
+<<<<<<< HEAD
+=======
+sbin/auto-update-pkgsrc
+>>>>>>> upstream/main
 sbin/auto-update-system
 sbin/auto-user-admin
 sbin/auto-useradd

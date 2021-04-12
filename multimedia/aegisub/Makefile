@@ -1,9 +1,16 @@
 # Created by: Leinier Cruz Salfran <salfrancl@yahoo.es>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	aegisub
 PORTVERSION=	3.2.2
 PORTREVISION=	48
+=======
+
+PORTNAME=	aegisub
+PORTVERSION=	3.2.2
+PORTREVISION=	49
+>>>>>>> upstream/main
 CATEGORIES=	multimedia
 MASTER_SITES=	http://ftp.aegisub.org/pub/archives/releases/source/ \
 		ftp://ftp.aegisub.org/pub/archives/releases/source/ \

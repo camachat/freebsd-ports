@@ -1,5 +1,8 @@
 # Created by: Rod Taylor <ports@rbt.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Test-File-Contents
 PORTVERSION=	0.23

@@ -1,8 +1,15 @@
 # Created by: Charlie Kester <corky1951#comcast.net>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	osmo
 PORTVERSION=	0.4.4
+=======
+
+PORTNAME=	osmo
+PORTVERSION=	0.4.4
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	deskutils
 MASTER_SITES=	SF/${PORTNAME}-pim/${PORTNAME}-pim/${PORTNAME}-${PORTVERSION}
 

@@ -1,10 +1,17 @@
 # Created by: delphij@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libvmime
 PORTVERSION=	0.9.2
 DISTVERSIONPREFIX=	v
+<<<<<<< HEAD
 PORTREVISION=	7
+=======
+PORTREVISION=	8
+>>>>>>> upstream/main
 CATEGORIES=	mail
 
 MAINTAINER=	sunpoet@FreeBSD.org

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	covr
 DISTVERSION=	3.5.1
 CATEGORIES=	devel

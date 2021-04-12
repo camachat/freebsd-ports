@@ -1,5 +1,8 @@
 # Created by: David Leonard <leonard@dstc.edu.au>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dclock
 PORTVERSION=	2.2.2

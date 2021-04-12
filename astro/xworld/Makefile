@@ -1,5 +1,8 @@
 # Created by: Kris Kennaway <kris@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xworld
 PORTVERSION=	2.0

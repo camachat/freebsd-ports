@@ -1,5 +1,8 @@
 # Created by: Bruce Simpson
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pyang
 PORTVERSION=	1.7.8

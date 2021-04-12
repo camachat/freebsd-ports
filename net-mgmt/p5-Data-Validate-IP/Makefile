@@ -1,5 +1,8 @@
 # Created by: Tuc <freebsd-ports@t-b-o-h.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Data-Validate-IP
 PORTVERSION=	0.27

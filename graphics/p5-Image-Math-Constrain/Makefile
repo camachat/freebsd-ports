@@ -1,5 +1,8 @@
 # Created by: coryking
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Image-Math-Constrain
 PORTVERSION=	1.02

@@ -1,5 +1,8 @@
 # Created by: mig
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Config-Simple
 PORTVERSION=	4.59

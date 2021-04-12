@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	commons-codec
 PORTVERSION=	1.15
 CATEGORIES=	java converters

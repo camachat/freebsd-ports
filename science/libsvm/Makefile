@@ -1,5 +1,8 @@
 # Created by: Chia-Hsing Yu <me@davidyu.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libsvm
 PORTVERSION=	3.23

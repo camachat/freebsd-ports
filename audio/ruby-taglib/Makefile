@@ -1,5 +1,8 @@
 # Created by: TOMIDA, Hiroaki <t.hiroaki.209 at gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	taglib
 PORTVERSION=	1.1

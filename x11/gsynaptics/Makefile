@@ -1,5 +1,8 @@
 # Created by: Norikatsu Shigemura <nork@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gsynaptics
 PORTVERSION=	0.9.16

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ldc
 PORTVERSION=	1.23.0
 DISTVERSIONPREFIX=	v

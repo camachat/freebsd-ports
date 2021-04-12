@@ -1,5 +1,8 @@
 # Created by: janos.mohacsi@bsd.hu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	limesurvey
 PORTVERSION=	3.24.3

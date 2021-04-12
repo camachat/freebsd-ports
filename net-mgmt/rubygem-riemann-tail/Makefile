@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	riemann-tail
 DISTVERSION=	0.0.1
 PORTREVISION=	1

@@ -1,5 +1,8 @@
 # Created by: Steven G. Kargl
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	f2c
 PORTVERSION=	20200916

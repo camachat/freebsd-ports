@@ -1,5 +1,8 @@
 # Created by: Tim Bishop <tim@bishnet.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libukcprog
 PORTVERSION=	1.0.2

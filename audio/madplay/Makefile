@@ -1,5 +1,8 @@
 # Created by: Sergey Akifyev <asa@gascom.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	madplay
 PORTVERSION=	0.15.2b

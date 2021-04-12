@@ -1,5 +1,8 @@
 # Created by: Max Khon
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pod
 PORTVERSION=	0.5.2

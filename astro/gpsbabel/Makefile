@@ -1,5 +1,8 @@
 # Created by: Laurent Courty
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gpsbabel
 DISTVERSIONPREFIX=	${PORTNAME}_
@@ -9,7 +12,11 @@ CATEGORIES=	astro geography
 MAINTAINER=	dev2@heesakkers.info
 COMMENT=	GPS file translating tool
 
+<<<<<<< HEAD
 LICENSE=	GPLv2
+=======
+LICENSE=	GPLv2+
+>>>>>>> upstream/main
 LICENSE_FILE=	${WRKSRC}/COPYING
 
 USES=		compiler:c++11-lang gmake localbase qt:5

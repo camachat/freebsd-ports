@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	File-LibMagic
 PORTVERSION=	1.23
 CATEGORIES=	devel perl5

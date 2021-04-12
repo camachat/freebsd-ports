@@ -1,5 +1,8 @@
 # Created by: nik
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sitecopy
 PORTVERSION=	0.16.6

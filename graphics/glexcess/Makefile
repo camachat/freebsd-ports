@@ -1,5 +1,8 @@
 # Created by: Hernan Di Pietro <hernan.di.pietro@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	glexcess
 PORTVERSION=	1.0

@@ -1,5 +1,8 @@
 # Created by: Jon Passki <cykyc@yahoo.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	unicornscan
 PORTVERSION=	0.4.2

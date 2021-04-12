@@ -1,5 +1,8 @@
 # Created by: Martin Jackson <mhjacks@swbell.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pyasn1
 PORTVERSION=	0.4.7

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	elixir-uuid
 PORTVERSION=	1.1.8
 DISTVERSIONPREFIX=	v

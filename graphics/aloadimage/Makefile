@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	aloadimage
 DISTVERSION=	0.6.0.1
 CATEGORIES=	graphics

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	linprog
 DISTVERSION=	0.9-2
 PORTREVISION=	1

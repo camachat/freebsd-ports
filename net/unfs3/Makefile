@@ -1,5 +1,8 @@
 # Created by: Clement Laforet <clement@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	unfs3
 PORTVERSION=	0.9.22

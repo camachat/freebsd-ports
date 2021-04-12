@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Horde_Rpc
 DISTVERSION=	2.1.9
 CATEGORIES=	net www pear

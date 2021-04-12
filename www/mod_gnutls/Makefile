@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mod_gnutls
 PORTVERSION=	0.8.4
 PORTREVISION=	2

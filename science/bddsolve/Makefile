@@ -1,5 +1,8 @@
 # Created by: Ed Schouten <ed@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bddsolve
 PORTVERSION=	1.04

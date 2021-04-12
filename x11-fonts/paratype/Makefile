@@ -1,5 +1,8 @@
 # Created by: Alexey Illarionov <littlesavage@rambler.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	paratype
 PORTVERSION=	2.005

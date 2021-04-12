@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xorg-drivers
 PORTVERSION=	7.7
 PORTREVISION=	6

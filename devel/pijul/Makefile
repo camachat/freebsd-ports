@@ -1,5 +1,8 @@
 # Created by: Carlo Strub
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pijul
 PORTVERSION=	0.12.0

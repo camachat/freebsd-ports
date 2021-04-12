@@ -1,5 +1,8 @@
 # Created by: Michael Schout <mschout@gkg.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libxml-ruby
 PORTVERSION=	3.1.0

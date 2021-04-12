@@ -1,5 +1,8 @@
 # Created by: Daniel Baker <dbaker@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	3dm
 DISTVERSION=	2.11.00.021

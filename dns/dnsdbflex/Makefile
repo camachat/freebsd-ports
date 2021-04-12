@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dnsdbflex
 PORTVERSION=	1.0.5
 DISTVERSIONPREFIX=	v

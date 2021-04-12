@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kdemultimedia
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
 CATEGORIES=	multimedia kde

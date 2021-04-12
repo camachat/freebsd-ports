@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	lidia
 DISTVERSION=	2.3.0
 PORTREVISION=	2

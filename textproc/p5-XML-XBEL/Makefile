@@ -1,5 +1,8 @@
 # Created by: Aaron Straup Cope <ascope@cpan.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	XML-XBEL
 PORTVERSION=	1.4

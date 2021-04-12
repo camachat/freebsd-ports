@@ -1,5 +1,8 @@
 # Created by: kbyanc@posi.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	grip
 PORTVERSION=	4.1.1

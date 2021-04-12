@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # Allow members of group cups to access generic USB printer devices
 
 notify 100 {

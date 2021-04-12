@@ -1,5 +1,8 @@
 # Created by: Michael Ebert <ebert@informatik.unibw-muenchen.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pager
 PORTVERSION=	0.90.3

@@ -1,5 +1,8 @@
 # Created by: Joao Carlos Mendes Luis <jonny@jonny.eng.br>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	id3ren
 PORTVERSION=	1.1b0

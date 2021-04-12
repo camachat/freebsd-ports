@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	obs-qtwebkit
 PORTVERSION=	g2018090201
 PORTREVISION=	2

@@ -1,5 +1,8 @@
 # Created by: dm
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	avenger
 PORTVERSION=	0.8.5

@@ -1,5 +1,8 @@
 # Created by: David Gardner
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gkrelltop
 PORTVERSION=	2.2.13

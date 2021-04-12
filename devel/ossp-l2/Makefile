@@ -1,5 +1,8 @@
 # Created by: Alan Eldridge <alane@geeksrus.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	l2
 PORTVERSION=	0.9.13

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	desed
 DISTVERSION=	1.2.0
 PORTREVISION=	6

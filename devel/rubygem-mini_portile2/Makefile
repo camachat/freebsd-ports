@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mini_portile2
 PORTVERSION=	2.5.0
 CATEGORIES=	devel rubygems

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Text-Roman
 PORTVERSION=	3.5
 CATEGORIES=	textproc perl5

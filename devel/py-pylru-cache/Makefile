@@ -1,5 +1,8 @@
 # Created by: philip@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pylru-cache
 PORTVERSION=	0.1.4

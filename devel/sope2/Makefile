@@ -1,5 +1,8 @@
 # Created by: Euan Thoms <euan@potensol.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		sope2
 PORTVERSION=		2.3.23

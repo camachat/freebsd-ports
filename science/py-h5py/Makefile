@@ -1,5 +1,8 @@
 # Created by: TAOKA Fumiyoshi
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	h5py
 PORTVERSION=	3.1.0

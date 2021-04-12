@@ -1,5 +1,8 @@
 # Created by: jesper
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Crypt-DES_EDE3
 PORTVERSION=	0.01

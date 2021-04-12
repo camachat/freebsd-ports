@@ -1,5 +1,8 @@
 # Created by: Michael Winking <mwfp@foldl.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hsqldb
 PORTVERSION=	2.3.4

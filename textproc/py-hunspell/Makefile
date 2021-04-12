@@ -1,5 +1,8 @@
 # Created by: Thierry Thomas <thierry@pompo.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hunspell
 PORTVERSION=	0.5.5
@@ -18,7 +21,10 @@ LIB_DEPENDS=	libhunspell-${HSPLVER}.so:textproc/hunspell
 USES=		python:3.6+
 USES+=		localbase
 USE_PYTHON=	distutils
+<<<<<<< HEAD
 CFLAGS+=    -Wno-deprecated-declarations
+=======
+>>>>>>> upstream/main
 
 HSPLVER=	1.7
 PLIST_FILES=	${PYTHON_SITELIBDIR}/hunspell${PYTHON_EXT_SUFFIX}.so

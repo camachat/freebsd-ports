@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	android-tools-fastboot
 DISTVERSIONPREFIX=	platform-tools-
 DISTVERSION?=	29.0.6

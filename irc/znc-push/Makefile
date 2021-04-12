@@ -1,10 +1,17 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	znc-push
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.0.0-173
 DISTVERSIONSUFFIX=	-g78d0385
+<<<<<<< HEAD
 PORTREVISION=	1
+=======
+PORTREVISION=	2
+>>>>>>> upstream/main
 CATEGORIES=	irc
 
 MAINTAINER=	dor.bsd@xm0.uk

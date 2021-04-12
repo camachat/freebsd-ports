@@ -1,5 +1,8 @@
 # Created by: Russell Jackson <raj@csub.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ruby-augeas
 PORTVERSION=	0.5.0

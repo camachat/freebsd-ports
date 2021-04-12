@@ -1,5 +1,8 @@
 # Created by: Sebastien Petit <spe@phear.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	freevrrpd
 PORTVERSION=	1.1

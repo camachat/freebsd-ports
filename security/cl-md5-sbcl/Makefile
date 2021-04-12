@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	md5
 PORTVERSION=	1.8.5
 PORTREVISION=	55

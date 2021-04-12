@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	birdtray
 PORTVERSION=	1.9.0
 DISTVERSIONPREFIX=	v

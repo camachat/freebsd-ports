@@ -1,5 +1,8 @@
 # Created by: Richard Gallamore <ultima@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	puush
 PORTVERSION=	0.0.2

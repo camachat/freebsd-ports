@@ -1,5 +1,8 @@
 # Created by: Hye-Shik Chang
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	plex
 PORTVERSION=	1.1.5

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	wxformbuilder
 DISTVERSION=	3.5.0-beta
 PORTREVISION=	7

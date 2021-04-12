@@ -1,9 +1,16 @@
 # Created by: Yen-Ming Lee <leeym@leeym.com>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	upnp
 DISTVERSIONPREFIX=	release-
 DISTVERSION=	1.14.2
+=======
+
+PORTNAME=	upnp
+DISTVERSIONPREFIX=	release-
+DISTVERSION=	1.14.5
+>>>>>>> upstream/main
 PORTEPOCH=	1
 CATEGORIES=	devel
 

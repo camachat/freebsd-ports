@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tflite
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.3.0

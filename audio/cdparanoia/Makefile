@@ -1,5 +1,8 @@
 # Created by: Simon 'corecode' Schubert <corecode@corecode.ath.cx>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cdparanoia
 PORTVERSION=	3.9.8

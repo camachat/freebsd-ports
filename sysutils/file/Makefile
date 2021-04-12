@@ -1,5 +1,8 @@
 # Created by: Jason Harris <jharris@widomaker.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	file
 PORTVERSION=	5.39

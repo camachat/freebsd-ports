@@ -1,5 +1,8 @@
 # Created by: Netherby <netherby@dancingfortune.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	archivesmtp
 PORTVERSION=	1.2

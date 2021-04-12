@@ -1,5 +1,8 @@
 # Created by: J Han <hjh@best.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	diction
 PORTVERSION=	1.11

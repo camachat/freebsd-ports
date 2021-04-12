@@ -1,5 +1,8 @@
 # Created by: dave@dogwood.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	olsrd
 DISTVERSIONPREFIX=	v

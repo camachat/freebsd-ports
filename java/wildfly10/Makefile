@@ -1,5 +1,8 @@
 # Created by: Alexander Yerenkow <yerenkow@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wildfly10
 PORTVERSION=	10.1.0

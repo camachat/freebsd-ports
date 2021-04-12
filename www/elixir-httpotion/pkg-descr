@@ -1,3 +1,7 @@
 HTTP client for Elixir, based on ibrowse.
 
+<<<<<<< HEAD
 WWW: https://github.com/myfreeweb/httpotion
+=======
+WWW: https://github.com/unrelentingtech/httpotion
+>>>>>>> upstream/main

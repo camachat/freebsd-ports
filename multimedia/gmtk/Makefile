@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gmtk
 PORTVERSION=	1.0.9
 PORTREVISION=	1

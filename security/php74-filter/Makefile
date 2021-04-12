@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 CATEGORIES=	security
 
 MASTERDIR=	${.CURDIR}/../../lang/php74

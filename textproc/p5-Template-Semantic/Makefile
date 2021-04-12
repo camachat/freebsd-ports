@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Template-Semantic
 PORTVERSION=	0.09
 PORTREVISION=	1

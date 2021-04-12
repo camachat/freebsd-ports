@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTREVISION=	2
 PKGNAMESUFFIX=	-qt5
 

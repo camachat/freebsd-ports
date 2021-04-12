@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	App-Nopaste
 PORTVERSION=	1.013
 CATEGORIES=	www perl5

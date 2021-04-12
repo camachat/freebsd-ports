@@ -1,5 +1,8 @@
 # Created by: matthew.closson@gmail.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libCello
 PORTVERSION=	1.1.7

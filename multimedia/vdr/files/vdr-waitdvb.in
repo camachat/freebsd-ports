@@ -1,7 +1,10 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD: /tmp/pcvs/ports/multimedia/vdr/files/vdr-waitdvb.in,v 1.1 2012-01-21 17:32:50 nox Exp $
 #
+=======
+>>>>>>> upstream/main
 
 command="%%PREFIX%%/bin/vdr"
 

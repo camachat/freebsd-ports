@@ -1,6 +1,9 @@
 #! /bin/sh
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 
 PATH=/bin:/usr/bin:/usr/sbin
 

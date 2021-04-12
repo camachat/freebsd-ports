@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bracex
 PORTVERSION=	2.1.1
 CATEGORIES=	textproc python

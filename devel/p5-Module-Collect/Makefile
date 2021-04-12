@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Module-Collect
 PORTVERSION=	0.06
 PORTREVISION=	2

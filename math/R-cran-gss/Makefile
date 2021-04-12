@@ -1,5 +1,8 @@
 # Created by: David Naylor <dbn@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gss
 DISTVERSION=	2.2-2

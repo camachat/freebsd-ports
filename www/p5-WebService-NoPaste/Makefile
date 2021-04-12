@@ -1,5 +1,8 @@
 # Created by: Gea-Suan Lin <gslin@netnews.NCTU.edu.tw>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	WebService-NoPaste
 PORTVERSION=	0.03

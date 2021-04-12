@@ -1,5 +1,8 @@
 # Created by: glarkin
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rsvndump
 PORTVERSION=	0.6

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pangolin
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.5-431

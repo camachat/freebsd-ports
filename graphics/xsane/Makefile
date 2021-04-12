@@ -1,5 +1,8 @@
 # Created by: Dominik Brettnacher <domi@nonsensss.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xsane
 PORTVERSION=	0.999

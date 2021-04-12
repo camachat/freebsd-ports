@@ -1,8 +1,14 @@
 # Created by: Yukihiro Nakai <Nakai@Mlab.t.u-tokyo.ac.jp>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	icewm
 PORTVERSION=	2.2.1
+=======
+
+PORTNAME=	icewm
+PORTVERSION=	2.3.1
+>>>>>>> upstream/main
 CATEGORIES=	x11-wm
 MASTER_SITES=	https://github.com/ice-wm/icewm/releases/download/${PORTVERSION}/
 

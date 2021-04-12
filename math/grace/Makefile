@@ -1,5 +1,8 @@
 # Created by: Lars Koeller <Lars.Koeller@Uni-Bielefeld.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	grace
 PORTVERSION=	5.1.25

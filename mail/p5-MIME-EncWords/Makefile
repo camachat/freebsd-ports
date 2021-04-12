@@ -1,5 +1,8 @@
 # Created by: Olivier Girard <Olivier.Girard@univ-angers.fr>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	MIME-EncWords
 PORTVERSION=	1.014.3

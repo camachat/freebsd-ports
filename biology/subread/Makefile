@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		subread
 DISTVERSION=		2.0.2
 DISTVERSIONSUFFIX=	-source

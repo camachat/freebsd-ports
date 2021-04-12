@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 # To update the port:
 # The stable v8 version follows the chromium browser
 # https://chromereleases.googleblog.com/search/label/Desktop%20Update
@@ -18,6 +21,10 @@
 
 PORTNAME=	v8
 DISTVERSION=	8.7.220.23
+<<<<<<< HEAD
+=======
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	lang
 MASTER_SITES=	LOCAL/mikael/v8/:build \
 		LOCAL/mikael/v8/:buildtools \

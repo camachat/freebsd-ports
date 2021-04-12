@@ -1,5 +1,8 @@
 # Created by: shane@freebsdhackers.net aka modsix@gmail.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	destroy
 PORTVERSION=	20130926

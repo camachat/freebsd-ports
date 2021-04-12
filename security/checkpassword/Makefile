@@ -1,5 +1,8 @@
 # Created by: sada@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	checkpassword
 PORTVERSION=	0.90

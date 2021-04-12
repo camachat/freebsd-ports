@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	agrum
 DISTVERSION=	0.19.3
 CATEGORIES=	science math

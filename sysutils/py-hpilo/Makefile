@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	hpilo
 PORTVERSION=	4.4.3
 PORTREVISION=	0

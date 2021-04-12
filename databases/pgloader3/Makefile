@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pgloader
 PORTVERSION=	3.6.2
 DISTVERSIONPREFIX=	v

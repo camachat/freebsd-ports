@@ -1,5 +1,8 @@
 # Created by: Timothy Redaelli <drizzt@gufi.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dcc_send_limiter
 PORTVERSION=	0.8.10

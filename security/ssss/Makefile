@@ -1,5 +1,8 @@
 # Created by: Lukasz Komsta
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ssss
 PORTVERSION=	0.5

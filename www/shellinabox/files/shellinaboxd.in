@@ -1,7 +1,10 @@
 #!/bin/sh
 
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # Shell in a Box Daemon startup script
 #
 # PROVIDE: shellinaboxd

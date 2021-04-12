@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	nwchem-data
 DISTVERSIONPREFIX=	v
 DISTVERSION=	7.0.2

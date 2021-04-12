@@ -1,5 +1,8 @@
 # Created by: Chip Marshall <chip@eboai.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	icecast
 PORTVERSION=	2.4.4

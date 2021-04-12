@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mxnet
 DISTVERSION=	1.7.0
 CATEGORIES=	misc # machine-learning

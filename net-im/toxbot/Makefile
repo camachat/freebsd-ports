@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	toxbot
 DISTVERSION=	g20180325
 PORTREVISION=	1

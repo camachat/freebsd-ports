@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 MASTERDIR=	${.CURDIR}/../u-boot-master
 
 U_BOOT_SLAVE_PORTREVISION_2020.10=	1
 
+=======
+MASTERDIR=	${.CURDIR}/../u-boot-master
+
+>>>>>>> upstream/main
 MODEL=		orangepi-pc2
 BOARD_CONFIG=	orangepi_pc2_defconfig
 FAMILY=		allwinner64

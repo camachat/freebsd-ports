@@ -1,5 +1,8 @@
 # Created by: Chin-San Huang <chinsan.tw@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rar
 PORTVERSION=	4.2.0

@@ -1,5 +1,8 @@
 # Created by: Joe Clarke <marcus@marcuscom.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	SNMP-MIB-Compiler
 PORTVERSION=	0.06

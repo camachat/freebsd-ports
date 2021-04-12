@@ -1,5 +1,8 @@
 # Created by: John Hixson <jhixson@freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	oc
 PORTVERSION=	4.5

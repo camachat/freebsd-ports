@@ -1,5 +1,8 @@
 # Created by: Roman Shterenzon <romanbsd@yahoo.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rspec
 PORTVERSION=	3.10.0

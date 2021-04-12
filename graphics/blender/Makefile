@@ -1,9 +1,16 @@
 # Created by: Jimmy Olgeni <olgeni@uli.it>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	blender
 DISTVERSION=	2.91.0
 PORTREVISION=	3
+=======
+
+PORTNAME=	blender
+DISTVERSION=	2.91.0
+PORTREVISION=	4
+>>>>>>> upstream/main
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	http://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/ \
@@ -65,8 +72,13 @@ AVI_CMAKE_BOOL=			WITH_CODEC_AVI
 BULLET_CMAKE_BOOL=		WITH_BULLET
 CAMERATRACK_CMAKE_BOOL=		WITH_LIBMV
 CAMERATRACK_LIB_DEPENDS=	libunwind.so:devel/libunwind
+<<<<<<< HEAD
 CAMERATRACK_ONLY_FOR_ARCHS=	i386 amd64
 CAMERATRACK_ONLY_FOR_ARCHS_REASON=	libunwind only supports x86/amd64
+=======
+CAMERATRACK_ONLY_FOR_ARCHS=	i386 amd64 aarch64 powerpc64 powerpc64le
+CAMERATRACK_ONLY_FOR_ARCHS_REASON=	libunwind only supports x86/amd64/aarch64/powerpc64/powerpc64le
+>>>>>>> upstream/main
 CINEON_CMAKE_BOOL=		WITH_IMAGE_CINEON
 COLLADA_CMAKE_BOOL=		WITH_OPENCOLLADA
 COLLADA_LIB_DEPENDS=		libOpenCOLLADABaseUtils.so:graphics/opencollada \
@@ -130,8 +142,14 @@ OPENCOLORIO_LIB_DEPENDS=	libOpenColorIO.so:graphics/opencolorio \
 				libyaml-cpp03.so:devel/yaml-cpp03 \
 				libtinyxml.so:textproc/tinyxml
 OPENEXR_CMAKE_BOOL=		WITH_IMAGE_OPENEXR
+<<<<<<< HEAD
 OPENEXR_LIB_DEPENDS=		libIlmImf.so:graphics/openexr \
 				libHalf.so:graphics/ilmbase
+=======
+OPENEXR_CFLAGS=			-I${LOCALBASE}/include/Imath
+OPENEXR_LIB_DEPENDS=		libOpenEXR.so:graphics/openexr \
+				libImath.so:math/Imath
+>>>>>>> upstream/main
 OPENIMAGEIO_IMPLIES=		OPENEXR TIFF
 OPENIMAGEIO_CMAKE_BOOL=		WITH_OPENIMAGEIO
 OPENIMAGEIO_LIB_DEPENDS=	libOpenImageIO.so:graphics/openimageio
@@ -171,6 +189,13 @@ CMAKE_ARGS+=		-DWITH_GHOST_DEBUG:BOOL=ON
 
 .include <bsd.port.options.mk>
 
+<<<<<<< HEAD
+=======
+.if ${ARCH} != amd64 && ${ARCH} != i386
+CMAKE_ARGS+=	-DWITH_CPU_SSE:BOOL=OFF
+.endif
+
+>>>>>>> upstream/main
 .if ${LLVM_DEFAULT:M[678]0}
 LLVM_VER=	90
 .else

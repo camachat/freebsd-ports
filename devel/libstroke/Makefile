@@ -1,5 +1,8 @@
 # Created by: Jerry A! <jerry@thehutt.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libstroke
 PORTVERSION=	0.5.1

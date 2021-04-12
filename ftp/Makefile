@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
 
+=======
+>>>>>>> upstream/main
     COMMENT = FTP client and server utilities
 
     SUBDIR += R-cran-RCurl
@@ -19,7 +22,10 @@
     SUBDIR += filezilla
     SUBDIR += fmirror
     SUBDIR += fpc-libcurl
+<<<<<<< HEAD
     SUBDIR += frox
+=======
+>>>>>>> upstream/main
     SUBDIR += ftpcopy
     SUBDIR += ftpfind
     SUBDIR += ftplib
@@ -33,7 +39,10 @@
     SUBDIR += horde-gollem
     SUBDIR += hsftp
     SUBDIR += jftp
+<<<<<<< HEAD
     SUBDIR += jftpgw
+=======
+>>>>>>> upstream/main
     SUBDIR += lftp
     SUBDIR += libfilezilla
     SUBDIR += linux-c7-curl
@@ -69,7 +78,10 @@
     SUBDIR += profxp
     SUBDIR += puf
     SUBDIR += pure-ftpd
+<<<<<<< HEAD
     SUBDIR += pureadmin
+=======
+>>>>>>> upstream/main
     SUBDIR += py-aioftp
     SUBDIR += py-ftputil
     SUBDIR += py-pycurl
@@ -97,7 +109,10 @@
     SUBDIR += wmget
     SUBDIR += wput
     SUBDIR += wxdfast
+<<<<<<< HEAD
     SUBDIR += wzdftpd
+=======
+>>>>>>> upstream/main
     SUBDIR += yafc
 
 .include <bsd.port.subdir.mk>

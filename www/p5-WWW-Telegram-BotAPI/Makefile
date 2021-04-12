@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	WWW-Telegram-BotAPI
 PORTVERSION=	0.10
 PORTREVISION=	1

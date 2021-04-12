@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Open3D
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.2

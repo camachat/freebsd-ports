@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Class-DBI-Plugin-Pager
 PORTVERSION=	0.566
 PORTREVISION=	1

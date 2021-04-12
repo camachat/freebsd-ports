@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	vollkorn-ttf
 PORTVERSION=	4.105
 PORTREVISION=	1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	qtcurve
 PORTVERSION=	1.9.0
 PORTREVISION?=	0

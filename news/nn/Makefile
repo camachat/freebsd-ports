@@ -1,5 +1,8 @@
 # Created by: adam
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nn
 PORTVERSION=	6.7.3

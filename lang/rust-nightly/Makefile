@@ -1,5 +1,8 @@
 # Created by: Jean-Sébastien Pédron <dumbbell@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 # Run update.sh to update to the latest nightly
 PORTVERSION=	1.53.0.${NIGHTLY_DATE:C,-,,g}

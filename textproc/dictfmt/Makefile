@@ -1,5 +1,8 @@
 # Created by: Kimura Fuyuki <fuyuki@hadaly.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dictfmt
 PORTVERSION=	1.13.0

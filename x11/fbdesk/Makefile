@@ -1,5 +1,8 @@
 # Created by: Hendrik Scholz <hendrik@scholz.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fbdesk
 PORTVERSION=	1.4.1

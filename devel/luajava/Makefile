@@ -1,5 +1,8 @@
 # Created by: sunghyuk
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	luajava
 PORTVERSION=	1.1

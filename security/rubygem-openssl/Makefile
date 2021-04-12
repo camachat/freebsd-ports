@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	openssl
 PORTVERSION=	2.1.2
 CATEGORIES=	security rubygems

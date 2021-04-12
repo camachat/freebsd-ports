@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	poison
 PORTVERSION=	3.1.0
 CATEGORIES=	devel

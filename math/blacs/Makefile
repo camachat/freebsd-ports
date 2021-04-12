@@ -1,5 +1,8 @@
 # Created by: NAKATA, Maho <maho@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	blacs
 PORTVERSION=	1.7

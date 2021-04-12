@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME?=logwatch
 PREFIX?=/usr/local/${PORTNAME}
 ETCDIR?=${PREFIX}/etc/${PORTNAME}

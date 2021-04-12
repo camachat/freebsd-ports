@@ -1,5 +1,8 @@
 #!/bin/sh
+<<<<<<< HEAD
 # $FreeBSD: /tmp/pcvs/ports/audio/squeezeboxserver/files/pkg-install.in,v 1.11 2011-07-09 17:44:14 crees Exp $
+=======
+>>>>>>> upstream/main
 
 name=%%PORTNAME%%
 comment="Slim Devices SlimServer/SqueezeCenter pseudo-user"

@@ -1,5 +1,8 @@
 # Created by: Stephen J. Roznowski <sjr@home.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	SNMP_Session
 PORTVERSION=	1.13

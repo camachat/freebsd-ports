@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ohsnap
 PORTVERSION=	1.8.0
 PORTREVISION=	1

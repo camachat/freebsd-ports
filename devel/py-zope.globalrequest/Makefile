@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	zope.globalrequest
 PORTVERSION=	1.1
 CATEGORIES=	devel python zope

@@ -1,5 +1,8 @@
 # Created by: andreas@marvin.robin.de
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mgdiff
 PORTVERSION=	1.0

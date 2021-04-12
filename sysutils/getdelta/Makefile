@@ -1,5 +1,8 @@
 # Created by: Anton Statutov <astatutov@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	getdelta
 PORTVERSION=	0.7.8

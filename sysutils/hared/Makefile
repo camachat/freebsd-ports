@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	hared
 DISTVERSION=	1.0-45
 DISTVERSIONSUFFIX=	-g8341d8a

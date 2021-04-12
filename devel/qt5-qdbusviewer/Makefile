@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	qdbusviewer
 DISTVERSION=	${QT5_VERSION}
 CATEGORIES=	devel

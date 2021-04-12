@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 
 COMMENT=	Qt ${DB_DESC} plugin
 

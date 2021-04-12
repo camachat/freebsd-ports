@@ -1,5 +1,8 @@
 # Created by: Marcello Coutinho
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	e2guardian
 PORTVERSION=	5.3.4

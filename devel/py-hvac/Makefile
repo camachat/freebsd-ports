@@ -1,8 +1,14 @@
 # Created by: Alessando Sagratini <ale_sagra@hotmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	hvac
 PORTVERSION=	0.10.8
+=======
+
+PORTNAME=	hvac
+PORTVERSION=	0.10.9
+>>>>>>> upstream/main
 CATEGORIES=	devel python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}

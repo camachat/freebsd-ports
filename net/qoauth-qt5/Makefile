@@ -1,5 +1,8 @@
 # Created by: Dima Panov <fluffy@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	qoauth
 PORTVERSION=	2.0.0

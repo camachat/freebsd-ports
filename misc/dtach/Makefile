@@ -1,5 +1,8 @@
 # Created by: Bjorn Lindstrom <bkhl@elektrubadur.se>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dtach
 PORTVERSION=	0.9

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	lzstring
 DISTVERSION=	1.0.4
 CATEGORIES=	archivers python

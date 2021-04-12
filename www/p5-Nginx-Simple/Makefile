@@ -1,5 +1,8 @@
 # Created by: Simon Dick <simond@irrelevant.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Nginx-Simple
 PORTVERSION=	0.07

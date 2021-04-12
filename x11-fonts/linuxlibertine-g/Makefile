@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	linuxlibertine-g
 PORTVERSION=	20120116
 PORTREVISION=	2

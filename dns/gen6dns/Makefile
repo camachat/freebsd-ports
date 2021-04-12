@@ -1,5 +1,8 @@
 # Created by: Stefan Esser <se@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gen6dns
 PORTVERSION=	1.3

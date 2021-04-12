@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	barnyard2
 PORTVERSION=	1.13
 DISTVERSIONPREFIX=	v2-

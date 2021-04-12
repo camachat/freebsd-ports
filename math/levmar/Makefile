@@ -1,5 +1,8 @@
 # Created by: Eijiro Shibusawa <ej-sib@ice.uec.ac.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	levmar
 PORTVERSION=	2.6

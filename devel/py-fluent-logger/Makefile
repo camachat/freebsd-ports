@@ -1,5 +1,8 @@
 # Created by: Edward Chuang <edwardchuang@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fluent-logger
 PORTVERSION=	0.9.2

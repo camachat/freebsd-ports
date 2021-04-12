@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	stepcode
 PORTVERSION=	0.8
 DISTVERSIONPREFIX=	v

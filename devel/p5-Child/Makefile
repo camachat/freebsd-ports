@@ -1,5 +1,8 @@
 # Created by: Dan Rench <citric@cubicone.tmetic.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Child
 PORTVERSION=	0.009

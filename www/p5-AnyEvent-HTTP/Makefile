@@ -1,5 +1,8 @@
 # Created by: Vladimir Timofeev <vovkasm@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	AnyEvent-HTTP
 PORTVERSION=	2.22

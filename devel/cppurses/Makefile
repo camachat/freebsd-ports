@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cppurses
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.3-5

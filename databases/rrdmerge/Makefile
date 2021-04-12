@@ -1,5 +1,8 @@
 # Created by: sobomax
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rrdmerge
 PORTVERSION=	0.0.1

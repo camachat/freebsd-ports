@@ -1,8 +1,14 @@
 # Created by: Alessandro Sagratini <ale_sagra@hotmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	oci
 PORTVERSION=	2.12.0
+=======
+
+PORTNAME=	oci
+PORTVERSION=	2.13.0
+>>>>>>> upstream/main
 CATEGORIES=	devel rubygems
 MASTER_SITES=	RG
 

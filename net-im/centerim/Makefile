@@ -1,5 +1,8 @@
 # Created by: Frank Altpeter <frank@altpeter.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	centerim
 PORTVERSION=	4.22.10

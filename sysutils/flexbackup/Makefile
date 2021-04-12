@@ -1,5 +1,8 @@
 # Created by: John Reynolds <johnjen@reynoldsnet.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	flexbackup
 PORTVERSION=	1.2.1

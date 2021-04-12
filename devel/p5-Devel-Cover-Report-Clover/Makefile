@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Devel-Cover-Report-Clover
 PORTVERSION=	0.35
 PORTREVISION=	1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ldap-account-manager
 PORTVERSION=	7.3
 CATEGORIES=	sysutils www

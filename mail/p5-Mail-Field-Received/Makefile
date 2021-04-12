@@ -1,5 +1,8 @@
 # Created by: Andrea Venturoli <freebsd@netfence.it>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Mail-Field-Received
 PORTVERSION=	0.26

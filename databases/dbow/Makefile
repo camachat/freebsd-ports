@@ -1,5 +1,8 @@
 # Created by: Dermot Tynan <dtynan@kalopa.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dbow
 PORTVERSION=	0.7

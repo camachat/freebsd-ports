@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kosmindoormap
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
 CATEGORIES=	astro kde kde-applications

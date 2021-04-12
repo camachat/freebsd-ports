@@ -1,5 +1,8 @@
 # Created by: hsu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vcg
 PORTVERSION=	1.30

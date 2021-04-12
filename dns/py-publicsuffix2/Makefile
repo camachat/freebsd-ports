@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	publicsuffix2
 PORTVERSION=	2.20191221
 PORTREVISION=	12

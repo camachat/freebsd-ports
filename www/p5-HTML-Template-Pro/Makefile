@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	HTML-Template-Pro
 PORTVERSION=	0.9510
 PORTREVISION=	1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 SHLIB=		pty
 SHLIB_NAME=	lpty.so
 

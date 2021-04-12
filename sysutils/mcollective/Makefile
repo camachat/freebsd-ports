@@ -1,5 +1,8 @@
 # Created by: Russell Jackson <raj@csub.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mcollective
 PORTVERSION=	2.12.5

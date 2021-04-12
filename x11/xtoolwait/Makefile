@@ -1,5 +1,8 @@
 # Created by: jonny
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xtoolwait
 PORTVERSION=	1.3

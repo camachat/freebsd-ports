@@ -1,5 +1,8 @@
 # Created by: Romain Tartiere <romain@blogreen.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gnome-keyring-sharp
 PORTVERSION=	1.0.2

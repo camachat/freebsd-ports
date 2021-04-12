@@ -1,5 +1,8 @@
 # Created by: Jille Timmermans (jille@quis.cx)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	oggvideotools
 PORTVERSION=	0.9.1

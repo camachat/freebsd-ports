@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gogs
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.12.3

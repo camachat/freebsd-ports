@@ -1,5 +1,8 @@
 # Created by: rhwang@bigpanda.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	most
 PORTVERSION=	5.1.0

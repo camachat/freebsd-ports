@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	countdown
 PORTVERSION=	20150606
 CATEGORIES=	deskutils

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 --- chrome/browser/ui/views/accelerator_table.cc.orig	2020-11-13 06:36:38 UTC
 +++ chrome/browser/ui/views/accelerator_table.cc
 @@ -58,7 +58,7 @@ const AcceleratorMapping kAcceleratorMap[] = {
@@ -19,6 +20,29 @@
      {ui::VKEY_NUMPAD1, ui::EF_ALT_DOWN, IDC_SELECT_TAB_0},
      {ui::VKEY_2, ui::EF_ALT_DOWN, IDC_SELECT_TAB_1},
 @@ -106,7 +106,7 @@ const AcceleratorMapping kAcceleratorMap[] = {
+=======
+--- chrome/browser/ui/views/accelerator_table.cc.orig	2021-03-12 23:57:19 UTC
++++ chrome/browser/ui/views/accelerator_table.cc
+@@ -61,7 +61,7 @@ const AcceleratorMapping kAcceleratorMap[] = {
+     {ui::VKEY_NUMPAD9, ui::EF_PLATFORM_ACCELERATOR, IDC_SELECT_LAST_TAB},
+ // TODO(crbug.com/1052397): Revisit the macro expression once build flag switch
+ // of lacros-chrome is complete.
+-#if defined(OS_LINUX) || BUILDFLAG(IS_CHROMEOS_LACROS)
++#if defined(OS_LINUX) || BUILDFLAG(IS_CHROMEOS_LACROS) || defined(OS_BSD)
+     {ui::VKEY_9, ui::EF_ALT_DOWN, IDC_SELECT_LAST_TAB},
+     {ui::VKEY_NUMPAD9, ui::EF_ALT_DOWN, IDC_SELECT_LAST_TAB},
+     {ui::VKEY_NEXT, ui::EF_CONTROL_DOWN | ui::EF_SHIFT_DOWN, IDC_MOVE_TAB_NEXT},
+@@ -93,7 +93,7 @@ const AcceleratorMapping kAcceleratorMap[] = {
+     {ui::VKEY_NUMPAD8, ui::EF_PLATFORM_ACCELERATOR, IDC_SELECT_TAB_7},
+ // TODO(crbug.com/1052397): Revisit the macro expression once build flag switch
+ // of lacros-chrome is complete.
+-#if defined(OS_LINUX) || BUILDFLAG(IS_CHROMEOS_LACROS)
++#if defined(OS_LINUX) || BUILDFLAG(IS_CHROMEOS_LACROS) || defined(OS_BSD)
+     {ui::VKEY_1, ui::EF_ALT_DOWN, IDC_SELECT_TAB_0},
+     {ui::VKEY_NUMPAD1, ui::EF_ALT_DOWN, IDC_SELECT_TAB_0},
+     {ui::VKEY_2, ui::EF_ALT_DOWN, IDC_SELECT_TAB_1},
+@@ -111,7 +111,7 @@ const AcceleratorMapping kAcceleratorMap[] = {
+>>>>>>> upstream/main
      {ui::VKEY_8, ui::EF_ALT_DOWN, IDC_SELECT_TAB_7},
      {ui::VKEY_NUMPAD8, ui::EF_ALT_DOWN, IDC_SELECT_TAB_7},
      {ui::VKEY_BROWSER_FAVORITES, ui::EF_NONE, IDC_SHOW_BOOKMARK_BAR},
@@ -27,10 +51,17 @@
      {ui::VKEY_B, ui::EF_SHIFT_DOWN | ui::EF_PLATFORM_ACCELERATOR,
       IDC_SHOW_BOOKMARK_BAR},
      {ui::VKEY_OEM_MINUS, ui::EF_PLATFORM_ACCELERATOR, IDC_ZOOM_MINUS},
+<<<<<<< HEAD
 @@ -132,14 +132,14 @@ const AcceleratorMapping kAcceleratorMap[] = {
       IDC_SHOW_AVATAR_MENU},
  
    // Platform-specific key maps.
+=======
+@@ -137,14 +137,14 @@ const AcceleratorMapping kAcceleratorMap[] = {
+      IDC_SHOW_AVATAR_MENU},
+ 
+ // Platform-specific key maps.
+>>>>>>> upstream/main
 -#if defined(OS_LINUX) || defined(OS_CHROMEOS)
 +#if defined(OS_LINUX) || defined(OS_CHROMEOS) || defined(OS_BSD)
      {ui::VKEY_BROWSER_BACK, ui::EF_NONE, IDC_BACK},
@@ -42,5 +73,9 @@
 -#endif  // defined(OS_LINUX) || defined(OS_CHROMEOS)
 +#endif  // defined(OS_LINUX) || defined(OS_CHROMEOS) || defined(OS_BSD)
  
+<<<<<<< HEAD
  #if defined(OS_CHROMEOS)
+=======
+ #if BUILDFLAG(IS_CHROMEOS_ASH)
+>>>>>>> upstream/main
      // On Chrome OS, VKEY_BROWSER_SEARCH is handled in Ash.

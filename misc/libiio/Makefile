@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libiio
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.21

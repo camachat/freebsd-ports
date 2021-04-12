@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dtool
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.10.1

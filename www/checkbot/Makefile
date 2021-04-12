@@ -1,5 +1,8 @@
 # Created by: wosch@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	checkbot
 PORTVERSION=	1.80

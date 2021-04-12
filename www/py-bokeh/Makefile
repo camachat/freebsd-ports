@@ -1,5 +1,8 @@
 # Created by: Sergey Kozlov <kozlov.sergey.404@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bokeh
 PORTVERSION=	2.3.0

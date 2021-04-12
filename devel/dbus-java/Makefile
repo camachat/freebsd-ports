@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dbus-java
 PORTVERSION=	2.7
 CATEGORIES=	devel java

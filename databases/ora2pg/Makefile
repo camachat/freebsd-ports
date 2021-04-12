@@ -1,8 +1,14 @@
 # Created by: Jov amutu@amutu.com
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	ora2pg
 PORTVERSION=	21.0
+=======
+
+PORTNAME=	ora2pg
+PORTVERSION=	21.1
+>>>>>>> upstream/main
 DISTVERSIONPREFIX=	v
 CATEGORIES=	databases
 

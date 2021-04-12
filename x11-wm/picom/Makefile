@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	picom
 DISTVERSIONPREFIX=	v
 DISTVERSION=	8.2

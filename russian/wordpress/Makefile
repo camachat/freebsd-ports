@@ -1,5 +1,8 @@
 # Created by: Mihail Timofeev <9267096@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wordpress
 DISTVERSION=	5.5.3

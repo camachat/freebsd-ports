@@ -1,5 +1,8 @@
 # Created by: Diego Depaoli <trebestie@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	texworks
 DISTVERSIONPREFIX=	release-

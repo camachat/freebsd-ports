@@ -1,5 +1,8 @@
 # Created by: Kalten <kalten@gmx.at>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	eureka
 DISTVERSION=	1.27b

@@ -1,9 +1,12 @@
 #!/bin/sh
 #
 # Author: Mark Felder <feld@FreeBSd.org>
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 
 # PROVIDE: miniflux
 # REQUIRE: LOGIN

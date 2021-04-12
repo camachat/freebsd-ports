@@ -1,5 +1,8 @@
 # Created by: Timur Bakeyev <bat@cpan.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-IDN-Encode
 PORTVERSION=	2.500

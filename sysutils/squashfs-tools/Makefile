@@ -1,5 +1,8 @@
 # Created by: Ashish SHUKLA <wahjava@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	squashfs-tools
 PORTVERSION=	4.4

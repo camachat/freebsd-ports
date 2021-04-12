@@ -1,5 +1,8 @@
 # Created by: Simun Mikecin <numisemis@yahoo.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	XML-ApacheFOP
 PORTVERSION=	0.03

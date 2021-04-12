@@ -1,5 +1,8 @@
 # Created by: ws	Christoph Kick
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nice-ffi
 PORTVERSION=	0.4

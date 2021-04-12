@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	opendht
 DISTVERSION=	1.10.1
 CATEGORIES=	devel net

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Crypt-Passwd-XS
 PORTVERSION=	0.601
 PORTREVISION=	1

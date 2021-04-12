@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cmakedoc
 DISTVERSION=	1.0.1
 CATEGORIES=	devel

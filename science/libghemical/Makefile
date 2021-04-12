@@ -1,5 +1,8 @@
 # Created by: Nakata Maho <maho@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libghemical
 PORTVERSION=	3.0.0

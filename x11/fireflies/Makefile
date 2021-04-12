@@ -1,5 +1,8 @@
 # Created by: UMENO Takashi <umeno@rr.iij4u.or.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fireflies
 PORTVERSION=	2.07
@@ -10,11 +13,21 @@ MASTER_SITES=	http://somewhere.fscked.org/proj/fireflies/files/
 MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Extension of xscreensaver
 
+<<<<<<< HEAD
+=======
+LICENSE=	GPLv2
+LICENSE_FILE=	${WRKSRC}/COPYING
+
+>>>>>>> upstream/main
 LIB_DEPENDS=	libgfx.so:graphics/libgfx
 
 GNU_CONFIGURE=	yes
 USES=		gl
+<<<<<<< HEAD
 USE_GL=		glu
+=======
+USE_GL=		gl glu
+>>>>>>> upstream/main
 EXTRACT_AFTER_ARGS=--exclude '${DISTNAME}/libgfx*'
 
 CPPFLAGS+=	-I${LOCALBASE}/include -I${LOCALBASE}/include/GL

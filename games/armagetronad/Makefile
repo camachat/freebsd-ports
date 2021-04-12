@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	armagetronad
 DISTVERSION=	0.2.8.3.5
 DISTVERSIONSUFFIX=	.src

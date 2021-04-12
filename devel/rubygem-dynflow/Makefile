@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dynflow
 PORTVERSION=	1.4.6
 CATEGORIES=	devel rubygems

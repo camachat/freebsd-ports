@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cyoi
 PORTVERSION=	0.11.3
 PORTREVISION=	1

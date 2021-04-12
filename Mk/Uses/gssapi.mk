@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # handle dependency on Kerberos port
 #
 # Feature:	gssapi
@@ -85,9 +88,15 @@ gssapi_ARGS=	base
 .for _A in ${gssapi_ARGS}
 _local:=	${_A}
 .if ${_local} == "base"
+<<<<<<< HEAD
 #.  if ${SSL_DEFAULT} != base
 #IGNORE=	You are using OpenSSL from ports and have selected GSSAPI from base, please select another GSSAPI value
 #.  endif
+=======
+.  if ${SSL_DEFAULT} != base
+IGNORE=	You are using OpenSSL from ports and have selected GSSAPI from base, please select another GSSAPI value
+.  endif
+>>>>>>> upstream/main
 HEIMDAL_HOME=	/usr
 GSSAPIBASEDIR=	${HEIMDAL_HOME}
 GSSAPILIBDIR=	${GSSAPIBASEDIR}/lib

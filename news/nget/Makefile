@@ -1,5 +1,8 @@
 # Created by: George Sorsby <george@crackpipe.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nget
 PORTVERSION=	0.27.1

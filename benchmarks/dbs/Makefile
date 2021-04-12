@@ -1,5 +1,8 @@
 # Created by: Joseph Koshy <jkoshy@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dbs
 PORTVERSION=	1.1.5

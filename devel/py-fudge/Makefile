@@ -1,5 +1,8 @@
 # Created by: Yi-Huan Chan <yhchan@csie.nctu.edu.tw>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fudge
 PORTVERSION=	1.1.0

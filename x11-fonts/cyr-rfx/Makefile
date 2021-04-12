@@ -1,5 +1,8 @@
 # Created by: mi@aldan.algebra.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cyr-rfx-${CYR_RFX_ENCODING}
 PORTVERSION=	1.1

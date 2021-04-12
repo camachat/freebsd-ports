@@ -1,5 +1,8 @@
 # Created by: Frerich Raabe <frerich.raabe@gmx.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bnf
 PORTVERSION=	1.6.10

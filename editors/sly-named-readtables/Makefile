@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sly-named-readtables
 PORTVERSION=	20191013
 PORTREVISION=	1

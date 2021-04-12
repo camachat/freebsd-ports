@@ -1,5 +1,8 @@
 # Created by: Alexey Mikhailov <karma@ez.pereslavl.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	trayer
 PORTVERSION=	1.1.8

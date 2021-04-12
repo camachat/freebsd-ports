@@ -1,5 +1,8 @@
 # Created by: Javier Martin Rueda <jmrueda@diatel.upm.es>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	moodle
 PORTVERSION=	3.10.3

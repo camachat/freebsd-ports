@@ -1,5 +1,8 @@
 # Created by: Martin Hinner
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vxtools
 PORTVERSION=	0.2

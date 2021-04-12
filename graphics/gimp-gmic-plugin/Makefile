@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	gmic
 PORTVERSION=	1.6.9
 PORTREVISION=	30
+=======
+PORTNAME=	gmic
+PORTVERSION=	1.6.9
+PORTREVISION=	31
+>>>>>>> upstream/main
 CATEGORIES=	graphics
 MASTER_SITES=	http://gmic.eu/files/source/
 PKGNAMEPREFIX=	gimp-
@@ -15,7 +21,11 @@ COMMENT=	GREYC's Magic Image Converter
 BROKEN=		OpenCV4 no longer ships OpencCV-1.0 headers
 
 LIB_DEPENDS=	libGraphicsMagick++.so:graphics/GraphicsMagick \
+<<<<<<< HEAD
 		libIlmImf.so:graphics/openexr \
+=======
+		libOpenEXR.so:graphics/openexr \
+>>>>>>> upstream/main
 		libopencv_video.so:graphics/opencv \
 		libMagick++-6.so:graphics/ImageMagick6 \
 		libavcodec.so:multimedia/ffmpeg \

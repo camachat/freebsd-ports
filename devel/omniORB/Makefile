@@ -1,5 +1,8 @@
 # Created by: ejc@bazzle.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	omniORB
 DISTVERSION=	4.2.4

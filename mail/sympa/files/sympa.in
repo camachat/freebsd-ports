@@ -1,4 +1,5 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # PROVIDE: sympa
 # REQUIRE: LOGIN cleanvar %%REQ_MYSQL%% %%REQ_PGSQL%% 
@@ -6,6 +7,13 @@
 #
 # $FreeBSD$
 #
+=======
+
+# PROVIDE: sympa
+# REQUIRE: LOGIN cleanvar %%REQ_MYSQL%% %%REQ_PGSQL%% 
+# KEYWORD: shutdown
+
+>>>>>>> upstream/main
 # Written by Michel Bouissou  20/07/2000
 #
 # Modified by Olivier Salaun 27/07/2000

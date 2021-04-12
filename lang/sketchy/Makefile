@@ -1,5 +1,8 @@
 # Created by: Nils M Holm <nmh@t3x.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sketchy
 PORTVERSION=	20070218

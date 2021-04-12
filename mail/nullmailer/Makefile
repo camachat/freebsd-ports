@@ -1,5 +1,8 @@
 # Created by: clive
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nullmailer
 PORTVERSION=	2.2

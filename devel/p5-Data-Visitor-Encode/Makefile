@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Data-Visitor-Encode
 PORTVERSION=	0.10007
 PORTREVISION=	1

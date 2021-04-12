@@ -1,5 +1,8 @@
 # Created by: Kenjiro Cho <kjc@csl.sony.co.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	blt
 PORTVERSION=	2.5.3

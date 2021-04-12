@@ -1,5 +1,8 @@
 # Created by: Philip M. Gollucci
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bigrecord
 PORTVERSION=	0.1.1

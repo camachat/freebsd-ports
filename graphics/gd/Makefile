@@ -1,5 +1,8 @@
 # Created by: jeff@cetlink.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libgd
 PORTVERSION=	2.3.1

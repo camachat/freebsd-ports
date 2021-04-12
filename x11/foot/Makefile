@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	foot
 DISTVERSION=	1.7.1
 CATEGORIES=	x11

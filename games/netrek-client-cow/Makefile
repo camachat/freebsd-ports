@@ -1,5 +1,8 @@
 # Created by: Kevin Zheng <kevinz5000@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	netrek-client-cow
 PORTVERSION=	3.3.2

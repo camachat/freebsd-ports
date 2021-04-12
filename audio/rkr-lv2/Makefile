@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rkr
 DISTVERSIONPREFIX=	beta_
 DISTVERSION=	2-2

@@ -1,5 +1,8 @@
 # Created by: Peter van Heusden <pvh@egenetics.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Error
 PORTVERSION=	0.17029

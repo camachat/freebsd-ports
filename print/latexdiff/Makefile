@@ -1,5 +1,8 @@
 # Created by: Maxim Loginov <Zeliboba@mail.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	latexdiff
 PORTVERSION=	1.3.1.1

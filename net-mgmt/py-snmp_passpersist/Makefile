@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	snmp_passpersist
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.0.0

@@ -1,5 +1,8 @@
 # Created by: Samy Al Bahra <samy@kerneled.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libitl
 PORTVERSION=	0.8.0

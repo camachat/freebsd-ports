@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Class-Tiny
 PORTVERSION=	1.006
 CATEGORIES=	devel perl5

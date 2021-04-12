@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 [client]
 port                            = 3306
 socket                          = /tmp/mysql.sock

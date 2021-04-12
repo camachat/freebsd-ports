@@ -1,5 +1,8 @@
 # Created by: Mike Carlson (carlson39@llnl.gov)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	couchrest
 PORTVERSION=	2.0.1

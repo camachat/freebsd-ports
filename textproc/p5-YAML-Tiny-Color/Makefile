@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	YAML-Tiny-Color
 PORTVERSION=	0.04
 PORTREVISION=	2

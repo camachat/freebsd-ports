@@ -1,5 +1,8 @@
 # Created by: Zeus Panchenko <zeus@gnu.org.ua>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Config-AST
 PORTVERSION=	1.07

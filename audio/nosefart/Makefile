@@ -1,5 +1,8 @@
 # Created by: Seth Kingsley <sethk@osd.bsdi.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nosefart
 PORTVERSION=	1.92f

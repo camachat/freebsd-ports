@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ezjail
 PORTVERSION=	3.4.2
 PORTREVISION=	1

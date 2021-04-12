@@ -1,5 +1,8 @@
 # Created by: jake@checker.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jlex
 PORTVERSION=	1.2.6

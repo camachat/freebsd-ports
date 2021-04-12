@@ -1,5 +1,8 @@
 # Created by: janek@gaja.ipan.lublin.pl
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xspread
 PORTVERSION=	3.1.1c

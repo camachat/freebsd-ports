@@ -1,5 +1,8 @@
 # Created by: antoine@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pyelftools
 PORTVERSION=	0.26

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	halide
 DISTVERSIONPREFIX=	release_
 DISTVERSION=	2019_08_27-2654

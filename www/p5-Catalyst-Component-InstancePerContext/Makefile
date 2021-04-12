@@ -1,5 +1,8 @@
 # Created by: Charlie & <root@dev2.rambler.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Catalyst-Component-InstancePerContext
 PORTVERSION=	0.001001

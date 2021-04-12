@@ -1,5 +1,8 @@
 # Created by: mi
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	qtawesome
 PORTVERSION=	20150319

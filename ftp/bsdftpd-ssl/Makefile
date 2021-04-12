@@ -1,5 +1,8 @@
 # Created by: Nick Leuta
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bsdftpd-ssl
 PORTVERSION=	1.1.0

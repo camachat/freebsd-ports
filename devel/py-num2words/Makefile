@@ -1,5 +1,8 @@
 # Created by: Jonas Palm <jonaspalm@posteo.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	num2words
 PORTVERSION=	0.5.9

@@ -1,5 +1,8 @@
 # Created by: Nicola Stanislao Vitale <nivit@FreeBSD:org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	speg
 DISTVERSION=	0.3

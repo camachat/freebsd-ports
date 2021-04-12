@@ -1,5 +1,8 @@
 # Created by: Oliver Braun
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libvc
 PORTVERSION=	003

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	nanort
 DISTVERSIONPREFIX=	v
 DISTVERSION=	g20201207

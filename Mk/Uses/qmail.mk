@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # Feature:	qmail
 # Usage:	USES=qmail or USES=qmail:ARGS
 # Valid ARGS:	both (default, implicit), run, build, vars

@@ -1,5 +1,8 @@
 # Created by: frankch@waru.life.nthu.edu.tw
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	seaview
 PORTVERSION=	5.0.4

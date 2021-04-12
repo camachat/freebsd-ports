@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libmusicbrainz
 DISTVERSIONPREFIX=	release-
 DISTVERSION=	5.1.0-19

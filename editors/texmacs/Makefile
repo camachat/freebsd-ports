@@ -1,5 +1,8 @@
 # Created by: Geoffrey Mainland <mainland@apeiron.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	texmacs
 PORTVERSION=	1.99.4

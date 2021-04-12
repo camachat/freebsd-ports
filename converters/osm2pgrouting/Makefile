@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	osm2pgrouting
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.3.7

@@ -1,5 +1,8 @@
 # Created by: Oleg Pudeyev <oleg@bsdpower.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Frozen-Flask
 PORTVERSION=	0.11

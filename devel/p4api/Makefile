@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	p4api
 PORTVERSION=	${YEAR}.${MAJOR}.${MINOR}
 PORTREVISION=	1

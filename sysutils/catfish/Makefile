@@ -1,5 +1,8 @@
 # Created by: jpaetzel@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	catfish
 PORTVERSION=	4.16.0

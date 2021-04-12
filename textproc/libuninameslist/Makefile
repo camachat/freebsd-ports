@@ -1,5 +1,8 @@
 # Created by: KANOU Hiroki <kanou@khdd.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libuninameslist
 PORTVERSION=	20200413

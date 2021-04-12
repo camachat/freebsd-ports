@@ -1,5 +1,8 @@
 # Created by: KIKUCHI Koichiro <koichiro@rworks.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pandora_console
 CATEGORIES=	net-mgmt

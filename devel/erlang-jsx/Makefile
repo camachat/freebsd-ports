@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	jsx
 PORTVERSION=	2.9.0
 CATEGORIES=	devel

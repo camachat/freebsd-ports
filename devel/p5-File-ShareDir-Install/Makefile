@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	File-ShareDir-Install
 PORTVERSION=	0.13
 CATEGORIES=	devel perl5

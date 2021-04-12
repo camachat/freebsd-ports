@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libabigail
 DISTVERSION=	1.8.2
 CATEGORIES=	devel

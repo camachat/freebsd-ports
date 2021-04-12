@@ -1,5 +1,8 @@
 # Created by: Scott Lambert <lambert@lambertfam.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	abook_import_export
 PORTVERSION=	1.1

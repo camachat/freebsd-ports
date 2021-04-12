@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 # Generated with `make cargo-crates`
 
 CARGO_CRATES=	adler-1.0.2 \

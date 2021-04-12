@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mcollective-actionpolicy-auth
 PORTVERSION=	2.2.0
 CATEGORIES=	sysutils

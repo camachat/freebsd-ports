@@ -1,5 +1,8 @@
 # Created by: Don Croyle <croyle@gelemna.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xconq
 DISTVERSION=	7.5.0-0pre.0.20050612

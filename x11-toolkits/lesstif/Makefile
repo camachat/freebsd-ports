@@ -1,5 +1,8 @@
 # Created by: 1wardd@airmail.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lesstif
 PORTVERSION=	0.95.2

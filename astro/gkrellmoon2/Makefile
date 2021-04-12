@@ -1,5 +1,8 @@
 # Created by: Jan Srzednicki <w@wrzask.pl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gkrellmoon2
 PORTVERSION=	0.6

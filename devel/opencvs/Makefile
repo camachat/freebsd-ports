@@ -1,5 +1,8 @@
 # Created by: Gabor Kovesdan <gabor@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	opencvs
 PORTVERSION=	20151230

@@ -1,5 +1,8 @@
 # Created by: Alexandre Snarskii <snar@paranoia.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cdpd
 PORTVERSION=	1.0.4.1

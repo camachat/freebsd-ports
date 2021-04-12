@@ -1,5 +1,8 @@
 # Created by: peter
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fvwm
 PORTVERSION=	2.6.9

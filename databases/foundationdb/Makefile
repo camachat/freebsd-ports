@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	foundationdb
 DISTVERSION=	6.3.11
 CATEGORIES=	databases

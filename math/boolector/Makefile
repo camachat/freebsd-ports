@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	boolector
 DISTVERSION=	3.2.1
 CATEGORIES=	math

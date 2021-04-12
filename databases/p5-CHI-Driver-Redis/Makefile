@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	CHI-Driver-Redis
 PORTVERSION=	0.10
 CATEGORIES=	databases perl5

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Data-Rand-Obscure
 PORTVERSION=	0.021
 PORTREVISION=	1

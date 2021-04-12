@@ -1,5 +1,8 @@
 # Created by: "Waitman Gobble" <uzimac@da3m0n8t3r.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pkgcompare
 PORTVERSION=	1.1

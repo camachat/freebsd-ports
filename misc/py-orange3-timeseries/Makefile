@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	orange3-timeseries
 DISTVERSION=	0.3.10
 CATEGORIES=	misc python

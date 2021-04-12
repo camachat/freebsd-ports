@@ -1,5 +1,8 @@
 # Created by: Dan Langille <dvl@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	elasticsearch-dsl
 PORTVERSION=	7.3.0

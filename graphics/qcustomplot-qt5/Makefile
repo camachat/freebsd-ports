@@ -1,9 +1,16 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	qcustomplot
 DISTVERSION=	2.0.1
 CATEGORIES=	graphics
 MASTER_SITES=	https://www.qcustomplot.com/release/${PORTVERSION}/
+=======
+PORTNAME=	qcustomplot
+DISTVERSION=	2.1.0
+CATEGORIES=	graphics
+MASTER_SITES=	https://www.qcustomplot.com/release/${PORTVERSION}fixed/
+>>>>>>> upstream/main
 PKGNAMESUFFIX=	${SUFFIX}
 DISTNAME=	QCustomPlot
 DIST_SUBDIR=	${PORTNAME}-${DISTVERSION}

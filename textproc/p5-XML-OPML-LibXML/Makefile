@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	XML-OPML-LibXML
 PORTVERSION=	0.04
 PORTREVISION=	1

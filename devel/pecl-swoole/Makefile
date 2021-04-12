@@ -1,8 +1,14 @@
 # Created by: vanilla@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	swoole
 PORTVERSION=	4.6.4
+=======
+
+PORTNAME=	swoole
+PORTVERSION=	4.6.5
+>>>>>>> upstream/main
 CATEGORIES=	devel net
 
 MAINTAINER=	vanilla@FreeBSD.org

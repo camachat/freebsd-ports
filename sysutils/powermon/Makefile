@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	powermon
 PORTVERSION=	1.0.0
 DISTVERSIONPREFIX=	v

@@ -1,5 +1,8 @@
 # Created by: Anish Mistry (with help from mean)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	avidemux
 PORTVERSION=	${AVIDEMUX_VERSION}

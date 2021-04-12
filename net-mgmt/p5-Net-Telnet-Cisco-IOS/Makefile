@@ -1,5 +1,8 @@
 # Created by: Tsung-Han Yeh <snowfly@yunteche.du.tw>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-Telnet-Cisco-IOS
 PORTVERSION=	0.6

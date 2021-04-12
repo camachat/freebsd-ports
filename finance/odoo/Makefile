@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	odoo
 PORTVERSION=	13.0
 PORTREVISION=	2

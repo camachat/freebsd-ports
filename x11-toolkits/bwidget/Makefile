@@ -1,5 +1,8 @@
 # Created by: Alexander Kabaev <ak03@gte.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bwidget
 PORTVERSION=	1.9.14

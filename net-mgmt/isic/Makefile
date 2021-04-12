@@ -1,5 +1,8 @@
 # Created by: Brad Hendrickse <bradh@uunet.co.za>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	isic
 PORTVERSION=	0.07

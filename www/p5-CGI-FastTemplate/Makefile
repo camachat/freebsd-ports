@@ -1,5 +1,8 @@
 # Created by: Vanilla I. Shu <vanilla@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	CGI-FastTemplate
 PORTVERSION=	1.09

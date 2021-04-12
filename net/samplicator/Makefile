@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	samplicator
 DISTVERSION=	1.3.8rc1
 PORTREVISION=	1

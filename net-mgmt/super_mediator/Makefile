@@ -1,5 +1,8 @@
 # Created by: Inacio <nacho319+freebsdZilla@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	super_mediator
 PORTVERSION=	1.6.0

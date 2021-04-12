@@ -1,5 +1,8 @@
 # Created by: Henrik Brix Andersen <brix@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xapian-omega
 PORTVERSION=	1.2.25

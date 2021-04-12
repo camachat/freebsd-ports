@@ -1,8 +1,14 @@
 # Created by: Jason Helfman <jgh@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	libvirt
 PORTVERSION=	7.1.0
+=======
+
+PORTNAME=	libvirt
+PORTVERSION=	7.2.0
+>>>>>>> upstream/main
 CATEGORIES=	devel
 MASTER_SITES=	http://libvirt.org/sources/ \
 		ftp://libvirt.org/libvirt/
@@ -104,7 +110,11 @@ USE_PERL5=	build
 USE_LDCONFIG=	yes
 INSTALL_TARGET=	install-strip
 TEST_TARGET=	check
+<<<<<<< HEAD
 SHLIB_VER=	0.7001.0
+=======
+SHLIB_VER=	0.7002.0
+>>>>>>> upstream/main
 PLIST_SUB+=	SHLIB_VER=${SHLIB_VER}
 PORTDOCS=	*
 SHEBANG_FILES=	src/keycodemapdb/tools/keymap-gen

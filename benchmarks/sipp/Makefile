@@ -1,5 +1,8 @@
 # Created by: jesper@jdn.dk
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sipp
 PORTVERSION=	3.5.1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mnn
 DISTVERSION=	1.1.0
 PORTREVISION=	1

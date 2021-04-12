@@ -1,5 +1,8 @@
 # Created by: Jeremy Norris <ishmael27@home.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	imlib2
 PORTVERSION=	1.7.0

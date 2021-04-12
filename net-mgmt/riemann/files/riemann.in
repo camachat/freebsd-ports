@@ -1,7 +1,10 @@
 #!/bin/sh
 
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # PROVIDE: riemann
 # REQUIRE: LOGIN NETWORKING SERVERS
 # KEYWORD: shutdown

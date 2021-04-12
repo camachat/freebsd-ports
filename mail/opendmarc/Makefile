@@ -1,5 +1,8 @@
 # Created by: Jaap Akkerhuis <jaap@NLnetLabs.nl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	opendmarc
 PORTVERSION=	1.3.2

@@ -1,5 +1,8 @@
 # Created by: Eiji-usagi-MATSUmoto <usagi@ruby.club.or.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	naga10
 PORTVERSION=	1.1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		praat
 DISTVERSIONPREFIX=	v
 DISTVERSION=		6.1.40

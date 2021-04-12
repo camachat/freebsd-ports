@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	wlr-randr
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.2.0

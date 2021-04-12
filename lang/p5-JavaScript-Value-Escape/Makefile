@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	JavaScript-Value-Escape
 PORTVERSION=	0.07
 CATEGORIES=	lang perl5

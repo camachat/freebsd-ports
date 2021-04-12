@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 
 DB=		SQLite2
 DB_DESC=	SQLite 2

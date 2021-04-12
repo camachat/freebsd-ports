@@ -1,5 +1,8 @@
 # Created by: Jason Harris <jharris@widomaker.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	units
 PORTVERSION=	2.16

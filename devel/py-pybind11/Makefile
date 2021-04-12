@@ -1,5 +1,8 @@
 # Created by: Yuri Victorovich <yuri@rawbw.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pybind11
 DISTVERSION=	2.6.1
@@ -17,7 +20,10 @@ USES=		python:3.6+
 USE_PYTHON=	distutils concurrent autoplist
 
 NO_ARCH=	yes
+<<<<<<< HEAD
 #USES=		cmake gmake python:2 compiler:c++11-lib
 #CMAKE_ARGS+=	-DPYBIND11_INSTALL=ON -DPYBIND11_TEST=OFF
+=======
+>>>>>>> upstream/main
 
 .include <bsd.port.mk>

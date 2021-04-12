@@ -1,5 +1,8 @@
 # Created by: dpejesh@yahoo.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tinyrpc
 PORTVERSION=	1.0.4

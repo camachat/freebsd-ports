@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	hhsuite
 DISTVERSIONPREFIX=	v
 DISTVERSION=	3.3.0

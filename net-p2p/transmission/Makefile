@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	transmission
 DISTVERSION=	3.00
 PORTREVISION=	1

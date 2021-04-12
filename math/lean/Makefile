@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	lean
 DISTVERSIONPREFIX=	v
 DISTVERSION=	3.28.0

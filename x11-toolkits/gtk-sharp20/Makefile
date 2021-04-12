@@ -1,5 +1,8 @@
 # Created by: Juli Mallett
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gtk-sharp
 PORTVERSION=	2.12.45

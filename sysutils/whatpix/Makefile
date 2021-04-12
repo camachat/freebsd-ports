@@ -1,5 +1,8 @@
 # Created by: Philippe Casidy <pcasidy@casidy.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	whatpix
 PORTVERSION=	1.2

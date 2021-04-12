@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	yaggo
 PORTVERSION=	1.5.9
 DISTVERSIONPREFIX=	v

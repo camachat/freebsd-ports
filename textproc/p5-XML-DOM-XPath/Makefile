@@ -1,5 +1,8 @@
 # Created by: Mauricio Herrera Cuadra <mauricio@arareko.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	XML-DOM-XPath
 PORTVERSION=	0.14

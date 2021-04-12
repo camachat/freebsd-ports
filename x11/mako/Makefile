@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mako
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.4.1

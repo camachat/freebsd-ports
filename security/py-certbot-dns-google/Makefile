@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	certbot-dns-google
 PORTVERSION=	${ACME_VERSION}
 CATEGORIES=	security python

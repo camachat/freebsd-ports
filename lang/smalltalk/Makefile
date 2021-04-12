@@ -1,5 +1,8 @@
 # Created by: gpalmer
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	smalltalk
 PORTVERSION=	3.2.5

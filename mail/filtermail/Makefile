@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	filtermail
 PORTVERSION=	0.8.6
 CATEGORIES=	mail

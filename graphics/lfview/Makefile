@@ -1,5 +1,8 @@
 # Created by: Yuu Yashiki
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lfview
 PORTVERSION=	1.1a

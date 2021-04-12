@@ -1,5 +1,8 @@
 # Created by: Roman Bogorodskiy <novel@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	osinfo-db-tools
 PORTVERSION=	1.9.0

@@ -1,5 +1,8 @@
 # Created by: Andrey Simonenko
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ipa
 PORTVERSION=	2.1.2

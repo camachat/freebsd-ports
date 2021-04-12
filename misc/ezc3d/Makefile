@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ezc3d
 DISTVERSIONPREFIX=	Release_
 DISTVERSION=	1.4.2

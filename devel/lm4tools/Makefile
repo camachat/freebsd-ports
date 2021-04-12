@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	lm4tools
 PORTVERSION=	0.1.3.20160905
 CATEGORIES=	devel

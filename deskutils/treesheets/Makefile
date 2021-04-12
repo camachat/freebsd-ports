@@ -1,5 +1,8 @@
 # Created by: lightside <lightside@gmx.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	treesheets
 PORTVERSION=	1.0.2

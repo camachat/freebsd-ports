@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dunelegacy
 PORTVERSION=	0.96.4
 PORTREVISION=	4

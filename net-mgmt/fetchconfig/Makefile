@@ -1,5 +1,8 @@
 # Created by: salexanov@gmail.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fetchconfig
 DISTVERSION=	0.26

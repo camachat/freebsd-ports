@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
 
+=======
+>>>>>>> upstream/main
     COMMENT = Text processing utilities (does not include desktop publishing)
 
     SUBDIR += 2bsd-diff
@@ -167,8 +170,11 @@
     SUBDIR += el-aspell
     SUBDIR += el-hyphen
     SUBDIR += elasticsearch-plugin-head
+<<<<<<< HEAD
     SUBDIR += elasticsearch5
     SUBDIR += elasticsearch5-search-guard
+=======
+>>>>>>> upstream/main
     SUBDIR += elasticsearch6
     SUBDIR += elasticsearch7
     SUBDIR += elixir-earmark
@@ -262,7 +268,10 @@
     SUBDIR += hr-aspell
     SUBDIR += hs-lhs2tex
     SUBDIR += hs-pandoc
+<<<<<<< HEAD
     SUBDIR += hs-pandoc-citeproc
+=======
+>>>>>>> upstream/main
     SUBDIR += hs-pandoc-crossref
     SUBDIR += hs-yaml
     SUBDIR += hsb-aspell
@@ -355,7 +364,10 @@
     SUBDIR += latex-service
     SUBDIR += latex2html
     SUBDIR += libabw
+<<<<<<< HEAD
     SUBDIR += libcrm114
+=======
+>>>>>>> upstream/main
     SUBDIR += libcroco
     SUBDIR += libcss
     SUBDIR += libcsv

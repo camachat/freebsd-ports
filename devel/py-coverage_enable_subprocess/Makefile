@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	coverage_enable_subprocess
 PORTVERSION=	1.0
 CATEGORIES=	devel python

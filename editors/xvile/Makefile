@@ -1,5 +1,8 @@
 # Created by: pgf
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vile
 PORTVERSION=	9.8u

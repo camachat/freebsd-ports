@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xf86-input-void
 PORTVERSION=	1.4.1
 PORTREVISION=	4

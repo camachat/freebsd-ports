@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libsodium
 PORTVERSION=	1.0.18
 CATEGORIES=	security

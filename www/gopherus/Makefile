@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gopherus
 DISTVERSION=	1.2.1
 CATEGORIES=	www

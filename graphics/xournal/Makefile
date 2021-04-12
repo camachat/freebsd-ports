@@ -1,5 +1,8 @@
 # Created by: Jan Henrik Sylvester <me@janh.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xournal
 PORTVERSION=	0.4.8.2016

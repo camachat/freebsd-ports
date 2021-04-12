@@ -1,5 +1,8 @@
 # Created by: vanilla@
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	iconv
 PORTVERSION=	7

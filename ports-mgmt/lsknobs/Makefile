@@ -1,5 +1,8 @@
 # Created by: Gabriel Linder <linder.gabriel@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lsknobs
 PORTVERSION=	1.0

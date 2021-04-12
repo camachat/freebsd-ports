@@ -1,5 +1,8 @@
 # Created by: Yuichiro NAITO <naito.yuichiro@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	itamae
 PORTVERSION=	1.10.7

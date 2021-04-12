@@ -1,5 +1,8 @@
 # Created by: Alex Deiter <Alex.Deiter@Gmail.COM>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HTML-Toc
 PORTVERSION=	1.12

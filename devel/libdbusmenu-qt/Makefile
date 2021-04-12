@@ -1,5 +1,8 @@
 # Created by: Dima Panov <fluffy@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libdbusmenu-qt
 PORTVERSION=	${MAJOR_VER}.${SNAPSHOT_VER:S/.//g}

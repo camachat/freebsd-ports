@@ -1,5 +1,8 @@
 # Created by: David Xu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	byaccj
 PORTVERSION=	1.15

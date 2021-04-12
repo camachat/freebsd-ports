@@ -1,5 +1,8 @@
 # Created by: pauls@utdallas.edu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Parse-Range
 PORTVERSION=	0.96

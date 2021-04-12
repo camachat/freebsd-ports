@@ -1,5 +1,8 @@
 # Created by: Adam Weinberger
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cmus
 DISTVERSIONPREFIX=	v

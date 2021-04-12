@@ -1,5 +1,8 @@
 # Created by: Espen Tagestad <espen@tagestad.no>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	SQL-Abstract-More
 PORTVERSION=	1.37

@@ -1,5 +1,8 @@
 # Created by: alexander smishlajev
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	decoratortools
 PORTVERSION=	1.8

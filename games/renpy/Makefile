@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	renpy
 PORTVERSION=	7.4.4
 DISTVERSIONSUFFIX=-sdk

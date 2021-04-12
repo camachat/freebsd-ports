@@ -1,5 +1,8 @@
 # Created by: Eivind Eklund <eivind@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	IO-Stringy
 PORTVERSION=	2.113

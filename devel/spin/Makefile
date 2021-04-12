@@ -1,5 +1,8 @@
 # Created by: jhanna@home.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	spin
 PORTVERSION=	6.5.0

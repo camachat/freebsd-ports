@@ -1,5 +1,8 @@
 # Created by: mi@aldan.algebra.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	incron
 DISTVERSION=	2017-11-13

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	squid
 PORTVERSION=	3.5.28
 PORTREVISION=	4

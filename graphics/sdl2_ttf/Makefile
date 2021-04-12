@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sdl2_ttf
 PORTVERSION=	2.0.15
 CATEGORIES=	graphics

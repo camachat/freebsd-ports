@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	FurlX-Coro
 PORTVERSION=	1.02
 PORTREVISION=	1

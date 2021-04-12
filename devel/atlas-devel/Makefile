@@ -1,5 +1,8 @@
 # Created by: Janni <jannisan@t-online.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Atlas
 PORTVERSION=	0.6.4

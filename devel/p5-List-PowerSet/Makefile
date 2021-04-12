@@ -1,5 +1,8 @@
 # Created by: Anish Mistry <amistry@am-productions.biz>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	List-PowerSet
 PORTVERSION=	0.01

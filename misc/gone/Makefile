@@ -1,5 +1,8 @@
 # Created by: marcus
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gone
 PORTVERSION=	1.3.6

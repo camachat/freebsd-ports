@@ -1,5 +1,8 @@
 # Created by: Matthias Teege <matthias@mteege.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ncp
 PORTVERSION=	1.2.4

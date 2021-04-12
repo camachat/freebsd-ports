@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	qmcpack
 DISTVERSIONPREFIX=	v
 DISTVERSION=	3.10.0

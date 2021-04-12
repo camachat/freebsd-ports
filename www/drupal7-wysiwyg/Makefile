@@ -1,5 +1,8 @@
 # Created by: Nick Hilliard <nick@foobar.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wysiwyg
 DISTVERSION=	7.x-2.6

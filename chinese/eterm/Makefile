@@ -1,5 +1,8 @@
 # Created by: Michael C. Wu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 CATEGORIES=	chinese
 

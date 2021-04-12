@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	omniauth-authentiq
 PORTVERSION=	0.3.3
 PORTREVISION=	1

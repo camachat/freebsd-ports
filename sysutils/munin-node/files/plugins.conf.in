@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 ######################################################################
 # This file is installed by the sysutils/munin-node port, you should #
 # not change it, you should create a local.conf file in the same     #

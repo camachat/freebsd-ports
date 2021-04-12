@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	trean
 PORTVERSION=	1.1.10
 CATEGORIES=	www pear

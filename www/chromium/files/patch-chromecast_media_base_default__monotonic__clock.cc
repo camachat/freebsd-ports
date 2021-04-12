@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- chromecast/media/base/default_monotonic_clock.cc.orig	2020-11-13 06:36:40 UTC
+=======
+--- chromecast/media/base/default_monotonic_clock.cc.orig	2021-03-12 23:57:21 UTC
+>>>>>>> upstream/main
 +++ chromecast/media/base/default_monotonic_clock.cc
 @@ -9,9 +9,9 @@
  #include "base/time/time.h"

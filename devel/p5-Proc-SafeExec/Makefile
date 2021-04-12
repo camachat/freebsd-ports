@@ -1,5 +1,8 @@
 # Created by: Sergei Vyshenski <svysh@pn.sinp.msu.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Proc-SafeExec
 PORTVERSION=	1.5

@@ -1,5 +1,8 @@
 # Created by: William Grzybowski <william88@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rose
 PORTVERSION=	1.0.0

@@ -1,5 +1,8 @@
 # Created by: Eduard Martinescu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	smartmontools
 PORTVERSION=	7.2

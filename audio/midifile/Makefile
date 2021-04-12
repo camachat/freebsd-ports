@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	midifile
 PORTVERSION=	g20200602
 PORTREVISION=	1

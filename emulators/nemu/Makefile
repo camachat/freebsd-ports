@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	nemu
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.6.0

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	authheaders
 DISTVERSION=	0.13.0
 CATEGORIES=	mail python

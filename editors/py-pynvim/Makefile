@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	pynvim
 DISTVERSION=	0.4.2
+=======
+PORTNAME=	pynvim
+DISTVERSION=	0.4.3
+>>>>>>> upstream/main
 CATEGORIES=	editors python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}

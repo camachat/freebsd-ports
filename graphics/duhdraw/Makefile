@@ -1,5 +1,8 @@
 # Created by: Kyle Martin <mkm@ieee.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	duhdraw
 PORTVERSION=	2.8.13

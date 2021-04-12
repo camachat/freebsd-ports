@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	delayer-deferred
 PORTVERSION=	2.1.3
 CATEGORIES=	devel rubygems

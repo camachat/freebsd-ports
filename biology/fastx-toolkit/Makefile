@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fastx_toolkit
 PORTVERSION=	0.0.14
 CATEGORIES=	biology

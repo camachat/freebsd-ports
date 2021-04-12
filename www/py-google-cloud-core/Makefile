@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	google-cloud-core
 PORTVERSION=	1.6.0
 CATEGORIES=	www python

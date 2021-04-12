@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Data-Serializable
 PORTVERSION=	0.41.0
 PORTREVISION=	1

@@ -1,5 +1,8 @@
 # Created by: Tilman Linneweh <arved@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	swhplugins
 PORTVERSION=	0.4.17

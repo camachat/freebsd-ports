@@ -1,5 +1,8 @@
 # Created by: René Ladan <rene@freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sphinx-me
 PORTVERSION=	0.3

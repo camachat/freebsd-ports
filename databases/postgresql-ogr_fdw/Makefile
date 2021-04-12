@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ogr_fdw
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.1.0

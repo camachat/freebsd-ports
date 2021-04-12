@@ -1,5 +1,8 @@
 # Created by: Martin Matuska (mm@FreeBSD.org)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gollem
 PORTVERSION=	3.0.13

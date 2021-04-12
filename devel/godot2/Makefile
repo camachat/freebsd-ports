@@ -1,5 +1,8 @@
 # Created by: Shane Ambler <FreeBSD@Shaneware.biz>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	godot
 DISTVERSION=	2.1.6
@@ -23,7 +26,11 @@ RUN_DEPENDS=	xdg-user-dir:devel/xdg-user-dirs \
 		xdg-open:devel/xdg-utils \
 		xmessage:x11/xmessage
 
+<<<<<<< HEAD
 USES=		compiler:c++11-lib gl pkgconfig scons:python2 ssl xorg
+=======
+USES=		compiler:c++11-lib gl pkgconfig scons ssl xorg
+>>>>>>> upstream/main
 USE_XORG=	x11 xcursor xi xinerama xrandr
 USE_GL=		gl glu
 

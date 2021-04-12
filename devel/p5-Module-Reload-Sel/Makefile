@@ -1,5 +1,8 @@
 # Created by: simond@irrelevant.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Module-Reload-Sel
 PORTVERSION=	1.02

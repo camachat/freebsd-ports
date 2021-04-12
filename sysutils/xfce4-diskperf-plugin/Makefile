@@ -1,5 +1,8 @@
 # Created by: Danilo Egea Gondolfo <danilogondolfo@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xfce4-diskperf-plugin
 PORTVERSION=	2.6.3

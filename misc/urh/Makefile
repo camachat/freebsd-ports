@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	urh
 DISTVERSION=	2.9.1
 PORTREVISION=	2
@@ -14,9 +17,13 @@ LICENSE=	GPLv3
 BUILD_DEPENDS=	${PYNUMPY}
 RUN_DEPENDS=	${PYNUMPY} \
 		${PYTHON_PKGNAMEPREFIX}psutil>0:sysutils/py-psutil@${PY_FLAVOR} \
+<<<<<<< HEAD
 		${PYTHON_PKGNAMEPREFIX}pyzmq>0:net/py-pyzmq@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}cython>0:lang/cython@${PY_FLAVOR} \
 		gr-osmosdr>0:comms/gr-osmosdr
+=======
+		${PYTHON_PKGNAMEPREFIX}pyzmq>0:net/py-pyzmq@${PY_FLAVOR}
+>>>>>>> upstream/main
 
 USES=		compiler:c++11-lang fortran python:3.4+ localbase pyqt:5
 USE_PYQT=	core gui test widgets

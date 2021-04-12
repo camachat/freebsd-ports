@@ -1,5 +1,8 @@
 # Created by: rfarmer@predatorlabs.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jlatexmath
 PORTVERSION=	1.0.7

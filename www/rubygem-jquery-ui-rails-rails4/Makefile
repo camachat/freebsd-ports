@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	jquery-ui-rails
 PORTVERSION=	6.0.1
 CATEGORIES=	www rubygems

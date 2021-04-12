@@ -1,5 +1,8 @@
 # Created by: Lawrence Chen <beastie@tardisi.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	check_dhcp.pl
 PORTVERSION=	0.1

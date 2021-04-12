@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	reggae
 PORTVERSION=	0.1.16
 CATEGORIES=	sysutils

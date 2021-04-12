@@ -1,5 +1,8 @@
 # Created by: Choe, Cheng-Dae <whitekid@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pgpool-II
 PORTVERSION=	3.5.25

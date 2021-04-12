@@ -1,5 +1,8 @@
 # Created by: Alexander Kuehn <freebsd@nagilum.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	zopfli
 PORTVERSION=	1.0.3

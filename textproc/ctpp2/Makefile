@@ -1,5 +1,8 @@
 # Created by: Andrei V. Shetuhin <reki@reki.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ctpp2
 PORTVERSION=	2.8.3

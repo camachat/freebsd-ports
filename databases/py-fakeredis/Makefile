@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fakeredis
 PORTVERSION=	1.4.5
 CATEGORIES=	databases

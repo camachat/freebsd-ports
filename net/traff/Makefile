@@ -1,5 +1,8 @@
 # Created by: Dan Caescu <daniel at freebsd.ro>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	traff
 PORTVERSION=	0.7

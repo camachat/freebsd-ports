@@ -1,5 +1,8 @@
 # Created by: js@jeannot.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		visualworks
 PORTVERSION=		7.6

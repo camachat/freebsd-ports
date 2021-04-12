@@ -1,5 +1,8 @@
 # Created by: Eric Turgeon <ericturgeon@ghostbsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	caja-extensions
 PORTVERSION=	1.24.1

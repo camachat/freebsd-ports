@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	concourse
 DISTVERSIONPREFIX=	v
 DISTVERSION=	6.7.2

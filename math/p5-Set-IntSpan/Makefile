@@ -1,5 +1,8 @@
 # Created by: Don Croyle <croyle@gelemna.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Set-IntSpan
 PORTVERSION=	1.19

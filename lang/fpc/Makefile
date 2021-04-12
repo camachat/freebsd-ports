@@ -1,5 +1,8 @@
 # Created by: John Merryweather Cooper et al
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fpc
 PORTVERSION=	3.2.0

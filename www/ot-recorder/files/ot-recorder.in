@@ -1,6 +1,10 @@
 #!/bin/sh
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+
+>>>>>>> upstream/main
 # PROVIDE: otrecorder
 # REQUIRE: LOGIN mosquitto hass
 # KEYWORD: shutdown

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	DBIx-DBHResolver
 PORTVERSION=	0.17
 PORTREVISION=	1

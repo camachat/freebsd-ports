@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fmtconv
 PORTVERSION=	r22
 CATEGORIES=	graphics

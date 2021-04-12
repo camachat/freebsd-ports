@@ -1,5 +1,8 @@
 # Created by: Scott Sanders <scott@jssjr.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	url_escape
 PORTVERSION=	2009.06.24

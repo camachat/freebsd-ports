@@ -1,5 +1,8 @@
 # Created by: wtp@bsdguru.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 CATEGORIES=	polish
 

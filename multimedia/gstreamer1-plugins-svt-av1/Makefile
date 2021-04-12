@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	svt-av1
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.8.6

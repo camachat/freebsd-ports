@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 # Created by: Dmitry Marakasov <amdmi3@FreeBSD.org>
 # $FreeBSD$
 
 PORTNAME=	osm2pgsql
 PORTVERSION=	1.4.1
+=======
+PORTNAME=	osm2pgsql
+PORTVERSION=	1.4.2
+>>>>>>> upstream/main
 CATEGORIES=	converters geography
 
 MAINTAINER=	amdmi3@FreeBSD.org
@@ -41,6 +46,10 @@ LUAJIT_LIB_DEPENDS=	libluajit-5.1.so:lang/luajit
 LUAJIT_USES_OFF=	lua:53
 TEST_CMAKE_BOOL=	BUILD_TESTS
 TEST_TEST_TARGET=	test
+<<<<<<< HEAD
+=======
+TEST_CMAKE_ON=		-DCMAKE_CTEST_ARGUMENTS="--label-regex;NoDB;--output-on-failure"
+>>>>>>> upstream/main
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|find_package(Lua |&${LUA_VER} EXACT |' \

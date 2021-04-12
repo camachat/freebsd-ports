@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	sentry-cli
 DISTVERSION=	1.63.1
 PORTREVISION=	1
+=======
+PORTNAME=	sentry-cli
+DISTVERSION=	1.63.2
+>>>>>>> upstream/main
 CATEGORIES=	devel
 
 MAINTAINER=	lcook@FreeBSD.org
@@ -193,7 +198,11 @@ CARGO_CRATES=	addr2line-0.14.0 \
 		proc-macro-error-attr-1.0.4 \
 		proc-macro2-0.4.30 \
 		proc-macro2-1.0.24 \
+<<<<<<< HEAD
 		proguard-4.0.1 \
+=======
+		proguard-4.1.1 \
+>>>>>>> upstream/main
 		quote-0.6.13 \
 		quote-1.0.7 \
 		r2d2-0.8.9 \

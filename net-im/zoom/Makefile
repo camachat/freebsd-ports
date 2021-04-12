@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	zoom
 DISTVERSION=	5.3.465578.0920
 PORTREVISION=	1

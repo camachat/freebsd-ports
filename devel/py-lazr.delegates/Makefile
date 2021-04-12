@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	lazr.delegates
 PORTVERSION=	2.0.4
 CATEGORIES=	devel python

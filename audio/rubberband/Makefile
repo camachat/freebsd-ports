@@ -1,5 +1,8 @@
 # Created by: mathias.picker@gmx.de
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rubberband
 DISTVERSION=	1.9.0

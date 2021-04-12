@@ -1,5 +1,8 @@
 # Created by: KIRIYAMA Kazuhiko <kiri@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sdocbook-xml
 PORTVERSION=	1.1

@@ -1,5 +1,8 @@
 # Created by: Piotr Smyrak, piotr.smyrak@heron.pl
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gcolor2
 PORTVERSION=	0.4

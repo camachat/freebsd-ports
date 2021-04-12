@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Ark
 PORTVERSION=	0.1.r1
 PORTREVISION=	2

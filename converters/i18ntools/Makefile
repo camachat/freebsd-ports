@@ -1,5 +1,8 @@
 # Created by: G. Adam Stanislav
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	i18ntools
 PORTVERSION=	1.0

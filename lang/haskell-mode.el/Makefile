@@ -1,5 +1,8 @@
 # Created by: Josh Elsasser <jre@vineyard.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	haskell-mode
 DISTVERSIONPREFIX=v

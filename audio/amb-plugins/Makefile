@@ -1,5 +1,8 @@
 # Created by: Edward Tomasz Napierala <trasz@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	amb-plugins
 PORTVERSION=	0.8.1

@@ -1,6 +1,11 @@
 /distfiles
 /packages
+<<<<<<< HEAD
 /*/*/Makefile.local
+=======
+/security/vuxml/vuln-flat.xml
+Makefile.local
+>>>>>>> upstream/main
 /*/*/work
 /*/*/work-*
 /INDEX-[0-9]*

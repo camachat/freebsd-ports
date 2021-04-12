@@ -1,5 +1,8 @@
 # Created by: Christoph Mallon <christoph.mallon@gmx.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cparser
 PORTVERSION=	0.9.14

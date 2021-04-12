@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	unicorn
 DISTVERSION=	1.0.2
 CATEGORIES=	emulators python

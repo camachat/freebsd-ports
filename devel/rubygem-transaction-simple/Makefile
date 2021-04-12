@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	transaction-simple
 PORTVERSION=	1.4.0.2
 PORTREVISION=	1

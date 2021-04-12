@@ -1,5 +1,8 @@
 # Created by: Alexandros Kosiaris <akosiaris+ports@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jira
 PORTVERSION=	2.0.0

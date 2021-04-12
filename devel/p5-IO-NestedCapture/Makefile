@@ -1,5 +1,8 @@
 # Created by: tobez@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	IO-NestedCapture
 PORTVERSION=	1.03

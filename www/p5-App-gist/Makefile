@@ -1,5 +1,8 @@
 # Created by: Denny Lin <dennylin93@hs.ntnu.edu.tw>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	App-gist
 PORTVERSION=	0.16

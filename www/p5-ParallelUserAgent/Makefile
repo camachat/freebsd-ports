@@ -1,5 +1,8 @@
 # Created by: ache@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ParallelUserAgent
 PORTVERSION=	2.62

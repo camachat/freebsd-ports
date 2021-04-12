@@ -1,5 +1,8 @@
 # Created by: Michael Nottebrock <lofi@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	foomatic-db-hpijs
 PORTVERSION=	1.4

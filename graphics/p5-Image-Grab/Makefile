@@ -1,5 +1,8 @@
 # Created by: Anatoliy Dmytriyev <tolid@plab.ku.dk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Image-Grab
 PORTVERSION=	1.4.2

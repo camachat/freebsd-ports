@@ -1,5 +1,8 @@
 # Created by: Pieter Danhieux <opr@bsdaemon.be>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	autopsy
 PORTVERSION=	2.24

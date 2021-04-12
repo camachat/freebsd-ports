@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	subversion-book
 DISTVERSION=	4515
 CATEGORIES=	devel misc

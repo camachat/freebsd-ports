@@ -1,5 +1,8 @@
 # Created by: peter
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	echoping
 PORTVERSION=	6.0.2

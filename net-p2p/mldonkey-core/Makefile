@@ -1,5 +1,8 @@
 # Created by: Holger Lamm <holger@e-gitt.net> and Mario S F Ferreira <lioux@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 OPTIONS_EXCLUDE=GUI
 

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	msopenh264
 PORTVERSION=	1.2.1
 PORTREVISION=	2

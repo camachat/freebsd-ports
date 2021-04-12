@@ -1,5 +1,8 @@
 # Created by: Nils Vogels <nivo+kw+ports.bfa274@is-root.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dovecot-pigeonhole
 PORTVERSION=	0.5.13

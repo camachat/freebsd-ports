@@ -1,5 +1,8 @@
 # Created by: Mun-Kyo Seo <munggo@pmy.lv>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mmsrip
 PORTVERSION=	0.7.0

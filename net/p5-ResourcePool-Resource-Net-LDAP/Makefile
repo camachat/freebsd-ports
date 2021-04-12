@@ -1,5 +1,8 @@
 # Created by: erwin@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ResourcePool-Resource-Net-LDAP
 PORTVERSION=	1.0003

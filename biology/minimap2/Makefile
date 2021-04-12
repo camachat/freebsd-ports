@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=		minimap2
 DISTVERSIONPREFIX=	v
 DISTVERSION=		2.17
+=======
+PORTNAME=		minimap2
+DISTVERSIONPREFIX=	v
+DISTVERSION=		2.18
+>>>>>>> upstream/main
 CATEGORIES=		biology
 
 MAINTAINER=	jwb@FreeBSD.org

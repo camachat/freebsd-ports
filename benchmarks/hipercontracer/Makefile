@@ -1,5 +1,8 @@
 # Created by: Thomas Dreibholz <dreibh@iem.uni-due.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hipercontracer
 PORTVERSION=	1.4.8

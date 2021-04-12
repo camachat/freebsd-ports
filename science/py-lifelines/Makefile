@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	lifelines
 DISTVERSION=	0.19.5
 PORTREVISION=	1

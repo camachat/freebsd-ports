@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	portfmt
 DISTVERSION=	g20210321
 CATEGORIES=	ports-mgmt

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		shards
 DISTVERSIONPREFIX=	v
 DISTVERSION=		0.12.0

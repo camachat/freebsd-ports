@@ -1,5 +1,8 @@
 # Created by: Cristiano Deana <cris@gufi.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	expiretable
 PORTVERSION=	0.6

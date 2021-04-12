@@ -1,5 +1,8 @@
 # Created by: Rob Zinkov
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gambit-c
 PORTVERSION=	4.9.3

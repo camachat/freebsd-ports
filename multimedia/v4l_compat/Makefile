@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	v4l_compat
 
 COMMENT=	Video4Linux IOCTL header files

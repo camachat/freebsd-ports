@@ -1,5 +1,8 @@
 # Created by: David O'Brien <obrien@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lprps
 PORTVERSION=	2.5

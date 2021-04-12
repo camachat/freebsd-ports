@@ -1,5 +1,8 @@
 # Created by: Paul Schmehl <pauls@utdallas.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sancp
 PORTVERSION=	1.6.1

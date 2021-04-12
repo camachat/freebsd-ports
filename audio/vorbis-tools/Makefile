@@ -1,5 +1,8 @@
 # Created by: t.vanklaveren@student.utwente.nl
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vorbis-tools
 PORTVERSION=	1.4.2

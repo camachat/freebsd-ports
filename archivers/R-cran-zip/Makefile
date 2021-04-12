@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	zip
 DISTVERSION=	2.1.1
 CATEGORIES=	archivers

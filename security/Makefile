@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
 
+=======
+>>>>>>> upstream/main
     COMMENT = Security tools
 
     SUBDIR += 0d1n
@@ -62,7 +65,10 @@
     SUBDIR += bsdsfv
     SUBDIR += bsmtrace
     SUBDIR += bsmtrace3
+<<<<<<< HEAD
     SUBDIR += bugs
+=======
+>>>>>>> upstream/main
     SUBDIR += bzrtp
     SUBDIR += ca_root_nss
     SUBDIR += caesarcipher
@@ -128,9 +134,13 @@
     SUBDIR += dirbuster
     SUBDIR += dirmngr
     SUBDIR += distcache
+<<<<<<< HEAD
     SUBDIR += dmitry
     SUBDIR += doas
     SUBDIR += doorman
+=======
+    SUBDIR += doas
+>>>>>>> upstream/main
     SUBDIR += doscan
     SUBDIR += dotdotpwn
     SUBDIR += dropbear
@@ -793,7 +803,10 @@
     SUBDIR += php80-sodium
     SUBDIR += phpsecinfo
     SUBDIR += picosha2
+<<<<<<< HEAD
     SUBDIR += pidentd
+=======
+>>>>>>> upstream/main
     SUBDIR += pidgin-encryption
     SUBDIR += pidgin-otr
     SUBDIR += pinentry

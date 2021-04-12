@@ -1,5 +1,8 @@
 # Created by: Yonatan@Xpert.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fortune-mod-bofh
 PORTVERSION=	2.0

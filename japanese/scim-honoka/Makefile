@@ -1,5 +1,8 @@
 # Created by: Masashi CHIBA
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	scim-honoka
 PORTVERSION=	0.9.1

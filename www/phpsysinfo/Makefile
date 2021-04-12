@@ -1,9 +1,16 @@
 # Created by: Bob Bomar <bob@fly.homeunix.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	phpsysinfo
 DISTVERSIONPREFIX=	v
 DISTVERSION=	3.3.2
+=======
+
+PORTNAME=	phpsysinfo
+DISTVERSIONPREFIX=	v
+DISTVERSION=	3.3.4
+>>>>>>> upstream/main
 CATEGORIES=	www
 
 MAINTAINER=	tremere@cainites.net

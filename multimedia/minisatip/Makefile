@@ -1,5 +1,8 @@
 # Created by: Bernhard Froehlich <decke@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	minisatip
 PORTVERSION=	1.0.4

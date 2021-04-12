@@ -1,5 +1,8 @@
 # Created by: Victor Popov <v.a.popov@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Crypt-PBKDF2
 PORTVERSION=	0.161520

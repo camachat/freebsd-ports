@@ -1,5 +1,8 @@
 # Created by: andreas@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	utftpd
 PORTVERSION=	0.2.4

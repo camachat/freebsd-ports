@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	virt-what
 PORTVERSION=	1.20
 CATEGORIES=	sysutils

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	quantum++
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.6-42

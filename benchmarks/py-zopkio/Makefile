@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Zopkio
 PORTVERSION=	0.2.5
 PORTREVISION=	5

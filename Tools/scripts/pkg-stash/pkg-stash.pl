@@ -1,5 +1,8 @@
 #!/usr/bin/perl -wT
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 use strict;
 

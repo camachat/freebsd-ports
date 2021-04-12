@@ -1,8 +1,14 @@
 # Created by: ada@bsd.org
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	freeciv
 PORTVERSION=	2.6.3
+=======
+
+PORTNAME=	freeciv
+PORTVERSION=	2.6.4
+>>>>>>> upstream/main
 CATEGORIES=	games
 MASTER_SITES=	SF/freeciv/Freeciv%20${PORTVERSION:R}/${PORTVERSION}
 

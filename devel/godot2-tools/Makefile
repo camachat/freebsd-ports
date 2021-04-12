@@ -1,5 +1,8 @@
 # Created by: Shane Ambler <FreeBSD@Shaneware.biz>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PKGNAMESUFFIX=	2-tools
 

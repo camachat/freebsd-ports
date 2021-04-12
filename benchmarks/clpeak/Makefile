@@ -1,5 +1,8 @@
 # Created by: Johannes Dieterich <dieterich@ogolem.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	clpeak
 DISTVERSION=	1.1.0

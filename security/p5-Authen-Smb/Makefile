@@ -1,5 +1,8 @@
 # Created by: Mustafa Arif <ma499@doc.ic.ac.uk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Authen-Smb
 PORTVERSION=	0.91

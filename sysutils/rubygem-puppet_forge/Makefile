@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	puppet_forge
 PORTVERSION=	2.3.4
 PORTREVISION=	1

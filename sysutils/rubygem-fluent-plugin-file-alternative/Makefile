@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fluent-plugin-file-alternative
 PORTVERSION=	0.1.4
 CATEGORIES=	sysutils rubygems

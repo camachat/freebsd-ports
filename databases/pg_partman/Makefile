@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pg_partman
 DISTVERSIONPREFIX=	v
 DISTVERSION=	4.4.0

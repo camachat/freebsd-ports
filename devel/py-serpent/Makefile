@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	serpent
 DISTVERSION=	1.28
 CATEGORIES=	devel python

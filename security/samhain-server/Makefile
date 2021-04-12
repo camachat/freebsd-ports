@@ -1,5 +1,8 @@
 # Created by: Nikola Kolev <koue@chaosophia.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 # This port recognizes the following non-boolean tunables:
 #

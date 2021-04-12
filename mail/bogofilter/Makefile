@@ -1,5 +1,8 @@
 # Created by: Matthias Andree <matthias.andree@gmx.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bogofilter
 DISTVERSION=	1.2.5

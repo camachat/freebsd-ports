@@ -1,5 +1,8 @@
 # Created by: Alex Semenyaka <alex@rinet.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	opencyc
 PORTVERSION=	0.7.0

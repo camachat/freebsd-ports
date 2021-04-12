@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	grako
 DISTVERSION=	3.99.9
 CATEGORIES=	textproc python

@@ -1,7 +1,11 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+
+>>>>>>> upstream/main
 # PROVIDE: statsite
 # REQUIRE: NETWORKING SYSLOG
 # KEYWORD: shutdown

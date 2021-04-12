@@ -1,5 +1,8 @@
 # Created by: gugod@gugod.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	aterm
 PORTVERSION=	1.0.1

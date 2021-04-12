@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
 
+=======
+>>>>>>> upstream/main
     COMMENT = Network management tools
 
     SUBDIR += 2ping
@@ -55,6 +58,10 @@
     SUBDIR += coovachilli
     SUBDIR += cowpatty
     SUBDIR += cricket
+<<<<<<< HEAD
+=======
+    SUBDIR += crmsh
+>>>>>>> upstream/main
     SUBDIR += darkstat
     SUBDIR += devmon
     SUBDIR += devmon-templates
@@ -377,7 +384,13 @@
     SUBDIR += unifi-poller
     SUBDIR += unifi5
     SUBDIR += unifi6
+<<<<<<< HEAD
     SUBDIR += virt-viewer
+=======
+    SUBDIR += victoria-metrics
+    SUBDIR += virt-viewer
+    SUBDIR += vmutils
+>>>>>>> upstream/main
     SUBDIR += wdiag
     SUBDIR += whatmask
     SUBDIR += wifimgr

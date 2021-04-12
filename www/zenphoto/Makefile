@@ -1,5 +1,8 @@
 # Created by: Philippe Audeoud <jadawin@tuxaco.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	zenphoto
 PORTVERSION=	1.5.7

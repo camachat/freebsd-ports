@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	wireguard-kmod
 PORTVERSION=	0.0.20210323
 CATEGORIES=	net net-vpn

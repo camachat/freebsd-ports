@@ -1,5 +1,8 @@
 # Created by: Alan E <alane@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	kenny
 PORTVERSION=	1.7

@@ -1,5 +1,8 @@
 # Created by: cacho@mexicano.gdl.iteso.mx
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xfractint
 PORTVERSION=	20.04p16

@@ -1,5 +1,8 @@
 # Created by: Anatoliy Dmytriyev <tolid@plab.ku.dk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	VCS-CVS
 PORTVERSION=	2.06

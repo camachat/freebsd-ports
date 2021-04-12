@@ -1,8 +1,14 @@
 # Created by: Philippe Lefebvre <nemesis@balistik.net>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	nano
 DISTVERSION=	5.5
+=======
+
+PORTNAME=	nano
+DISTVERSION=	5.6.1
+>>>>>>> upstream/main
 CATEGORIES=	editors
 MASTER_SITES=	https://www.nano-editor.org/dist/v${DISTVERSION:R:R}/ GNU
 
@@ -14,8 +20,11 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 
 USES=		charsetfix ncurses pkgconfig tar:xz
 
+<<<<<<< HEAD
 CONFLICTS=	nano-devel-2*
 
+=======
+>>>>>>> upstream/main
 GNU_CONFIGURE=	yes
 
 CONFIGURE_ARGS=	--docdir=${DOCSDIR} --enable-utf8

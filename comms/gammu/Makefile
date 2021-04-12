@@ -1,5 +1,8 @@
 # Created by: Kirill Bezzubets <kirill@solaris.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gammu
 PORTVERSION=	1.42.0

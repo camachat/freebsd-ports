@@ -1,5 +1,8 @@
 # Created by: pat@databits.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	quake3
 PORTVERSION=	1.32c

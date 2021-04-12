@@ -1,5 +1,8 @@
 # Created by: Thomas Zander <riggs@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pms-devel
 PORTVERSION=	0.0.20200702

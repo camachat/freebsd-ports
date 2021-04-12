@@ -1,5 +1,8 @@
 # Created by: Ryan Steinmetz <rpsfa@rit.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-DNS-Check
 PORTVERSION=	0.45

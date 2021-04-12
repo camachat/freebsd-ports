@@ -1,7 +1,11 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 #	$FreeBSD$
 #
+=======
+
+>>>>>>> upstream/main
 # Created by: stb@FreeBSD.org for the cyrus imap server
 # Added to the cyrus-sasl port by hetzels@westbend.net
 

@@ -1,5 +1,8 @@
 # Created by: Ashish SHUKLA <ashish@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	archiveopteryx
 PORTVERSION=	3.2.99.20181030

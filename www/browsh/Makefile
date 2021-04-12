@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	browsh
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.6.4

@@ -1,5 +1,8 @@
 # Created by: dchapes@ddm.on.ca
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vice
 PORTVERSION=	3.5

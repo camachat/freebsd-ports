@@ -1,5 +1,8 @@
 # Created by: Nicholas Esborn <nick@netdot.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Time-Period
 PORTVERSION=	1.20

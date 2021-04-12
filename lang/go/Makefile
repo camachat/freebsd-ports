@@ -1,8 +1,14 @@
 # Created by: Devon H. O'Dell <devon.odell@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	go
 PORTVERSION?=	1.16.2
+=======
+
+PORTNAME=	go
+PORTVERSION?=	1.16.3
+>>>>>>> upstream/main
 PORTREVISION?=	0
 PORTEPOCH?=	1
 CATEGORIES=	lang

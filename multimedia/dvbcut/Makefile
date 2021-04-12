@@ -1,5 +1,8 @@
 # Created by: se@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dvbcut
 PORTVERSION=	0.7.3

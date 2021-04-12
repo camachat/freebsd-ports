@@ -1,5 +1,8 @@
 # Created by: joris
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pylibacl
 PORTVERSION=	0.5.2

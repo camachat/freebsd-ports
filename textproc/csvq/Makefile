@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	csvq
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.15.0

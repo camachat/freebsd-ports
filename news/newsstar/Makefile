@@ -1,5 +1,8 @@
 # Created by: Andrey Slusar <anray@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	newsstar
 PORTVERSION=	1.5.6

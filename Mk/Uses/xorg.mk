@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # Originally from bsd.xorg.mk
 # Created by: Florent Thoumie <flz@FreeBSD.org>
 #

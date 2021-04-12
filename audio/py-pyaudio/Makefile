@@ -1,5 +1,8 @@
 # Created by: Jaap Akkerhuis <jaap@NLnetLabs.nl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pyaudio
 PORTVERSION=	0.2.11

@@ -1,5 +1,8 @@
 # Created by: Ganael Laplanche <ganael.laplanche@martymac.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cosmosmash
 DISTVERSION=	1.4.8

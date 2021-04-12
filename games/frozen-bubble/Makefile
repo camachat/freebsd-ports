@@ -1,5 +1,8 @@
 # Created by: Klaus Goger <klaus.goger@reflex.at>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	frozen-bubble
 DISTVERSION=	2.213.g${SNAPDATE}

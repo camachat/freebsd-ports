@@ -1,5 +1,8 @@
 # Created by: Nadelyaev Stanislav <funkblaster@n11.bmstu.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		icegenerator
 DISTVERSION=		0.5.5-pre2

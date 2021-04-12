@@ -1,5 +1,8 @@
 # Created by: Oliver Lehmann <Kai_Allard_Liao@gmx.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xcdroast
 PORTVERSION=	0.98.a.16

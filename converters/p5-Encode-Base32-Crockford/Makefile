@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Encode-Base32-Crockford
 PORTVERSION=	2.112991
 CATEGORIES=	converters perl5

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	wayfire
@@ -6,6 +7,24 @@ DISTVERSION=	0.7.0
 PORTREVISION=	1
 CATEGORIES=	x11-wm
 
+=======
+PORTNAME=	wayfire
+DISTVERSIONPREFIX=	v
+DISTVERSION=	0.7.0
+PORTREVISION=	2
+CATEGORIES=	x11-wm
+
+PATCH_SITES=	https://github.com/${GH_ACCOUNT}/${GH_PROJECT}/commit/
+PATCHFILES+=	b2ba1a9de620.patch:-p1 # wlroots 0.13
+PATCHFILES+=	b183bcf20a59.patch:-p1 # wlroots 0.13
+PATCHFILES+=	aa3e078d830d.patch:-p1 # wlroots 0.13
+PATCHFILES+=	9b4139400ca0.patch:-p1 # wlroots 0.13
+PATCHFILES+=	d30d03aa2321.patch:-p1 # wlroots 0.13
+PATCHFILES+=	2a1dacecff3d.patch:-p1 # wlroots 0.13
+PATCHFILES+=	54f116f1ca2e.patch:-p1 # wlroots 0.13
+PATCHFILES+=	30f13ab31cad.patch:-p1 # wlroots 0.13
+
+>>>>>>> upstream/main
 MAINTAINER=	jbeich@FreeBSD.org
 COMMENT=	3D Wayland compositor
 
@@ -17,7 +36,11 @@ BUILD_DEPENDS=	evdev-proto>0:devel/evdev-proto \
 		${LOCALBASE}/include/xf86drmMode.h:graphics/libdrm \
 		wayland-protocols>=1.12:graphics/wayland-protocols \
 		glm>=0.9.8:math/glm \
+<<<<<<< HEAD
 		wlroots>=0.12.0<0.13.0:x11-toolkits/wlroots
+=======
+		wlroots>=0.13.0<0.14.0:x11-toolkits/wlroots
+>>>>>>> upstream/main
 LIB_DEPENDS=	libinotify.so:devel/libinotify \
 		libwf-config.so:devel/wf-config \
 		libpng.so:graphics/png \

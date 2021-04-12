@@ -1,5 +1,8 @@
 # Created by: Dereckson <dereckson@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rhc
 PORTVERSION=	1.32.2

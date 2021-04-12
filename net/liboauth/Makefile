@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	liboauth
 PORTVERSION=	1.0.3
 PORTREVISION=	4

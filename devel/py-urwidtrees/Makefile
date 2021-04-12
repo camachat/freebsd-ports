@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	urwidtrees
 PORTVERSION=	1.0.2
 CATEGORIES=	devel python

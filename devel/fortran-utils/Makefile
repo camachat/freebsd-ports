@@ -1,5 +1,8 @@
 # Created by: kris@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fortran-utils
 PORTVERSION=	1.1

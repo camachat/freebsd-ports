@@ -1,5 +1,8 @@
 # Created by: Thierry Thomas (<thierry@FreeBSD.org>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Cache
 PORTVERSION=	1.5.6

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	topcom
 DISTVERSION=	0.17.8
 CATEGORIES=	math

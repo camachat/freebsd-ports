@@ -1,5 +1,8 @@
 # Created by: Chris Costello <chris@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fconv
 PORTVERSION=	1.1

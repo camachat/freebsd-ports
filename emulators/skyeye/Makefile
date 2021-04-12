@@ -1,5 +1,8 @@
 # Created by: Ruan Wei (iamayan@gmail.com)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	skyeye
 PORTVERSION=	1.2.5

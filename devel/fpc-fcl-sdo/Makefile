@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 CATEGORIES=	devel lang
 PKGNAMESUFFIX=	-fcl-sdo
 

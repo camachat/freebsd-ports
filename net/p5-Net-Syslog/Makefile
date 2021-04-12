@@ -1,5 +1,8 @@
 # Created by: Maksym Sobolyev <sobomax@pbxpress.it>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-Syslog
 PORTVERSION=	0.04

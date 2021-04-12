@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	DBIx-Class-Fixtures
 PORTVERSION=	1.001039
 CATEGORIES=	databases perl5

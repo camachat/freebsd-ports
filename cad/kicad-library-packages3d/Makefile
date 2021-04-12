@@ -1,5 +1,8 @@
 # Created by: Thierry Thomas <thierry@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	kicad
 PORTVERSION=	5.1.9

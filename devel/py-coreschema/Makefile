@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	coreschema
 DISTVERSION=	0.0.4
 CATEGORIES=	devel python

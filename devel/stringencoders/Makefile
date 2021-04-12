@@ -1,5 +1,8 @@
 # Created by: Steven Kreuzer <skreuzer@exit2shell.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	stringencoders
 PORTVERSION=	3.10.3

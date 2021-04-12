@@ -1,5 +1,8 @@
 # Created by: Zhen REN <bg1tpt@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net_URL2
 PORTVERSION=	2.2.1

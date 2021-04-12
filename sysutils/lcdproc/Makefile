@@ -1,5 +1,8 @@
 # Created by: pat
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lcdproc
 DISTVERSIONPREFIX=	v
@@ -12,7 +15,11 @@ COMMENT=	Client/server suite for LCD devices
 LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/COPYING
 
+<<<<<<< HEAD
 ONLY_FOR_ARCHS=	i386 amd64 powerpc64
+=======
+ONLY_FOR_ARCHS=	i386 amd64 powerpc64 powerpc64le
+>>>>>>> upstream/main
 
 USES=		autoreconf pkgconfig
 GNU_CONFIGURE=	yes
@@ -93,7 +100,11 @@ PLIST_SUB+=	X86=""
 PLIST_SUB+=	X86="@comment "
 .endif
 
+<<<<<<< HEAD
 .if ${ARCH} == powerpc64
+=======
+.if ${ARCH:Mpowerpc64*}
+>>>>>>> upstream/main
 USE_GCC=	any
 .endif
 

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sonar-scanner-cli
 DISTVERSION=	4.4.0.2170
 PORTREVISION=	0

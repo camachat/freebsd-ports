@@ -1,5 +1,8 @@
 # Created by: babak@farrokhi.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	serendipity
 PORTVERSION=	2.3.5

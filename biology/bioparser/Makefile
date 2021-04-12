@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bioparser
 DISTVERSION=	3.0.12-2
 DISTVERSIONSUFFIX=	-g700e82a

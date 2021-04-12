@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	RPostgreSQL
 DISTVERSION=	0.6-2
 PORTREVISION=	3

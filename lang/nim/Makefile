@@ -1,5 +1,8 @@
 # Created by: Neal Nelson <ports@nicandneal.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nim
 PORTVERSION=	1.4.4

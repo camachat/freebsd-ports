@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	listserialc
 PORTVERSION=	1.1.0
 CATEGORIES=	devel java

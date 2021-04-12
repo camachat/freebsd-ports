@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	wicked
 PORTVERSION=	2.0.8
 CATEGORIES=	www pear

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cask
 PORTVERSION=	0.8.3
 DISTVERSIONPREFIX=	v

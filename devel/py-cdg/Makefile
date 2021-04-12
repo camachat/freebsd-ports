@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cdg
 PORTVERSION=	0.1.3
 PORTREVISION=	1

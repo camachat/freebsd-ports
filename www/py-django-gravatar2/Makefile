@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	django-gravatar2
 PORTVERSION=	1.4.4
 CATEGORIES=	www

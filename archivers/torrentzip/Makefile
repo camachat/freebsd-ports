@@ -1,5 +1,8 @@
 # Created by: swhetzel@gmail.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	torrentzip
 PORTVERSION=	0.2

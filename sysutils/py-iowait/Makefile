@@ -1,5 +1,8 @@
 # Created by: Olivier Duchateau <olivierd@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	iowait
 PORTVERSION=	0.2

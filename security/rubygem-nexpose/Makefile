@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	nexpose
 PORTVERSION=	7.2.1
 CATEGORIES=	security rubygems

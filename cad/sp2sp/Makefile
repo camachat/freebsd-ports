@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sp2sp
 PORTVERSION=	20090213
 CATEGORIES=	cad

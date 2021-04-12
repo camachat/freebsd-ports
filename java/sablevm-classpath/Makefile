@@ -1,5 +1,8 @@
 # Created by: Björn König <bkoenig@alpha-tierchen.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sablevm-classpath
 PORTVERSION=	1.13

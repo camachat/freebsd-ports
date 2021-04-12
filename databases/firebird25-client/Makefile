@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	firebird
 PKGNAMESUFFIX=	${PORTVERSION:R:S/.//}-client
 

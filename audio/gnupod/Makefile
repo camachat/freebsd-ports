@@ -1,5 +1,8 @@
 # Created by: David Le Brun <david@dyn-ns.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gnupod
 PORTVERSION=	0.99.8

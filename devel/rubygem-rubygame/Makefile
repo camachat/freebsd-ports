@@ -1,5 +1,8 @@
 # Created by: ws	Christoph Kick
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rubygame
 PORTVERSION=	2.6.4

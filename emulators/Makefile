@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
 
+=======
+>>>>>>> upstream/main
     COMMENT = Emulators for other operating systems
 
     SUBDIR += adamem
@@ -17,7 +20,10 @@
     SUBDIR += bsvc
     SUBDIR += cannonball
     SUBDIR += cemu
+<<<<<<< HEAD
     SUBDIR += cinc
+=======
+>>>>>>> upstream/main
     SUBDIR += cingb
     SUBDIR += citra
     SUBDIR += citra-qt5
@@ -29,9 +35,13 @@
     SUBDIR += dolphin-emu
     SUBDIR += dosbox
     SUBDIR += dosbox-staging
+<<<<<<< HEAD
     SUBDIR += dtcyber
     SUBDIR += dynamips-community
     SUBDIR += e-uae
+=======
+    SUBDIR += dynamips-community
+>>>>>>> upstream/main
     SUBDIR += edumips64
     SUBDIR += elliott-803
     SUBDIR += emu64
@@ -189,6 +199,10 @@
     SUBDIR += xzx
     SUBDIR += yuzu
     SUBDIR += yuzu-qt5
+<<<<<<< HEAD
+=======
+    SUBDIR += z80pack
+>>>>>>> upstream/main
     SUBDIR += zsnes
 
 .include <bsd.port.subdir.mk>

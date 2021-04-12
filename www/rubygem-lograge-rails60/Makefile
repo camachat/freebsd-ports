@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	lograge
 PORTVERSION=	0.11.2
 CATEGORIES=	www rubygems

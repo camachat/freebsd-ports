@@ -1,5 +1,8 @@
 # Created by: Emmanuel Vadot <manu@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	VVVVVV
 PORTVERSION=	v2.2

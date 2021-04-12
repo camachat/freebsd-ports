@@ -1,5 +1,8 @@
 # Created by: Alexander Yerenkow <yerenkow@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	festvox
 PORTVERSION=	0.5

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	varnish
 PORTVERSION=	6.5.1
 DISTVERSIONPREFIX=	varnish-

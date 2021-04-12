@@ -1,5 +1,8 @@
 # Created by: Matthew Fuller <fullermd@over-yonder.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		Text-WikiCreole
 PORTVERSION=		0.07

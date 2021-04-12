@@ -1,5 +1,8 @@
 # Created by: Chad Castleberry AKA ritalin
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rename
 PORTVERSION=	1.99.2

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- ui/gl/generate_bindings.py.orig	2021-01-18 21:29:48 UTC
+=======
+--- ui/gl/generate_bindings.py.orig	2021-03-12 23:57:48 UTC
+>>>>>>> upstream/main
 +++ ui/gl/generate_bindings.py
 @@ -2840,6 +2840,9 @@ GLX_FUNCTIONS = [
    'arguments':

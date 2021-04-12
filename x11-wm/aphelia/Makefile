@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	aphelia
 DISTVERSION=	g20190913
 CATEGORIES=	x11-wm

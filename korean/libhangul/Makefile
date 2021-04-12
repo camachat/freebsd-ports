@@ -1,5 +1,8 @@
 # Created by: Hyogeol, Lee <hyogeollee@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libhangul
 PORTVERSION=	0.1.0

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	yaswfp
 PORTVERSION=	0.9.3
 CATEGORIES=	graphics python

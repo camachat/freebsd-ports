@@ -1,5 +1,8 @@
 # Created by: Oyvind Moll <oyvindmo@initio.no>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	juke
 PORTVERSION=	0.7

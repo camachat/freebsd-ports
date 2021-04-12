@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	openal-soft
 PORTVERSION=	1.20.1
 PORTREVISION=	2

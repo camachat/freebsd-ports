@@ -1,5 +1,8 @@
 # Created by: Joerg Wunsch <joerg@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	latex2rtf
 DISTVERSION=	2.3.17

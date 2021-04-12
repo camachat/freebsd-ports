@@ -1,8 +1,15 @@
 # Created by: Ryan Steinmetz <zi@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	chef-dk
 PORTVERSION=	4.13.3
+=======
+
+PORTNAME=	chef-dk
+PORTVERSION=	4.13.3
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	sysutils
 MASTER_SITES=	RG
 
@@ -13,7 +20,11 @@ LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
 RUN_DEPENDS=	rubygem-addressable25>=2.3.5<2.6:www/rubygem-addressable25 \
+<<<<<<< HEAD
 		rubygem-chef>=15.0<16:sysutils/rubygem-chef \
+=======
+		rubygem-chef15>=15.0<16:sysutils/rubygem-chef15 \
+>>>>>>> upstream/main
 		rubygem-cookbook-omnifetch>=0.5<1:devel/rubygem-cookbook-omnifetch \
 		rubygem-diff-lcs>=1.0<2:textproc/rubygem-diff-lcs \
 		rubygem-ffi-yajl>=1.0<3.0:devel/rubygem-ffi-yajl \

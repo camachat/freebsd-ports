@@ -1,7 +1,10 @@
 #!/bin/sh
 
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # PROVIDE: volmand
 # REQUIRE: LOGIN
 # KEYWORD: shutdown nojail

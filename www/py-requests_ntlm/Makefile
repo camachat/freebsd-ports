@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	requests_ntlm
 DISTVERSION=	1.1.0
 CATEGORIES=	www python

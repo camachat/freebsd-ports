@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kid3
 PORTVERSION=	3.8.6
 PORTREVISION?=	0

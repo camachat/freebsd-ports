@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cftime
 PORTVERSION=	1.0.3.4
 PORTREVISION=	1

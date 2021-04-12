@@ -1,5 +1,8 @@
 # Created by: Peter Hollaubek <fifteen@inext.hu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sentinel
 PORTVERSION=	1.7b

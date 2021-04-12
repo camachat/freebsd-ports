@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	check_ups_health
 PORTVERSION=	2.9.2.4
 CATEGORIES=	net-mgmt

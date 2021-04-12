@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pyocclient
 PORTVERSION=	0.6
 CATEGORIES=	www python

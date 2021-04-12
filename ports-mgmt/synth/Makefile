@@ -1,4 +1,5 @@
 # Created by: John Marino <marino@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	synth
@@ -8,6 +9,15 @@ PORTREVISION=	1
 CATEGORIES=	ports-mgmt
 
 MAINTAINER=	ericbsd@FreeBSD.org
+=======
+
+PORTNAME=	synth
+DISTVERSIONPREFIX=	v
+DISTVERSION=	2.10
+CATEGORIES=	ports-mgmt
+
+MAINTAINER=	fluffy@FreeBSD.org
+>>>>>>> upstream/main
 COMMENT=	Custom package repository builder for FreeBSD and DragonFly
 
 LICENSE=	ISCL

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	html-xml-utils
 PORTVERSION=	7.9
 CATEGORIES=	textproc

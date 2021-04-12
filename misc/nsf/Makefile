@@ -1,5 +1,8 @@
 # Created by: kaz
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nsf
 PORTVERSION=	1.0

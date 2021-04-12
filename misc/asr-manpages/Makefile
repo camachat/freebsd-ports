@@ -1,5 +1,8 @@
 # Created by: Max Khon <fjoe@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	asr-manpages
 PORTVERSION=	20000406

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pylibsrtp
 PORTVERSION=	0.6.7
 CATEGORIES=	devel python

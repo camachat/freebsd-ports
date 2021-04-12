@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	geopandas
 PORTVERSION=	0.8.1
 CATEGORIES=	graphics python

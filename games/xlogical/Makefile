@@ -1,5 +1,8 @@
 # Created by: Aaron Baugher
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xlogical
 DISTVERSION=	1.0-8

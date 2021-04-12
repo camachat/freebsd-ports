@@ -1,5 +1,8 @@
 # Created by: Mitsuru YOSHIDA
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	scalatest
 PORTVERSION=	1.6.1

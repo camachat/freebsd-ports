@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	wildfly14
 PORTVERSION=	14.0.1
 CATEGORIES=	java www

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fs
 PORTVERSION=	2.4.11
 CATEGORIES=	devel

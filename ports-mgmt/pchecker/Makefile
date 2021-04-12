@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pchecker
 PORTVERSION=	1.25
 CATEGORIES=	ports-mgmt

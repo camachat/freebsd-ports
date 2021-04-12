@@ -1,5 +1,8 @@
 # Created by: riggs
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ifp-line
 PORTVERSION=	0.3

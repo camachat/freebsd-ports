@@ -1,5 +1,8 @@
 # Created by: Jin-Sih Lin <linpct@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rsyncrypto
 PORTVERSION=	1.14

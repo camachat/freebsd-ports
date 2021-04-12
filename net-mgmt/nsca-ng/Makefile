@@ -1,5 +1,8 @@
 # Created by: Alexander Sulfrian <alexander@sulfrian.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nsca-ng
 PORTVERSION=	1.6

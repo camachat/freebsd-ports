@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mime-types
 PKGNAMESUFFIX=	1
 PORTVERSION=	1.25.1

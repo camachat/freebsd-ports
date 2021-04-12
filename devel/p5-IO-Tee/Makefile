@@ -1,5 +1,8 @@
 # Created by: dcf@aracnet.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	IO-Tee
 PORTVERSION=	0.66

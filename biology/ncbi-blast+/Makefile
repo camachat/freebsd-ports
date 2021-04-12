@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ncbi-blast+
 DISTVERSION=	2.11.0
 PORTREVISION=	1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libopencm3
 PORTVERSION=	0.8.0
 DISTVERSIONPREFIX=v

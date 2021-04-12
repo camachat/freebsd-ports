@@ -1,5 +1,8 @@
 #!/usr/bin/env python
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 import datetime
 import xml.etree.ElementTree as ET

@@ -1,5 +1,8 @@
 # Created by: Bruce A. Mah <bmah@ca.sandia.gov>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vtwm
 PORTVERSION=	5.5.0

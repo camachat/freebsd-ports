@@ -1,5 +1,8 @@
 # Created by: kargl@apl.washington.edu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ftnchek
 PORTVERSION=	3.3.1

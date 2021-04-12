@@ -1,5 +1,8 @@
 # Created by: Darren <igla@batterybackups.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	acfax
 PORTVERSION=	0.981011

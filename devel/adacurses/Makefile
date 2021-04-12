@@ -1,5 +1,8 @@
 # Created by: olgeni@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	adacurses
 DISTVERSION=	20180127

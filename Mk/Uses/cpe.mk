@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # Include CPE information in package manifest as a CPE 2.3 formatted
 # string.  See http://scap.nist.gov/specifications/cpe/ for details.
 #

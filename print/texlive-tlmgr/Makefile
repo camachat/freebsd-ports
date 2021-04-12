@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	texlive
 PORTVERSION=	20150523
 PORTREVISION=	2

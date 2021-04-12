@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 COMMENT=	Provide configuration reload functionality for FRR
 
 PYTHONTOOLS=		yes

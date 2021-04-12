@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xtoolchain
 .ifndef NO_LLD_LINK
 PORTVERSION=	0.1

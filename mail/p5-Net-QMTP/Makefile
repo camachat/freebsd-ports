@@ -1,5 +1,8 @@
 # Created by: James Raftery <james@now.ie>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-QMTP
 PORTVERSION=	0.06

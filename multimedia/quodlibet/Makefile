@@ -1,5 +1,8 @@
 # Created by: Byung-Hee HWANG <bh@izb.knu.ac.kr>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	quodlibet
 DISTVERSION=	4.3.0

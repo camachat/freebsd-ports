@@ -1,5 +1,8 @@
 # Created by: trasz
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gloox
 DISTVERSION=	1.0.24

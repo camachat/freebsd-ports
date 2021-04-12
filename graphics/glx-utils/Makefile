@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	glx-utils
 DISTVERSIONPREFIX=	${GL_ACCOUNT}-${GL_PROJECT}-
 DISTVERSION=	8.4.0-53

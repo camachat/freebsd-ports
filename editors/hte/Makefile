@@ -1,5 +1,8 @@
 # Created by: Ying-Chieh Liao
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hte
 PORTVERSION=	2.1.1.g20161206

@@ -1,5 +1,8 @@
 # Created by: Christopher Nehren <apeiron@coitusmentis.info>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	log4net
 PORTVERSION=	1.2.10

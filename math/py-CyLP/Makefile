@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	CyLP
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.91.2

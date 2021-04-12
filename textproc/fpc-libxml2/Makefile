@@ -1,5 +1,8 @@
 # Created by: Christoper Key <cjk32@cam.ac.uk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 CATEGORIES=	textproc lang
 PKGNAMESUFFIX=	-libxml2

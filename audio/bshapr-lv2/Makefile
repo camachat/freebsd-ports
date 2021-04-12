@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bshapr
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.12

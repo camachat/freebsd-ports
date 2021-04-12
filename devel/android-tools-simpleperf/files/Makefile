@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PROG_CXX=simpleperf
 MAN=
 BINDIR?=/usr/bin

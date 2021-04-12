@@ -1,5 +1,8 @@
 # Created by: Ashish Shukla <wahjava@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	msdl
 PORTVERSION=	1.2.7r2

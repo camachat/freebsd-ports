@@ -1,5 +1,8 @@
 # Created by: Horia Racoviceanu <horia@racoviceanu.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	haml-contrib
 PORTVERSION=	1.0.0.1

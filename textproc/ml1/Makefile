@@ -1,5 +1,8 @@
 # Created by: Bob Eager <rde@ml1.org.uk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ml1
 PORTVERSION=	4.12

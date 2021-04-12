@@ -1,5 +1,8 @@
 # Created by: Alexey V. Antipovsky <kemm@in-line.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fuse
 PORTVERSION=	1.6.0

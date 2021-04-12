@@ -1,5 +1,8 @@
 # Created by: Daniel O'Connor <darius@dons.net.au>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wolfpack
 PORTVERSION=	4.4.0

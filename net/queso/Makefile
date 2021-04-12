@@ -1,5 +1,8 @@
 # Created by: Wu Ching-hong <woju@freebsd.ee.ntu.edu.tw>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	queso
 PORTVERSION=	980922

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	virtualkeyboard
 DISTVERSION=	${QT5_VERSION}
 PORTREVISION=	1

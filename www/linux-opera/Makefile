@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	opera
 PORTVERSION=	${OPERA_VER}
 PORTREVISION=	3

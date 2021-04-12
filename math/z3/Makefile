@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	z3
 DISTVERSIONPREFIX=	z3-
 DISTVERSION=	4.8.10

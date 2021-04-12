@@ -1,5 +1,8 @@
 # Created by: Kyle Evans <kevans@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	zdoom
 PORTVERSION=	2.8.1

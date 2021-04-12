@@ -1,5 +1,8 @@
 # Created by: Masafumi NAKANE <max@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	WWW-Shorten-Bitly
 PORTVERSION=	2.001

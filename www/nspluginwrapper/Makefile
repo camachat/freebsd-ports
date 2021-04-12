@@ -1,5 +1,8 @@
 # Created by: Dave Grochowski
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nspluginwrapper
 PORTVERSION=	1.4.4

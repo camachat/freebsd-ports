@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	element
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.7.20
+=======
+# $FreeBSD: head/www/element-web/Makefile 564765 2021-02-09 05:54:55Z ashish $
+
+PORTNAME=	element
+DISTVERSIONPREFIX=	v
+DISTVERSION=	1.7.24
+>>>>>>> upstream/main
 CATEGORIES=	www
 MASTER_SITES=	https://github.com/vector-im/element-web/releases/download/${DISTVERSIONFULL}/
 PKGNAMESUFFIX=	-web

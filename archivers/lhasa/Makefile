@@ -1,5 +1,8 @@
 # Created by: Carsten Larsen <cs@innolan.dk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lhasa
 PORTVERSION=	0.3.1

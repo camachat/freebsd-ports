@@ -1,5 +1,8 @@
 # Created by: Vsevolod Stakhov <vsevolod@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	clasp
 PORTVERSION=	3.3.5

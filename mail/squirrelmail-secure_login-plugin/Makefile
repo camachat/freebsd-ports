@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	secure_login
 PORTVERSION=	1.4
 PORTREVISION=	3

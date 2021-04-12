@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sanoid
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.0.3

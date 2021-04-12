@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	akonadi-calendar-tools
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
 CATEGORIES=	deskutils kde kde-applications

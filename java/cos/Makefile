@@ -1,5 +1,8 @@
 # Created by: Jose Marques <noway@nohow.demon.co.uk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cos
 PORTVERSION=	2002.11.05

@@ -1,5 +1,8 @@
 # Created by: Gustau Perez i Querol <gustau.perez@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gnome-shell-extension-audio-output-switcher
 PORTVERSION=	0.0.0.20171022

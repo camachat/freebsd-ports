@@ -1,5 +1,8 @@
 # Created by: John Chen <johnpupu@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ev
 PORTVERSION=	1.0.9

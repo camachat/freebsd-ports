@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # Handling of variables using helpers
 # Include before bsd.port.(pre|options).mk
 

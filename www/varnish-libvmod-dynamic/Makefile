@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libvmod-dynamic
 PORTVERSION=	20201026
 CATEGORIES=	www

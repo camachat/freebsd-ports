@@ -1,5 +1,8 @@
 # Created by: Hsin-Han You <hhyou@cs.nctu.edu.tw>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vmail
 PORTVERSION=	2.9.8

@@ -1,5 +1,8 @@
 # Created by: Masafumi NAKANE <max@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dvi2tty
 PORTVERSION=	5.0

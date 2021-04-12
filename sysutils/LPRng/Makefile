@@ -1,5 +1,8 @@
 # Created by: desmo@bandwidth.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	LPRng
 PORTVERSION=	3.8.C

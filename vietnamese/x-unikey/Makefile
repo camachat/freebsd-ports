@@ -1,5 +1,8 @@
 # Created by: Alexander Yerenkow <yerenkow@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	x-unikey
 PORTVERSION=	1.0.4

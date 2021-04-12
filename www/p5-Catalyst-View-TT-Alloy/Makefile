@@ -1,5 +1,8 @@
 # Created by: Danny Warren <danny@dannywarren.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Catalyst-View-TT-Alloy
 PORTVERSION=	0.00007

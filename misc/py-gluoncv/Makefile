@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gluoncv
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.9.0

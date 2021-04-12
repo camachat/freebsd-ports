@@ -1,5 +1,8 @@
 # Created by: Issei Suzuki <issei@jp.FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mailx
 PORTVERSION=	0.5

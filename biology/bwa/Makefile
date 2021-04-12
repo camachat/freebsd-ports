@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bwa
 PORTVERSION=	0.7.17
 DISTVERSIONPREFIX=v

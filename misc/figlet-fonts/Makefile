@@ -1,5 +1,8 @@
 # Created by: dd
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	figlet-fonts
 PORTVERSION=	20121202

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libxcvt
 PORTVERSION=	s20210325
 CATEGORIES=	x11

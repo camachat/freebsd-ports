@@ -1,8 +1,11 @@
 #!/bin/sh
 #
 # gmetasnapshot - Ganglia gmetad snapshot manager
+<<<<<<< HEAD
 #
 # $FreeBSD: head/sysutils/ganglia-monitor-core/files/gmetasnap.sh 300897 2012-07-14 14:29:18Z beat $
+=======
+>>>>>>> upstream/main
 
 command=`basename $0`
 

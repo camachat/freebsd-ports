@@ -1,5 +1,8 @@
 # Created by: Alexander Logvinov <avl@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 #   $MCom: ports-experimental/trunk/misc/gnome-icon-theme-extras/Makefile 19329 2014-03-25 14:54:05Z gusi $
 
 PORTNAME=	gnome-icon-theme-extras

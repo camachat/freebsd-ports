@@ -1,5 +1,8 @@
 # Created by: Max E. Kuznecov <mek@mek.uz.ua>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sendxmpp
 PORTVERSION=	1.24

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	webalizer
 PORTVERSION=	2.23.8
 PORTREVISION=	14

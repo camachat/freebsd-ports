@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Net-Server-Coro
 PORTVERSION=	1.3
 PORTREVISION=	1

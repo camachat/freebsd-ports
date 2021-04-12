@@ -1,5 +1,8 @@
 # Created by: nivit@users.sourceforge.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		tkshape
 PORTVERSION=		0.4

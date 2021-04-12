@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	curlie
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.6.0

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fontmatrix
 PORTVERSION=	0.9.100
 DISTVERSIONPREFIX=	v

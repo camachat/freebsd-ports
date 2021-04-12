@@ -1,5 +1,8 @@
 # Created by: Rozhuk Ivan <rozhuk.im@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	screensaver.matrixtrails
 PORTVERSION=	2.6.0

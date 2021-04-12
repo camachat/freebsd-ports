@@ -1,5 +1,8 @@
 # Created by: Adam Herzog <adam@herzogdesigns.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	XML-Writer
 PORTVERSION=	0.900

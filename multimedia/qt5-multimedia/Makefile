@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	multimedia
 DISTVERSION=	${QT5_VERSION}
 PORTREVISION=	1

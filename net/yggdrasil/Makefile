@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	yggdrasil
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.3.15

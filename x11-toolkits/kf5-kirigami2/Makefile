@@ -1,5 +1,8 @@
 # Created by: tcberner
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	kirigami2
 PORTVERSION=	${KDE_FRAMEWORKS_VERSION}

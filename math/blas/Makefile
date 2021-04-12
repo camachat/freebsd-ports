@@ -1,5 +1,8 @@
 # Created by: ljo
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	blas
 PORTREVISION=	6

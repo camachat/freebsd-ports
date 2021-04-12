@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mnrpes
 PORTVERSION=	2014041501
 CATEGORIES=	sysutils

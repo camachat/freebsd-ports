@@ -1,5 +1,8 @@
 # Created by: dburr@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sharefonts
 PORTVERSION=	0.10

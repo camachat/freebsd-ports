@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	github-markup
 PORTVERSION=	1.7.0
 CATEGORIES=	textproc rubygems

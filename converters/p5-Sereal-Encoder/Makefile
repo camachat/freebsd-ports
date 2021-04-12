@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Sereal-Encoder
 COMMENT=	Perl module for fast, powerful binary serialization (encoder)
 

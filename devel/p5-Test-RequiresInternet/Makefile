@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Test-RequiresInternet
 PORTVERSION=	0.05
 CATEGORIES=	devel perl5

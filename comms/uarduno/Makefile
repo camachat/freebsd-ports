@@ -1,5 +1,8 @@
 # Created by: 'Big Bad Bob' Frazier <bobf@mrp3.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	uarduno
 PORTVERSION=	1.02

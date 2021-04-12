@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	securesystemslib
 PORTVERSION=	0.11.3
 DISTVERSIONPREFIX=v

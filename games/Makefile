@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
 
+=======
+>>>>>>> upstream/main
     COMMENT = Games and related software
 
     SUBDIR += 0ad
@@ -106,7 +109,10 @@
     SUBDIR += bluemoon
     SUBDIR += bomber
     SUBDIR += bomberclone
+<<<<<<< HEAD
     SUBDIR += bomberinstinct
+=======
+>>>>>>> upstream/main
     SUBDIR += bombherman
     SUBDIR += bomns
     SUBDIR += bovo
@@ -129,7 +135,10 @@
     SUBDIR += bumprace
     SUBDIR += burgerspace
     SUBDIR += burrtools
+<<<<<<< HEAD
     SUBDIR += bygfoot
+=======
+>>>>>>> upstream/main
     SUBDIR += bzflag
     SUBDIR += bzflag-server
     SUBDIR += cake
@@ -139,7 +148,10 @@
     SUBDIR += cataclysm-dda-tiles
     SUBDIR += catesc
     SUBDIR += cave9
+<<<<<<< HEAD
     SUBDIR += cavezofphear
+=======
+>>>>>>> upstream/main
     SUBDIR += cdogs-sdl
     SUBDIR += cgoban
     SUBDIR += chapping
@@ -159,14 +171,20 @@
     SUBDIR += construo
     SUBDIR += coronapoker
     SUBDIR += corsix-th
+<<<<<<< HEAD
     SUBDIR += cosmo
+=======
+>>>>>>> upstream/main
     SUBDIR += cosmosmash
     SUBDIR += cowsay
     SUBDIR += crack-attack
     SUBDIR += craft
     SUBDIR += crafty
     SUBDIR += crashtest
+<<<<<<< HEAD
     SUBDIR += cre
+=======
+>>>>>>> upstream/main
     SUBDIR += cretan-hubris
     SUBDIR += crimson
     SUBDIR += crispy-doom
@@ -208,7 +226,10 @@
     SUBDIR += doomsday
     SUBDIR += dose-response
     SUBDIR += dreamchess
+<<<<<<< HEAD
     SUBDIR += drm
+=======
+>>>>>>> upstream/main
     SUBDIR += duel
     SUBDIR += dunelegacy
     SUBDIR += dungeon

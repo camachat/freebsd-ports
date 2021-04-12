@@ -1,5 +1,8 @@
 # Created by: Greg Lewis <glewis@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	udunits
 PORTVERSION=	2.2.28

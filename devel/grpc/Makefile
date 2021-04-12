@@ -1,5 +1,8 @@
 # Created by: vanilla@
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	grpc
 PORTVERSION=	1.36.0

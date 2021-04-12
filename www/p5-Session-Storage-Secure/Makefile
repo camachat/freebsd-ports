@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Session-Storage-Secure
 PORTVERSION=	0.010
 PORTREVISION=	1

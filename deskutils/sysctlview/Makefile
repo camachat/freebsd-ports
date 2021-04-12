@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sysctlview
 PORTVERSION=	2.1
 CATEGORIES=	deskutils

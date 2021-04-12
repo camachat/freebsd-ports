@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fisicalab
 PORTVERSION=	0.3.3
 PORTREVISION=	12

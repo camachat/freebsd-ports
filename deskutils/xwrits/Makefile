@@ -1,5 +1,8 @@
 # Created by: Matt Braithwaite <mab@red-bean.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xwrits
 PORTVERSION=	2.26

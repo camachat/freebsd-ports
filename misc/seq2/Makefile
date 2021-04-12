@@ -1,5 +1,8 @@
 # Created by: osa
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	seq2
 PORTVERSION=	0.2

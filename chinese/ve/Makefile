@@ -1,5 +1,8 @@
 # Created by: Ching-Hong Wu <woju@freebsd.ntu.edu.tw>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ve
 PORTVERSION=	1.1

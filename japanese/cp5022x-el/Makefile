@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cp5022x
 PORTVERSION=	0.0.20120324
 PORTREVISION=	3

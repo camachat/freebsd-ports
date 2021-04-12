@@ -1,5 +1,8 @@
 # Created by: melifaro@ipfw.ru
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		nss-pam-ldapd
 PORTVERSION=		0.9.11

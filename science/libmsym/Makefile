@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libmsym
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.2.3

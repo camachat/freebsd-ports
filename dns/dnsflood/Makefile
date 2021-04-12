@@ -1,5 +1,8 @@
 # Created by: krion
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dnsflood
 PORTVERSION=	1.20

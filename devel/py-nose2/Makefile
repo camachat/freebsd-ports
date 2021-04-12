@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	nose2
 PORTVERSION=	0.9.2
 CATEGORIES=	devel python

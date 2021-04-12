@@ -1,5 +1,8 @@
 # Created by: Tassilo Philipp <tphilipp@potion-studios.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		snpservices
 DISTVERSION=		0.2.2-8

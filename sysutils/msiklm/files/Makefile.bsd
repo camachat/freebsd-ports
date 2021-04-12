@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 BINDIR=		${PREFIX}/bin
 PROG=		msiklm
 SRCS=		src/main.c src/msiklm.c 

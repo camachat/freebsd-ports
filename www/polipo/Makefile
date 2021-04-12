@@ -1,5 +1,8 @@
 # Created by: Frank Behrens <frank@pinky.sax.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	polipo
 PORTVERSION=	1.1.1

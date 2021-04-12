@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
 
+=======
+>>>>>>> upstream/main
     COMMENT = Things that used to be on the desktop before computers were invented
 
     SUBDIR += affiche
@@ -237,8 +240,11 @@
     SUBDIR += thinkingrock
     SUBDIR += timewarrior
     SUBDIR += todo
+<<<<<<< HEAD
     SUBDIR += tomboy
     SUBDIR += tomboy-plugin-reminder
+=======
+>>>>>>> upstream/main
     SUBDIR += toolboxkit
     SUBDIR += tpb
     SUBDIR += treeline

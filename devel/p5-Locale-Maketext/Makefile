@@ -1,5 +1,8 @@
 # Created by: Frank Mayhar <frank@exit.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Locale-Maketext
 PORTVERSION=	1.29

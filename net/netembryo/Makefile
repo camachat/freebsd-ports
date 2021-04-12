@@ -1,5 +1,8 @@
 # Created by: Emmanuel Richiardone (err@tollari.org)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	netembryo
 PORTVERSION=	0.1.1

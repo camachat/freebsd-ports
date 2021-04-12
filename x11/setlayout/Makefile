@@ -1,5 +1,8 @@
 # Created by: oleg@bsdpower.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	setlayout
 DISTVERSION=	20080210

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 SEAFILE_VER=	8.0.3
 SEAHUB_VER=	8.0.3
 

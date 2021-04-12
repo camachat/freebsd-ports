@@ -1,5 +1,8 @@
 # Created by: vfom@narod.ru
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	TkTopNetFlows
 PORTVERSION=	0.4

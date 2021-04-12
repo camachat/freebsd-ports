@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kwayland
 DISTVERSION=	${KDE_FRAMEWORKS_VERSION}
 CATEGORIES=	x11 kde kde-frameworks

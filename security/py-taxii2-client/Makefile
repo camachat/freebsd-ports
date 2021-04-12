@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	taxii2-client
 PORTVERSION=	2.2.2
 DISTVERSIONPREFIX=	v

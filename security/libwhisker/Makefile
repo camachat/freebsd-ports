@@ -1,5 +1,8 @@
 # Created by: pandzilla
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libwhisker
 PORTVERSION=	2.5

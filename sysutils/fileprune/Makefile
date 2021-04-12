@@ -1,5 +1,8 @@
 # Created by: dds
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fileprune
 PORTVERSION=	1.12

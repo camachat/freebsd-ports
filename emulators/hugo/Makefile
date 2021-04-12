@@ -1,5 +1,8 @@
 # Created by: Li-Lun Wang <llwang@infor.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hugo
 PORTVERSION=	2.12

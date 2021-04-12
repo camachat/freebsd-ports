@@ -1,5 +1,8 @@
 # Created by: Sergey Kozlov <sergey.kozlov@intel.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME?=	ixl
 PORTVERSION?=	1.12.2

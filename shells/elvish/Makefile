@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	elvish
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.15.0

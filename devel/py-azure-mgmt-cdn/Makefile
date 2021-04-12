@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	azure-mgmt-cdn
 DISTVERSION=	7.0.0
 CATEGORIES=	devel python

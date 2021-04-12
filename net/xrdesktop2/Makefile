@@ -1,5 +1,8 @@
 # Created by: Chris Hutchinson <portmaster@BSDforge.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xrdesktop2
 PORTVERSION=	2.00

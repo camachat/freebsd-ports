@@ -1,5 +1,8 @@
 # Created by: Dominic Fandrey <kamikaze@bsdforen.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ioquake3
 PKGNAMESUFFIX=	-server

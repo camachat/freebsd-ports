@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	App-SD
 PORTVERSION=	0.75
 PORTREVISION=	2

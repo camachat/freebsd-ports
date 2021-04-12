@@ -1,5 +1,8 @@
 # Created by: koshy@india.hp.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mhonarc
 PORTVERSION=	2.6.24

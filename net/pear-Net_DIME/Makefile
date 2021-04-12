@@ -1,5 +1,8 @@
 # Created by: Thierry Thomas (<thierry@FreeBSD.org>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net_DIME
 PORTVERSION=	1.0.2

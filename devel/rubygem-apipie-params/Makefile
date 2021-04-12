@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	apipie-params
 PORTVERSION=	0.0.5
 CATEGORIES=	devel rubygems

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	unicode-emoji
 DISTVERSION=	5.0
 CATEGORIES=	misc

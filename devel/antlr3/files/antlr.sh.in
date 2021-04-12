@@ -1,5 +1,8 @@
 #! /bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 "%%LOCALBASE%%/bin/java" -classpath "%%JAVAJARDIR%%/%%INSTALL_JAR%%" org.antlr.Tool "$@"

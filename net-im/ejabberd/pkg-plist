@@ -545,6 +545,7 @@
 %%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/lib/lager-%%LAGER_VER%%/ebin/lager_util.beam
 %%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/lib/lager-%%LAGER_VER%%/include/lager.hrl
 %%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/lib/lager-%%LAGER_VER%%/priv/edoc.css
+<<<<<<< HEAD
 %%TOOLS%%%%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/lib/luerl-%%LUERL_VER%%/LICENSE
 %%TOOLS%%%%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/lib/luerl-%%LUERL_VER%%/ebin/luerl.app
 %%TOOLS%%%%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/lib/luerl-%%LUERL_VER%%/ebin/luerl.beam
@@ -571,6 +572,34 @@
 %%TOOLS%%%%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/lib/luerl-%%LUERL_VER%%/ebin/luerl_scan.beam
 %%TOOLS%%%%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/lib/luerl-%%LUERL_VER%%/ebin/luerl_sup.beam
 %%TOOLS%%%%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/lib/luerl-%%LUERL_VER%%/ebin/ttdict.beam
+=======
+%%LUA%%%%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/lib/luerl-%%LUERL_VER%%/LICENSE
+%%LUA%%%%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/lib/luerl-%%LUERL_VER%%/ebin/luerl.app
+%%LUA%%%%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/lib/luerl-%%LUERL_VER%%/ebin/luerl.beam
+%%LUA%%%%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/lib/luerl-%%LUERL_VER%%/ebin/luerl_app.beam
+%%LUA%%%%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/lib/luerl-%%LUERL_VER%%/ebin/luerl_comp.beam
+%%LUA%%%%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/lib/luerl-%%LUERL_VER%%/ebin/luerl_comp_cg.beam
+%%LUA%%%%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/lib/luerl-%%LUERL_VER%%/ebin/luerl_comp_env.beam
+%%LUA%%%%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/lib/luerl-%%LUERL_VER%%/ebin/luerl_comp_locf.beam
+%%LUA%%%%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/lib/luerl-%%LUERL_VER%%/ebin/luerl_comp_peep.beam
+%%LUA%%%%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/lib/luerl-%%LUERL_VER%%/ebin/luerl_comp_vars.beam
+%%LUA%%%%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/lib/luerl-%%LUERL_VER%%/ebin/luerl_emul.beam
+%%LUA%%%%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/lib/luerl-%%LUERL_VER%%/ebin/luerl_lib.beam
+%%LUA%%%%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/lib/luerl-%%LUERL_VER%%/ebin/luerl_lib_basic.beam
+%%LUA%%%%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/lib/luerl-%%LUERL_VER%%/ebin/luerl_lib_bit32.beam
+%%LUA%%%%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/lib/luerl-%%LUERL_VER%%/ebin/luerl_lib_debug.beam
+%%LUA%%%%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/lib/luerl-%%LUERL_VER%%/ebin/luerl_lib_io.beam
+%%LUA%%%%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/lib/luerl-%%LUERL_VER%%/ebin/luerl_lib_math.beam
+%%LUA%%%%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/lib/luerl-%%LUERL_VER%%/ebin/luerl_lib_os.beam
+%%LUA%%%%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/lib/luerl-%%LUERL_VER%%/ebin/luerl_lib_package.beam
+%%LUA%%%%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/lib/luerl-%%LUERL_VER%%/ebin/luerl_lib_string.beam
+%%LUA%%%%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/lib/luerl-%%LUERL_VER%%/ebin/luerl_lib_string_format.beam
+%%LUA%%%%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/lib/luerl-%%LUERL_VER%%/ebin/luerl_lib_table.beam
+%%LUA%%%%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/lib/luerl-%%LUERL_VER%%/ebin/luerl_parse.beam
+%%LUA%%%%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/lib/luerl-%%LUERL_VER%%/ebin/luerl_scan.beam
+%%LUA%%%%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/lib/luerl-%%LUERL_VER%%/ebin/luerl_sup.beam
+%%LUA%%%%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/lib/luerl-%%LUERL_VER%%/ebin/ttdict.beam
+>>>>>>> upstream/main
 %%TOOLS%%%%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/lib/%%PORTNAME%%_po-0.0.0/LICENSE
 %%TOOLS%%%%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/lib/%%PORTNAME%%_po-0.0.0/ebin/%%PORTNAME%%_po.app
 %%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/lib/mqtree-%%MQTREE_VER%%/LICENSE
@@ -856,6 +885,10 @@
 %%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/priv/msgs/pt.msg
 %%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/priv/msgs/ru.msg
 %%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/priv/msgs/sk.msg
+<<<<<<< HEAD
+=======
+%%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/priv/msgs/sq.msg
+>>>>>>> upstream/main
 %%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/priv/msgs/sv.msg
 %%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/priv/msgs/th.msg
 %%EJABBERD_LIBDIR%%/%%PORTNAME%%-%%PORTVERSION%%/priv/msgs/tr.msg

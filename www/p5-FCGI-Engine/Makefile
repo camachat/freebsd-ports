@@ -1,5 +1,8 @@
 # Created by: Anes Muhametov <anes@anes.su>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	FCGI-Engine
 PORTVERSION=	0.22

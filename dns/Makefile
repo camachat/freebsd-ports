@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
 
+=======
+>>>>>>> upstream/main
     COMMENT = Domain Name Service tools
 
     SUBDIR += adns
@@ -15,7 +18,10 @@
     SUBDIR += bindgraph
     SUBDIR += bundy
     SUBDIR += c-ares
+<<<<<<< HEAD
     SUBDIR += checkdns
+=======
+>>>>>>> upstream/main
     SUBDIR += cli53
     SUBDIR += coredns
     SUBDIR += credns
@@ -48,7 +54,10 @@
     SUBDIR += dnshistory
     SUBDIR += dnsjava
     SUBDIR += dnsmasq
+<<<<<<< HEAD
     SUBDIR += dnsmasq-devel
+=======
+>>>>>>> upstream/main
     SUBDIR += dnsmax-perl
     SUBDIR += dnsproxy
     SUBDIR += dnsrecon
@@ -84,7 +93,10 @@
     SUBDIR += idnkit
     SUBDIR += idnkit2
     SUBDIR += inadyn
+<<<<<<< HEAD
     SUBDIR += inadyn-mt
+=======
+>>>>>>> upstream/main
     SUBDIR += ipcheck
     SUBDIR += ironsides
     SUBDIR += kadnode

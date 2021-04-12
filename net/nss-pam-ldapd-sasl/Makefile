@@ -1,5 +1,8 @@
 # Created by: rflynn@acsalaska.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nss-pam-ldapd
 PKGNAMESUFFIX=	-sasl

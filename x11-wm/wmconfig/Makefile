@@ -1,5 +1,8 @@
 # Created by: Tommy Scheunemann <net@arrishq.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wmconfig
 PORTVERSION=	1.5.1

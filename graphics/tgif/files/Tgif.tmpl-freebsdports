@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 XCOMM $FreeBSD$
+=======
+>>>>>>> upstream/main
 #ifdef WITH_NLS
 #define IHaveSubdirs
 SUBDIRS=		po

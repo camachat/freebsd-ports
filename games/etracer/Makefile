@@ -1,5 +1,8 @@
 # Created by: Peter Dunning
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	etr
 PORTVERSION=	0.8.0

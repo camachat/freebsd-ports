@@ -1,5 +1,8 @@
 # Created by: Aldis Berjoza <aldis@bsdroot.lv>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ditaa
 DISTVERSION=	0_9

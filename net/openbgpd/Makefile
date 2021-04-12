@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	openbgpd
 PORTVERSION=	5.2.20121209
 PORTREVISION=	4

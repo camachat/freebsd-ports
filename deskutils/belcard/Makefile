@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	belcard
 PORTVERSION=	1.0.2
 PORTREVISION=	2

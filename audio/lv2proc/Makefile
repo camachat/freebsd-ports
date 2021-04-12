@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	lv2proc
 DISTVERSION=	0.5.1
 PORTREVISION=	1

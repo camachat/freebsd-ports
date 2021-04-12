@@ -1,5 +1,8 @@
 # Created by: FreeBSD GNOME Team <gnome@freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	swell-foop
 PORTVERSION=	3.34.1

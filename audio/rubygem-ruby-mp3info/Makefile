@@ -1,5 +1,8 @@
 # Created by: Brad Walker <tha_walka@hotmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ruby-mp3info
 PORTVERSION=	0.8.10

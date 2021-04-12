@@ -1,5 +1,8 @@
 # Created by: Daichi GOTO <daichi@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PKGNAMESUFFIX=	-tool
 

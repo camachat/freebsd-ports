@@ -1,5 +1,8 @@
 # Created by: Takumi Takahashi <takumiiinn@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	antlr3
 PORTVERSION=	3.5.2

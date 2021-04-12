@@ -1,5 +1,8 @@
 # Created by: Steve Wills <swills@rubick>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	posix-spawn
 PORTVERSION=	0.3.15

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	msoffcrypto-tool
 PORTVERSION=	4.11.0
 CATEGORIES=	security python

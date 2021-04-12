@@ -1,5 +1,8 @@
 # Created by: Gary Palmer <gpalmer@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cdb
 PORTVERSION=	0.75

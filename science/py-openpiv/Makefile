@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	openpiv
 PORTVERSION=	0.23.4
 CATEGORIES=	science python

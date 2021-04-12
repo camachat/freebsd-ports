@@ -1,5 +1,8 @@
 # Created by: Ashish Shukla <wahjava@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xcb-proto
 PORTVERSION=	1.14.1

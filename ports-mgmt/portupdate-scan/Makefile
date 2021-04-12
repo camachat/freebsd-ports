@@ -1,5 +1,8 @@
 # Created by: Alex Stangl <alex@stangl.us>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	portupdate-scan
 PORTVERSION=	0.4

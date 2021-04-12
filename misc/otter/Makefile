@@ -1,5 +1,8 @@
 # Created by: Garrett Wollman <wollman@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	otter
 PORTVERSION=	3.3f

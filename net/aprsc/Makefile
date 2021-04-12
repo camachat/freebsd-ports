@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	aprsc
 PORTVERSION=	2.1.8
 DISTVERSIONSUFFIX=	.gf8824e8

@@ -1,5 +1,8 @@
 # Created by: Tony Maher
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	numpy
 PORTVERSION=	1.16.6

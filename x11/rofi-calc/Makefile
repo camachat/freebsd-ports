@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rofi-calc
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.0.0

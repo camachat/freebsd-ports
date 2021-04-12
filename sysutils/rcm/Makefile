@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rcm
 PORTVERSION=	1.3.4
 CATEGORIES=	sysutils

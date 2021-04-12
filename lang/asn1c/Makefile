@@ -1,5 +1,8 @@
 # Created by: Lev Walkin <vlm@lionet.info>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	asn1c
 PORTVERSION=	0.9.27

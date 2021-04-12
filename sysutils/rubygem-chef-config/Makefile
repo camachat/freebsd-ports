@@ -1,8 +1,14 @@
 # Created by: Po-Chuan Hsieh <sunpoet@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	chef-config
 PORTVERSION=	15.15.0
+=======
+
+PORTNAME=	chef-config
+PORTVERSION=	16.11.7
+>>>>>>> upstream/main
 CATEGORIES=	sysutils rubygems
 MASTER_SITES=	RG
 
@@ -13,7 +19,11 @@ LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
 RUN_DEPENDS=	rubygem-addressable>=0:www/rubygem-addressable \
+<<<<<<< HEAD
 		rubygem-chef-utils15>=${PORTVERSION}:sysutils/rubygem-chef-utils15 \
+=======
+		rubygem-chef-utils>=${PORTVERSION}:sysutils/rubygem-chef-utils \
+>>>>>>> upstream/main
 		rubygem-fuzzyurl>=0:www/rubygem-fuzzyurl \
 		rubygem-mixlib-config>=2.2.12<4.0:devel/rubygem-mixlib-config \
 		rubygem-mixlib-shellout>=2.0<4.0:devel/rubygem-mixlib-shellout \

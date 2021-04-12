@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gemmlowp
 DISTVERSION=	g20190812
 CATEGORIES=	math

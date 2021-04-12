@@ -1,5 +1,8 @@
 # Created by: Jan Stocker <Jan.Stocker@t-online.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gkleds2
 PORTVERSION=	0.8.2

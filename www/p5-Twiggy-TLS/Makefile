@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Twiggy-TLS
 PORTVERSION=	0.0019
 PORTREVISION=	1

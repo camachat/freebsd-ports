@@ -1,5 +1,8 @@
 # Created by: Jason Portwood <jason@iac.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	OLE-Storage_Lite
 PORTVERSION=	0.20

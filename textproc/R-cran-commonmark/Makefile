@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	commonmark
 DISTVERSION=	1.7
 CATEGORIES=	textproc

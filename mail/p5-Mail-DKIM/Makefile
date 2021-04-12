@@ -1,5 +1,8 @@
 # Created by: Yoshisato YANAGISAWA
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Mail-DKIM
 PORTVERSION=	0.58

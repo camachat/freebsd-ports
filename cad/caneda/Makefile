@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	caneda
 DISTVERSION=	0.3.1
 CATEGORIES=	cad

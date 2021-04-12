@@ -1,5 +1,8 @@
 # Created by: steinex
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	check_smartmon
 PORTVERSION=	20100318

@@ -1,5 +1,8 @@
 # Created by: Piotr Smyrak <smyru@heron.pl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cursor-jimmac-theme
 PORTVERSION=	0.1

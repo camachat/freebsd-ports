@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libmysofa
 PORTVERSION=	1.2
 DISTVERSIONPREFIX=	v

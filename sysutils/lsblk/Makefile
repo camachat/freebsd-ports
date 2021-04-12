@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	lsblk
 PORTVERSION=	1.1
 CATEGORIES=	sysutils

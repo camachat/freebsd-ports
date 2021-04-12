@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	progress
 PORTVERSION=	1.2.2
 PORTREVISION=	2

@@ -1,5 +1,8 @@
 # Created by: O. Hartmann <ohartmann@walstatt.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	opencl
 PORTVERSION=	3.0

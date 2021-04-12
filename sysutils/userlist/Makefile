@@ -1,5 +1,8 @@
 # Created by: Jamie Heckford <jamie@jamiesdomain.co.uk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	userlist
 PORTVERSION=	0.1

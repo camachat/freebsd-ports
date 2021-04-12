@@ -1,5 +1,8 @@
 # Created by: Jim Ohlstein <jim@ohlste.in>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ct-submit
 PORTVERSION=	1.1.2

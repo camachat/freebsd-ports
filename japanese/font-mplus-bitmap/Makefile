@@ -1,5 +1,8 @@
 # Created by: The 244th namelessness at 2ch.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mplus
 PORTVERSION=	2.2.4

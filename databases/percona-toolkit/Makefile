@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	percona-toolkit
 PORTVERSION=	3.2.1
+=======
+PORTNAME=	percona-toolkit
+PORTVERSION=	3.3.0
+>>>>>>> upstream/main
 CATEGORIES=	databases
 MASTER_SITES=	https://www.percona.com/downloads/${PORTNAME}/${PORTVERSION}/source/tarball/
 

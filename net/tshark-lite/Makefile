@@ -1,5 +1,8 @@
 # Created by: Bill Fumerola <billf@mu.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 LITE=		yes
 

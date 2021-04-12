@@ -1,5 +1,8 @@
 # Created by: Alex Hayward <xelah@xelah.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pngquant
 PORTVERSION=	2.13.1

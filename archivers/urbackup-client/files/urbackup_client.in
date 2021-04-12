@@ -1,7 +1,10 @@
 #!/bin/sh
 
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # PROVIDE: urbackup_client
 # REQUIRE: LOGIN
 # KEYWORD: shutdown

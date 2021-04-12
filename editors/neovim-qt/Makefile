@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	neovim-qt
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.2.16.1

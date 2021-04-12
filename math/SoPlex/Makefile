@@ -1,5 +1,8 @@
 # Created by: Yuri Victorovich <yuri@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	SoPlex
 DISTVERSION=	4.0.1

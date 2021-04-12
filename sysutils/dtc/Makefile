@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dtc
 PORTVERSION=	1.6.0
 DISTVERSIONPREFIX=	v

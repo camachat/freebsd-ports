@@ -1,8 +1,14 @@
 # Created by: Bernard Spil <brnrd@freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	mail
 PORTVERSION=	1.9.4
+=======
+
+PORTNAME=	mail
+PORTVERSION=	1.9.5
+>>>>>>> upstream/main
 DISTVERSIONPREFIX=	v
 CATEGORIES=	mail
 MASTER_SITES=	https://github.com/${PKGNAMEPREFIX:S/-//}/${PORTNAME}/releases/download/${DISTVERSIONPREFIX}${PORTVERSION}/

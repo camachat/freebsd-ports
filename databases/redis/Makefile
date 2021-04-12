@@ -1,5 +1,8 @@
 # Created by: Sergey Skvortsov <skv@protey.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	redis
 PORTVERSION=	6.0.12
@@ -69,7 +72,11 @@ LDFLAGS=	-Wl,-E
 
 LDFLAGS+=	-lpthread -lm -lexecinfo
 
+<<<<<<< HEAD
 CONFLICTS?=	redis4-4.* redis5-5.* redis-devel-6.*
+=======
+CONFLICTS?=	redis5-5.* redis-devel-6.*
+>>>>>>> upstream/main
 
 USE_RC_SUBR=	redis sentinel
 BIN_FILES=	redis-benchmark redis-check-aof redis-check-rdb \

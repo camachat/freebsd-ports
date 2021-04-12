@@ -1,5 +1,8 @@
 # Created by: Alexander Panyushkin <vsityz@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hans
 DISTVERSION=	1.0

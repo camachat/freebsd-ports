@@ -1,5 +1,8 @@
 # Created by: Jov amutu@amutu.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tds_fdw
 DISTVERSIONPREFIX=	v

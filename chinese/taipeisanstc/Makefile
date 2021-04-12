@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	taipeisanstc
 DISTVERSION=	Beta
 CATEGORIES=	chinese x11-fonts

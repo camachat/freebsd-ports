@@ -1,5 +1,8 @@
 # Created by: R Joseph Wright <rjoseph@mammalia.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nurbs++
 PORTVERSION=	3.0.11

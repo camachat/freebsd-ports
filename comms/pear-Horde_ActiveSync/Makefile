@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Horde_ActiveSync
 DISTVERSION=	2.41.4
 CATEGORIES=	comms www pear

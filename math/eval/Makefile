@@ -1,5 +1,8 @@
 # Created by: eserte
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	eval
 PORTVERSION=	113

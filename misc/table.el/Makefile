@@ -1,5 +1,8 @@
 # Created by: Denis Shaposhnikov <dsh@vlink.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	table.el
 PORTVERSION=	1.5.54

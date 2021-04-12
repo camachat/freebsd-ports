@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	flask-security
 PORTVERSION=	3.0.0
 PORTREVISION=	1

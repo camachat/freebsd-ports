@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	trailing_format_plug
 PORTVERSION=	0.0.7
 DISTVERSIONPREFIX=	v

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tabulate
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.4

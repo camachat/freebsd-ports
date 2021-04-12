@@ -1,5 +1,8 @@
 # Created by: Alexander Logvinov <info@logvinov.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mdpop3d
 PORTVERSION=	0.97

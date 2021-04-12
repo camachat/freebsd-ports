@@ -1,5 +1,8 @@
 # Created by: Nicola Vitale	<nivit@email.it>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	easylatex
 PORTVERSION=	0.080

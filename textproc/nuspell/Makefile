@@ -1,8 +1,15 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	nuspell
 DISTVERSIONPREFIX=	v
 DISTVERSION=	4.2.0
+=======
+PORTNAME=	nuspell
+DISTVERSIONPREFIX=	v
+DISTVERSION=	4.2.0
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	textproc
 
 MAINTAINER=	jbeich@FreeBSD.org

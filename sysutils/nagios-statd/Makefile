@@ -1,5 +1,8 @@
 # Created by: Jim Shewmaker
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nagios-statd
 PORTVERSION=	3.12

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 .include "${.CURDIR}/../../editors/libreoffice/Makefile.common"
 
 PORTREVISION=	0

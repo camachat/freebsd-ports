@@ -1,5 +1,8 @@
 # Created by: Mita Yoshio <mita@jp.FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lipsf
 PORTVERSION=	2.00

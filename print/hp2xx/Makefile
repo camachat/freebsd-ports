@@ -1,5 +1,8 @@
 # Created by: Lars Koeller
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hp2xx
 PORTVERSION=	3.4.4

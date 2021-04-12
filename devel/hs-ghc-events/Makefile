@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ghc-events
 PORTVERSION=	0.15.1
 CATEGORIES=	devel haskell

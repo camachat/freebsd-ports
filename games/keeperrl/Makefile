@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	keeperrl
 PORTVERSION=	0.0.${ALPHA_VERSION}
 PORTREVISION=	4

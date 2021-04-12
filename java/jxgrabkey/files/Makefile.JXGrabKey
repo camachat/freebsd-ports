@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 LIB_CXX=	JXGrabKey
 SHLIB_NAME=	lib${LIB_CXX}.so
 MK_PROFILE=	no

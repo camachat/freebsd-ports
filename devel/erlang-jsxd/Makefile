@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	jsxd
 PORTVERSION=	0.2.4
 CATEGORIES=	devel

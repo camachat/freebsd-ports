@@ -1,5 +1,8 @@
 # Created by: David K. Gerry
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	yasr
 PORTVERSION=	0.6.9

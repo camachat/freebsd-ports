@@ -1,5 +1,8 @@
 # Created by: sobomax
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rtpproxy
 PORTVERSION=	2.1.1

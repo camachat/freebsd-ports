@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	path.py
 PORTVERSION=	11.5.2
 CATEGORIES=	devel python

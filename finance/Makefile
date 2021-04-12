@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
 
+=======
+>>>>>>> upstream/main
     COMMENT = Monetary, financial, and related applications
 
     SUBDIR += R-cran-AER
@@ -115,7 +118,10 @@
     SUBDIR += vanitygen
     SUBDIR += venice
     SUBDIR += weberp
+<<<<<<< HEAD
     SUBDIR += wmstock
+=======
+>>>>>>> upstream/main
     SUBDIR += xtrader
 
 .include <bsd.port.subdir.mk>

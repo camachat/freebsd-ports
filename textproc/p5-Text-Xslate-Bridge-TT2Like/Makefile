@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Text-Xslate-Bridge-TT2Like
 PORTVERSION=	0.00010
 PORTREVISION=	1

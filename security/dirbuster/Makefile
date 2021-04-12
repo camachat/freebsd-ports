@@ -1,5 +1,8 @@
 # Created by: Niels Heinen
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dirbuster
 PORTVERSION=	1.0r1

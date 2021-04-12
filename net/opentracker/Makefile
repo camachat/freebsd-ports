@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	opentracker
 PORTVERSION=	0.2017.08.13
 PORTREVISION=	2

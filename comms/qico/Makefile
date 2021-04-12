@@ -1,5 +1,8 @@
 # Created by: Denis Shaposhnikov <dsh@vlink.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	qico
 PORTVERSION=	0.59.1

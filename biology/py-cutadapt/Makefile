@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cutadapt
 DISTVERSION=	3.3
 CATEGORIES=	biology python

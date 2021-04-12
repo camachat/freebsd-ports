@@ -1,5 +1,8 @@
 # Created by: Gert Doering <gert@space.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	BSD-getloadavg
 PORTVERSION=	0.03

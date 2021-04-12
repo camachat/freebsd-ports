@@ -1,5 +1,8 @@
 # Created by: Peter Vereshagin <peter@vereshagin.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	IPC-MMA
 PORTVERSION=	0.81

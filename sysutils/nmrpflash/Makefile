@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	nmrpflash
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.9.15

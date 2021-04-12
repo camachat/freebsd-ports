@@ -1,5 +1,8 @@
 # Created by: David O'Brien (obrien@cs.ucdavis.edu)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rsync
 DISTVERSION=	3.2.3

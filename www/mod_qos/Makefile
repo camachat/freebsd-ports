@@ -1,5 +1,8 @@
 # Created by: Andrea Cervesato <andrea@cervesato.it>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mod_qos
 DISTVERSION=	11.66

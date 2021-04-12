@@ -1,5 +1,8 @@
 # Created by: Michael Moll <kvedulv at kvedulv.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	configatron
 PORTVERSION=	4.5.1

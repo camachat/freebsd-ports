@@ -1,5 +1,8 @@
 # Created by: arrowd <6yearold@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Hasklig
 DISTVERSION=	1.1

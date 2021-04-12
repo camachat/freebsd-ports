@@ -1,5 +1,8 @@
 # Created by: Alexander Timoshenko <gonzo@univ.kiev.ua>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libpri
 PORTVERSION=	1.6.0

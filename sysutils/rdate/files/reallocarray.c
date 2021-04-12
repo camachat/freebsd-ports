@@ -16,7 +16,10 @@
  */
 
 #include <sys/cdefs.h>
+<<<<<<< HEAD
 __FBSDID("$FreeBSD$");
+=======
+>>>>>>> upstream/main
 
 #include <sys/types.h>
 #include <errno.h>

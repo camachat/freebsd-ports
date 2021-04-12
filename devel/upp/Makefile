@@ -1,5 +1,8 @@
 # Created by: Matthias Sund <m.sund@arcor.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	upp
 DISTVERSION=	15260

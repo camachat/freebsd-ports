@@ -1,5 +1,8 @@
 # Created by: tobez@tobez.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libesmtp
 PORTVERSION=	1.0.6

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	opengv
 DISTVERSION=	g20200806
 CATEGORIES=	graphics

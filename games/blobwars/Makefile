@@ -1,5 +1,8 @@
 # Created by: Loren M. Lang <lorenl@alzatex.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	blobwars
 PORTVERSION=	2.00

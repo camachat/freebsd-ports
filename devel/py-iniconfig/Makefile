@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	iniconfig
 DISTVERSION=	1.1.1
 CATEGORIES=	devel python

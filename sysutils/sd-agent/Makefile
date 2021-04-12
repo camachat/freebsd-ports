@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sd-agent
 DISTVERSION=	1.13.4
 PORTREVISION=	1

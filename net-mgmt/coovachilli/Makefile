@@ -1,5 +1,8 @@
 # Created by: Sevan Janiyan <venture37@geeklan.co.uk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	coovachilli
 PORTVERSION=	1.0.12

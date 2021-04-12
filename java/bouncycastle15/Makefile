@@ -1,5 +1,8 @@
 # Created by: Eugene Grosbein <ports@grosbein.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bouncycastle
 PORTVERSION=	1.61

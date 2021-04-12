@@ -1,5 +1,8 @@
 # Created by: Jaap Boender <jaapb@kerguelen.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bz2
 PORTVERSION=	0.6.0

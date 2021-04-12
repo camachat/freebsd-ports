@@ -1,7 +1,10 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 
 # If some IPA module requires some services, then they should
 # be specified after REQUIRE, by default REQUIRE contains

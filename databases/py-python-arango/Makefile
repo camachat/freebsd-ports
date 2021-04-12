@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	python-arango
 DISTVERSION=	7.1.0
 CATEGORIES=	databases python

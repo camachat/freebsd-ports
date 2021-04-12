@@ -1,5 +1,8 @@
 # Created by: gebhart@secnetix.de
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Scalar-Util-Numeric
 PORTVERSION=	0.40

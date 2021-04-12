@@ -1,5 +1,8 @@
 # Created by: Carlos J Puga Medina <cpm@fbsd.es>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	acme
 PORTVERSION=	${ACME_VERSION}

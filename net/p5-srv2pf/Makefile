@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	srv2pf
 PORTVERSION=	20170607
 CATEGORIES=	net

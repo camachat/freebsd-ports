@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libcdio-paranoia
 PORTVERSION=	10.2+2.0.1
 CATEGORIES=	sysutils

@@ -1,5 +1,8 @@
 # Created by: Jose Jachuf <jjachuf@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fdb
 PORTVERSION=	2.0.1

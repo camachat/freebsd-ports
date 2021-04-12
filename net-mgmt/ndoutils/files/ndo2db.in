@@ -1,7 +1,11 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+
+>>>>>>> upstream/main
 # PROVIDE: ndo2db
 # REQUIRE: DAEMON nagios
 # BEFORE: LOGIN

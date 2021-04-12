@@ -1,5 +1,8 @@
 # Created by: fernan@iib.unsam.edu.ar
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	SpringGraph
 PORTVERSION=	0.05

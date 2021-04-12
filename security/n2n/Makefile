@@ -1,5 +1,8 @@
 # Created by: Babak Farrokhi <farrokhi@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	n2n
 PORTVERSION=	${PORT_V_MAJOR}.${PORT_V_MINOR}

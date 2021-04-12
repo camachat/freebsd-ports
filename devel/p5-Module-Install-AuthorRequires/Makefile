@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Module-Install-AuthorRequires
 PORTVERSION=	0.02
 PORTREVISION=	1

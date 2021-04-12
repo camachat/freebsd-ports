@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	camerakit
 PORTVERSION=	0.0.1
 PORTREVISION=	14

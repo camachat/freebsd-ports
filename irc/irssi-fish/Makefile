@@ -1,5 +1,8 @@
 # Created by: Jens Holmqvist <zparta@hispan.se>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	irssi-fish
 DISTVERSION=	1.6.20200629

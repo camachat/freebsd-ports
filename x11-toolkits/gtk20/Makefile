@@ -1,5 +1,8 @@
 # Created by: Vanilla I. Shu <vanilla@MinJe.com.TW>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gtk
 PORTVERSION=	2.24.33		# sync with graphics/gtk-update-icon-cache

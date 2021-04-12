@@ -1,5 +1,8 @@
 # Created by: Alan Eldridge <alane@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	txt2tags
 PORTVERSION=	3.7

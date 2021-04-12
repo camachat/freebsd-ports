@@ -1,5 +1,8 @@
 # Created by: Soren Dossing <sauber@netcom.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	webstone
 PORTVERSION=	2.5

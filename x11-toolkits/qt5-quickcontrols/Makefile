@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	quickcontrols
 DISTVERSION=	${QT5_VERSION}
 PORTREVISION=	1

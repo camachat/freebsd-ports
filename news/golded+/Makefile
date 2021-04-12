@@ -1,5 +1,8 @@
 # Created by: Max Khon
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	golded+
 PORTVERSION=	1.1.5.a${SNAPDATE}

@@ -1,5 +1,8 @@
 # Created by: Maksym Sobolyev <sobomax@pbxpress.it>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Asterisk-FastAGI
 PORTVERSION=	0.02

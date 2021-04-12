@@ -1,5 +1,8 @@
 # Created by: George Reid <greid@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rioutil
 PORTVERSION=	1.5.0

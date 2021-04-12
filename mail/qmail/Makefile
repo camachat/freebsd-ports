@@ -1,5 +1,8 @@
 # Created by: Mario S F Ferreira <lioux@linf.unb.br>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	${QMAIL_PORTNAME}
 PORTVERSION?=	${QMAIL_VERSION}

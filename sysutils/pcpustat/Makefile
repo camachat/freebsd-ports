@@ -1,5 +1,8 @@
 # Created by: sterling
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pcpustat
 PORTVERSION=	1.6

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	musikcube
 DISTVERSION=	0.96.5
 PORTREVISION=	1

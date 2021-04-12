@@ -1,5 +1,8 @@
 # Created by: benlutz@datacomm.ch
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	enemyterritory
 PORTVERSION=	2.60b

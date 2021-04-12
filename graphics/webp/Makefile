@@ -1,5 +1,8 @@
 # Created by: johans
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	webp
 PORTVERSION=	1.2.0

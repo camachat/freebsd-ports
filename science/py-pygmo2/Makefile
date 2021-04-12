@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pygmo2
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.16.1

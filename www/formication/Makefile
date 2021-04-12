@@ -1,5 +1,8 @@
 # Created by: Michael Ranner <mranner@inode.at>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	formication
 PORTVERSION=	1.0.b1

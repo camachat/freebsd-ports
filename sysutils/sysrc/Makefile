@@ -1,5 +1,8 @@
 # Created by: Devin Teske <dteske@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sysrc
 PORTVERSION=	5.2

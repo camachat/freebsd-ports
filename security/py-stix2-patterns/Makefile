@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	stix2-patterns
 PORTVERSION=	1.3.1
 DISTVERSIONPREFIX=	v

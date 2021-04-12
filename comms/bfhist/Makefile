@@ -1,5 +1,8 @@
 # Created by: Andrey Lykhin <lan31@inbox.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bfhist
 PORTVERSION=	0.4

@@ -1,7 +1,10 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 
 if [ "x$2" = "xPOST-INSTALL" ]; then
 	mkdir -p %%SPOOLDIR%%/incoming %%SPOOLDIR%%/outgoing \

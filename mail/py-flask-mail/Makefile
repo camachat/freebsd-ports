@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Flask-Mail
 PORTVERSION=	0.9.1
 CATEGORIES=	mail www python

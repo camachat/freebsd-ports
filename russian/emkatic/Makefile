@@ -1,5 +1,8 @@
 # Created by: Andrey Fesenko <andrey@bsdnir.info>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	emkatic
 PORTVERSION=	0.38

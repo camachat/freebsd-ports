@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	triton-guesttools
 PORTVERSION=	0.0.0.0s2017111501
 CATEGORIES=	net-mgmt

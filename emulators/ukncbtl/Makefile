@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ukncbtl
 DISTVERSION=	g20201017
 CATEGORIES=	emulators

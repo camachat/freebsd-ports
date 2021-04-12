@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	lusernet
 PORTVERSION=	0.4.2
 PORTREVISION=	11

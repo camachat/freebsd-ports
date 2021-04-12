@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ocsinventory-server
 PORTVERSION=	2.8
 CATEGORIES=	net-mgmt

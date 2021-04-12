@@ -1,5 +1,8 @@
 # Created by: Julien Laffaye <kimelto@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bgs
 DISTVERSIONPREFIX=	v

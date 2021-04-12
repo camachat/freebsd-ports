@@ -1,5 +1,8 @@
 # Created by: lightside <lightside@gmx.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ardoise
 PORTVERSION=	3.6

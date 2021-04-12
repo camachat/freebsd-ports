@@ -1,4 +1,7 @@
 #!/bin/sh
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 "%%LOCALBASE%%/bin/java" -cp "%%JAVALIBDIR%%/xml-apis.jar:%%JAVALIBDIR/xercesImpl.jar:%%JAVAJARDIR%%/xalan.jar" org.apache.xalan.xslt.Process "$@"

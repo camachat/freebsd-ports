@@ -1,5 +1,8 @@
 # Created by: Rong-En Fan <rafan@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	parent
 PORTVERSION=	0.238

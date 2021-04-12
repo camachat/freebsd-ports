@@ -1,5 +1,8 @@
 # Created by: Kirill Ponomarew <krion@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ipsumdump
 PORTVERSION=	1.86

@@ -1,5 +1,8 @@
 # Created by: pgs (original)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xbl
 PORTVERSION=	1.1.6

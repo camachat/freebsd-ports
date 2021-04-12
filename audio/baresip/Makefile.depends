@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 ALSA_DEPEND=	${LOCALBASE}/include/alsa/asoundlib.h:audio/alsa-lib
 BV32_DEPEND=	# nonexistent
 CONS_DEPEND=	# unnecessary

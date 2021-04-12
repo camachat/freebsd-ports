@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	azure-mgmt-reservations
 PORTVERSION=	0.7.0
 CATEGORIES=	devel python

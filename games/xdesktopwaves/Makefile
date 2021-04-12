@@ -1,5 +1,8 @@
 # Created by: ericyu@mail2000.com.tw
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xdesktopwaves
 PORTVERSION=	1.4

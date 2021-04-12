@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	babi
 PORTVERSION=	0.0.19
 CATEGORIES=	editors python

@@ -1,5 +1,8 @@
 #!/bin/sh
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 # The RPM database directory
 RPM_DATABASE_DIR=/var/lib/rpm

@@ -1,5 +1,8 @@
 # Created by: Ryo MIYAMOTO
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	psi88
 PORTVERSION=	1.0

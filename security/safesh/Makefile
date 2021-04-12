@@ -1,5 +1,8 @@
 # Created by: eivind
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	safesh
 PORTVERSION=	1.5

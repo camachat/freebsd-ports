@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	check_ipmi_sensor
 PORTVERSION=	3.10
 DISTVERSIONPREFIX=v

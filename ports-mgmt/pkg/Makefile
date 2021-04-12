@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pkg
 DISTVERSION=	1.16.3
 _PKG_VERSION=	${DISTVERSION}

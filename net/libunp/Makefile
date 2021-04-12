@@ -1,5 +1,8 @@
 # Created by: james@targetnet.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libunp
 PORTVERSION=	1.0

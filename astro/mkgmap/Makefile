@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 # Created by: Dmitry Marakasov <amdmi3@FreeBSD.org>
 # $FreeBSD$
 
 PORTNAME=	mkgmap
 PORTVERSION=	r4608
+=======
+PORTNAME=	mkgmap
+PORTVERSION=	r4652
+>>>>>>> upstream/main
 CATEGORIES=	astro converters java
 MASTER_SITES=	http://www.mkgmap.org.uk/download/ \
 		http://mirror.amdmi3.ru/distfiles/

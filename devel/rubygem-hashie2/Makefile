@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	hashie
 PORTVERSION=	2.1.2
 CATEGORIES=	devel rubygems

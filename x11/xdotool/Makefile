@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xdotool
 DISTVERSIONPREFIX=	v
 DISTVERSION=	3.20160805.1

@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	folly
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2021.03.29.00
+=======
+PORTNAME=	folly
+DISTVERSIONPREFIX=	v
+DISTVERSION=	2021.04.05.00
+>>>>>>> upstream/main
 CATEGORIES=	devel
 
 MAINTAINER=	yuri@FreeBSD.org

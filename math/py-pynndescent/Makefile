@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pynndescent
 DISTVERSION=	0.4.8
 CATEGORIES=	math python

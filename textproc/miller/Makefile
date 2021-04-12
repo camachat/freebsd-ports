@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	miller
 DISTVERSION=	5.4.0
 CATEGORIES=	textproc

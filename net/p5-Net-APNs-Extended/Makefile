@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Net-APNs-Extended
 PORTVERSION=	0.10
 PORTREVISION=	1

@@ -1,5 +1,8 @@
 # Created by: Juraj Lutter <juraj@lutter.sk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	logswan
 DISTVERSION=	2.1.10

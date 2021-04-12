@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	qmidictl
 DISTVERSION=	0.9.2
 CATEGORIES=	audio

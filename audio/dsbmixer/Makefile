@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dsbmixer
 PORTVERSION=	1.7
 CATEGORIES=	audio

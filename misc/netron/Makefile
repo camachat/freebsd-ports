@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	netron
 DISTVERSIONPREFIX=	v
 DISTVERSION=	4.1.9

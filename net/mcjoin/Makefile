@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mcjoin
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.9

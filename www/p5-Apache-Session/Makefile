@@ -1,5 +1,8 @@
 # Created by: Frank Mayhar <frank@exit.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Apache-Session
 PORTVERSION=	1.94

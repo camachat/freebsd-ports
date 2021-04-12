@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	thrill
 DISTVERSION=	g20200406
 CATEGORIES=	misc

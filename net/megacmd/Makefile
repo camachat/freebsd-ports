@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	megacmd
 DISTVERSION=	1.4.0
 DISTVERSIONSUFFIX=	_Linux

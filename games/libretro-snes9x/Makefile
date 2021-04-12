@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libretro-snes9x
 PORTVERSION=	0.20210129
 CATEGORIES=	games

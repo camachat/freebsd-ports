@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	zstd
 DISTVERSION=	0.9.0
 CATEGORIES=	archivers

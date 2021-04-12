@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	wavelib
 DISTVERSION=	g20200528
 CATEGORIES=	math

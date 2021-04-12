@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # javavm_opts.conf.dist
 #
 # This file is sourced by javavm to determine the options to pass to the

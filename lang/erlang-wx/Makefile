@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	erlang
 DISTVERSIONPREFIX=	OTP-
 DISTVERSION=	21.3.8.21
+=======
+PORTNAME=	erlang
+DISTVERSIONPREFIX=	OTP-
+DISTVERSION=	21.3.8.22
+>>>>>>> upstream/main
 PORTREVISION=	0
 PORTEPOCH=	1
 CATEGORIES=	lang parallel
@@ -27,11 +33,22 @@ USE_WX=		3.1+
 WX_COMPS=	wx
 
 GNU_CONFIGURE=	yes
+<<<<<<< HEAD
 MAKE_JOBS_UNSAFE=yes
 
 WX_APPS=	wx debugger et observer
 
 CONFIGURE_ARGS+=--enable-threads --without-odbc --without-javac --with-wx-config=${WX_CONFIG}
+=======
+MAKE_JOBS_UNSAFE=	yes
+
+WX_APPS=	wx debugger et observer
+
+CONFIGURE_ARGS+=	--enable-threads \
+			--with-wx-config=${WX_CONFIG} \
+			--without-javac \
+			--without-odbc
+>>>>>>> upstream/main
 
 pre-configure:
 	@cd ${WRKSRC} && ./otp_build autoconf

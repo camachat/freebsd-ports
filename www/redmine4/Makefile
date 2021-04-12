@@ -1,5 +1,8 @@
 # Created by: Bernhard Froehlich <decke@bluelife.at>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	redmine
 PORTVERSION=	4.1.2

@@ -1,5 +1,8 @@
 # Created by: Phillip Neumann <pneumann@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	icons-human-azul
 PORTVERSION=	0.1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	olive
 DISTVERSION=	0.1.2
 CATEGORIES=	multimedia
@@ -29,4 +32,9 @@ CMAKE_ARGS=	-DGIT_HASH:STRING=NoGitHashVersion${DISTVERSION}
 
 DATADIR=	${PREFIX}/share/olive-editor
 
+<<<<<<< HEAD
+=======
+PORTSCOUT=	limit:^.*[1-9]\..* # prevent tags like 20181223
+
+>>>>>>> upstream/main
 .include <bsd.port.mk>

@@ -1,5 +1,8 @@
 # Created by: Peter Bozarov (kingofgib@users.sourceforge.net)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libds
 PORTVERSION=	2.1

@@ -1,5 +1,8 @@
 # Created by: Philippe Pepiot <phil@philpep.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	adsuck
 PORTVERSION=	2.3

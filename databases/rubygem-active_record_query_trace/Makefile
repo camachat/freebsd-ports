@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	active_record_query_trace
 PORTVERSION=	1.5.4
 CATEGORIES=	databases rubygems

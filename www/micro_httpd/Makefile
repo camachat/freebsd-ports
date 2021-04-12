@@ -1,5 +1,8 @@
 # Created by: Kim Scarborough <user@unknown.nu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	micro_httpd
 PORTVERSION=	2014.08.14

@@ -1,5 +1,8 @@
 # Created by: Jeremy Chadwick <koitsu@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Markup-Perl
 PORTVERSION=	0.5

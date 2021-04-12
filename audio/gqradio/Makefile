@@ -1,5 +1,8 @@
 # Created by: Stefan Jahn <stefan.jahn@nemesis-sektor.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gqradio
 PORTVERSION=	1.9.2

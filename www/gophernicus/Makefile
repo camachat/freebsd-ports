@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gophernicus
 DISTVERSION=	3.0.1
 CATEGORIES=	www

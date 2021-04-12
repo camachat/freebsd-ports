@@ -1,5 +1,8 @@
 # Created by: tdb
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	atheme-services
 PORTVERSION=	7.2.9

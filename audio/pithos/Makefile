@@ -1,5 +1,8 @@
 # Created by: John Hixson <john@pcbsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pithos
 PORTVERSION=	1.5.0

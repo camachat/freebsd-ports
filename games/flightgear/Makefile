@@ -1,5 +1,8 @@
 # Created by: Brian Buchanan <brian@CSUA.Berkeley.EDU>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	flightgear
 PORTVERSION=	2020.3.8

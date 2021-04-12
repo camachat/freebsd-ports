@@ -1,5 +1,8 @@
 # Created by: OISHI Masakuni <yamasa@bsdhouse.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jai
 DISTVERSION=	1_1_3

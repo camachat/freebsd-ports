@@ -1,5 +1,8 @@
 # Created by: Ralf S. Engelschall <rse@engelschall.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	eperl
 PORTVERSION=	2.2.14

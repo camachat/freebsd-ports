@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	postgresql
 PORTVERSION=	13.00.0000
 CATEGORIES=	databases

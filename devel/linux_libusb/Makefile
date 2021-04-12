@@ -1,5 +1,8 @@
 # Created by: nox@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	linux_libusb
 PORTVERSION=	13.0r${FSVN_REV}

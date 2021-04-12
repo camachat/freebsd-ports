@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	angle-grinder
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.16

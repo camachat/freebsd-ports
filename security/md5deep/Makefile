@@ -1,5 +1,8 @@
 # Created by: Frank Laszlo <laszlof@vonostingroup.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	md5deep
 PORTVERSION=	4.4

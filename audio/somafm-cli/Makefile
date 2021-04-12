@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	somafm-cli
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.3.1

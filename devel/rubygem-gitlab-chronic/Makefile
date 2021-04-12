@@ -1,5 +1,8 @@
 # Created by Matthias Fechner <mfechner@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gitlab-chronic
 PORTVERSION=	0.10.5

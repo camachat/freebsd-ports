@@ -1,5 +1,8 @@
 # Created by: Bryan Drewery <bryan@shatow.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	backports
 PORTVERSION=	3.18.1

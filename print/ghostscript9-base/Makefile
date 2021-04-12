@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ghostscript
 PORTVERSION=	9.06
 PORTREVISION=	14

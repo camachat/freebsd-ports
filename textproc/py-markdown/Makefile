@@ -1,5 +1,8 @@
 # Created by: Graham Todd <gtodd@bellanet.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	markdown
 PORTVERSION=	2.6.11

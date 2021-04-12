@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	CoinUtils
 DISTVERSION=	2.11.4
 PORTREVISION=	1

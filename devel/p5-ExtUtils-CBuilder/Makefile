@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ExtUtils-CBuilder
 PORTVERSION=	0.280236
 PORTEPOCH=	1

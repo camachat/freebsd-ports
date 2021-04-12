@@ -1,5 +1,8 @@
 # Created by: Ronald Klop <ronald@echteman.nl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	commons-daemon
 PORTVERSION=	1.2.3

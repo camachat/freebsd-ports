@@ -1,5 +1,8 @@
 # Created by: Marco Steinbach <coco@executive-computing.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	froxlor
 PORTVERSION=	0.9.38.7

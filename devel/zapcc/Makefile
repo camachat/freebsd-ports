@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	zapcc
 PORTVERSION=	g20180622
 PORTREVISION=	1

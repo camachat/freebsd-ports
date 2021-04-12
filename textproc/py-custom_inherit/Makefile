@@ -1,5 +1,8 @@
 # Created by: skreuzer
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	custom_inherit
 PORTVERSION=	2.3.1

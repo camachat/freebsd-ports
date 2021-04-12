@@ -1,5 +1,8 @@
 # Created by: freebsd@spatula.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	muse
 PORTVERSION=	0.2

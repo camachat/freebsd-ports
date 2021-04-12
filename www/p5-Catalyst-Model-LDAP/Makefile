@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Catalyst-Model-LDAP
 PORTVERSION=	0.21
 CATEGORIES=	www perl5

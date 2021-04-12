@@ -1,5 +1,8 @@
 # Created by: Felix Palmen <felix@palmen-it.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	v1541commander
 PORTVERSION=	1.1

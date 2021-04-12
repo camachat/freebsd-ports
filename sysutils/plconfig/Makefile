@@ -1,5 +1,8 @@
 # Created by: Matt Peterson <matt@peterson.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	plconfig
 PORTVERSION=	0.2

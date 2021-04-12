@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	font-awesome
 DISTVERSION=	5.14.0
 CATEGORIES=	x11-fonts

@@ -1,5 +1,8 @@
 # Created by: Felix Palmen <felix@palmen-it.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 OCBM_VERSION=	0.4.99.102
 DISTVERSIONPREFIX=	v

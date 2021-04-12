@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Spreadsheet-ReadSXC
 PORTVERSION=	0.33
 CATEGORIES=	textproc perl5

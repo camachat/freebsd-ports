@@ -1,5 +1,8 @@
 # Created by: Henry Hu <henry.hu.sh@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pyzy
 PORTVERSION=	0.1.0

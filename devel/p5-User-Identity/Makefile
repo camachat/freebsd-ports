@@ -1,5 +1,8 @@
 # Created by: Max Campos <mcampos@bpsw.biz>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	User-Identity
 PORTVERSION=	0.98

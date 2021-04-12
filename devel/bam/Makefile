@@ -1,5 +1,8 @@
 # Created by: Timothy Beyer <beyert@cs.ucr.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bam
 PORTVERSION=	0.4.0

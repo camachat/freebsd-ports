@@ -27,8 +27,11 @@
 # PROVIDE: socksd
 # REQUIRE: NETWORKING
 # KEYWORD: shutdown
+<<<<<<< HEAD
 #
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 . /etc/rc.subr
 

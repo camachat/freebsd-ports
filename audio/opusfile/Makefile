@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	opusfile
 PORTVERSION=	0.12
 CATEGORIES=	audio

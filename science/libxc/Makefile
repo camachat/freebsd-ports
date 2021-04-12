@@ -1,5 +1,8 @@
 # Created by: Johannes Dieterich <dieterich@ogolem.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libxc
 DISTVERSION=	5.0.0

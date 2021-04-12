@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ebusd
 PORTVERSION=	21.2
 DISTVERSIONPREFIX=	v

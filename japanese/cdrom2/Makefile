@@ -1,5 +1,8 @@
 # Created by: Masafumi NAKANE <max@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cdrom2
 PORTVERSION=	1996.06.16

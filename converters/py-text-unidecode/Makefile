@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	text-unidecode
 DISTVERSION=	1.3
 CATEGORIES=	converters python

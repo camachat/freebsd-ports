@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	3270font
 DISTVERSIONPREFIX=	v.
 DISTVERSION=	2.1.1

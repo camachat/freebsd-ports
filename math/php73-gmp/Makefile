@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 CATEGORIES=	math
 
 MASTERDIR=	${.CURDIR}/../../lang/php73

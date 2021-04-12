@@ -1,5 +1,8 @@
 # Created by: Michal Bielicki <m.bielicki@llizardfs.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	isa-l_crypto
 PORTVERSION=	2.21.0

@@ -1,5 +1,8 @@
 # Created by: Bernhard Froehlich <decke@bluelife.at>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	srelay
 PORTVERSION=	0.4.8p3

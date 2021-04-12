@@ -2,7 +2,10 @@
 <!-- Written by Johnathan James (jjames at haxwell dot org) -2005 -->
 <!-- Copyright by Mario S F Ferreira <lioux@FreeBSD.org> 2005- -->
 <!-- Copyright by jrandom 2005- -->
+<<<<<<< HEAD
 <!-- $FreeBSD$ -->
+=======
+>>>>>>> upstream/main
 <project name="Build SEDA" default="dist" basedir=".">
      <description>
 	Builds the SEDA 20020712 JAR file

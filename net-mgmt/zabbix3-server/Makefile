@@ -1,5 +1,8 @@
 # Created by: Pakhom Golynga <pg@pakhom.spb.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	zabbix3
 PORTVERSION=	3.0.32

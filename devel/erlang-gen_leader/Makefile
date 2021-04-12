@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gen_leader
 PORTVERSION=	2014.10.20
 PORTREVISION=	1

@@ -1,6 +1,9 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD: /tmp/pcvs/ports/multimedia/gdialog/files/gdialog.in,v 1.1 2009-06-23 19:24:46 pgollucci Exp $
+=======
+>>>>>>> upstream/main
 
 case "$#" in
 0)

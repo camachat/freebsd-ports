@@ -1,5 +1,8 @@
 # Created by: Olivier Duchateau <duchateau.olivier@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	requests
 PORTVERSION=	2.22.0

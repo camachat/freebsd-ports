@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	urxvt-perls
 PORTVERSION=	2.0
 PORTREVISION=	1

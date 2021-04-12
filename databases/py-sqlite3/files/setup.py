@@ -3,8 +3,11 @@
 #       python setup.py install
 #
 
+<<<<<<< HEAD
 __version__ = "$FreeBSD$"
 
+=======
+>>>>>>> upstream/main
 try:
     import distutils
     from distutils import sysconfig

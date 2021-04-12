@@ -1,9 +1,16 @@
 # Created by: Thomas Gellekum <tg@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gnustep-gui
 DISTVERSIONPREFIX=	gui-
 DISTVERSION=	0_28_0
+<<<<<<< HEAD
+=======
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	x11-toolkits gnustep
 
 MAINTAINER=	ports@FreeBSD.org

@@ -1,5 +1,8 @@
 # Created by: Jing-Tang Keith Jang <keith@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	arphicttf
 PORTVERSION=	2.11

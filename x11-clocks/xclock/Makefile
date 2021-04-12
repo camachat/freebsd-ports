@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xclock
 PORTVERSION=	1.0.9
 CATEGORIES=	x11-clocks

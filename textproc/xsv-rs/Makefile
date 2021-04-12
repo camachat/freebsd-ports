@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xsv
 DISTVERSION=	0.13.0
 PORTREVISION=	29

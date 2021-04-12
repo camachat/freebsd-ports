@@ -1,5 +1,8 @@
 # Created by: Dominic Marks <dominic.marks@btinternet.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	artwiz-fonts
 PORTVERSION=	1.0

@@ -1,5 +1,8 @@
 # Created by: onatan@gmail.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ADMsnmp
 PORTVERSION=	0.1

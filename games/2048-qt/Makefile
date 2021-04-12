@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	2048-qt
 PORTVERSION=	0.1.6
 DISTVERSIONPREFIX=	v

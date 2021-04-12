@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	movit
 PORTVERSION=	1.6.3
 CATEGORIES=	graphics

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Convert-Moji
 PORTVERSION=	0.10
 CATEGORIES=	converters perl5

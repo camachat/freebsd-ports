@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cadical
 DISTVERSION=	1.0.3
 DISTVERSIONSUFFIX=	-cb89cbf

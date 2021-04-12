@@ -1,5 +1,8 @@
 # Created by: Janos.Mohacsi@bsd.hu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bozohttpd
 PORTVERSION=	20201014

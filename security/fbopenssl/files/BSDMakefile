@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PREFIX?=	/usr/local
 OPENSSLLIB?=	/usr/lib
 OPENSSLINC?=	/usr/include/openssl

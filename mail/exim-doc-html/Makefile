@@ -1,5 +1,8 @@
 # Created by: Johann Visagie <wjv@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	exim
 PORTVERSION=	4.92

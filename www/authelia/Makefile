@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	authelia
 DISTVERSIONPREFIX=	v
 DISTVERSION=	4.27.4

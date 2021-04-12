@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	ly
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.5.0
+=======
+PORTNAME=	ly
+DISTVERSIONPREFIX=	v
+DISTVERSION=	0.5.2
+>>>>>>> upstream/main
 CATEGORIES=	x11
 
 MAINTAINER=	nc@FreeBSD.org

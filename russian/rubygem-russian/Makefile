@@ -1,5 +1,8 @@
 # Created by: Alexander Logvinov <avl@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	russian
 PORTVERSION=	0.6.0

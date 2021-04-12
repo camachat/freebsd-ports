@@ -1,5 +1,8 @@
 # Created by: Brian Handy <handy@physics.montana.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	blackbox
 PORTVERSION=	0.70.1

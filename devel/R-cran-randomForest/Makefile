@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	randomForest
 DISTVERSION=	4.6-14
 PORTREVISION=	3

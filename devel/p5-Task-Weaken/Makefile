@@ -1,5 +1,8 @@
 # Created by: lbr@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Task-Weaken
 PORTVERSION=	1.06

@@ -1,5 +1,8 @@
 # Created by: Lawrence Chen <beastie@tardisi.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	LWP-Protocol-connect
 PORTVERSION=	6.09

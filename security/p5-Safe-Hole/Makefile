@@ -1,5 +1,8 @@
 # Created by: Seth Kingsley <sethk@meowfishies.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Safe-Hole
 PORTVERSION=	0.13

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ksshaskpass
 DISTVERSION=	${KDE_PLASMA_VERSION}
 CATEGORIES=	security kde kde-plasma

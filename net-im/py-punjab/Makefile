@@ -1,5 +1,8 @@
 # Created by: jodocus <jodocus@jodocus.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	punjab
 PORTVERSION=	0.15

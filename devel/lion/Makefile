@@ -1,5 +1,8 @@
 # Created by: Marco Molteni <molterSPAM@gufiSPAM.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lion
 DISTVERSION=	20060630

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	flatcc
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.6.0

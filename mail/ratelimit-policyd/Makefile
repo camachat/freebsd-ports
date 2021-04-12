@@ -1,5 +1,8 @@
 # Created by: Miroslav Lachman
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ratelimit-policyd
 PORTVERSION=	1.0.4

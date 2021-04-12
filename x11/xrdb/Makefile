@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xrdb
 PORTVERSION=	1.2.0
 CATEGORIES=	x11

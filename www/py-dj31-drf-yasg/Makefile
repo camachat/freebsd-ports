@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	drf-yasg
 DISTVERSION=	1.20.0
 CATEGORIES=	www python

@@ -1,5 +1,8 @@
 # Created by: KIRIYAMA Kazuhiko <kiri@kiri.toba-cmt.ac.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	japaneseAFM
 PORTVERSION=	1.0

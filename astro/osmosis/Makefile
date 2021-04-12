@@ -1,5 +1,8 @@
 # Created by: Gleb Smirnoff <glebius@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	osmosis
 PORTVERSION=	0.48.3

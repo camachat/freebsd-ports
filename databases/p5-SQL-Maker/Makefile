@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	SQL-Maker
 PORTVERSION=	1.21
 CATEGORIES=	databases perl5

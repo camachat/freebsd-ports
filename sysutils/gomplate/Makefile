@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gomplate
 DISTVERSIONPREFIX=	v
 DISTVERSION=	3.9.0

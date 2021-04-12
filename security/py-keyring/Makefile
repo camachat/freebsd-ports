@@ -1,8 +1,14 @@
 # Created by: Douglas Thrift <douglas@douglasthrift.net>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	keyring
 PORTVERSION=	18.0.1
+=======
+
+PORTNAME=	keyring
+PORTVERSION=	23.0.1
+>>>>>>> upstream/main
 CATEGORIES=	security python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}

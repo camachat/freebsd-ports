@@ -1,5 +1,8 @@
 # Created by: elbarto@ArcadeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dfu-programmer
 PORTVERSION=	0.7.2

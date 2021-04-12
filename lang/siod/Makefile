@@ -1,5 +1,8 @@
 # Created by: jkoshy
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	siod
 PORTVERSION=	3.6.2

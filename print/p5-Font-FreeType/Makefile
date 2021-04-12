@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Font-FreeType
 PORTVERSION=	0.07
 CATEGORIES=	print perl5

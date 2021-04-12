@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	natsort
 DISTVERSION=	7.1.1
 CATEGORIES=	devel python

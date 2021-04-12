@@ -1,5 +1,8 @@
 # Created by: Jacques Marneweck <jacques@php.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Perlbal
 PORTVERSION=	1.80

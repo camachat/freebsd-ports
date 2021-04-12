@@ -1,7 +1,11 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+
+>>>>>>> upstream/main
 # PROVIDE:  gpioshutdown
 # REQUIRE:  syslogd
 # BEFORE:   LOGIN

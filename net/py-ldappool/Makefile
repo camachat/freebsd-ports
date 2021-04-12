@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ldappool
 PORTVERSION=	2.4.1
 PORTREVISION=	1

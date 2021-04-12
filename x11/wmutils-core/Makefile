@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	wmutils-core
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.5

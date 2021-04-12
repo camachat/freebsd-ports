@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dolibarr
 DISTVERSION=	13.0.1
 CATEGORIES=	www finance

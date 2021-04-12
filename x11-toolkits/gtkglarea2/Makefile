@@ -1,5 +1,8 @@
 # Created by: Marc Recht <marc@informatik.uni-bremen.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gtkglarea
 PORTVERSION=	2.0.1
@@ -12,6 +15,12 @@ DIST_SUBDIR=	gnome2
 MAINTAINER=	ports@FreeBSD.org
 COMMENT=	OpenGL widget for the GTK+2 GUI toolkit
 
+<<<<<<< HEAD
+=======
+LICENSE=	LGPL20+
+LICENSE_FILE=	${WRKSRC}/COPYING
+
+>>>>>>> upstream/main
 LIB_DEPENDS=	libfreetype.so:print/freetype2 \
 		libfontconfig.so:x11-fonts/fontconfig
 

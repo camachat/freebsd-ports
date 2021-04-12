@@ -1,5 +1,8 @@
 # Created by: kai
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-Ident
 PORTVERSION=	1.23

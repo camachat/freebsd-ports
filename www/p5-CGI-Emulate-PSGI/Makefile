@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	CGI-Emulate-PSGI
 PORTVERSION=	0.20
 PORTREVISION=	1

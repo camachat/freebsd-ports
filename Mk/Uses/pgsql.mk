@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # Provide support for PostgreSQL (pgsql)
 #
 # Feature:	pgsql

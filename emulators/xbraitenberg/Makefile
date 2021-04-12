@@ -1,5 +1,8 @@
 # Created by: krion
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xbraitenberg
 PORTVERSION=	0.9

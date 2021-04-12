@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cliapp
 PORTVERSION=	1.20180812.1
 CATEGORIES=	devel

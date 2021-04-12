@@ -1,5 +1,8 @@
 # Created by: Joris Dedieu <joris.dedieu@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tinyows
 PORTVERSION=	1.1.0

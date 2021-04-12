@@ -1,5 +1,8 @@
 # Created by: Yoshifumi Watanabe <mwatts@edu1.tokyo-med.ac.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bkpupsd
 PORTVERSION=	1.0a

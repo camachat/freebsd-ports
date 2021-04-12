@@ -1,5 +1,8 @@
 # Created by: Ralf S. Engelschall <rse@gnu.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pth
 PORTVERSION=	2.0.7

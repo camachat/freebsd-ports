@@ -1,5 +1,8 @@
 # Created by: Chuck Robey <chuckr@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mosml
 PORTVERSION=	2.10.1

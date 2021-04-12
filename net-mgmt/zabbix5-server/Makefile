@@ -1,8 +1,14 @@
 # Created by: Pakhom Golynga <pg@pakhom.spb.ru>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	zabbix5
 DISTVERSION=	5.0.9
+=======
+
+PORTNAME=	zabbix5
+DISTVERSION=	5.0.10
+>>>>>>> upstream/main
 PORTREVISION?=	0
 CATEGORIES=	net-mgmt
 MASTER_SITES=	https://cdn.zabbix.com/zabbix/sources/stable/${DISTVERSION:R}/

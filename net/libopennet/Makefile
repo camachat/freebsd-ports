@@ -1,5 +1,8 @@
 # Created by: Gea-Suan Lin <gslin@ccca.nctu.edu.tw>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libopennet
 PORTVERSION=	0.9.9

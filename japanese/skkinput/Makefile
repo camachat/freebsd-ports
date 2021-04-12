@@ -1,5 +1,8 @@
 # Created by: Murata Shuuichirou <mrt@mickey.ai.kyutech.ac.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	skkinput
 PORTVERSION=	2.06.4

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	TokyoCabinet
 PORTVERSION=	1.34
 PORTREVISION=	1

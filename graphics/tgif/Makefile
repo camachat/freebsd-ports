@@ -1,5 +1,8 @@
 # Created by: bmc@WillsCreek.COM
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tgif
 PORTVERSION=	4.2.5

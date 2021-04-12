@@ -1,5 +1,8 @@
 # Created by: Chris Hutchinson <portmaster@bsdforge.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	smi
 PORTVERSION=	1.4

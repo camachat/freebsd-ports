@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	votca
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2021

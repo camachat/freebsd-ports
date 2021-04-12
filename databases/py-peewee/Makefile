@@ -1,5 +1,8 @@
 # Created by: Matthias Petermann <matthias@petermann-it.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	peewee
 DISTVERSION=	3.8.0

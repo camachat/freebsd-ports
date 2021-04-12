@@ -1,5 +1,8 @@
 # Created by: Sergey Golyashov <svvord@soft-wizard.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Doxygen-Filter-Perl
 PORTVERSION=	1.61

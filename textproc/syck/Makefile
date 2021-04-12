@@ -1,5 +1,8 @@
 # Created by: dd
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	syck
 PORTVERSION=	0.70

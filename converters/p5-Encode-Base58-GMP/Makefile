@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Encode-Base58-GMP
 PORTVERSION=	1.00
 CATEGORIES=	converters perl5

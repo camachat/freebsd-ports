@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dtcpclient
 PORTVERSION=	20151002
 PORTREVISION=	1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Encode-JP-Mobile
 PORTVERSION=	0.30
 PORTREVISION=	1

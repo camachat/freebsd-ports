@@ -1,9 +1,16 @@
 # Created by: Adam Weinberger <adamw@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	fyre
 PORTVERSION=	1.0.1
 PORTREVISION=	19
+=======
+
+PORTNAME=	fyre
+PORTVERSION=	1.0.1
+PORTREVISION=	20
+>>>>>>> upstream/main
 CATEGORIES=	graphics
 MASTER_SITES=	http://releases.navi.cx/fyre/
 
@@ -23,7 +30,11 @@ OPTIONS_DEFINE=		OPTIMIZED_CFLAGS OPENEXR GNET DOCS
 OPTIONS_DEFAULT=	OPENEXR GNET
 
 OPENEXR_CONFIGURE_ENABLE=	openexr
+<<<<<<< HEAD
 OPENEXR_LIB_DEPENDS=	libIlmImf.so:graphics/openexr
+=======
+OPENEXR_LIB_DEPENDS=	libOpenEXR.so:graphics/openexr
+>>>>>>> upstream/main
 
 GNET_DESC=		Networking support via GNet
 GNET_CONFIGURE_ENABLE=	gnet

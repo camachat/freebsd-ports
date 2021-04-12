@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	termtosvg
 PORTVERSION=	1.1.0
 CATEGORIES=	graphics python

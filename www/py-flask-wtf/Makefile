@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Flask-WTF
 PORTVERSION=	0.14.3
 PORTREVISION=	1

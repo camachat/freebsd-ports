@@ -1,5 +1,8 @@
 # Created by: Jaeho Shin <netj@sparcs.kaist.ac.kr>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nml
 PORTVERSION=	0.92b

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	compat12x
 PORTVERSION=	12.1.1201000.20200220
 CATEGORIES=	misc

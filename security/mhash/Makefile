@@ -1,5 +1,8 @@
 # Created by: nsayer@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mhash
 PORTVERSION=	0.9.9.9

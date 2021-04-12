@@ -1,5 +1,8 @@
 # Created by: Aldis Berjoza <aldis@bsdroot.lv>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	htpasswd
 PORTVERSION=	2019.10.15

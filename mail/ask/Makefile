@@ -1,5 +1,8 @@
 # Created by: Marcelo Araujo <araujobsd@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ask
 PORTVERSION=	2.5.3

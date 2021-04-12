@@ -1,5 +1,8 @@
 # Created by: Anatoliy Dmytriyev <tolid@plab.ku.dk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	WWW-TV
 PORTVERSION=	0.14

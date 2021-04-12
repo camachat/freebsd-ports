@@ -1,5 +1,8 @@
 # Created by: Masaki TAGAWA <masaki@club.kyutech.ac.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	http_post
 PORTVERSION=	1.0.20140814

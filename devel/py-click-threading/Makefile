@@ -1,5 +1,8 @@
 # Created by: Christian Geier <geier@lostpackets.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	click-threading
 PORTVERSION=	0.4.2

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Sisimai
 PORTVERSION=	4.25.10
 DISTVERSIONPREFIX=	v

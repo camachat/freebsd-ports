@@ -1,5 +1,8 @@
 # Created by: Felix Hanley
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	capnproto
 PORTVERSION=	0.7.0

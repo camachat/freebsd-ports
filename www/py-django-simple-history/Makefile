@@ -1,5 +1,8 @@
 # Created by: Carlo Strub
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	django-simple-history
 PORTVERSION=	2.12.0

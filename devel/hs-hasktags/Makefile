@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	hasktags
 PORTVERSION=	0.71.2
 PORTREVISION=	4

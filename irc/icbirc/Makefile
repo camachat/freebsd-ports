@@ -1,5 +1,8 @@
 # Created by: hrs
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	icbirc
 PORTVERSION=	2.1

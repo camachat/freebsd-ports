@@ -1,5 +1,8 @@
 # Created by: pat
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wmdiskmon
 PORTVERSION=	0.0.2

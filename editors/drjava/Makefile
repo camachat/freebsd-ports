@@ -1,5 +1,8 @@
 # Created by: Nicola Vitale	<nivit@email.it>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	drjava
 DISTVERSION=	20140826-r5761

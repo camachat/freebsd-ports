@@ -1,5 +1,8 @@
 # Created by: Carlos J Puga Medina <cpm@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	josepy
 PORTVERSION=	1.5.0

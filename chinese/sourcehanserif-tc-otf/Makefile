@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		sourcehanserif
 PORTVERSION=		1.001
 PORTREVISION=		1

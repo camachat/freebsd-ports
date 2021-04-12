@@ -1,5 +1,8 @@
 # Created by: fluffy
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PKGNAMESUFFIX=		-scheduler-ram
 PORTREVISION=		0

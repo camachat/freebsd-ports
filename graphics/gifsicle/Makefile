@@ -1,5 +1,8 @@
 # Created by: Brad Hendrickse <bradh@iafrica.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gifsicle
 PORTVERSION=	1.92

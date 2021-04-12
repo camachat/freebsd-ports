@@ -1,5 +1,8 @@
 # Created by: Espen Tagestad <espen@tagestad.no>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	CGI-Application-Plugin-ValidateRM
 PORTVERSION=	2.5

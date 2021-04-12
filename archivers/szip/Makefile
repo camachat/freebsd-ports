@@ -1,5 +1,8 @@
 # Created by: Igor Pokrovsky <tiamat@telegraph.spb.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	szip
 PORTVERSION=	1.12b

@@ -1,5 +1,8 @@
 # Created by: hosokawa
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ish
 PORTVERSION=	2.01a5

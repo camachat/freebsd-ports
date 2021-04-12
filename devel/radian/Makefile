@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	radian
 DISTVERSION=	0.5.4
 CATEGORIES=	devel math python

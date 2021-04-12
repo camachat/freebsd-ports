@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	grafana
 PORTVERSION=	7.5.1
 DISTVERSIONPREFIX=	v

@@ -1,5 +1,8 @@
 # Created by: Evgeni Dimitrov <evgeni.dimitrov@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lemonbar
 DISTVERSIONPREFIX=v

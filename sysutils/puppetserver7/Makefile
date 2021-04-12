@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	puppetserver
 PORTVERSION=	7.1.0
 CATEGORIES=	sysutils java

@@ -1,5 +1,8 @@
 # Created by: Eric van Gyzen <vangyzen@stat.duke.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mcmc-jags
 DISTVERSION=	4.3.0

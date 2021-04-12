@@ -1,5 +1,8 @@
 # Created by: Samy Al Bahra <samy@kerneled.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ae_fonts1_ttf
 PORTVERSION=	1.1

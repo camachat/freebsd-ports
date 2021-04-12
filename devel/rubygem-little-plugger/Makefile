@@ -1,5 +1,8 @@
 # Created by: Ryan Steinmetz (<rpsfa@rit.edu>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	little-plugger
 PORTVERSION=	1.1.4

@@ -1,5 +1,8 @@
 # Created by: lev@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mod_dav_svn
 DISTNAME=	subversion-${PORTVERSION}

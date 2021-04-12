@@ -1,5 +1,8 @@
 # Created by: Olivier Tharan <olive@oban.frmug.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nload
 PORTVERSION=	0.7.4

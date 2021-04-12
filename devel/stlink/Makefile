@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	stlink
 PORTVERSION=	1.6.1
 DISTVERSIONPREFIX=	v

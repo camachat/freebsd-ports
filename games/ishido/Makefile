@@ -1,5 +1,8 @@
 # Created by: Steven H. Samorodin (samorodi@NUXI.com)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ishido
 PORTVERSION=	1.1

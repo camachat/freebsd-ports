@@ -1,5 +1,8 @@
 # Created by: glewis
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	findbugs
 PORTVERSION=	1.3.9

@@ -1,8 +1,14 @@
 # Created by: Mathieu Arnold <m@absolight.net>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	DateTime-Format-Pg
 PORTVERSION=	0.16013
+=======
+
+PORTNAME=	DateTime-Format-Pg
+PORTVERSION=	0.16014
+>>>>>>> upstream/main
 CATEGORIES=	devel perl5
 MASTER_SITES=	CPAN
 PKGNAMEPREFIX=	p5-

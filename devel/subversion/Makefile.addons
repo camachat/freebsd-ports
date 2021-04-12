@@ -1,5 +1,8 @@
 # Created by: lev@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 WITH_SUBVERSION_VER?=	114
 

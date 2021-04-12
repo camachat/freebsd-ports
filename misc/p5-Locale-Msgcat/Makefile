@@ -1,5 +1,8 @@
 # Created by: Sebastien gioria <gioria@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Msgcat
 PORTVERSION=	1.03

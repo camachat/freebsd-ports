@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 SUBDIR=		include \
 		lib \
 		lib/wnres \

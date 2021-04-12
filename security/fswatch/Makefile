@@ -1,5 +1,8 @@
 # Created by: dominik karczmarski <dominik@karczmarski.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fswatch
 DISTVERSION=	0.02beta5

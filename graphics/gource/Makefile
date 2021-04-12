@@ -1,5 +1,8 @@
 # Created by: demon@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gource
 PORTVERSION=	0.51

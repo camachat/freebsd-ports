@@ -1,5 +1,8 @@
 # Created by: ntarmos@cs.uoi.gr
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	unhide
 PORTVERSION=	20121229

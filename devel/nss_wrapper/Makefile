@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		nss_wrapper
 PORTVERSION=		1.1.3
 PORTREVISION=	2

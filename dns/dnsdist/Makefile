@@ -1,5 +1,8 @@
 # Created by: Carlos J Puga Medina <cpm@fbsd.es>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dnsdist
 DISTVERSION=	1.5.1

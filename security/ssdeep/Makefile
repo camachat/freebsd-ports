@@ -1,5 +1,8 @@
 # Created by: Nobutaka Mantani <nobutaka@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ssdeep
 PORTVERSION=	2.14.1

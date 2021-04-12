@@ -1,5 +1,8 @@
 # Created by: Rick van der Zwet <rick@wzoeterwoude.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	maude
 PORTVERSION=	2.7.1

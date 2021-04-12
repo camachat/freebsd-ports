@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	redis-activesupport
 PORTVERSION=	5.2.0
 CATEGORIES=	devel rubygems

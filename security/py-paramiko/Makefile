@@ -1,5 +1,8 @@
 # Created by: Ulf Lilleengen
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	paramiko
 PORTVERSION=	2.7.2

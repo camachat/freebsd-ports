@@ -1,5 +1,8 @@
 # Created by: John Hixson<jhixson@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ifaddr
 PORTVERSION=	0.1.7

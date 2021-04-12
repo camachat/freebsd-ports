@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bzflag
 PORTVERSION=	2.4.22
 CATEGORIES=	games

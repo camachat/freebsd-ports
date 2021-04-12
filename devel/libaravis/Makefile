@@ -1,5 +1,8 @@
 # Created by: Rozhuk Ivan
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		libaravis
 DISTVERSIONPREFIX=	ARAVIS_

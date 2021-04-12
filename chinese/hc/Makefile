@@ -1,5 +1,8 @@
 # Created by: David O'Brien (obrien@FreeBSD.org)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hc
 PORTVERSION=	3.0

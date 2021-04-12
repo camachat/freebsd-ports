@@ -1,8 +1,14 @@
 # Created by: Thierry Thomas <thierry@pompo.net>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	ibus-typing-booster
 PORTVERSION=	2.11.0
+=======
+
+PORTNAME=	ibus-typing-booster
+PORTVERSION=	2.11.2
+>>>>>>> upstream/main
 CATEGORIES=	textproc
 
 MAINTAINER=	thierry@FreeBSD.org
@@ -12,15 +18,25 @@ LICENSE=	GPLv3
 LICENSE_FILE=	${WRKSRC}/COPYING
 
 BUILD_DEPENDS=	${PYTHON_SITELIBDIR}/xdg/Menu.py:devel/py-xdg@${PY_FLAVOR}		\
+<<<<<<< HEAD
 		${PYTHON_PKGNAMEPREFIX}sqlite3>0:databases/py-sqlite3@${PY_FLAVOR}
+=======
+		${PYTHON_LIBDIR}/lib-dynload/_sqlite3.so:databases/py-sqlite3@${PY_FLAVOR}
+>>>>>>> upstream/main
 LIB_DEPENDS=	libibus-1.0.so:textproc/ibus	\
 		libm17n.so:devel/m17n-lib
 RUN_DEPENDS=	CLDR>0:textproc/CLDR	\
 		${PYTHON_SITELIBDIR}/xdg/Menu.py:devel/py-xdg@${PY_FLAVOR}		\
 		${PYTHON_SITELIBDIR}/dbus/bus.py:devel/py-dbus@${PY_FLAVOR}		\
+<<<<<<< HEAD
 		${PYTHON_PKGNAMEPREFIX}hunspell>0:textproc/py-hunspell@${PY_FLAVOR}	\
 		${LOCALBASE}/share/unicode/ucd/Index.txt:textproc/UCD			\
 		${PYTHON_PKGNAMEPREFIX}sqlite3>0:databases/py-sqlite3@${PY_FLAVOR}
+=======
+		${PYTHON_SITELIBDIR}/hunspell.so:textproc/py-hunspell@${PY_FLAVOR}	\
+		${LOCALBASE}/share/unicode/ucd/Index.txt:textproc/UCD			\
+		${PYTHON_LIBDIR}/lib-dynload/_sqlite3.so:databases/py-sqlite3@${PY_FLAVOR}
+>>>>>>> upstream/main
 TEST_DEPENDS=	${LOCALBASE}/share/hunspell/cs_CZ.dic:textproc/cs-hunspell	\
 		${LOCALBASE}/share/hunspell/de_DE.dic:german/hunspell		\
 		${LOCALBASE}/share/hunspell/en_US.aff:textproc/en-hunspell	\

@@ -1,5 +1,8 @@
 # Created by: Kimura Fuyuki <fuyuki@nigredo.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xds
 PORTVERSION=	0.9.3

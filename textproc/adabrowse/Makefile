@@ -1,5 +1,8 @@
 # Created by: John Marino <draco@marino.st>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	adabrowse
 PORTVERSION=	4.0.3

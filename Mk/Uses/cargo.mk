@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # This file contains logic to ease porting of Rust packages or
 # binaries using the `cargo` command.
 #

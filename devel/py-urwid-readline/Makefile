@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	urwid-readline
 DISTVERSION=	0.12
 CATEGORIES=	devel python

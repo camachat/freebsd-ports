@@ -1,5 +1,8 @@
 # Created by: Sofian Brabez <sbz@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	testinfra
 PORTVERSION=	3.2.0

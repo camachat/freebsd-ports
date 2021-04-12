@@ -1,5 +1,8 @@
 # Created by: Steffen Fritz <steffen@fritz.wtf>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	siegfried
 DISTVERSIONPREFIX=	v

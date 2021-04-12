@@ -1,7 +1,10 @@
 #!/bin/sh
 
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # PROVIDE: htcacheclean
 #
 # Configuration settings for htcacheclean in /etc/rc.conf

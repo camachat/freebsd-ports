@@ -1,5 +1,8 @@
 #!/bin/sh
+<<<<<<< HEAD
 # $FreeBSD: /tmp/pcvs/ports/net/dgd-kernel/files/dgd-kernel.sh,v 1.2 2010-04-25 07:18:12 glewis Exp $
+=======
+>>>>>>> upstream/main
 
 DGD_CONF=%%PREFIX%%/etc/dgd-kernel/kernel.dgd
 DGD_USER=mud

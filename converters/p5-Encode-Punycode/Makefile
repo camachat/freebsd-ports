@@ -1,5 +1,8 @@
 # Created by: Timur Bakeyev <timur@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Encode-Punycode
 PORTVERSION=	1.002

@@ -1,5 +1,8 @@
 # Created by: Petr Rehor <rx@rx.cz>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	amavisd-milter
 PORTVERSION=	1.7.0

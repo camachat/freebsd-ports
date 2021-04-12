@@ -1,5 +1,8 @@
 # Created by: Edwin Groothuis
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xrally
 PORTVERSION=	1.1.1

@@ -1,5 +1,8 @@
 # Created by: Ernst de Haan <znerd@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	commons-collections
 PORTVERSION=	3.2.2

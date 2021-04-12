@@ -1,5 +1,8 @@
 # Created by: Andreas Daehn <ad001@uni-rostock.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jave6
 PORTVERSION=	0.1

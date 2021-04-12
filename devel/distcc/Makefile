@@ -1,5 +1,8 @@
 # Created by: Frerich Raabe <frerich.raabe@gmx.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 #   $MCom: ports/devel/distcc/Makefile,v 1.3 2007/10/21 02:46:13 ahze Exp $
 
 PORTNAME=	distcc

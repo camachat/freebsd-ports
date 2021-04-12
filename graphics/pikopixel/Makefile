@@ -1,5 +1,8 @@
 # Created by: theraven@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pikopixel
 DISTVERSION=	1.0-b10

@@ -1,5 +1,8 @@
 # Created by: Shen Chuan-Hsing
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fortunetw
 PORTVERSION=	1.4

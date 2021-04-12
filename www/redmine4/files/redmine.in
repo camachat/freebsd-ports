@@ -1,7 +1,10 @@
 #!/bin/sh
 
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 # PROVIDE: redmine
 # REQUIRE: LOGIN
 # KEYWORD: shutdown

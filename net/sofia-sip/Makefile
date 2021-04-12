@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sofia-sip
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.13.3

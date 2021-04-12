@@ -1,5 +1,8 @@
 # Created by: Hugo Saro <hugo@barafranca.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	haproxy
 DISTVERSION=	2.1.12

@@ -1,5 +1,8 @@
 # Created by: Alexandre Biancalana <ale@biancalanas.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Email-Sender-Transport-SMTP-TLS
 PORTVERSION=	0.15

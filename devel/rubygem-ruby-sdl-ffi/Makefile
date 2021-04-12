@@ -1,5 +1,8 @@
 # Created by: Christoph Kick
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ruby-sdl-ffi
 PORTVERSION=	0.4

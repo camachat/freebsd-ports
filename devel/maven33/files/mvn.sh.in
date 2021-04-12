@@ -1,6 +1,9 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 if [ -f /etc/mavenrc ] ; then
 	. /etc/mavenrc

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ntlm-auth
 DISTVERSION=	1.5.0
 CATEGORIES=	security python

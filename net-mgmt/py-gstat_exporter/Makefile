@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gstat_exporter
 PORTVERSION=	20191119
 CATEGORIES=	net-mgmt python

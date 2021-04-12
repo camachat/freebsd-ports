@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pyocr
 DISTVERSION=	0.8
 CATEGORIES=	graphics python

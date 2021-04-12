@@ -1,8 +1,11 @@
 # -*- tab-width: 4; -*-
 # ex: ts=4
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 
 .if defined(_POSTMKINCLUDED) && !defined(Ldap_Post_Include)
 

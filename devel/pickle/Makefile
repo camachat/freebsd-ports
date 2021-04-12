@@ -1,5 +1,8 @@
 # Created by: Bruce M. Simpson <bms@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pickle
 PORTVERSION=	4.20

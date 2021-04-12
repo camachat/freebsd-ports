@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	drawing
 DISTVERSION=	0.6.5
+=======
+PORTNAME=	drawing
+DISTVERSION=	0.6.5
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	graphics
 
 MAINTAINER=	nc@FreeBSD.org
@@ -11,9 +17,16 @@ LICENSE=	GPLv3
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
 BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}cairo>=0:graphics/py-cairo@${PY_FLAVOR}
+<<<<<<< HEAD
 RUN_DEPENDS=	${BUILD_DEPENDS}
 
 USES=		gettext gnome meson pkgconfig python:3.6+ shebangfix
+=======
+RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}cairo>=0:graphics/py-cairo@${PY_FLAVOR}
+
+USES=		desktop-file-utils gettext gnome meson pkgconfig python:3.6+ \
+		shebangfix
+>>>>>>> upstream/main
 USE_GITHUB=	yes
 GH_ACCOUNT=	maoschanz
 USE_GNOME=	gtk30 pygobject3

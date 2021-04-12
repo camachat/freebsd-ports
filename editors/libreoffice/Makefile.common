@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libreoffice
 CATEGORIES+=	editors
 
@@ -9,5 +12,9 @@ LICENSE=	LGPL3+ MPL20
 LICENSE_COMB=	dual
 
 DISTVERSION=	${LOVERSION}.${RCVER}
+<<<<<<< HEAD
 LOVERSION=	7.1.1
+=======
+LOVERSION=	7.1.2
+>>>>>>> upstream/main
 RCVER=		2

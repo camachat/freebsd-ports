@@ -1,5 +1,8 @@
 # Created by: Michael Williams <ports@mgwsoftware.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dwarffortress
 DISTVERSION=	0.47.04

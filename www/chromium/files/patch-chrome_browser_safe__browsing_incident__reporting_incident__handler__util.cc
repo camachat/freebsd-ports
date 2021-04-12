@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- chrome/browser/safe_browsing/incident_reporting/incident_handler_util.cc.orig	2020-11-13 06:36:37 UTC
+=======
+--- chrome/browser/safe_browsing/incident_reporting/incident_handler_util.cc.orig	2021-03-12 23:57:18 UTC
+>>>>>>> upstream/main
 +++ chrome/browser/safe_browsing/incident_reporting/incident_handler_util.cc
 @@ -8,7 +8,11 @@
  

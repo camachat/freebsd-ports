@@ -1,5 +1,8 @@
 # Created by: Kurt Kanzenbach <kurt@kmk-computers.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libflatarray
 PORTVERSION=	0.3.0

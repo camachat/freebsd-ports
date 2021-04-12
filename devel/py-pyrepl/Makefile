@@ -1,5 +1,8 @@
 # Created by: Hye-Shik Chang
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pyrepl
 PORTVERSION=	0.9.0

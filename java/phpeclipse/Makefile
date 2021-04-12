@@ -1,5 +1,8 @@
 # Created by: rtdean@cytherianage.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	phpeclipse
 PORTVERSION=	1.2.3

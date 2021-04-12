@@ -1,5 +1,8 @@
 # Created by: olevole@olevole.ru
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	phpLiteAdmin
 DISTVERSION=	1-9-8-2

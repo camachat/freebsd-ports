@@ -1,5 +1,8 @@
 # Created by: chris@still.whet.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	portsentry
 PORTVERSION=	1.2

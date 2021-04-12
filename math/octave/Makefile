@@ -1,5 +1,8 @@
 # Created by: chuckr@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	octave
 PORTVERSION=	${OCTAVE_VERSION}

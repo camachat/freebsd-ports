@@ -1,5 +1,8 @@
 # Created by: Mons Anderson <mons@cpan.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	AnyEvent-HTTPD
 PORTVERSION=	0.93

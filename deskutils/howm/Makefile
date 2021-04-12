@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	howm
 PORTVERSION=	1.4.3
 PORTREVISION=	5

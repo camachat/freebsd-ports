@@ -1,5 +1,8 @@
 # Created by: Tz-Huan Huang <tzhuan@csie.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ann
 PORTVERSION=	1.1.2

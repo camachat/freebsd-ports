@@ -1,5 +1,8 @@
 # Created by: Paul Everlund
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xmedcon
 PORTVERSION=	0.17.0

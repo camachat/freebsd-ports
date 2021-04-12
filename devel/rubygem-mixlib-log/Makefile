@@ -1,5 +1,8 @@
 # Created by: renchap@cocoa-x.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mixlib-log
 PORTVERSION=	3.0.9

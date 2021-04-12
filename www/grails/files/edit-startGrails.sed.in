@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 14i\
 : ${GRAILS_HOME="%%DATADIR%%"}
 14i\

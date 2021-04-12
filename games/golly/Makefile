@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	golly
 PORTVERSION=	3.3
 DISTVERSIONSUFFIX=	-src

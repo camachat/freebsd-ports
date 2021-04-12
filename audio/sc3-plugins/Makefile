@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sc3-plugins
 DISTVERSIONPREFIX=	Version-
 DISTVERSION=	3.9.0

@@ -1,5 +1,8 @@
 # Created by: Andreas Fehlner (fehlner@gmx.de)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 CATEGORIES=	french
 

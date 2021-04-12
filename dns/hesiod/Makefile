@@ -1,5 +1,8 @@
 # Created by: n@nectar.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hesiod
 PORTVERSION=	3.2.1

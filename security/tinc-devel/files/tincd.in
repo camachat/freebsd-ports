@@ -1,7 +1,11 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+
+>>>>>>> upstream/main
 # PROVIDE: tincd
 # REQUIRE: ipfilter FILESYSTEMS sysctl netif
 # BEFORE:  SERVERS routing

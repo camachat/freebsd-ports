@@ -1,5 +1,8 @@
 # Created by: Jeremie Le Hen <jlh@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libresonic
 DISTVERSIONPREFIX=	v

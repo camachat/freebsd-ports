@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	systemd
 PORTVERSION=	219
 DISTVERSIONSUFFIX=	-78.el7_9.3

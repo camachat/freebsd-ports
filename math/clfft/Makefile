@@ -1,5 +1,8 @@
 # Created by: Johannes Dieterich <dieterich@ogolem.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	clfft
 PORTVERSION=	2.12.2
@@ -17,7 +20,11 @@ BUILD_DEPENDS=	opencl>=0:devel/opencl
 LIB_DEPENDS=	libOpenCL.so:devel/ocl-icd
 RUN_DEPENDS=	opencl>=0:devel/opencl
 
+<<<<<<< HEAD
 ONLY_FOR_ARCHS=	amd64
+=======
+ONLY_FOR_ARCHS=	amd64 powerpc64 powerpc64le
+>>>>>>> upstream/main
 
 USES=		cmake
 USE_LDCONFIG=	yes

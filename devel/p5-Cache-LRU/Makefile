@@ -1,5 +1,8 @@
 # Created by: Andrey Chernov <ache@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Cache-LRU
 PORTVERSION=	0.04

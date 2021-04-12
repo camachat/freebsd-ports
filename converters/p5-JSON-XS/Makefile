@@ -1,5 +1,8 @@
 # Created by: Lung Sung <clsung@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	JSON-XS
 PORTVERSION=	4.03

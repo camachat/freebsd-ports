@@ -1,5 +1,8 @@
 # Created by: Jason Heiss <jheiss@aput.biz>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	File-Cat
 PORTVERSION=	1.2

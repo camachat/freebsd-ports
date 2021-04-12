@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME?=	mcollective-puppet-common
 PORTVERSION=	1.14.0
 CATEGORIES=	sysutils

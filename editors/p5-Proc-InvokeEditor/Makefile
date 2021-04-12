@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Proc-InvokeEditor
 PORTVERSION=	1.13
 CATEGORIES=	editors perl5

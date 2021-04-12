@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	lizard
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.0

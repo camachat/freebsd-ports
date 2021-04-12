@@ -7,9 +7,12 @@
 #
 # * Checks if the '%%USER%%' user exists. If it does, then it displays
 #   a message.
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 
 USER=%%USER%%
 PID_FILE=%%PID_FILE%%

@@ -1,5 +1,8 @@
 # Created by: Andrew Stevenson <andrew@ugh.net.au>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gpart
 PORTVERSION=	0.1h

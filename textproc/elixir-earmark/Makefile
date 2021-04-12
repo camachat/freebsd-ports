@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	earmark
 PORTVERSION=	1.2.5
 DISTVERSIONPREFIX=	v

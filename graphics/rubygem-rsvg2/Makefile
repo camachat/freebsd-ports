@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rsvg2
 PORTVERSION=	3.4.3
 PORTREVISION=	1

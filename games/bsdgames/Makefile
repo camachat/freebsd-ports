@@ -1,5 +1,8 @@
 # Created by: Mark Murray <markm@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bsdgames
 PORTVERSION=	0.75

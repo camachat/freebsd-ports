@@ -1,7 +1,10 @@
 #!/bin/sh
 
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # PROVIDE: carbon_relay_ng
 # REQUIRE: LOGIN
 # KEYWORD: shutdown

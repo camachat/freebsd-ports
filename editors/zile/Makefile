@@ -1,5 +1,8 @@
 # Created by: Jason Evans <jasone@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	zile
 PORTVERSION=	2.4.14

@@ -1,5 +1,8 @@
 # Created by: Ralf Meister
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	opencryptoki
 PORTVERSION=	3.11.0

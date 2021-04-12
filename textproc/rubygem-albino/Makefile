@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	albino
 PORTVERSION=	1.3.3
 PORTREVISION=	1

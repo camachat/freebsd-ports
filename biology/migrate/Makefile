@@ -1,5 +1,8 @@
 # Created by: Johann Visagie <wjv@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	migrate
 PORTVERSION=	3.6.11

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mlpack
 DISTVERSION=	3.4.1
 PORTREVISION=	1

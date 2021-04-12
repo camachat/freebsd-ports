@@ -1,5 +1,8 @@
 # Created by: Alberto Villa <avilla@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	telepathy-qt
 DISTVERSION=	0.9.8

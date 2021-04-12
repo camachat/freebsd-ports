@@ -1,5 +1,8 @@
 # Created by: Adam McDougall <mcdouga9@egr.msu.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vacation
 PORTVERSION=	3.3.3

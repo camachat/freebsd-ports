@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	osqp
 DISTVERSION=	0.6.2.post0
 PORTEPOCH=	1

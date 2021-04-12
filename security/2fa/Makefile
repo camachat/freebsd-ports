@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	2fa
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.2.0

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Data-Munge
 PORTVERSION=	0.097
 CATEGORIES=	devel perl5

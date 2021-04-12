@@ -1,5 +1,8 @@
 # Created by: Martin Dieringer <Martin.Dieringer@t-online.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mac
 PORTVERSION=	3.99.4.5.7

@@ -1,5 +1,8 @@
 # Created by: Matthew Hunt <mph@pobox.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	angband
 PORTVERSION=	4.1.3

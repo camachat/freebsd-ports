@@ -1,5 +1,8 @@
 # Created by: Vsevolod Stakhov <vsevolod@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	minisat
 PORTVERSION=	2.2.1

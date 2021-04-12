@@ -1,5 +1,8 @@
 # Created by: Michael Reifenberger <mr@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pcb
 PORTVERSION=	4.2.0

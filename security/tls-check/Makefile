@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tls-check
 PORTVERSION=	1.0.2
 DISTVERSIONPREFIX=v

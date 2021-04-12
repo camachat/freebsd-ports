@@ -1,5 +1,8 @@
 # Created by: Motomichi Matsuzaki <mzaki@m.u-tokyo.ac.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	velvet
 PORTVERSION=	1.2.10

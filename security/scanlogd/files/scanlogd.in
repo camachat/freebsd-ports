@@ -1,7 +1,10 @@
 #!/bin/sh
 
 # Start or stop scanlogd
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 # PROVIDE: scanlogd
 # REQUIRE: LOGIN

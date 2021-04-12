@@ -1,5 +1,8 @@
 # Created by: Peter C. Lai <cowbert@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mk-livestatus
 PORTVERSION=	1.2.8p25

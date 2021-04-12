@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	django-ranged-response
 DISTVERSION=	0.2.0
 PORTREVISION=	1

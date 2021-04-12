@@ -1,7 +1,10 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD: head/net/balance/files/balance.in 340872 2014-01-24 00:14:07Z mat $
 #
+=======
+>>>>>>> upstream/main
 
 # PROVIDE: balance
 # REQUIRE: LOGIN

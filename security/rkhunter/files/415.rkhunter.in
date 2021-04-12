@@ -1,7 +1,11 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+
+>>>>>>> upstream/main
 # This is a maintenance shell script for the rkhunter security tool.
 # You can enable this script in /etc/periodic.conf file by putting these lines into it:
 #	daily_rkhunter_update_enable="YES"

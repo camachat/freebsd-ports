@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	boringssl
 PORTVERSION=	0.0.0.0.2020.04.29.01
 CATEGORIES=	security

@@ -1,5 +1,8 @@
 # Created by: Janni
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mercator
 PORTVERSION=	0.3.3

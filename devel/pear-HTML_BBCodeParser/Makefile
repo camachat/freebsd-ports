@@ -1,5 +1,8 @@
 # Created by: Lewis Thompson <purple@lewiz.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HTML_BBCodeParser
 PORTVERSION=	1.2.3

@@ -1,5 +1,8 @@
 # Created by: dd
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jarl
 PORTVERSION=	0.5001

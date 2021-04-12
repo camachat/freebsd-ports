@@ -1,5 +1,8 @@
 # Created by: Dirk Froemberg <dirk@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	openssl
 PORTVERSION=	3.0.0.a12

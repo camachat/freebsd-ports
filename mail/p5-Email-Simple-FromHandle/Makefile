@@ -1,5 +1,8 @@
 # Created by: <ashish@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Email-Simple-FromHandle
 PORTVERSION=	0.054

@@ -1,5 +1,8 @@
 # Created by: Matteo Cypriani <mcy@lm7.fr>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	renameutils
 PORTVERSION=	0.12.0

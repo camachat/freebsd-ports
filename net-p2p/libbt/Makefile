@@ -1,5 +1,8 @@
 # Created by: Florent Thoumie <flz@xbsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libbt
 DISTVERSION=	1.06

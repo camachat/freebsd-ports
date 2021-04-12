@@ -1,5 +1,8 @@
 # Created by: Elvis Chiang <elvis@sslab.cs.ccu.edu.tw>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Path-Class
 PORTVERSION=	0.37

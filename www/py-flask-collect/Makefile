@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Flask-Collect
 PORTVERSION=	1.3.2
 CATEGORIES=	www devel python

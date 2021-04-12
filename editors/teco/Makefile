@@ -1,5 +1,8 @@
 # Created by: Stanislav Sedov <stas@core.310.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	teco
 PORTVERSION=	0398

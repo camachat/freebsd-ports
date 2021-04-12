@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xev
 PORTVERSION=	1.2.4
 CATEGORIES=	x11

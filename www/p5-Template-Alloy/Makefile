@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Template-Alloy
 PORTVERSION=	1.020
 PORTREVISION=	1

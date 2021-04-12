@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	qgnomeplatform
 DISTVERSION=	0.6.1-8
 DISTVERSIONSUFFIX=	-g53d7924

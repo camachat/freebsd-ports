@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	nsysctl
 DISTVERSION=	2.0
 CATEGORIES=	sysutils

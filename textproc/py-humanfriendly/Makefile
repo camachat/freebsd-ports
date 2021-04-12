@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	humanfriendly
 PORTVERSION=	9.1
 CATEGORIES=	textproc python

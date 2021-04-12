@@ -1,5 +1,8 @@
 # Created by: Alexey Dokuchaev <danfe@regency.nsu.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wmcalendar
 PORTVERSION=	0.5.2
@@ -10,9 +13,12 @@ MASTER_SITES=	SF
 MAINTAINER=	xride@FreeBSD.org
 COMMENT=	Dockable calendar with interface to iCalendar based calendars
 
+<<<<<<< HEAD
 BROKEN_FreeBSD_13=	ld: error: duplicate symbol: appicon
 BROKEN_FreeBSD_14=	ld: error: duplicate symbol: appicon
 
+=======
+>>>>>>> upstream/main
 LIB_DEPENDS=	libical.so:devel/libical
 
 WRKSRC=		${WRKDIR}/${DISTNAME}/Src
@@ -22,7 +28,11 @@ USE_XORG=	xpm
 USE_GNOME=	gtk20
 MAKE_ARGS=	CC="${CC}" \
 		LFLAGS="`pkg-config --libs gtk+-2.0` -L${LOCALBASE}/lib" \
+<<<<<<< HEAD
 		CFLAGS="${CFLAGS}" \
+=======
+		CFLAGS="${CFLAGS} -fcommon" \
+>>>>>>> upstream/main
 		INCDIR="`pkg-config --cflags gtk+-2.0` -I${LOCALBASE}/include" \
 		LIBDIR="" \
 		LIBS="-lical -lX11 -lXext -lXpm -lm"

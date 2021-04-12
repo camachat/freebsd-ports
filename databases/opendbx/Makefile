@@ -1,5 +1,8 @@
 # Created by: tremere@cainites.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	opendbx
 PORTVERSION=	1.4.6

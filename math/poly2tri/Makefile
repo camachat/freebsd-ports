@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	poly2tri
 DISTVERSION=	g20191130
 CATEGORIES=	math

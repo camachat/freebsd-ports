@@ -1,5 +1,8 @@
 # Created by: Eric Crist <ecrist@secure-computing.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ssl-admin
 DISTVERSION=	1.2.1

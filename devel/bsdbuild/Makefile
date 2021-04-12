@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bsdbuild
 PORTVERSION=	3.1
 CATEGORIES=	devel

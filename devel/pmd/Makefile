@@ -1,5 +1,8 @@
 # Created by: Alex Varju <freebsd-ports@varju.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pmd
 PORTVERSION=	6.29.0

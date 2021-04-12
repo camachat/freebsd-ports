@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dbd-sqlite3
 PORTVERSION=	1.2.5
 PORTREVISION=	1

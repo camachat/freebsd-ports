@@ -1,6 +1,10 @@
 #!/bin/sh
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+
+>>>>>>> upstream/main
 # PROVIDE: reggae_pf
 # REQUIRE: pf
 # AFTER: NETWORKING local_unbound named nsd unbound

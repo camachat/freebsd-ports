@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	wezterm
 DISTVERSION=	20210314-114017-04b7cedd
 PORTREVISION=	1
+=======
+PORTNAME=	wezterm
+DISTVERSION=	20210405-110924-a5bb5be8
+>>>>>>> upstream/main
 CATEGORIES=	x11
 
 MAINTAINER=	jbeich@FreeBSD.org
@@ -12,7 +17,10 @@ LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE.md
 
 LIB_DEPENDS=	libwayland-egl.so:graphics/wayland \
+<<<<<<< HEAD
 		libssh2.so:security/libssh2 \
+=======
+>>>>>>> upstream/main
 		libfontconfig.so:x11-fonts/fontconfig \
 		libxkbcommon-x11.so:x11/libxkbcommon \
 		libxcb-image.so:x11/xcb-util-image \
@@ -29,6 +37,11 @@ GH_TUPLE=	harfbuzz:harfbuzz:2.7.2:harfbuzz/deps/harfbuzz/harfbuzz \
 		madler:zlib:v1.2.11:zlib/deps/freetype/zlib \
 		freetype:freetype:VER-2-10-2-80-g6a2b3e400:freetype/deps/freetype/freetype2 \
 		yeslogic:allsorts:3947164a201ab5e15d5f23204faaaaaad52531aa:allsorts \
+<<<<<<< HEAD
+=======
+		libssh2:libssh2:libssh2-1.9.0-93-g5627b82:libssh2/../ssh2-rs-c65067040c97a0cf7f96c69d6fc87764a32c34ae/libssh2-sys/libssh2 \
+		wez:ssh2-rs:c65067040c97a0cf7f96c69d6fc87764a32c34ae:libsshsys \
+>>>>>>> upstream/main
 		wez:xkbcommon-rs:01a0a0cd5663405e6e4abb1ad3add9add1496f58:xkbcommon
 PLIST_FILES=	bin/strip-ansi-escapes \
 		bin/${PORTNAME} \
@@ -51,7 +64,11 @@ CARGO_CRATES=	ab_glyph_rasterizer-0.1.4 \
 		alloc-stdlib-0.2.1 \
 		andrew-0.3.1 \
 		ansi_term-0.11.0 \
+<<<<<<< HEAD
 		anyhow-1.0.38 \
+=======
+		anyhow-1.0.40 \
+>>>>>>> upstream/main
 		approx-0.3.2 \
 		arrayref-0.3.6 \
 		arrayvec-0.5.2 \
@@ -66,7 +83,11 @@ CARGO_CRATES=	ab_glyph_rasterizer-0.1.4 \
 		async-process-1.0.2 \
 		async-std-1.9.0 \
 		async-task-4.0.3 \
+<<<<<<< HEAD
 		async-trait-0.1.47 \
+=======
+		async-trait-0.1.48 \
+>>>>>>> upstream/main
 		atomic-waker-1.0.0 \
 		atty-0.2.14 \
 		autocfg-1.0.1 \
@@ -88,7 +109,11 @@ CARGO_CRATES=	ab_glyph_rasterizer-0.1.4 \
 		bumpalo-3.6.1 \
 		byte-tools-0.3.1 \
 		bytemuck-1.5.1 \
+<<<<<<< HEAD
 		byteorder-1.4.2 \
+=======
+		byteorder-1.4.3 \
+>>>>>>> upstream/main
 		cache-padded-1.1.1 \
 		calloop-0.6.5 \
 		cassowary-0.3.0 \
@@ -123,7 +148,11 @@ CARGO_CRATES=	ab_glyph_rasterizer-0.1.4 \
 		crossbeam-epoch-0.9.3 \
 		crossbeam-queue-0.3.1 \
 		crossbeam-utils-0.8.3 \
+<<<<<<< HEAD
 		ctor-0.1.19 \
+=======
+		ctor-0.1.20 \
+>>>>>>> upstream/main
 		deflate-0.8.6 \
 		derivative-2.2.0 \
 		diff-0.1.12 \
@@ -136,6 +165,10 @@ CARGO_CRATES=	ab_glyph_rasterizer-0.1.4 \
 		dirs-sys-next-0.1.2 \
 		dlib-0.4.2 \
 		dlib-0.5.0 \
+<<<<<<< HEAD
+=======
+		doc-comment-0.3.3 \
+>>>>>>> upstream/main
 		downcast-rs-1.2.0 \
 		dwrote-0.11.0 \
 		either-1.6.1 \
@@ -178,7 +211,11 @@ CARGO_CRATES=	ab_glyph_rasterizer-0.1.4 \
 		getopts-0.2.21 \
 		getrandom-0.1.16 \
 		getrandom-0.2.2 \
+<<<<<<< HEAD
 		gif-0.11.1 \
+=======
+		gif-0.11.2 \
+>>>>>>> upstream/main
 		gimli-0.23.0 \
 		gl_generator-0.14.0 \
 		glium-0.28.0 \
@@ -204,8 +241,13 @@ CARGO_CRATES=	ab_glyph_rasterizer-0.1.4 \
 		itoa-0.4.7 \
 		jobserver-0.1.21 \
 		jpeg-decoder-0.1.22 \
+<<<<<<< HEAD
 		js-sys-0.3.48 \
 		k9-0.10.3 \
+=======
+		js-sys-0.3.50 \
+		k9-0.11.0 \
+>>>>>>> upstream/main
 		kernel32-sys-0.2.2 \
 		khronos_api-3.1.0 \
 		kv-log-macro-1.0.7 \
@@ -213,6 +255,7 @@ CARGO_CRATES=	ab_glyph_rasterizer-0.1.4 \
 		lazycell-1.3.0 \
 		leb128-0.2.4 \
 		lexical-core-0.7.5 \
+<<<<<<< HEAD
 		libc-0.2.88 \
 		libloading-0.6.7 \
 		libloading-0.7.0 \
@@ -225,6 +268,19 @@ CARGO_CRATES=	ab_glyph_rasterizer-0.1.4 \
 		lru-0.6.5 \
 		lua-src-542.0.0 \
 		luajit-src-210.1.2+resty29a66f7 \
+=======
+		libc-0.2.92 \
+		libloading-0.6.7 \
+		libloading-0.7.0 \
+		libz-sys-1.1.2 \
+		line_drawing-0.8.0 \
+		lock_api-0.3.4 \
+		lock_api-0.4.3 \
+		log-0.4.14 \
+		lru-0.6.5 \
+		lua-src-542.0.0 \
+		luajit-src-210.1.3+restyfe08842 \
+>>>>>>> upstream/main
 		mach-0.3.2 \
 		malloc_buf-0.0.6 \
 		maplit-1.0.2 \
@@ -236,7 +292,11 @@ CARGO_CRATES=	ab_glyph_rasterizer-0.1.4 \
 		memmap2-0.1.0 \
 		memmem-0.1.1 \
 		memoffset-0.5.6 \
+<<<<<<< HEAD
 		memoffset-0.6.1 \
+=======
+		memoffset-0.6.3 \
+>>>>>>> upstream/main
 		metrics-0.14.2 \
 		metrics-macros-0.2.0 \
 		miniz_oxide-0.3.7 \
@@ -246,7 +306,11 @@ CARGO_CRATES=	ab_glyph_rasterizer-0.1.4 \
 		miow-0.2.2 \
 		mlua-0.5.3 \
 		nanorand-0.5.2 \
+<<<<<<< HEAD
 		nb-connect-1.0.3 \
+=======
+		nb-connect-1.1.0 \
+>>>>>>> upstream/main
 		net2-0.2.37 \
 		nix-0.17.0 \
 		nix-0.18.0 \
@@ -256,6 +320,10 @@ CARGO_CRATES=	ab_glyph_rasterizer-0.1.4 \
 		nom-6.1.2 \
 		nonzero_ext-0.1.5 \
 		notify-4.0.15 \
+<<<<<<< HEAD
+=======
+		ntapi-0.3.6 \
+>>>>>>> upstream/main
 		num-0.3.1 \
 		num-bigint-0.3.2 \
 		num-complex-0.3.1 \
@@ -273,10 +341,17 @@ CARGO_CRATES=	ab_glyph_rasterizer-0.1.4 \
 		once_cell-1.7.2 \
 		opaque-debug-0.2.3 \
 		opaque-debug-0.3.0 \
+<<<<<<< HEAD
 		open-1.5.1 \
 		openssl-0.10.32 \
 		openssl-src-111.14.0+1.1.1j \
 		openssl-sys-0.9.60 \
+=======
+		open-1.6.0 \
+		openssl-0.10.33 \
+		openssl-src-111.15.0+1.1.1k \
+		openssl-sys-0.9.61 \
+>>>>>>> upstream/main
 		ordered-float-2.1.1 \
 		output_vt100-0.1.2 \
 		owned_ttf_parser-0.6.0 \
@@ -284,9 +359,15 @@ CARGO_CRATES=	ab_glyph_rasterizer-0.1.4 \
 		palette_derive-0.5.0 \
 		parking-2.0.0 \
 		parking_lot-0.9.0 \
+<<<<<<< HEAD
 		parking_lot-0.10.2 \
 		parking_lot_core-0.6.2 \
 		parking_lot_core-0.7.2 \
+=======
+		parking_lot-0.11.1 \
+		parking_lot_core-0.6.2 \
+		parking_lot_core-0.8.3 \
+>>>>>>> upstream/main
 		pem-0.8.3 \
 		percent-encoding-2.1.0 \
 		pest-2.1.3 \
@@ -297,13 +378,22 @@ CARGO_CRATES=	ab_glyph_rasterizer-0.1.4 \
 		phf_codegen-0.8.0 \
 		phf_generator-0.8.0 \
 		phf_shared-0.8.0 \
+<<<<<<< HEAD
 		pin-project-1.0.5 \
 		pin-project-internal-1.0.5 \
+=======
+		pin-project-1.0.6 \
+		pin-project-internal-1.0.6 \
+>>>>>>> upstream/main
 		pin-project-lite-0.2.6 \
 		pin-utils-0.1.0 \
 		pkg-config-0.3.19 \
 		png-0.16.8 \
+<<<<<<< HEAD
 		polling-2.0.2 \
+=======
+		polling-2.0.3 \
+>>>>>>> upstream/main
 		ppv-lite86-0.2.10 \
 		pretty_assertions-0.6.1 \
 		pretty_env_logger-0.4.0 \
@@ -312,9 +402,15 @@ CARGO_CRATES=	ab_glyph_rasterizer-0.1.4 \
 		proc-macro-error-attr-1.0.4 \
 		proc-macro-hack-0.5.19 \
 		proc-macro-nested-0.1.7 \
+<<<<<<< HEAD
 		proc-macro2-1.0.24 \
 		pulldown-cmark-0.8.0 \
 		pure-rust-locales-0.5.5 \
+=======
+		proc-macro2-1.0.26 \
+		pulldown-cmark-0.8.0 \
+		pure-rust-locales-0.5.6 \
+>>>>>>> upstream/main
 		quick-error-1.2.3 \
 		quote-1.0.9 \
 		radium-0.5.3 \
@@ -335,20 +431,33 @@ CARGO_CRATES=	ab_glyph_rasterizer-0.1.4 \
 		redox_syscall-0.2.5 \
 		redox_users-0.3.5 \
 		redox_users-0.4.0 \
+<<<<<<< HEAD
 		regex-1.4.3 \
 		regex-automata-0.1.9 \
 		regex-syntax-0.6.22 \
+=======
+		regex-1.4.5 \
+		regex-automata-0.1.9 \
+		regex-syntax-0.6.23 \
+>>>>>>> upstream/main
 		remove_dir_all-0.5.3 \
 		rental-0.5.5 \
 		rental-impl-0.5.5 \
 		resize-0.5.5 \
+<<<<<<< HEAD
 		rgb-0.8.25 \
+=======
+		rgb-0.8.27 \
+>>>>>>> upstream/main
 		ring-0.16.20 \
 		rust-argon2-0.8.3 \
 		rustc-demangle-0.1.18 \
 		rustc-hash-1.1.0 \
 		rustc_version-0.2.3 \
+<<<<<<< HEAD
 		rustc_version-0.3.3 \
+=======
+>>>>>>> upstream/main
 		rustls-0.19.0 \
 		rusttype-0.9.2 \
 		ryu-1.0.5 \
@@ -361,8 +470,13 @@ CARGO_CRATES=	ab_glyph_rasterizer-0.1.4 \
 		semver-0.11.0 \
 		semver-parser-0.7.0 \
 		semver-parser-0.10.2 \
+<<<<<<< HEAD
 		serde-1.0.124 \
 		serde_derive-1.0.124 \
+=======
+		serde-1.0.125 \
+		serde_derive-1.0.125 \
+>>>>>>> upstream/main
 		serde_json-1.0.64 \
 		serde_repr-0.1.6 \
 		serial-0.4.0 \
@@ -374,30 +488,49 @@ CARGO_CRATES=	ab_glyph_rasterizer-0.1.4 \
 		shared_library-0.1.9 \
 		shell-words-1.0.0 \
 		signal-hook-0.1.17 \
+<<<<<<< HEAD
 		signal-hook-0.3.6 \
 		signal-hook-registry-1.3.0 \
 		siphasher-0.3.3 \
+=======
+		signal-hook-0.3.8 \
+		signal-hook-registry-1.3.0 \
+		siphasher-0.3.5 \
+>>>>>>> upstream/main
 		slab-0.4.2 \
 		smallvec-0.6.14 \
 		smallvec-1.6.1 \
 		smawk-0.3.1 \
 		smithay-client-toolkit-0.12.3 \
 		smol-1.2.5 \
+<<<<<<< HEAD
 		socket2-0.3.19 \
 		spin-0.5.2 \
 		spinning_top-0.2.2 \
 		squote-0.1.2 \
 		ssh2-0.9.1 \
+=======
+		socket2-0.4.0 \
+		spin-0.5.2 \
+		spinning_top-0.2.3 \
+		squote-0.1.2 \
+>>>>>>> upstream/main
 		stable_deref_trait-1.2.0 \
 		static_assertions-1.1.0 \
 		strsim-0.8.0 \
 		strsim-0.10.0 \
 		structopt-0.3.21 \
 		structopt-derive-0.4.14 \
+<<<<<<< HEAD
 		strum-0.20.0 \
 		strum_macros-0.20.1 \
 		svg_fmt-0.4.1 \
 		syn-1.0.62 \
+=======
+		svg_fmt-0.4.1 \
+		syn-1.0.68 \
+		sysinfo-0.16.5 \
+>>>>>>> upstream/main
 		takeable-option-0.5.0 \
 		tap-1.0.1 \
 		tempdir-0.3.7 \
@@ -410,6 +543,7 @@ CARGO_CRATES=	ab_glyph_rasterizer-0.1.4 \
 		textwrap-0.13.4 \
 		thiserror-1.0.24 \
 		thiserror-impl-1.0.24 \
+<<<<<<< HEAD
 		thread_local-1.1.3 \
 		tiff-0.6.1 \
 		time-0.1.43 \
@@ -419,6 +553,16 @@ CARGO_CRATES=	ab_glyph_rasterizer-0.1.4 \
 		ttf-parser-0.6.2 \
 		ttf-parser-0.9.0 \
 		typenum-1.12.0 \
+=======
+		tiff-0.6.1 \
+		time-0.1.43 \
+		tinyvec-1.2.0 \
+		tinyvec_macros-0.1.0 \
+		toml-0.5.8 \
+		ttf-parser-0.6.2 \
+		ttf-parser-0.12.0 \
+		typenum-1.13.0 \
+>>>>>>> upstream/main
 		ucd-trie-0.1.3 \
 		uds_windows-0.1.6 \
 		unicase-2.6.0 \
@@ -437,14 +581,21 @@ CARGO_CRATES=	ab_glyph_rasterizer-0.1.4 \
 		value-bag-1.0.0-alpha.6 \
 		varbincode-0.1.0 \
 		vcpkg-0.2.11 \
+<<<<<<< HEAD
 		vec-arena-1.0.0 \
 		vec_map-0.8.2 \
 		vergen-3.2.0 \
 		version_check-0.9.2 \
+=======
+		vec-arena-1.1.0 \
+		vec_map-0.8.2 \
+		version_check-0.9.3 \
+>>>>>>> upstream/main
 		void-1.0.2 \
 		vswhom-0.1.0 \
 		vswhom-sys-0.1.0 \
 		waker-fn-1.1.0 \
+<<<<<<< HEAD
 		walkdir-2.3.1 \
 		wasi-0.9.0+wasi-snapshot-preview1 \
 		wasi-0.10.2+wasi-snapshot-preview1 \
@@ -454,6 +605,17 @@ CARGO_CRATES=	ab_glyph_rasterizer-0.1.4 \
 		wasm-bindgen-macro-0.2.71 \
 		wasm-bindgen-macro-support-0.2.71 \
 		wasm-bindgen-shared-0.2.71 \
+=======
+		walkdir-2.3.2 \
+		wasi-0.9.0+wasi-snapshot-preview1 \
+		wasi-0.10.2+wasi-snapshot-preview1 \
+		wasm-bindgen-0.2.73 \
+		wasm-bindgen-backend-0.2.73 \
+		wasm-bindgen-futures-0.4.23 \
+		wasm-bindgen-macro-0.2.73 \
+		wasm-bindgen-macro-support-0.2.73 \
+		wasm-bindgen-shared-0.2.73 \
+>>>>>>> upstream/main
 		wayland-client-0.28.5 \
 		wayland-commons-0.28.5 \
 		wayland-cursor-0.28.5 \
@@ -461,18 +623,28 @@ CARGO_CRATES=	ab_glyph_rasterizer-0.1.4 \
 		wayland-protocols-0.28.5 \
 		wayland-scanner-0.28.5 \
 		wayland-sys-0.28.5 \
+<<<<<<< HEAD
 		web-sys-0.3.48 \
 		webpki-0.21.4 \
 		webpki-roots-0.21.0 \
 		weezl-0.1.4 \
 		wepoll-sys-3.0.1 \
 		which-4.0.2 \
+=======
+		web-sys-0.3.50 \
+		webpki-0.21.4 \
+		webpki-roots-0.21.1 \
+		weezl-0.1.4 \
+		wepoll-sys-3.0.1 \
+		which-4.1.0 \
+>>>>>>> upstream/main
 		winapi-0.2.8 \
 		winapi-0.3.9 \
 		winapi-build-0.1.1 \
 		winapi-i686-pc-windows-gnu-0.4.0 \
 		winapi-util-0.1.5 \
 		winapi-x86_64-pc-windows-gnu-0.4.0 \
+<<<<<<< HEAD
 		windows-0.3.1 \
 		windows_gen-0.3.1 \
 		windows_gen_macros-0.3.1 \
@@ -482,6 +654,18 @@ CARGO_CRATES=	ab_glyph_rasterizer-0.1.4 \
 		winreg-0.6.2 \
 		winreg-0.8.0 \
 		winrt-notification-0.3.0 \
+=======
+		windows-0.4.0 \
+		windows-0.5.0 \
+		windows_gen-0.4.0 \
+		windows_gen-0.5.0 \
+		windows_gen_macros-0.4.0 \
+		windows_gen_macros-0.5.0 \
+		windows_macros-0.4.0 \
+		windows_macros-0.5.0 \
+		winreg-0.6.2 \
+		winreg-0.8.0 \
+>>>>>>> upstream/main
 		wio-0.2.2 \
 		ws2_32-sys-0.2.1 \
 		wyz-0.2.0 \
@@ -500,8 +684,13 @@ CARGO_CRATES=	ab_glyph_rasterizer-0.1.4 \
 		zstd-0.6.1+zstd.1.4.9 \
 		zstd-safe-3.0.1+zstd.1.4.9 \
 		zstd-sys-1.4.20+zstd.1.4.9 \
+<<<<<<< HEAD
 		zvariant-2.5.0 \
 		zvariant_derive-2.5.0
+=======
+		zvariant-2.6.0 \
+		zvariant_derive-2.6.0
+>>>>>>> upstream/main
 CARGO_USE_GITHUB=	yes
 # XXX https://github.com/rust-lang/cargo/issues/4101
 CARGO_INSTALL_PATH=	${PLIST_FILES:Mbin/*:T}
@@ -512,12 +701,16 @@ pre-patch:
 
 post-patch:
 # Extract (snapshot) version from the port instead of .tag file
+<<<<<<< HEAD
 	@${REINPLACE_CMD} 's/env!("VERGEN_SEMVER_LIGHTWEIGHT")/"${DISTVERSIONFULL}"/' \
 		${WRKSRC}/config/src/version.rs
 # Disable bundled OpenSSL in favor of system
 	@${REINPLACE_CMD} '/default/s/"vendor_openssl"//' \
 		${WRKSRC}/${PORTNAME}-gui/Cargo.toml \
 		${WRKSRC}/${PORTNAME}-mux-server/Cargo.toml
+=======
+	@${ECHO_CMD} '${DISTVERSIONFULL}' >${WRKSRC}/.tag
+>>>>>>> upstream/main
 # lang/python3 cannot be used as a dependency
 	@${REINPLACE_CMD} -e 's/"python3"/"${PYTHON_CMD:T}"/' \
 		${WRKSRC}/cargo-crates/xcb-*/build.rs

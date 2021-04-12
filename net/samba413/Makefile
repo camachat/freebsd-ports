@@ -1,9 +1,16 @@
 # Created by: timur@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=			${SAMBA4_BASENAME}413
 PORTVERSION=			${SAMBA4_VERSION}
 PORTREVISION=			0
+=======
+
+PORTNAME=			${SAMBA4_BASENAME}413
+PORTVERSION=			${SAMBA4_VERSION}
+PORTREVISION=			1
+>>>>>>> upstream/main
 CATEGORIES?=			net
 MASTER_SITES=			SAMBA/samba/stable SAMBA/samba/rc
 DISTNAME=			${SAMBA4_DISTNAME}

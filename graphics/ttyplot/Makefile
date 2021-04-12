@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ttyplot
 DISTVERSION=	1.4
 CATEGORIES=	graphics

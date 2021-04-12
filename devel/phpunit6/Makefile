@@ -1,5 +1,8 @@
 # Created by: Jochen Neumeister (<joneum@bsdproject.de>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	phpunit
 DISTVERSION=	6.5.14

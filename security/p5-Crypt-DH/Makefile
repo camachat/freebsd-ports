@@ -1,5 +1,8 @@
 # Created by: jesper
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Crypt-DH
 PORTVERSION=	0.07

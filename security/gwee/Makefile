@@ -1,5 +1,8 @@
 # Created by: chinsan <chinsan@mail2000.com.tw>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gwee
 PORTVERSION=	1.36

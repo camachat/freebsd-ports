@@ -1,5 +1,8 @@
 # Created by: scrappy
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	IO-Socket-SSL
 PORTVERSION=	2.070

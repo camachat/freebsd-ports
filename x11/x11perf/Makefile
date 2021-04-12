@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	x11perf
 PORTVERSION=	1.6.1
 CATEGORIES=	x11

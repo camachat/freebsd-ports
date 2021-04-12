@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cudatext
 PORTVERSION=	1.99.0
 PORTREVISION=	2

@@ -10,4 +10,8 @@ lib/cmake/clBLAS/clBLASTargets-%%CMAKE_BUILD_TYPE%%.cmake
 lib/cmake/clBLAS/clBLASTargets.cmake
 lib/libclBLAS.so
 lib/libclBLAS.so.2
+<<<<<<< HEAD
 lib/libclBLAS.so.2.12.0
+=======
+lib/libclBLAS.so.2.10.0
+>>>>>>> upstream/main

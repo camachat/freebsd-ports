@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Products.SecureMailHost
 PORTVERSION=	1.1.2
 PORTREVISION=	1

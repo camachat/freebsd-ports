@@ -1,5 +1,8 @@
 # Created by: Alonso Cardenas Marquez <acm@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	derelict-util
 PORTVERSION=	2.1.0

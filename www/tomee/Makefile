@@ -1,5 +1,8 @@
 # Created by: Cecile Neu <neu@mycontrol.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tomee
 PORTVERSION=	1.7.4

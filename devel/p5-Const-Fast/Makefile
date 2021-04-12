@@ -1,5 +1,8 @@
 # Created by: Philip M. Gollucci
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Const-Fast
 PORTVERSION=	0.014

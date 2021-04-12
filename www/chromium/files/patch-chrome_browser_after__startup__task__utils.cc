@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 --- chrome/browser/after_startup_task_utils.cc.orig	2020-11-13 06:36:36 UTC
 +++ chrome/browser/after_startup_task_utils.cc
 @@ -32,7 +32,7 @@
@@ -10,6 +11,20 @@
  #endif
  
 @@ -119,7 +119,7 @@ void QueueTask(std::unique_ptr<AfterStartupTask> queue
+=======
+--- chrome/browser/after_startup_task_utils.cc.orig	2021-03-12 23:57:17 UTC
++++ chrome/browser/after_startup_task_utils.cc
+@@ -35,7 +35,7 @@
+ 
+ // TODO(crbug.com/1052397): Revisit the macro expression once build flag switch
+ // of lacros-chrome is complete.
+-#if defined(OS_LINUX) || BUILDFLAG(IS_CHROMEOS_LACROS)
++#if defined(OS_LINUX) || BUILDFLAG(IS_CHROMEOS_LACROS) || defined(OS_BSD)
+ #include "ui/views/linux_ui/linux_ui.h"
+ #endif
+ 
+@@ -122,7 +122,7 @@ void QueueTask(std::unique_ptr<AfterStartupTask> queue
+>>>>>>> upstream/main
  
  void SetBrowserStartupIsComplete() {
    DCHECK_CURRENTLY_ON(BrowserThread::UI);
@@ -18,7 +33,11 @@
      defined(OS_CHROMEOS)
    // Process::Current().CreationTime() is not available on all platforms.
    const base::Time process_creation_time =
+<<<<<<< HEAD
 @@ -128,7 +128,7 @@ void SetBrowserStartupIsComplete() {
+=======
+@@ -131,7 +131,7 @@ void SetBrowserStartupIsComplete() {
+>>>>>>> upstream/main
      UMA_HISTOGRAM_LONG_TIMES("Startup.AfterStartupTaskDelayedUntilTime",
                               base::Time::Now() - process_creation_time);
    }
@@ -27,12 +46,21 @@
          // defined(OS_CHROMEOS)
    UMA_HISTOGRAM_COUNTS_10000("Startup.AfterStartupTaskCount",
                               g_after_startup_tasks.Get().size());
+<<<<<<< HEAD
 @@ -138,7 +138,7 @@ void SetBrowserStartupIsComplete() {
    g_after_startup_tasks.Get().clear();
    g_after_startup_tasks.Get().shrink_to_fit();
  
 -#if defined(OS_LINUX) && !defined(OS_CHROMEOS)
 +#if (defined(OS_LINUX) && !defined(OS_CHROMEOS)) || defined(OS_BSD)
+=======
+@@ -143,7 +143,7 @@ void SetBrowserStartupIsComplete() {
+ 
+ // TODO(crbug.com/1052397): Revisit the macro expression once build flag switch
+ // of lacros-chrome is complete.
+-#if defined(OS_LINUX) || BUILDFLAG(IS_CHROMEOS_LACROS)
++#if defined(OS_LINUX) || BUILDFLAG(IS_CHROMEOS_LACROS) || defined(OS_BSD)
+>>>>>>> upstream/main
    // Make sure we complete the startup notification sequence, or launchers will
    // get confused by not receiving the expected message from the main process.
    views::LinuxUI* linux_ui = views::LinuxUI::instance();

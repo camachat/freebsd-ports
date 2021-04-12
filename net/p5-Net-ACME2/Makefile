@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Net-ACME2
 PORTVERSION=	0.35
 CATEGORIES=	net perl5

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Horde_Dav
 PORTVERSION=	1.1.4
 CATEGORIES=	www pear

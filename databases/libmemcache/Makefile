@@ -1,5 +1,8 @@
 # Created by: Sean Chittenden <seanc@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libmemcache
 DISTVERSION=	1.4.0.rc2

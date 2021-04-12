@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	zam-plugins
 DISTVERSION=	3.14
 CATEGORIES=	audio

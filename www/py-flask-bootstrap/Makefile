@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Flask-Bootstrap
 PORTVERSION=	3.3.7.1
 PORTREVISION=	1

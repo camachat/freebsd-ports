@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fxdiv
 PORTVERSION=	g20181121
 CATEGORIES=	devel

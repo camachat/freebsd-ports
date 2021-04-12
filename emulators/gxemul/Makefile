@@ -1,5 +1,8 @@
 # Created by: Janni
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gxemul
 PORTVERSION=	0.6.3

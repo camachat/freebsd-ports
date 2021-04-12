@@ -1,5 +1,8 @@
 # Created by: Dmitry Liakh <dliakh@ukr.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Mobile-UserAgent
 PORTVERSION=	1.05

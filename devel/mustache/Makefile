@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mustache
 DISTVERSIONPREFIX=	v
 DISTVERSION=	4.1

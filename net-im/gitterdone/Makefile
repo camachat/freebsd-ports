@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gitterdone
 PORTVERSION=	201710031257
 PORTREVISION=	2

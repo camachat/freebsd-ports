@@ -1,5 +1,8 @@
 # Created by: Tobias Kortkamp <t@tobik.me>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 # Based on the devel/intellij port from OpenBSD by
 # Vadim Zhukov <zhuk@openbsd.org>

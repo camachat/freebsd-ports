@@ -1,5 +1,8 @@
 # Created by: FreeBSD GNOME Team <gnome@freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	four-in-a-row
 PORTVERSION=	3.38.1

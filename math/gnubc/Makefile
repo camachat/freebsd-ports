@@ -1,5 +1,8 @@
 # Created by: Gabor Kovesdan <gabor@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bc
 DISTVERSION=	1.07.1

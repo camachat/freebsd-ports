@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	esdl
 DISTVERSIONPREFIX=	esdl-
 DISTVERSION=	1.3.1

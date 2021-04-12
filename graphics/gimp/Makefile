@@ -1,8 +1,14 @@
 # Created by: erich@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	gimp
 DISTVERSION?=	2.10.22
+=======
+
+PORTNAME=	gimp
+DISTVERSION?=	2.10.24
+>>>>>>> upstream/main
 PORTEPOCH?=	2
 CATEGORIES=	graphics gnome
 

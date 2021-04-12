@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 --- chrome/BUILD.gn.orig	2021-01-18 21:28:45 UTC
 +++ chrome/BUILD.gn
 @@ -1227,6 +1227,10 @@ group("browser_dependencies") {
+=======
+--- chrome/BUILD.gn.orig	2021-03-12 23:57:15 UTC
++++ chrome/BUILD.gn
+@@ -1243,6 +1243,10 @@ group("browser_dependencies") {
+>>>>>>> upstream/main
      public_deps += [ "//chromeos/lacros" ]
    }
  
@@ -8,6 +14,10 @@
 +    public_deps -= [ "//components/crash/core/app" ]
 +  }
 +
+<<<<<<< HEAD
    if (is_chromeos) {
+=======
+   if (is_chromeos_ash) {
+>>>>>>> upstream/main
      public_deps += [
        "//chrome/browser/chromeos",

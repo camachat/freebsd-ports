@@ -1,5 +1,8 @@
 # Created by: Gerrit Beine (<tux@pinguru.net>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HTML_Table
 PORTVERSION=	1.8.4

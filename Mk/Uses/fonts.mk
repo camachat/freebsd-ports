@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # handle fonts
 # Feature:	fonts
 # Usage:	USES=fonts

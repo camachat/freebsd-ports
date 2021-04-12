@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sonarr
 PORTVERSION=	3.0.5.1144
 PORTREVISION=	1

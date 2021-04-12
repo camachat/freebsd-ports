@@ -1,5 +1,8 @@
 # Created by: bf@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	crlibm
 DISTVERSION=	1.0beta4

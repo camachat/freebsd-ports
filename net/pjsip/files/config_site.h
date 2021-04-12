@@ -1,7 +1,10 @@
 /*
  * Custom options imported from asterisk provided customizations.
+<<<<<<< HEAD
  *
  * $FreeBSD$
+=======
+>>>>>>> upstream/main
  */
 
 #include <sys/select.h>

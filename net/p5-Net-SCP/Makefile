@@ -1,5 +1,8 @@
 # Created by: Erich Zigler <erich@tacni.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-SCP
 PORTVERSION=	0.08

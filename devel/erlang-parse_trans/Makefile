@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	parse_trans
 PORTVERSION=	3.3.0
 CATEGORIES=	devel

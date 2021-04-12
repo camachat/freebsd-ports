@@ -1,5 +1,8 @@
 # Created by: Nathan Whitehon <nwhitehorn@freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sems
 DISTVERSION=	${SEMS_VERSION}.g20200510

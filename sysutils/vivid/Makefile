@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	vivid
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.6.0

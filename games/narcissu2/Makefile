@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	narcissu2
 PORTVERSION=	1.1
 CATEGORIES=	games

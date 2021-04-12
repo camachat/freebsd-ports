@@ -1,5 +1,8 @@
 # Created by: Dereckson <dereckson@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Math-Random-Secure
 PORTVERSION=	0.080001

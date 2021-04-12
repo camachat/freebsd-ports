@@ -1,5 +1,8 @@
 # Created by: Pedro F. Giffuni <giffunip@asme.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	z88
 DISTVERSIONPREFIX=	v

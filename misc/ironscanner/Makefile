@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ironscanner
 DISTVERSION=	1.1.0.20180828
 CATEGORIES=	misc python

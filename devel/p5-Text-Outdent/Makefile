@@ -1,5 +1,8 @@
 # Created by: Kurt Lidl <kurt.lidl@cello.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Text-Outdent
 PORTVERSION=	0.01

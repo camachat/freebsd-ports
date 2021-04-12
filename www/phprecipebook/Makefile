@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	phprecipebook
 PORTVERSION=	3.01
 PORTREVISION=	5

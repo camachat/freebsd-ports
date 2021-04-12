@@ -1,5 +1,8 @@
 # Created by: Alex Semenyaka <alex@rinet.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	chmview
 PORTVERSION=	2.0b4

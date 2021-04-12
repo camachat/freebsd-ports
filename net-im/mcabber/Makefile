@@ -1,5 +1,8 @@
 # Created by: vsevolod
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mcabber
 PORTVERSION=	1.1.1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	simgear
 PORTVERSION=	2020.3.8
 CATEGORIES=	devel games

@@ -1,5 +1,8 @@
 # Created by: Mikhail T. <michael@fun-box.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Async-Interrupt
 PORTVERSION=	1.26

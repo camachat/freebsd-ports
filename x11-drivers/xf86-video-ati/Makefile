@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xf86-video-ati
 PORTVERSION=	19.1.0
 PORTREVISION=	3

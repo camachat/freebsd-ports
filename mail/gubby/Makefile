@@ -1,5 +1,8 @@
 # Created by: mich@freebsdcluster.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gubby
 PORTVERSION=	0.5.5

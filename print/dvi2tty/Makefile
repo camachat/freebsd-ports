@@ -1,5 +1,8 @@
 # Created by: Joel Sutton <jsutton@bbcon.com.au>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dvi2tty
 PORTVERSION=	5.3.4

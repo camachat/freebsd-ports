@@ -1,5 +1,8 @@
 # Created by: Roderick van Domburg <r.s.a.vandomburg@student.utwente.nl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	capistrano
 PORTVERSION=	3.11.0

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pyusb
 PORTVERSION=	1.0.2
 DISTVERSIONPREFIX=	v

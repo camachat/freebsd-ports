@@ -1,5 +1,8 @@
 # Created by: Tim Bishop <tim@bishnet.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	statgrab
 PORTVERSION=	0.7.1

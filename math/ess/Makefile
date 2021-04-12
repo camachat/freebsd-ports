@@ -1,5 +1,8 @@
 # Created by: Christopher J. Ruwe
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ess
 DISTVERSION=	18.10.2

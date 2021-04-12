@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pywatchman
 PORTVERSION=	4.9.0
 PORTREVISION=	1

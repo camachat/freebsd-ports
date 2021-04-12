@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # Provide support for Firebird
 # Feature:	firebird
 # Usage:	USES=	firebird[:version]

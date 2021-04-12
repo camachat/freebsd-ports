@@ -1,5 +1,8 @@
 # Created by: Yuri Victorovich
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pyaxo
 DISTVERSION=	0.8.2

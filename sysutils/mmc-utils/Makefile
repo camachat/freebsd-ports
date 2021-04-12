@@ -1,5 +1,8 @@
 # Created by: Marius Strobl <marius@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mmc-utils
 PORTVERSION=	20191004

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	frr
 PORTVERSION=	7.5.1
 DISTVERSIONPREFIX=	frr-

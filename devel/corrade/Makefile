@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	corrade
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2020.06

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fb-adb
 DISTVERSION=	1.4.4-126
 DISTVERSIONSUFFIX=	-g6fd78ae

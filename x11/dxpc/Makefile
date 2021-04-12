@@ -1,5 +1,8 @@
 # Created by: Bruce A. Mah <bmah@ca.sandia.gov>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dxpc
 PORTVERSION=	3.9.2

@@ -1,5 +1,8 @@
 # Created by: Jesse
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pbimaker
 PORTVERSION=	1.3

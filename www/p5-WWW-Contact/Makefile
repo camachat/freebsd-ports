@@ -1,5 +1,8 @@
 # Created by: Fred Cox
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	WWW-Contact
 PORTVERSION=	0.51

@@ -1,9 +1,16 @@
 # Created by: kipz <somicide@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	gitg
 PORTVERSION=	3.32.1
 PORTREVISION=	2
+=======
+
+PORTNAME=	gitg
+PORTVERSION=	3.32.1
+PORTREVISION=	3
+>>>>>>> upstream/main
 CATEGORIES=	devel deskutils gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome

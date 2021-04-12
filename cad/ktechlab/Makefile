@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ktechlab
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.50.0

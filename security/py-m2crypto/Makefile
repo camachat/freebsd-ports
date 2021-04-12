@@ -1,5 +1,8 @@
 # Created by: Peter Haight <peterh@sapros.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	m2crypto
 PORTVERSION=	0.37.1

@@ -1,5 +1,8 @@
 # Created by: Andrej Zverev <andrey.zverev@electro-com.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Regexp-Copy
 PORTVERSION=	0.06

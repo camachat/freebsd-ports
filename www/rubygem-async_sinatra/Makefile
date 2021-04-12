@@ -1,5 +1,8 @@
 # Created by: Kimo <kimor79@yahoo.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	async_sinatra
 PORTVERSION=	1.3.0

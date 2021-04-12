@@ -1,5 +1,8 @@
 # Created by: Michael Winking <mwfp@foldl.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	commons-io
 PORTVERSION=	2.8.0

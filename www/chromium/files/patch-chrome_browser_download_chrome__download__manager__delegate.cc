@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 --- chrome/browser/download/chrome_download_manager_delegate.cc.orig	2021-01-18 21:28:49 UTC
 +++ chrome/browser/download/chrome_download_manager_delegate.cc
 @@ -1400,7 +1400,7 @@ void ChromeDownloadManagerDelegate::OnDownloadTargetDe
+=======
+--- chrome/browser/download/chrome_download_manager_delegate.cc.orig	2021-03-12 23:57:17 UTC
++++ chrome/browser/download/chrome_download_manager_delegate.cc
+@@ -1443,7 +1443,7 @@ void ChromeDownloadManagerDelegate::OnDownloadTargetDe
+>>>>>>> upstream/main
          target_info->is_filetype_handled_safely)
        DownloadItemModel(item).SetShouldPreferOpeningInBrowser(true);
  
@@ -9,7 +15,11 @@
      if (item->GetOriginalMimeType() == "application/x-x509-user-cert")
        DownloadItemModel(item).SetShouldPreferOpeningInBrowser(true);
  #endif
+<<<<<<< HEAD
 @@ -1453,7 +1453,7 @@ void ChromeDownloadManagerDelegate::OnDownloadTargetDe
+=======
+@@ -1496,7 +1496,7 @@ void ChromeDownloadManagerDelegate::OnDownloadTargetDe
+>>>>>>> upstream/main
  
  bool ChromeDownloadManagerDelegate::IsOpenInBrowserPreferreredForFile(
      const base::FilePath& path) {
@@ -18,7 +28,11 @@
      defined(OS_MAC)
    if (path.MatchesExtension(FILE_PATH_LITERAL(".pdf"))) {
      return !download_prefs_->ShouldOpenPdfInSystemReader();
+<<<<<<< HEAD
 @@ -1549,7 +1549,7 @@ void ChromeDownloadManagerDelegate::CheckDownloadAllow
+=======
+@@ -1593,7 +1593,7 @@ void ChromeDownloadManagerDelegate::CheckDownloadAllow
+>>>>>>> upstream/main
      bool content_initiated,
      content::CheckDownloadAllowedCallback check_download_allowed_cb) {
    DCHECK_CURRENTLY_ON(BrowserThread::UI);

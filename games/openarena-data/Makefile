@@ -1,5 +1,8 @@
 # Created by: Dominic Fandrey
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	data
 PORTVERSION=	0.8.8

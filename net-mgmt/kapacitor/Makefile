@@ -1,5 +1,8 @@
 # Created by: Stefan Lambrev <cheffo@freebsd-bg.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	kapacitor
 DISTVERSIONPREFIX=	v

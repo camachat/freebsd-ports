@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	winetricks
 PORTVERSION=	20191224
 CATEGORIES=	emulators

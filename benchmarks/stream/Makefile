@@ -1,5 +1,8 @@
 # Created by: Scott Flatman <sf@dsinw.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	stream
 PORTVERSION=	5.10

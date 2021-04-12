@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cu2qu
 PORTVERSION=	1.6.5
 PORTREVISION=	3

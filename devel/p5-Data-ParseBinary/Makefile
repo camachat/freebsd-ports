@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Data-ParseBinary
 PORTVERSION=	0.31
 PORTREVISION=	1

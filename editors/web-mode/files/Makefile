@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 SRCS=	web-mode.el
 OBJS=	${SRCS:C/.el$/.elc/}
 

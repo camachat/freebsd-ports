@@ -1,5 +1,8 @@
 # Created by: Pontus Stenetorp <ninjin@kth.se>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nesasm
 PORTVERSION=	20040314

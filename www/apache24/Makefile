@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	apache24
 PORTVERSION=	2.4.46
 PORTREVISION=	2

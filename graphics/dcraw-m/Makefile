@@ -1,5 +1,8 @@
 # Created by: "Waitman Gobble" <uzimac@da3m0n8t3r.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dcraw-m
 PORTVERSION=	9.22

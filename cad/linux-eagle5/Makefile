@@ -1,5 +1,8 @@
 # Created by: Michael Durian <durian@shadetreesoftware.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	eagle5
 PORTVERSION=	${EAGLEVERSION}

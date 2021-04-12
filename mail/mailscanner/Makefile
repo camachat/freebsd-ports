@@ -1,5 +1,8 @@
 # Created by: Jan-Peter Koopmann <j.koopmann@seceidos.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	MailScanner
 DISTVERSION=	5.3.4-3

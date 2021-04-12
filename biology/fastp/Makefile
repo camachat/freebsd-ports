@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		fastp
 DISTVERSIONPREFIX=	v
 DISTVERSION=		0.20.1

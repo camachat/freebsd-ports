@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	otf2bdf
 DISTVERSION=	3.1
 CATEGORIES=	x11-fonts

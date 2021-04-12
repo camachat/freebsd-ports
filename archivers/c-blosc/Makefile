@@ -1,5 +1,8 @@
 # Created by: iblis <iblis@hs.ntnu.edu.tw>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	c-blosc
 PORTVERSION=	1.15.0

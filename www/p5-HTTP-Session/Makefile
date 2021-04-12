@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	HTTP-Session
 PORTVERSION=	0.49
 PORTREVISION=	1

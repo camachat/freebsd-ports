@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	poppler-data
 DISTVERSION=	0.4.10
 CATEGORIES=	graphics

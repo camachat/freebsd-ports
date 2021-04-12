@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	whatlanguage
 PORTVERSION=	1.0.6
 CATEGORIES=	textproc rubygems

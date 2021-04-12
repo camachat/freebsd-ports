@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rapidcheck
 PORTVERSION=	g20200504
 CATEGORIES=	devel

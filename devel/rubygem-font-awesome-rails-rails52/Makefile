@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	font-awesome-rails
 PORTVERSION=	4.7.0.5
 CATEGORIES=	devel rubygems

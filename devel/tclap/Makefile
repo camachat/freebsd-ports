@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tclap
 PORTVERSION=	1.2.1
 PORTREVISION=	1

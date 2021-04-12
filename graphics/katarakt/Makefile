@@ -1,5 +1,8 @@
 # Created by: Kurt Kanzenbach <kurt@kmk-computers.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	katarakt
 PORTVERSION=	0.2

@@ -1,5 +1,8 @@
 # Created by: Dmitry Liakh <dliakh@ukr.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	MIME-AltWords
 PORTVERSION=	0.12

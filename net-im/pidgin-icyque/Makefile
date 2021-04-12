@@ -1,5 +1,8 @@
 # Created by: Eugene Grosbein <eugen@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pidgin-icyque
 DISTVERSION=	g20200619

@@ -1,5 +1,8 @@
 # Created by: Clement Laforet <clement@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mod_rpaf
 PORTVERSION=	0.8.4

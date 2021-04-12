@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libad9361-iio
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.2-8

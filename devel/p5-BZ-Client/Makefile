@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	BZ-Client
 PORTVERSION=	1.04
 PORTREVISION=	3

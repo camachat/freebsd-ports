@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	alo
 DISTVERSION=	0.9
 CATEGORIES=	audio

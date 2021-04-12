@@ -1,8 +1,14 @@
 # Created by: Gerrit Beine <tux@pinguru.net>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	mediawiki
 PORTVERSION=	1.31.10
+=======
+
+PORTNAME=	mediawiki
+PORTVERSION=	1.31.14
+>>>>>>> upstream/main
 CATEGORIES=	www
 MASTER_SITES=	http://releases.wikimedia.org/mediawiki/${PORTVERSION:R}/
 PKGNAMESUFFIX=	131${PHP_PKGNAMESUFFIX}

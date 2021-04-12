@@ -1,5 +1,8 @@
 # Created by: adam@veda.is
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dgd
 PORTVERSION=	1.4.23

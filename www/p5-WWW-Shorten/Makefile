@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	WWW-Shorten
 PORTVERSION=	3.093
 CATEGORIES=	www perl5

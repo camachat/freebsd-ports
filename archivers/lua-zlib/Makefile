@@ -1,5 +1,8 @@
 # Created by: Sir l33tname <sirl33tname@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	zlib
 PORTVERSION=	1.2

@@ -1,5 +1,8 @@
 # Created by: glebius@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libecwj2
 PORTVERSION=	3.3

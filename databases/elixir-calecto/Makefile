@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	calecto
 PORTVERSION=	0.16.0
 DISTVERSIONPREFIX=	v

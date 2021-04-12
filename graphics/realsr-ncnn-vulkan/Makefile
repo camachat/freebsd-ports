@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	realsr-ncnn-vulkan
 DISTVERSION=	20210210
 CATEGORIES=	graphics

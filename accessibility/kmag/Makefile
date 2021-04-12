@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kmag
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
 CATEGORIES=	accessibility kde kde-applications

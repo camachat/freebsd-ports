@@ -1,5 +1,8 @@
 # Created by: lbr@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Catalyst-Model-XML-Feed
 PORTVERSION=	0.04

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gfanlib
 DISTVERSION=	0.6.2
 PORTREVISION=	1

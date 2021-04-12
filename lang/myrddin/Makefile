@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	myrddin
 PORTVERSION=	0.3.1
 PORTREVISION=	1

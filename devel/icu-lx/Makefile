@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTEPOCH=	0 # don't bump
 CATEGORIES?=	devel print
 PKGNAMESUFFIX=	-lx

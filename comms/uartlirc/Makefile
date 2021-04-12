@@ -1,5 +1,8 @@
 # Created by: nox@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	uartlirc
 PORTVERSION=	0.3

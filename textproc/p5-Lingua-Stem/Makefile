@@ -1,5 +1,8 @@
 # Created by: Thorsten Greiner <thorsten.greiner@web.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Lingua-Stem
 PORTVERSION=	2.31

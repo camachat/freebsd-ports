@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gammaray
 PORTVERSION=	2.11.2
 PORTREVISION=	1

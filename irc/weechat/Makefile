@@ -1,5 +1,8 @@
 # Created by: clement
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	weechat
 DISTVERSION=	3.1

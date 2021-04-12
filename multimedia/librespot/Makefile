@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	librespot
 PORTVERSION=	0.1.6
 DISTVERSIONPREFIX=	v

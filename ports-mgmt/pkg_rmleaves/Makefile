@@ -1,5 +1,8 @@
 # Created by: Timothy Redaelli <drizzt@gufi.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pkg_rmleaves
 PORTVERSION=	20190108

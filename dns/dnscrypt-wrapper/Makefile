@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dnscrypt-wrapper
 PORTVERSION=	0.4.2
 DISTVERSIONPREFIX=	v

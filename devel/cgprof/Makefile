@@ -1,5 +1,8 @@
 # Created by: Adam McLaurin
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cgprof
 PORTVERSION=	1.2

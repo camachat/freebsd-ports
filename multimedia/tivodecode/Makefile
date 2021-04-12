@@ -1,5 +1,8 @@
 # Created by: Yi-Hsuan Hsin <mhsin@mhsin.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tivodecode
 DISTVERSION=	0.2pre4

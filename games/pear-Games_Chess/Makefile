@@ -1,5 +1,8 @@
 # Created by: Mark Huizer <xaa+ports@timewasters.nl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Games_Chess
 PORTVERSION=	1.0.1

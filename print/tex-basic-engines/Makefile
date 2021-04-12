@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	basic-engines
 PORTVERSION=	20150521
 CATEGORIES=	print

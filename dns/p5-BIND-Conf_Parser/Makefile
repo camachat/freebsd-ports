@@ -1,5 +1,8 @@
 # Created by: andrew@ugh.net.au
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	BIND-Conf_Parser
 PORTVERSION=	0.95

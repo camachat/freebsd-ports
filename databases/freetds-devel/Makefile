@@ -1,5 +1,8 @@
 # Created by: Domas Mituzas <midom@dammit.lt>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	freetds
 PORTVERSION=	1.2.108

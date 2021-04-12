@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gobby
 PORTVERSION=	0.4.13
 PORTREVISION=	7

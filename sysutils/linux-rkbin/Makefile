@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	linux-rkbin
 DISTVERSION=	g20190719
 CATEGORIES=	sysutils linux

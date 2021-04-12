@@ -1,5 +1,8 @@
 # Created by: J.F. Dockes <jean-francois.dockes@wanadoo.fr>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	recoll
 PORTVERSION=	1.27.3

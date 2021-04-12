@@ -1,5 +1,8 @@
 # Created by: lx@redundancy.redundancy.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	minirsyslogd
 PORTVERSION=	1.02

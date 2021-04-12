@@ -1,5 +1,8 @@
 # Created by: Christopher Elkins <chrise@scardini.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gotmail
 PORTVERSION=	0.9.0

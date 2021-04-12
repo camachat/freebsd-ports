@@ -1,5 +1,8 @@
 # Created by: David O'Brien (obrien@FreeBSD.org)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tcplist
 PORTVERSION=	2.2

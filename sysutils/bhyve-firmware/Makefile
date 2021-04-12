@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bhyve-firmware
 PORTVERSION=	1.0
 PORTREVISION=	1

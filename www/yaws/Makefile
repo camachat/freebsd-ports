@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	yaws
 PORTVERSION=	2.0.6
 CATEGORIES=	www devel

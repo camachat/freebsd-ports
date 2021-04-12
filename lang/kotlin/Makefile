@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kotlin
 PORTVERSION=	1.4.20
 CATEGORIES=	lang

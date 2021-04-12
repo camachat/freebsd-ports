@@ -1,5 +1,8 @@
 # Created by: Ulrich Spoerlein <uspoerlein@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	symon
 PORTVERSION=	2.87

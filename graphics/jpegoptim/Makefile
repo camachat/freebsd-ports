@@ -1,5 +1,8 @@
 # Created by: Devaux Fabien <fab@gcu.info>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jpegoptim
 PORTVERSION=	1.4.6

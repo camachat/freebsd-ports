@@ -1,5 +1,8 @@
 # Created by: Mathias Monnerville <mathias@monnerville.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	glpi
 PORTVERSION=	9.5.3

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Lingua-EN-Inflect-Phrase
 PORTVERSION=	0.18
 PORTREVISION=	1

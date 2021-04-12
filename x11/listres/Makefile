@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	listres
 PORTVERSION=	1.0.4
 PORTREVISION=	2

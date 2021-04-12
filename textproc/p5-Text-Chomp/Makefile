@@ -1,5 +1,8 @@
 # Created by: Jason Burgess <dev@fenux.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Text-Chomp
 PORTVERSION=	0.02

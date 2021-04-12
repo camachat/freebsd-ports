@@ -1,5 +1,8 @@
 # Created by: roland.jesse@gmx.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	SoQt
 PORTVERSION=	1.6.0

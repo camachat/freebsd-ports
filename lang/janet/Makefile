@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	janet
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.15.4

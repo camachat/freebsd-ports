@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	consul-alerts
 PORTVERSION=	0.6.0
 DISTVERSIONPREFIX=	v

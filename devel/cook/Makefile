@@ -1,5 +1,8 @@
 # Created by: jasone
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cook
 PORTVERSION=	2.30

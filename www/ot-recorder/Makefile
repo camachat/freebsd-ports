@@ -1,5 +1,8 @@
 # Created by: tundra
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ot-recorder
 PORTVERSION=	0.8.4

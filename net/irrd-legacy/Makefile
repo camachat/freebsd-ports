@@ -1,5 +1,8 @@
 # Created by: TAKANO Yuji <takano@net-chef.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	irrd
 PORTVERSION=	2.3.10

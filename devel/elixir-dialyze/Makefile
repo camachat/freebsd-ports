@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dialyze
 PORTVERSION=	0.2.1
 DISTVERSIONPREFIX=	v

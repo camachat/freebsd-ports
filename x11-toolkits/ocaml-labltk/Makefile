@@ -1,5 +1,8 @@
 # Created by: Michael Grünewald <michipili@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	labltk
 PORTVERSION=	8.06.3

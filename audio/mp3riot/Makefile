@@ -1,5 +1,8 @@
 # Created by: Francisco Gomez <francisco@gomezmarin.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mp3riot
 PORTVERSION=	1.3

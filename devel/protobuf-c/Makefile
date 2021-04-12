@@ -1,5 +1,8 @@
 # Created by: Aaron Hurt <ahurt@anbcs.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		protobuf-c
 PORTVERSION=		1.3.2

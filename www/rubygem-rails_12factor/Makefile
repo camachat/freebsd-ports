@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rails_12factor
 PORTVERSION=	0.0.3
 CATEGORIES=	www rubygems

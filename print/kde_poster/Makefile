@@ -1,5 +1,8 @@
 # Created by: Bruce M. Simpson <bms@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	kde_poster
 PORTVERSION=	1.0

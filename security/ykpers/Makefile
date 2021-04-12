@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ykpers
 PORTVERSION=	1.19.0
 PORTREVISION=	1

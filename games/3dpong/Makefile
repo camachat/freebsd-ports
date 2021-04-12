@@ -1,5 +1,8 @@
 # Created by: Andrey Zakhvatov <andy@icc.surw.chel.su>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	3dpong
 PORTVERSION=	0.5

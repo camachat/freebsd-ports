@@ -1,5 +1,8 @@
 # Created by: iblis <iblis@hs.ntnu.edu.tw>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	unittest-cpp
 PORTVERSION=	2.0.0

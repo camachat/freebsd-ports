@@ -1,5 +1,8 @@
 # Created by: Donn Miller <dmmiller@cvzoom.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	seejpeg
 PORTVERSION=	1.10

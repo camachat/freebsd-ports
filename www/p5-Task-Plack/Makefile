@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Task-Plack
 PORTVERSION=	0.25
 PORTREVISION=	2

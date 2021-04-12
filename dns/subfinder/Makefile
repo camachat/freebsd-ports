@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	subfinder
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.4.6

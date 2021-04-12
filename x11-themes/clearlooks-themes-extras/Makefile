@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	clearlooks-themes-extras
 PORTVERSION=	0.6
 PORTREVISION=	8

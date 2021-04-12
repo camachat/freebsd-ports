@@ -1,5 +1,8 @@
 # Created by: M. Birgmeier
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libiscsi
 DISTVERSION=	1.19.0

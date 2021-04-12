@@ -1,5 +1,8 @@
 # Created by: Tony Narlock <tony@git-pull.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tmuxp
 PORTVERSION=	1.7.2

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dvc
 DISTVERSION=	0.30.1
 PORTREVISION=	2

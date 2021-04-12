@@ -1,5 +1,8 @@
 # Created by: Daichi GOTO <daichi@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ibus-anthy
 PORTVERSION=	1.5.11

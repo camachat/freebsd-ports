@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pyaes
 PORTVERSION=	1.6.1
 CATEGORIES=	security python

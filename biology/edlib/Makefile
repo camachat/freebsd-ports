@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	edlib
 DISTVERSION=	1.2.6.20201202
 CATEGORIES=	biology

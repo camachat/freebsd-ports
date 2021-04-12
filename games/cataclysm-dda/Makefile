@@ -1,5 +1,8 @@
 # Created by: Vladimir Kondratiev <wulf@cicgroup.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cataclysm-dda
 DISTVERSION=	0.E

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libtifiles2
 PORTVERSION=	1.1.7
 CATEGORIES=	devel

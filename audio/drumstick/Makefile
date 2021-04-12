@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	drumstick
 DISTVERSION=	1.1.3
 CATEGORIES=	audio multimedia

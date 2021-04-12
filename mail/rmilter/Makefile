@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rmilter
 PORTVERSION=	1.10.0
 CATEGORIES=	mail

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libpotrace
 PORTVERSION=	1.16
 CATEGORIES=	graphics

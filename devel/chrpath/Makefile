@@ -1,5 +1,8 @@
 # Created by: bms
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	chrpath
 PORTVERSION=	0.16

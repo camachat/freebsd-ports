@@ -1,5 +1,8 @@
 # Created by: Cheng-Lung Sung
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Module-Dependency
 PORTVERSION=	1.86

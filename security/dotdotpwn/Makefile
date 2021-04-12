@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dotdotpwn
 PORTVERSION=	3.0.2
 PORTREVISION=	2

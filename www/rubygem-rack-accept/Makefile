@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rack-accept
 PORTVERSION=	0.4.5
 PORTREVISION=	2

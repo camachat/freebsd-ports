@@ -1,5 +1,8 @@
 # Created by: jeffhung
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Exception-Handler
 PORTVERSION=	1.004

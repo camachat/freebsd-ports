@@ -1,5 +1,8 @@
 # Created by: Vincent Tantardini <vinc@freebsd-fr.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hsetroot
 PORTVERSION=	1.0.5

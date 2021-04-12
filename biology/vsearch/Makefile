@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=		vsearch
 DISTVERSIONPREFIX=	v
 DISTVERSION=		2.16.0
+=======
+PORTNAME=		vsearch
+DISTVERSIONPREFIX=	v
+DISTVERSION=		2.17.0
+>>>>>>> upstream/main
 CATEGORIES=		biology
 
 MAINTAINER=	jwb@FreeBSD.org

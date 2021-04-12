@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	openhantek
 DISTVERSION=	3.2
+=======
+PORTNAME=	openhantek
+DISTVERSION=	3.2.1
+>>>>>>> upstream/main
 CATEGORIES=	misc
 
 MAINTAINER=	yuri@FreeBSD.org

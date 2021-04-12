@@ -1,5 +1,8 @@
 # Created by: John Prather
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	davmail
 PORTVERSION=	5.5.1

@@ -1,5 +1,8 @@
 # Created by: Ceri Davies (ceri@FreeBSD.org)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	robotfindskitten
 PORTVERSION=	2.8284271.702

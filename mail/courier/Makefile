@@ -1,5 +1,8 @@
 # Created by: Yarema <yds@CoolRat.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	courier
 PORTVERSION=	0.65.3

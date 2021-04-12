@@ -1,5 +1,8 @@
 # Created by: KIMURA Yasuhiro <yasu@utahime.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	yaml-mode.el
 PORTVERSION=	0.0.15

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	liteide
 DISTVERSIONPREFIX=	x
 DISTVERSION=	37.4

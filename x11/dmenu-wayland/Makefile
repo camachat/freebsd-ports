@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dmenu-wayland
 PORTVERSION=	0.1
 DISTVERSIONPREFIX=	v

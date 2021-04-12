@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	atf
 PORTVERSION?=	${ATF_VERSION}
 CATEGORIES=	sysutils

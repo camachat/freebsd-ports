@@ -1,5 +1,8 @@
 # Created by: Hye-Shik Chang <perky@python.or.kr>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libart_lgpl
 PORTVERSION=	2.3.21

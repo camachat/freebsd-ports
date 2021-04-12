@@ -1,8 +1,12 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
 #
+=======
+
+>>>>>>> upstream/main
 # PROVIDE: pksd
 # REQUIRE: DAEMON
 # KEYWORD: SHUTDOWN

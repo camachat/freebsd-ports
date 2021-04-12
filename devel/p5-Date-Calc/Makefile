@@ -1,5 +1,8 @@
 # Created by: Brad Hendrickse <bradh@uunet.co.za>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Date-Calc
 PORTVERSION=	6.4

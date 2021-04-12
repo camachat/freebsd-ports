@@ -1,5 +1,8 @@
 # Created by: Kelly Cochran <kcochran@trolans.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-OSCAR
 PORTVERSION=	1.928

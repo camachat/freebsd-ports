@@ -1,5 +1,8 @@
 # Created by: SriSaiGanesh
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hpacucli
 PORTVERSION=	7.50

@@ -1,5 +1,8 @@
 # Created by: kbyanc
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mmencode
 PORTVERSION=	2.7

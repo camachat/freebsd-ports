@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libXScrnSaver
 PORTVERSION=	1.2.3
 PORTREVISION=	2

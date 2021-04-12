@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
 
+=======
+>>>>>>> upstream/main
     COMMENT = Biology
 
     SUBDIR += abyss
@@ -55,7 +58,10 @@
     SUBDIR += gmap
     SUBDIR += gperiodic
     SUBDIR += graphlan
+<<<<<<< HEAD
     SUBDIR += grappa
+=======
+>>>>>>> upstream/main
     SUBDIR += groopm
     SUBDIR += haplohseq
     SUBDIR += hhsuite
@@ -70,7 +76,10 @@
     SUBDIR += jalview
     SUBDIR += jellyfish
     SUBDIR += kallisto
+<<<<<<< HEAD
     SUBDIR += lagan
+=======
+>>>>>>> upstream/main
     SUBDIR += lamarc
     SUBDIR += libbigwig
     SUBDIR += libgtextutils
@@ -89,6 +98,10 @@
     SUBDIR += ncbi-blast+
     SUBDIR += ncbi-cxx-toolkit
     SUBDIR += ncbi-toolkit
+<<<<<<< HEAD
+=======
+    SUBDIR += ncbi-vdb
+>>>>>>> upstream/main
     SUBDIR += ngs-sdk
     SUBDIR += p5-AcePerl
     SUBDIR += p5-Bio-ASN1-EntrezGene
@@ -117,7 +130,10 @@
     SUBDIR += pear-merger
     SUBDIR += phrap
     SUBDIR += phred
+<<<<<<< HEAD
     SUBDIR += phylip
+=======
+>>>>>>> upstream/main
     SUBDIR += phyml
     SUBDIR += picard-tools
     SUBDIR += plink

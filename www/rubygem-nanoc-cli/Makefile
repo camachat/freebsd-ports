@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	nanoc-cli
 PORTVERSION=	4.11.19
 CATEGORIES=	www rubygems

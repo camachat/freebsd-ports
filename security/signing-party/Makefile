@@ -1,5 +1,8 @@
 # Created by: johans
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	signing-party
 PORTVERSION=	2.10

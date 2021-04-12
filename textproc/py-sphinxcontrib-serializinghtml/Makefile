@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sphinxcontrib-serializinghtml
 PORTVERSION=	1.1.4
 CATEGORIES=	textproc

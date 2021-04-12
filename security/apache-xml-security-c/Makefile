@@ -1,5 +1,8 @@
 # Created by: Tony Maher
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xml-security-c
 PORTVERSION=	2.0.2

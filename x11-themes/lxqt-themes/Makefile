@@ -1,5 +1,8 @@
 # Created by: Jesper Schmitz Mouridsen
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lxqt-themes
 PORTVERSION=	0.16.0

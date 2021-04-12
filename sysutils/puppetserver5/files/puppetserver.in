@@ -1,7 +1,10 @@
 #!/bin/sh
 
+<<<<<<< HEAD
 # $FreeBSD: head/sysutils/puppetserver/files/puppetserver.in 428145 2016-12-08 17:41:39Z swills $
 #
+=======
+>>>>>>> upstream/main
 # PROVIDE: puppetserver
 # REQUIRE: LOGIN
 # KEYWORD: shutdown

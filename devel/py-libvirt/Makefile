@@ -1,8 +1,14 @@
 # Created by: Jason Helfman <jgh@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	libvirt
 PORTVERSION=	7.1.0
+=======
+
+PORTNAME=	libvirt
+PORTVERSION=	7.2.0
+>>>>>>> upstream/main
 CATEGORIES=	devel
 MASTER_SITES=	http://libvirt.org/sources/python/ \
 		ftp://libvirt.org/libvirt/python/

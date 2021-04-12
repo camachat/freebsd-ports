@@ -1,5 +1,8 @@
 # Created by: Thorsten Greiner <thorsten.greiner@web.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xfce4-notes-plugin
 PORTVERSION=	1.8.1

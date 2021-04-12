@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	aws-sdk
 PORTVERSION=	2.11.632
 CATEGORIES=	devel rubygems

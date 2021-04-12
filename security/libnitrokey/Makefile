@@ -1,5 +1,8 @@
 # Created by: Thibault Payet <monwarez@mailoo.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libnitrokey
 DISTVERSIONPREFIX=	v

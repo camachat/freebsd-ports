@@ -1,5 +1,8 @@
 # Created by: rbt@zort.on.ca
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gtk-gnutella
 PORTVERSION=	1.1.15

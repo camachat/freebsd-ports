@@ -1,4 +1,7 @@
 #!/bin/sh
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 exec %%LOCALBASE%%/bin/java -jar %%JAVAJARDIR%%/htmlcompressor.jar "$@"

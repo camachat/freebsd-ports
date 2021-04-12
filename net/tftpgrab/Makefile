@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tftpgrab
 PORTVERSION=	0.2
 CATEGORIES=	net

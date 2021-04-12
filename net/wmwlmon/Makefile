@@ -1,5 +1,8 @@
 # Created by: Marcus Glocker <marcus@nazgul.ch>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wmwlmon
 PORTVERSION=	1.0

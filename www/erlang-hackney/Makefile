@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	hackney
 PORTVERSION=	1.8.6
 CATEGORIES=	www

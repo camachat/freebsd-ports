@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	clash
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.4.2
+=======
+PORTNAME=	clash
+DISTVERSIONPREFIX=	v
+DISTVERSION=	1.5.0
+>>>>>>> upstream/main
 CATEGORIES=	net
 
 MAINTAINER=	yuri@FreeBSD.org
@@ -15,14 +21,22 @@ USES=		go:modules
 USE_GITHUB=	yes
 GH_ACCOUNT=	Dreamacro
 GH_TUPLE=	\
+<<<<<<< HEAD
 		Dreamacro:go-shadowsocks2:v0.1.6:dreamacro_go_shadowsocks2/vendor/github.com/Dreamacro/go-shadowsocks2 \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		go-chi:chi:v4.1.2:go_chi_chi/vendor/github.com/go-chi/chi \
 		go-chi:cors:v1.1.1:go_chi_cors/vendor/github.com/go-chi/cors \
+=======
+		Dreamacro:go-shadowsocks2:v0.1.7:dreamacro_go_shadowsocks2/vendor/github.com/Dreamacro/go-shadowsocks2 \
+		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
+		go-chi:chi:v5.0.2:go_chi_chi_v5/vendor/github.com/go-chi/chi/v5 \
+		go-chi:cors:v1.2.0:go_chi_cors/vendor/github.com/go-chi/cors \
+>>>>>>> upstream/main
 		go-chi:render:v1.0.1:go_chi_render/vendor/github.com/go-chi/render \
 		go-yaml:yaml:9f266ea9e77c:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
 		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
 		gofrs:uuid:v4.0.0:gofrs_uuid/vendor/github.com/gofrs/uuid \
+<<<<<<< HEAD
 		golang:crypto:5ea612d1eb83:golang_crypto/vendor/golang.org/x/crypto \
 		golang:net:e18ecbb05110:golang_net/vendor/golang.org/x/net \
 		golang:sync:036812b2e83c:golang_sync/vendor/golang.org/x/sync \
@@ -30,6 +44,15 @@ GH_TUPLE=	\
 		golang:text:v0.3.3:golang_text/vendor/golang.org/x/text \
 		gorilla:websocket:v1.4.2:gorilla_websocket/vendor/github.com/gorilla/websocket \
 		miekg:dns:v1.1.40:miekg_dns/vendor/github.com/miekg/dns \
+=======
+		golang:crypto:0c34fe9e7dc2:golang_crypto/vendor/golang.org/x/crypto \
+		golang:net:a5a99cb37ef4:golang_net/vendor/golang.org/x/net \
+		golang:sync:036812b2e83c:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:5e06dd20ab57:golang_sys/vendor/golang.org/x/sys \
+		golang:text:v0.3.3:golang_text/vendor/golang.org/x/text \
+		gorilla:websocket:v1.4.2:gorilla_websocket/vendor/github.com/gorilla/websocket \
+		miekg:dns:v1.1.41:miekg_dns/vendor/github.com/miekg/dns \
+>>>>>>> upstream/main
 		oschwald:geoip2-golang:v1.5.0:oschwald_geoip2_golang/vendor/github.com/oschwald/geoip2-golang \
 		oschwald:maxminddb-golang:v1.8.0:oschwald_maxminddb_golang/vendor/github.com/oschwald/maxminddb-golang \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \

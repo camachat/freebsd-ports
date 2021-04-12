@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	SoapyUHD
 DISTVERSIONPREFIX=	soapy-uhd-
 DISTVERSION=	0.4.1

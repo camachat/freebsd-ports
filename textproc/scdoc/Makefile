@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	scdoc
 DISTVERSION=	1.11.1
 CATEGORIES=	textproc

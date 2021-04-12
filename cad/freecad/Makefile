@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	FreeCAD
 DISTVERSION=	0.19.1
 # use these for bugfixes/snapshots

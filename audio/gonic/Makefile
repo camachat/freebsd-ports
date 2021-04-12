@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gonic
 PORTVERSION=	0.12.2
 DISTVERSIONPREFIX=	v

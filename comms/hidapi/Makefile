@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	hidapi
 DISTVERSIONPREFIX=	${PORTNAME}-
 DISTVERSION=	0.10.1

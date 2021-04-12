@@ -1,5 +1,8 @@
 # Created by: Reinier de Blois <rddeblois@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	squish
 PORTVERSION=	1.10

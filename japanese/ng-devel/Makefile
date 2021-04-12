@@ -1,5 +1,8 @@
 # Created by: Kawaguti Ginga <ginga-freebsd@ginganet.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ng
 DISTVERSION=	1.5beta1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Test-TCP
 PORTVERSION=	2.19
 CATEGORIES=	devel perl5

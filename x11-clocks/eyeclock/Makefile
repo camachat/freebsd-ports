@@ -1,5 +1,8 @@
 # Created by: KIRIYAMA Kazuhiko <kiri@pis.toba-cmt.ac.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	eyeclock
 PORTVERSION=	2.0

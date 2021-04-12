@@ -1,5 +1,8 @@
 # Created by: Matt Lancereau <matt@rimasec.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xfce4-clipman-plugin
 PORTVERSION=	1.6.1

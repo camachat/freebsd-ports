@@ -1,5 +1,8 @@
 # Created by: erich@rrnet.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rc
 PORTVERSION=	1.7.4

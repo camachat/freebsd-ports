@@ -1,5 +1,8 @@
 # Created by: Ismail Yenigul <ismail.yenigul@surgate.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libb64
 PORTVERSION=	1.2.1

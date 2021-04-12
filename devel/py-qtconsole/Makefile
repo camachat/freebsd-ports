@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	qtconsole
 PORTVERSION=	5.0.1
 CATEGORIES=	devel python

@@ -1,5 +1,8 @@
 # Created by: John Holland <john@zoner.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ubh
 PORTVERSION=	2.5

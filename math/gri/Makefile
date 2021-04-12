@@ -1,5 +1,8 @@
 # Created by: M. L. Dodson, <bdodson@scms.utmb.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gri
 PORTVERSION=	2.12.23

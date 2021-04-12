@@ -1,5 +1,8 @@
 # Created by: SADA Kenji <sada@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cvsweb
 PORTVERSION=	3.0.6

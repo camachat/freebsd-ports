@@ -1,5 +1,8 @@
 # Created by: Lars Engels <lme@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	quicksynergy
 PORTVERSION=	0.9.0

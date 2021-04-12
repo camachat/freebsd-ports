@@ -1,5 +1,8 @@
 # Created by: Martin Waschbuesch <martin@waschbuesch.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libzbxpgsql
 PORTVERSION=	1.1.0

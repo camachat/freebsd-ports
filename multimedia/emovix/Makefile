@@ -1,5 +1,8 @@
 # Created by: Heiner <h.eichmann@gmx.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	emovix
 PORTVERSION=	0.9.0

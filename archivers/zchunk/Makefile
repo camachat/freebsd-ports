@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	zchunk
 DISTVERSION=	1.1.9
 CATEGORIES=	archivers

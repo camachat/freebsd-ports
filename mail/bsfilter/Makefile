@@ -1,5 +1,8 @@
 # Created by: Masafumi Otsune <info@otsune.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bsfilter
 PORTVERSION=	1.0.19

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Fliggy
 PORTVERSION=	0.009003
 PORTREVISION=	1

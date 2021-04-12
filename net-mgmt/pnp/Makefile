@@ -1,5 +1,8 @@
 # Created by: rea-fbsd@codelabs.ru
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pnp
 PORTVERSION=	0.6.26

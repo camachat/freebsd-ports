@@ -1,5 +1,8 @@
 # Created by: Yuichiro NAITO <naito.yuichiro@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	schash
 PORTVERSION=	0.1.2

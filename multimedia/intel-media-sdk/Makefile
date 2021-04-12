@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	intel-media-sdk
 DISTVERSIONPREFIX=	intel-mediasdk-
 DISTVERSION=	21.1.2
+=======
+PORTNAME=	intel-media-sdk
+DISTVERSIONPREFIX=	intel-mediasdk-
+DISTVERSION=	21.1.3
+>>>>>>> upstream/main
 CATEGORIES=	multimedia
 
 MAINTAINER=	jbeich@FreeBSD.org

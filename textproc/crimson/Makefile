@@ -1,5 +1,8 @@
 # Created by: Palle Girgensohn
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	crimson
 PORTVERSION=	1.1.3

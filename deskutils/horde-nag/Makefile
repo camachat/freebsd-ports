@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	nag
 PORTVERSION=	4.2.19
 CATEGORIES=	deskutils www pear

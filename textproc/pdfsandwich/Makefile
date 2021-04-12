@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pdfsandwich
 DISTVERSION=	0.1.7
 PORTREVISION=	20

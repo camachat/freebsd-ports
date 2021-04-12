@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	modsecurity
 DISTVERSIONPREFIX=	v
 DISTVERSION=	3.0.4

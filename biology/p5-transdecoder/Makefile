@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	transdecoder
 DISTVERSIONPREFIX=	TransDecoder-v
 DISTVERSION=	5.4.0

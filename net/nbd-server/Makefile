@@ -1,5 +1,8 @@
 # Created by: Christian Laursen <xi@borderworlds.dk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nbd
 PORTVERSION=	3.21

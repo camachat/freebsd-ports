@@ -1,5 +1,8 @@
 # Created by: jupengfei <jupengfei@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Nginx-ReadBody
 PORTVERSION=	0.07

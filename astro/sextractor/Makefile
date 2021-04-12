@@ -1,5 +1,8 @@
 # Created by: Mathias Monnerville <mathias@monnerville.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sextractor
 PORTVERSION=	2.5.0

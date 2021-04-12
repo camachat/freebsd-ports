@@ -1,5 +1,8 @@
 # Created by: Alex Miller (<asm@asm.kiev.ua>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HTML_Template_IT
 DISTVERSION=	1.3.1

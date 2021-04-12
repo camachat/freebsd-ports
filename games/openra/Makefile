@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	openra
 DISTVERSIONPREFIX=	release-
 DISTVERSION=	20200503

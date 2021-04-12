@@ -1,5 +1,8 @@
 # Created by: Michael Alyn Miller <malyn@strangeGizmo.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	alephone
 DISTVERSION=	20190331

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	zyre
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.0.1

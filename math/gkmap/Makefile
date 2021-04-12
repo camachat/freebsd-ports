@@ -1,5 +1,8 @@
 # Created by: Javad Kouhi <javad.kouhi@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gkmap
 PORTVERSION=	0.2

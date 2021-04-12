@@ -1,5 +1,8 @@
 # Created by: Aleksander Fafula <alex@bsdguru.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ogg2mp3
 PORTVERSION=	0.6.1

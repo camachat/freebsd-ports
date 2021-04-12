@@ -1,5 +1,8 @@
 # Created by: Chris D. Faulhaber <jedgar@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xinvaders3d
 DISTVERSION=	1.3.6

@@ -1,5 +1,8 @@
 # Created by: Jean Milanez Melo <jmelo@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	qmail-activedir
 PORTVERSION=	0.17

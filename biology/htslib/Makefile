@@ -1,5 +1,8 @@
 # Created by: Reed A. Cartwright <cartwright@asu.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	htslib
 DISTVERSION=	1.12

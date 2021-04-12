@@ -1,5 +1,8 @@
 # Created by: Alonso Cardenas Marquez <acm@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	msgpack-d
 DISTVERSION=	1.0.0-beta8

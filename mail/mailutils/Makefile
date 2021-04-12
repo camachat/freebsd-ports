@@ -1,5 +1,8 @@
 # Created by: Attila Nagy <bra@fsn.hu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mailutils
 PORTVERSION=	3.12

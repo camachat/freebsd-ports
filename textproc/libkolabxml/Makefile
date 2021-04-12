@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libkolabxml
 PORTVERSION=	1.1.6
 PORTREVISION=	12

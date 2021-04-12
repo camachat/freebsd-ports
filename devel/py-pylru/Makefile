@@ -1,5 +1,8 @@
 # Created by: Kyle Evans <kevans@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pylru
 PORTVERSION=	1.2.0

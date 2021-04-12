@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	vger
 PORTVERSION=	0.0.20210315
 CATEGORIES=	www

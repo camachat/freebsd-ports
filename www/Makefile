@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
 
+=======
+>>>>>>> upstream/main
     COMMENT = Ports related to the World Wide Web
 
     SUBDIR += R-cran-RgoogleMaps
@@ -104,7 +107,10 @@
     SUBDIR += davix
     SUBDIR += dddbl
     SUBDIR += ddgr
+<<<<<<< HEAD
     SUBDIR += decss
+=======
+>>>>>>> upstream/main
     SUBDIR += demoroniser
     SUBDIR += deno
     SUBDIR += devd
@@ -116,7 +122,10 @@
     SUBDIR += dokuwiki
     SUBDIR += dolibarr
     SUBDIR += domoticz
+<<<<<<< HEAD
     SUBDIR += dooble
+=======
+>>>>>>> upstream/main
     SUBDIR += drupal7
     SUBDIR += drupal7-wysiwyg
     SUBDIR += drupal8
@@ -224,7 +233,10 @@
     SUBDIR += groupoffice
     SUBDIR += grr
     SUBDIR += gstreamer1-plugins-neon
+<<<<<<< HEAD
     SUBDIR += gtkhtml3
+=======
+>>>>>>> upstream/main
     SUBDIR += gtkhtml4
     SUBDIR += guacamole-client
     SUBDIR += guile-www
@@ -998,6 +1010,10 @@
     SUBDIR += p5-MediaWiki-API
     SUBDIR += p5-Mobile-UserAgent
     SUBDIR += p5-ModPerl-VersionUtil
+<<<<<<< HEAD
+=======
+    SUBDIR += p5-Mojo-IOLoop-Delay
+>>>>>>> upstream/main
     SUBDIR += p5-Mojo-IOLoop-ForkCall
     SUBDIR += p5-Mojo-Server-FastCGI
     SUBDIR += p5-Mojo-Weixin
@@ -1384,6 +1400,10 @@
     SUBDIR += phprecipebook
     SUBDIR += phpsysinfo
     SUBDIR += phpvirtualbox
+<<<<<<< HEAD
+=======
+    SUBDIR += phpvirtualbox-legacy
+>>>>>>> upstream/main
     SUBDIR += piwigo
     SUBDIR += plasma5-plasma-browser-integration
     SUBDIR += plugger
@@ -1558,6 +1578,10 @@
     SUBDIR += py-django22
     SUBDIR += py-django30
     SUBDIR += py-django31
+<<<<<<< HEAD
+=======
+    SUBDIR += py-django32
+>>>>>>> upstream/main
     SUBDIR += py-django_compressor
     SUBDIR += py-djangocms-admin-style
     SUBDIR += py-djangoql

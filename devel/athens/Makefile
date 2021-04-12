@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	athens
 PORTVERSION=	0.10.0
 DISTVERSIONPREFIX=	v

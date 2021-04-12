@@ -1,5 +1,8 @@
 # Created by: Alexander Gromnitsky
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xoris
 PORTVERSION=	0.1e

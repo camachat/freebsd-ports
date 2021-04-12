@@ -1,7 +1,10 @@
 #!/bin/sh
 
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # PROVIDE: sqlbox 
 # REQUIRE: LOGIN bearerbox
 # KEYWORD: shutdown

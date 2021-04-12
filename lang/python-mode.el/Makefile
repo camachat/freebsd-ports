@@ -1,5 +1,8 @@
 # Created by: Dario Freni <saturnero@gufi.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	python-mode.el
 PORTVERSION=	1.0

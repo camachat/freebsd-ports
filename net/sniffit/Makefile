@@ -1,5 +1,8 @@
 # Created by: bsdx
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sniffit
 PORTVERSION=	0.5

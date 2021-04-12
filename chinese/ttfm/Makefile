@@ -1,5 +1,8 @@
 # Created by: Jing-Tang Keith Jang <keith@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ttfm
 PORTVERSION=	0.9.5

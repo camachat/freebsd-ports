@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xls2txt
 DISTVERSION=	1.0.1
 PORTREVISION=	3

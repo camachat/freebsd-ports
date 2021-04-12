@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	uh-wm
 PORTVERSION=	0.2.1
 CATEGORIES=	x11-wm rubygems

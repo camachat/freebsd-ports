@@ -1,5 +1,8 @@
 # Created by: Axel Steiner <ast@treibsand.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libcmime
 PORTVERSION=	0.2.1

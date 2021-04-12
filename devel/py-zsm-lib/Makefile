@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	zsm-lib
 PORTVERSION=	0.2.0
 CATEGORIES=	devel python

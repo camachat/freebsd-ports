@@ -1,5 +1,8 @@
 # Created by: Tobias C. Berner <tcberner@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	kdevelop-pg-qt
 DISTVERSION=	2.2.1

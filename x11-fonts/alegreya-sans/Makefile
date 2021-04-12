@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	alegreya-sans
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.008

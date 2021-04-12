@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	qemu
 PORTVERSION=	3.1.0
 PORTREVISION=	5

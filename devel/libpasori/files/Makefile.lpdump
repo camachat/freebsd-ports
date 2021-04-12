@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 .PATH:		${.CURDIR}/../src
 
 PROG=		lpdump

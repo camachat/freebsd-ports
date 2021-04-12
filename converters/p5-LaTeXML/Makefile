@@ -1,5 +1,8 @@
 # Created by: Carlos J. Puga Medina <cpm@fbsd.es>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	LaTeXML
 PORTVERSION=	0.8.5

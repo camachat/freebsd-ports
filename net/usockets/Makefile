@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	usockets
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.7.1

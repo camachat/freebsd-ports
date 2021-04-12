@@ -1,5 +1,8 @@
 # Created by: Eric Anholt
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tuxracer
 PORTVERSION=	0.61

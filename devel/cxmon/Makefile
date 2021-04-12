@@ -1,5 +1,8 @@
 # Created by: Joachim Strombergson
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cxmon
 PORTVERSION=	3.2

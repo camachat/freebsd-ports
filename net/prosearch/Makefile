@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	prosearch
 PORTVERSION=	0.19.4
 PORTREVISION=	10

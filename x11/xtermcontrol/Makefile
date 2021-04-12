@@ -1,5 +1,8 @@
 # Created by: krion
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xtermcontrol
 PORTVERSION=	3.6

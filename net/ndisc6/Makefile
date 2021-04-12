@@ -1,5 +1,8 @@
 # Created by: rdenis@simphalempin.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ndisc6
 PORTVERSION=	1.0.4

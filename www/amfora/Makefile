@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	amfora
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.8.0

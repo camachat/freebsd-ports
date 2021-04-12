@@ -1,5 +1,8 @@
 # Created by: bkhl
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sheerdns
 PORTVERSION=	1.04

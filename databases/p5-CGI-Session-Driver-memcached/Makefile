@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	CGI-Session-Driver-memcached
 PORTVERSION=	0.04
 PORTREVISION=	1

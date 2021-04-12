@@ -1,5 +1,8 @@
 # Created by: Jeremy Chadwick <jdc@parodius.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bsdhwmon
 PORTVERSION=	20151206

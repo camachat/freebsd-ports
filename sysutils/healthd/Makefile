@@ -1,5 +1,8 @@
 # Created by: jim@thehousleys.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	healthd
 PORTVERSION=	0.7.9

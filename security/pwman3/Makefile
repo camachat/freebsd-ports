@@ -1,5 +1,8 @@
 # Created by: Yarodin <yarodin@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pwman3
 PORTVERSION=	0.0.6

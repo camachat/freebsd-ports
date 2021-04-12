@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cld3
 DISTVERSION=	3.3.0
 PORTREVISION=	1

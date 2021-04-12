@@ -1,5 +1,8 @@
 # Created by: Steve Polyack <spolyack@collaborativefusion.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	phpmustache
 PORTVERSION=	2.13.0

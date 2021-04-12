@@ -1,5 +1,8 @@
 # Created by: Sangwoo Shim <sangwoos@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	protomol
 PORTVERSION=	2.0.3

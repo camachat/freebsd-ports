@@ -1,5 +1,8 @@
 # Created by: Pav Lucistnik <pav@oook.cz>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gkrellm-gamma
 PORTVERSION=	2.03

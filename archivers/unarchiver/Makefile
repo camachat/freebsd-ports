@@ -1,9 +1,16 @@
 # Created by: Alexey Dokuchaev <danfe@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	unar
 PORTVERSION=	1.10.1
 PORTREVISION=	18
+=======
+
+PORTNAME=	unar
+PORTVERSION=	1.10.1
+PORTREVISION=	19
+>>>>>>> upstream/main
 CATEGORIES=	archivers gnustep
 MASTER_SITES=	http://wakaba.c3.cx/releases/TheUnarchiver/
 DISTNAME=	${PORTNAME}${PORTVERSION}_src

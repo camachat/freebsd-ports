@@ -1,5 +1,8 @@
 # Created by: wmoran
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jailme
 PORTVERSION=	0.2.0

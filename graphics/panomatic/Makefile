@@ -1,5 +1,8 @@
 # Created by: argv[0] (Iouri V. Ivliev)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	panomatic
 PORTVERSION=	0.9.4

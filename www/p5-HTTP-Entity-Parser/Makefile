@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	HTTP-Entity-Parser
 PORTVERSION=	0.25
 CATEGORIES=	www perl5

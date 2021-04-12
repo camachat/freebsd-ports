@@ -1,5 +1,8 @@
 # Created by: sanpei@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mrtg-ping-probe
 PORTVERSION=	2.2.0

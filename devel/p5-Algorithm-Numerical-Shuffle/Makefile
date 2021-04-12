@@ -1,5 +1,8 @@
 # Created by: andrew@scoop.co.nz
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Algorithm-Numerical-Shuffle
 PORTVERSION=	2009110301

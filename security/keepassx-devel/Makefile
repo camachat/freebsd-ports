@@ -1,5 +1,8 @@
 # Created by: Eric Camachat <eric@camachat.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	keepassx
 PORTVERSION=	2.0.3

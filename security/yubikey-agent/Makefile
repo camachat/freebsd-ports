@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	yubikey-agent
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.1.3

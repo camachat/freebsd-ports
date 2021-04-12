@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	daggy
 DISTVERSION=	2.0.2
 PORTREVISION=	1

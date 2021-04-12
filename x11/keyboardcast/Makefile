@@ -1,5 +1,8 @@
 # Created by: eimar.koort
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	keyboardcast
 PORTVERSION=	0.1.1

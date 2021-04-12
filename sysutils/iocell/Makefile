@@ -1,5 +1,8 @@
 # Created by: Bartek Rutkowski <robak@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	iocell
 PORTVERSION=	2.1.2

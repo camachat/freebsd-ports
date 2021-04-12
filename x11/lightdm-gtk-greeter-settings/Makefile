@@ -1,5 +1,8 @@
 # Created by: Ben Woods <woodsb02@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lightdm-gtk-greeter-settings
 PORTVERSION=	1.2.2

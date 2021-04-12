@@ -1,5 +1,8 @@
 # Created by: Tony Maher <tonymaher@optusnet.com.au>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wcslib
 PORTVERSION=	7.3.1

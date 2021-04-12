@@ -1,5 +1,8 @@
 # Created by: Lung-Pin Chang <changlp@cs.nctu.edu.tw>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	WebService-Dropbox
 PORTVERSION=	2.07

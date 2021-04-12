@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	stardict-dict-fa_IR
 PORTVERSION=	1.0.0
 CATEGORIES=	textproc

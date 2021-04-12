@@ -1,5 +1,8 @@
 # Created by: Sarod Yatawatta <sarod@cs.pdn.ac.lk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pdnmesh
 PORTVERSION=	0.2.2

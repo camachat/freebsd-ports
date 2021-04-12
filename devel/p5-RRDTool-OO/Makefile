@@ -1,5 +1,8 @@
 # Created by: Stefan Pauly <stefan@fh-mainz.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	RRDTool-OO
 PORTVERSION=	0.36

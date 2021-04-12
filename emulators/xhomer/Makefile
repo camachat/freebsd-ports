@@ -1,5 +1,8 @@
 # Created by: trasz
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xhomer
 DISTVERSION=	9-16-06

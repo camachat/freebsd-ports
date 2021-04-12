@@ -1,5 +1,8 @@
 # Created by: Eijiro Shibusawa <ej-sib@ice.uec.ac.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	openblas
 DISTVERSIONPREFIX=	v

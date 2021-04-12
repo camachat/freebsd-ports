@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rdoc
 PORTVERSION=	6.3.0
 CATEGORIES=	devel rubygems

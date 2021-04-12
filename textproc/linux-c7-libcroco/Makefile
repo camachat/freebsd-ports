@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libcroco
 PORTVERSION=	0.6.12
 DISTVERSIONSUFFIX=	-6.el7_9

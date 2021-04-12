@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	urbackup-client
 DISTVERSION=	2.4.11.0
 PORTREVISION=	1

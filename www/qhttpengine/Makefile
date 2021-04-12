@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	qhttpengine
 DISTVERSION=	1.0.1-5
 PORTREVISION=	3

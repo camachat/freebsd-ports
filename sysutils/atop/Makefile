@@ -1,5 +1,8 @@
 # Created by: Alex Samorukov <samm@freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	atop
 PORTVERSION=	2.0.2.b3

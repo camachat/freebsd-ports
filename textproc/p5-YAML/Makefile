@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	YAML
 PORTVERSION=	1.30
 CATEGORIES=	textproc perl5

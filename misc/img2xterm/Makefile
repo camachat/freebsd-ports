@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	img2xterm
 PORTVERSION=	1.0.0
 DISTVERSIONPREFIX=	v

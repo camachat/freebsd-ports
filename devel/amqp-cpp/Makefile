@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	amqp-cpp
 DISTVERSIONPREFIX=	v
 DISTVERSION=	4.1.4

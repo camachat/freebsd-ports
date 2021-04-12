@@ -1,5 +1,8 @@
 # Created by: Andrey Kostenko <andrey@kostenko.name>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Data-Section
 PORTVERSION=	0.200007

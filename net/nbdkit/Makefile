@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	nbdkit
 PORTVERSION=	1.20.4
 PORTREVISION=	1

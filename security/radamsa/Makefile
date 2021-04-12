@@ -1,5 +1,8 @@
 # Created by: Jukka Ukkonen <jau@iki.fi>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	radamsa
 PORTVERSION=	0.5

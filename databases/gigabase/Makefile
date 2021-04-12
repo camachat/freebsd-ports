@@ -1,5 +1,8 @@
 # Created by: Sergey A. Osokin <osa@FreeBSD.org.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gigabase
 PORTVERSION=	3.91

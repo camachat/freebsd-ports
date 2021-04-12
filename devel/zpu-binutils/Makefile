@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	zpu-binutils
 PORTVERSION=	1.0
 CATEGORIES=	devel

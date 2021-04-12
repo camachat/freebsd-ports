@@ -1,5 +1,8 @@
 # Created by: Marc Lagrange <rhaamo@gruik.at>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hwstat
 PORTVERSION=	0.5.1

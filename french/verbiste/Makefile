@@ -1,5 +1,8 @@
 # Created by: Dan Phillips <dan-ports@dp.id.au>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	verbiste
 PORTVERSION=	0.1.47

@@ -1,5 +1,8 @@
 # Created by: Eugene Furs <justas@mbank.lv>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sgmls
 PORTVERSION=	1.1.91

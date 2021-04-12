@@ -1,5 +1,8 @@
 # Created by: Mikhail T. <m.tsatsenko@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	openvpn-auth-radius
 PORTVERSION=	2.1

@@ -1,5 +1,8 @@
 # Created by: estith
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Devel-SimpleTrace
 PORTVERSION=	0.08

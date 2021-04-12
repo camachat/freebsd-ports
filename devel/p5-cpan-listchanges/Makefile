@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cpan-listchanges
 PORTVERSION=	0.06
 PORTREVISION=	3

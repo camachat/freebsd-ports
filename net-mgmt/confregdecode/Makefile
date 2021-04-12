@@ -1,5 +1,8 @@
 # Created by: Joe Clarke <marcus@marcuscom.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	confregdecode
 PORTVERSION=	1.2.1

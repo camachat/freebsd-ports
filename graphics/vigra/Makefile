@@ -1,10 +1,17 @@
 # Created by: cartola (Carlos E. G. Carvalho)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vigra
 DISTVERSIONPREFIX=v
 DISTVERSION=	1.11.1
+<<<<<<< HEAD
 PORTREVISION=	15
+=======
+PORTREVISION=	16
+>>>>>>> upstream/main
 CATEGORIES=	graphics
 
 MAINTAINER=	ports@FreeBSD.org
@@ -13,7 +20,11 @@ COMMENT=	VIGRA stands for "Vision with Generic Algorithms"
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE.txt
 
+<<<<<<< HEAD
 LIB_DEPENDS=	libHalf.so:graphics/ilmbase \
+=======
+LIB_DEPENDS=	libImath.so:math/Imath \
+>>>>>>> upstream/main
 		libsz.so:science/szip
 
 USES=		cmake compiler:c++14-lang python:run shebangfix
@@ -22,6 +33,11 @@ GH_ACCOUNT=	ukoethe
 GH_TAGNAME=	8acd73a
 USE_LDCONFIG=	yes
 
+<<<<<<< HEAD
+=======
+CFLAGS+=	-I${LOCALBASE}/include/Imath
+
+>>>>>>> upstream/main
 CMAKE_ARGS=	-DDEPENDENCY_SEARCH_PREFIX:PATH=${LOCALBASE} \
 		-DDOCINSTALL:PATH=${DOCSDIR_REL}
 SHEBANG_FILES=	config/vigra-config.in
@@ -36,7 +52,11 @@ HDF5_CMAKE_BOOL=	WITH_HDF5
 HDF5_LIB_DEPENDS=	libhdf5.so:science/hdf5
 
 OPENEXR_CMAKE_BOOL=	WITH_OPENEXR
+<<<<<<< HEAD
 OPENEXR_LIB_DEPENDS=	libIlmImf.so:graphics/openexr
+=======
+OPENEXR_LIB_DEPENDS=	libOpenEXR.so:graphics/openexr
+>>>>>>> upstream/main
 
 NUMPY_DESC=		NumPy mathematical computing (USE Fortran/GCC47+)
 NUMPY_CMAKE_BOOL=	WITH_VIGRANUMPY

@@ -1,5 +1,8 @@
 # Created by: Tim Vanderhoek <ac199@freenet.hamilton.on.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	plor
 PORTVERSION=	0.3.3

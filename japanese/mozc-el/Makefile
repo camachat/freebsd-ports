@@ -1,5 +1,8 @@
 # Created by: TAKANO, Yuji
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PKGNAMESUFFIX=	-el${EMACS_PKGNAMESUFFIX}
 

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pico-alpine
 PORTREVISION=	0
 CATEGORIES=	editors

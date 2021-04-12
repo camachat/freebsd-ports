@@ -1,5 +1,8 @@
 # Created by: Andrew Wingorodov <mail@andr.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pstreams
 PORTVERSION=	0.8.1

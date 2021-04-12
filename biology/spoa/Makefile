@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	spoa
 DISTVERSION=	4.0.7
 PORTREVISION=	2

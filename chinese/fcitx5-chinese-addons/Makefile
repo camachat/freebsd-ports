@@ -1,5 +1,8 @@
 # Created by: Ka Ho Ng <khng300@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fcitx5-chinese-addons
 DISTVERSION=	5.0.3

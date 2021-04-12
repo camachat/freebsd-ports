@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	azure-loganalytics
 PORTVERSION=	0.1.0
 CATEGORIES=	devel python

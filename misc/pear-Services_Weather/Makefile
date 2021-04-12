@@ -1,5 +1,8 @@
 # Created by: Thierry Thomas (<thierry@FreeBSD.org>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Services_Weather
 PORTVERSION=	1.4.6

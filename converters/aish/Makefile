@@ -1,5 +1,8 @@
 # Created by: Masanori Kiriake <seiken@nbs.co.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	aish
 PORTVERSION=	1.13

@@ -1,5 +1,8 @@
 # Created by: Jeremy Chadwick <freebsd@jdc.parodius.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mcelog
 PORTVERSION=	175

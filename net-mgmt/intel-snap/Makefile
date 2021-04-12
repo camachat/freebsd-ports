@@ -1,5 +1,8 @@
 # Created by: Brad Davis <brd@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	intel-snap
 PORTVERSION=	0.0.1

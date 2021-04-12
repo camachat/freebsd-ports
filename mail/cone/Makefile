@@ -1,5 +1,8 @@
 # Created by: Matthias Andree <matthias.andree@gmx.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cone
 PORTVERSION=	1.1

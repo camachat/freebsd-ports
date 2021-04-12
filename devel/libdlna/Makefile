@@ -1,5 +1,8 @@
 # Created by: Dave Grochowski <malus.x@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libdlna
 PORTVERSION=	0.2.3

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	thanos
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.11.0

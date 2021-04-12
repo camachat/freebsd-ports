@@ -1,5 +1,8 @@
 # Created by: Wen Heping <wenhping@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cython
 PORTVERSION=	0.29.21

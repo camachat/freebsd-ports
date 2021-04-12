@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	epdb
 PORTVERSION=	0.15.1
 DISTVERSIONPREFIX=	${PORTNAME}-

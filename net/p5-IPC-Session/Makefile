@@ -1,5 +1,8 @@
 # Created by: Alexander Kriventsov <avk@vl.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	IPC-Session
 PORTVERSION=	0.05

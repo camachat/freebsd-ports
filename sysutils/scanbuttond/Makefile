@@ -1,5 +1,8 @@
 # Created by: Daniel Thiele
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	scanbuttond
 PORTVERSION=	0.2.3

@@ -1,5 +1,8 @@
 # Created by: James Elstone <james@elstone.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	stomp.py
 PORTVERSION=	4.1.17

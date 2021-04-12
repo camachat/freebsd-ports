@@ -1,5 +1,8 @@
 # Created by: Leif Pedersen <bilbo@devpit.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	puff
 PORTVERSION=	1.0.1

@@ -1,5 +1,8 @@
 # Created by: Mageirias Anastasios <anastmag@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	clamfs
 PORTVERSION=	1.1.0

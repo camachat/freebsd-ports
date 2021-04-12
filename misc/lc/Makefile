@@ -1,5 +1,8 @@
 # Created by: jsellens
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lc
 PORTVERSION=	1.0

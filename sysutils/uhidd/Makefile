@@ -1,5 +1,8 @@
 # Created by: Kai Wang <kaiwang27@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	uhidd
 PORTVERSION=	0.2.1

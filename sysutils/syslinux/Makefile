@@ -1,5 +1,8 @@
 # Created by: luigi@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	syslinux
 PORTVERSION=	6.03

@@ -1,5 +1,8 @@
 # Created by: Brian Handy <handy@physics.montana.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bclock
 PORTVERSION=	1.0

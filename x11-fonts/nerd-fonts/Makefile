@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	nerd-fonts
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.1.0

@@ -1,5 +1,8 @@
 # Created by: patrick
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ample
 PORTVERSION=	0.5.7

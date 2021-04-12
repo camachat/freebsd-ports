@@ -1,5 +1,8 @@
 # Created by: Robert Gogolok <gogo@cs.uni-sb.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ruby-prof
 PORTVERSION=	1.3.2

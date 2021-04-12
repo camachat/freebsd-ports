@@ -1,5 +1,8 @@
 # Created by: mph
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	climm
 PORTVERSION=	0.7.1

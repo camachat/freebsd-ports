@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	certstream
 PORTVERSION=	1.11
 CATEGORIES=	security www python

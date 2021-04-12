@@ -1,7 +1,10 @@
 #!/bin/sh
 
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # PROVIDE: dhcp_probe
 # REQUIRE: LOGIN
 # KEYWORD: shutdown

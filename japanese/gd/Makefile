@@ -1,5 +1,8 @@
 # Created by: ichiro@ichiro.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 CATEGORIES=	japanese
 

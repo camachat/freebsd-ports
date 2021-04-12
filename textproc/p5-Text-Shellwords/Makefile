@@ -1,5 +1,8 @@
 # Created by: George Hartzell <hartzell@fruitfly.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Text-Shellwords
 PORTVERSION=	1.08

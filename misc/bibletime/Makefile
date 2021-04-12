@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bibletime
 PORTVERSION=	2.11.2
 PORTREVISION=	2

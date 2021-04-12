@@ -1,5 +1,8 @@
 # Created by: andrew morton
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cxxtest
 PORTVERSION=	4.4

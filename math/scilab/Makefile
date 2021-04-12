@@ -1,5 +1,8 @@
 # Created by: js@jeannot.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	scilab
 PORTVERSION=	6.1.0
@@ -49,6 +52,11 @@ OPTIONS_DEFINE=	GUI OCAML TK
 OPTIONS_RADIO=	BLAS
 OPTIONS_RADIO_BLAS=	ATLAS NETLIB OPENBLAS
 OPTIONS_DEFAULT=	GUI NETLIB OCAML TK
+<<<<<<< HEAD
+=======
+OPTIONS_EXCLUDE_powerpc64=	GUI
+OPTIONS_EXCLUDE_powerpc64le=	GUI
+>>>>>>> upstream/main
 OPTIONS_SUB=	yes
 
 ATLAS_USES=	blaslapack:atlas

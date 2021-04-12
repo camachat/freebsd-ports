@@ -1,5 +1,8 @@
 # Created by: alex@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mindterm-binary
 PORTVERSION=	1.2.1

@@ -1,5 +1,8 @@
 # Created by: mranner@inode.at
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	scan_ffs
 PORTVERSION=	1.2

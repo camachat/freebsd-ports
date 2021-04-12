@@ -1,5 +1,8 @@
 # Created by: Victor Popov
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pam_search_list
 PORTVERSION=	0.1

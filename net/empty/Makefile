@@ -1,5 +1,8 @@
 # Created by: Mikhail Zakharov <zmey20000@yahoo.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	empty
 PORTVERSION=	0.6.20b

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	GunghoX-FollowLinks
 PORTVERSION=	0.00006
 PORTREVISION=	1

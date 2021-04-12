@@ -1,5 +1,8 @@
 # Created by: Jerry Hicks
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	9e
 PORTVERSION=	1.0

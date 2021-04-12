@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mvfst
 DISTVERSION=	g20201119
 CATEGORIES=	net

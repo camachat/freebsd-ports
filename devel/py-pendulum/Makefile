@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pendulum
 PORTVERSION=	2.1.1
 PORTREVISION=	1

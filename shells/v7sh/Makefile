@@ -1,5 +1,8 @@
 # Created by: Cyrille.Lefevre@laposte.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	v7sh
 PORTVERSION=	1.0

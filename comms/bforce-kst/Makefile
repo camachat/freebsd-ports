@@ -1,5 +1,8 @@
 # Created by: Andrew Dolgov <fox@furry.spb.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bforce
 PORTVERSION=	0.22.8.7

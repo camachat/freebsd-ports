@@ -1,5 +1,8 @@
 # Created by: The Anarcat <anarcat@anarcat.ath.cx>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mls
 PORTVERSION=	1.3

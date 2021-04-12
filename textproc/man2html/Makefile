@@ -1,5 +1,8 @@
 # Created by: Dima Sivachenko <demon@gpad.ac.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	man2html
 PORTVERSION=	3.0.1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	em-redis-unified
 PORTVERSION=	1.0.1
 CATEGORIES=	databases rubygems

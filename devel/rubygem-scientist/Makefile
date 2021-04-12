@@ -1,8 +1,14 @@
 # Created by: Matthias Fechner <mfechner@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	scientist
 PORTVERSION=	1.5.0
+=======
+
+PORTNAME=	scientist
+PORTVERSION=	1.6.0
+>>>>>>> upstream/main
 CATEGORIES=	devel rubygems
 MASTER_SITES=	RG
 

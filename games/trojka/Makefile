@@ -1,5 +1,8 @@
 # Created by: Edwin Mons
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	trojka
 PORTVERSION=	1.0

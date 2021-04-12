@@ -1,5 +1,8 @@
 # Created by: Goran Mekić <meka@tilda.center>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dns-lexicon
 PORTVERSION=	3.5.0

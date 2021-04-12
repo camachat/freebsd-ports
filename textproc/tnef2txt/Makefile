@@ -1,5 +1,8 @@
 # Created by: Jim Mock <jim@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tnef2txt
 PORTVERSION=	1.4

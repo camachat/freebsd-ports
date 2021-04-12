@@ -1,5 +1,8 @@
 # Created by: Joris Vandalon
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rar2fs
 PORTVERSION=	1.29.3

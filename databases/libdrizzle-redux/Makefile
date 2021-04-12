@@ -1,5 +1,8 @@
 # Created by: Jim Ohlstein <jim@ohlste.in>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libdrizzle
 PORTVERSION=	5.1.4

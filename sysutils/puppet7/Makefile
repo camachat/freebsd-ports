@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	puppet
 PORTVERSION=	7.5.0
 CATEGORIES=	sysutils

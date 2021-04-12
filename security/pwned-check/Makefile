@@ -1,5 +1,8 @@
 # Created by: Charlie Root <se@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pwned-check
 PORTVERSION=	2.2

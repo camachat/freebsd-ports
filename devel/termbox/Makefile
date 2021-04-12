@@ -1,5 +1,8 @@
 # Created by: Adam Saponara <as@php.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	termbox
 DISTVERSIONPREFIX=	v

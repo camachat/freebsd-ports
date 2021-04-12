@@ -1,8 +1,14 @@
 # Created by: Nicolas Embriz <nbari@tequila.io>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	galera
 PORTVERSION=	26.4.6
+=======
+
+PORTNAME=	galera
+PORTVERSION=	26.4.8
+>>>>>>> upstream/main
 DISTVERSIONPREFIX=	release_
 PORTREVISION=	1
 CATEGORIES=	databases
@@ -29,15 +35,26 @@ BUILD_DEPENDS=	checkmk:devel/check \
 		objdump:devel/binutils
 LIB_DEPENDS=	libboost_date_time.so:devel/boost-libs
 
+<<<<<<< HEAD
 USES=		compiler:c++11-lang python:build scons ssl
 
 USE_GITHUB=	yes
 GH_TUPLE?=	codership:galera:${DISTVERSIONPREFIX}${PORTVERSION}${DISTVERSIONSUFFIX} \
 		codership:wsrep-API:75a5f452f2ba07b0f4a3a9a94825fccc71b27398:dummy/wsrep/src
+=======
+USES=		compiler:c++11-lang python:build cmake ssl
+
+USE_GITHUB=	yes
+GH_TUPLE?=	codership:galera:${DISTVERSIONPREFIX}${PORTVERSION}${DISTVERSIONSUFFIX} \
+		codership:wsrep-API:76cf223c690845bbf561cb820a46e06a18ad80d1:dummy/wsrep/src
+
+CMAKE_ARGS+=	-DGALERA_REVISION=${GH_TAGNAME}
+>>>>>>> upstream/main
 
 USE_LDCONFIG=	yes
 USE_RC_SUBR=	garb.sh
 
+<<<<<<< HEAD
 MAKE_ARGS+=	revno=${GH_TAGNAME} system_asio=0 tests=0
 # Abuse TEST_TARGET to append tests=1 (which is not a target, strictly
 # speaking) at the end of the "scons ..." command so that it overrides
@@ -47,10 +64,13 @@ TEST_TARGET=	deterministic_tests=1 tests=1
 
 LDFLAGS+=	-lboost_program_options -lboost_system
 
+=======
+>>>>>>> upstream/main
 PLIST_FILES=	bin/garbd \
 		lib/libgalera.so \
 		lib/libgalera_smm.so
 
+<<<<<<< HEAD
 OPTIONS_DEFINE=	BOOSTPOOL BPOSTATIC DEBUG
 
 BOOSTPOOL_DESC=	Use boost pool allocator
@@ -65,5 +85,9 @@ do-install:
 	${INSTALL_LIB} ${WRKSRC}/libgalera_smm.so ${STAGEDIR}${PREFIX}/lib/
 	@(cd ${STAGEDIR}${PREFIX}/lib && ${LN} -sf libgalera_smm.so \
 		libgalera.so)
+=======
+post-install:
+	${RLN} ${STAGEDIR}/${PREFIX}/lib/libgalera_smm.so ${STAGEDIR}/${PREFIX}/lib/libgalera.so
+>>>>>>> upstream/main
 
 .include <bsd.port.mk>

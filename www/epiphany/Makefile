@@ -1,8 +1,15 @@
 # Created by: Joe Marcus Clarke <marcus@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	epiphany
 PORTVERSION=	3.38.2
+=======
+
+PORTNAME=	epiphany
+PORTVERSION=	3.38.2
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	www gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome

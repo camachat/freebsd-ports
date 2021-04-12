@@ -1,5 +1,8 @@
 # Created by: alfred@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libmtrie
 PORTVERSION=	1.0.3

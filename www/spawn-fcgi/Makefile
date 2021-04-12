@@ -1,5 +1,8 @@
 # Created by: genserg@hotmail.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	spawn-fcgi
 PORTVERSION=	1.6.4

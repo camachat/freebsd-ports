@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	saneyaml
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.4

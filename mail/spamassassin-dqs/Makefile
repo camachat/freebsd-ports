@@ -1,5 +1,8 @@
 # Created by: Larry Rosenman <ler@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		spamassassin-dqs
 DISTVERSIONPREFIX=	v

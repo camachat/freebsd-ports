@@ -1,5 +1,8 @@
 # Created by: Nicholas Esborn <nick@netdot.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Mon
 PORTVERSION=	0.11

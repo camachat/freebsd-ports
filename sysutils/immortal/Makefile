@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	immortal
 PORTVERSION=	0.24.1
 CATEGORIES=	sysutils

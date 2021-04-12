@@ -1,5 +1,8 @@
 # Created by: Ilia Skalozubov <freebsd@skinc.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	urlobject
 PORTVERSION=	2.4.3

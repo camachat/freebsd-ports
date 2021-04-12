@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pyEDFlib
 DISTVERSION=	0.1.20
 CATEGORIES=	misc

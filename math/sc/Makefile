@@ -1,5 +1,8 @@
 # Created by: Heinz Tschabitscher
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sc
 PORTVERSION=	7.16

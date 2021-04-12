@@ -1,5 +1,8 @@
 # Created by: George Reid <services@nevernet.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vlock
 PORTVERSION=	2.2.3

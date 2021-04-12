@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	AnyEvent-ReverseHTTP
 PORTVERSION=	0.05
 PORTREVISION=	1

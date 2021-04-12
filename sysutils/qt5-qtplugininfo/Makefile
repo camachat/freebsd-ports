@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	qtplugininfo
 DISTVERSION=	${QT5_VERSION}
 CATEGORIES=	sysutils

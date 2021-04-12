@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	native-package-installer
 PORTVERSION=	1.1.1
 CATEGORIES=	devel rubygems

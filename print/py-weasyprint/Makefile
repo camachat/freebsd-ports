@@ -1,5 +1,8 @@
 # Created by: D'Arcy Cain <darcy@druid.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	weasyprint
 PORTVERSION=	51

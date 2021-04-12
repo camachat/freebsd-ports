@@ -1,5 +1,8 @@
 # Created by: Ralf Gebhart <gebhart@secnetix.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Log-Dispatch-DBI
 PORTVERSION=	0.02

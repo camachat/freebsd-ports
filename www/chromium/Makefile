@@ -1,8 +1,15 @@
 # Created by: Florent Thoumie <flz@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	chromium
 PORTVERSION=	88.0.4324.182
+=======
+
+PORTNAME=	chromium
+PORTVERSION=	89.0.4389.114
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	www java
 MASTER_SITES=	https://commondatastorage.googleapis.com/chromium-browser-official/ \
 		LOCAL/rene/chromium/:fonts
@@ -60,11 +67,17 @@ LIB_DEPENDS=	libatk-bridge-2.0.so:accessibility/at-spi2-atk \
 		libnss3.so:security/nss \
 		libexpat.so:textproc/expat2 \
 		libfontconfig.so:x11-fonts/fontconfig \
+<<<<<<< HEAD
 		libxkbcommon.so:x11/libxkbcommon
+=======
+		libxkbcommon.so:x11/libxkbcommon \
+		libxshmfence.so:x11/libxshmfence
+>>>>>>> upstream/main
 
 RUN_DEPENDS=	xdg-open:devel/xdg-utils \
 		noto-basic>0:x11-fonts/noto-basic
 
+<<<<<<< HEAD
 USES=		bison cpe desktop-file-utils dos2unix gl gnome jpeg localbase:ldflags \
 		ninja perl5 pkgconfig python:2.7,build shebangfix tar:xz xorg
 
@@ -75,15 +88,35 @@ DOS2UNIX_FILES=	third_party/skia/third_party/vulkanmemoryallocator/include/vk_me
 CPE_VENDOR=	google
 CPE_PRODUCT=	chrome
 USE_GL=		gbm gl
+=======
+USES=		bison compiler:c++17-lang cpe desktop-file-utils dos2unix gl gnome jpeg localbase:ldflags \
+		ninja perl5 pkgconfig python:2.7,build shebangfix tar:xz xorg
+
+CPE_VENDOR=	google
+CPE_PRODUCT=	chrome
+DOS2UNIX_FILES=	third_party/skia/third_party/vulkanmemoryallocator/include/vk_mem_alloc.h
+USE_GL=		gbm gl
+USE_GNOME=	atk dconf glib20 gtk30 libxml2 libxslt
+INSTALLS_ICONS=	yes
+>>>>>>> upstream/main
 USE_LDCONFIG=	${DATADIR}
 USE_PERL5=	build
 USE_XORG=	x11 xcb xcomposite xcursor xext xdamage xfixes xi \
 		xorgproto xrandr xrender xscrnsaver xtst
+<<<<<<< HEAD
 USE_GNOME=	atk dconf glib20 gtk30 libxml2 libxslt
 SHEBANG_FILES=	chrome/tools/build/linux/chrome-wrapper buildtools/linux64/clang-format
 ALL_TARGET=	chrome
 INSTALLS_ICONS=	yes
 
+=======
+SHEBANG_FILES=	chrome/tools/build/linux/chrome-wrapper buildtools/linux64/clang-format
+
+MAKE_ARGS=	-C out/${BUILDTYPE}
+ALL_TARGET=	chrome
+
+BINARY_ALIAS=	python=${PYTHON_CMD}
+>>>>>>> upstream/main
 EXTRA_PATCHES+=	${FILESDIR}/extra-patch-clang
 
 # TODO bz@ : install libwidevinecdm.so (see third_party/widevine/cdm/BUILD.gn)
@@ -121,13 +154,19 @@ GN_BOOTSTRAP_FLAGS=	--no-clean --no-rebuild --skip-generate-buildfiles
 # Set up Google API keys, see http://www.chromium.org/developers/how-tos/api-keys .
 # Note: these are for FreeBSD use ONLY. For your own distribution,
 # please get your own set of keys.
+<<<<<<< HEAD
 GN_ARGS+=	google_api_key="AIzaSyBsp9n41JLW8jCokwn7vhoaMejDFRd1mp8" \
 		google_default_client_id="996322985003.apps.googleusercontent.com" \
 		google_default_client_secret="IR1za9-1VK0zZ0f_O8MVFicn"
+=======
+GN_ARGS+=	google_api_key="AIzaSyBsp9n41JLW8jCokwn7vhoaMejDFRd1mp8"
+
+>>>>>>> upstream/main
 SUB_FILES=	chromium-browser.desktop chrome
 SUB_LIST+=	COMMENT="${COMMENT}"
 
 OPTIONS_DEFINE=	CODECS CUPS DEBUG DRIVER KERBEROS LTO TEST
+<<<<<<< HEAD
 CODECS_DESC=	Compile and enable patented codecs like H.264
 DRIVER_DESC=	Install chromedriver
 OPTIONS_GROUP=		AUDIO
@@ -143,6 +182,19 @@ MIT_LIB_DEPENDS=	libkrb.so.3:security/krb5
 
 OPTIONS_DEFAULT=	CODECS CUPS DRIVER KERBEROS SNDIO
 OPTIONS_SUB=		yes
+=======
+OPTIONS_DEFAULT=	CODECS CUPS DRIVER KERBEROS SNDIO
+OPTIONS_GROUP=		AUDIO
+OPTIONS_GROUP_AUDIO=	ALSA PULSEAUDIO SNDIO
+OPTIONS_RADIO=		KERBEROS
+OPTIONS_RADIO_KERBEROS=	HEIMDAL HEIMDAL_BASE MIT
+OPTIONS_SUB=		yes
+CODECS_DESC=		Compile and enable patented codecs like H.264
+DRIVER_DESC=		Install chromedriver
+HEIMDAL_BASE_DESC=	Heimdal Kerberos (base)
+HEIMDAL_DESC=		Heimdal Kerberos (security/heimdal)
+MIT_DESC=		MIT Kerberos (security/krb5)
+>>>>>>> upstream/main
 
 ALSA_LIB_DEPENDS=	libasound.so:audio/alsa-lib
 ALSA_RUN_DEPENDS=	${LOCALBASE}/lib/alsa-lib/libasound_module_pcm_oss.so:audio/alsa-plugins \
@@ -174,6 +226,10 @@ DEBUG_VARS_OFF=		BUILDTYPE=Release \
 
 DRIVER_MAKE_ARGS=	chromedriver
 
+<<<<<<< HEAD
+=======
+HEIMDAL_LIB_DEPENDS=	libkrb.so.26:security/heimdal
+>>>>>>> upstream/main
 KERBEROS_VARS=		GN_ARGS+=use_kerberos=true
 KERBEROS_VARS_OFF=	GN_ARGS+=use_kerberos=false
 
@@ -181,6 +237,10 @@ LTO_VARS=		GN_ARGS+=use_thin_lto=true \
 			GN_ARGS+=thin_lto_enable_optimizations=true \
 			WANTSPACE="14 GB"
 
+<<<<<<< HEAD
+=======
+MIT_LIB_DEPENDS=	libkrb.so.3:security/krb5
+>>>>>>> upstream/main
 PULSEAUDIO_LIB_DEPENDS=	libpulse.so:audio/pulseaudio
 PULSEAUDIO_VARS=	GN_ARGS+=use_pulseaudio=true
 PULSEAUDIO_VARS_OFF=	GN_ARGS+=use_pulseaudio=false
@@ -194,21 +254,38 @@ SNDIO_VARS=		GN_ARGS+=use_sndio=true
 SNDIO_VARS_OFF=		GN_ARGS+=use_sndio=false
 
 .include "Makefile.tests"
+<<<<<<< HEAD
 TEST_ALL_TARGET=	${TEST_TARGETS}
 TEST_DISTFILES=		${PORTNAME}-${DISTVERSION}-testdata${EXTRACT_SUFX} \
 			test_fonts-85${EXTRACT_SUFX}:fonts
 
 .include <bsd.port.options.mk>
+=======
+TEST_DISTFILES=		${PORTNAME}-${DISTVERSION}-testdata${EXTRACT_SUFX} \
+			test_fonts-85${EXTRACT_SUFX}:fonts
+TEST_ALL_TARGET=	${TEST_TARGETS}
+
+.include <bsd.port.options.mk>
+.include <bsd.port.pre.mk>
+>>>>>>> upstream/main
 
 .if ${PORT_OPTIONS:MHEIMDAL_BASE} && !exists(/usr/lib/libkrb5.so)
 IGNORE=		you have selected HEIMDAL_BASE but do not have Heimdal installed in base
 .endif
 
+<<<<<<< HEAD
 .if ${OPSYS} == FreeBSD && ${OSVERSION} < 1300000
 EXTRA_PATCHES+=	${PATCHDIR}/extra-patch-build_config_compiler_pgo_pgo.gni
 
 .if ${PORT_OPTIONS:MLTO}
 BROKEN+=	does not build with LTO on FreeBSD < 13, needs LLVM 11+
+=======
+.if ${COMPILER_VERSION} < 120
+EXTRA_PATCHES+=	${PATCHDIR}/extra-patch-build_config_compiler_pgo_pgo.gni
+
+.if ${PORT_OPTIONS:MLTO}
+BROKEN+=	does not build with LTO needs LLVM 12+
+>>>>>>> upstream/main
 .endif
 .endif
 
@@ -288,12 +365,15 @@ do-configure:
 	${LN} -sf ${WRKSRC}/buildtools/linux64/clang-format ${WRKSRC}/buildtools/freebsd
 	${LN} -sf ${WRKSRC}/out/${BUILDTYPE}/gn ${WRKSRC}/buildtools/freebsd
 
+<<<<<<< HEAD
 do-test-TEST-on:
 .for t in ${TEST_TARGETS}
 	cd ${WRKSRC}/out/${BUILDTYPE} && ${SETENV} LC_ALL=en_US.UTF-8 \
 		./${t} --gtest_filter=-${EXCLUDE_${t}:ts:} || ${TRUE}
 .endfor
 
+=======
+>>>>>>> upstream/main
 do-install:
 	@${MKDIR} ${STAGEDIR}${DATADIR}
 	${INSTALL_MAN} ${WRKSRC}/chrome/app/resources/manpage.1.in \
@@ -344,6 +424,11 @@ do-install:
 post-install-DEBUG-on:
 	${INSTALL_LIB} ${WRKSRC}/out/${BUILDTYPE}/*.so \
 		${STAGEDIR}${DATADIR}
+<<<<<<< HEAD
+=======
+	${INSTALL_LIB} ${WRKSRC}/out/${BUILDTYPE}/libvulkan.so.1 \
+		${STAGEDIR}${DATADIR}
+>>>>>>> upstream/main
 	${INSTALL_PROGRAM} ${WRKSRC}/out/${BUILDTYPE}/character_data_generator \
 		${STAGEDIR}${DATADIR}
 
@@ -351,4 +436,14 @@ post-install-DRIVER-on:
 	${INSTALL_PROGRAM} ${WRKSRC}/out/${BUILDTYPE}/chromedriver \
 		${STAGEDIR}${PREFIX}/bin
 
+<<<<<<< HEAD
 .include <bsd.port.mk>
+=======
+do-test-TEST-on:
+.for t in ${TEST_TARGETS}
+	cd ${WRKSRC}/out/${BUILDTYPE} && ${SETENV} LC_ALL=en_US.UTF-8 \
+		./${t} --gtest_filter=-${EXCLUDE_${t}:ts:} || ${TRUE}
+.endfor
+
+.include <bsd.port.post.mk>
+>>>>>>> upstream/main

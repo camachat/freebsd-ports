@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	batmon
 PORTVERSION=	0.8
 PORTREVISION=	5

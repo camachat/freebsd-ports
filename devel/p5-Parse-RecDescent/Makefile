@@ -1,5 +1,8 @@
 # Created by: Jerry Hicks <wghicks@bellsouth.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Parse-RecDescent
 PORTVERSION=	1.967015

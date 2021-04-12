@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	starship
 DISTVERSION=	0.51.0
+=======
+PORTNAME=	starship
+DISTVERSION=	0.51.0
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	shells
 MASTER_SITES=	CRATESIO
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX}

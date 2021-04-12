@@ -1,5 +1,8 @@
 # Created by: Daniel Morante <daniel@morante.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	zetacoin
 PORTVERSION=	0.13.2.1

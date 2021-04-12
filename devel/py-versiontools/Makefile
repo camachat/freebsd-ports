@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	versiontools
 PORTVERSION=	1.9.1
 PORTREVISION=	1

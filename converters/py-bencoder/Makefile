@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bencoder
 PORTVERSION=	0.2.1
 CATEGORIES=	converters

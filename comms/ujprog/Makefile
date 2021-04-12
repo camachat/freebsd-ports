@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ujprog
 DISTVERSION=	g20191117
 CATEGORIES=	comms

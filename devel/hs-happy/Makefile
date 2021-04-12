@@ -1,5 +1,8 @@
 # Created by: Simon Marlow <simonmar@microsoft.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	happy
 PORTVERSION=	1.20.0

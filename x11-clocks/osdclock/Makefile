@@ -1,5 +1,8 @@
 # Created by: Roman Bogorodskiy <bogorodskiy@inbox.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	osdclock
 PORTVERSION=	0.5

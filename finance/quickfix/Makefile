@@ -1,5 +1,8 @@
 # Created by: Mikhail T. <m.tsatsenko@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	quickfix
 PORTVERSION=	1.15.1

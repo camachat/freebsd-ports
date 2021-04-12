@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	obs-streamfx
 DISTVERSION=	0.9.3
 CATEGORIES=	multimedia

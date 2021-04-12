@@ -1,5 +1,8 @@
 # Created by: Simun Mikecin <numisemis@yahoo.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Apache2-SOAP
 PORTVERSION=	0.73

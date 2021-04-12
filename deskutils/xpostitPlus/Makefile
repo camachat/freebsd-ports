@@ -1,5 +1,8 @@
 # Created by: mi
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	XPostitPlus
 PORTVERSION=	2.3

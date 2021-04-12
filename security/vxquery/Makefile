@@ -1,5 +1,8 @@
 # Created by: nectar@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vxquery
 PORTVERSION=	0.2.1

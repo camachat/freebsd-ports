@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	apl385
 DISTVERSION=	20191020
 CATEGORIES=	x11-fonts

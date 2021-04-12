@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		arbtt
 PORTVERSION=		0.10.2
 PORTREVISION=		2

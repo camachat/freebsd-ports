@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	couchdb3
 DISTVERSION=	3.1.1
 PORTREVISION=	1
+=======
+PORTNAME=	couchdb3
+DISTVERSION=	3.1.1
+PORTREVISION=	3
+>>>>>>> upstream/main
 CATEGORIES=	databases
 MASTER_SITES=	APACHE/couchdb/source/${DISTVERSION}
 DISTNAME=	apache-couchdb-${DISTVERSION}

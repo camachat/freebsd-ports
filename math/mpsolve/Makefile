@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mpsolve
 DISTVERSION=	3.2.1
 CATEGORIES=	math

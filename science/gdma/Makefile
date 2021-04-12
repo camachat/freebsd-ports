@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gdma
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.2.6

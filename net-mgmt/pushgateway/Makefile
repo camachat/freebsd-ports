@@ -1,5 +1,8 @@
 # Created by: Athanasios Douitsis <aduitsis@cpan.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pushgateway
 DISTVERSIONPREFIX=	v

@@ -1,8 +1,14 @@
 # Created by: Koop Mast <kwm@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	dconf-editor
 PORTVERSION=	3.38.2
+=======
+
+PORTNAME=	dconf-editor
+PORTVERSION=	3.38.3
+>>>>>>> upstream/main
 CATEGORIES=	devel gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome

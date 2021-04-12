@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	photoprint
 DISTVERSION=	0.4.2-pre2
 PORTREVISION=	9

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 
 DB=		IBase
 DB_DESC=	InterBase/Firebird

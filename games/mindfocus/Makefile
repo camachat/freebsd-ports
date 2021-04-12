@@ -1,5 +1,8 @@
 # Created by: Sugimoto Sadahiro <ixtl@utmc.or.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mindfocus
 PORTVERSION=	0.88

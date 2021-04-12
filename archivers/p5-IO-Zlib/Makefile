@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	IO-Zlib
 PORTVERSION=	1.10
 PORTREVISION=	2

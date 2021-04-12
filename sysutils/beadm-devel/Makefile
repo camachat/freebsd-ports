@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	beadm
 PORTVERSION=	1.2.99.20180708
 PORTREVISION=	1

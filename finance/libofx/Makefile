@@ -1,5 +1,8 @@
 # Created by: Glenn Johnson <glennpj@charter.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libofx
 PORTVERSION=	0.10.1

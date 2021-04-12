@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pgpool-II
 PORTVERSION=	4.1.2
 CATEGORIES=	databases

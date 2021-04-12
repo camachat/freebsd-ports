@@ -1,8 +1,14 @@
 # Created by: Mathieu Arnold <m@absolight.net>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	DateTime-Calendar-Christian
 PORTVERSION=	0.09
+=======
+
+PORTNAME=	DateTime-Calendar-Christian
+PORTVERSION=	0.10
+>>>>>>> upstream/main
 CATEGORIES=	devel perl5
 MASTER_SITES=	CPAN
 PKGNAMEPREFIX=	p5-

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	peewee_migrate
 PORTVERSION=	1.4.0
 CATEGORIES=	databases devel python

@@ -1,5 +1,8 @@
 # Created by: Daniel Gerzo <danger@rulez.sk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bruteforceblocker
 PORTVERSION=	1.2.6

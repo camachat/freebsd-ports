@@ -1,5 +1,8 @@
 # Created by: Moggie <moggie@elasticmind.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	werkzeug
 PORTVERSION=	1.0.1

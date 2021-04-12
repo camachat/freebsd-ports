@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pytest-randomly
 PORTVERSION=	3.5.0
 CATEGORIES=	devel python

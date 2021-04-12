@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	qcelemental
 PORTVERSION=	0.19.0
 CATEGORIES=	science python

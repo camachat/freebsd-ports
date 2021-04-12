@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	twpsk
 PORTVERSION=	4.3
 PORTREVISION=	1

@@ -1,5 +1,8 @@
 # Created by: Marc Fonvieille <blackend@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cascade
 PORTVERSION=	1.4

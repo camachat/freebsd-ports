@@ -1,5 +1,8 @@
 # Created by: Jonathan M. Bresler (jmb)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vmsbackup
 PORTVERSION=	4.1.1

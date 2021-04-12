@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	wikicalc
 DISTVERSION=	1-0
 CATEGORIES=	www math

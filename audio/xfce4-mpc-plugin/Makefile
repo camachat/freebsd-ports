@@ -1,5 +1,8 @@
 # Created by: Martin Wilke (miwi@FreeBSD.org)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xfce4-mpc-plugin
 PORTVERSION=	0.5.2

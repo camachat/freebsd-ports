@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	suxus
 PORTVERSION=	1.5
 PORTREVISION=	4

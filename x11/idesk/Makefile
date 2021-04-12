@@ -1,5 +1,8 @@
 # Created by: Sascha Holzleiter <sascha@root-login.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	idesk
 PORTVERSION=	0.7.5

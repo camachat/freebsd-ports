@@ -1,5 +1,8 @@
 # Created by: Romain Tartiere <romain@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	google-gdata
 PORTVERSION=	2.2.0.0.20150610

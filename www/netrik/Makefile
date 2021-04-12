@@ -1,5 +1,8 @@
 # Created by: Alan Eldridge <alane@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	netrik
 PORTVERSION=	1.16.1

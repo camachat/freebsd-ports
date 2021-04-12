@@ -1,5 +1,8 @@
 # Created by: Russell Cloran <russell@rucus.ru.ac.za>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	redland-bindings
 PORTVERSION=	1.0.17.1

@@ -1,5 +1,8 @@
 # Created by: shanee@augusta.de
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rosegarden
 PORTVERSION=	20.06

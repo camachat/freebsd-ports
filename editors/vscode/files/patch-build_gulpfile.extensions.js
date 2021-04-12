@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 --- build/gulpfile.extensions.js.orig	2021-02-03 15:33:23 UTC
 +++ build/gulpfile.extensions.js
 @@ -205,7 +205,7 @@ const cleanExtensionsBuildTask = task.define('clean-ex
+=======
+--- build/gulpfile.extensions.js.orig	2021-03-30 12:04:46 UTC
++++ build/gulpfile.extensions.js
+@@ -237,7 +237,7 @@ const cleanExtensionsBuildTask = task.define('clean-ex
+>>>>>>> upstream/main
  const compileExtensionsBuildTask = task.define('compile-extensions-build', task.series(
  	cleanExtensionsBuildTask,
  	task.define('bundle-extensions-build', () => ext.packageLocalExtensionsStream(false).pipe(gulp.dest('.build'))),
@@ -9,7 +15,11 @@
  ));
  
  gulp.task(compileExtensionsBuildTask);
+<<<<<<< HEAD
 @@ -286,5 +286,3 @@ async function buildWebExtensions(isWatch) {
+=======
+@@ -336,5 +336,3 @@ async function webpackExtensions(taskName, isWatch, we
+>>>>>>> upstream/main
  		}
  	});
  }

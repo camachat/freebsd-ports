@@ -1,5 +1,8 @@
 # Created by: Blaz Zupan <blaz@amis.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Unix-Syslog
 PORTVERSION=	1.1

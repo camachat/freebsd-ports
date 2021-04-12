@@ -1,5 +1,8 @@
 # Created by: Kapil Chowksey <kchowksey@hss.hns.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gindent
 DISTVERSION=	2.2.12

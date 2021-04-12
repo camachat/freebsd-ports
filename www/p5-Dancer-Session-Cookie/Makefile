@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Dancer-Session-Cookie
 PORTVERSION=	0.27
 CATEGORIES=	www perl5

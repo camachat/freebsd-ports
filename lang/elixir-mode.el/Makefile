@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	elixir-mode.el
 DISTVERSIONPREFIX=	v
 PORTVERSION=	2.3.1

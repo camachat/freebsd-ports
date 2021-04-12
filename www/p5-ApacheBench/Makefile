@@ -1,5 +1,8 @@
 # Created by: dom@happygiraffe.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ApacheBench
 PORTVERSION=	0.73

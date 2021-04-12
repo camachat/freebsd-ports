@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	hts_engine-API
 PORTVERSION=	1.10
 CATEGORIES=	audio

@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	tinytex
 DISTVERSION=	0.30
+=======
+PORTNAME=	tinytex
+DISTVERSION=	0.31
+>>>>>>> upstream/main
 CATEGORIES=	print
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 

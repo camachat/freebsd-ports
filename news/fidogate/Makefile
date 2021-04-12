@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fidogate
 DISTVERSIONPREFIX=	v
 DISTVERSION=	5.10-3

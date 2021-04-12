@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pg_hashids
 PORTVERSION=	1.3
 CATEGORIES=	databases

@@ -1,5 +1,8 @@
 # Created by: Rusty Nejdl <rnejdl@ringofsaturn.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	showimage
 PORTVERSION=	1.10

@@ -1,5 +1,8 @@
 # Created by: MIHIRA Yoshiro <sanpei@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	unf_ext
 PORTVERSION=	0.0.7.5

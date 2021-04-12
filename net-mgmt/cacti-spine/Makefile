@@ -1,5 +1,8 @@
 # Created by: clement@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	spine
 PORTVERSION=	1.2.16

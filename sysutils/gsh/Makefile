@@ -1,5 +1,8 @@
 # Created by: <jsmith@resonatingmedia.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gsh
 PORTVERSION=	1.1.0

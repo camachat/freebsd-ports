@@ -1,5 +1,8 @@
 # Created by: Poul-Henning Kamp <phk@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	warctools
 PORTVERSION=	4.10.0

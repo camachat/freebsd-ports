@@ -1,5 +1,8 @@
 # Created by: Tomoyuki Sakurai <cherry@trombik.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sqlmap
 PORTVERSION=	1.3.12

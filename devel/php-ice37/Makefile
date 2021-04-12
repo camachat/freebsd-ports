@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 CATEGORIES=		devel
 PKGNAMEPREFIX=		${PHP_PKGNAMEPREFIX}
 

@@ -1,5 +1,8 @@
 # Created by: jesse@cs.uni-magdeburg.de
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tmake
 PORTVERSION=	2.12

@@ -1,5 +1,8 @@
 # Created by: dcf@aracnet.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	DBI-Shell
 PORTVERSION=	11.97

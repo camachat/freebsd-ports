@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		uid_wrapper
 PORTVERSION=		1.2.4
 CATEGORIES=		devel

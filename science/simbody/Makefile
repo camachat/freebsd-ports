@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	simbody
 DISTVERSIONPREFIX=	Simbody-
 DISTVERSION=	3.7

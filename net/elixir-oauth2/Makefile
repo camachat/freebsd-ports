@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	oauth2
 PORTVERSION=	2.0.0
 DISTVERSIONPREFIX=	v

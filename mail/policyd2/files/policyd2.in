@@ -1,7 +1,10 @@
 #!/bin/sh
 
 # Start or stop policyd2
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 # PROVIDE: policyd2
 # KEYWORD: shutdown

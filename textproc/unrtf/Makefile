@@ -1,5 +1,8 @@
 # Created by: Oliver Braun <obraun@informatik.unibw-muenchen.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	unrtf
 PORTVERSION=	0.21.10

@@ -1,5 +1,8 @@
 # Created by: Wen Heping<wenheping@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HTTP_WebDAV_Client
 PORTVERSION=	1.0.2

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	wxmacmolplt
 DISTVERSIONPREFIX=	v
 DISTVERSION=	7.7-43

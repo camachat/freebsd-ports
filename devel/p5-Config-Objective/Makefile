@@ -1,5 +1,8 @@
 # Created by: Jim Pirzyk <pirzyk@uiuc.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Config-Objective
 PORTVERSION=	0.9.1

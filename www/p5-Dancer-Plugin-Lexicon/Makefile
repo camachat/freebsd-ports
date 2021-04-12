@@ -1,5 +1,8 @@
 # Created by: Henk van Oers <hvo.pm@xs4all.nl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Dancer-Plugin-Lexicon
 PORTVERSION=	0.06

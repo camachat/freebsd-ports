@@ -1,5 +1,8 @@
 # Created by: Jimbo Bahooli <griffin@blackhole.iceworld.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bitchx
 PORTVERSION=	1.2.1

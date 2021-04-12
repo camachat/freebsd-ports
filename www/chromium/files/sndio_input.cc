@@ -191,7 +191,11 @@ void SndioAudioInputStream::ThreadLoop(void) {
       params.sample_rate());
 
     // push into bus
+<<<<<<< HEAD
     audio_bus->FromInterleaved(buffer, nframes, SampleFormatToBytesPerChannel(kSampleFormat));
+=======
+    audio_bus->FromInterleaved<SignedInt16SampleTypeTraits>(reinterpret_cast<int16_t*>(buffer), nframes);
+>>>>>>> upstream/main
 
     // invoke callback
     callback->OnData(audio_bus.get(), base::TimeTicks::Now() - delay, 1.);

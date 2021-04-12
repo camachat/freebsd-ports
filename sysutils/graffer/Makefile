@@ -1,5 +1,8 @@
 # Created by: Nikola Kolev <koue@chaosophia.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	graffer
 PORTVERSION=	1.1

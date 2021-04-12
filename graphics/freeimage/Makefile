@@ -1,5 +1,8 @@
 # Created by: Choe, Cheng-Dae <whitekid@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	freeimage
 PORTVERSION=	3.18.0

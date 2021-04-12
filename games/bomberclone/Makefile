@@ -1,5 +1,8 @@
 # Created by: Edwin Groothuis
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bomberclone
 PORTVERSION=	0.11.9

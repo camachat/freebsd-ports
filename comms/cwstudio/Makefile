@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cwstudio
 DISTVERSION=	0.9.6
 PORTREVISION=	4

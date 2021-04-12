@@ -1,5 +1,8 @@
 # Created by: Oliver Braun <obraun@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mairix
 DISTVERSION=	0.24

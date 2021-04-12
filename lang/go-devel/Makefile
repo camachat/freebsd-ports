@@ -1,5 +1,8 @@
 # Created by: Devon H. O'Dell <devon.odell@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTVERSION=	g20210216
 # Always set PORTREVISION and PORTEPOCH explicitly as otherwise it is inherited from lang/go

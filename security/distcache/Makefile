@@ -1,5 +1,8 @@
 # Created by: Marcel Prisi <marcel.prisi@virtua.ch>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	distcache
 DISTVERSION=	1.5.1

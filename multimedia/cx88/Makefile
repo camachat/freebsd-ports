@@ -1,5 +1,8 @@
 # Created by: Jason Harmening <jason.harmening@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cx88
 PORTVERSION=	1.5.3

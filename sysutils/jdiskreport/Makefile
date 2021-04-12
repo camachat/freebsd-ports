@@ -1,5 +1,8 @@
 # Created by: jon@witchspace.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jdiskreport
 DISTVERSION=	1_4_1

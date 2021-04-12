@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ipdbtools
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.1.2

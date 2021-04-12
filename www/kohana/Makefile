@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kohana
 PORTVERSION=	3.3.6
 DISTVERSIONPREFIX=	v

@@ -1,5 +1,8 @@
 # Created by: Samy Al Bahra <samy@kerneled.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nvclock
 DISTVERSION=	0.8b4

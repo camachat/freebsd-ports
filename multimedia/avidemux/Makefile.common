@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 AVIDEMUX_VERSION=	2.7.6
 MASTER_SITES=	\
 		SF/avidemux/avidemux/${PORTVERSION}

@@ -1,5 +1,8 @@
 # Created by: Vany Serezhkin <ivan@serezhkin.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	IO-Lambda
 PORTVERSION=	1.23

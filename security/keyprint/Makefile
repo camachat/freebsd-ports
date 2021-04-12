@@ -1,5 +1,8 @@
 # Created by: mharo@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	keyprint
 PORTVERSION=	1.0

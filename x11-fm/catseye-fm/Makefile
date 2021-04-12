@@ -1,5 +1,8 @@
 # Created by: Geyer Klaus
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	catseye-fm
 PORTVERSION=	4.2.0.0

@@ -1,5 +1,8 @@
 # Created by: trasz <trasz@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	qsampler
 DISTVERSIONPREFIX=	qsampler_

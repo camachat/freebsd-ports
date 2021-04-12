@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	showkeys
 DISTVERSION=	g20191004
 CATEGORIES=	x11

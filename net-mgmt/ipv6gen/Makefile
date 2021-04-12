@@ -1,5 +1,8 @@
 # Created by: Vladimir Kotal <vlada@devnull.cz>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ipv6gen
 PORTVERSION=	1.0

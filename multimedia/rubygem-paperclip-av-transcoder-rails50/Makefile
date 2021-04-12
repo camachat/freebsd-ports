@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	paperclip-av-transcoder
 PORTVERSION=	0.6.4
 CATEGORIES=	multimedia rubygems

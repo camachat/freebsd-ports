@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pyinsane2
 DISTVERSION=	2.0.13
 PORTREVISION=	1

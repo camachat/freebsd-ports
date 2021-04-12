@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fp16
 PORTVERSION=	g20200514
 CATEGORIES=	devel

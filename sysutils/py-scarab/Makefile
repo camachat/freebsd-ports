@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		scarab
 DISTVERSIONPREFIX=      v
 DISTVERSION=            0.1.3

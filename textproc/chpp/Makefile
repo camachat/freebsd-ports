@@ -1,5 +1,8 @@
 # Created by: Andrey Zakhvatov <andy@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	chpp
 PORTVERSION=	0.3.5

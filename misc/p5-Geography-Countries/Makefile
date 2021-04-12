@@ -1,5 +1,8 @@
 # Created by: dikshie <dikshie@lapi.itb.ac.id>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Geography-Countries
 PORTVERSION=	2009041301

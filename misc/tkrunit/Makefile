@@ -1,5 +1,8 @@
 # Created by: Stephen Farrell <steve@farrell.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tkRunIt
 PORTVERSION=	0.94.1

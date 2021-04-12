@@ -1,5 +1,8 @@
 # Created by: nemysis <nemysis@gmx.ch>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	alure
 PORTVERSION=	1.2

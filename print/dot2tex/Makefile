@@ -1,5 +1,8 @@
 # Created by: Romain Tartiere <romain@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dot2tex
 PORTVERSION=	2.11.3

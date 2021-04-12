@@ -1,5 +1,8 @@
 # Created by: Matt Peterson <matt@peterson.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	deskmenu
 PORTVERSION=	1.4.5

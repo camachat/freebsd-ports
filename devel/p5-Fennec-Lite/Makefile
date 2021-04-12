@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Fennec-Lite
 PORTVERSION=	0.004
 PORTREVISION=	1

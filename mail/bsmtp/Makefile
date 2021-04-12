@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bsmtp
 PORTVERSION=	1.02
 PORTREVISION=	5

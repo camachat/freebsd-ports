@@ -1,5 +1,8 @@
 # Created by: Henrik Hodne <henrik@hodne.io>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	URI-Nested
 PORTVERSION=	0.10

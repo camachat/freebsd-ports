@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	biblesync
 DISTVERSION=	2.1.0
 CATEGORIES=	misc

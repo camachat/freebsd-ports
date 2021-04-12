@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ptvsd
 PORTVERSION=	3.1.0
 CATEGORIES=	devel python

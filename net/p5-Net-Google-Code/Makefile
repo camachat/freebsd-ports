@@ -1,5 +1,8 @@
 # Created by: Frederic Culot <frederic@culot.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-Google-Code
 PORTVERSION=	0.19

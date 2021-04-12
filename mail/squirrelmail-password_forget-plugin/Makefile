@@ -1,5 +1,8 @@
 # Created by: Neil Darlow <neil@darlow.co.uk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	password_forget
 PORTVERSION=	2.3

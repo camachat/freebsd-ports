@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	lfe
 PORTVERSION=	1.3
 DISTVERSIONPREFIX=	v

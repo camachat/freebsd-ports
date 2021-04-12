@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	twm
 PORTVERSION=	1.0.11
 CATEGORIES=	x11-wm

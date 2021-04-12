@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 SHLIB=		gettext
 SHLIB_NAME=	lgettext.so
 

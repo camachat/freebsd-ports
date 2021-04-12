@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	glib2
 PORTVERSION=	3.4.3
 CATEGORIES=	devel rubygems

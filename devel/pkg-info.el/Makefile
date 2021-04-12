@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pkg-info.el
 PORTVERSION=	0.6
 PORTREVISION=	5

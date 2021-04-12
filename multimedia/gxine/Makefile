@@ -1,5 +1,8 @@
 # Created by: Grigori Goronzy <greg@chown.ath.cx>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gxine
 PORTVERSION=	0.5.910

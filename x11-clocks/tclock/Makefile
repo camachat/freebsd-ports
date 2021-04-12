@@ -1,5 +1,8 @@
 # Created by: Lars Koeller <lkoeller@cc.fh-lippe.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tclock
 PORTVERSION=	1.0.1

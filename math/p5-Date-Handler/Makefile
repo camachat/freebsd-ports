@@ -1,5 +1,8 @@
 # Created by: Shell Hung <shell@shellhung.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Date-Handler
 PORTVERSION=	1.2

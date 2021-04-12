@@ -1,5 +1,8 @@
 # Created by: KIMURA Yasuhiro <yasu@utahime.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	riece
 PORTVERSION=	9.0.0

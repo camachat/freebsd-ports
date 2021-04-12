@@ -1,5 +1,8 @@
 # Created by: Stefan Grundmann
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pam_ocra
 DISTVERSION=	1.5

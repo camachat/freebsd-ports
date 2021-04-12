@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kde-gtk-config
 DISTVERSION=	${KDE_PLASMA_VERSION}
 PORTREVISION=	1

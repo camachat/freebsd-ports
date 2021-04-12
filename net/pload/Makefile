@@ -1,5 +1,8 @@
 # Created by: J.R. Oldroyd <fbsd@opal.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pload
 PORTVERSION=	0.9.5

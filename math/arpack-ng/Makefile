@@ -1,5 +1,8 @@
 # Created by: bf <bf@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	arpack-ng
 DISTVERSION=	3.8.0

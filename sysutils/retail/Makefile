@@ -1,5 +1,8 @@
 # Created by: Oleg Ginzburg
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	retail
 PORTVERSION=	1.0.1

@@ -1,5 +1,8 @@
 # Created by: Kuang-che Wu <kcwu@csie.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tsito
 PORTVERSION=	0.8.4

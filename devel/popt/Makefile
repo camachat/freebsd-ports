@@ -1,5 +1,8 @@
 # Created by: Yuan-Chen Cheng <ycheng@sinica.edu.tw>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	popt
 PORTVERSION=	1.18

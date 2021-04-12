@@ -1,5 +1,8 @@
 # Created by: Danny Warren <danny@dannywarren.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Devel-InheritNamespace
 PORTVERSION=	0.00003

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	lager
 PORTVERSION=	3.2.4
 CATEGORIES=	devel

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	nostt
 DISTVERSION=	1.1.1
 PORTREVISION=	1

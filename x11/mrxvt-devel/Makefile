@@ -1,5 +1,8 @@
 # Created by: Lars Engels <lars.engels@0x20.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mrxvt-devel
 PORTVERSION=	0.5.4

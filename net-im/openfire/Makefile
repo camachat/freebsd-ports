@@ -1,5 +1,8 @@
 # Created by: Nikolay Pavlov <qpadla@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	openfire
 PORTVERSION=	4.6.2

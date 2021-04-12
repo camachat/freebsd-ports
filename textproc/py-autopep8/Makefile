@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	autopep8
 PORTVERSION=	1.4.4
 CATEGORIES=	textproc python

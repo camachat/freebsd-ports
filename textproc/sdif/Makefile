@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sdif
 PORTVERSION=	2.8.20170401
 DISTVERSIONPREFIX=	v

@@ -1,5 +1,8 @@
 # Created by: Juraj Lutter <otis@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	oha
 DISTVERSIONPREFIX=	v

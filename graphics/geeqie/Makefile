@@ -1,5 +1,8 @@
 # Created by: Martin Tournoij <carpetsmoker@rwxrwxrwx.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	geeqie
 PORTVERSION=	1.6

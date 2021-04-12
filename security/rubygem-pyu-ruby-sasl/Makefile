@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pyu-ruby-sasl
 PORTVERSION=	0.0.3.3
 CATEGORIES=	security rubygems

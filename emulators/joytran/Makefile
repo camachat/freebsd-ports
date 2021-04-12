@@ -1,5 +1,8 @@
 # Created by: Timothy Beyer <beyert@cs.ucr.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	joytran
 PORTVERSION=	0.9.5.2

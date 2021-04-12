@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	hotcrp
 PORTVERSION=	2.102
 CATEGORIES=	www

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libcomps
 DISTVERSIONPREFIX=	${PORTNAME}-
 DISTVERSION=	0.1.15

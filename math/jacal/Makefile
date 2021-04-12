@@ -1,5 +1,8 @@
 # Created by: Mark R V Murray <markm@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jacal
 PORTVERSION=	1c7

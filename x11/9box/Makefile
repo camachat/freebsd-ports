@@ -1,5 +1,8 @@
 # Created by: Serge Gagnon <gagnon__s@videotron.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	9box
 PORTVERSION=	0.2.1

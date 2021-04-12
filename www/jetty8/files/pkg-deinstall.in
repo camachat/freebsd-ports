@@ -8,8 +8,11 @@
 # * Checks if the 'www' user exists. If it does, then it displays
 #   a message.
 #
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # Borrowed from the jakarta-tomcat port
 #
 

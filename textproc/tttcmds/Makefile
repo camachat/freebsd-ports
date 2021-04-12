@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tttcmds
 PORTVERSION=	1.0.20190920
 DISTVERSIONPREFIX=	v

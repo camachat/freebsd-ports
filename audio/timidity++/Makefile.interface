@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 #$FreeBSD$
 
+=======
+>>>>>>> upstream/main
 # Shared by timidity++ interface ports
 
 BUILD_DEPENDS+=	libarc>0:archivers/libarc

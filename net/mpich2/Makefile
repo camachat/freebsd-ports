@@ -1,5 +1,8 @@
 # Created by: dbader@ece.unm.edu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mpich2
 DISTVERSION=	1.5

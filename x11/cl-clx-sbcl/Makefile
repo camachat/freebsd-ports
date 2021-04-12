@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	clx
 DISTVERSION=	0.7.5.65
 PORTREVISION=	3

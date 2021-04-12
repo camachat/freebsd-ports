@@ -1,5 +1,8 @@
 # Created by: Stephon Chen <stephon@pixnet.tw>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	SES
 PORTVERSION=	1.01

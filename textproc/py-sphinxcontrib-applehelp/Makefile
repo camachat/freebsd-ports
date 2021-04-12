@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sphinxcontrib-applehelp
 PORTVERSION=	1.0.2
 CATEGORIES=	textproc python

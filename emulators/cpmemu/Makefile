@@ -1,5 +1,8 @@
 # Created by: janek@gaja.ipan.lublin.pl
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cpmemu
 PORTVERSION=	0.2.1.1

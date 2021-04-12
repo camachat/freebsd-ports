@@ -127,6 +127,10 @@ share/icons/hicolor/scalable/apps/git-cola.svg
 %%DATADIR%%/lib/cola/decorators.py
 %%DATADIR%%/lib/cola/diffparse.py
 %%DATADIR%%/lib/cola/difftool.py
+<<<<<<< HEAD
+=======
+%%DATADIR%%/lib/cola/display.py
+>>>>>>> upstream/main
 %%DATADIR%%/lib/cola/fsmonitor.py
 %%DATADIR%%/lib/cola/git.py
 %%DATADIR%%/lib/cola/gitcfg.py
@@ -226,3 +230,7 @@ share/icons/hicolor/scalable/apps/git-cola.svg
 %%PORTDOCS%%%%DOCSDIR%%/index.rst
 %%PORTDOCS%%%%DOCSDIR%%/relnotes.rst
 %%PORTDOCS%%%%DOCSDIR%%/thanks.rst
+<<<<<<< HEAD
+=======
+
+>>>>>>> upstream/main

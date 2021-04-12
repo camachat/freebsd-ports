@@ -59,6 +59,12 @@
 %%JACK%%bin/lsp-plugins-multisampler-x48
 %%JACK%%bin/lsp-plugins-multisampler-x48-do
 %%JACK%%bin/lsp-plugins-oscillator-mono
+<<<<<<< HEAD
+=======
+%%JACK%%bin/lsp-plugins-oscilloscope-x1
+%%JACK%%bin/lsp-plugins-oscilloscope-x2
+%%JACK%%bin/lsp-plugins-oscilloscope-x4
+>>>>>>> upstream/main
 %%JACK%%bin/lsp-plugins-para-equalizer-x16-lr
 %%JACK%%bin/lsp-plugins-para-equalizer-x16-mono
 %%JACK%%bin/lsp-plugins-para-equalizer-x16-ms
@@ -118,8 +124,12 @@
 %%JACK%%bin/lsp-plugins-trigger-midi-stereo
 %%JACK%%bin/lsp-plugins-trigger-mono
 %%JACK%%bin/lsp-plugins-trigger-stereo
+<<<<<<< HEAD
 %%JACK%%etc/xdg/menus/applications-merged/lsp-plugins.menu
 %%JACK%%lib/lsp-plugins/lsp-plugins-jack-core-1.1.29.so
+=======
+%%JACK%%lib/lsp-plugins/lsp-plugins-jack-core-1.1.30.so
+>>>>>>> upstream/main
 %%JACK%%lib/lsp-plugins/lsp-plugins-r3d-glx.so
 lib/lv2/lsp-plugins.lv2/art_delay_mono.ttl
 lib/lv2/lsp-plugins.lv2/art_delay_stereo.ttl
@@ -185,6 +195,12 @@ lib/lv2/lsp-plugins.lv2/multisampler_x24_do.ttl
 lib/lv2/lsp-plugins.lv2/multisampler_x48.ttl
 lib/lv2/lsp-plugins.lv2/multisampler_x48_do.ttl
 lib/lv2/lsp-plugins.lv2/oscillator_mono.ttl
+<<<<<<< HEAD
+=======
+lib/lv2/lsp-plugins.lv2/oscilloscope_x1.ttl
+lib/lv2/lsp-plugins.lv2/oscilloscope_x2.ttl
+lib/lv2/lsp-plugins.lv2/oscilloscope_x4.ttl
+>>>>>>> upstream/main
 lib/lv2/lsp-plugins.lv2/para_equalizer_x16_lr.ttl
 lib/lv2/lsp-plugins.lv2/para_equalizer_x16_mono.ttl
 lib/lv2/lsp-plugins.lv2/para_equalizer_x16_ms.ttl
@@ -244,6 +260,7 @@ lib/lv2/lsp-plugins.lv2/trigger_midi_mono.ttl
 lib/lv2/lsp-plugins.lv2/trigger_midi_stereo.ttl
 lib/lv2/lsp-plugins.lv2/trigger_mono.ttl
 lib/lv2/lsp-plugins.lv2/trigger_stereo.ttl
+<<<<<<< HEAD
 %%JACK%%share/applications/in.lsp_plug.lsp_plugins_art_delay_mono.desktop
 %%JACK%%share/applications/in.lsp_plug.lsp_plugins_art_delay_stereo.desktop
 %%JACK%%share/applications/in.lsp_plug.lsp_plugins_comp_delay_mono.desktop
@@ -374,3 +391,5 @@ lib/lv2/lsp-plugins.lv2/trigger_stereo.ttl
 %%JACK%%share/icons/hicolor/48x48/apps/lsp-plugins.png
 %%JACK%%share/icons/hicolor/64x64/apps/lsp-plugins.png
 %%JACK%%share/icons/hicolor/scalable/apps/lsp-plugins.svg
+=======
+>>>>>>> upstream/main

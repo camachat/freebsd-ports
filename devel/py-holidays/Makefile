@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	holidays
 PORTVERSION=	0.9.12
 CATEGORIES=	devel python

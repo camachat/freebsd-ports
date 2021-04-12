@@ -1,5 +1,8 @@
 # Created by: jupengfei <jupengfei@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HTML-HTML5-Parser
 PORTVERSION=	0.301

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dupmerge
 PORTVERSION=	1.73
 PORTREVISION=	1

@@ -1,5 +1,8 @@
 # Created by: Alonso Cardenas Marquez <acm@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	asio
 DISTVERSION=	1.16.0

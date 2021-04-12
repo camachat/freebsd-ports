@@ -1,5 +1,8 @@
 # Created by: John Polstra <jdp@polstra.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cfs
 DISTVERSION=	1.5.0.beta

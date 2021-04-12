@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	supercollider
 DISTVERSION=	3.11.0
 PORTREVISION=	1

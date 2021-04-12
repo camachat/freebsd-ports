@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pyvirtualdisplay
 PORTVERSION=	0.2.4
 PORTREVISION=	1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	jasmine-core
 PORTVERSION=	3.6.0
 CATEGORIES=	devel ruby

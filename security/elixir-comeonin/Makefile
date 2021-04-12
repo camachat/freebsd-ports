@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	comeonin
 PORTVERSION=	3.2
 DISTVERSIONPREFIX=	v

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	faust
 DISTVERSION=	1.4.20180118
 PORTREVISION=	6

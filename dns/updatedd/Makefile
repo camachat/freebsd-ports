@@ -1,5 +1,8 @@
 # Created by: geniusj@ods.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	updatedd
 PORTVERSION=	2.6

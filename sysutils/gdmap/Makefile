@@ -1,5 +1,8 @@
 # Created by: Rodrigo Graeff <delphus@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gdmap
 PORTVERSION=	0.8.1

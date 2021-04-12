@@ -1,5 +1,8 @@
 # Created by: Christopher N. Harrell <cnh@ivmg.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-SNMP
 PORTVERSION=	6.0.1

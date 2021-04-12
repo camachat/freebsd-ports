@@ -1,5 +1,8 @@
 # Created by: elbarto
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	higan
 PORTVERSION=	106

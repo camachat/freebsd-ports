@@ -1,5 +1,8 @@
 # Created by: Dominik Brettnacher <domi@saargate.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-LibIDN
 PORTVERSION=	0.12

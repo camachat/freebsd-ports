@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dtaus
 PORTVERSION=	0.9
 CATEGORIES=	german finance

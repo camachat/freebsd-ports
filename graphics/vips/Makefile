@@ -1,9 +1,16 @@
 # Created by: Lev Serebryakov <lev@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	vips
 PORTVERSION=	8.10.5
 PORTREVISION=	4
+=======
+
+PORTNAME=	vips
+PORTVERSION=	8.10.5
+PORTREVISION=	5
+>>>>>>> upstream/main
 CATEGORIES=	graphics
 MASTER_SITES=	https://github.com/libvips/libvips/releases/download/v${PORTVERSION}/
 
@@ -66,8 +73,13 @@ LCMS2_CONFIGURE_WITH=	lcms
 LCMS2_LIB_DEPENDS=	liblcms2.so:graphics/lcms2
 
 OPENEXR_CONFIGURE_WITH=	OpenEXR
+<<<<<<< HEAD
 OPENEXR_LIB_DEPENDS=	libIlmImf.so:graphics/openexr \
 			libImath.so:graphics/ilmbase
+=======
+OPENEXR_LIB_DEPENDS=	libOpenEXR.so:graphics/openexr \
+			libImath.so:math/Imath
+>>>>>>> upstream/main
 
 HEIF_DESC=		HEIF image format support
 HEIF_CONFIGURE_WITH=	heif

@@ -1,5 +1,8 @@
 # Created by: driedfruit
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mangband
 PORTVERSION=	1.5.3

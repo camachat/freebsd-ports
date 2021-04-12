@@ -1,5 +1,8 @@
 # Created by: Dejan Lesjak <lesi@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libfontenc
 PORTVERSION=	1.1.4

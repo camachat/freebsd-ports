@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pgmigrate
 PORTVERSION=	1.0.6
 CATEGORIES=	databases python

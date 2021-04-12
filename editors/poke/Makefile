@@ -1,5 +1,8 @@
 # Created by: Olga Smirnova <mistresssilvara@hotmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	poke
 PORTVERSION=	1.0

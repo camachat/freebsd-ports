@@ -7,9 +7,13 @@
 #
 # For FreeBSD committers:
 # Please send all suggested changes to the maintainer instead of committing
+<<<<<<< HEAD
 # them to svn yourself.
 #
 # $FreeBSD$
+=======
+# them yourself.
+>>>>>>> upstream/main
 #
 
 .if !defined(Java_Include)

@@ -1,5 +1,8 @@
 # Created by: Hsin-Han You <hhyou@cs.nctu.edu.tw>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rubyzip2
 PORTVERSION=	2.0.2

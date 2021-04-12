@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gcc-msp430-ti-toolchain
 PORTVERSION=	${TI_VERSION}.${RELEASE_DATE}
 PORTREVISION=	2

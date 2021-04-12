@@ -1,5 +1,8 @@
 # Created by: Martin Tournoij <carpetsmoker@xs4all.nl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	daa2iso
 PORTVERSION=	0.1.7e

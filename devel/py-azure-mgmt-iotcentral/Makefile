@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	azure-mgmt-iotcentral
 PORTVERSION=	4.1.0
 CATEGORIES=	devel python

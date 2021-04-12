@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Apache-Solr
 PORTVERSION=	1.05
 CATEGORIES=	textproc www perl5

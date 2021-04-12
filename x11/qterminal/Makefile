@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	qterminal
 PORTVERSION=	0.16.0
 CATEGORIES=	x11

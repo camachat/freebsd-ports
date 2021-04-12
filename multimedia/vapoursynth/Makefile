@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	vapoursynth
 DISTVERSION=	R52
 CATEGORIES=	multimedia

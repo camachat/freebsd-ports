@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	alive-progress
 DISTVERSION=	1.6.2
 CATEGORIES=	misc

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	scss_lint
 PORTVERSION=	0.57.1
 CATEGORIES=	textproc rubygems

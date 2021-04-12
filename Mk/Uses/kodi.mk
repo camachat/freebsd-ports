@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # Support Kodi Home Theater Addons
 #
 # Feature:	kodi

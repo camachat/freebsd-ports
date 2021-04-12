@@ -1,5 +1,8 @@
 # Created by: Martin Tournoij <martin@arp242.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nlarn
 DISTVERSIONPREFIX=	NLarn-

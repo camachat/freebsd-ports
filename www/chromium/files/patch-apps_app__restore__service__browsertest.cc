@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- apps/app_restore_service_browsertest.cc.orig	2020-11-13 06:36:34 UTC
+=======
+--- apps/app_restore_service_browsertest.cc.orig	2021-03-12 23:57:14 UTC
+>>>>>>> upstream/main
 +++ apps/app_restore_service_browsertest.cc
 @@ -148,7 +148,7 @@ IN_PROC_BROWSER_TEST_F(PlatformAppBrowserTest, FileAcc
  }

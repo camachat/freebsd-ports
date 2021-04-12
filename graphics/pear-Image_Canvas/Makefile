@@ -1,5 +1,8 @@
 # Created by: Simun Mikecin <numisemis@yahoo.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Image_Canvas
 PORTVERSION=	0.3.2

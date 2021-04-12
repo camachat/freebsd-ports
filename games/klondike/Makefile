@@ -1,5 +1,8 @@
 # Created by: johnh@isi.edu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	klondike
 PORTVERSION=	1.9

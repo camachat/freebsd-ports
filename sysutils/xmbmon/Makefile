@@ -1,5 +1,8 @@
 # Created by: kaz@kobe1995.net (NAKAMURA Kauzushi)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xmbmon
 PORTVERSION=	205

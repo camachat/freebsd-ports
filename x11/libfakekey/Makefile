@@ -1,5 +1,8 @@
 # Created by: Tobias Berner <tcberner@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libfakekey
 PORTVERSION=	0.1

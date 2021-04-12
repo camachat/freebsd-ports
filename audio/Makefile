@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
 
+=======
+>>>>>>> upstream/main
     COMMENT = Audio tools
 
     SUBDIR += GxSwitchlessWah-lv2
@@ -50,6 +53,10 @@
     SUBDIR += avldrums-lv2
     SUBDIR += aylet
     SUBDIR += bambootracker
+<<<<<<< HEAD
+=======
+    SUBDIR += bamp-lv2
+>>>>>>> upstream/main
     SUBDIR += baresip
     SUBDIR += baudline
     SUBDIR += bcg729
@@ -60,9 +67,17 @@
     SUBDIR += bjumblr-lv2
     SUBDIR += bliss
     SUBDIR += blop
+<<<<<<< HEAD
     SUBDIR += bristol
     SUBDIR += bsequencer-lv2
     SUBDIR += bshapr-lv2
+=======
+    SUBDIR += boops-lv2
+    SUBDIR += bristol
+    SUBDIR += bsequencer-lv2
+    SUBDIR += bshapr-lv2
+    SUBDIR += bschaffl-lv2
+>>>>>>> upstream/main
     SUBDIR += bslizr-lv2
     SUBDIR += cadence
     SUBDIR += calf-lv2
@@ -77,7 +92,10 @@
     SUBDIR += cd2mp3
     SUBDIR += cddb-bundle
     SUBDIR += cdparanoia
+<<<<<<< HEAD
     SUBDIR += cdplay
+=======
+>>>>>>> upstream/main
     SUBDIR += celt
     SUBDIR += checkmate
     SUBDIR += cheesecutter
@@ -185,6 +203,10 @@
     SUBDIR += flake
     SUBDIR += flite
     SUBDIR += fluid-soundfont
+<<<<<<< HEAD
+=======
+    SUBDIR += fluida-lv2
+>>>>>>> upstream/main
     SUBDIR += fluidplug-lv2
     SUBDIR += fluidsynth
     SUBDIR += fluidsynth-dssi
@@ -209,9 +231,13 @@
     SUBDIR += gbsplay
     SUBDIR += geonkick-lv2
     SUBDIR += gervill
+<<<<<<< HEAD
     SUBDIR += ghostess
     SUBDIR += giada
     SUBDIR += gimmix
+=======
+    SUBDIR += giada
+>>>>>>> upstream/main
     SUBDIR += glurp
     SUBDIR += gmpc
     SUBDIR += gmpc-alarm
@@ -289,6 +315,10 @@
     SUBDIR += guidoar
     SUBDIR += guidolib
     SUBDIR += guitarix-lv2
+<<<<<<< HEAD
+=======
+    SUBDIR += gula-plugins-lv2
+>>>>>>> upstream/main
     SUBDIR += guspat
     SUBDIR += gvolwheel
     SUBDIR += gxmms2
@@ -324,19 +354,29 @@
     SUBDIR += jacktrip
     SUBDIR += jalv
     SUBDIR += jalv-select
+<<<<<<< HEAD
     SUBDIR += jamin
+=======
+>>>>>>> upstream/main
     SUBDIR += jamulus
     SUBDIR += jid3lib
     SUBDIR += juk
     SUBDIR += juke
     SUBDIR += julius
+<<<<<<< HEAD
+=======
+    SUBDIR += kapitonov-plugins-pack-lv2
+>>>>>>> upstream/main
     SUBDIR += kexis
     SUBDIR += kid3-kf5
     SUBDIR += kid3-qt5
     SUBDIR += klystrack
     SUBDIR += kmix
     SUBDIR += komposter
+<<<<<<< HEAD
     SUBDIR += ksmp3play
+=======
+>>>>>>> upstream/main
     SUBDIR += kwave
     SUBDIR += ladspa
     SUBDIR += lame
@@ -435,6 +475,10 @@
     SUBDIR += linuxsampler
     SUBDIR += liquidsfz
     SUBDIR += listener
+<<<<<<< HEAD
+=======
+    SUBDIR += littlefly-lv2
+>>>>>>> upstream/main
     SUBDIR += lmms
     SUBDIR += logitechmediaserver
     SUBDIR += logitechmediaserver-dynamicplaylist
@@ -455,7 +499,13 @@
     SUBDIR += mac
     SUBDIR += madfufw
     SUBDIR += madplay
+<<<<<<< HEAD
     SUBDIR += malint
+=======
+    SUBDIR += madronalib
+    SUBDIR += malint
+    SUBDIR += mamba
+>>>>>>> upstream/main
     SUBDIR += mate-media
     SUBDIR += mclk-lv2
     SUBDIR += mctoolame-decoder
@@ -520,11 +570,18 @@
     SUBDIR += muse-sequencer
     SUBDIR += musepack
     SUBDIR += musescore
+<<<<<<< HEAD
     SUBDIR += musicbox-tag-editor
+=======
+>>>>>>> upstream/main
     SUBDIR += musiccontrol
     SUBDIR += musicpc
     SUBDIR += musicpd
     SUBDIR += mythplugin-mythmusic
+<<<<<<< HEAD
+=======
+    SUBDIR += myxer
+>>>>>>> upstream/main
     SUBDIR += nas
     SUBDIR += ncmpc
     SUBDIR += ncmpcpp
@@ -536,7 +593,10 @@
     SUBDIR += normalize
     SUBDIR += nosefart
     SUBDIR += noson-app
+<<<<<<< HEAD
     SUBDIR += nspmod
+=======
+>>>>>>> upstream/main
     SUBDIR += oaml
     SUBDIR += ocp
     SUBDIR += ogg2mp3
@@ -615,6 +675,10 @@
     SUBDIR += pms
     SUBDIR += pms-devel
     SUBDIR += pocketsphinx
+<<<<<<< HEAD
+=======
+    SUBDIR += poly-lv2
+>>>>>>> upstream/main
     SUBDIR += polyphone
     SUBDIR += portaudio
     SUBDIR += praat
@@ -709,7 +773,10 @@
     SUBDIR += shairport-sync
     SUBDIR += sherlock-lv2
     SUBDIR += shntool
+<<<<<<< HEAD
     SUBDIR += shout
+=======
+>>>>>>> upstream/main
     SUBDIR += sidplay
     SUBDIR += sidplay2
     SUBDIR += sidplayer
@@ -791,7 +858,10 @@
     SUBDIR += timidity++-xskin
     SUBDIR += tkeca
     SUBDIR += toccata-lv2
+<<<<<<< HEAD
     SUBDIR += toolame
+=======
+>>>>>>> upstream/main
     SUBDIR += tosha
     SUBDIR += traverso
     SUBDIR += tse3
@@ -833,7 +903,10 @@
     SUBDIR += wildmidi
     SUBDIR += wmix
     SUBDIR += wmmp
+<<<<<<< HEAD
     SUBDIR += wmrecord
+=======
+>>>>>>> upstream/main
     SUBDIR += wmsmixer
     SUBDIR += wxguitar
     SUBDIR += x42-plugins-lv2

@@ -1,7 +1,11 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+
+>>>>>>> upstream/main
 # PROVIDE: frps
 # REQUIRE: DAEMON NETWORKING
 # KEYWORD: shutdown

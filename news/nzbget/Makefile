@@ -1,5 +1,8 @@
 # Created by: Lewis Thompson <purple@lewiz.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nzbget
 PORTVERSION=	21.0

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Mojo-Weixin
 PORTVERSION=	1.4.6
 CATEGORIES=	www perl5

@@ -1,5 +1,8 @@
 # Created by: Konstantinos Konstantinidis <kkonstan@daemon.gr>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wmix
 PORTVERSION=	3.1

@@ -1,5 +1,8 @@
 # Created by: Justin Hawkins <justin@hawkins.id.au>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	twiki
 PORTVERSION=	6.1.0

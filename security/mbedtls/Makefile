@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mbedtls
 PORTVERSION=	2.16.10
 DISTVERSIONPREFIX=${PORTNAME}-

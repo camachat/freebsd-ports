@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	averiagwf
 PORTVERSION=	1.00
 PORTREVISION=	1

@@ -1,5 +1,8 @@
 # Created by: Seiichirou Hiraoka <flathill@flathill.gr.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fkiss
 PORTVERSION=	0.33a

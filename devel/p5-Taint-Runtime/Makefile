@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Taint-Runtime
 PORTVERSION=	0.03
 PORTREVISION=	2

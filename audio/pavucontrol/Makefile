@@ -1,5 +1,8 @@
 # Created by: Romain Tartière <romain@blogreen.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pavucontrol
 PORTVERSION=	4.0

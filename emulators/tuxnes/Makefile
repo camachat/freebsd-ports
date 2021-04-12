@@ -1,5 +1,8 @@
 # Created by: Jeroen Ruigrok van der Werven <asmodai@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tuxnes
 PORTVERSION=	0.75

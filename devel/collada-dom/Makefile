@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	collada-dom
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.5.0

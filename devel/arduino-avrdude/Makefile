@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	avrdude
 PORTVERSION=	6.3
 PORTREVISION=	3

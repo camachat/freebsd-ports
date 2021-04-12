@@ -1,5 +1,8 @@
 # Created by: Mirko Zinn <mail@derzinn.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	minimongo
 PORTVERSION=	0.2.7

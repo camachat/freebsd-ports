@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	grape
 PORTVERSION=	1.5.2
 CATEGORIES=	devel rubygems

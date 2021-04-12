@@ -1,5 +1,8 @@
 # Created by: J Han <hjh@best.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	t3d
 PORTVERSION=	1.1

@@ -1,5 +1,8 @@
 # Created by: se
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	yersinia
 PORTVERSION=	0.8.2

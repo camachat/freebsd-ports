@@ -1,5 +1,8 @@
 # Created by: Sue Blake <sue@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	abcselect
 PORTVERSION=	1.5

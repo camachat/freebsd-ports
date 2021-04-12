@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 # 
+=======
+>>>>>>> upstream/main
 # Use OpenGL and related libraries and ports
 # 
 # Feature:	gl

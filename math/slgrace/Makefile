@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	slgrace
 PORTVERSION=	0.2.2
 PORTREVISION=	10

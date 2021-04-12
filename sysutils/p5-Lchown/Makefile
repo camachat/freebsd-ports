@@ -1,5 +1,8 @@
 # Created by: Jeffrey Goldberg <jeffrey@goldmark.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Lchown
 PORTVERSION=	1.01

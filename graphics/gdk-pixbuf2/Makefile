@@ -1,5 +1,8 @@
 # Created by: Ade Lovett <ade@lovett.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gdk-pixbuf
 PORTVERSION=	2.40.0

@@ -1,5 +1,8 @@
 # Created by: Anders Andersson <anders@hack.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	oregano
 DISTVERSIONPREFIX=	v

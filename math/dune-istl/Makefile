@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dune-istl
 DISTVERSION=	2.7.1
 PORTREVISION=	1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	portfind
 PORTVERSION=	1.6.3
 CATEGORIES=	ports-mgmt perl5

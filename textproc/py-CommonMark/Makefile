@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	CommonMark
 PORTVERSION=	0.9.1
 CATEGORIES=	textproc python

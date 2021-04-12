@@ -1,5 +1,8 @@
 # Created by: Janos Mohacsi
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xmltooling
 PORTVERSION=	3.2.0

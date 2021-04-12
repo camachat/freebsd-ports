@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	qiskit-aer
 DISTVERSION=	0.5.2
 PORTREVISION=	3

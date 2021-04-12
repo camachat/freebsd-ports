@@ -1,5 +1,8 @@
 # Created by: alex
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bochs
 PORTVERSION=	2.6.11

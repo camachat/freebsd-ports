@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libring
 DISTVERSION=	1.3.2
 CATEGORIES=	devel

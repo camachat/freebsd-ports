@@ -1,5 +1,8 @@
 # Created by: Peter Avalos <pavalos@theshell.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	DBIx-DBSchema
 PORTVERSION=	0.45

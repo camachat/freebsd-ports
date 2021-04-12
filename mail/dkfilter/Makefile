@@ -1,5 +1,8 @@
 # Created by: Yoshisato YANAGISAWA
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dkfilter
 PORTVERSION=	0.11

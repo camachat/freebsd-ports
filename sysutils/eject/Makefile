@@ -1,5 +1,8 @@
 # Created by: shige
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	eject
 PORTVERSION=	1.5

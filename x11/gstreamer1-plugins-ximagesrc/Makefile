@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTREVISION=	0
 CATEGORIES=	x11
 PKGNAMESUFFIX=	1-plugins-ximagesrc

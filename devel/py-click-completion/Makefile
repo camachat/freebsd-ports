@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	click-completion
 PORTVERSION=	0.5.2
 CATEGORIES=	devel python

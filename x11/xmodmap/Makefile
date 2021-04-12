@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xmodmap
 PORTVERSION=	1.0.10
 CATEGORIES=	x11

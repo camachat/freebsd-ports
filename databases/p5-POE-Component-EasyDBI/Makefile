@@ -1,5 +1,8 @@
 # Created by: Zach Thompson <lin-chi@lastamericanempire.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	POE-Component-EasyDBI
 PORTVERSION=	1.28

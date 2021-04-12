@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	wlrobs
 DISTVERSIONPREFIX=	v
 PORTVERSION=	1.0

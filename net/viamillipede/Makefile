@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	viamillipede
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.89

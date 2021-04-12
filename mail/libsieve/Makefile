@@ -1,5 +1,8 @@
 # Created by: Mark Starovoytov <mark_sf@kikg.ifmo.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libsieve
 PORTVERSION=	2.3.1

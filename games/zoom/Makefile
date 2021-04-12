@@ -1,5 +1,8 @@
 # Created by: Jan Stocker <Jan.Stocker@t-online.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	zoom
 PORTVERSION=	1.1.5

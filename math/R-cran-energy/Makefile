@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	energy
 DISTVERSION=	1.7-7
 CATEGORIES=	math

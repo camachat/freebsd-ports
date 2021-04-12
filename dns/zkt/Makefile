@@ -1,5 +1,8 @@
 # Created by: Frank Behrens
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		zkt
 DISTVERSION=		1.1.4

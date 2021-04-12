@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	jstest-gtk
 PORTVERSION=	20180710
 PORTREVISION=	3

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	db_connection
 DISTVERSION=	1.1.3
 DISTVERSIONPREFIX=	v

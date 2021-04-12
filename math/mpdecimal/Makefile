@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mpdecimal
 DISTVERSION=	2.5.1
 CATEGORIES=	math

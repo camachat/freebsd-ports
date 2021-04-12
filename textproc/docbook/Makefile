@@ -1,5 +1,8 @@
 # Created by: Nik Clayton <nik@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	docbook
 PORTVERSION=	1.5

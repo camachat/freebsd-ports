@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kpathsea
 PORTVERSION=	6.2.1
 PORTREVISION=	2

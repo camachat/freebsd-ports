@@ -1,5 +1,8 @@
 # Created by: Sébastien Santoro <dereckson@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Term-ReadLine-TTYtter
 PORTVERSION=	1.4

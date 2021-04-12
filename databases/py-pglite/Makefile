@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pglite
 DISTVERSION=	1.0.13
 CATEGORIES=	databases python

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Devel-KYTProf
 PORTVERSION=	0.05
 PORTREVISION=	2

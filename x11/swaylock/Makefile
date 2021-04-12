@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	swaylock
 DISTVERSION?=	1.5
 PORTREVISION?=	2

@@ -1,5 +1,8 @@
 # Created by: Murilo Opsfelder <mopsfelder@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Data-Validate-Email
 PORTVERSION=	0.04

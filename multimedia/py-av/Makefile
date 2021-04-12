@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	av
 PORTVERSION=	8.0.3
 CATEGORIES=	multimedia python

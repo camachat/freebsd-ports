@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	oragono
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.5.1

@@ -1,5 +1,8 @@
 # Created by: <hvo.pm@xs4all.nl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Dancer2-Plugin-DBIC
 PORTVERSION=	0.0100

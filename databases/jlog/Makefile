@@ -1,5 +1,8 @@
 # Created by: alfred
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jlog
 # version is YYYYMMDDxx <- xx is 00, 01 as needed per day

@@ -1,5 +1,8 @@
 # Created by: Dash|RD
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	DFileServer
 PORTVERSION=	1.1.3

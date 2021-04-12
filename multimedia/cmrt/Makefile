@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cmrt
 DISTVERSION=	1.0.6
 PORTREVISION=	2

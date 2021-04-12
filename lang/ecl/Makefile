@@ -1,5 +1,8 @@
 # Created by: Julian Stecklina
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ecl
 PORTVERSION=	20.4.24

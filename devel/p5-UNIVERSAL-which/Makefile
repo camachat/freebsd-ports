@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	UNIVERSAL-which
 PORTVERSION=	0.06
 PORTREVISION=	1

@@ -1,5 +1,8 @@
 # Created by: Ralf S. Engelschall
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	shtool
 PORTVERSION=	2.0.8

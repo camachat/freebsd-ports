@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	font-misc-ethiopic
 PORTVERSION=	1.0.4
 CATEGORIES=	x11-fonts

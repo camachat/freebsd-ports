@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ebook2cw
 PORTVERSION=	0.8.2
 PORTREVISION=	2

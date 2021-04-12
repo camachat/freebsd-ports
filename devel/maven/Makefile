@@ -1,5 +1,8 @@
 # Created by: JonathanChen <jonc@chen.org.nz>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	maven
 DISTVERSION=	3.6.3

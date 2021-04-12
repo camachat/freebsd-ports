@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 .if !defined(LICENSE)
 LICENSE=	MIT PSFL
 LICENSE_COMB=	multi

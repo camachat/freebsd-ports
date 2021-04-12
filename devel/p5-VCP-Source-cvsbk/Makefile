@@ -1,5 +1,8 @@
 # Created by: June-Yen Huang <jihuang@gate.sinica.edu.tw>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	VCP-Source-cvsbk
 PORTVERSION=	0.11

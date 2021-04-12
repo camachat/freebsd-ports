@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	webchannel
 DISTVERSION=	${QT5_VERSION}
 PORTREVISION=	1

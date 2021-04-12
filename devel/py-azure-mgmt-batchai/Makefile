@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	azure-mgmt-batchai
 PORTVERSION=	2.0.0
 CATEGORIES=	devel python

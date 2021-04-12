@@ -1,5 +1,8 @@
 # Created by: Boris Kochergin <spawk@acm.poly.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	arpCounterattack
 PORTVERSION=	1.2.0

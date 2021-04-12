@@ -1,5 +1,8 @@
 # Created by: Renaud Chaput <renchap@cocoa-x.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rest-client
 PORTVERSION=	2.0.2

@@ -1,5 +1,8 @@
 # Created by: petef@databits.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	PDF-Create
 PORTVERSION=	1.46

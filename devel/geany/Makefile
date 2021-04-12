@@ -1,5 +1,8 @@
 # Created by: Remington Lang <MrL0Lz@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	geany
 PORTVERSION=	1.37.1

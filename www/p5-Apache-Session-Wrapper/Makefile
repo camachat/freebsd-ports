@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Apache-Session-Wrapper
 PORTVERSION=	0.34
 PORTREVISION=	1

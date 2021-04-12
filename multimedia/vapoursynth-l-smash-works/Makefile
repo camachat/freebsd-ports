@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	l-smash-works
 DISTVERSION=	0.0-940 # git rev-list --count HEAD
 DISTVERSIONSUFFIX=	-g198cc78

@@ -1,5 +1,8 @@
 # Created by: Pietro Cerutti <gahr@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ogdf
 PORTVERSION=	2020.02

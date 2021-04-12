@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	birdfont
 DISTVERSION=	2.29.1
 CATEGORIES=	graphics x11-fonts

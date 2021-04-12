@@ -1,5 +1,8 @@
 # Created by: Alexey Mikhailov <karma@ez.pereslavl.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xtrlock
 PORTVERSION=	2.8

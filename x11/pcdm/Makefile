@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pcdm
 PORTVERSION=	201710031254
 PORTREVISION=	3

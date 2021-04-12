@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rabs
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.11.7

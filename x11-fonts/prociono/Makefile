@@ -1,5 +1,8 @@
 # Created by: Florian Limberger <flo@snakeoilproductions.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	prociono
 DISTVERSION=	g20110526

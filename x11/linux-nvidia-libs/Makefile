@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	nvidia-libs
 DISTVERSION?=	460.67
 # Always try to set PORTREVISION as it can be overridden by the slave ports

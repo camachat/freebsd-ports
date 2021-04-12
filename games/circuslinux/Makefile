@@ -1,5 +1,8 @@
 # Created by: Edwin Groothuis
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	circuslinux
 PORTVERSION=	1.0.3

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ipdecap
 PORTVERSION=	0.7.2
 DISTVERSIONPREFIX=	v

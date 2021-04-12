@@ -1,5 +1,8 @@
 # Created by: Peter Johnson <johnson.peter@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	binutils
 PORTVERSION=	2.17

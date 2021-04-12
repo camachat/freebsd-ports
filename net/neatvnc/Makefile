@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	neatvnc
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.4.0

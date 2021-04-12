@@ -1,5 +1,8 @@
 # Created by: Paolo Pisati <flag@gufi.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wmnd
 PORTVERSION=	0.4.18

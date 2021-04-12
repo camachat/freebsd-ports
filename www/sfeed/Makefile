@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sfeed
 PORTVERSION=	0.9.19
 CATEGORIES=	www

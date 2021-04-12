@@ -1,5 +1,8 @@
 # Created by: jhs@berklix.com / asami (original)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hexcalc
 PORTVERSION=	1.11

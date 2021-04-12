@@ -1,7 +1,10 @@
 #!/bin/sh
 
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # PROVIDE: syncthingdiscosrv
 # REQUIRE: DAEMON
 # KEYWORD: shutdown

@@ -1,5 +1,8 @@
 # Created by: Nicola Stanislao Vitale <nivit@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	adapta-backgrounds
 PORTVERSION=	0.5.2.3

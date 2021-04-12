@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gofont-ttf
 DISTVERSION=	g20180511
 PORTREVISION=	1

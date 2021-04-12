@@ -1,8 +1,15 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=		dino
 DISTVERSIONPREFIX=	v
 DISTVERSION=		0.2.0
+=======
+PORTNAME=		dino
+DISTVERSIONPREFIX=	v
+DISTVERSION=		0.2.0
+PORTREVISION=		1
+>>>>>>> upstream/main
 CATEGORIES=		net-im
 
 MAINTAINER=		ashish@FreeBSD.org

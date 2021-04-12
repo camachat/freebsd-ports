@@ -1,5 +1,8 @@
 # Created by: paulh@logicsquad.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	refdb
 PORTVERSION=	0.9.9

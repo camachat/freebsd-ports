@@ -1,7 +1,10 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 
 # PROVIDE: gpxloggerd
 # REQUIRE: NETWORKING DAEMON cleanvar devfs gpsd

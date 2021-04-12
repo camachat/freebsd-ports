@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tilda
 PORTVERSION=	1.5.0
 DISTVERSIONPREFIX=	${PORTNAME}-

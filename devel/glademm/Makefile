@@ -1,5 +1,8 @@
 # Created by: Alexander Nedotsukov <bland@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	glademm
 PORTVERSION=	2.6.0

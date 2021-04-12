@@ -1,5 +1,8 @@
 # Created by: Neil Blakey-Milner <nbm@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rockdodger
 PORTVERSION=	1.1.4

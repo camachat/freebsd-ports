@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kitchen
 PORTVERSION=	1.2.6
 CATEGORIES=	devel python

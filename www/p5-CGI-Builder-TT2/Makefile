@@ -1,5 +1,8 @@
 # Created by: Daniel Wijnands <daniel@itxl.nl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	CGI-Builder-TT2
 PORTVERSION=	0.03

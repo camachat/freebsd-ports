@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	SVN-Web
 PORTVERSION=	0.63
 PORTREVISION=	3

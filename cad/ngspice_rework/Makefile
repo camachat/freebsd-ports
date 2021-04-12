@@ -1,5 +1,8 @@
 # Created by: AMAKAWA Shuhei <amakawa@jp.FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ngspice_rework
 PORTVERSION=	32

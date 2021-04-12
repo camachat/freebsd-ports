@@ -1,5 +1,8 @@
 # Created by: Muhammad Moinur Rahman <5u623l20@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	enum34
 PORTVERSION=	1.1.10

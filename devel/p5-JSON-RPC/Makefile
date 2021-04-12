@@ -1,5 +1,8 @@
 # Created by: Vadim Vatlin
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	JSON-RPC
 PORTVERSION=	1.06

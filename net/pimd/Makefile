@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pimd
 PORTVERSION=	2.3.2
 CATEGORIES=	net

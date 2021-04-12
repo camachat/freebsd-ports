@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	spylls
 DISTVERSION=	0.1.4
 CATEGORIES=	textproc python

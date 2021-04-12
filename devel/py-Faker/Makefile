@@ -1,5 +1,8 @@
 # Created by: Alfred Perlstein <alfred@freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Faker
 PORTVERSION=	0.8.15

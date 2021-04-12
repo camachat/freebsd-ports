@@ -1,5 +1,8 @@
 # Created by: Matthew Donovan <kitchetech@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sterm
 DISTVERSION=	0.8.4

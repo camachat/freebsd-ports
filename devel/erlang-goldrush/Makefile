@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	goldrush
 PORTVERSION=	0.1.9
 CATEGORIES=	devel

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ssh-chat
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.10.1

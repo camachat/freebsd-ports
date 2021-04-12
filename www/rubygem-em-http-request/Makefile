@@ -1,5 +1,8 @@
 # Created by: Scott Sanders <scott@jssjr.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	em-http-request
 PORTVERSION=	1.1.5

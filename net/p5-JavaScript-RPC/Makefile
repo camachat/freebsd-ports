@@ -1,5 +1,8 @@
 # Created by: Tony Shadwick <tshadwick@oss-solutions.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	JavaScript-RPC
 PORTVERSION=	0.3

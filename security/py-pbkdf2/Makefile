@@ -1,5 +1,8 @@
 # Created by: Neil Booth <kyuupichan@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pbkdf2
 PORTVERSION=	1.3

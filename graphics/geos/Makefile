@@ -1,5 +1,8 @@
 # Created by: Leonardo Martins <lmartins@nepe.eee.ufg.br>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	geos
 PORTVERSION=	3.9.1

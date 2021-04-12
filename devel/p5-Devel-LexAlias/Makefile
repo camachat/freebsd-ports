@@ -1,5 +1,8 @@
 # Created by: Ying-Chieh Chen
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Devel-LexAlias
 PORTVERSION=	0.05

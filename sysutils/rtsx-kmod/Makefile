@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rtsx
 DISTVERSION=	${GH_TAGNAME}
 PORTEPOCH=	1

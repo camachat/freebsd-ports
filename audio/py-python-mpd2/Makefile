@@ -1,5 +1,8 @@
 # Created by: rene@FreeBSD.org (repocopied from audio/py-mpd)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	python-mpd2
 PORTVERSION=	3.0.4

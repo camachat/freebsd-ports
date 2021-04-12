@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	conditional
 PORTVERSION=	1.0
 CATEGORIES=	devel python

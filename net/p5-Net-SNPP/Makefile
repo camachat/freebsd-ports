@@ -1,5 +1,8 @@
 # Created by: devin@spamcop.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-SNPP
 PORTVERSION=	1.17

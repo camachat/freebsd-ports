@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	nplot
 PORTVERSION=	0.9.11
 PORTREVISION=	1

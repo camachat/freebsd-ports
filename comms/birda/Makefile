@@ -1,5 +1,8 @@
 # Created by: Brandon S. Allbery KF8NH <allbery@ece.cmu.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	birda
 PORTVERSION=	1.3

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Validation-Class
 PORTVERSION=	7.900056
 PORTREVISION=	1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	hexer
 PORTVERSION=	1.0.3
 PORTREVISION=	1

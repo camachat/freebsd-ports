@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	crossplane
 DISTVERSION=	0.5.7
 DISTVERSIONPREFIX=	v

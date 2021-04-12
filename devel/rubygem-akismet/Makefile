@@ -1,5 +1,8 @@
 # Created by: Torsten Zühlsdorff <ports@toco-domains.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	akismet
 PORTVERSION=	3.0.0

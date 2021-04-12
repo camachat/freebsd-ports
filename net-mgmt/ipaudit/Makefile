@@ -1,5 +1,8 @@
 # Created by: Ying-Chieh Chen <yinjieh@csie.nctu.edu.tw>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ipaudit
 PORTVERSION=	1.1

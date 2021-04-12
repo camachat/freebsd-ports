@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	aws-sam-translator
 PORTVERSION=	1.19.1
 CATEGORIES=	devel python

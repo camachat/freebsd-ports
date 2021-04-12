@@ -1,5 +1,8 @@
 # Created by: Shaun Amott <shaun@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pyperclip
 PORTVERSION=	1.7.0

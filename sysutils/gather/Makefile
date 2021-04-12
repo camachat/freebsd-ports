@@ -1,5 +1,8 @@
 # Created by: Mikolaj Golub <to.my.trociny@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gather
 PORTVERSION=	0.4.1

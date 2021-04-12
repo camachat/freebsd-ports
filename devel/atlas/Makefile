@@ -1,5 +1,8 @@
 # Created by: Oliver Lehmann <lehmann@ans-netz.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Atlas
 PORTVERSION=	0.5.2

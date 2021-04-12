@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	i2c-tools
 PORTVERSION=	4.1
 CATEGORIES=	sysutils

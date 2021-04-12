@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ossim
 DISTVERSIONPREFIX=	OrchidIsland-
 DISTVERSION=	2.11.1

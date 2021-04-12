@@ -1,5 +1,8 @@
 # Created by: tobez@plab.ku.dk
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mathopd
 PORTVERSION=	1.5p8

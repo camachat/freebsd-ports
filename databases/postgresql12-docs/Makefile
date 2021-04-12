@@ -1,5 +1,8 @@
 # Created by: Palle Girgensohn <girgen@pingpong.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	postgresql
 PORTREVISION=	0

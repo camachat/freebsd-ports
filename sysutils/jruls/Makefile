@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	jruls
 PORTVERSION=	0.2
 DISTVERSIONPREFIX=	v

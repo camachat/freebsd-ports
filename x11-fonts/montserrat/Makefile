@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	montserrat
 PORTVERSION=	7.210
 DISTVERSIONPREFIX=	v

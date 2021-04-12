@@ -3,8 +3,11 @@
 #       python setup.py install
 #
 
+<<<<<<< HEAD
 __version__ = "$FreeBSD$"
 
+=======
+>>>>>>> upstream/main
 import os, string
 
 try:

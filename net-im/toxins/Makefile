@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	toxins
 DISTVERSION=	g20180217
 PORTREVISION=	1

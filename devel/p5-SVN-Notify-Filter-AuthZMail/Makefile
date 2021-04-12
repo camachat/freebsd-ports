@@ -1,5 +1,8 @@
 # Created by: glarkin@
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	SVN-Notify-Filter-AuthZMail
 PORTVERSION=	1.01

@@ -1,5 +1,8 @@
 # Created by: Tony Shadwick <tshadwick@oss-solutions.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	htop
 DISTVERSION=	3.0.4

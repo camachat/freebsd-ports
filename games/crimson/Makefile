@@ -1,5 +1,8 @@
 # Created by: Jan Jungnickel <jan@jungnickel.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	crimson
 PORTVERSION=	0.5.3

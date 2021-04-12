@@ -1,5 +1,8 @@
 # Created by: Stephen Roznowski (sjr@home.com)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Parse-Syslog
 PORTVERSION=	1.10

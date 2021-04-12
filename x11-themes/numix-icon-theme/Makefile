@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	numix-icon-theme
 PORTVERSION=	20.06.07
 CATEGORIES=	x11-themes

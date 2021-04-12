@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bear
 PORTVERSION=	0.8.5
 CATEGORIES=	devel

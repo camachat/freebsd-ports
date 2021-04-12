@@ -1,5 +1,8 @@
 # Created by: ats (original)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gopher
 PORTVERSION=	3.0.6

@@ -1,5 +1,8 @@
 # Created by: Chess Griffin <chess@chessgriffin.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bip
 DISTVERSION=	0.9.0-rc4

@@ -1,5 +1,8 @@
 # Created by: Timothy Redaelli <drizzt@gufi.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	netselect
 PORTVERSION=	0.4

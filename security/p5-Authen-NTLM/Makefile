@@ -1,5 +1,8 @@
 # Created by: James Thomason <james@divide.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Authen-NTLM
 PORTVERSION=	1.09

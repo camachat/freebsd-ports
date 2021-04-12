@@ -1,9 +1,15 @@
 # Created by: Stephen Montgomery-Smith <stephen@math.missouri.edu>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	octave-forge-nurbs
 PORTVERSION=	1.3.13
 PORTREVISION=	11
+=======
+
+PORTNAME=	octave-forge-nurbs
+PORTVERSION=	1.4.3
+>>>>>>> upstream/main
 CATEGORIES=	math
 
 MAINTAINER=	stephen@FreeBSD.org

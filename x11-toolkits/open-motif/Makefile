@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	open-motif
 PORTVERSION=	2.3.8
 PORTREVISION=	2

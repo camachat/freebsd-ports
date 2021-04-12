@@ -1,5 +1,8 @@
 # Created by: is grammatically incorrect in this context.
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ptmalloc2
 PORTVERSION=	20060605

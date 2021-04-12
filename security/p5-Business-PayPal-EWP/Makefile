@@ -1,5 +1,8 @@
 # Created by: Alfred Perlstein
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Business-PayPal-EWP
 PORTVERSION=	1.03

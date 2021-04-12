@@ -1,5 +1,8 @@
 # Created by: Jyun-Yan You <jyyou@cs.nctu.edu.tw>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mkntpwd
 PORTVERSION=	1.0

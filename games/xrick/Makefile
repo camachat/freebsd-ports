@@ -1,5 +1,8 @@
 # Created by: David Siebörger <drs@rucus.ru.ac.za>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xrick
 PORTVERSION=	021212

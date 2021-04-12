@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	kerl
 DISTVERSION=	2.1.0
+=======
+PORTNAME=	kerl
+DISTVERSION=	2.1.1
+>>>>>>> upstream/main
 CATEGORIES=	devel
 EXTRACT_ONLY=	${DISTNAME}${EXTRACT_SUFX}
 

@@ -1,5 +1,8 @@
 # Created by: scrappy@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	perl-ldap
 PORTVERSION=	0.6800

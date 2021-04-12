@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	horcrux
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.2

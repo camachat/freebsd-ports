@@ -1,5 +1,8 @@
 # Created by: Dominique Goncalves <dominique.goncalves@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Ogg-Vorbis-Header-PurePerl
 PORTVERSION=	1.0

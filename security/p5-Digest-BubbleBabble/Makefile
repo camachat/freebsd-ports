@@ -1,5 +1,8 @@
 # Created by: jesper
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Digest-BubbleBabble
 PORTVERSION=	0.02

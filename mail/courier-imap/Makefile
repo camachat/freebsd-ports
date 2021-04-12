@@ -1,5 +1,8 @@
 # Created by: Neil Blakey-Milner
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	courier-imap
 PORTVERSION=	5.1.2

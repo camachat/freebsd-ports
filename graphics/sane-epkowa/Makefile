@@ -1,5 +1,8 @@
 # Created by: luigi@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 # Maintainers:		Luigi Rizzo <luigi@FreeBSD.org>
 #

@@ -1,5 +1,8 @@
 # Created by: SASAKI Shunsuke <ele@pop17.odn.ne.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ne
 PORTVERSION=	3.05

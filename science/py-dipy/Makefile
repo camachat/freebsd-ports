@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dipy
 DISTVERSION=	1.4.0
 CATEGORIES=	science python

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ansiweather
 PORTVERSION=	1.17.0
 CATEGORIES=	misc

@@ -1,5 +1,8 @@
 # Created by: teramoto@comm.eng.osaka-u.ac.jp
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gpgme
 PORTVERSION=	1.15.1

@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	rsocket-cpp
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2021.03.29.00
+=======
+PORTNAME=	rsocket-cpp
+DISTVERSIONPREFIX=	v
+DISTVERSION=	2021.04.05.00
+>>>>>>> upstream/main
 CATEGORIES=	net
 
 MAINTAINER=	yuri@FreeBSD.org

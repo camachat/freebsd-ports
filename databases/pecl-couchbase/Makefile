@@ -1,5 +1,8 @@
 # Created by: John Chen <johnpupu@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	couchbase
 DISTVERSION=	2.6.2

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tablist
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.0

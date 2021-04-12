@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	App-TLSMe
 PORTVERSION=	0.110000
 PORTREVISION=	1

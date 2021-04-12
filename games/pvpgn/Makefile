@@ -1,5 +1,8 @@
 # Created by: mek
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pvpgn
 PORTVERSION=	1.8.5

@@ -1,5 +1,8 @@
 # Created by: James Bailie <jimmy@mammothcheese.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ephemera
 PORTVERSION=	6.34

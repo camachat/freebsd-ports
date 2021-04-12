@@ -1,5 +1,8 @@
 # Created by: Brian Gaeke <brg@dgate.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vmips
 PORTVERSION=	1.5.1

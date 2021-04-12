@@ -1,5 +1,8 @@
 # Created by: Koop Mast <kwm@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mate-polkit
 PORTVERSION=	1.24.0
@@ -10,7 +13,11 @@ DIST_SUBDIR=	mate
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	MATE frontend to the PolicyKit framework
 
+<<<<<<< HEAD
 LICENSE=	LGPL20
+=======
+LICENSE=	LGPL20+
+>>>>>>> upstream/main
 LICENSE_FILE=	${WRKSRC}/COPYING
 
 LIB_DEPENDS=	libpolkit-gobject-1.so:sysutils/polkit \

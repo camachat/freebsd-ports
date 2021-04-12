@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	croc
 PORTVERSION=	8.6.12
 DISTVERSIONPREFIX=	v

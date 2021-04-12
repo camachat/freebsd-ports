@@ -1,5 +1,8 @@
 # Created by: Dirk Engling <erdgeist@erdgeist.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jaildaemon
 PORTVERSION=	0.4

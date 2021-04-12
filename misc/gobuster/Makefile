@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gobuster
 DISTVERSIONPREFIX=	v
 DISTVERSION=	3.1.0

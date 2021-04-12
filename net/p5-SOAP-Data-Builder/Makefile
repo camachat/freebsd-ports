@@ -1,5 +1,8 @@
 # Created by: kungfuftr <scott@surreytech.co.uk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	SOAP-Data-Builder
 PORTVERSION=	1

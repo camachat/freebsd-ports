@@ -1,5 +1,8 @@
 # Created by: Ed Schouten <ed@fxq.nl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	raincoat
 PORTVERSION=	0.11

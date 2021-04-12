@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	redsea
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.17.1

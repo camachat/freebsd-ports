@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tirexs
 PORTVERSION=	0.8.15
 DISTVERSIONPREFIX=	v

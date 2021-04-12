@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libotr
 PORTVERSION=	4.1.1
 CATEGORIES=	security net-im net

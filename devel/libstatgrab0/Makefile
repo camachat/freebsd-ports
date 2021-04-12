@@ -1,5 +1,8 @@
 # Created by: Tim Bishop <tdb@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libstatgrab
 PORTVERSION=	0.17

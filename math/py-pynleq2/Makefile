@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pynleq2
 DISTVERSION=	0.0.2
 PORTREVISION=	7

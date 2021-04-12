@@ -1,5 +1,8 @@
 # Created by: Andrei Antoukh <niwi@niwi.be>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	CouchDB
 PORTVERSION=	1.1

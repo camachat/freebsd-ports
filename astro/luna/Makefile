@@ -1,5 +1,8 @@
 # Created by: ABURAYER Rewsirow <rewsirow@ff.iij4u.or.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	luna
 PORTVERSION=	1.9

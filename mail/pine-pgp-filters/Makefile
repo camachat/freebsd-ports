@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pine-pgp-filters
 PORTVERSION=	1.8
 PORTREVISION=	2

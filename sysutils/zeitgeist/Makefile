@@ -1,5 +1,8 @@
 # Created by: Koop Mast <kwm@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 # NOTE: please keep zeitgeist in sysutils/qzeitgeist in sync
 
 PORTNAME=	zeitgeist

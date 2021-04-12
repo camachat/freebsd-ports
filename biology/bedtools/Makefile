@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		bedtools
 DISTVERSIONPREFIX=	v
 DISTVERSION=		2.30.0

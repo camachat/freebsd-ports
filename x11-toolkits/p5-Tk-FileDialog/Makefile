@@ -1,5 +1,8 @@
 # Created by: minter@lunenburg.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Tk-FileDialog
 PORTVERSION=	1.3

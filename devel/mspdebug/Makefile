@@ -1,5 +1,8 @@
 # Created by: Peter Jeremy <peterjeremy@acm.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mspdebug
 PORTVERSION=	0.25.20200402

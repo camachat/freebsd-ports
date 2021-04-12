@@ -1,5 +1,8 @@
 # Created by: Damien Bobillot
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pam_jail
 PORTVERSION=	0.4

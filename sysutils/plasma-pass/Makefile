@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	plasma-pass
 DISTVERSION=	1.2.0
 MASTER_SITES=	KDE/stable/${PORTNAME}

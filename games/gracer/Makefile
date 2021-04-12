@@ -1,5 +1,8 @@
 # Created by: nox@jelal.kn-bremen.de
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gracer
 PORTVERSION=	0.1.5

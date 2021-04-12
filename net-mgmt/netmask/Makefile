@@ -1,5 +1,8 @@
 # Created by: Mike Bristow <mike@urgle.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	netmask
 PORTVERSION=	2.4

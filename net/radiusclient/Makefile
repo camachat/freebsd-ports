@@ -1,5 +1,8 @@
 # Created by: maurice
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	radiusclient
 PORTVERSION=	0.5.6

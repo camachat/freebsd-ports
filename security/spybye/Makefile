@@ -1,5 +1,8 @@
 # Created by: pauls
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	spybye
 PORTVERSION=	0.3

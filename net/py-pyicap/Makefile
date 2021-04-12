@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pyicap
 DISTVERSION=	1.0b1
 CATEGORIES=	net python

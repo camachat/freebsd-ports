@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	imlib2-webp
 PORTVERSION=	20160601
 CATEGORIES=	graphics

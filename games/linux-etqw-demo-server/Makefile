@@ -1,5 +1,8 @@
 # Created by: ayu <ayunyan@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	etqw
 PORTVERSION=	2.0.r1

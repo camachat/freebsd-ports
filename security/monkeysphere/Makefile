@@ -1,5 +1,8 @@
 # Created by: Daniel Kahn Gillmor <dkg@fifthhorseman.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	monkeysphere
 PORTVERSION=	0.42

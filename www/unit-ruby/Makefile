@@ -1,5 +1,8 @@
 # Created by: Sergey Osokin <osa@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PKGNAMESUFFIX=	-${UNIT_MODNAME}
 

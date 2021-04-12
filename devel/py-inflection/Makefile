@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	inflection
 DISTVERSION=	0.5.1
 CATEGORIES=	devel python

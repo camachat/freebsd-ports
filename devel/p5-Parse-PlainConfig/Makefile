@@ -1,5 +1,8 @@
 # Created by: Peter Vereshagin <peter@vereshagin.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Parse-PlainConfig
 PORTVERSION=	3.05

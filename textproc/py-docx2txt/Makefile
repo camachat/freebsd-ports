@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	docx2txt
 DISTVERSION=	0.8
 CATEGORIES=	textproc python

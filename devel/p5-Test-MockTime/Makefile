@@ -1,5 +1,8 @@
 # Created by: Timur I. Bakeyev <bat@cpan.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Test-MockTime
 PORTVERSION=	0.17

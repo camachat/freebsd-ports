@@ -1,5 +1,8 @@
 # Created by: Rodrigo Osorio <rodrigo@freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	librfm
 PORTVERSION=	5.3.16.4

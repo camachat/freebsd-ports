@@ -1,5 +1,8 @@
 # Created by: Neil Booth
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pysocks
 PORTVERSION=	1.7.1

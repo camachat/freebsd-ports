@@ -1,5 +1,8 @@
 # Created by: Matthew Seaman <m.seaman@infracaninophile.co.uk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wanted-ports
 PORTVERSION=	0.2

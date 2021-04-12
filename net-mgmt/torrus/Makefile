@@ -1,5 +1,8 @@
 # Created by: Corey Smith <corsmith@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	torrus
 PORTVERSION=	2.09

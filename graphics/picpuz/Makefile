@@ -1,5 +1,8 @@
 # Created by: Stas Timokhin <devel@stasyan.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	picpuz
 PORTVERSION=	2.1.1

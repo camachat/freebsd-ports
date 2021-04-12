@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	aptly
 PORTVERSION=	1.4.0
 DISTVERSIONPREFIX=v

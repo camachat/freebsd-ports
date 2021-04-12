@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	visualpolylib
 DISTVERSION=	0.9
 DISTVERSIONSUFFIX=	e

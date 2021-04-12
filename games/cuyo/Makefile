@@ -1,5 +1,8 @@
 # Created by: Matthew Gibson <mdg583@hotmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cuyo
 PORTVERSION=	2.1.0

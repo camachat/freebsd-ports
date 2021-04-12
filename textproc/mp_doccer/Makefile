@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mp_doccer
 PORTVERSION=	1.2.2
 CATEGORIES=	textproc perl5

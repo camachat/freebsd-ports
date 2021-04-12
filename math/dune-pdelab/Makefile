@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dune-pdelab
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.7.0

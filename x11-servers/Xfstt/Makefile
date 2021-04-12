@@ -1,5 +1,8 @@
 # Created by: jabley@clear.co.nz
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xfstt
 PORTVERSION=	1.11

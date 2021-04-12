@@ -1,5 +1,8 @@
 # Created by: Denis N. Peplin <info@volginfo.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	utcount
 PORTVERSION=	0.1

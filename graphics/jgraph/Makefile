@@ -1,5 +1,8 @@
 # Created by: wolman@cs.washington.edu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jgraph
 PORTVERSION=	8.3

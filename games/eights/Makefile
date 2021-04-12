@@ -1,5 +1,8 @@
 # Created by: Bob Bomar <bob@fly.homeunix.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	eights
 PORTVERSION=	1.0

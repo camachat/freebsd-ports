@@ -1,5 +1,8 @@
 # Created by: Kuan-Chung Chiu <buganini@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	yamdi
 PORTVERSION=	1.9

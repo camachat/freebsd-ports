@@ -1,5 +1,8 @@
 # Created by: Erik Olson <erikolson@olsonexpress.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nwndata
 PORTVERSION=	${NWNVER}

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ffi-yajl
 PORTVERSION=	2.3.1
 CATEGORIES=	devel rubygems

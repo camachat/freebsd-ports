@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # Provide support for SQLite
 # Feature:	sqlite
 # Usage:	USES=	sqlite[:version]

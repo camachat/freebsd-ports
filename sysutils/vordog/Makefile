@@ -1,5 +1,8 @@
 # Created by: Kueifeng Li <thinker@branda.to>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vordog
 PORTVERSION=	20080708

@@ -1,5 +1,8 @@
 # Created by: fabian.freyer@physik.tu-berlin.de
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	caddy
 DISTVERSIONPREFIX=	v

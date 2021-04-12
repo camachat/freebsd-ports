@@ -1,5 +1,8 @@
 # Created by: dikshie@sfc.wide.ad.jp
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	iffinder
 PORTVERSION=	1.38

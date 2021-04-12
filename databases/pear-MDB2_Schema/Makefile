@@ -1,5 +1,8 @@
 # Created by: Rong-En Fan <rafan@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	MDB2_Schema
 PORTVERSION=	0.8.6

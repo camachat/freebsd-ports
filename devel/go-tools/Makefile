@@ -1,5 +1,8 @@
 # Created by: Carlo Strub <cs@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tools
 DISTVERSION=	20180726

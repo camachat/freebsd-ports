@@ -1,5 +1,8 @@
 # Created by: Carsten Larsen <cs@innolan.dk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ntpa
 PORTVERSION=	0.8.2

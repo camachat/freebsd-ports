@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	MIME-EcoEncode
 PORTVERSION=	0.95
 PORTREVISION=	1

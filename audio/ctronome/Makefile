@@ -1,5 +1,8 @@
 # Created by: Charles Mercadal <mercadal@diablonet.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ctronome
 PORTVERSION=	0.5.6

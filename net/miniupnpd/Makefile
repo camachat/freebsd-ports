@@ -1,5 +1,8 @@
 # Created by: Daniel O'Connor <darius@dons.net.au>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	miniupnpd
 PORTVERSION=	2.1.20190210

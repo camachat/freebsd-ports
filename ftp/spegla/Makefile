@@ -1,5 +1,8 @@
 # Created by: Jordan Hubbard <jkh@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	spegla
 PORTVERSION=	1.1p5

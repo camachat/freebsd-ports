@@ -1,5 +1,8 @@
 # Created by: bf@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xlapack
 PORTREVISION=	6

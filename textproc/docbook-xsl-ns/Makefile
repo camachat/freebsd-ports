@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	docbook-xsl-ns
 PORTVERSION=	1.79.1
 CATEGORIES=	textproc

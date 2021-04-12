@@ -1,5 +1,8 @@
 # Created by: Dominic Fandrey <kamikaze@bsdforen.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	automounter
 PORTVERSION=	1.5.1

@@ -1,5 +1,8 @@
 # Created by: Jordan DeLong <fracture@allusion.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	yadex
 PORTVERSION=	1.7.0

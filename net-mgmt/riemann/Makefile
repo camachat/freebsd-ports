@@ -1,5 +1,8 @@
 # Created by: Dave Cottlehuber <dch@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	riemann
 DISTVERSION=	0.3.6

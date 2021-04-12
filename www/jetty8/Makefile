@@ -1,5 +1,8 @@
 # Created by: Stephane Legrand <stephane@freebsd-fr.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jetty
 PORTVERSION=	8.1.15

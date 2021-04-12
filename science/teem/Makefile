@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	teem
 DISTVERSION=	1.11.0
 DISTVERSIONSUFFIX=	-src

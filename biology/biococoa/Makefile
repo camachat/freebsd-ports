@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	biococoa
 PORTVERSION=	2.2.2
 PORTREVISION=	7

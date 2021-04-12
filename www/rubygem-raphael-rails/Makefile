@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	raphael-rails
 PORTVERSION=	2.1.2
 CATEGORIES=	www rubygems

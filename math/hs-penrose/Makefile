@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	penrose
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.1-737

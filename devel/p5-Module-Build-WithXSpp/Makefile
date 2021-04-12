@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Module-Build-WithXSpp
 PORTVERSION=	0.14
 CATEGORIES=	devel perl5

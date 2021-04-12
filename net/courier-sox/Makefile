@@ -1,5 +1,8 @@
 # Created by Radim Kolar <hsn@sendmail.cz>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	courier-sox
 DISTVERSION=	0.12.20180428

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	algopy
 DISTVERSION=	0.5.7
 PORTREVISION=	2

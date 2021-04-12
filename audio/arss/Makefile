@@ -1,5 +1,8 @@
 # Created by: Timothy Beyer <beyert@cs.ucr.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	arss
 PORTVERSION=	0.2.3

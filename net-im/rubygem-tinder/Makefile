@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tinder
 PORTVERSION=	1.10.1
 PORTREVISION=	3

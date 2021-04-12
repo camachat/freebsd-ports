@@ -1,5 +1,8 @@
 # Created by: darius@dons.net.au
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xplanet
 PORTVERSION=	1.3.1

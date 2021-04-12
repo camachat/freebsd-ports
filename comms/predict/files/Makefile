@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PREFIX=		%%PREFIX%%
 STAGEDIR=	%%STAGEDIR%%
 CC=			%%CC%%

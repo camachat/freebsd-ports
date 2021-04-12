@@ -1,5 +1,8 @@
 # Created by: Goran Mekić <meka@tilda.center>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	zita-resampler
 DISTVERSION=	1.8.0

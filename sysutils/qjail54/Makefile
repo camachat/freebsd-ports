@@ -1,5 +1,8 @@
 # Created by: Joe Barbish
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	qjail
 PORTVERSION=	5.4

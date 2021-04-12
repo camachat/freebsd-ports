@@ -1,5 +1,8 @@
 # Created by: Sergey A. Osokin <osa@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ccd2iso
 PORTVERSION=	0.9

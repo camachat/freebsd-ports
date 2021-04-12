@@ -1,5 +1,8 @@
 # Created by: Tomasz Paszkowski <ns88@k.pl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ssmtp
 PORTVERSION=	2.64

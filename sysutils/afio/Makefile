@@ -1,5 +1,8 @@
 # Created by: Juergen Lock <nox@jelal.hb.north.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	afio
 PORTVERSION=	2.5.2

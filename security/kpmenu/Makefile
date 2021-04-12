@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kpmenu
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.2.1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libodfgen
 PORTVERSION=	0.1.7
 PORTREVISION=	3

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	octomap
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.9.6

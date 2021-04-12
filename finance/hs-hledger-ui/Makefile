@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	hledger-ui
 DISTVERSION=	1.19
 CATEGORIES=	finance haskell

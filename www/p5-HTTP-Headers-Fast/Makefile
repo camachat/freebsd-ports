@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	HTTP-Headers-Fast
 PORTVERSION=	0.21
 CATEGORIES=	www perl5

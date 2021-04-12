@@ -1,5 +1,8 @@
 # Created by: jkoshy
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		cvslines
 PORTVERSION=		1.6.9

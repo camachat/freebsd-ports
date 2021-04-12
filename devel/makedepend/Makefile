@@ -1,5 +1,8 @@
 # Created by: Ian Vaudrey <i.vaudrey@bigfoot.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	makedepend
 PORTVERSION=	1.0.6

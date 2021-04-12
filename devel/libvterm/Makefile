@@ -1,5 +1,8 @@
 # Created by: Anton tornqvist <antont@inbox.lv>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libvterm
 PORTVERSION=	0.1.1

@@ -1,5 +1,8 @@
 # Created by: Michael Reifenberger
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gstopd
 PORTVERSION=	1.1

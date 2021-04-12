@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bjumblr
 DISTVERSION=	1.6.4
 CATEGORIES=	audio

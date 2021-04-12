@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	clisp-hyperspec
 PORTVERSION=	7.0
 CATEGORIES=	devel lisp

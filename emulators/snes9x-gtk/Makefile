@@ -1,5 +1,8 @@
 # Created by: okeeblow <root@cooltrainer.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	snes9x
 PORTVERSION=	1.54.1

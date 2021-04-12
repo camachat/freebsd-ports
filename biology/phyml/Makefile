@@ -1,5 +1,8 @@
 # Created by: ballen
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	phyml
 DISTVERSIONPREFIX=	v

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	simhash
 DISTVERSION=	2.0.0
 CATEGORIES=	math python

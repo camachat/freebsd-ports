@@ -1,5 +1,8 @@
 # Created by: kirk@strauser.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bash-completion
 PORTVERSION=	2.11

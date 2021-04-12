@@ -1,5 +1,8 @@
 # Created by: tiger@whitetigersd.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Algorithm-LCS
 PORTVERSION=	1.04

@@ -1,9 +1,15 @@
 # Created by: Bruce M. Simpson <bms@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	urjtag
 DISTVERSION=	2019.12
 PORTREVISION=	2
+=======
+
+PORTNAME=	urjtag
+DISTVERSION=	2021.03
+>>>>>>> upstream/main
 CATEGORIES=	devel
 MASTER_SITES=	SF
 

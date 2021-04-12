@@ -1,5 +1,8 @@
 # Created by: gahr@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nx
 DISTVERSION=	2.3.0

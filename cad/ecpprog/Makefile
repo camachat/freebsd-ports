@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ecpprog
 DISTVERSION=	g20200725
 CATEGORIES=	cad

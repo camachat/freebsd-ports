@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fcron
 PORTVERSION=	3.2.1
 CATEGORIES=	sysutils

@@ -1,5 +1,8 @@
 # Created by: Antonio Querubin <tony@lava.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dbeacon
 PORTVERSION=	0.3.9.1

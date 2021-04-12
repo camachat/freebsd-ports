@@ -1,5 +1,8 @@
 # Created by: jamie
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	interGif
 PORTVERSION=	6.15

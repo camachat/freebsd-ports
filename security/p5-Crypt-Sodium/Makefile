@@ -1,5 +1,8 @@
 # Created by: Thomas von Dein <freebsd@daemon.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Crypt-Sodium
 PORTVERSION=	0.11

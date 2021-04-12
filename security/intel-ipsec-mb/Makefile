@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	intel-ipsec-mb
 DISTVERSION=	0.55.0
 DISTVERSIONSUFFIX=	-dev

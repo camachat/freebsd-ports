@@ -1,5 +1,8 @@
 # Created by: nordwick@xcf.berkeley.edu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cup
 PORTVERSION=	11b.20160615

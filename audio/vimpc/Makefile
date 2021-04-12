@@ -1,5 +1,8 @@
 # Created by: Thomas Zander <riggs@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vimpc
 PORTVERSION=	0.09.2

@@ -1,5 +1,8 @@
 # Created by: kftseng@iyard.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HTML-StripScripts-Parser
 PORTVERSION=	1.03

@@ -1,8 +1,14 @@
 # Created by: Matthias Fechner <mfechner@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	gitlab-license
 PORTVERSION=	1.3.0
+=======
+
+PORTNAME=	gitlab-license
+PORTVERSION=	1.3.1
+>>>>>>> upstream/main
 CATEGORIES=	devel rubygems
 MASTER_SITES=	RG
 

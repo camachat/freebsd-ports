@@ -1,5 +1,8 @@
 # Created by: Nikolai Lifanov <lifanov@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		docker
 PORTVERSION=		18.09.5

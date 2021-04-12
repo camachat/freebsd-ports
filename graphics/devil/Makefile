@@ -1,9 +1,16 @@
 # Created by: Andreas Kohn <andreas@syndrom23.de>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	devil
 PORTVERSION=	1.7.8
 PORTREVISION=	25
+=======
+
+PORTNAME=	devil
+PORTVERSION=	1.7.8
+PORTREVISION=	26
+>>>>>>> upstream/main
 PORTEPOCH=	1
 CATEGORIES=	graphics
 MASTER_SITES=	SF/openil/DevIL/${PORTVERSION}
@@ -12,6 +19,11 @@ DISTNAME=	DevIL-${PORTVERSION}
 MAINTAINER=	amdmi3@FreeBSD.org
 COMMENT=	Full featured cross-platform image library
 
+<<<<<<< HEAD
+=======
+LICENSE=	LGPL21
+
+>>>>>>> upstream/main
 USES=		alias autoreconf gmake libtool localbase pkgconfig
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--enable-ILU --enable-ILUT \
@@ -55,7 +67,11 @@ PNG_CONFIGURE_ENABLE=	png
 PNG_CONFIGURE_OFF=	libpng_app=no
 TIFF_LIB_DEPENDS=	libtiff.so:graphics/tiff
 TIFF_CONFIGURE_ENABLE=	tiff
+<<<<<<< HEAD
 EXR_LIB_DEPENDS=	libIlmImf.so:graphics/openexr
+=======
+EXR_LIB_DEPENDS=	libOpenEXR.so:graphics/openexr libImath.so:math/Imath
+>>>>>>> upstream/main
 EXR_CONFIGURE_ENABLE=	exr
 #SQUISH_BUILD_DEPENDS=	${LOCALBASE}/lib/libsquish.a:graphics/squish
 #SQUISH_CONFIGURE_WITH=	libsquish
@@ -75,6 +91,12 @@ post-patch:
 		${WRKSRC}/data/Makefile.am
 	@${REINPLACE_CMD} -e 's|<malloc\.h>|<stdlib.h>|g' \
 		${WRKSRC}/src-ILU/ilur/ilur.c
+<<<<<<< HEAD
+=======
+	${REINPLACE_CMD} -e 's/Imf::Int64/uint64_t/g' \
+		${WRKSRC}/src-IL/src/il_exr.cpp \
+		${WRKSRC}/src-IL/include/il_exr.h
+>>>>>>> upstream/main
 
 post-install:
 	@${RMDIR} ${STAGEDIR}${DATADIR}/examples

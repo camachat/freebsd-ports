@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pytest-flask
 PORTVERSION=	0.15.1
 CATEGORIES=	devel python

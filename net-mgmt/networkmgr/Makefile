@@ -1,5 +1,8 @@
 # Created by: Eric Turgeon <ericturgeon.bsd@gmail.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	networkmgr
 DISTVERSION=	4.5

@@ -1,5 +1,8 @@
 # Created by: Kuang-che Wu <kcwu@csie.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	convmv
 PORTVERSION=	2.05

@@ -1,5 +1,8 @@
 # Created by: Oleg Mamontov <oleg@mamontov.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Catalyst-Plugin-SmartURI
 PORTVERSION=	0.041

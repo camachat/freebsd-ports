@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kbdscan
 PORTVERSION=	20110507
 CATEGORIES=	misc

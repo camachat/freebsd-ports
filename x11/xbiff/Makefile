@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xbiff
 PORTVERSION=	1.0.4
 CATEGORIES=	x11

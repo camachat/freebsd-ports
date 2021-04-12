@@ -1,5 +1,8 @@
 # Created by: Michael Beer <beerml@sigma6audio.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sratom
 PORTVERSION=	0.6.8

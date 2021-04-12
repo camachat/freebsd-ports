@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mongodb-tools
 DISTVERSION=	100.3.1
 CATEGORIES=	databases

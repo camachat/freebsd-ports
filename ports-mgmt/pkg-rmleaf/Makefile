@@ -1,5 +1,8 @@
 # Created by: Yanhui Shen <shen.elf@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pkg-rmleaf
 PORTVERSION=	0.4

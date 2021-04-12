@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rpi-firmware
 PORTVERSION=	1.20210303.g20210303
 CATEGORIES=	sysutils

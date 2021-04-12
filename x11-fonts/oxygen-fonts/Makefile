@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PKGNAMEPREFIX=	
 PORTNAME=	oxygen-fonts
 DISTVERSION=	5.4.3

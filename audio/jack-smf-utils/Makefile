@@ -1,5 +1,8 @@
 # Created by: Edward Tomasz Napierala <trasz@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jack-smf-utils
 PORTVERSION=	1.0

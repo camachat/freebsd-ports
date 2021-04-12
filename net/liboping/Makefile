@@ -1,5 +1,8 @@
 # Created by: Matt Peterson <matt@peterson.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	liboping
 PORTVERSION=	1.8.0

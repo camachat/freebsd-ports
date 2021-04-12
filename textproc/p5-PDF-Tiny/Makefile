@@ -1,5 +1,8 @@
 # Created by: wen@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	PDF-Tiny
 DISTVERSION=	0.09

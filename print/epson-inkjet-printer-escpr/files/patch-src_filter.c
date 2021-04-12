@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- src/filter.c.orig	2019-07-31 06:49:48 UTC
+=======
+--- src/filter.c.orig	2020-10-12 02:31:41 UTC
+>>>>>>> upstream/main
 +++ src/filter.c
 @@ -32,7 +32,10 @@
  
@@ -19,6 +23,18 @@
  
  #define WIDTH_BYTES(bits) (((bits) + 31) / 32 * 4)
  
+<<<<<<< HEAD
+=======
+@@ -225,7 +229,7 @@ main (int argc, char *argv[])
+ 	EPS_BANDBMP bandBmp;
+ 
+ 	/* Fifo for Backend */
+-//	context = (void*)XFIFOOpen();
++	context = (void*)XFIFOOpen();
+ 
+ ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+ 	memset (&jobAttr, 0, sizeof(jobAttr));
+>>>>>>> upstream/main
 @@ -380,7 +384,7 @@ main (int argc, char *argv[])
  	}
  	
@@ -92,11 +108,36 @@
  				bandBmp.bits += band_line_count;
  			}
  
+<<<<<<< HEAD
+=======
+@@ -710,7 +730,7 @@ quit:;
+ 	mem_free(paper);
+ 	debug_msg("PRINT SUCCESS\n");
+ 
+-//	XFIFOClose(&context);
++	XFIFOClose(&context);
+ 
+ 	return 0;
+ }
+@@ -871,7 +891,7 @@ static int  getMediaTypeID(char *rsc_name)
+ 
+ EPS_INT32 print_spool_fnc(void* hParam, const EPS_UINT8* pBuf, EPS_UINT32 cbBuf) 
+ {
+-#if 1
++#if 0
+ 	long int i;
+ 	for (i = 0; i < cbBuf; i++)
+ 		putc(*(pBuf + i), outfp);
+>>>>>>> upstream/main
 @@ -879,7 +899,7 @@ EPS_INT32 print_spool_fnc(void* hParam, const EPS_UINT
  
  //	fwrite (pBuf, cbBuf, 1, outfp);
  
+<<<<<<< HEAD
 -	XFIFOWrite(context, pBuf, cbBuf);
+=======
+-//	XFIFOWrite(context, pBuf, cbBuf);
+>>>>>>> upstream/main
 +	XFIFOWrite(context, (char *)pBuf, cbBuf);
  
  	return 1;

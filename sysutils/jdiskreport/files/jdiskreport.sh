@@ -1,5 +1,9 @@
 #! /bin/sh
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+
+>>>>>>> upstream/main
 JDISKDIR="%%JDISKDIR%%"
 JAVAVM="%%JAVAVM%%"
 PORTVERSION="%%PORTVERSION%%"

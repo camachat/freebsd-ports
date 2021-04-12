@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fsv2
 PORTVERSION=	1.1.0
 PORTREVISION=	1

@@ -1,8 +1,11 @@
 #!/bin/sh
 #
 # Emanuel Haupt <ehaupt@critical.ch>
+<<<<<<< HEAD
 #
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 writeconf()
 {

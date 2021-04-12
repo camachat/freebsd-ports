@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libotr
 PORTVERSION=	3.2.1
 PORTREVISION=	4

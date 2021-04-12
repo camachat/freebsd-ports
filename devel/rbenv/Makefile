@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rbenv
 PORTVERSION=	1.1.2
 DISTVERSIONPREFIX=	v

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sdl2
 PORTVERSION=	2.0.12
 PORTREVISION=	3

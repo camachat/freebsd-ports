@@ -1,5 +1,8 @@
 # Created by: Alex Deiter <tiamat@komi.mts.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	imapsync
 PORTVERSION=	1.977

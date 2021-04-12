@@ -1,5 +1,8 @@
 # Created by: Ross Timson <ross@rosstimson.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	chruby
 PORTVERSION=	0.3.9

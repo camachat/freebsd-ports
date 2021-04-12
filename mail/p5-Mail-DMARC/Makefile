@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Mail-DMARC
 PORTVERSION=	1.20190308
 CATEGORIES=	mail perl5

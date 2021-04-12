@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 # Versions of Blender and its python dependency for use by depending ports, like add-ons
 
 BLENDER_BL_VERSION=	2.91.0

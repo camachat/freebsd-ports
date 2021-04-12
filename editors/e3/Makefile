@@ -1,5 +1,8 @@
 # Created by: joseph@randomnetworks.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	e3
 PORTVERSION=	2.8

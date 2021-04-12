@@ -1,5 +1,8 @@
 # Created by: Heiner Eichmann <h.eichmann@gmx.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gdialog
 PORTVERSION=	2.5

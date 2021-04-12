@@ -1,5 +1,8 @@
 # Created by: Johannes Meixner <xmj@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rails-deprecated_sanitizer
 PORTVERSION=	1.0.3

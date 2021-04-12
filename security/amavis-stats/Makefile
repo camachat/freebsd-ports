@@ -1,5 +1,8 @@
 # Created by: Mantas Kaulakys <stone@tainet.lt>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	amavis-stats
 PORTVERSION=	0.1.12

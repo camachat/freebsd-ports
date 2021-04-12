@@ -1,5 +1,8 @@
 # Created by: Brion Moss <brion@queeg.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	catdoc
 PORTVERSION=	0.95

@@ -1,5 +1,8 @@
 # Created by: Rich Neswold <rneswold@mcs.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wmtime
 PORTVERSION=	1.0b2

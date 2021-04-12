@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 " $FreeBSD$
+=======
+>>>>>>> upstream/main
 " vim:ts=8
 "
 "   VIQR input

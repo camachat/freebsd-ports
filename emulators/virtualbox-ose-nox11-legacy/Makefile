@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PKGNAMESUFFIX=	-nox11-legacy
 
 OPTIONS_EXCLUDE=	ALSA DBUS DEBUG GUESTADDITIONS MANUAL NLS PULSEAUDIO

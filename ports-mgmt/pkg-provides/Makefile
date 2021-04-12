@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pkg-provides
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.7.1

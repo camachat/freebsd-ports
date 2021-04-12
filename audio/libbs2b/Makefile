@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libbs2b
 PORTVERSION=	3.1.0
 PORTREVISION=	6

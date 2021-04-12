@@ -1,5 +1,8 @@
 # Created by: Brian Somers <brian@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	arpwatch
 PORTVERSION=	3.1

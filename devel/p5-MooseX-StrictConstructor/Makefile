@@ -1,5 +1,8 @@
 # Created by: glarkin
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	MooseX-StrictConstructor
 PORTVERSION=	0.21

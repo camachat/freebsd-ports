@@ -1,5 +1,8 @@
 # Created by: marius@alchemy.franken.de
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		afbinit
 PORTVERSION=		1.0

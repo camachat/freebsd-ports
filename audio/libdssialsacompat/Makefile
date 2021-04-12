@@ -1,5 +1,8 @@
 # Created by: mahonmesr@googlemail.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libdssialsacompat
 PORTVERSION=	1.0.8a

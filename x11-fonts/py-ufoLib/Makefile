@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ufoLib
 PORTVERSION=	2.3.2
 PORTREVISION=	1

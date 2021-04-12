@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- ui/gl/gl_bindings_autogen_glx.cc.orig	2020-11-13 06:37:06 UTC
+=======
+--- ui/gl/gl_bindings_autogen_glx.cc.orig	2021-03-12 23:57:48 UTC
+>>>>>>> upstream/main
 +++ ui/gl/gl_bindings_autogen_glx.cc
 @@ -115,6 +115,8 @@ void DriverGLX::InitializeExtensionBindings() {
  

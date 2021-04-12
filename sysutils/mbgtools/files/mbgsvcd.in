@@ -1,9 +1,13 @@
 #!/bin/sh
 #
 # $Id: mbgsvcd 1.1 2011/07/06 13:26:01 martin TEST $
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+
+>>>>>>> upstream/main
 # PROVIDE: mbgsvcd
 # REQUIRE: DAEMON
 # KEYWORD: shutdown

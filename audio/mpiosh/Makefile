@@ -1,5 +1,8 @@
 # Created by: Sergey Akifyev <asa@gascom.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mpiosh
 PORTVERSION=	0.7.1.p2

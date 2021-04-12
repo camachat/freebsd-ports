@@ -1,5 +1,8 @@
 # Created by: Jonathan Chen <jonc@chen.org.nz>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	eclipse
 PORTVERSION=	4.16

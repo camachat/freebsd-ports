@@ -1,5 +1,8 @@
 # Created by: buratello@easy.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	redorblack
 PORTVERSION=	1.0

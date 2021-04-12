@@ -1,5 +1,8 @@
 # Created by: fenner
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rtptools
 DISTVERSION=	1.22

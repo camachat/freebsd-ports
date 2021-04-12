@@ -1,5 +1,8 @@
 # Created by: Heiner <h.eichmann@gmx.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	portdowngrade
 PORTVERSION=	1.7

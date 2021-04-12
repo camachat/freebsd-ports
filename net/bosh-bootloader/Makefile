@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bosh-bootloader
 PORTVERSION=	7.6.0
 PORTREVISION=	1

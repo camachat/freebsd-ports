@@ -1,5 +1,8 @@
 # Created by: Hans Petter Selasky <hselasky@freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hpsjam
 DISTVERSIONPREFIX=	v

@@ -1,5 +1,8 @@
 # Created by: Ben Hutchinson <benhutch@xfiles.org.uk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	epic4
 PORTVERSION=	2.10.9

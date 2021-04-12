@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 BINDIR	= $(S_TOPDIR)/bin
 LIBDIR	= $(S_TOPDIR)/etc
 MANDIR	= $(S_TOPDIR)/man/ja/man

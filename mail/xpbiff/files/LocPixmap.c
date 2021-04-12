@@ -2,8 +2,11 @@
 
 /* * Last edited: Sep 17 14:39 1991 (mallet) */
 /*
+<<<<<<< HEAD
  * $FreeBSD$
  *
+=======
+>>>>>>> upstream/main
  * Copyright 1991 Lionel Mallet
  *
  * Permission to use, copy, modify, and distribute this software and its

@@ -1,5 +1,8 @@
 # Created by: Andrew Thompson <thompsa@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 # Check v4l_compat and v4l-utils slave ports
 
 PORTNAME?=	libv4l

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ttyd
 DISTVERSION=	1.6.3
 PORTREVISION=	1

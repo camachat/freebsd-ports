@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	django-cacheops
 PORTVERSION=	5.1
 CATEGORIES=	www python

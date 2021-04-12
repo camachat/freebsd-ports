@@ -1,5 +1,8 @@
 # Created by: Piotr Smyrak <smyru@heron.pl> and
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libtlen
 PORTVERSION=	20041113

@@ -1,5 +1,8 @@
 # Created by: Michael Neumann <mneumann@ntecs.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hatari
 PORTVERSION=	2.2.1

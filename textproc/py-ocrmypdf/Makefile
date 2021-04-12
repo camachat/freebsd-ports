@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ocrmypdf
 DISTVERSION=	11.7.3
 CATEGORIES=	textproc python

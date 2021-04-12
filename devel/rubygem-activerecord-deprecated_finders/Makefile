@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	activerecord-deprecated_finders
 PORTVERSION=	1.0.4
 CATEGORIES=	devel rubygems

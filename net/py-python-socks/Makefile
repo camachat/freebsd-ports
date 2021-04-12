@@ -1,8 +1,14 @@
 # Created by: Emanuel Haupt <ehaupt@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	python-socks
 PORTVERSION=	1.2.3
+=======
+
+PORTNAME=	python-socks
+PORTVERSION=	1.2.4
+>>>>>>> upstream/main
 CATEGORIES=	net python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}

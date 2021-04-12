@@ -1,5 +1,8 @@
 # Created by: ugen
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	s3mod
 PORTVERSION=	1.09

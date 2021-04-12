@@ -1,5 +1,8 @@
 # Created by: Jim Geovedi <jim@corebsd.or.id>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	kripp
 PORTVERSION=	0.6.1

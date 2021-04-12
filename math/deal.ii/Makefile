@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	deal.II
 DISTVERSIONPREFIX=	v
 DISTVERSION=	9.2.0.20201001 # 9.2.0 breaks with invalid linker flag -l-pthread

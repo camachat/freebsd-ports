@@ -1,5 +1,8 @@
 # Created by: ismail.yenigul@endersys.com.tr
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dnsreflector
 PORTVERSION=	1.02

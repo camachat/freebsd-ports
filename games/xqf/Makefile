@@ -1,5 +1,8 @@
 # Created by: steve farrell
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xqf
 PORTVERSION=	1.0.6.2

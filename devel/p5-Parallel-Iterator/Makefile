@@ -1,5 +1,8 @@
 # Created by: Frederic Culot <frederic@culot.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Parallel-Iterator
 PORTVERSION=	1.00

@@ -1,5 +1,8 @@
 # Created by: René Ladan <rene@freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dirsync
 PORTVERSION=	2.2.5

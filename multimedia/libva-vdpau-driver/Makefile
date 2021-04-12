@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libva-vdpau-driver
 PORTVERSION=	0.7.4
 PORTREVISION=	9

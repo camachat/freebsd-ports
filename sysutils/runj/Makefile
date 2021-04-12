@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	runj
 DISTVERSION=	g20210315
 CATEGORIES=	sysutils

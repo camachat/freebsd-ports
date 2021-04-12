@@ -1,5 +1,8 @@
 # Created by: Kyle Evans <kevans@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sarge
 PORTVERSION=	0.1.6

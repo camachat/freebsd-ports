@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	CombBLAS
 DISTVERSION=	1.6.2
 PORTREVISION=	5

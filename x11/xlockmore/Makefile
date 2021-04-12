@@ -1,5 +1,8 @@
 # Created by: Scott Mace <smace@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xlockmore
 PORTVERSION=	5.66

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	openzfs
 PORTVERSION=	2021030100
 DISTVERSIONPREFIX=	v

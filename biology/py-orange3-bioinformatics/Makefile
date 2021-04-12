@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	orange3-bioinformatics
 DISTVERSION=	3.2.2
 PORTREVISION=	3

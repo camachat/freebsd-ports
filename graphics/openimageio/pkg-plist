@@ -13,6 +13,10 @@ include/OpenImageIO/benchmark.h
 include/OpenImageIO/color.h
 include/OpenImageIO/dassert.h
 include/OpenImageIO/deepdata.h
+<<<<<<< HEAD
+=======
+include/OpenImageIO/detail/farmhash.h
+>>>>>>> upstream/main
 include/OpenImageIO/detail/fmt/core.h
 include/OpenImageIO/detail/fmt/format-inl.h
 include/OpenImageIO/detail/fmt/format.h

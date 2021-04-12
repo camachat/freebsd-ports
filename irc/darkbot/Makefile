@@ -1,5 +1,8 @@
 # Created by: A. Gabriel <backslash@BSDCode.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	darkbot
 PORTVERSION=	6f6.r6

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	nbformat
 PORTVERSION=	5.1.2
 CATEGORIES=	devel python

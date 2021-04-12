@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- third_party/openscreen/src/platform/impl/udp_socket_posix.cc.orig	2020-11-16 14:56:16 UTC
+=======
+--- third_party/openscreen/src/platform/impl/udp_socket_posix.cc.orig	2021-03-13 00:03:38 UTC
+>>>>>>> upstream/main
 +++ third_party/openscreen/src/platform/impl/udp_socket_posix.cc
 @@ -31,7 +31,7 @@ namespace openscreen {
  namespace {

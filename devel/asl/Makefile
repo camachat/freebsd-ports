@@ -1,5 +1,8 @@
 # Created by: Thomas Gellekum <tg@freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	asl
 PORTVERSION=	1.42.183

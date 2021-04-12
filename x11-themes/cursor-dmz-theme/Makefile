@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cursor-dmz-theme
 DISTVERSION=	0.4.5
 CATEGORIES=	x11-themes

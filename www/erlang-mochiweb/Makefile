@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mochiweb
 PORTVERSION=	2.18.0
 DISTVERSIONPREFIX=	v

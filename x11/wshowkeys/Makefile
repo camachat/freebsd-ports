@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	wshowkeys
 PORTVERSION=	s20200330
 DISTVERSIONSUFFIX=	-0-g6388a49

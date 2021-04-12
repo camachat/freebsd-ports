@@ -1,5 +1,8 @@
 # Created by: lx
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	clusterssh
 DISTVERSIONPREFIX=	v

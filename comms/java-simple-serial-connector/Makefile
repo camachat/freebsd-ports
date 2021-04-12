@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	java-simple-serial-connector
 PORTVERSION=	2.8.0
 PORTREVISION=	1

@@ -1,5 +1,8 @@
 # Created by: Loïc BARTOLETTI <lbartoletti@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	virtualpg
 PORTVERSION=	2.0.1

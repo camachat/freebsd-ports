@@ -1,5 +1,8 @@
 # Created by: Peter Jeremy <peterjeremy@optushome.com.au>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jogl
 PORTVERSION=	1.1.1

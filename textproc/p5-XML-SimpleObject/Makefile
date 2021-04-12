@@ -1,5 +1,8 @@
 # Created by: steve
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	XML-SimpleObject
 PORTVERSION=	0.53

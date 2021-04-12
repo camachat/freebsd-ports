@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	lzlib
 PORTVERSION=	0.4.3
 PORTREVISION=	1

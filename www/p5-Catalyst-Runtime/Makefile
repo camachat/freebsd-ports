@@ -1,5 +1,8 @@
 # Created by: lbr
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Catalyst-Runtime
 PORTVERSION=	5.90128

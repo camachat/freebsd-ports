@@ -1,5 +1,8 @@
 # Created by: glewis
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	szip
 PORTVERSION=	2.1.1

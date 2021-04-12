@@ -1,5 +1,8 @@
 # Created by: stast
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dimes
 PORTVERSION=	0.5.2

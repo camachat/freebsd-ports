@@ -1,5 +1,8 @@
 # Created by: nishida@sfc.wide.ad.jp
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tcpillust
 PORTVERSION=	2.01

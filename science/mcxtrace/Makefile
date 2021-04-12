@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mcxtrace
 DISTVERSION=	1.2
 DISTVERSIONSUFFIX=	-src

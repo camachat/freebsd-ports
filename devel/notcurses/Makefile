@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	notcurses
 DISTVERSIONPREFIX=	v
 DISTVERSION=	${ABIVERSION}.2.2

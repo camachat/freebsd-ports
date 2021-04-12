@@ -1,5 +1,8 @@
 # Created by: Andrew Turner <zombie@i4free.co.nz>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dwatch
 PORTVERSION=	0.1.1

@@ -1,5 +1,8 @@
 # Created by: Josh Tiefenbach <josh@zipperup.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Tie-DB_FileLock
 PORTVERSION=	0.11

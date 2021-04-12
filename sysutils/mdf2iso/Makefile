@@ -1,5 +1,8 @@
 # Created by: Andrej Zverev <az@inec.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mdf2iso
 PORTVERSION=	0.3.1

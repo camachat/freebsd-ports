@@ -1,5 +1,8 @@
 # Created by: Peter Schuller <peter.schuller@infidyne.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gevent
 PORTVERSION=	21.1.2

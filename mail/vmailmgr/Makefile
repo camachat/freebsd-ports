@@ -1,5 +1,8 @@
 # Created by: Mij <mij@bitchx.it>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vmailmgr
 PORTVERSION=	0.97

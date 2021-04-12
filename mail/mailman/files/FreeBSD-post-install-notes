@@ -1,9 +1,14 @@
 # ----------------------------------------------------------------------
 # Post-installation instructions for the FreeBSD port/package of Mailman
+<<<<<<< HEAD
 # $FreeBSD$
 # ----------------------------------------------------------------------
 
 
+=======
+# ----------------------------------------------------------------------
+
+>>>>>>> upstream/main
 CONTENTS:
 * VERY IMPORTANT NOTE
 1) General post-installation instructions

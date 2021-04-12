@@ -1,5 +1,8 @@
 # Created by: rfarmer@predatorlabs.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xml-commons
 PORTVERSION=	1.4.01

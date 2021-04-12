@@ -1,5 +1,8 @@
 # Created by: Ming-I Hseh <PA@FreeBSD.Ntu.edu.TW>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	kcfonts
 PORTVERSION=	1.05

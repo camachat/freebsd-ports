@@ -1,5 +1,8 @@
 # Created by: Koop Mast <kwm@rainbow-runner.nl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gstreamer1-libav
 PORTVERSION=	1.16.2

@@ -1,5 +1,8 @@
 # Created by: Lev A. Serebryakov <lev@serebryakov.spb.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bin-msvcrt
 PORTVERSION=	r${RUNTIMEVERSION:S/-/./}.a${APIVERSION:S/-/./}

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Grutatxt
 PORTVERSION=	2.20
 CATEGORIES=	textproc perl5

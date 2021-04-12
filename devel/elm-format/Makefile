@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	elm-format
 PORTVERSION=	0.8.3
 PORTREVISION=	2

@@ -1,5 +1,8 @@
 # Created by: Tuc <freebsd-ports@t-b-o-h.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	MIME-Lite-TT
 PORTVERSION=	0.02

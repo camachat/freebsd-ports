@@ -1,5 +1,8 @@
 # Created by: Devon H. O'Dell <devon.odell@coyotepoint.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ser2net
 PORTVERSION=	3.5.1

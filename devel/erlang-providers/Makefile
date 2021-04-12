@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	providers
 PORTVERSION=	1.7.0
 CATEGORIES=	devel

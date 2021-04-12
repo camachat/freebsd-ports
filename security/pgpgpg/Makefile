@@ -1,5 +1,8 @@
 # Created by: Matt Behrens <matt@zigg.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pgpgpg
 PORTVERSION=	0.13

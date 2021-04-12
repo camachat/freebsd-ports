@@ -1,5 +1,8 @@
 # Created by: Mike Heffner <mikeh@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lirc
 PORTVERSION=	0.9.0

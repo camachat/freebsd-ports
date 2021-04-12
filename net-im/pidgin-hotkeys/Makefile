@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pidgin-hotkeys
 PORTVERSION=	0.2.4
 PORTREVISION=	19

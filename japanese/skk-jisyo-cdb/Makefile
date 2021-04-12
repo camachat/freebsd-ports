@@ -1,5 +1,8 @@
 # Created by: KOMATSU Shinichiro <koma2@jiro.c.u-tokyo.ac.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 MAINTAINER=	ports@FreeBSD.org
 COMMENT=	CDB jisyo (dictionary) files for the SKK Japanese-input software

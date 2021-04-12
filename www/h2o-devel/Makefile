@@ -1,5 +1,8 @@
 # Created by: Dave Cottlehuber <dch@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	h2o
 DISTVERSIONPREFIX=	v

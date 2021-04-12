@@ -1,5 +1,8 @@
 # Created by: proff@iq.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xmountains
 PORTVERSION=	2.10

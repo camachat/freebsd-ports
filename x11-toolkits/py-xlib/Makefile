@@ -1,5 +1,8 @@
 # Created by: Mike Meyer <mwm@mired.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xlib
 DISTVERSION=	0.27

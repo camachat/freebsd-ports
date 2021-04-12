@@ -1,6 +1,9 @@
 # Makefile for:		kb
+<<<<<<< HEAD
 #
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 LIBS+=  `pkg-config --cflags --libs gtk+-2.0`
 LIBS+=  `pkg-config --cflags --libs libgnome-2.0`

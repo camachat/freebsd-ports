@@ -1,5 +1,8 @@
 # Created by: mgrooms@shrew.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ike
 PORTVERSION=	2.2.1

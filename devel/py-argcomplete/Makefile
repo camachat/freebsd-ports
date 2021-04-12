@@ -1,5 +1,8 @@
 # Created by: Tony Narlock <tony@git-pull.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	argcomplete
 PORTVERSION=	1.12.2

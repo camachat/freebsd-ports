@@ -1,5 +1,8 @@
 # Created by: pjm <pierrejacqes.mimifir@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bristol
 PORTVERSION=	0.60.10

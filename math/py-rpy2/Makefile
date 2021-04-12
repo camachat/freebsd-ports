@@ -1,8 +1,15 @@
 # Created by: ijliao
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	rpy2
 PORTVERSION=	3.4.2
+=======
+
+PORTNAME=	rpy2
+PORTVERSION=	3.4.2
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	math
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}

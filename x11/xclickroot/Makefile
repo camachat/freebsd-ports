@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xclickroot
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.2

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		zsh-navigation-tools
 PORTVERSION=		2.2.7
 DISTVERSIONPREFIX=	v

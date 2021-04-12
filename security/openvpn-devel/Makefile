@@ -1,8 +1,14 @@
 # Created by: Matthias Andree <mandree@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=		openvpn
 DISTVERSION=		202049
+=======
+
+PORTNAME=		openvpn
+DISTVERSION=		202113
+>>>>>>> upstream/main
 CATEGORIES=		security net net-vpn
 MASTER_SITES=		https://secure-computing.net/files/openvpn/
 PKGNAMESUFFIX=		-devel

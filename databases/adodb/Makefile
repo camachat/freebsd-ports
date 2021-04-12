@@ -1,5 +1,8 @@
 # Created by: abgoeree@uwnet.nl
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	adodb
 PORTVERSION=	4.99.2

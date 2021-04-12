@@ -1,9 +1,16 @@
 # Created by: Michael Butschky <butsch@computi.erols.com>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	swi-pl
 DISTVERSION=	8.2.3
 PORTREVISION=	1
+=======
+
+PORTNAME=	swi-pl
+DISTVERSION=	8.2.3
+PORTREVISION=	2
+>>>>>>> upstream/main
 CATEGORIES=	lang
 MASTER_SITES=	http://www.swi-prolog.org/download/stable/src/
 DISTNAME=	swipl-${DISTVERSION}
@@ -21,8 +28,13 @@ LIB_DEPENDS=	libpcre.so:devel/pcre \
 		libossp-uuid.so:misc/ossp-uuid \
 		libyaml.so:textproc/libyaml
 
+<<<<<<< HEAD
 USES=		compiler:c11 libedit cmake libarchive pathfix pkgconfig \
 		shebangfix ssl
+=======
+USES=		cmake compiler:c11 libarchive libedit pathfix pkgconfig \
+		readline shebangfix ssl
+>>>>>>> upstream/main
 USE_XORG=	ice sm x11 xext xft xinerama xpm xt
 
 OPTIONS_DEFINE=		DOCS TCMALLOC EXAMPLES XPCE GMP THREADED ODBC

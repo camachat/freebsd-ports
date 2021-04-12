@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fluxengine
 DISTVERSION=	572
 CATEGORIES=	sysutils

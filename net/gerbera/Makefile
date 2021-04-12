@@ -1,9 +1,15 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	gerbera
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.7.0
 PORTREVISION=	1
+=======
+PORTNAME=	gerbera
+DISTVERSIONPREFIX=	v
+DISTVERSION=	1.8.0
+>>>>>>> upstream/main
 CATEGORIES=	net multimedia
 
 MAINTAINER=	daniel.engberg.lists@pyret.net
@@ -23,6 +29,7 @@ USES=		cmake compiler:c++17-lang iconv localbase:ldflags \
 USE_GITHUB=	yes
 USE_RC_SUBR=	gerbera
 
+<<<<<<< HEAD
 TEST_TARGET=	test
 
 CMAKE_OFF=	WITH_EXIF WITH_LASTFM WITH_MYSQL WITH_SYSTEMD
@@ -32,6 +39,19 @@ GROUPS=		gerbera
 SUB_LIST=	USER=${USERS} GROUP=${GROUPS}
 PLIST_SUB=	USER=${USERS} GROUP=${GROUPS}
 SUB_FILES=	pkg-message
+=======
+CMAKE_OFF=	WITH_EXIF WITH_LASTFM WITH_MYSQL WITH_SYSTEMD
+
+TEST_TARGET=	test
+
+SUB_FILES=	pkg-message
+SUB_LIST=	USER=${USERS} GROUP=${GROUPS}
+
+USERS=		gerbera
+GROUPS=		gerbera
+
+PLIST_SUB=	USER=${USERS} GROUP=${GROUPS}
+>>>>>>> upstream/main
 
 OPTIONS_DEFINE=		CURL DEBUG DUKTAPE EXIV2 FFMPEG FFMPEGTHUMBNAILER \
 			LIBMAGIC MATROSKA TAGLIB TEST
@@ -43,8 +63,13 @@ OPTIONS_SINGLE_UPNPLIB=	LIBNPUPNP LIBUPNP
 CURL_DESC=		Support for online services via cURL
 DUKTAPE_DESC=		Javascript support for custom import scripts
 FFMPEGTHUMBNAILER_DESC=	Support for thumbnail generation
+<<<<<<< HEAD
 LIBNPUPNP_DESC=		Use high performance libnpupnp library
 LIBMAGIC_DESC=		Identify file mime types via libmagic
+=======
+LIBMAGIC_DESC=		Identify file mime types via libmagic
+LIBNPUPNP_DESC=		Use high performance libnpupnp library
+>>>>>>> upstream/main
 LIBUPNP_DESC=		Use libupnp library
 MATROSKA_DESC=		Extract video/mkv metadata via libmatroska
 TAGLIB_DESC=		Extract audio file metadata via taglib
@@ -60,14 +85,24 @@ DUKTAPE_CMAKE_BOOL=	WITH_JS
 EXIV2_LIB_DEPENDS=	libexiv2.so:graphics/exiv2
 EXIV2_CMAKE_BOOL=	WITH_EXIV2
 
+<<<<<<< HEAD
+=======
+FFMPEGTHUMBNAILER_IMPLIES=	FFMPEG
+FFMPEGTHUMBNAILER_LIB_DEPENDS=	libffmpegthumbnailer.so:multimedia/ffmpegthumbnailer
+FFMPEGTHUMBNAILER_CMAKE_BOOL=	WITH_FFMPEGTHUMBNAILER
+
+>>>>>>> upstream/main
 FFMPEG_LIB_DEPENDS=	libavformat.so:multimedia/ffmpeg \
 			libavutil.so:multimedia/ffmpeg
 FFMPEG_CMAKE_BOOL=	WITH_AVCODEC
 
+<<<<<<< HEAD
 FFMPEGTHUMBNAILER_LIB_DEPENDS=	libffmpegthumbnailer.so:multimedia/ffmpegthumbnailer
 FFMPEGTHUMBNAILER_CMAKE_BOOL=	WITH_FFMPEGTHUMBNAILER
 FFMPEGTHUMBNAILER_IMPLIES=	FFMPEG
 
+=======
+>>>>>>> upstream/main
 LIBMAGIC_LIB_DEPENDS=	libmagic.so:sysutils/file
 LIBMAGIC_CMAKE_BOOL=	WITH_MAGIC
 
@@ -82,9 +117,15 @@ MATROSKA_CMAKE_BOOL=	WITH_MATROSKA
 TAGLIB_LIB_DEPENDS=	libtag.so:audio/taglib
 TAGLIB_CMAKE_BOOL=	WITH_TAGLIB
 
+<<<<<<< HEAD
 TEST_BUILD_DEPENDS=	googletest>=0:devel/googletest
 TEST_CMAKE_BOOL=	WITH_TESTS
 TEST_IMPLIES=		CURL DUKTAPE
+=======
+TEST_IMPLIES=		CURL DUKTAPE
+TEST_BUILD_DEPENDS=	googletest>=0:devel/googletest
+TEST_CMAKE_BOOL=	WITH_TESTS
+>>>>>>> upstream/main
 
 post-install:
 	${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/gerbera

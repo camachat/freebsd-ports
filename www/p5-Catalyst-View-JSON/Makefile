@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Catalyst-View-JSON
 PORTVERSION=	0.36
 CATEGORIES=	www perl5

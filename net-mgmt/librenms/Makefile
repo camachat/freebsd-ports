@@ -1,5 +1,8 @@
 # Created by: Muhammad Moinur Rahman<bofh@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	librenms
 PORTVERSION=	21.3.0

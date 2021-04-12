@@ -1,5 +1,8 @@
 # Created by: Sheldon Hearn <axl@iafrica.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xzx
 PORTVERSION=	4.6

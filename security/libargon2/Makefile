@@ -1,5 +1,8 @@
 # Created by: Christopher Hall <hsw@bitmark.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libargon2
 PORTVERSION=	20190702

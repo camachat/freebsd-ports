@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	jacode.pl
 PORTVERSION=	2.13.4.24
 CATEGORIES=	japanese perl5

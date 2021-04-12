@@ -1,5 +1,8 @@
 # Created by: Douglas Thrift
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hardlink
 PORTVERSION=	0.3.0

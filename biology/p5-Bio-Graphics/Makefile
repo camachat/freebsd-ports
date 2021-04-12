@@ -1,5 +1,8 @@
 # Created by: wen@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Bio-Graphics
 PORTVERSION=	2.40

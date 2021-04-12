@@ -1,5 +1,8 @@
 # Created by: Dan Rue <drue@therub.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	psych
 PORTVERSION=	1.2.1

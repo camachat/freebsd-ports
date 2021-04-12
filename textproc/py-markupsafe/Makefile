@@ -1,5 +1,8 @@
 # Created by: wen@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	markupsafe
 PORTVERSION=	1.1.1

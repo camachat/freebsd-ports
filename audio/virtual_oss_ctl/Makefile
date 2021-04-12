@@ -1,5 +1,8 @@
 # Created by: Hans Petter Selasky <hselasky@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	virtual_oss_ctl
 DISTVERSIONPREFIX=	v

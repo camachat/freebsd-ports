@@ -1,5 +1,8 @@
 # Created by: mikael.urankar@gmail.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	omxplayer
 PORTVERSION=	20161004

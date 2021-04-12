@@ -1,5 +1,8 @@
 # Created by: Garrett Rooney <rooneg@electricjellyfish.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	diffutils
 PORTVERSION=	3.7

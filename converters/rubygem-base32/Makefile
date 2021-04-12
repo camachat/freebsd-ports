@@ -1,5 +1,8 @@
 # Created by: Torsten Zuehlsdorff <ports@toco-domains.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	base32
 PORTVERSION=	0.3.2

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	X11-Xlib
 PORTVERSION=	0.18
 PORTREVISION=	2

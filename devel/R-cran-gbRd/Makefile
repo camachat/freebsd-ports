@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gbRd
 DISTVERSION=	0.4-11
 PORTREVISION=	2

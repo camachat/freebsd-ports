@@ -1,5 +1,8 @@
 # Created by: Florent Thoumie <flz@xbsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ctorrent
 PORTVERSION=	3.3.2

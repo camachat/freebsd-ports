@@ -1,9 +1,16 @@
 # Created by: Mahdi Mokhtari <mokhi64@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME?=		mysql
 PORTVERSION=		8.0.23
 PORTREVISION?=		0
+=======
+
+PORTNAME?=		mysql
+PORTVERSION=		8.0.23
+PORTREVISION?=		1
+>>>>>>> upstream/main
 CATEGORIES=		databases
 MASTER_SITES=		MYSQL/MySQL-8.0
 PKGNAMESUFFIX?=		80-server

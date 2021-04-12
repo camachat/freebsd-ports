@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	turbolinks
 PORTVERSION=	5.2.1
 CATEGORIES=	www rubygems

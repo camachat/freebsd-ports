@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	brotli
 DISTVERSION=	0.13.1
 CATEGORIES=	archivers

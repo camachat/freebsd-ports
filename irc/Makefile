@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
 
+=======
+>>>>>>> upstream/main
     COMMENT = Internet Relay Chat utilities
 
     SUBDIR += anope
@@ -32,7 +35,10 @@
     SUBDIR += gruftistats
     SUBDIR += hexchat
     SUBDIR += hexchat-fish
+<<<<<<< HEAD
     SUBDIR += hybserv
+=======
+>>>>>>> upstream/main
     SUBDIR += icbirc
     SUBDIR += ii
     SUBDIR += infobot
@@ -116,7 +122,10 @@
     SUBDIR += unreal
     SUBDIR += weechat
     SUBDIR += weechat-otr
+<<<<<<< HEAD
     SUBDIR += xaric
+=======
+>>>>>>> upstream/main
     SUBDIR += znc
     SUBDIR += znc-push
 

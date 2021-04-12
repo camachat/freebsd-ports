@@ -1,5 +1,8 @@
 # Created by: Jeremy Norris <ishmael272home.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	qt-gui
 PORTVERSION=	1.9.0

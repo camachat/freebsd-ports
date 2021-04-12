@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gapcmon
 PORTVERSION=	0.8.9
 PORTREVISION=	5

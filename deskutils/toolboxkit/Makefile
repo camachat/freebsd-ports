@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	toolbox
 PORTVERSION=	0.8
 PORTREVISION=	10

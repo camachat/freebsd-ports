@@ -1,5 +1,8 @@
 # Created by: perlguy@perlguy.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	infobot
 PORTVERSION=	0.45.3

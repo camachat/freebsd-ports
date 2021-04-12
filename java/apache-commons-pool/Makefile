@@ -1,5 +1,8 @@
 # Created by: Anton Yudin <toha@toha.org.ua>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	commons-pool
 PORTVERSION=	2.9.0

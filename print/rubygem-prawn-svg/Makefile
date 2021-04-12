@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	prawn-svg
 PORTVERSION=	0.31.0
 CATEGORIES=	print rubygems

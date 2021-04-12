@@ -1,8 +1,14 @@
 # Created by: vanilla@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	grpcio-tools
 PORTVERSION=	1.36.1
+=======
+
+PORTNAME=	grpcio-tools
+PORTVERSION=	1.37.0
+>>>>>>> upstream/main
 CATEGORIES=	devel python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}

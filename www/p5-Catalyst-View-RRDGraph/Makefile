@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Catalyst-View-RRDGraph
 PORTVERSION=	0.10
 PORTREVISION=	2

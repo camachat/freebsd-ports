@@ -1,5 +1,8 @@
 # Created by: TANAKA Hiroyuki <kattyo@abk.nu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xtr
 PORTVERSION=	1.50e.0.2

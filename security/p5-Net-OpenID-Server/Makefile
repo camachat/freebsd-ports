@@ -1,5 +1,8 @@
 # Created by: Alex Kapranoff <kappa@rambler-co.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-OpenID-Server
 PORTVERSION=	1.09

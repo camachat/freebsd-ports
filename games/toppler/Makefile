@@ -1,5 +1,8 @@
 # Created by: Dom Mitchell <dom@happygiraffe.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	toppler
 PORTVERSION=	1.1.6

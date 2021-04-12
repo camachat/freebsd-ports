@@ -1,9 +1,16 @@
 # Created by: Thomas Gellekum <tg@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gnustep-base
 DISTVERSIONPREFIX=	base-
 DISTVERSION=	1_27_0
+<<<<<<< HEAD
+=======
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	lang devel gnustep
 
 MAINTAINER=	ports@FreeBSD.org

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	muse-sequencer
 DISTVERSIONPREFIX=	muse_
 DISTVERSION=	3_1_1

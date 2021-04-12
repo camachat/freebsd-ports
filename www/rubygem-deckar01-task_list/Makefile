@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	deckar01-task_list
 PORTVERSION=	2.3.1
 CATEGORIES=	www rubygems

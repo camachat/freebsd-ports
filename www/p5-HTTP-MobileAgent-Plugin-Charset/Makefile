@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	HTTP-MobileAgent-Plugin-Charset
 PORTVERSION=	0.04
 PORTREVISION=	1

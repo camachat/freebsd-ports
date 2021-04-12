@@ -1,5 +1,8 @@
 # Created by: Jona Joachim <walkingshadow@grummel.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sdl_sge
 PORTVERSION=	0.030809

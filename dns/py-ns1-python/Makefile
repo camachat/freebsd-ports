@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ns1-python
 DISTVERSION=	0.16.0
 CATEGORIES=	dns python

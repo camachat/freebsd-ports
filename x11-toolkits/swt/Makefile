@@ -1,5 +1,8 @@
 # Created by: Robert C. Noland III <rnoland@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	swt
 DISTVERSION=	4.11

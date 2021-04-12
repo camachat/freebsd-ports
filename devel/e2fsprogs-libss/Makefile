@@ -1,5 +1,8 @@
 # Created by: Ben Kaduk <kaduk@mit.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTREVISION=	0
 CATEGORIES=	devel

@@ -1,7 +1,11 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+
+>>>>>>> upstream/main
 # PROVIDE: nncp-caller
 # REQUIRE: DAEMON NETWORKING FILESYSTEMS
 # KEYWORD: shutdown

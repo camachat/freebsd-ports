@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ods2sql
 DISTVERSION=	0.4.0
 PORTREVISION=	4

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	chkascii
 DISTVERSION=	2.4
 CATEGORIES=	textproc

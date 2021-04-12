@@ -1,5 +1,8 @@
 # Created by: pst@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	idutils
 PORTVERSION=	4.6

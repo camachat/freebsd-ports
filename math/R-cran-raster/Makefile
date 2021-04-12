@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	raster
 DISTVERSION=	3.4-5
 CATEGORIES=	math

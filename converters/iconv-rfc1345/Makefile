@@ -1,5 +1,8 @@
 # Created by: Konstantin Chuguev <Konstantin.Chuguev@dante.org.uk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	iconv-rfc1345
 PORTVERSION=	2.0

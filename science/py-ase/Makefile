@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ase
 DISTVERSION=	3.21.1
 CATEGORIES=	science python

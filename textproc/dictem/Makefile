@@ -1,5 +1,8 @@
 # Created by: Max N. Boyarov <m.boyarov@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dictem
 PORTVERSION=	1.0.4

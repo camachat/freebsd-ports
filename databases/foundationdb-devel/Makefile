@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	foundationdb-devel
 DISTVERSION=	7.0.0.a.20210224
 CATEGORIES=	databases

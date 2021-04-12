@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTVERSION=	3.17.8
 CATEGORIES?=	mail
 MASTER_SITES=	http://www.claws-mail.org/download.php?file=releases/

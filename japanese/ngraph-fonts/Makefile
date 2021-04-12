@@ -1,5 +1,8 @@
 # Created by: Yoshiro MIHIRA <sanpei@jp.FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ngraph-fonts
 PORTVERSION=	1.0

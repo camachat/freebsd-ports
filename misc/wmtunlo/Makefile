@@ -1,5 +1,8 @@
 # Created by: Adam Weinberger <adam@vectors.cx>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wmtunlo
 PORTVERSION=	0.1.3

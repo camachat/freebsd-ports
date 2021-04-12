@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	peek
 DISTVERSION=	1.5.1
 CATEGORIES=	multimedia

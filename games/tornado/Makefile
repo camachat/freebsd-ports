@@ -1,5 +1,8 @@
 # Created by: minter@lunenburg.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tornado
 PORTVERSION=	1.4

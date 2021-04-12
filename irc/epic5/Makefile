@@ -1,5 +1,8 @@
 # Created by: Josh Paetzel <josh@tcbug.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	epic5
 PORTVERSION=	2.1.4

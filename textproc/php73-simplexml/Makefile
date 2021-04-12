@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 CATEGORIES=	textproc
 
 MASTERDIR=	${.CURDIR}/../../lang/php73

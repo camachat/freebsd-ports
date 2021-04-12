@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Net-FTP-Recursive
 PORTVERSION=	2.04
 PORTREVISION=	2

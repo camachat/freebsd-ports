@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	screcord
 DISTVERSION=	g20171206
 PORTREVISION=	1

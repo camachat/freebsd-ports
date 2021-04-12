@@ -1,5 +1,8 @@
 # Created by: marius@alchemy.franken.de
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sformat
 PORTVERSION=	3.5

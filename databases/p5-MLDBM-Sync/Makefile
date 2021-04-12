@@ -1,5 +1,8 @@
 # Created by: erwin@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	MLDBM-Sync
 PORTVERSION=	0.30

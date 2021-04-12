@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Tk-WaitBox
 PORTVERSION=	1.3
 PORTREVISION=	1

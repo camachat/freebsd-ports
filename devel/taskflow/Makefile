@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	taskflow
 DISTVERSIONPREFIX=	v
 DISTVERSION=	3.0.0

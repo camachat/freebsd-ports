@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cyanrip
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.7.0

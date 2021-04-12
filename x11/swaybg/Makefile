@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	swaybg
 DISTVERSION=	1.0
 PORTREVISION=	1

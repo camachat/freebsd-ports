@@ -1,5 +1,8 @@
 # Created by: KIRIYAMA Kazuhiko
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wmicons
 PORTVERSION=	1.0

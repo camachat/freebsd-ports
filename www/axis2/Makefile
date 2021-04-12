@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	axis2
 PORTVERSION=	1.7.9
 PORTREVISION=	1

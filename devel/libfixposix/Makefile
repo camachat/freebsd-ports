@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libfixposix
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.4.3

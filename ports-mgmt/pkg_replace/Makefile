@@ -1,5 +1,8 @@
 # Created by: Securedog <securedog@users.sourceforge.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pkg_replace
 PORTVERSION=	20200821

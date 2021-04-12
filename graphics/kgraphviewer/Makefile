@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kgraphviewer
 DISTVERSION=	2.4.3
 PORTREVISION=	3

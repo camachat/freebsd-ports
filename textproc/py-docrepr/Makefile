@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	docrepr
 DISTVERSION=	0.1.1
 CATEGORIES=	textproc

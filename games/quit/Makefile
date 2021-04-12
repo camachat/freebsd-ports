@@ -1,5 +1,8 @@
 # Created by: UMENO Takashi <umeno@rr.iij4u.or.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	quit
 PORTVERSION=	1.2a

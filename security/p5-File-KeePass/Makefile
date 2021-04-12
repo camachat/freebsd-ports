@@ -1,5 +1,8 @@
 # Created by: Alexander Y. Grigoryev <alexander.4mail@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	File-KeePass
 PORTVERSION=	2.03

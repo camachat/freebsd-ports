@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 --- chrome/common/pref_names.cc.orig	2021-01-18 21:28:52 UTC
 +++ chrome/common/pref_names.cc
 @@ -1089,7 +1089,7 @@ const char kForceYouTubeRestrict[] = "settings.force_y
@@ -19,6 +20,29 @@
  // true, we draw a custom chrome frame (thicker title bar and blue border).
  const char kUseCustomChromeFrame[] = "browser.custom_chrome_frame";
 @@ -1687,7 +1687,7 @@ const char kDownloadDefaultDirectory[] = "download.def
+=======
+--- chrome/common/pref_names.cc.orig	2021-03-12 23:57:19 UTC
++++ chrome/common/pref_names.cc
+@@ -1099,7 +1099,7 @@ const char kAllowedDomainsForApps[] = "settings.allowe
+ 
+ // TODO(crbug.com/1052397): Revisit the macro expression once build flag switch
+ // of lacros-chrome is complete.
+-#if defined(OS_LINUX) || BUILDFLAG(IS_CHROMEOS_LACROS)
++#if defined(OS_LINUX) || BUILDFLAG(IS_CHROMEOS_LACROS) || defined(OS_BSD)
+ // Linux specific preference on whether we should match the system theme.
+ const char kUsesSystemTheme[] = "extensions.theme.use_system";
+ #endif
+@@ -1274,7 +1274,7 @@ const char kShowUpdatePromotionInfoBar[] =
+ 
+ // TODO(crbug.com/1052397): Revisit the macro expression once build flag switch
+ // of lacros-chrome is complete.
+-#if defined(OS_LINUX) || BUILDFLAG(IS_CHROMEOS_LACROS)
++#if defined(OS_LINUX) || BUILDFLAG(IS_CHROMEOS_LACROS) || defined(OS_BSD)
+ // Boolean that is false if we should show window manager decorations.  If
+ // true, we draw a custom chrome frame (thicker title bar and blue border).
+ const char kUseCustomChromeFrame[] = "browser.custom_chrome_frame";
+@@ -1726,7 +1726,7 @@ const char kDownloadDefaultDirectory[] = "download.def
+>>>>>>> upstream/main
  // upgrade a unsafe location to a safe location.
  const char kDownloadDirUpgraded[] = "download.directory_upgrade";
  
@@ -27,7 +51,11 @@
      defined(OS_MAC)
  const char kOpenPdfDownloadInSystemReader[] =
      "download.open_pdf_in_system_reader";
+<<<<<<< HEAD
 @@ -2044,12 +2044,12 @@ const char kAmbientAuthenticationInPrivateModesEnabled
+=======
+@@ -2103,12 +2103,12 @@ const char kAmbientAuthenticationInPrivateModesEnabled
+>>>>>>> upstream/main
  // requests.
  const char kBasicAuthOverHttpEnabled[] = "auth.basic_over_http_enabled";
  
@@ -42,12 +70,21 @@
  
  #if defined(OS_POSIX)
  // Boolean that specifies whether NTLMv2 is enabled.
+<<<<<<< HEAD
 @@ -2955,7 +2955,7 @@ const char kAutoplayWhitelist[] = "media.autoplay_whit
  const char kBlockAutoplayEnabled[] = "media.block_autoplay";
  #endif  // !defined(OS_ANDROID)
  
 -#if defined(OS_LINUX) && !defined(OS_CHROMEOS)
 +#if (defined(OS_LINUX) && !defined(OS_CHROMEOS)) || defined(OS_BSD)
+=======
+@@ -3001,7 +3001,7 @@ const char kBlockAutoplayEnabled[] = "media.block_auto
+ 
+ // TODO(crbug.com/1052397): Revisit the macro expression once build flag switch
+ // of lacros-chrome is complete.
+-#if defined(OS_LINUX) || BUILDFLAG(IS_CHROMEOS_LACROS)
++#if defined(OS_LINUX) || BUILDFLAG(IS_CHROMEOS_LACROS) || defined(OS_BSD)
+>>>>>>> upstream/main
  // Boolean that indicates if native notifications are allowed to be used in
  // place of Chrome notifications.
  const char kAllowNativeNotifications[] = "native_notifications.allowed";

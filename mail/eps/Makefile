@@ -1,5 +1,8 @@
 # Created by: ismail@enderunix.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	eps
 PORTVERSION=	1.7

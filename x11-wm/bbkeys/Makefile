@@ -1,5 +1,8 @@
 # Created by: Patrick Seal <patseal@hyperhost.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bbkeys
 PORTVERSION=	0.9.1

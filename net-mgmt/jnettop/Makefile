@@ -1,5 +1,8 @@
 # Created by: Ryan Steinmetz
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jnettop
 PORTVERSION=	0.13.0

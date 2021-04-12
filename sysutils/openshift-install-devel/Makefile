@@ -1,5 +1,8 @@
 # Created by: John Hixson <jhixson@freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	openshift-install
 PORTVERSION=	${GH_TAGNAME:C/^([0-9]{4})(.*)/\1/}

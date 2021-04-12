@@ -1,5 +1,8 @@
 # Created by: trasz
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	iksemel
 PORTVERSION=	1.5

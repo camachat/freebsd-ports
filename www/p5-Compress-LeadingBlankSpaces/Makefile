@@ -1,5 +1,8 @@
 # Created by: Bill Swingle <unfurl@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Compress-LeadingBlankSpaces
 PORTVERSION=	0.06

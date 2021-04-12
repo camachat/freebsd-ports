@@ -1,5 +1,8 @@
 # Created by: Stefan Walter <swalter@lettermax.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vifm
 PORTVERSION=	0.11

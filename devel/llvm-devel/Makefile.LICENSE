@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # The "LLVM Release License" is largely a copy of the NCSA license, but
 # it contains extra verbiage about its interaction with third party
 # licenses so it is handled as a seperate license.

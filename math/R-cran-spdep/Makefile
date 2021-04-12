@@ -1,8 +1,14 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	spdep
 DISTVERSION=	1.1-5
+=======
+
+PORTNAME=	spdep
+DISTVERSION=	1.1-7
+>>>>>>> upstream/main
 CATEGORIES=	math
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 

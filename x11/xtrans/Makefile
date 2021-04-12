@@ -1,5 +1,8 @@
 # Created by: Dejan Lesjak <lesi@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xtrans
 PORTVERSION=	1.4.0

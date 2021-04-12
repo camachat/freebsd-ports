@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	libnpupnp
 DISTVERSION=	4.1.1
+=======
+PORTNAME=	libnpupnp
+DISTVERSION=	4.1.3
+>>>>>>> upstream/main
 CATEGORIES=	net
 MASTER_SITES=	https://www.lesbonscomptes.com/upmpdcli/downloads/
 

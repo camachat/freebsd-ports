@@ -1,5 +1,8 @@
 # Created by: John Merryweather Cooper
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTREVISION=	2
 CATEGORIES=	databases lang

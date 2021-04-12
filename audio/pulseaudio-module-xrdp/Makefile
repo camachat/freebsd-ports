@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pulseaudio-module-xrdp
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.5

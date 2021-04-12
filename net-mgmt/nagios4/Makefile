@@ -1,5 +1,8 @@
 # Created by: Blaz Zupan <blaz@si.FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nagios
 PORTVERSION=	4.4.6

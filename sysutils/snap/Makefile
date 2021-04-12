@@ -1,5 +1,8 @@
 # Created by: Wu Chin-Hao <wchunhao@cs.nctu.edu.tw>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	snap
 DISTVERSION=	1.01

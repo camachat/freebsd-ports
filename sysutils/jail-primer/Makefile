@@ -1,5 +1,8 @@
 # Created by: Joe Barbish <jail-primer1@a1poweruser.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jail-primer
 PORTVERSION=	0.2

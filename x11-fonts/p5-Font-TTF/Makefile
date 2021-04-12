@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Font-TTF
 PORTVERSION=	1.06
 CATEGORIES=	x11-fonts perl5

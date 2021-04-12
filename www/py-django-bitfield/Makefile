@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	django-bitfield
 PORTVERSION=	2.0.1
 CATEGORIES=	www python

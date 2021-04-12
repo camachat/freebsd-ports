@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pysdl2
 PORTVERSION=	0.9.7
 CATEGORIES=	devel python

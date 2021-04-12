@@ -1,5 +1,8 @@
 # Created by: msmith
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	citrix_ica
 PORTVERSION=	13.10.0

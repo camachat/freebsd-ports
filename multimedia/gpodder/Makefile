@@ -1,5 +1,8 @@
 # Created by: Chess Griffin <chess@chessgriffin.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gpodder
 DISTVERSION=	3.10.17

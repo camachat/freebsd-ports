@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cups-bjnp
 PORTVERSION=	2.0.3
 CATEGORIES=	print

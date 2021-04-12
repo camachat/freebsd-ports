@@ -1,5 +1,8 @@
 # Created by: Lars Eggert <lars.eggert@gmx.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Sub-Override
 PORTVERSION=	0.09

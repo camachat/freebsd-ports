@@ -1,5 +1,8 @@
 # Created by: Matthew X. Economou <xenophon+fbsdports@irtnog.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	django-reversion
 PORTVERSION=	3.0.7

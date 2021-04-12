@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	calendar
 PORTVERSION=	0.17.4
 DISTVERSIONPREFIX=	v

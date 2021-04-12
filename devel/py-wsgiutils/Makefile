@@ -1,5 +1,8 @@
 # Created by: Jordi Haarman
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wsgiutils
 PORTVERSION=	0.7.2

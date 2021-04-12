@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 .SUFFIXES:	.bdf .pcf.gz
 
 STEMS:=	italic09 italic12 roman09 roman10 roman12

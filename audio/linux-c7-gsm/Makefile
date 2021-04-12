@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gsm
 PORTVERSION=	1.0.13
 DISTVERSIONSUFFIX=	-11.el7

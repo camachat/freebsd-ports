@@ -1,5 +1,8 @@
 # Created by: Tobias Kortkamp <tobias.kortkamp@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	easystroke
 PORTVERSION=	0.6.0

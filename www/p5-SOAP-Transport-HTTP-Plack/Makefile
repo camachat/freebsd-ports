@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	SOAP-Transport-HTTP-Plack
 PORTVERSION=	0.03
 PORTREVISION=	2

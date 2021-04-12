@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	or-tools
 DISTVERSIONPREFIX=	v
 DISTVERSION=	8.1

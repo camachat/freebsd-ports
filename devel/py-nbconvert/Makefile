@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	nbconvert
 PORTVERSION=	6.0.7
 PORTREVISION=	1

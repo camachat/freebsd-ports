@@ -1,5 +1,8 @@
 # Created by: itojun@itojun.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	choparp
 PORTVERSION=	20150613

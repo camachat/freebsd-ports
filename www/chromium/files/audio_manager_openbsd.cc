@@ -80,7 +80,11 @@ AudioManagerOpenBSD::AudioManagerOpenBSD(std::unique_ptr<AudioThread> audio_thre
                                          AudioLogFactory* audio_log_factory)
     : AudioManagerBase(std::move(audio_thread),
                        audio_log_factory) {
+<<<<<<< HEAD
   DLOG(WARNING) << "AudioManagerOpenBSD";
+=======
+  DLOG(INFO) << "AudioManagerOpenBSD";
+>>>>>>> upstream/main
   SetMaxOutputStreamsAllowed(kMaxOutputStreams);
 }
 
@@ -147,14 +151,22 @@ AudioParameters AudioManagerOpenBSD::GetPreferredOutputStreamParameters(
 
 AudioInputStream* AudioManagerOpenBSD::MakeInputStream(
     const AudioParameters& params) {
+<<<<<<< HEAD
   DLOG(WARNING) << "MakeInputStream";
+=======
+  DLOG(INFO) << "MakeInputStream";
+>>>>>>> upstream/main
   return new SndioAudioInputStream(this,
              AudioDeviceDescription::kDefaultDeviceId, params);
 }
 
 AudioOutputStream* AudioManagerOpenBSD::MakeOutputStream(
     const AudioParameters& params) {
+<<<<<<< HEAD
   DLOG(WARNING) << "MakeOutputStream";
+=======
+  DLOG(INFO) << "MakeOutputStream";
+>>>>>>> upstream/main
   return new SndioAudioOutputStream(params, this);
 }
 #endif
@@ -162,7 +174,11 @@ AudioOutputStream* AudioManagerOpenBSD::MakeOutputStream(
 std::unique_ptr<media::AudioManager> CreateAudioManager(
     std::unique_ptr<AudioThread> audio_thread,
     AudioLogFactory* audio_log_factory) {
+<<<<<<< HEAD
   DLOG(WARNING) << "CreateAudioManager";
+=======
+  DLOG(INFO) << "CreateAudioManager";
+>>>>>>> upstream/main
 #if defined(USE_SNDIO)
   UMA_HISTOGRAM_ENUMERATION("Media.OpenBSDAudioIO", kSndio, kAudioIOMax + 1);
   return std::make_unique<AudioManagerOpenBSD>(std::move(audio_thread),

@@ -1,5 +1,8 @@
 # Created by: Eugene Grosbein <eugen@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	RDR-Collector
 PORTVERSION=	1.0000

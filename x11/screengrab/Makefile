@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	screengrab
 PORTVERSION=	2.1.0
 CATEGORIES=	x11

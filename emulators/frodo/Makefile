@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	frodo
 PORTVERSION=	4.1b
 PORTREVISION=	11

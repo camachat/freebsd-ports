@@ -1,5 +1,8 @@
 # Created by: Anish Mistry
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sshfs
 PORTVERSION=	3.7.1

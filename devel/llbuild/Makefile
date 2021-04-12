@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		llbuild
 DISTVERSIONPREFIX=	swift-DEVELOPMENT-
 DISTVERSION=		SNAPSHOT-2017-12-10

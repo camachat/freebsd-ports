@@ -1,5 +1,8 @@
 # Created by: Mauricio Herrera Cuadra <mauricio@arareko.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Devel-TraceUse
 PORTVERSION=	2.096

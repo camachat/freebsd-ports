@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	texlive
 DISTVERSION=	20150521
 CATEGORIES=	print

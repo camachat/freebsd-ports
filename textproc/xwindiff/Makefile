@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xwindiff
 PORTVERSION=	1.1.6
 CATEGORIES=	textproc

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	deployer
 DISTVERSION=	6.4.3
 CATEGORIES=	devel

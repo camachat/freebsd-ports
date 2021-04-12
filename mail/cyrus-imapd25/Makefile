@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cyrus-imapd
 PORTVERSION=	2.5.17
 PORTREVISION=	1

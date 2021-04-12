@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 # Sample config file for nghttpx in proxy forwarding mode.
 
 # See https://nghttp2.org/documentation/nghttpx.1.html for

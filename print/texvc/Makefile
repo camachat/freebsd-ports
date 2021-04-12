@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	texvc
 PORTVERSION=	20050202
 PORTREVISION=	6

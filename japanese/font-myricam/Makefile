@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	myricam
 PORTVERSION=	2.012.20180119
 PORTREVISION=	1

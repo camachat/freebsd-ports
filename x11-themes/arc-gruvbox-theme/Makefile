@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	arc-gruvbox
 DISTVERSION=	g20161220
 CATEGORIES=	x11-themes xfce

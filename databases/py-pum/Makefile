@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pum
 DISTVERSION=	0.9.12
 CATEGORIES=	databases python

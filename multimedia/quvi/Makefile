@@ -1,5 +1,8 @@
 # Created by: Toni Gundogdu <legatvs@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	quvi
 PORTVERSION=	0.4.2

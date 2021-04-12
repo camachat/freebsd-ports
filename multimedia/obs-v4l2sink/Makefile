@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	obs-v4l2sink
 DISTVERSION=	0.1.0-12
 DISTVERSIONSUFFIX=	-g1ec3c8a

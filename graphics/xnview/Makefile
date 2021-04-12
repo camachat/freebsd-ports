@@ -1,5 +1,8 @@
 # Created by: Serge Negodyuck <petr@petrovich.kiev.ua>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xnview
 PORTVERSION=	1.70

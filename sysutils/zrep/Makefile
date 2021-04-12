@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	zrep
 PORTVERSION=	1.8.0
 DISTVERSIONPREFIX=	v

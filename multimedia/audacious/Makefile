@@ -1,5 +1,8 @@
 # Created by: Zastupov Stepan [RedChrom] <redchrom@mail.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	audacious
 PORTVERSION=	4.1

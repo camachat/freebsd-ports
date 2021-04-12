@@ -1,5 +1,8 @@
 # Created by: David O'Brien <obrien@NUXI.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	44bsd-csh
 PORTVERSION=	20001106

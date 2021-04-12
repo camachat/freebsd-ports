@@ -1,5 +1,8 @@
 # Created by: Chris Larsen <darth@vader.dk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	par2cmdline
 PORTVERSION=	0.8.1

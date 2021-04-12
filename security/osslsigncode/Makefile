@@ -1,5 +1,8 @@
 # Created by: snb@threerings.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	osslsigncode
 PORTVERSION=	1.7.1

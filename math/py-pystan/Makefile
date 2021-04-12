@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pystan
 PORTVERSION=	2.19.0.0
 PORTREVISION=	1

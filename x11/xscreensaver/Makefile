@@ -1,5 +1,8 @@
 # Created by: dom@myrddin.demon.co.uk
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xscreensaver
 PORTVERSION=	5.44

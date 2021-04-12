@@ -1,5 +1,8 @@
 # Created by: petef
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	qmhandle
 PORTVERSION=	1.3.2

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	transient
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.3.0

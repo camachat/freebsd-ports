@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cinch
 PORTVERSION=	2.3.4
 CATEGORIES=	irc rubygems

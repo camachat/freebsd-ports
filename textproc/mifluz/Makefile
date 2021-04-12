@@ -1,5 +1,8 @@
 # Created by: Frederic Dubuy <fdubuy@free.fr>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mifluz
 PORTVERSION=	0.26.0

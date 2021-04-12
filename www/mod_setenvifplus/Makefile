@@ -1,5 +1,8 @@
 # Created by: Jim Riggs <ports@christianserving.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mod_setenvifplus
 PORTVERSION=	0.40

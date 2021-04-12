@@ -1,5 +1,8 @@
 # Created by: dd
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	solitaire
 PORTVERSION=	19980817

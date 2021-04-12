@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libndi
 PORTVERSION=	g20200630
 CATEGORIES=	multimedia net

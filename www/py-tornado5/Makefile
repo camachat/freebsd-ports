@@ -1,5 +1,8 @@
 # Created by: Guixing Bai <khsing.cn@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tornado
 PORTVERSION=	5.1.1

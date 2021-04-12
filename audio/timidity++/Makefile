@@ -1,5 +1,8 @@
 # Created by: Yoichi Asai <yatt@luna2.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	timidity++
 PORTVERSION=	2.15.0

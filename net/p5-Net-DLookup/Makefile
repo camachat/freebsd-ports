@@ -1,5 +1,8 @@
 # Created by: Danny Howard <dannyman@tellme.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-DLookup
 PORTVERSION=	1.01

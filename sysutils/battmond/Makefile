@@ -1,8 +1,15 @@
 # Created by: ntarmos@ceid.upatras.gr
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	battmond
 DISTVERSION=	0.4
+=======
+
+PORTNAME=	battmond
+DISTVERSION=	0.4
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	sysutils
 
 MAINTAINER=	ntarmos@gmail.com

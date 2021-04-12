@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	stringtie
 DISTVERSION=	2.1.1
 CATEGORIES=	biology

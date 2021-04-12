@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Horde_View
 PORTVERSION=	2.0.6
 CATEGORIES=	devel www pear

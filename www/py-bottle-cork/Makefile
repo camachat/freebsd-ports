@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bottle-cork
 PORTVERSION=	0.12.0
 PORTREVISION=	2

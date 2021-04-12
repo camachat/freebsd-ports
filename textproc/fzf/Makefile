@@ -1,9 +1,15 @@
 # Created by: Sascha Holzleiter <sascha@root-login.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	fzf
 PORTVERSION=	0.25.1
 PORTREVISION=	1
+=======
+
+PORTNAME=	fzf
+PORTVERSION=	0.27.0
+>>>>>>> upstream/main
 CATEGORIES=	textproc
 
 MAINTAINER=	dmgk@FreeBSD.org
@@ -15,7 +21,11 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 USES=		go:modules
 
 # go get -d github.com/junegunn/fzf@$(make -V PORTVERSION)
+<<<<<<< HEAD
 GO_MODULE=	github.com/junegunn/fzf@v0.0.0-20210203133252-6654239c9466
+=======
+GO_MODULE=	github.com/junegunn/fzf@v0.0.0-20210406135359-19759ed36eda
+>>>>>>> upstream/main
 GO_BUILDFLAGS=	-ldflags="-X main.revision=${COMMIT_ID} -s -w"
 
 COMMIT_ID=	6654239

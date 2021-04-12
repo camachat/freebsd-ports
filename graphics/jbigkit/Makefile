@@ -1,5 +1,8 @@
 # Created by: mi
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jbigkit
 PORTVERSION=	2.1

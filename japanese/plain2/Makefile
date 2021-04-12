@@ -1,5 +1,8 @@
 # Created by: nkazushi@highway.or.jp
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	plain2
 PORTVERSION=	2.54.1

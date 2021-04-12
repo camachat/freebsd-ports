@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	gurl
 DISTVERSION=	0.2.2
+=======
+PORTNAME=	gurl
+DISTVERSIONPREFIX=	v
+DISTVERSION=	0.2.3
+>>>>>>> upstream/main
 CATEGORIES=	www
 
 MAINTAINER=	dch@FreeBSD.org

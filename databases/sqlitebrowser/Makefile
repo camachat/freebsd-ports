@@ -1,5 +1,8 @@
 # Created by: loïc bartoletti <lbartoletti@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sqlitebrowser
 PORTVERSION=	3.12.1

@@ -1,5 +1,8 @@
 # Created by: Silvio Ap Silva aka kanazuchi <alvolivre@live.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xml-default-dict
 PORTVERSION=	0.3

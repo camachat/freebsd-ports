@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pytest-rerunfailures
 PORTVERSION=	9.1
 CATEGORIES=	devel python

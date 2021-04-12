@@ -1,5 +1,8 @@
 # Created by: kevit
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Class-Declare
 PORTVERSION=	0.19

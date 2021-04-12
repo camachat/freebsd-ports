@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pycharm-pro
 PORTVERSION=	2020.3.4
 CATEGORIES=	devel java python

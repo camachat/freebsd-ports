@@ -1,5 +1,8 @@
 # Created by: Matt Emmerton <matt@gsicomp.on.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sntop
 PORTVERSION=	1.4.3

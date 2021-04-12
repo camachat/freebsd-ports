@@ -1,5 +1,8 @@
 # Created by: Gerrit Beine (<gerrit.beine@gmx.de>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	PhpDocumentor
 PORTVERSION=	1.4.4

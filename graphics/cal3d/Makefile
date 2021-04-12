@@ -1,5 +1,8 @@
 # Created by: Stefan Walter <sw@gegenunendlich.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cal3d
 PORTVERSION=	0.11.1	# see note below

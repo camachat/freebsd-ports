@@ -1,5 +1,8 @@
 # Created by: Andrey A. Chernov <ache@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	less
 PORTVERSION=	551

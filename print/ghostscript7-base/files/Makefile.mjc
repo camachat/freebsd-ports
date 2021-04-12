@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 # MJC - additional driver for Epson MachJet series
 
 DISTFILES+=	gdevmjc-0.8.tar.gz:ports_jp

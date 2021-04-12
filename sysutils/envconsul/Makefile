@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	envconsul
 PORTVERSION=	0.11.0
 DISTVERSIONPREFIX=	v

@@ -1,5 +1,8 @@
 # Created by: Qing Feng <qingfeng@douban.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	beansdb
 PORTVERSION=	0.7.1.4

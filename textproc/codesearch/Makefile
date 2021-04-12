@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	codesearch
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.1.0

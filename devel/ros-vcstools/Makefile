@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ros-vcstools
 DISTVERSION=	0.1.42
 CATEGORIES=	devel

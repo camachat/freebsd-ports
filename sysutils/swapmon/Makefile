@@ -1,5 +1,8 @@
 # Created by: Alexander Kuehn <freebsd@nagilum.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	swapmon
 PORTVERSION=	1.5

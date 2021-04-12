@@ -1,5 +1,8 @@
 ;; -*- lisp -*-
+<<<<<<< HEAD
 ;; $FreeBSD$
+=======
+>>>>>>> upstream/main
 ;;
 (if (not (fboundp 'normal-top-level-add-subdirs-to-load-path))
     (setq load-path (append '(

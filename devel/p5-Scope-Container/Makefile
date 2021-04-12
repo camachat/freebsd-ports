@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Scope-Container
 PORTVERSION=	0.04
 CATEGORIES=	devel perl5

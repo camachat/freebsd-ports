@@ -1,5 +1,8 @@
 # Created by: Stanislav Svirid <count@211.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	south
 PORTVERSION=	1.0.2

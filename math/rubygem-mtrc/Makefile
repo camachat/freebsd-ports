@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mtrc
 DISTVERSION=	0.0.4
 CATEGORIES=	math rubygems benchmarks

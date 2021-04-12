@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	openage
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.3.0-1262

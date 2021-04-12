@@ -1,5 +1,8 @@
 # Created by: Jesse <jessefrgsmith@yahoo.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	imagination
 PORTVERSION=	3.0

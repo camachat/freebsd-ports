@@ -1,5 +1,8 @@
 # Created by: sada
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	alias-fonts
 PORTVERSION=	1.0

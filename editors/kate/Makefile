@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	kate
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
+=======
+PORTNAME=	kate
+DISTVERSION=	${KDE_APPLICATIONS_VERSION}
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	editors kde kde-applications
 
 MAINTAINER=	kde@FreeBSD.org

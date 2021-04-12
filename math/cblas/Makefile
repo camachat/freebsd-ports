@@ -1,5 +1,8 @@
 # Created by: bf@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cblas
 PORTVERSION=	1.0
@@ -21,6 +24,7 @@ USES=		fortran
 CONFLICTS_INSTALL=	atlas-[0-9]* atlas-devel-[0-9]*
 
 OPTIONS_DEFINE=	PROFILE SHARED STATIC DOCS
+<<<<<<< HEAD
 OPTIONS_RADIO=	BLAS
 OPTIONS_RADIO_BLAS=	OPENBLAS NETLIB ATLAS
 OPTIONS_DEFAULT=	OPENBLAS SHARED STATIC
@@ -29,6 +33,9 @@ ATLAS_USES= blaslapack:atlas
 NETLIB_USES=  blaslapack:netlib
 OPENBLAS_USES=  blaslapack:openblas
 
+=======
+OPTIONS_DEFAULT=	SHARED STATIC
+>>>>>>> upstream/main
 PROFILE_DESC=	Build profiling libraries
 SHARED_DESC=	Build shared libraries and PIC archives
 STATIC_DESC=	Build (non-PIC) archives
@@ -109,7 +116,13 @@ post-build:
 .endif
 
 .if defined(MAINTAINER_MODE) || defined(PACKAGE_BUILDING)
+<<<<<<< HEAD
 MAKE_ENV+=		BLLIB="${BLASLIB}"
+=======
+BLAS?=			-L${LOCALBASE}/lib -lblas
+BUILD_DEPENDS +=	${LOCALBASE}/lib/libblas.so:math/blas
+MAKE_ENV+=		BLLIB="${BLAS}"
+>>>>>>> upstream/main
 
 check regression-test test: ${TESTS}
 

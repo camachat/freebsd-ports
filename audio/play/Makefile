@@ -1,5 +1,8 @@
 # Created by: Masanori Kiriake <seiken@nbs.co.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	play
 PORTVERSION=	1.0

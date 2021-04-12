@@ -1,5 +1,8 @@
 # Created by: hrs
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	alliance
 DISTVERSION=	5.1.1

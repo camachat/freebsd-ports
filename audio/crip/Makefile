@@ -1,5 +1,8 @@
 # Created by: Philip Paeps <philip@paeps.cx>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	crip
 PORTVERSION=	3.9

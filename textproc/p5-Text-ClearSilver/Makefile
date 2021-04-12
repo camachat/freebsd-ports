@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Text-ClearSilver
 PORTVERSION=	0.10.5.4
 PORTREVISION=	1

@@ -1,5 +1,8 @@
 # Created by: Pete French <pete@twisted.org.uk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libobjc2
 DISTVERSIONPREFIX=v

@@ -1,5 +1,8 @@
 # Created by: jfieber
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sgmlformat
 PORTVERSION=	1.7

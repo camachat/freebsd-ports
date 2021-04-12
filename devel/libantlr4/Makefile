@@ -1,5 +1,8 @@
 # Created by: Muhammad Moinur Rahman<5u623l20@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	antlr4
 PORTVERSION=	4.9

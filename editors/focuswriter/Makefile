@@ -1,5 +1,8 @@
 # Created by: lightside <lightside@gmx.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	focuswriter
 DISTVERSIONPREFIX=	v

@@ -1,5 +1,8 @@
 # Created by: Andreas Klemm <andreas@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	html2ps
 DISTVERSION=	1.0b7

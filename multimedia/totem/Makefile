@@ -1,5 +1,8 @@
 # Created by: Hendrik Scholz <hendrik@scholz.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	totem
 PORTVERSION=	3.38.0

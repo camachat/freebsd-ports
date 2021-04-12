@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 # Created by: Dmitry Marakasov <amdmi3@FreeBSD.org>
 # $FreeBSD$
 
 PORTNAME=	zaz
 PORTVERSION=	1.0.0
 PORTREVISION=	8
+=======
+PORTNAME=	zaz
+PORTVERSION=	1.0.1
+>>>>>>> upstream/main
 CATEGORIES=	games
 MASTER_SITES=	SF/${PORTNAME}
 
@@ -18,8 +23,12 @@ LIB_DEPENDS=	libfreetype.so:print/freetype2 \
 		libvorbis.so:audio/libvorbis \
 		libftgl.so:graphics/ftgl
 
+<<<<<<< HEAD
 USES=		compiler:c++11-lang desktop-file-utils gl pkgconfig sdl \
 		tar:bzip2
+=======
+USES=		compiler:c++11-lang desktop-file-utils gl pkgconfig sdl
+>>>>>>> upstream/main
 GNU_CONFIGURE=	yes
 USE_SDL=	sdl image
 USE_GL=		gl glu

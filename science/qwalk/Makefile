@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	qwalk
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.0.1-300

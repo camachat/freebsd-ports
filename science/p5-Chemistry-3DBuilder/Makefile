@@ -1,5 +1,8 @@
 # Created by: Steve Wills <steve@mouf.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Chemistry-3DBuilder
 PORTVERSION=	0.10

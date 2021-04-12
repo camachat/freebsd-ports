@@ -1,5 +1,8 @@
 # Created by: Dryice Liu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ipython
 PORTVERSION=	7.22.0

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	morse
 DISTVERSION=	1.4-154
 DISTVERSIONSUFFIX=	-g53f9eaa8

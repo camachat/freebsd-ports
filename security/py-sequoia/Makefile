@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sequoia
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.19.0
@@ -20,7 +23,11 @@ USES=		python:3.4+
 USE_PYTHON=	distutils autoplist concurrent
 USE_GITLAB=	yes
 
+<<<<<<< HEAD
 WRKSRC=		${WRKDIR}/${PORTNAME}-${GL_COMMIT}-${GL_COMMIT}/ffi/lang/python
+=======
+WRKSRC_SUBDIR=	ffi/lang/python
+>>>>>>> upstream/main
 
 GL_ACCOUNT=	sequoia-pgp
 GL_PROJECT=	sequoia

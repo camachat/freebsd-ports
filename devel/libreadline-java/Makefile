@@ -1,5 +1,8 @@
 # Created by: Martin Kammerhofer <mkamm@gmx.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libreadline-java
 PORTVERSION=	0.8.0

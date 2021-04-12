@@ -1,5 +1,8 @@
 # Created by: koma2@lovepeers.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	topless
 PORTVERSION=	1.52

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	prototool
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.10.0

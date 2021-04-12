@@ -1,5 +1,8 @@
 # Created by: Michael Schout <mschout@gkg.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	RT-Extension-Gravatar
 PORTVERSION=	2.01

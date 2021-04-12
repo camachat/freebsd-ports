@@ -1,5 +1,8 @@
 # Created by: kappa@FreeBSD.org.ua
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	JavaScript-SpiderMonkey
 PORTVERSION=	0.25

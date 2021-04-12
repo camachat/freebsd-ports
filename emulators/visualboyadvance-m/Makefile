@@ -1,5 +1,8 @@
 # Created by: Nicole Reid <root@cooltrainer.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	visualboyadvance-m
 PORTVERSION=	2.0.0b2

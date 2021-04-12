@@ -1,5 +1,8 @@
 # Created by: Mikhail T. <m.tsatsenko@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	structured_warnings
 PORTVERSION=	0.3.0

@@ -1,5 +1,8 @@
 # Created by: Stanislav Sedov <stas@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libatomic_ops
 PORTVERSION=	7.6.10

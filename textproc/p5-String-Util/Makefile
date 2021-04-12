@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	String-Util
 PORTVERSION=	1.31
 CATEGORIES=	textproc perl5

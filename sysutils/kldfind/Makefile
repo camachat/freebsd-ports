@@ -1,5 +1,8 @@
 # Created by: Ricardo A. Reis <ricardo.areis@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	kldfind
 PORTVERSION=	0.61

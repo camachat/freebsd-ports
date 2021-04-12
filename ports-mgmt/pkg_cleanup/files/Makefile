@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 .if exists(/usr/lib/libncursesw.so)
 LDLIBS += -lncursesw
 .else

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Test-POE-Client-TCP
 PORTVERSION=	1.26
 CATEGORIES=	devel perl5

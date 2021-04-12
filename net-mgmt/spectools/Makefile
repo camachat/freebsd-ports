@@ -1,5 +1,8 @@
 # Created by: Henrik Brix Andersen <henrik@brixandersen.dk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	spectools
 PORTVERSION=	201108.r1

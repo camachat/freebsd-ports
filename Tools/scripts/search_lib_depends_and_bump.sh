@@ -94,7 +94,10 @@ do
 		echo "All portlint test successfull, please review the changes before you commit them carefully."
 		echo "You maybe want to run now"
 		echo "git diff"
+<<<<<<< HEAD
 		echo "svn diff"
+=======
+>>>>>>> upstream/main
 		echo
 		break;
 	fi

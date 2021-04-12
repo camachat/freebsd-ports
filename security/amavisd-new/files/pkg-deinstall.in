@@ -1,7 +1,10 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 
 USER=%%AMAVISUSER%%
 GROUP=%%AMAVISGROUP%%

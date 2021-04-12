@@ -1,5 +1,8 @@
 # Created by: tm@onepost.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xisp
 PORTVERSION=	2.7p4

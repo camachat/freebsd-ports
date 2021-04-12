@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xvinfo
 PORTVERSION=	1.1.4
 CATEGORIES=	x11

@@ -1,5 +1,8 @@
 # Created by: Stefan Jahn <stefan.jahn@nemesis-sektor.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	knights
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}

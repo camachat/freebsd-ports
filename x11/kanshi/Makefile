@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kanshi
 DISTVERSIONPREFIX=	v
 PORTVERSION=	1.1.0

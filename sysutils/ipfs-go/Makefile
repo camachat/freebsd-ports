@@ -1,8 +1,15 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	ipfs
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.8.0
+=======
+PORTNAME=	ipfs
+DISTVERSIONPREFIX=	v
+DISTVERSION=	0.8.0
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	sysutils
 MASTER_SITES=	https://github.com/ipfs/go-ipfs/releases/download/v${DISTVERSION}/
 PKGNAMESUFFIX=	-go

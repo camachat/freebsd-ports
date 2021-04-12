@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bosh-gen
 PORTVERSION=	0.101.2
 CATEGORIES=	sysutils rubygems

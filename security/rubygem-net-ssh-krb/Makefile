@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	net-ssh-krb
 DISTVERSION=	0.5.1
 CATEGORIES=	security rubygems

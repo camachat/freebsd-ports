@@ -1,5 +1,8 @@
 # Created by: Alexander Kriventsov
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	repos-style
 PORTVERSION=	2.0

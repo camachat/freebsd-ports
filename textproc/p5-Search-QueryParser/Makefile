@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Search-QueryParser
 PORTVERSION=	0.95
 CATEGORIES=	textproc perl5

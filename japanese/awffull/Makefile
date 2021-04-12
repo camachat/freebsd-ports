@@ -1,5 +1,8 @@
 # Created by: Norikatsu Shigemura <nork@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 CATEGORIES=	japanese www
 

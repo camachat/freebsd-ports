@@ -1,5 +1,8 @@
 # Created by: Lev Walkin <vlm@lionet.info>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libstrfunc
 PORTVERSION=	8.3

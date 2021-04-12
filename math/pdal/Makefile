@@ -1,5 +1,8 @@
 # Created by: bart <lbartoletti@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pdal
 DISTVERSION=	2.2.0

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	jekyll-archives
 PORTVERSION=	2.2.1
 CATEGORIES=	textproc rubygems

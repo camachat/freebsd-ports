@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	recursive-open-struct
 PORTVERSION=	1.1.3
 CATEGORIES=	devel rubygems

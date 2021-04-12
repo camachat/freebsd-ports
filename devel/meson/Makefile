@@ -1,5 +1,8 @@
 # Created by: Ting-Wei Lan <lantw44@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	meson
 PORTVERSION=	0.57.1

@@ -1,5 +1,8 @@
 # Created by: Toni Gundogdu <legatvs@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cclive
 PORTVERSION=	0.7.16

@@ -1,5 +1,8 @@
 # Created by: Florent Thoumie <flz@xbsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	progsreiserfs
 DISTVERSION=	0.3.1-rc8

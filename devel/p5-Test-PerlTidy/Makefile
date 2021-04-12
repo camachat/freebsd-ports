@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Test-PerlTidy
 PORTVERSION=	20130104
 PORTREVISION=	1

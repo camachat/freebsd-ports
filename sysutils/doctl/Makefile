@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	doctl
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.57.0
+=======
+PORTNAME=	doctl
+DISTVERSIONPREFIX=	v
+DISTVERSION=	1.58.0
+>>>>>>> upstream/main
 CATEGORIES=	sysutils
 
 MAINTAINER=	jrm@FreeBSD.org

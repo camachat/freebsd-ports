@@ -1,5 +1,8 @@
 # Created by: Bruce M. Simpson
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	boost_build
 DISTVERSION=	4.3.0.20201229

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cli-visualizer
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.8-27

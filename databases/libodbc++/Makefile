@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libodbc++
 PORTVERSION=	0.2.5
 PORTREVISION=	5

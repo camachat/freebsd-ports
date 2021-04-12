@@ -1,5 +1,8 @@
 # Created by: <trasz@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	calf
 DISTVERSION=	0.90.3

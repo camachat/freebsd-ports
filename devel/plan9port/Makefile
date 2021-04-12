@@ -1,5 +1,8 @@
 # Created by: Serge Gagnon <serge.gagnon@b2b2c.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	plan9port
 PORTVERSION=	20200816

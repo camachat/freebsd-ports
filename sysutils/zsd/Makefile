@@ -1,5 +1,8 @@
 # Created by: Fabian Keil <fk@fabiankeil.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	zsd
 PORTVERSION=	0.0.2014.12.07

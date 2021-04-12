@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dune-grid
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.7.1

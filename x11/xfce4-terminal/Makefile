@@ -1,5 +1,8 @@
 # Created by: Matt Lancereau
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xfce4-terminal
 PORTVERSION=	0.8.10

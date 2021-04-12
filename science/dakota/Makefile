@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dakota
 DISTVERSION=	6.13.0
 PORTREVISION=	2

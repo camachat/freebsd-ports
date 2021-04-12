@@ -1,5 +1,8 @@
 # Created by: Joseph Scott (<joseph@randomnetworks.com>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HTTP_Client
 PORTVERSION=	1.2.1

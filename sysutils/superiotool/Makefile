@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	superiotool
 DISTVERSION=	20121019
 PORTREVISION=	1

@@ -1,5 +1,8 @@
 # Created by: Alexander Pyhalov <alp@sfedu.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pg_reorg
 PORTVERSION=	1.1.11

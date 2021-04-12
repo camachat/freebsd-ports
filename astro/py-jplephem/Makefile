@@ -1,9 +1,16 @@
 # Created by: thierry@pompo.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jplephem
 PORTVERSION=	2.15
 DISTVERSIONPREFIX=	v
+<<<<<<< HEAD
+=======
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	astro python
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
@@ -12,8 +19,13 @@ COMMENT=	Python version of NASA DE4xx ephemerides
 
 LICENSE=	MIT
 
+<<<<<<< HEAD
 BUILD_DEPENDS=	${NUMPY}
 RUN_DEPENDS=	${NUMPY}
+=======
+BUILD_DEPENDS=	${PYNUMPY}
+RUN_DEPENDS=	${PYNUMPY}
+>>>>>>> upstream/main
 TEST_DEPENDS=	bash:shells/bash	\
 		${PYTHON_PKGNAMEPREFIX}unittest2>0:devel/py-unittest2@${PY_FLAVOR}
 

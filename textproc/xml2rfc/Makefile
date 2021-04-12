@@ -1,5 +1,8 @@
 # Created by: jabley@automagic.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xml2rfc
 PORTVERSION=	3.5.0

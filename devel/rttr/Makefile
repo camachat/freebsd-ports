@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rttr
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.9.6-16

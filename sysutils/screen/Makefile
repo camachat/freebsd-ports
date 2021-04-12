@@ -1,5 +1,8 @@
 # Created by: Andrey Chernov <ache@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	screen
 PORTVERSION=	4.8.0

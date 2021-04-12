@@ -1,5 +1,8 @@
 # Created by: Jeroen Schot <schot@a-eskwadraat.nl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dwm
 DISTVERSION=	6.2

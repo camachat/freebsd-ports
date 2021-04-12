@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	librepo
 DISTVERSION=	1.13.0
 CATEGORIES=	misc

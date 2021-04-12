@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kubeclient
 PORTVERSION=	4.9.1
 PORTREVISION=	0

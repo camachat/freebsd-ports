@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libsignon-glib
 DISTVERSION=	2.1
 CATEGORIES=	net-im

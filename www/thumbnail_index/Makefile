@@ -1,5 +1,8 @@
 # Created by: Yoshiro MIHIRA <sanpei@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	thumbnail_index
 PORTVERSION=	1998.08.10

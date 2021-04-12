@@ -1,5 +1,8 @@
 # Created by: smace@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pnm2ppa
 PORTVERSION=	1.13

@@ -1,5 +1,8 @@
 # Created by: Gerrit Beine (<tux@pinguru.net>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Unreal
 PORTVERSION=	3.2.10.7

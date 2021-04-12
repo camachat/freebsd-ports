@@ -1,5 +1,8 @@
 # Created by: mi@aldan.ziplink.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xmdiary
 PORTVERSION=	3.0.3

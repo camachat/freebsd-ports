@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	glusterfs
 PORTVERSION=	8.0
 PORTREVISION=	2
+=======
+PORTNAME=	glusterfs
+PORTVERSION=	8.4
+>>>>>>> upstream/main
 CATEGORIES=	net
 MASTER_SITES=	http://bits.gluster.org/pub/gluster/glusterfs/src/
 

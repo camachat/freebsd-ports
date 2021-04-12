@@ -1,5 +1,8 @@
 # Created by: Cory McIntire (loon@noncensored.com)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lynis
 PORTVERSION=	3.0.3

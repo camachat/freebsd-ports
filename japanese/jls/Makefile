@@ -1,5 +1,8 @@
 # Created by: shige
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ls
 PORTVERSION=	0.5

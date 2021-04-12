@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tftp-hpa
 PORTVERSION=	5.2
 PORTREVISION=	1

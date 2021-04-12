@@ -1,9 +1,16 @@
 # Created by: bland@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	pyicu
 PORTVERSION=	2.4.3
 PORTREVISION=	1
+=======
+
+PORTNAME=	pyicu
+PORTVERSION=	2.4.3
+PORTREVISION=	2
+>>>>>>> upstream/main
 CATEGORIES=	devel python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}

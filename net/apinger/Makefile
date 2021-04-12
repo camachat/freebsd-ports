@@ -1,5 +1,8 @@
 # Created by: Michael L. Hostbaek (mich@freebsdcluster.org)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	apinger
 PORTVERSION=	0.6.1

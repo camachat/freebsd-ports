@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	qxmpp
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.4.0

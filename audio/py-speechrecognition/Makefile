@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	SpeechRecognition
 PORTVERSION=	3.8.1
 CATEGORIES=	audio python

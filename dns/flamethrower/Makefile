@@ -1,5 +1,8 @@
 # Created by: Leo Vandewoestijne <freebsd@dns.company>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	flamethrower
 PORTVERSION=	0.11.0

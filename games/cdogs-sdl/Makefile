@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cdogs-sdl
 PORTVERSION=	0.10.2
 CATEGORIES=	games

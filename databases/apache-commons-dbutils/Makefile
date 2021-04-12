@@ -1,5 +1,8 @@
 # Created by: Michael Winking <mwfp@foldl.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	commons-dbutils
 PORTVERSION=	1.7

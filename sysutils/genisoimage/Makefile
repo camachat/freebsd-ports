@@ -1,5 +1,8 @@
 # Created by: Nikolai Lifanov
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PKGNAMESUFFIX=	-genisoimage
 

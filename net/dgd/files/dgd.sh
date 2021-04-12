@@ -1,5 +1,8 @@
 #!/bin/sh
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 DGD_CONF=%%PREFIX%%/etc/dgd/kernel.dgd
 DGD_USER=mud

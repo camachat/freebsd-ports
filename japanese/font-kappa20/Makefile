@@ -1,5 +1,8 @@
 # Created by: Kawaguti Ginga <ginga@athena.club.ne.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	kappa20
 PORTVERSION=	0.396

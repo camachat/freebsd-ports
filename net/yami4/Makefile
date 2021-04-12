@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	yami4
 PORTVERSION=	1.11.0
 PORTREVISION=	1

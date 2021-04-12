@@ -1,5 +1,8 @@
 # Created by: Piotr Rybicki <meritus@innervision.pl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Math_BigInteger
 PORTVERSION=	1.0.3

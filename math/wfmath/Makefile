@@ -1,5 +1,8 @@
 # Created by: Janni
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wfmath
 PORTVERSION=	1.0.2

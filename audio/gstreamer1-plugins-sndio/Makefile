@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gstreamer1-plugins-sndio
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.8.0.1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	iosevka
 DISTVERSIONPREFIX=	v
 DISTVERSION=	5.0.5

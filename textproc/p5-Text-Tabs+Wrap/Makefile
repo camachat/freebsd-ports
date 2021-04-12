@@ -1,5 +1,8 @@
 # Created by: Toby Allsopp <toby@mi6.gen.nz>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Text-Tabs+Wrap
 PORTVERSION=	2013.0523

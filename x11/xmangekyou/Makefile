@@ -1,5 +1,8 @@
 # Created by: Sakai Hiroaki <sakai@miya.ee.kagu.sut.ac.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xmangekyou
 PORTVERSION=	2.0.1

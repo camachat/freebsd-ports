@@ -1,5 +1,8 @@
 # Created by: shigeri <shigeri@m10.alpha-net.ne.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sylpheed
 PORTVERSION=	3.7.0

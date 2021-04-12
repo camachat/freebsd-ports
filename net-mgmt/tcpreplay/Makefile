@@ -1,5 +1,8 @@
 # Created by: cnh@ivmg.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tcpreplay
 PORTVERSION=	4.3.3

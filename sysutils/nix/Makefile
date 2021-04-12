@@ -1,5 +1,8 @@
 # Created by: Mateusz Piotrowski <0mp@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nix
 DISTVERSION=	2.3.10

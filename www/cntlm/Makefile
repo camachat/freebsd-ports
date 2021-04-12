@@ -1,5 +1,8 @@
 # Created by: Antony Mawer <ports@mawer.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cntlm
 PORTVERSION=	0.92.3

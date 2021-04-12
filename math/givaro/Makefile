@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	givaro
 PORTVERSION=	4.1.1
 DISTVERSIONPREFIX=v

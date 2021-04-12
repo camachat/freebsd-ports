@@ -1,5 +1,8 @@
 # Created by: jfieber
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	html
 PORTVERSION=	4.01

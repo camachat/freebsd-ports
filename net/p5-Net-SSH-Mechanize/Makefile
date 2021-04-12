@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Net-SSH-Mechanize
 PORTVERSION=	0.1.3
 PORTREVISION=	1

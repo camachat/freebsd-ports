@@ -2,8 +2,11 @@
 #
 # ex:ts=4:sw=4:noet
 #-*- mode: makefile; tab-width: 4; -*-
+<<<<<<< HEAD
 #
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 ETC_SERVICES="/etc/services"
 

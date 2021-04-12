@@ -1,5 +1,8 @@
 # Created by: Kyle Evans <kevans@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Flask-Assets
 PORTVERSION=	0.12

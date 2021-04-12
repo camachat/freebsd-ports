@@ -1,5 +1,8 @@
 # Created by: Andrej Zverev
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lincity-ng
 PORTVERSION=	2.0

@@ -1,9 +1,16 @@
 # Created by: Alex Dupre <ale@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	trezord
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.0.30
+=======
+
+PORTNAME=	trezord
+DISTVERSIONPREFIX=	v
+DISTVERSION=	2.0.31
+>>>>>>> upstream/main
 CATEGORIES=	security
 
 MAINTAINER=	ale@FreeBSD.org

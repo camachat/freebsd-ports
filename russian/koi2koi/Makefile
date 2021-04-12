@@ -1,5 +1,8 @@
 # Created by: Dmitry Morozovsky <marck@rinet.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	koi2koi
 PORTVERSION=	1998.04.16

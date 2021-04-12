@@ -1,5 +1,8 @@
 # Created by: Nick Hilliard <nick@foobar.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	MasonX-Request-WithApacheSession
 PORTVERSION=	0.31

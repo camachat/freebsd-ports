@@ -1,5 +1,8 @@
 # Created by: René Ladan <rene@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jsonfield
 PORTVERSION=	3.1.0

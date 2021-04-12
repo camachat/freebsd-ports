@@ -1,5 +1,8 @@
 # Created by: quest <quest@mac.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	throttled
 PORTVERSION=	0.5.2

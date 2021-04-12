@@ -1,5 +1,8 @@
 # Created by: Michael Haro <mharo@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Crypt-DSA
 PORTVERSION=	1.17

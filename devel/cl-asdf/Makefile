@@ -1,5 +1,8 @@
 # Created by: Henrik Motakef <henrik.motakef@web.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	asdf
 DISTVERSION=	3.3.4.7

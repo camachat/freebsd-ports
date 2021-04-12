@@ -1,5 +1,8 @@
 # Created by: Anton Yuzhaninov <citrin@rambler-co.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Email-Date-Format
 PORTVERSION=	1.005

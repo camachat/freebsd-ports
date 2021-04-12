@@ -1,5 +1,8 @@
 # Created by: Roman Bogorodskiy
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	scanlogd
 PORTVERSION=	2.2.8

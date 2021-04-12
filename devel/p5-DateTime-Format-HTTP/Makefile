@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	DateTime-Format-HTTP
 PORTVERSION=	0.42
 PORTREVISION=	1

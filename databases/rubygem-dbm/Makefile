@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dbm
 PORTVERSION=	1.1.0
 CATEGORIES=	databases rubygems

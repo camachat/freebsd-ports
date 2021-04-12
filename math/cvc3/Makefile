@@ -1,5 +1,8 @@
 # Created by: Li-Wen Hsu <lwhsu@lwhsu.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cvc3
 PORTVERSION=	2.4.1

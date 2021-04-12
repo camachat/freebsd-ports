@@ -1,5 +1,8 @@
 # Created by: vanhu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 # TODO: - libipsec issue ?
 #       - cleanup...

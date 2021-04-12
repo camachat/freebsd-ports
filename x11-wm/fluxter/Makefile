@@ -1,5 +1,8 @@
 # Created by: Adam Weinberger
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fluxter
 PORTVERSION=	0.2.0

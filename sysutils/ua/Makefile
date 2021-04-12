@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ua
 PORTVERSION=	1.0.1
 CATEGORIES=	sysutils

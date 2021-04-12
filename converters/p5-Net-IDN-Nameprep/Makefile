@@ -1,5 +1,8 @@
 # Created by: Timur Bakeyev <bat@cpan.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-IDN-Nameprep
 PORTVERSION=	1.102

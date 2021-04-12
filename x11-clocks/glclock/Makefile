@@ -1,5 +1,8 @@
 # Created by: Randall Hopper <aa8vb@ipass.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	glclock
 DISTVERSION=	6.0b6.0

@@ -1,5 +1,8 @@
 # Created by: mr@freebsd.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	papilio-loader
 PORTVERSION=	2.8

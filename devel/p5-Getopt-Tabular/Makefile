@@ -1,5 +1,8 @@
 # Created by: Dimitry Andric <dim@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Getopt-Tabular
 PORTVERSION=	0.3

@@ -1,5 +1,8 @@
 # Created by: Vsevolod Stakhov
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	openscep
 PORTVERSION=	0.4.2

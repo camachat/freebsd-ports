@@ -1,5 +1,8 @@
 # Created by: lars.eggert@gmx.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	podcastamatic
 PORTVERSION=	1.3

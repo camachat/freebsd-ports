@@ -1,5 +1,8 @@
 # Created by: tundra
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tbku
 PORTVERSION=	1.120

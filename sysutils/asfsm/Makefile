@@ -1,5 +1,8 @@
 # Created by: jack
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	asfsm
 DISTVERSION=	1.0pre15

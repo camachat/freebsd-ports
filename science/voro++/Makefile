@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	voro++
 DISTVERSION=	0.4.6
 PORTREVISION=	1

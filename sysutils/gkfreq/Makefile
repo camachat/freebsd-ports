@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gkrellm-gkfreq
 PORTVERSION=	2.2
 #PORTREVISION=	0

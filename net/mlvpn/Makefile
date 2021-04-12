@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mlvpn
 PORTVERSION=	2.3.1
 PORTREVISION=	2

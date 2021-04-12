@@ -1,5 +1,8 @@
 # Created by: Marijn Meijles <marijn@stack.nl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sigrot
 PORTVERSION=	1.0

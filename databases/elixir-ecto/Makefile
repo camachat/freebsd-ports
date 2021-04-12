@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ecto
 PORTVERSION=	2.2.10
 DISTVERSIONPREFIX=	v

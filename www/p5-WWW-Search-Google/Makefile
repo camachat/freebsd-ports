@@ -1,5 +1,8 @@
 # Created by: Tom Hukins <tom@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	WWW-Search-Google
 PORTVERSION=	0.23

@@ -1,5 +1,8 @@
 # Created by: se
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	spider
 PORTVERSION=	1.1

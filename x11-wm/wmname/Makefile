@@ -1,5 +1,8 @@
 # Created by: V. Jahns <vj562001@yahoo.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wmname
 PORTVERSION=	0.1

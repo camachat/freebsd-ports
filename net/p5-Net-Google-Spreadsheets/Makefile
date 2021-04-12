@@ -1,5 +1,8 @@
 # Created by: Gunter Wambaugh <gunter@six-two.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-Google-Spreadsheets
 PORTVERSION=	0.15.01

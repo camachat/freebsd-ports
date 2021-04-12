@@ -1,5 +1,8 @@
 # Created by: Steven Kreuzer
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Business-PayPal
 PORTVERSION=	0.19

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # READ BEFORE EDITING:
 # - Please keep descriptions sorted alphabetically by variable name.
 #

@@ -1,5 +1,8 @@
 # Created by: Jeremy Norris <ishmael27x@yahoo.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libltdl
 PORTREVISION=	0

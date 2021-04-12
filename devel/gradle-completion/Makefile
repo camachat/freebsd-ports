@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gradle-completion
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.4.1

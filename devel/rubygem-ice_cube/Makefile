@@ -1,5 +1,8 @@
 # Created by: Torsten Zuhlsdorff <ports@toco-domains.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ice_cube
 PORTVERSION=	0.16.3

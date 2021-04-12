@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	will_paginate
 PORTVERSION=	3.1.6
 CATEGORIES=	devel rubygems

@@ -1,5 +1,8 @@
 # Created by: Sergey V. Dyatko <sergey.dyatko@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Data-Uniqid
 PORTVERSION=	0.12

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	python-fcl
 PORTVERSION=	0.0.12
 PORTREVISION=	1

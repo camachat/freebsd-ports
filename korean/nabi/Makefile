@@ -1,5 +1,8 @@
 # Created by: Hye-Shik Chang <perky@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nabi
 PORTVERSION=	1.0.0

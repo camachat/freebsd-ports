@@ -1,5 +1,8 @@
 # Created by: pb@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dvdauthor
 PORTVERSION=	0.7.2.20190419

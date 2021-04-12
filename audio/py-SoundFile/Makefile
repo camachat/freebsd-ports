@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	SoundFile
 DISTVERSION=	0.10.3.post1
 PORTREVISION=	1

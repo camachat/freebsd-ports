@@ -1,5 +1,8 @@
 # Created by: Ryan Steinmetz <rpsfa@rit.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	delayed_job
 PORTVERSION=	4.1.9

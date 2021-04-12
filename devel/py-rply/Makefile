@@ -1,5 +1,8 @@
 # Created by: David Kalliecharan <dave@dal.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rply
 PORTVERSION=	0.7.7

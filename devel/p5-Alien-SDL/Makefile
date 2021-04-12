@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Alien-SDL
 PORTVERSION=	1.446
 PORTREVISION=	1

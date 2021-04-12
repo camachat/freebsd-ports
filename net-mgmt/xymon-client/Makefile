@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xymon
 PORTVERSION=	4.3.30
 PORTREVISION=	0

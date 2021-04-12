@@ -1,5 +1,8 @@
 # Created by: Alex Deiter <Alex.Deiter@Gmail.COM>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	udpxy
 DISTVERSION=	1.0-24.1

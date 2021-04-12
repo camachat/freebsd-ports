@@ -1,5 +1,8 @@
 # Created by: mt@primats.org.ua
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sarg
 PORTVERSION=	2.4.0

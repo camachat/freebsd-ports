@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Plack-Handler-CLI
 PORTVERSION=	0.05
 PORTREVISION=	1

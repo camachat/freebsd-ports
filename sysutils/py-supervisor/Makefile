@@ -1,5 +1,8 @@
 # Created by: Hizbulin Ildar <hizel@vyborg.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	supervisor
 PORTVERSION=	4.2.1

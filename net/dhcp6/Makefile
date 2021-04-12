@@ -1,5 +1,8 @@
 # Created by: Munechika SUMIKAWA <sumikawa@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dhcp6
 PORTVERSION=	20080615.2

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	lilyterm
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.9.9.4

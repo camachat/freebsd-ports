@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	junos-eznc
 DISTVERSION=	2.5.4
 CATEGORIES=	net-mgmt python

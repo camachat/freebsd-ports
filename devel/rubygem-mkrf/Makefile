@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mkrf
 PORTVERSION=	0.2.3
 CATEGORIES=	devel rubygems

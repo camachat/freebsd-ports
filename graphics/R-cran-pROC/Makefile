@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pROC
 PORTVERSION=	1.17.0.1
 CATEGORIES=	graphics

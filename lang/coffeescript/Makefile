@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	coffeescript
 DISTVERSION=	2.5.1
 CATEGORIES=	lang

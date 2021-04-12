@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	yadifa
 DISTVERSION=	2.4.1
 DISTVERSIONSUFFIX=	-9916

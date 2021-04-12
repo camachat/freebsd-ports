@@ -1,5 +1,8 @@
 # Created by: Noritaka Ishizumi <graphite@taurus.bekkoame.or.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	suck
 PORTVERSION=	4.3.4

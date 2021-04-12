@@ -1,5 +1,8 @@
 # Created by: kstailey
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	amphetadesk
 PORTVERSION=	0.93.1

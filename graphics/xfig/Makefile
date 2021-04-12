@@ -1,5 +1,8 @@
 # Created by: roberto
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xfig
 PORTVERSION=	3.2.7a

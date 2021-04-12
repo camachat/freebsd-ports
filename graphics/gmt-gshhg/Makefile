@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gshhg-gmt
 DISTVERSION=	2.3.7
 CATEGORIES=	graphics

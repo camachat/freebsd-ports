@@ -1,5 +1,8 @@
 # Created by: Joshua D. Abraham <jabra@ccs.neu.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Nmap-Parser
 PORTVERSION=	1.37

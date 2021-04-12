@@ -1,5 +1,8 @@
 # Created by: shanee@augusta.de
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	logsurfer
 PORTVERSION=	1.8

@@ -1,5 +1,8 @@
 # Created by: Tim van der Hoek <hoek@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	44bsd-more
 PORTVERSION=	${RELDATE}

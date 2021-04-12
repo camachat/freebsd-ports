@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		socket_wrapper
 PORTVERSION=		1.1.9
 CATEGORIES=		devel

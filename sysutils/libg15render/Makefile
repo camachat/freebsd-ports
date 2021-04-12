@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libg15render
 PORTVERSION=	3.0
 CATEGORIES=	sysutils

@@ -1,5 +1,8 @@
 # Created by: Andrey Slusar <anray@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	masqmail
 PORTVERSION=	0.3.5

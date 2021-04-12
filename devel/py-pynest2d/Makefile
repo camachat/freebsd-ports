@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pynest2d
 DISTVERSION=	4.8.0
 PORTREVISION=	3

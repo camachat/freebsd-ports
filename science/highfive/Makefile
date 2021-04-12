@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	highfive
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.2.2

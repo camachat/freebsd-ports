@@ -1,5 +1,8 @@
 # Created by: Dag-Erling C. Smørgrav <des@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	abuse_sdl
 PORTVERSION=	0.8

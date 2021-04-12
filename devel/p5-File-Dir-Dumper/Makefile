@@ -1,5 +1,8 @@
 # Created by: Anatoliy Dmytriyev <tolid@tolid.eu.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	File-Dir-Dumper
 PORTVERSION=	0.0.8

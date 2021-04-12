@@ -1,5 +1,8 @@
 # Created by: Matt Mills <matt_mills@btopenworld.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	String-Format
 PORTVERSION=	1.18

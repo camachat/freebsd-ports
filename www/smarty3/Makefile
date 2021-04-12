@@ -1,5 +1,8 @@
 # Created by: Michael Fausten <ports@michael-fausten.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	smarty
 DISTVERSIONPREFIX=	v

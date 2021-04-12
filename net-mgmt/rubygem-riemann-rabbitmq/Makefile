@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	riemann-rabbitmq
 DISTVERSION=	0.1.3
 PORTREVISION=	1

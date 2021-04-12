@@ -1,5 +1,8 @@
 # Created by: Tatsumi Hosokawa
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	kb2mb2
 PORTVERSION=	1.0

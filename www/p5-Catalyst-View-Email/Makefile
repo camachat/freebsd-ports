@@ -1,5 +1,8 @@
 # Created by: Tomoyuki Sakurai <cherry@trombik.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Catalyst-View-Email
 PORTVERSION=	0.36

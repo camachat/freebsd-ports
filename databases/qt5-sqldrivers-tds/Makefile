@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 
 DB=		TDS
 DB_DESC=	TDS Database Connectivity

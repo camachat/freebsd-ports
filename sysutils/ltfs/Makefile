@@ -1,10 +1,17 @@
 # Created by: Kevin Bowling <kbowling@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		ltfs
 DISTVERSIONPREFIX=	v
 DISTVERSION=		2.4.3.1
 DISTVERSIONSUFFIX=	-10461
+<<<<<<< HEAD
+=======
+PORTREVISION=		1
+>>>>>>> upstream/main
 CATEGORIES=		sysutils
 
 MAINTAINER=	kbowling@FreeBSD.org

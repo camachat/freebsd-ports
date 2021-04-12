@@ -1,5 +1,8 @@
 # Created by: ryo
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nepenthes
 PORTVERSION=	0.2.2

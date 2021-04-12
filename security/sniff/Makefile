@@ -1,5 +1,8 @@
 # Created by: Rick & Samu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sniff
 PORTVERSION=	1.0

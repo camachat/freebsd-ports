@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	passivedns
 DISTVERSION=	1.2.1-10
 DISTVERSIONSUFFIX=	-ge126cbb

@@ -1,5 +1,8 @@
 # Created by: jamrich.majo@gmail.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	myitcrm
 PORTVERSION=	0.2.9.3

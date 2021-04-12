@@ -1,5 +1,8 @@
 # Created by: Dean Hollister <dean@odyssey.apana.org.au>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	firedns
 PORTVERSION=	0.9.12

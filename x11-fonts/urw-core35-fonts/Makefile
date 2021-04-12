@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	urw-core35-fonts
 DISTVERSION=	2017-08-04
 CATEGORIES=	x11-fonts

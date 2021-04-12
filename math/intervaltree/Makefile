@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	intervaltree
 DISTVERSION=	g20151213
 PORTREVISION=	2

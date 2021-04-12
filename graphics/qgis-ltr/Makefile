@@ -1,5 +1,8 @@
 # Created by: Laurent Courty
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	qgis
 DISTVERSIONPREFIX=	final-

@@ -1,5 +1,8 @@
 # Created by: Tim McCormick <tim@pcbsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	min12xxw
 PORTVERSION=	0.0.9

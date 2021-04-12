@@ -1,5 +1,8 @@
 # Created by: Lewis Thompson <purple@lewiz.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	remind
 PORTVERSION=	3.1.16

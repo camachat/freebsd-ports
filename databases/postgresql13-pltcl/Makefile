@@ -1,5 +1,8 @@
 # Created by: Palle Girgensohn <girgen@partitur.se>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	postgresql
 # Keep the ?=, it is used by the other pltcl ports.

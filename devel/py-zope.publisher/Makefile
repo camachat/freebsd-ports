@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	zope.publisher
 PORTVERSION=	3.13.1
 CATEGORIES=	devel python zope

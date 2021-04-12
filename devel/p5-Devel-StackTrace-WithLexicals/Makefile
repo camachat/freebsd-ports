@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Devel-StackTrace-WithLexicals
 PORTVERSION=	2.01
 CATEGORIES=	devel perl5

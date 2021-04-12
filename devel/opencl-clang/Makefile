@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	opencl-clang
 DISTVERSIONPREFIX=	v
 DISTVERSION=	11.0.0

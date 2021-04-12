@@ -1,5 +1,8 @@
 # Created by: Dave McKay <dave@mu.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	seahorse
 PORTVERSION=	3.36.2

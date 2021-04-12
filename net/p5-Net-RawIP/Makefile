@@ -1,5 +1,8 @@
 # Created by: Dima Sivachenko <dima@chg.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-RawIP
 PORTVERSION=	0.25

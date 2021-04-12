@@ -1,5 +1,8 @@
 # Created by: mike
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xp
 PORTVERSION=	0.5

@@ -1,5 +1,8 @@
 # Created by: Vasily Postnicov <shamaz.mazum@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	shockolate
 DISTVERSIONPREFIX=	v

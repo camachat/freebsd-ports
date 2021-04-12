@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	LWP-Authen-OAuth
 PORTVERSION=	1.02
 PORTREVISION=	1

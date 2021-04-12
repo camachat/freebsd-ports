@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sympol
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.1.9

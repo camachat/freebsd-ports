@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libspng
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.6.2

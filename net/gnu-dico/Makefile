@@ -1,5 +1,8 @@
 # Created by: Goran Tal
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dico
 PORTVERSION=	2.10

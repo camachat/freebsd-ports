@@ -1,5 +1,8 @@
 # Created by: Roman Bogorodskiy <novel@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	conky
 PORTVERSION=	1.12.1

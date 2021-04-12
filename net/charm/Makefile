@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	charm
 DISTVERSION=	6.8.2
 PORTREVISION=	4

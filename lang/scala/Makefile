@@ -1,5 +1,8 @@
 # Created by: Mitsuru YOSHIDA <mitsuru@riken.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	scala
 PORTVERSION=	2.13.1

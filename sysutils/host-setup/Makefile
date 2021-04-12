@@ -1,5 +1,8 @@
 # Created by: Devin Teske <dteske@vicor.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	host-setup
 PORTVERSION=	4.0.2

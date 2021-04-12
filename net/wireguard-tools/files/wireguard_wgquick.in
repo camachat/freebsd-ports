@@ -1,9 +1,14 @@
 #!/bin/sh
 
+<<<<<<< HEAD
 # $FreeBSD$
 #
 # PROVIDE: wireguard
 # REQUIRE: DAEMON
+=======
+# PROVIDE: wireguard
+# REQUIRE: NETWORKING
+>>>>>>> upstream/main
 # KEYWORD: shutdown
 #
 # wireguard_enable (bool):    Set to "YES" to enable wireguard.

@@ -1,5 +1,8 @@
 # Created by: Martin Ranne <gasp@ridcully.dnsalias.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xinput
 PORTVERSION=	1.6.3

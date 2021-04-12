@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Data-Dumper
 PORTVERSION=	2.173
 CATEGORIES=	devel perl5

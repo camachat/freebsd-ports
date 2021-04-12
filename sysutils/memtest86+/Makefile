@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	memtest86+
 PORTVERSION=	5.01
 PORTREVISION=	4

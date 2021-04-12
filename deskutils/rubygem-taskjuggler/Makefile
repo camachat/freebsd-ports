@@ -1,5 +1,8 @@
 # Created by: Dean Povey <povey@wedgetail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	taskjuggler
 PORTVERSION=	3.7.1

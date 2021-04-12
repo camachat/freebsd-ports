@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	solarus
 PORTVERSION=	1.6.4
 DISTVERSIONPREFIX=	v

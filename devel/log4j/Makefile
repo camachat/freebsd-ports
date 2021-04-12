@@ -1,5 +1,8 @@
 # Created by: Herve Quiroz <herve.quiroz@esil.univ-mrs.fr>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	log4j
 PORTVERSION=	1.2.17

@@ -1,5 +1,8 @@
 # Created by: Wei-chun Chao
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	File-CounterFile
 PORTVERSION=	1.04

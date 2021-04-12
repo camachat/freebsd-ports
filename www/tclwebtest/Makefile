@@ -1,5 +1,8 @@
 # Created by: Aldert Nooitgedagt
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tclwebtest
 PORTVERSION=	1.0

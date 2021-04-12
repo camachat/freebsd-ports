@@ -1,7 +1,11 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+
+>>>>>>> upstream/main
 # PROVIDE: perdition_imap4s
 # REQUIRE: DAEMON
 # KEYWORD: shutdown

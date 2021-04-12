@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	golint
 PORTVERSION=	g20190409
 PORTREVISION=	1

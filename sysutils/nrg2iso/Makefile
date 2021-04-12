@@ -1,5 +1,8 @@
 # Created by: dieringe
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nrg2iso
 PORTVERSION=	0.4

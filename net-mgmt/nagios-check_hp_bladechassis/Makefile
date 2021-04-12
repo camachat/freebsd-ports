@@ -1,5 +1,8 @@
 # Created by: Ryan Steinmetz
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	check_hp_bladechassis
 PORTVERSION=	1.0.1

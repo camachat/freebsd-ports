@@ -1,5 +1,8 @@
 # Created by: Lawrence Chen <beastie@tardisi.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	WWW-Shorten-Yourls
 PORTVERSION=	0.06

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	color
 DISTVERSION=	g20210207
 CATEGORIES=	devel

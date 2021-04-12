@@ -1,5 +1,8 @@
 # Created by: Tony Maher <tonym@biolateral.com.au>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Class-ObjectTemplate-DB
 PORTVERSION=	0.27

@@ -1,5 +1,8 @@
 # Created by: SeaD
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ipguard
 PORTVERSION=	1.04

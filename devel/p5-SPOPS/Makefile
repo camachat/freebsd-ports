@@ -1,5 +1,8 @@
 # Created by: Sergei Vyshenski
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	SPOPS
 PORTVERSION=	0.87

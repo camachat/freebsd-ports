@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	maru
 PORTVERSION=	0.12.4
 DISTVERSIONPREFIX=	v

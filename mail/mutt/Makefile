@@ -1,5 +1,8 @@
 # Created by: Udo Schweigert
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mutt
 DISTVERSION=	2.0.6

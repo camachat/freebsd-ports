@@ -1,5 +1,8 @@
 # Created by: Stefan Eggers <seggers@semyam.dinoco.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	crafty
 PORTVERSION=	25.2

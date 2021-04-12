@@ -1,5 +1,8 @@
 # Created by: kris@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	scanssh
 PORTVERSION=	2.1

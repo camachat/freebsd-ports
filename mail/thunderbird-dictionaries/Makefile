@@ -1,5 +1,8 @@
 # Created by: Matthew Luckie <mjl@luckie.org.nz>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	thunderbird-dictionaries
 PORTVERSION=	20060220

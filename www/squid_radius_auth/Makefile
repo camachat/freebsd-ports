@@ -1,5 +1,8 @@
 # Created by: Michael Capp <myntric@exeonline.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	squid_radius_auth
 PORTVERSION=	1.10

@@ -1,5 +1,8 @@
 # Created by: Alexander Logvinov <info@logvinov.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lightsquid
 PORTVERSION=	1.8

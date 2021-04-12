@@ -1,9 +1,16 @@
 # Created by: Matthias Fechner <mfechner@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	gitlab-elasticsearch-indexer
 PORTVERSION=	2.9.0
 PORTREVISION=	0
+=======
+
+PORTNAME=	gitlab-elasticsearch-indexer
+PORTVERSION=	2.9.0
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	textproc
 
 MAINTAINER=	mfechner@FreeBSD.org

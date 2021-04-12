@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	foo-yc20
 DISTVERSION=	1.3.0
 PORTREVISION=	1

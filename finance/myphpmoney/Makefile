@@ -1,5 +1,8 @@
 # Created by: courou <courou@users.sourceforge.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	myphpmoney
 PORTVERSION=	1.3.r3

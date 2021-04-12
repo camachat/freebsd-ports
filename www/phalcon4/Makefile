@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	phalcon
 DISTVERSIONPREFIX=v
 DISTVERSION=	4.1.0

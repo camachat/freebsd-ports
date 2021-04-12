@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gnutls
 PORTVERSION=	3.6.15
 CATEGORIES=	security net

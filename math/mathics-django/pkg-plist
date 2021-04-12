@@ -1,4 +1,5 @@
 bin/mathicsserver
+<<<<<<< HEAD
 %%PYTHON_SITELIBDIR%%/Mathics_Django-%%VER%%-py%%PYTHON_VER%%.egg-info/PKG-INFO
 %%PYTHON_SITELIBDIR%%/Mathics_Django-%%VER%%-py%%PYTHON_VER%%.egg-info/SOURCES.txt
 %%PYTHON_SITELIBDIR%%/Mathics_Django-%%VER%%-py%%PYTHON_VER%%.egg-info/dependency_links.txt
@@ -6,6 +7,8 @@ bin/mathicsserver
 %%PYTHON_SITELIBDIR%%/Mathics_Django-%%VER%%-py%%PYTHON_VER%%.egg-info/not-zip-safe
 %%PYTHON_SITELIBDIR%%/Mathics_Django-%%VER%%-py%%PYTHON_VER%%.egg-info/requires.txt
 %%PYTHON_SITELIBDIR%%/Mathics_Django-%%VER%%-py%%PYTHON_VER%%.egg-info/top_level.txt
+=======
+>>>>>>> upstream/main
 %%PYTHON_SITELIBDIR%%/mathics_django/__init__.py
 %%PYTHON_SITELIBDIR%%/mathics_django/__pycache__/__init__.cpython-%%PYTHON_SUFFIX%%.opt-1.pyc
 %%PYTHON_SITELIBDIR%%/mathics_django/__pycache__/__init__.cpython-%%PYTHON_SUFFIX%%.pyc

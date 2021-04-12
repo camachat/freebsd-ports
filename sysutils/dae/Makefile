@@ -1,5 +1,8 @@
 # Created by: Dylan Bridgman
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dae
 PORTVERSION=	0.9

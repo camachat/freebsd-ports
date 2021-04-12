@@ -1,7 +1,10 @@
 #!/bin/sh
 
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # PROVIDE: spawn_fcgi
 # REQUIRE: %%REQUIRE%%
 # BEFORE:  LOGIN

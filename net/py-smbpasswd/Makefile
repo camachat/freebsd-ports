@@ -1,5 +1,8 @@
 # Created by: Alexander Novitsky
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	smbpasswd
 PORTVERSION=	1.0.2

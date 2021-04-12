@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	highlighterkit
 PORTVERSION=	0.1
 PORTREVISION=	10

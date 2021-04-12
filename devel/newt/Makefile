@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	newt
 PORTVERSION=	0.52.20
 PORTREVISION=	2

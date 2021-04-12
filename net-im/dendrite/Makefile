@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dendrite
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.3.11

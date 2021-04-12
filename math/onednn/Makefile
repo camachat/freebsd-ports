@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	onednn
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.1.2
+=======
+PORTNAME=	onednn
+DISTVERSIONPREFIX=	v
+DISTVERSION=	2.2
+>>>>>>> upstream/main
 CATEGORIES=	math # machine-learning
 
 MAINTAINER=	yuri@FreeBSD.org

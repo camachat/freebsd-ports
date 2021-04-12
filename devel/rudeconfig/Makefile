@@ -1,5 +1,8 @@
 # Created by: Hardy Schumacher <lowmaster@web.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rudeconfig
 PORTVERSION=	5.0.5

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		sogo
 PORTVERSION=		5.0.1
 PORTREVISION=		1

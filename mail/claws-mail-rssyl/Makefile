@@ -1,5 +1,8 @@
 # Created by: v.velox@vvelox.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rssyl
 PORTREVISION=	0

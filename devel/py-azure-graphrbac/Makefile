@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	azure-graphrbac
 PORTVERSION=	0.61.1
 CATEGORIES=	devel python

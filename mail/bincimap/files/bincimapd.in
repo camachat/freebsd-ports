@@ -1,7 +1,10 @@
 #!/bin/sh
 #
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # Copyright 2007, AnyWi Technologies
 #
 # PROVIDE: bincimapd

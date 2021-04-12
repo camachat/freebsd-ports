@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pubs
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.8.3

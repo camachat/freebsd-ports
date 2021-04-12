@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	shoulda
 PORTVERSION=	3.6.0
 CATEGORIES=	devel rubygems

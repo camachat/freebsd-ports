@@ -1,5 +1,8 @@
 # Created by: dannyman <dannyman@tellme.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sdf
 PORTVERSION=	2.001

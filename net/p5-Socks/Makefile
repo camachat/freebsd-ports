@@ -1,5 +1,8 @@
 # Created by: Yukihiro Nakai <Nacai@iname.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	SOCKS
 PORTVERSION=	0.03

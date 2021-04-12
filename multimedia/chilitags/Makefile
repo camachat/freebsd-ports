@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	chilitags
 DISTVERSION=	2.0.0-169
 DISTVERSIONSUFFIX=	-g0d9854f

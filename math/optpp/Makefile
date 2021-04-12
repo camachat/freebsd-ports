@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	optpp
 DISTVERSION=	2.4
 PORTREVISION=	1

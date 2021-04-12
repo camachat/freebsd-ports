@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	scramp
 PORTVERSION=	1.2.2
+=======
+PORTNAME=	scramp
+PORTVERSION=	1.4.0
+>>>>>>> upstream/main
 CATEGORIES=	security python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}

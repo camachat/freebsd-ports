@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Lektor
 PORTVERSION=	3.2.0
 CATEGORIES=	www devel python

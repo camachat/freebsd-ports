@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	go-git
 DISTVERSIONPREFIX=	v
 DISTVERSION=	4.10.0

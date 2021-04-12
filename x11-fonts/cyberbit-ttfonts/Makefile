@@ -1,5 +1,8 @@
 # Created by: NAKATA, Maho <maho@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cyberbit-ttfonts
 PORTVERSION=	2.0.20050220

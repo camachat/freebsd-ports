@@ -1,5 +1,8 @@
 # Created by: Kimura Fuyuki <fuyuki@nigredo.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	trang
 PORTVERSION=	20181222

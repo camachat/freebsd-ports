@@ -1,5 +1,8 @@
 # Created by: Nagy, Attila <bra@fsn.hu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 ######################################################################
 # Anytime PORTVERSION changes please bump PORTREVISION of:           #
@@ -9,6 +12,10 @@
 
 PORTNAME=	dovecot
 PORTVERSION=	2.3.13
+<<<<<<< HEAD
+=======
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	mail
 MASTER_SITES=	https://dovecot.org/releases/2.3/
 

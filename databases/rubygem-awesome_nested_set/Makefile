@@ -1,5 +1,8 @@
 # Created by: Steve Wills <swills@freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	awesome_nested_set
 PORTVERSION=	3.2.1

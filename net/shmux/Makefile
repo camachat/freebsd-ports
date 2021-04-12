@@ -1,5 +1,8 @@
 # Created by: jamundsen
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	shmux
 DISTVERSIONPREFIX=	v

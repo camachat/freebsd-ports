@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cpprestsdk
 PORTVERSION=	2.10.16
 DISTVERSIONPREFIX=	v

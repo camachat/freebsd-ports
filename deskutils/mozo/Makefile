@@ -1,5 +1,8 @@
 # Created by: FreeBSD GNOME Team
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mozo
 PORTVERSION=	1.24.0

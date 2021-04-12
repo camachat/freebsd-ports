@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Log-Dispatch-File-Rolling
 PORTVERSION=	1.09
 PORTREVISION=	3

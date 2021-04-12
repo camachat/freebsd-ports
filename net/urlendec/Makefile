@@ -1,5 +1,8 @@
 # Created by: G. Adam Stanislav <adam@whizkidtech.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	urlendec
 PORTVERSION=	1.0

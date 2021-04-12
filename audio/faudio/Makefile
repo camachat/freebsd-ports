@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	FAudio
 DISTVERSION=	21.01
 CATEGORIES=	audio

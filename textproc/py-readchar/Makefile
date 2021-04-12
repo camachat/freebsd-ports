@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	readchar
 PORTVERSION=	2.0.0
 CATEGORIES=	textproc devel

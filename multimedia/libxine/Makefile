@@ -1,5 +1,8 @@
 # Created by: alex
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xine
 DISTVERSION=	1.2.11

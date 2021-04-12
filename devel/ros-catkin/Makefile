@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ros-catkin
 DISTVERSION=	0.8.9
 CATEGORIES=	devel

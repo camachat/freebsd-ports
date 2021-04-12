@@ -1,5 +1,8 @@
 # Created by: Espen Tagestad <espen@tagestad.no>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Excel-Template
 PORTVERSION=	0.34

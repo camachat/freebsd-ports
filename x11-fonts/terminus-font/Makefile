@@ -1,5 +1,8 @@
 # Created by: Michael Hsin <mhsin@mhsin.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	terminus-font
 PORTVERSION=	4.48

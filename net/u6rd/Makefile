@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	u6rd
 PORTVERSION=	1.6
 PORTREVISION=	3

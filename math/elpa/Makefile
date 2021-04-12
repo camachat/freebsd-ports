@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	elpa
 DISTVERSION=	2019.05.002
 PORTREVISION=	2

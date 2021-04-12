@@ -1,5 +1,8 @@
 # Created by: Alexander Sulfrian <alexander@sulfrian.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PKGNAMESUFFIX=	-client
 

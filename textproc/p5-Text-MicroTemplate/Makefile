@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Text-MicroTemplate
 PORTVERSION=	0.23
 PORTREVISION=	1

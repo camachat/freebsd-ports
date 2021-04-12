@@ -1,5 +1,8 @@
 # Created by: Staffan Ulfberg <staffanu@multivac.fatburen.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gnokii
 PORTVERSION=	0.6.31

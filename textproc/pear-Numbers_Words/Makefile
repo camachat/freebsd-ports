@@ -1,5 +1,8 @@
 # Created by: Piotr Rybicki <meritus@innervision.pl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Numbers_Words
 PORTVERSION=	0.16.4

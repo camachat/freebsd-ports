@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	migu
 PORTVERSION=	1.0.20130617
 PORTREVISION=	5

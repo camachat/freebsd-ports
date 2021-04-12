@@ -1,5 +1,8 @@
 # Created by: Kengo Ichiki <kichiki@users.sourceforge.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	waon
 PORTVERSION=	0.10

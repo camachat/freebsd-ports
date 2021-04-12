@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	spass
 DISTVERSIONPREFIX=	v
 DISTVERSION=	3.2-5

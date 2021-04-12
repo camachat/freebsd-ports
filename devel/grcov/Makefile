@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	grcov
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.7.1

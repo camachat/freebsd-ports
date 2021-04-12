@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 # Created by: Dmitry Marakasov <amdmi3@FreeBSD.org>
 # $FreeBSD$
 
 PORTNAME=	minetest
 PORTVERSION=	5.4.0
 PORTREVISION=	1
+=======
+PORTNAME=	minetest
+PORTVERSION=	5.4.1
+>>>>>>> upstream/main
 CATEGORIES=	games
 
 MAINTAINER=	amdmi3@FreeBSD.org

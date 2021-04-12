@@ -1,5 +1,8 @@
 # Created by: Xin LI <delphij@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fixrtf
 PORTVERSION=	0.1.20060303

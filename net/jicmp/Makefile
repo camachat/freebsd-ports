@@ -1,5 +1,8 @@
 # Created by: Ryan T. Dean <rtdean@cytherianage.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jicmp
 PORTVERSION=	1.4.4

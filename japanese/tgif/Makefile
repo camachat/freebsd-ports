@@ -1,5 +1,8 @@
 # Created by: Mita Yoshio <mita@jp.FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tgif
 PORTVERSION=	4.2.2

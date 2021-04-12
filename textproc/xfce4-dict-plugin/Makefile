@@ -1,5 +1,8 @@
 # Created by: Oliver Lehmann (oliver@FreeBSD.org)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xfce4-dict
 PORTVERSION=	0.8.4

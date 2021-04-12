@@ -1,5 +1,8 @@
 # Created by: Matthew Hunt <mph@pobox.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dnswalk
 PORTVERSION=	2.0.2

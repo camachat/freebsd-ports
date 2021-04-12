@@ -1,5 +1,8 @@
 # Created by: Adam Weinberger <adam@vectors.cx>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bbrun
 PORTVERSION=	1.6

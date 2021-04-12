@@ -1,5 +1,8 @@
 # Created by: Max Laier <max@love2party.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pftop
 PORTVERSION=	0.7

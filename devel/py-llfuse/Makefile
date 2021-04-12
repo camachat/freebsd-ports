@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	llfuse
 PORTVERSION=	1.3.8
 CATEGORIES=	devel python

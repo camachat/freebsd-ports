@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	awesome-slugify
 PORTVERSION=	1.6.5
 CATEGORIES=	textproc python

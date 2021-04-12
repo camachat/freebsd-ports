@@ -1,5 +1,8 @@
 # Created by: Roger Hardiman <roger@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	opal
 PORTVERSION=	3.10.10
@@ -25,13 +28,19 @@ LDFLAGS+=	-L${LOCALBASE}/lib
 OPTIONS_DEFINE=	JAVA CELT ILBC GSM SPEEX THEORA FFMPEG X264 SIP H323 IAX \
 		H224 H281 FAX MSRP SIPIM RTPTEXT H450 H460 H501 LID UVIDEO \
 		AEC DEBUG RUBY
+<<<<<<< HEAD
 # ZRTP
+=======
+>>>>>>> upstream/main
 # MSRP = plist extra line vpd?
 # RTPTEXT disable == build fail, so make it default?
 OPTIONS_DEFAULT=CELT GSM SPEEX FFMPEG X264 SIP H224 H281 FAX MSRP SIPIM \
 		RTPTEXT LID AEC
 DEBUG_DESC=	Install debug library
+<<<<<<< HEAD
 ZRTP_DESC=	ZRTP protocol support
+=======
+>>>>>>> upstream/main
 JAVA_DESC=	Java JNI support
 RUBY_DESC=	Ruby support
 CELT_DESC=	Celt codec from ports
@@ -79,6 +88,7 @@ ALL_TARGET=	opt
 PLIST_SUB+=	DEBUG="@comment "
 .endif
 
+<<<<<<< HEAD
 # libzrtpcpp uses port ssl, which will conflict with this port since we use
 # base ssl.
 #.if ${PORT_OPTIONS:MZRTP}
@@ -91,6 +101,9 @@ CONFIGURE_ARGS+=	--enable-zrtp
 .else
 CONFIGURE_ARGS+=	--disable-zrtp
 .endif
+=======
+CONFIGURE_ARGS+=	--disable-zrtp
+>>>>>>> upstream/main
 
 .if ${PORT_OPTIONS:MGSM}
 LIB_DEPENDS+=	libgsm.so:audio/gsm

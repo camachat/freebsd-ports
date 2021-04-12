@@ -1,5 +1,8 @@
 # Created by: Oliver Breuninger <ob@seicom.NET>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	oo2c
 PORTVERSION=	2.1.11

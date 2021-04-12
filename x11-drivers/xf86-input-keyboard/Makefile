@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xf86-input-keyboard
 PORTVERSION=	1.9.0
 PORTREVISION=	4

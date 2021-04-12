@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gdspy
 PORTVERSION=	1.6
 DISTVERSIONPREFIX=	v

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	jobd
 PORTVERSION=	0.7.1
 DISTVERSIONPREFIX=v

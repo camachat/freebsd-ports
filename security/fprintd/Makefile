@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fprintd
 DISTVERSIONPREFIX=	V_
 DISTVERSION=	0_8_1

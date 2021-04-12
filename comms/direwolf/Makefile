@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	direwolf
 DISTVERSION=	1.5
 PORTREVISION=	1

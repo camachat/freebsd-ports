@@ -1,5 +1,8 @@
 # Created by: janek@gaja.ipan.lublin.pl
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xmix
 PORTVERSION=	2.1

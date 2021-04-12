@@ -1,5 +1,8 @@
 # Created by: Sebastien Santoro <dereckson@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tclsoap
 PORTVERSION=	1.6.7

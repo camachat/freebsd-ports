@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mesa-gallium-vdpau
 PORTVERSION=	${MESAVERSION}
 CATEGORIES=	graphics

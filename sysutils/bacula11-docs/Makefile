@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bacula
 PORTVERSION=	11.0.1
 CATEGORIES=	sysutils

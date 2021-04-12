@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # zrepl main configuration file.
 # For documentation, refer to https://zrepl.github.io/
 #

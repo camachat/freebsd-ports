@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xpdf
 PORTVERSION=	4.02
 PORTEPOCH=	1

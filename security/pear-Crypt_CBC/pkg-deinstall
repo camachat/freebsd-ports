@@ -1,7 +1,10 @@
 #!/bin/sh
 #
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # Remove package declaration from PEAR's registry.
 
 if [ x$2 != xDEINSTALL ]; then

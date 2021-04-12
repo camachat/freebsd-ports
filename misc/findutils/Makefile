@@ -1,5 +1,8 @@
 # Created by: Robert Withrow <witr@rwwa.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	findutils
 PORTVERSION=	4.8.0

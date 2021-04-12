@@ -1,9 +1,15 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	goswagger
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.26.1
 PORTREVISION=	1
+=======
+PORTNAME=	goswagger
+DISTVERSIONPREFIX=	v
+DISTVERSION=	0.27.0
+>>>>>>> upstream/main
 CATEGORIES=	devel
 
 MAINTAINER=	dmgk@FreeBSD.org

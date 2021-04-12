@@ -1,5 +1,8 @@
 # Created by: Michael Schout <mschout@gkg.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HTML_Select
 PORTVERSION=	1.3.1

@@ -1,7 +1,10 @@
 #!/bin/sh
 
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 # PROVIDE: mythbackend
 # REQUIRE: DAEMON mysql
 # KEYWORD: shutdown

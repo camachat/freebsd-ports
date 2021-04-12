@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mcrypt
 PORTVERSION=	1.0.4
 PORTREVISION=	0

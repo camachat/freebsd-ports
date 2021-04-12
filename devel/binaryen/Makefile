@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	binaryen
 DISTVERSIONPREFIX=	version_
 DISTVERSION=	98

@@ -1,5 +1,8 @@
 # Created by: ade, archie
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	caja
 PORTVERSION=	1.24.0

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cogbot
 PORTVERSION=	0.1.13
 PORTREVISION=	8

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	beats
 DISTVERSIONPREFIX=	v
 DISTVERSION=	7.10.1

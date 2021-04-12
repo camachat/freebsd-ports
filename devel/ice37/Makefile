@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		Ice
 PORTVERSION=		3.7.2
 PORTREVISION=	1

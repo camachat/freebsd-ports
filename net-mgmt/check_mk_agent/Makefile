@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	check_mk_agent
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.6.0p19

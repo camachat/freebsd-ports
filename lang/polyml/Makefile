@@ -1,5 +1,8 @@
 # Created by: Timothy Bourke <timbob@bigpond.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	polyml
 PORTVERSION=	5.8.1

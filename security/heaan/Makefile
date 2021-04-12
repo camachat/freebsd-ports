@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	heaan
 DISTVERSION=	2.1-40
 DISTVERSIONSUFFIX=	-g48a1ed0

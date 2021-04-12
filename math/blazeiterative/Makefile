@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	blazeiterative
 PORTVERSION=	g20180409
 PORTREVISION=	11

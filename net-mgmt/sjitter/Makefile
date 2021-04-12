@@ -1,5 +1,8 @@
 # Created by: babak@farrokhi.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sjitter
 PORTVERSION=	0.18.1b

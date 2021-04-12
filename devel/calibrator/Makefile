@@ -1,5 +1,8 @@
 # Created by: bms@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		calibrator
 PORTVERSION=		0.9

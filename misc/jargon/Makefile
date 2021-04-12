@@ -1,5 +1,8 @@
 # Created by: moeding
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jargon
 PORTVERSION=	4.4.7

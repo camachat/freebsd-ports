@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tokei
 DISTVERSIONPREFIX=	v
 DISTVERSION=	12.1.2

@@ -1,5 +1,8 @@
 # Created by: Chao Shin <quakelee@cn.freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	apetag
 PORTVERSION=	1.2

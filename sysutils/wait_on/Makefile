@@ -1,5 +1,8 @@
 # Created by: Andrew Stevenson <andrew@ugh.net.au>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wait_on
 DISTVERSION=	1.1-2

@@ -1,9 +1,16 @@
 # Created by: Aron Schlesinger <as@bsdgroup.de>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	groupoffice
 DISTVERSIONPREFIX=	com-
 DISTVERSION=	6.4.219
+=======
+
+PORTNAME=	groupoffice
+DISTVERSIONPREFIX=	com-
+DISTVERSION=	6.4.231
+>>>>>>> upstream/main
 CATEGORIES=	www
 MASTER_SITES=	SF/group-office/${DISTVERSION:R}
 DISTNAME=	${PORTNAME}-${DISTVERSION}-php-71

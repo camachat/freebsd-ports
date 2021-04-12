@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mpfrc++
 DISTVERSIONPREFIX=	${PORTNAME}-
 DISTVERSION=	3.6.8

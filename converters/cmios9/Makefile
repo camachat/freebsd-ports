@@ -1,5 +1,8 @@
 # Created by: M.Indlekofer@gmx.de
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cmios9
 PORTVERSION=	2.1

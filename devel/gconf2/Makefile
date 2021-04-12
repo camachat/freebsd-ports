@@ -1,5 +1,8 @@
 # Created by: Ade Lovett <ade@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 #   $MCom: ports/trunk/devel/gconf2/Makefile 20031 2014-11-02 21:47:55Z kwm $
 
 PORTNAME=	gconf2

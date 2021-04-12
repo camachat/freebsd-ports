@@ -1,5 +1,8 @@
 # Created by: Fabian Keil <fk@fabiankeil.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	liballium
 PORTVERSION=	0.0.1

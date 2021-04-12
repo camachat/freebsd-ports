@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	QtBitcoinTrader
 DISTVERSION=	1.40.52
 CATEGORIES=	finance

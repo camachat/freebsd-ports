@@ -1,5 +1,8 @@
 # Created by: roam@orbitel.bg
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pslist
 PORTVERSION=	1.4.0

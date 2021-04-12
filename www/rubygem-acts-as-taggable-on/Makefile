@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	acts-as-taggable-on
 PORTVERSION=	7.0.0
 PORTREVISION=	0

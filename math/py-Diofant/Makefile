@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Diofant
 DISTVERSION=	0.12.0
 CATEGORIES=	math python

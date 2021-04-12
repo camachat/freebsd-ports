@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	HipMCL
 DISTVERSION=	g20180814
 PORTREVISION=	4

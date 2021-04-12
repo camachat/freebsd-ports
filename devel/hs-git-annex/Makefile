@@ -1,5 +1,8 @@
 # Created by: frase@frase.id.au
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	git-annex
 PORTVERSION=	8.20210223

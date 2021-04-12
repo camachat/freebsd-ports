@@ -1,5 +1,8 @@
 # Created by: Andreas Dobloug <andreasd@@ifi.uio.no>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mgeupsd
 PORTVERSION=	0.3

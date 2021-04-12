@@ -1,5 +1,8 @@
 # Created by: John Merryweather Cooper et al
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 CATEGORIES=	devel
 PKGNAMESUFFIX=	-gdbint

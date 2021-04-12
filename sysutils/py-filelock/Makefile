@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	filelock
 DISTVERSION=	3.0.12
 CATEGORIES=	sysutils python

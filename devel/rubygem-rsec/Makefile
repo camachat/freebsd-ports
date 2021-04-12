@@ -1,5 +1,8 @@
 # Created by: Frank Wall <fw@moov.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rsec
 PORTVERSION=	0.4.3

@@ -1,5 +1,8 @@
 # Created by: Michael Nottebrock <lofi@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bastet
 PORTVERSION=	0.43.2

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ete3
 DISTVERSION=	3.1.2
 PORTREVISION=	4

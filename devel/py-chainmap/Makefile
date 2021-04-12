@@ -1,5 +1,8 @@
 # Created by: Kyle Evans <kevans@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	chainmap
 PORTVERSION=	1.0.3

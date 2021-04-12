@@ -1,7 +1,11 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD: head/net/dhcpd/files/dhcpd.in 470842 2018-05-25 14:04:06Z tz $
 #
+=======
+
+>>>>>>> upstream/main
 # PROVIDE: rstudio-server
 # REQUIRE: DAEMON
 # KEYWORD: shutdown

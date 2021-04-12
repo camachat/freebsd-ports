@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	nuklear
 PORTVERSION=	4.06.2 # from package.json, repository not tagged
 CATEGORIES=	x11-toolkits

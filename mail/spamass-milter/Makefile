@@ -1,5 +1,8 @@
 # Created by: Eugene M. Kim <ab@astralblue.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	spamass-milter
 PORTVERSION=	0.4.0

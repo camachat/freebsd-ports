@@ -1,5 +1,8 @@
 # Created by: Seiichirou Hiraoka
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xsystem35
 DISTVERSION=	1.7.3-pre5

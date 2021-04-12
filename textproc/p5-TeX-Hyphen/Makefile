@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	TeX-Hyphen
 PORTVERSION=	1.16
 CATEGORIES=	textproc perl5

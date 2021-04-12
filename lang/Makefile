@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
 
+=======
+>>>>>>> upstream/main
     COMMENT = Programming languages
 
     SUBDIR += J
@@ -303,7 +306,10 @@
     SUBDIR += rexx-regutil
     SUBDIR += rexx-wrapper
     SUBDIR += rhino
+<<<<<<< HEAD
     SUBDIR += ruby25
+=======
+>>>>>>> upstream/main
     SUBDIR += ruby26
     SUBDIR += ruby27
     SUBDIR += ruby30
@@ -337,7 +343,10 @@
     SUBDIR += solidity
     SUBDIR += spidermonkey17
     SUBDIR += spidermonkey185
+<<<<<<< HEAD
     SUBDIR += spidermonkey52
+=======
+>>>>>>> upstream/main
     SUBDIR += spidermonkey60
     SUBDIR += spidermonkey78
     SUBDIR += spl

@@ -1,8 +1,14 @@
 # Created by: Gea-Suan Lin <gslin@gslin.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	composer
 DISTVERSION=	1.10.20
+=======
+
+PORTNAME=	composer
+DISTVERSION=	1.10.21
+>>>>>>> upstream/main
 CATEGORIES=	devel
 MASTER_SITES=	https://getcomposer.org/download/${DISTVERSION}/
 PKGNAMEPREFIX=	${PHP_PKGNAMEPREFIX}

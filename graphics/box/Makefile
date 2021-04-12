@@ -1,5 +1,8 @@
 # Created by: Charlie Kester <corky1951@comcast.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	box
 PORTVERSION=	0.4.0

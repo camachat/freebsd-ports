@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	crispy-doom
 PORTVERSION=	5.10.0
 DISTVERSIONPREFIX=	${PORTNAME}-

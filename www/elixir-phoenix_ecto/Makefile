@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	phoenix_ecto
 PORTVERSION=	3.3.0
 DISTVERSIONPREFIX=	v

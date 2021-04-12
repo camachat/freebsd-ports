@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 // $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 /*
  *  mntent
  *  mntent.h - compatability header for FreeBSD

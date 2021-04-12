@@ -1,6 +1,10 @@
 #!/bin/sh
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+
+>>>>>>> upstream/main
 # PROVIDE: sddm
 # REQUIRE: LOGIN cleanvar moused syscons dbus
 # KEYWORD: shutdown

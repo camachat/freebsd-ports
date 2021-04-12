@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- base/linux_util.cc.orig	2020-11-13 06:36:34 UTC
+=======
+--- base/linux_util.cc.orig	2021-03-12 23:57:15 UTC
+>>>>>>> upstream/main
 +++ base/linux_util.cc
 @@ -15,6 +15,7 @@
  
@@ -8,7 +12,11 @@
  
  #include "base/files/dir_reader_posix.h"
  #include "base/files/file_util.h"
+<<<<<<< HEAD
 @@ -78,6 +79,9 @@ class DistroNameGetter {
+=======
+@@ -79,6 +80,9 @@ class DistroNameGetter {
+>>>>>>> upstream/main
   public:
    DistroNameGetter() {
      static const char* const kFilesToCheck[] = {"/etc/os-release",
@@ -18,7 +26,11 @@
                                                  "/usr/lib/os-release"};
      for (const char* file : kFilesToCheck) {
        if (ReadDistroFromOSReleaseFile(file))
+<<<<<<< HEAD
 @@ -134,6 +138,9 @@ void SetLinuxDistro(const std::string& distro) {
+=======
+@@ -135,6 +139,9 @@ void SetLinuxDistro(const std::string& distro) {
+>>>>>>> upstream/main
  }
  
  bool GetThreadsForProcess(pid_t pid, std::vector<pid_t>* tids) {
@@ -28,7 +40,11 @@
    // 25 > strlen("/proc//task") + strlen(std::to_string(INT_MAX)) + 1 = 22
    char buf[25];
    strings::SafeSPrintf(buf, "/proc/%d/task", pid);
+<<<<<<< HEAD
 @@ -153,6 +160,7 @@ bool GetThreadsForProcess(pid_t pid, std::vector<pid_t
+=======
+@@ -154,6 +161,7 @@ bool GetThreadsForProcess(pid_t pid, std::vector<pid_t
+>>>>>>> upstream/main
    }
  
    return true;

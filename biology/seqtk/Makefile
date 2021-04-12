@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	seqtk
 DISTVERSION=	1.2-8
 DISTVERSIONSUFFIX=	-gd210c57

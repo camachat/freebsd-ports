@@ -1,5 +1,8 @@
 # Created by: Tomokatsu SAITO <saito@a2z.co.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ghostscript
 PORTVERSION=	7.07

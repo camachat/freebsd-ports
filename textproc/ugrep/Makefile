@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	ugrep
 DISTVERSIONPREFIX=	v
 DISTVERSION=	3.1.9
+=======
+PORTNAME=	ugrep
+DISTVERSIONPREFIX=	v
+DISTVERSION=	3.1.11
+>>>>>>> upstream/main
 CATEGORIES=	textproc
 
 MAINTAINER=	ashish@FreeBSD.org

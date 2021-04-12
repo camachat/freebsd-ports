@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	compat10x
 PORTVERSION=	10.4.1004000.20181014
 CATEGORIES=	misc

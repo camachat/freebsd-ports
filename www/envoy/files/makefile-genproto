@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 LOCALBASE?=	/usr/local
 PROTOC_FLAGS=	-I. -I$(LOCALBASE)/include
 

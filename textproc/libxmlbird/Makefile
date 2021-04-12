@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libxmlbird
 DISTVERSION=	1.2.12
 CATEGORIES=	textproc devel

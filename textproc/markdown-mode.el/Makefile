@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	markdown-mode.el
 PORTVERSION=	2.3
 PORTREVISION=	8

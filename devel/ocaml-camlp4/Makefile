@@ -1,5 +1,8 @@
 # Created by: Michael Grünewald <michipili@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	camlp4
 PORTVERSION=	4.05+2

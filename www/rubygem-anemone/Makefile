@@ -1,5 +1,8 @@
 # Created by: niels <niels@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	anemone
 PORTVERSION=	0.7.2

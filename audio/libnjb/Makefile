@@ -1,5 +1,8 @@
 # Created by: adrianm
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libnjb
 PORTVERSION=	2.2.7

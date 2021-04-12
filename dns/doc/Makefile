@@ -1,5 +1,8 @@
 # Created by: MIHIRA Yoshiro <sanpei@jp.FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	doc
 PORTVERSION=	2.2.3

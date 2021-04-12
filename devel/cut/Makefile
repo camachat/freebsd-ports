@@ -1,5 +1,8 @@
 # Created by: Sergei Gnezdov <sergeiga@yahoo.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cut
 PORTVERSION=	2.7

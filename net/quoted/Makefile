@@ -1,5 +1,8 @@
 # Created by: Bob Frazier
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	quoted
 PORTVERSION=	1.01

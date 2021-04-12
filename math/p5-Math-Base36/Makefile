@@ -1,5 +1,8 @@
 # Created by: Yi-Hsuan Hsin <mhsin@mhsin.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Math-Base36
 PORTVERSION=	0.14

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cfr
 DISTVERSION=	0.151
 CATEGORIES=	devel java

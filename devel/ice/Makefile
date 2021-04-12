@@ -1,5 +1,8 @@
 # Created by: Stefan Ehmann <shoesoft@gmx.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		Ice
 PORTVERSION=		3.6.4

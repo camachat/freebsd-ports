@@ -1,5 +1,8 @@
 # Created by: Shaun Amott <shaun@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hyperframe
 PORTVERSION=	6.0.0

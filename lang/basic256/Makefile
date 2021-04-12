@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	basic256
 PORTVERSION=	2.0.0.11
 CATEGORIES=	lang

@@ -1,5 +1,8 @@
 # Created by: Thomas Zander <riggs@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	embb
 PORTVERSION=	1.0.0

@@ -1,5 +1,8 @@
 # Created by: Marwan Burelle <marwan.burelle@lri.fr
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	expat
 PORTVERSION=	0.9.1

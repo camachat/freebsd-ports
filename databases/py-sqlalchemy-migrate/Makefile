@@ -1,5 +1,8 @@
 # Created by: elvstone@gmail.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sqlalchemy-migrate
 PORTVERSION=	0.13.0

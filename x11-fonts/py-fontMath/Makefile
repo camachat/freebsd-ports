@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fontMath
 PORTVERSION=	0.4.9
 PORTREVISION=	1

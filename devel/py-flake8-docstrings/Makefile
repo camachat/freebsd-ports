@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 # Created by: Dmitry Marakasov <amdmi3@FreeBSD.org>
 # $FreeBSD$
 
 PORTNAME=	flake8-docstrings
 PORTVERSION=	1.5.0
+=======
+PORTNAME=	flake8-docstrings
+PORTVERSION=	1.6.0
+>>>>>>> upstream/main
 CATEGORIES=	devel
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}

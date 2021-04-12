@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	OpenClaw
 DISTVERSION=	0.0-51
 PORTREVISION=	4

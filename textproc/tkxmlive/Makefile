@@ -1,5 +1,8 @@
 # Created by: nivit@users.sourceforge.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		tkxmlive
 PORTVERSION=		0.1.5

@@ -1,5 +1,8 @@
 # Created by: Mikhail T. <mi@aldan.algebra.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lepton
 PORTVERSION=	0.2016.07.16

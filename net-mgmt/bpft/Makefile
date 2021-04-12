@@ -1,5 +1,8 @@
 # Created by: El Vampiro <vampiro@rootshell.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bpft
 PORTVERSION=	4.20040506

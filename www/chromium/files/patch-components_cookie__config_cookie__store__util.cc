@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- components/cookie_config/cookie_store_util.cc.orig	2020-11-13 06:36:40 UTC
+=======
+--- components/cookie_config/cookie_store_util.cc.orig	2021-03-12 23:57:22 UTC
+>>>>>>> upstream/main
 +++ components/cookie_config/cookie_store_util.cc
 @@ -11,7 +11,7 @@
  

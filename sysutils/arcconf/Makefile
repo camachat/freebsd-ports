@@ -1,5 +1,8 @@
 # Created by: michael@fuckner.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	arcconf
 DISTVERSION=	3_01_23531

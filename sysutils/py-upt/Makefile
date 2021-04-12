@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	upt
 DISTVERSION=	0.11
 CATEGORIES=	sysutils python

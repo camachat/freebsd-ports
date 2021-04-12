@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libuvc
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.0.6-32

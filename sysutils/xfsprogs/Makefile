@@ -1,5 +1,8 @@
 # Created by: Craig Rodrigues <rodrigc@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xfsprogs
 PORTVERSION=	3.2.4

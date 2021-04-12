@@ -1,5 +1,8 @@
 # Created by: Tatsuya Ueda <ml+freebsd@tatsuya.info>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Path-Class-File-Lockable
 PORTVERSION=	0.03

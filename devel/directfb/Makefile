@@ -1,5 +1,8 @@
 # Created by: Devaux Fabien <fab@gcu.info>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	directfb
 PORTVERSION=	1.4.17

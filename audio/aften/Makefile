@@ -1,5 +1,8 @@
 # Created by: Gabor Zahemszky <Gabor@Zahemszky.HU>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	aften
 PORTVERSION=	0.0.8

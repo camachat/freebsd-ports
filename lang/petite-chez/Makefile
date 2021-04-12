@@ -1,5 +1,8 @@
 # Created by: Vitaly Magerya <vmagerya@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	petite-chez
 PORTVERSION=	8.4

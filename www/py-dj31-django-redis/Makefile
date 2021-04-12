@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	django-redis
 PORTVERSION=	4.12.1
 CATEGORIES=	www databases

@@ -1,8 +1,14 @@
 # Created by: Torsten Blum <torstenb@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	postfix
 DISTVERSION=	3.6-20210224
+=======
+
+PORTNAME=	postfix
+DISTVERSION=	3.6-20210410
+>>>>>>> upstream/main
 PORTREVISION?=	0
 PORTEPOCH=	6
 CATEGORIES=	mail

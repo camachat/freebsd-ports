@@ -1,5 +1,8 @@
 # Created by: FURUSAWA, Kazuhisa <kazu@jp.freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mouseclock
 PORTVERSION=	1.0

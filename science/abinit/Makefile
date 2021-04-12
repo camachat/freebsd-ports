@@ -1,5 +1,8 @@
 # Created by: NAKATA Maho <maho@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	abinit
 DISTVERSION=	9.4.1

@@ -1,5 +1,8 @@
 # Created by: Remington Lang <MrL0L@charter.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 # Port logic stolen from x11-themes/kde-icons-noia by
 # lioux@.

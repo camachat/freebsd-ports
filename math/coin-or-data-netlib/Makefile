@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Data-Netlib
 DISTVERSION=	1.2.9
 CATEGORIES=	math

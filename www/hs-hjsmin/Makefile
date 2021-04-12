@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	hjsmin
 PORTVERSION=	0.2.0.4
 PORTREVISION=	1

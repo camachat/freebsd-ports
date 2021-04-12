@@ -1,5 +1,8 @@
 # Created by: wenheping<wenheping@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	XML_Query2XML
 PORTVERSION=	1.7.2

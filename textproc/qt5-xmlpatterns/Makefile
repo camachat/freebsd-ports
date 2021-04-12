@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xmlpatterns
 DISTVERSION=	${QT5_VERSION}
 CATEGORIES=	textproc

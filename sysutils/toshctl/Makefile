@@ -1,5 +1,8 @@
 # Created by: carl@servicefactory.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	toshctl
 PORTVERSION=	0.0.0p3

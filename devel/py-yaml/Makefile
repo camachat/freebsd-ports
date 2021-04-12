@@ -1,5 +1,8 @@
 # Created by: ijliao@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	yaml
 PORTVERSION=	5.3.1

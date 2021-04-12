@@ -1,5 +1,8 @@
 # Created by: Martin Kammerhofer <mkamm@gmx.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jline
 PORTVERSION=	0.9.94

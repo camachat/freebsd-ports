@@ -1,5 +1,8 @@
 # Created by: sviat
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sasp
 PORTVERSION=	0.1

@@ -1,5 +1,8 @@
 # Created by: Jie Gao <gaoj@cpsc.ucalgary.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	scim-pinyin
 PORTVERSION=	0.5.92

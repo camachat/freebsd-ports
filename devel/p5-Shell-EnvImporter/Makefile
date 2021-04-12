@@ -1,5 +1,8 @@
 # Created by: Martin Jackson (mhjacks@swbell.net)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Shell-EnvImporter
 PORTVERSION=	1.07

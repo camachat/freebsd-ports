@@ -1,5 +1,8 @@
 # Created by: Christian Lackas
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vpnc
 PORTVERSION=	0.5.3

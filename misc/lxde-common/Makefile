@@ -1,5 +1,8 @@
 # Created by: sahne
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lxde-common
 PORTVERSION=	0.99.2

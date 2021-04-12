@@ -1,5 +1,8 @@
 # Created by: Toru YANO <toru@s-fine.co.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xmulti
 PORTVERSION=	2.00b4

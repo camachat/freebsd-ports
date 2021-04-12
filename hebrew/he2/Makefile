@@ -1,5 +1,8 @@
 # Created by: nadav@libagent.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	he2
 PORTVERSION=	0.61

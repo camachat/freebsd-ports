@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME?=	mcollective-service-common
 PORTVERSION=	3.2.0
 CATEGORIES=	sysutils

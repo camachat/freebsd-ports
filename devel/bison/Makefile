@@ -1,5 +1,8 @@
 # Created by: Jerry Hicks
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bison
 PORTVERSION=	3.7.5

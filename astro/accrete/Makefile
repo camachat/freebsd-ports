@@ -1,5 +1,8 @@
 # Created by: chuck@pkix.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	accrete
 PORTVERSION=	1.0

@@ -1,5 +1,8 @@
 # Created by: Vanilla I. Shu <vanilla@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HTML-Tagset
 PORTVERSION=	3.20

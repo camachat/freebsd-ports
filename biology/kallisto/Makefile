@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		kallisto
 DISTVERSIONPREFIX=	v
 DISTVERSION=		0.46.1

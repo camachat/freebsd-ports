@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Class-DBI-Plugin-Iterator
 PORTVERSION=	0.13
 PORTREVISION=	1

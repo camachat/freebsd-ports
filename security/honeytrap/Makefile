@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	honeytrap
 DISTVERSION=	g20200625
 CATEGORIES=	security

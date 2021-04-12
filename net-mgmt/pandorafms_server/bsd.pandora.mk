@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PANDORA_VERSION=	6.0SP2
 PANDORA_LICENSE=	GPLv2
 PANDORA_LICENSE_FILE=	${WRKSRC}/COPYING

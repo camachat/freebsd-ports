@@ -1,5 +1,8 @@
 # Created by: Oliver Heesakkers <dev2@heesakkers.info>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	zbar
 DISTVERSION=	0.23.90

@@ -1,5 +1,8 @@
 # Created by: Eugene Grosbein <eugen@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cpupdate
 DISTVERSION=	g20180513

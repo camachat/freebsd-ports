@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ignition-cmake
 DISTVERSION=	2.0.0
 CATEGORIES=	devel

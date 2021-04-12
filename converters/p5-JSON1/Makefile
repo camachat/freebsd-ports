@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	JSON
 PORTVERSION=	1.15
 PORTREVISION=	1

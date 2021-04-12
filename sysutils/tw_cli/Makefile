@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tw_cli
 PORTVERSION=	9.5.5
 PORTREVISION=	1

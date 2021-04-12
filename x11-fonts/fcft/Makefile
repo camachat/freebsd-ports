@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fcft
 DISTVERSION=	2.3.2
 PORTREVISION=	1

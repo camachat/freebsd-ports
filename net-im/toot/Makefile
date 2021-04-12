@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	toot
 DISTVERSION=	0.27.0
 CATEGORIES=	net-im python

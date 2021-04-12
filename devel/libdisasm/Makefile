@@ -1,5 +1,8 @@
 # Created by: Lutz Boehne <lboehne@damogran.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libdisasm
 PORTVERSION=	0.23

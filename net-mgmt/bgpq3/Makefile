@@ -1,5 +1,8 @@
 # Created by: Alexandre Snarskii <snar@snar.spb.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bgpq3
 PORTVERSION=	0.1.35

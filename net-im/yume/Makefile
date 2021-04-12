@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	yume
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.2.0

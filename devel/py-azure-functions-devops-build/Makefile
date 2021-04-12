@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	azure-functions-devops-build
 PORTVERSION=	0.0.22
 CATEGORIES=	devel python

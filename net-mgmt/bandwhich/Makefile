@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bandwhich
 DISTVERSION=	0.20.0
 PORTREVISION=	4

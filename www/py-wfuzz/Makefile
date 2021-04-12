@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	wfuzz
 DISTVERSION=	3.1.0
 CATEGORIES=	www security python

@@ -1,5 +1,8 @@
 # Created by: e-masson@kisoft-services.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	psdim
 PORTVERSION=	1.4

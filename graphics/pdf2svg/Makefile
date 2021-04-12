@@ -1,5 +1,8 @@
 # Created by: Martin Dieringer <martin.dieringe@gmx.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pdf2svg
 PORTVERSION=	0.2.3

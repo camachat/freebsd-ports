@@ -1,5 +1,8 @@
 # Created by: Shell Hung <shell@shellhung.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Test-Harness
 PORTVERSION=	3.42

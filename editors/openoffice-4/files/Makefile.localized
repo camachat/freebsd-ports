@@ -1,6 +1,9 @@
 # localized makefile
 # Whom:         Maho Nakata <maho@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 ################################################################
 #See solenv/inc/postset.mk for details	

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	vrflash
 PORTVERSION=	0.24
 CATEGORIES=	comms

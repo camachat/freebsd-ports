@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	isboot-kmod
 PORTVERSION=	0.2.13
 PORTREVISION=	1

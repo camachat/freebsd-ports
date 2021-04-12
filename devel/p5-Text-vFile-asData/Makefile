@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Text-vFile-asData
 PORTVERSION=	0.08
 PORTREVISION=	1

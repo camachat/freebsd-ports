@@ -1,5 +1,8 @@
 # Created by: Gerard Seibert <gerard@seibercom.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	CGI-Session-ExpireSessions
 PORTVERSION=	1.12

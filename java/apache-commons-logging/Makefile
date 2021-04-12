@@ -1,5 +1,8 @@
 # Created by: Ernst de Haan <znerd@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	commons-logging
 PORTVERSION=	1.2

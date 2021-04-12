@@ -1,8 +1,14 @@
 # Created by: Muhammad Moinur Rahman <bofh@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	mroonga
 PORTVERSION=	11.00
+=======
+
+PORTNAME=	mroonga
+PORTVERSION=	11.01
+>>>>>>> upstream/main
 CATEGORIES=	databases textproc
 MASTER_SITES=	http://packages.groonga.org/source/mroonga/
 
@@ -16,7 +22,14 @@ IGNORE_WITH_MYSQL=	101m 102m 103m 57p 57w
 BUILD_DEPENDS=	${NONEXISTENT}:${_MYSQL_SERVER}:configure
 LIB_DEPENDS=	libgroonga.so:textproc/groonga
 
+<<<<<<< HEAD
 USES=		compiler:c11 libtool mysql pkgconfig
+=======
+USES=		compiler:c11 libtool mysql pkgconfig shebangfix
+
+SHEBANG_FILES=	data/rpm/post.sh \
+				data/rpm/preun.sh
+>>>>>>> upstream/main
 
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--with-mysql-source="$$(cd ${PORTSDIR}/${_MYSQL_SERVER}; ${MAKE} -V WRKSRC)" \

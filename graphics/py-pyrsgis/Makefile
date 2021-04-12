@@ -1,8 +1,14 @@
 # Created by: Rainer Hurling <rhurlin@gwdg.de>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	pyrsgis
 PORTVERSION=	0.3.3
+=======
+
+PORTNAME=	pyrsgis
+PORTVERSION=	0.3.4
+>>>>>>> upstream/main
 CATEGORIES=	graphics python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}

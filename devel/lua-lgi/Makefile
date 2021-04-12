@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	lgi
 PORTVERSION=	0.9.2
 PORTREVISION=	2

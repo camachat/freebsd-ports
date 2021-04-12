@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gizeh
 DISTVERSION=	0.1.11
 PORTREVISION=	2

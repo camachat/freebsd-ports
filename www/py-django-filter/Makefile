@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	django-filter
 DISTVERSION=	2.4.0
 CATEGORIES=	www python

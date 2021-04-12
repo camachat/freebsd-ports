@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	httpry
 PORTVERSION=	0.1.8
 CATEGORIES=	net

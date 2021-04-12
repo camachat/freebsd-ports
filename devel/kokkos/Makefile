@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kokkos
 DISTVERSION=	3.3.01
 CATEGORIES=	devel

@@ -1,5 +1,8 @@
 # Created by: samm@freebsd.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libunrar
 PORTVERSION=	3.9.10

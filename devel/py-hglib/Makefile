@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	hglib
 PORTVERSION=	2.6.1
 PORTREVISION=	1

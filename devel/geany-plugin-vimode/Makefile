@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	geany-plugin-vimode
 PORTVERSION=	${GEANY_VER}
 CATEGORIES=	devel

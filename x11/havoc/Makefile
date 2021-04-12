@@ -1,5 +1,8 @@
 # Created by: Emmanuel Vadot <manu@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	havoc
 PORTVERSION=	0.3.1

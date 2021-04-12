@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	drm_info
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.3.0

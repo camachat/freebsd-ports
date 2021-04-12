@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ccextractor
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.85

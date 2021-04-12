@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cfiles
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.8-6

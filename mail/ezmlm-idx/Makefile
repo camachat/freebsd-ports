@@ -1,5 +1,8 @@
 # Created by: Neil Blakey-Milner <nbm@rucus.ru.ac.za>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ezmlm-idx
 PORTVERSION=	7.2.2

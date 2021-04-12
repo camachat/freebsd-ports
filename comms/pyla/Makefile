@@ -1,5 +1,8 @@
 # Created by: Michael Reifenberger (mike@Reifenberger.com)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pyla
 PORTVERSION=	1.1.7.1

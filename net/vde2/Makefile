@@ -1,5 +1,8 @@
 # Created by: Philip M. Gollucci <ports@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vde2
 PORTVERSION=	2.3.2

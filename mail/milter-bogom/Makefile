@@ -1,5 +1,8 @@
 # Created by: Victor Balada Diaz <victor@bsdes.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bogom
 PORTVERSION=	1.9.2

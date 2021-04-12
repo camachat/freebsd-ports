@@ -1,5 +1,8 @@
 # Created by: alepulver@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	menumaker
 PORTVERSION=	0.99.12

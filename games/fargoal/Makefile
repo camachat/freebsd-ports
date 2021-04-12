@@ -1,5 +1,8 @@
 # Created by: chris_pressey@yahoo.ca
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fargoal
 PORTVERSION=	20040629

@@ -1,5 +1,8 @@
 # Created by: Brad Davis <brd@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hey
 PORTVERSION=	0.1.4

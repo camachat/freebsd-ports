@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	POEx-Role-TCPServer
 PORTVERSION=	1.102740
 PORTREVISION=	1

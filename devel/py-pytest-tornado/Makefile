@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	pytest-tornado
 PORTVERSION=	0.8.0
+=======
+PORTNAME=	pytest-tornado
+PORTVERSION=	0.8.1
+>>>>>>> upstream/main
 CATEGORIES=	devel python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}

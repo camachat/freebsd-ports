@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Devel-Declare-Parser
 PORTVERSION=	0.020
 CATEGORIES=	devel perl5

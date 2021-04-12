@@ -4,9 +4,12 @@
 # Date created:		15 June 2009
 # Whom:			Greg Larkin <glarkin@FreeBSD.org>
 # Copied From Whom:	Andrew Pantyukhin <infofarmer@FreeBSD.org>
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 
 #
 # For more info, please go to http://wiki.FreeBSD.org/TWiki

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	woff2
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.0.2

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Path-Dispatcher-Declarative
 PORTVERSION=	0.03
 PORTREVISION=	1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 .include "Makefile.inc"
 
 .if ${PORT_OPTIONS:MAPROFILE}

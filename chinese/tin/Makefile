@@ -1,5 +1,8 @@
 # Created by: Yen-Shuo Su <yssu@CCCA.NCTU.edu.tw>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 CATEGORIES=	chinese
 

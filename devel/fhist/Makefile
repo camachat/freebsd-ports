@@ -1,5 +1,8 @@
 # Created by: <jkoshy@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fhist
 PORTVERSION=	1.21

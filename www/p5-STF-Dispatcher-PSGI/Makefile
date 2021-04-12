@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	STF-Dispatcher-PSGI
 PORTVERSION=	1.12
 PORTREVISION=	1

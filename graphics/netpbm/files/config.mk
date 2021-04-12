@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 CFLAGS_SHLIB += -fPIC
 DEFAULT_TARGET = nonmerge
 INSTALL_PERM_BIN =  $(BINMODE)

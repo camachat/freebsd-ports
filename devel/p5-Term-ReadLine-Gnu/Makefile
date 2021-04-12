@@ -1,5 +1,8 @@
 # Created by: Matthew Hunt <mph@pobox.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Term-ReadLine-Gnu
 PORTVERSION=	1.37

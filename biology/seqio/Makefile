@@ -1,5 +1,8 @@
 # Created by: Tony Maher
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	seqio
 PORTVERSION=	1.2.2

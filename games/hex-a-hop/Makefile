@@ -1,5 +1,8 @@
 # Created by: jamie
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hex-a-hop
 PORTVERSION=	1.1.0

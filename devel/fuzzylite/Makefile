@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fuzzylite
 DISTVERSIONPREFIX=	v
 DISTVERSION=	6.0

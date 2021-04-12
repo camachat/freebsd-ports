@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	noto
 PORTVERSION=	2.0
 CATEGORIES=	x11-fonts

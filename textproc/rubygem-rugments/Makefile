@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rugments
 DISTVERSION=	1.0.0.beta8
 CATEGORIES=	textproc rubygems

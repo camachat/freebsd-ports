@@ -1,9 +1,16 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	icu-le-hb
 DISTVERSION=	1.0.3-3
 DISTVERSIONSUFFIX=	-gb8a3163
 PORTREVISION=	16
+=======
+PORTNAME=	icu-le-hb
+DISTVERSION=	1.0.3-3
+DISTVERSIONSUFFIX=	-gb8a3163
+PORTREVISION=	17
+>>>>>>> upstream/main
 CATEGORIES=	devel print
 
 MAINTAINER=	office@FreeBSD.org

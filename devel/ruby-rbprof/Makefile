@@ -1,5 +1,8 @@
 # Created by: Sean Chittenden <sean@chittenden.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rbprof
 PORTVERSION=	0.2.1

@@ -1,5 +1,8 @@
 # Created by: Pawel Pekala <pawel@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	smplayer-skins
 DISTVERSION=	20.11.0

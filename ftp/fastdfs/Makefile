@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fastdfs
 PORTVERSION=	6.0.6
 CATEGORIES=	ftp

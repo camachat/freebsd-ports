@@ -1,5 +1,8 @@
 # Created by: Nemo Liu <nemoliu@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	james
 PORTVERSION=	2.3.2.1

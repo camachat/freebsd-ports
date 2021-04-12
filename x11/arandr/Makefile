@@ -1,5 +1,8 @@
 # Created by: Sofian Brabez <sbz@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	arandr
 PORTVERSION=	0.1.10

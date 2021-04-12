@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	python-nss
 PORTVERSION=	1.0.1
 PORTREVISION=	3

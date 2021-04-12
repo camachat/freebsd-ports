@@ -1,5 +1,8 @@
 # Created by: snowchyld
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Mail-Alias
 PORTVERSION=	1.12

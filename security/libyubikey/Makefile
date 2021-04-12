@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libyubikey
 PORTVERSION=	1.13
 CATEGORIES=	security devel

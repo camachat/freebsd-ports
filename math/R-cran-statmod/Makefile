@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	statmod
 DISTVERSION=	1.4.34
 CATEGORIES=	math

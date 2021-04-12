@@ -1,5 +1,8 @@
 # Created by: Marcin Jessa <freebsd@yazzy.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tsocks
 DISTVERSION=	1.8.b5

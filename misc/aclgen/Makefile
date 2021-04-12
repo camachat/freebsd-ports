@@ -1,5 +1,8 @@
 # Created by: igor@zynaps.ru
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	aclgen
 PORTVERSION=	2.02

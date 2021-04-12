@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	zanata-cli
 PORTVERSION=	4.6.2
 DISTVERSIONSUFFIX=	-dist

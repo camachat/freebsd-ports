@@ -1,5 +1,8 @@
 # Created by: Damian Gerow <dgerow@afflictions.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mktorrent
 PORTVERSION=	1.1

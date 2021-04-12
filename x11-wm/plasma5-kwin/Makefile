@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kwin
 DISTVERSION=	${KDE_PLASMA_VERSION}
 PORTREVISION=	1

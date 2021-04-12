@@ -1,6 +1,9 @@
 # Makefile for other stuffs
 # Whom:         Maho Nakata <maho@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 #other stuffs which are not directly related to making ports
 #solver: solver

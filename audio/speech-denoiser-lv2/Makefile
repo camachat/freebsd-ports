@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	speech-denoiser
 DISTVERSION=	g20181007
 PORTREVISION=	1

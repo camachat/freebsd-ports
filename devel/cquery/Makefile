@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cquery
 PORTVERSION=	20180718
 DISTVERSIONPREFIX=	v

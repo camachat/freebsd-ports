@@ -1,10 +1,17 @@
 # Created by: Yinghong.Liu <relaxbsd@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	synfig
 PORTVERSION=	1.2.2
 DISTVERSIONPREFIX=v
+<<<<<<< HEAD
 PORTREVISION=	11
+=======
+PORTREVISION=	12
+>>>>>>> upstream/main
 CATEGORIES=	devel graphics multimedia
 
 MAINTAINER=	woodsb02@FreeBSD.org
@@ -14,8 +21,13 @@ LICENSE=	GPLv2+
 
 BUILD_DEPENDS=	etl>=1.2.2:devel/etl \
 		gsed:textproc/gsed
+<<<<<<< HEAD
 LIB_DEPENDS=	libHalf.so:graphics/ilmbase \
 		libIlmImf.so:graphics/openexr \
+=======
+LIB_DEPENDS=	libImath.so:math/Imath \
+		libOpenEXR.so:graphics/openexr \
+>>>>>>> upstream/main
 		libMagickWand-6.so:graphics/ImageMagick6 \
 		libavcodec.so:multimedia/ffmpeg \
 		libboost_program_options.so:devel/boost-libs \

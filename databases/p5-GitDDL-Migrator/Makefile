@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	GitDDL-Migrator
 PORTVERSION=	0.08
 CATEGORIES=	databases perl5

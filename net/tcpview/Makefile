@@ -1,5 +1,8 @@
 # Created by: Chung-Kie Tung <tung@turtle.ee.ncku.edu.tw>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tcpview
 PORTVERSION=	1.0

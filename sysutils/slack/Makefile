@@ -1,5 +1,8 @@
 # Created by: Steve Atwell
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	slack
 PORTVERSION=	0.15.2

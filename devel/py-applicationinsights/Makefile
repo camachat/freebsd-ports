@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	applicationinsights
 PORTVERSION=	0.11.9
 CATEGORIES=	devel python

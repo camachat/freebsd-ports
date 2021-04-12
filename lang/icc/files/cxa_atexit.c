@@ -50,7 +50,10 @@
  */
 
 #include <sys/cdefs.h>
+<<<<<<< HEAD
 __FBSDID("$FreeBSD$");
+=======
+>>>>>>> upstream/main
 
 #include <stddef.h>
 #include <stdlib.h>

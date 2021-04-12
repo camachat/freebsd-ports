@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gemcutter
 PORTVERSION=	0.7.1
 PORTREVISION=	1

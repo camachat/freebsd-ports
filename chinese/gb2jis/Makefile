@@ -1,5 +1,8 @@
 # Created by: Zhang Shu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gb2jis
 PORTVERSION=	1.5

@@ -1,5 +1,8 @@
 # Created by: Dominik Rothert <dr@domix.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xtermset
 PORTVERSION=	0.5.2

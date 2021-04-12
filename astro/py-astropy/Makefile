@@ -1,5 +1,8 @@
 # Created by: nwhitehorn
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	astropy
 DISTVERSION=	4.0.1

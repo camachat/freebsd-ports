@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sqliteconvert
 DISTVERSIONPREFIX=	VERSION_
 DISTVERSION=	0_1_2

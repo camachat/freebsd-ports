@@ -1,5 +1,8 @@
 # Created by: Chifeng QU <chifeng@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	policyd2
 PORTVERSION=	2.0.14

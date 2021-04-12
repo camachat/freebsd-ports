@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cucumber-gherkin
 PORTVERSION=	17.0.2
 CATEGORIES=	textproc rubygems

@@ -1,5 +1,8 @@
 # Created by: maho@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	megapov
 PORTVERSION=	1.2.1

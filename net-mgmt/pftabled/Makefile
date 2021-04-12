@@ -1,5 +1,8 @@
 # Created by: Bartlomiej Rutkowski <r@robakdesign.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pftabled
 PORTVERSION=	1.09

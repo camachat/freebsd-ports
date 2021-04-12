@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	hfsfuse
 DISTVERSION=	g20180118
 PORTREVISION=	1

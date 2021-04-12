@@ -1,5 +1,8 @@
 # Created by: Eric L. Hernes <erich@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	x48
 PORTVERSION=	0.6.4

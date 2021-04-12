@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pandas
 PORTVERSION=	1.2.0
 PORTEPOCH=	1

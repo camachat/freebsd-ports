@@ -1,5 +1,8 @@
 # Created by: vazquez@iqm.unicamp.br
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fpp
 PORTVERSION=	1.1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Net-NSCA-Client
 PORTVERSION=	0.009002
 PORTREVISION=	2

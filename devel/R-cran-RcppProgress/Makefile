@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	RcppProgress
 PORTVERSION=	0.4.2
 PORTREVISION=	1

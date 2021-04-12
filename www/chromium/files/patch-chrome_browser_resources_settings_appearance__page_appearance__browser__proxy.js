@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- chrome/browser/resources/settings/appearance_page/appearance_browser_proxy.js.orig	2020-11-13 06:36:37 UTC
+=======
+--- chrome/browser/resources/settings/appearance_page/appearance_browser_proxy.js.orig	2021-03-12 23:57:18 UTC
+>>>>>>> upstream/main
 +++ chrome/browser/resources/settings/appearance_page/appearance_browser_proxy.js
 @@ -23,7 +23,7 @@ export class AppearanceBrowserProxy {
  

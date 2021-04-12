@@ -1,5 +1,8 @@
 # Created by: Henrik Motakef <henrik.motakef@web.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lml
 PORTVERSION=	2.5.7

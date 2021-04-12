@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	katomic
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
 CATEGORIES=	games education kde kde-applications

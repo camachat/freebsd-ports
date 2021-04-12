@@ -1,5 +1,8 @@
 # Created by: Fabian Keil <fk@fabiankeil.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	afl
 PORTVERSION=	2.63c

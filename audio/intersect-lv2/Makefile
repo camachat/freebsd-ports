@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	intersect
 PORTVERSION=	1.3
 CATEGORIES=	audio

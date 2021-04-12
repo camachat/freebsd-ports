@@ -1,5 +1,8 @@
 # Created by: John Hein <jhein@symmetricom.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	blame
 PORTVERSION=	1.3.1

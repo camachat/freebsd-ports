@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libhdhomerun
 PORTVERSION=	20190621
 PORTREVISION=	1

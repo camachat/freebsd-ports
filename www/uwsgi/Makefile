@@ -1,5 +1,8 @@
 # Created by: Daniel Gerzo <danger@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	uwsgi
 PORTVERSION=	2.0.19.1

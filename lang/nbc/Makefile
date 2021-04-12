@@ -1,5 +1,8 @@
 # Created by: Ivan "Rambius" Ivanov <rambiusparkisanius@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		nbc
 PORTVERSION=		1.2.1.r4

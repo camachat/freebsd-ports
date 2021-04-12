@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kscreenlocker
 DISTVERSION=	${KDE_PLASMA_VERSION}
 CATEGORIES=	security kde kde-plasma

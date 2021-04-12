@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	FastTree
 DISTVERSION=	2.1.10
 PORTREVISION=	5

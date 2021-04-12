@@ -1,5 +1,8 @@
 # Created by: Muhammad Moinur Rahman <5u623l20@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Image_Barcode2
 PORTVERSION=	0.2.3

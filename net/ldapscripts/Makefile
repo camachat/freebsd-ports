@@ -1,5 +1,8 @@
 # Created by: Ganael LAPLANCHE <ganael.laplanche@martymac.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ldapscripts
 PORTVERSION=	2.0.8

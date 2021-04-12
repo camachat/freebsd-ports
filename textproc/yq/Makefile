@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	yq
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.12.0

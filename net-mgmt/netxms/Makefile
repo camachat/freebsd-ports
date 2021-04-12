@@ -1,5 +1,8 @@
 # Created by: Vladimir Ermakov <samflanker@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	netxms
 PORTVERSION=	2.2.2

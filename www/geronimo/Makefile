@@ -1,5 +1,8 @@
 # Created by: Nemo Liu <nemoliu@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	geronimo
 DISTVERSION=	3.0-beta-1

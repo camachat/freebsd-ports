@@ -1,5 +1,8 @@
 # Created by: Konstantin Lepa <konstantin.lepa@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vxlog
 PORTVERSION=	1.0.3

@@ -1,5 +1,8 @@
 # Created by: ports@c0decafe.net <ports@c0decafe.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	notify
 PORTVERSION=	0.5.2

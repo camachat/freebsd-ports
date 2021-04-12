@@ -1,5 +1,8 @@
 # Created by: Maksym Sobolyev <sobomax@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cdecimal
 PORTVERSION=	2.3

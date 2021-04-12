@@ -1,5 +1,8 @@
 # Created by: Seiichirou Hiraoka
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xosmulti
 PORTVERSION=	1.00

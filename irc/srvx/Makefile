@@ -1,5 +1,8 @@
 # Created by: Walter Venable <weaseal@hotmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	srvx
 PORTVERSION=	1.3.1

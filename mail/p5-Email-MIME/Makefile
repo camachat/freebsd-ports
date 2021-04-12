@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Email-MIME
 PORTVERSION=	1.949
 CATEGORIES=	mail perl5

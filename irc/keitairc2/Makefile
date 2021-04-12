@@ -1,5 +1,8 @@
 # Created by: Makoto Matsushita <matusita@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	keitairc
 PORTVERSION=	2.0

@@ -1,5 +1,8 @@
 # Created by: Tuc <freebsd-ports@t-b-o-h.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Data-Validate-URI
 PORTVERSION=	0.07

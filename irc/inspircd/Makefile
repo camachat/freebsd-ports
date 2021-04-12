@@ -1,5 +1,8 @@
 # Created by: Craig Edwards <brain@mail1.chatspike.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	inspircd
 DISTVERSIONPREFIX=	v

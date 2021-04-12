@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	liblognorm
 PORTVERSION=	2.0.6
 CATEGORIES=	devel net security

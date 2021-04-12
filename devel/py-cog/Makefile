@@ -1,5 +1,8 @@
 # Created by: Alex Pesternikov <apesternikov@page2rss.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cog
 PORTVERSION=	2.3

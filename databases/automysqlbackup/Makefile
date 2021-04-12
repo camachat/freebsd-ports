@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	automysqlbackup
 DISTVERSIONPREFIX=	v
 DISTVERSION=	3.0_rc6

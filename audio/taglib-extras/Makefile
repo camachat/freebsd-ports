@@ -1,5 +1,8 @@
 # Created by: Matt Tosto <datahead4@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	taglib-extras
 PORTVERSION=	1.0.1

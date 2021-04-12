@@ -1,5 +1,8 @@
 # Created by: Sergey Akifyev <asa@gascom.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libid3tag
 PORTVERSION=	0.15.1b

@@ -1,5 +1,8 @@
 # Created by: Hokan
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	modules
 PORTVERSION=	4.6.0

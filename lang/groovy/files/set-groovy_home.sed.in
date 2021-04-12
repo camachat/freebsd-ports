@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 14i\
 : ${GROOVY_HOME="%%DATADIR%%"}
 14i\

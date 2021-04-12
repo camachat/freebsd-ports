@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	slowhttptest
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.8.2

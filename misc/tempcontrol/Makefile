@@ -1,5 +1,8 @@
 # Created by: Greg Lehey <grog@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tempcontrol
 PORTVERSION=	1.2

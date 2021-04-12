@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	stress-ng
 PORTVERSION=	0.12.06
 PORTREVISION=	0

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	celluloid
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.21

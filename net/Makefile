@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
 
+=======
+>>>>>>> upstream/main
     COMMENT = Networking tools
 
     SUBDIR += 3proxy
@@ -39,6 +42,10 @@
     SUBDIR += asterisk13
     SUBDIR += asterisk16
     SUBDIR += asterisk18
+<<<<<<< HEAD
+=======
+    SUBDIR += astron
+>>>>>>> upstream/main
     SUBDIR += avahi
     SUBDIR += avahi-app
     SUBDIR += avahi-autoipd
@@ -92,7 +99,10 @@
     SUBDIR += corkscrew
     SUBDIR += corosync2
     SUBDIR += corosync3
+<<<<<<< HEAD
     SUBDIR += coturn
+=======
+>>>>>>> upstream/main
     SUBDIR += courier-authlib-ldap
     SUBDIR += courier-sox
     SUBDIR += cppzmq
@@ -389,7 +399,10 @@
     SUBDIR += libproxy
     SUBDIR += libproxy-gnome3
     SUBDIR += libproxy-kde
+<<<<<<< HEAD
     SUBDIR += libproxy-mozjs
+=======
+>>>>>>> upstream/main
     SUBDIR += libproxy-pacrunner
     SUBDIR += libproxy-perl
     SUBDIR += libproxy-python

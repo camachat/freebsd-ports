@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gomacro
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.7-304

@@ -1,5 +1,8 @@
 # Created by: Jamie Hermans <jamie@hermans.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jhead
 PORTVERSION=	3.04

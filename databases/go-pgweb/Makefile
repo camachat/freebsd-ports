@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pgweb
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.11.7

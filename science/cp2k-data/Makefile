@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cp2k-data
 DISTVERSIONPREFIX=	v
 DISTVERSION=	7.1.0

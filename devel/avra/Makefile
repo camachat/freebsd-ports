@@ -1,5 +1,8 @@
 # Created by: Wes Peters <@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	avra
 PORTVERSION=	1.4.2

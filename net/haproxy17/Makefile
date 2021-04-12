@@ -1,5 +1,8 @@
 # Created by: Clement Laforet
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	haproxy
 PORTVERSION=	1.7.13

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	choqok
 DISTVERSION=	1.7.0
 PORTREVISION=	0

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	triangle
 PORTVERSION=	20200424
 CATEGORIES=	math

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ghidra
 DISTVERSIONPREFIX=	Ghidra_
 DISTVERSION=	9.1

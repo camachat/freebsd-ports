@@ -1,5 +1,8 @@
 # Created by: Pierre Guinoiseau <geekounet@poildetroll.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	grake
 PORTVERSION=	0.1.0

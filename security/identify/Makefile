@@ -1,5 +1,8 @@
 # Created by: nsayer@quack.kfu.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	identify
 PORTVERSION=	0.7

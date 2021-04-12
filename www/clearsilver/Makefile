@@ -1,5 +1,8 @@
 # Created by: thinker <thinker@branda.to>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	clearsilver
 PORTVERSION=	0.10.5

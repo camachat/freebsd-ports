@@ -1,5 +1,8 @@
 # Created by: Anton Yudin <toha@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	warmux
 DISTVERSION=	11.04.1

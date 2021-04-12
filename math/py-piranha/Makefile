@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	piranha
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.11

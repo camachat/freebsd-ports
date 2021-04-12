@@ -1,5 +1,8 @@
 # Created by: Gregory Edigarov <greg@bestnet.kharkov.ua>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sflowtool
 PORTVERSION=	5.06

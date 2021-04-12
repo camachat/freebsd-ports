@@ -1,5 +1,8 @@
 # Created by: glewis
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dgd-kernel
 PORTVERSION=	1.3.4

@@ -1,5 +1,8 @@
 # Created by: Stefan Bethke <stb@lassitu.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	firmware-utils
 PORTVERSION=	20111222

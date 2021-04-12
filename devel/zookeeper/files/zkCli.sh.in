@@ -1,5 +1,8 @@
 #!/bin/sh
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 zookeeper_log4jpropfile="file:%%ETCDIR%%/log4j.properties"
 zookeeper_rootlogger="WARN,CONSOLE"

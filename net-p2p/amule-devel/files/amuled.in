@@ -1,7 +1,10 @@
 #!/bin/sh
 
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # aMule RCng startup script
 # Ogirinal work from Gabriele Cecchetti (amule.org forum)
 # 

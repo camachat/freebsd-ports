@@ -1,5 +1,8 @@
 # Created by: Joe Barbish <qchroot1@a1poweruser.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	qchroot
 PORTVERSION=	0.1

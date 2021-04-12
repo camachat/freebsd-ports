@@ -1,5 +1,8 @@
 # Created by: Carlos Jacobo Puga Medina <cpm@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bicon
 PORTVERSION=	0.5

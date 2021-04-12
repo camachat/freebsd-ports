@@ -1,5 +1,8 @@
 # Created by: Stacey D. Son <sds@son.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	aoe
 PORTVERSION=	1.2.0

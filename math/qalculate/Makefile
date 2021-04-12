@@ -1,5 +1,8 @@
 # Created by: Sergey Akifyev <asa@gascom.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	qalculate
 PORTVERSION=	3.17.0

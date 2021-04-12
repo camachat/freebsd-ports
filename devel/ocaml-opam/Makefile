@@ -1,5 +1,8 @@
 # Created by: J. Giovannangeli
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	opam
 PORTVERSION=	2.0.8

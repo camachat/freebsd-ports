@@ -1,5 +1,8 @@
 # Created by: Jose Alonso Cardenas Marquez <acm@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nerogame
 PORTVERSION=	2.0

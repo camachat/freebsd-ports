@@ -15,6 +15,10 @@ bin/createmap
 bin/log2time
 bin/mailq
 bin/mailq.sh
+<<<<<<< HEAD
+=======
+bin/mapchk
+>>>>>>> upstream/main
 bin/metaconf
 bin/metaqueue
 bin/qmgrctl

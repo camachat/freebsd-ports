@@ -1,5 +1,8 @@
 # Created by: Sergey Matveychuk <sem@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	unbound
 PORTVERSION=	1.13.1

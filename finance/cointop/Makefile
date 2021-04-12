@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cointop
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.5.4

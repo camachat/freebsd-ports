@@ -1,5 +1,8 @@
 # Created by: Steven Kreuzer
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rfacebook
 PORTVERSION=	0.9.8

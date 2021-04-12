@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	arr-pm
 PORTVERSION=	0.0.10
 PORTREVISION=	1

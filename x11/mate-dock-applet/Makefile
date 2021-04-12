@@ -1,5 +1,8 @@
 # Created by: Eric Turgeon <ericbsd@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mate-dock-applet
 PORTVERSION=	20.04.0

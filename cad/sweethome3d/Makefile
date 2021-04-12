@@ -1,5 +1,8 @@
 # Created by: Matthias Petermann <matthias@petermann-it.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sweethome3d
 PORTVERSION=	6.4.2

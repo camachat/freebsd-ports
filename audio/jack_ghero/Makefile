@@ -1,5 +1,8 @@
 # Created by: Hans Petter Selasky <hselasky@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jack_ghero
 PORTVERSION=	1.0.3

@@ -1,5 +1,8 @@
 # Created by: clement
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pwauth
 PORTVERSION=	2.3.11

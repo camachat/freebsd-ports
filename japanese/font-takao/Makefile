@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	takao
 PORTVERSION=	003.02.01
 PORTREVISION=	6

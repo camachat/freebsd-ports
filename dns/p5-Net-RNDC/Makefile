@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Net-RNDC
 PORTVERSION=	0.003
 CATEGORIES=	dns perl5

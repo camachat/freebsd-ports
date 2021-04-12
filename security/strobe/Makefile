@@ -1,5 +1,8 @@
 # Created by: proff
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	strobe
 PORTVERSION=	1.06

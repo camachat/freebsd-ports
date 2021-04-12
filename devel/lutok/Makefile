@@ -1,5 +1,8 @@
 # Created by: Alan Somers <asomers@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lutok
 PORTVERSION=	0.4

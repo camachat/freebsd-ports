@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ExtUtils-Install
 PORTVERSION=	2.04
 PORTREVISION=	2

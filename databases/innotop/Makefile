@@ -1,5 +1,8 @@
 # Created by: Steven Kreuzer <skreuzer@f2o.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	innotop
 PORTVERSION=	1.11.4

@@ -1,5 +1,8 @@
 # Created by: Rene Ladan <rene@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	diff-match-patch
 PORTVERSION=	20200713

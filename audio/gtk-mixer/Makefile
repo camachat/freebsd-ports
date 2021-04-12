@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gtk-mixer
 PORTVERSION=	1.0.0
 CATEGORIES=	audio

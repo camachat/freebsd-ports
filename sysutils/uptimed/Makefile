@@ -1,5 +1,8 @@
 # Created by: Andy Fawcett <andy@athame.co.uk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	uptimed
 PORTVERSION=	0.4.3

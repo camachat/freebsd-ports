@@ -1,5 +1,8 @@
 # Created by: Thomas Abthorpe <thomas@goodking.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pupdate
 PORTVERSION=	0.7

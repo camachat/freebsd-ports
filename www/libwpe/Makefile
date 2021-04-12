@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libwpe
 PORTVERSION=	1.4.0.1
 CATEGORIES=	www

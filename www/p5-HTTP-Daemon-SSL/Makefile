@@ -1,5 +1,8 @@
 # Created by: Mykola Marzhan <delgod@portaone.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HTTP-Daemon-SSL
 PORTVERSION=	1.04

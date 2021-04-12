@@ -1,5 +1,8 @@
 # Created by: Nobuhiro Yasutomi <nobu@psrc.isac.co.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xbatt
 PORTVERSION=	1.2.1

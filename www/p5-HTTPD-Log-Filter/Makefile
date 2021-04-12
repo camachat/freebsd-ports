@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	HTTPD-Log-Filter
 PORTVERSION=	1.08
 PORTREVISION=	2

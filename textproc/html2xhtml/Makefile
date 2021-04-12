@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	html2xhtml
 PORTVERSION=	1.3
 CATEGORIES=	textproc

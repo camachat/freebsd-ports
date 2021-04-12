@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	CHI
 PORTVERSION=	0.600
 CATEGORIES=	devel perl5

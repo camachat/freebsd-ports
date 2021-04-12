@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Git-Sub
 PORTVERSION=	0.163320
 CATEGORIES=	devel perl5

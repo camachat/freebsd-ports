@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	jalv-select
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.3

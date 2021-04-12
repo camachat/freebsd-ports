@@ -1,5 +1,8 @@
 # Created by: Alexander Langer <alex@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tux_aqfh
 PORTVERSION=	1.0.14

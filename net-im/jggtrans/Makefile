@@ -1,5 +1,8 @@
 # Created by: Bartek Rutkowski <r@robakdesign.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	jggtrans
 PORTVERSION=	2.2.6

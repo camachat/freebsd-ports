@@ -1,5 +1,8 @@
 # Created by: Valery Komarov <komarov@valerka.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	yate
 PORTVERSION=	6.3.0

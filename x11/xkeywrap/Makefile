@@ -1,5 +1,8 @@
 # Created by: Sakai Hiroaki <sakai@seki.ee.kagu.sut.ac.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xkeywrap
 PORTVERSION=	1.1

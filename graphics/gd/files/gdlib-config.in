@@ -1,7 +1,10 @@
 #!/bin/sh
 #
+<<<<<<< HEAD
 #	$FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # Return information about the local GD library installation
 #
 # Modeled for ports:

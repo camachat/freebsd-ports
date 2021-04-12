@@ -1,5 +1,8 @@
 # Created by: Felix Hanley <felix@userspace.com.au>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libnss-pgsql
 PORTVERSION=	1.5.0

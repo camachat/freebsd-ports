@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ros-urdfdom
 DISTVERSION=	1.0.4
 PORTREVISION=	1

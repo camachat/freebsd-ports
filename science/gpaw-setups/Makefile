@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gpaw-setups
 DISTVERSION=	0.9.20000
 CATEGORIES=	science

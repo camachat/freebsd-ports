@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	seaweedfs
 DISTVERSION=	2.35
 CATEGORIES=	net sysutils

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Net-FTP-Common
 PORTVERSION=	7.0.d
 PORTREVISION=	2

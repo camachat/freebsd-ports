@@ -1,5 +1,8 @@
 # Created by: John Hixson <jhixson@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	conman
 PORTVERSION=	0.3.0

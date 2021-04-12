@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libarchive
 PORTVERSION=	3.5.1
 PORTEPOCH=	1

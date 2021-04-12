@@ -1,7 +1,10 @@
 #!/bin/sh
 #
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # Box Backup monthly store compare
 #
 # Add the following to /etc/periodic.conf to enable the monthly compare:

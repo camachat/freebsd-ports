@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	imapclient
 PORTVERSION=	2.2.0
 CATEGORIES=	mail python

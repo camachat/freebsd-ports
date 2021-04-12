@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libudev-devd
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.4.2

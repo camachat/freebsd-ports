@@ -1,5 +1,8 @@
 # Created by: Hiroto Kagotani <hiroto.kagotani@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libskk
 DISTVERSION=	1.0.5

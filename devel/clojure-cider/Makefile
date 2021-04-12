@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	clojure-cider
 PORTVERSION=	1.0.0
 DISTVERSIONPREFIX=	v

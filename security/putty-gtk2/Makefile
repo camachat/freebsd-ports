@@ -1,5 +1,8 @@
 # Created by: Matthias Andree <mandree@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PKGNAMESUFFIX=		-gtk2
 

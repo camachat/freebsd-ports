@@ -1,5 +1,8 @@
 # Created by: Harold Gutch <logix@foobar.franken.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wmbinclock
 PORTVERSION=	0.51

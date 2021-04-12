@@ -1,5 +1,8 @@
 # Created by: Cy SChubert <cy@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mxascii
 PORTVERSION=	1.1

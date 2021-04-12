@@ -1,5 +1,8 @@
 # Created by: Alan Eldridge <alane@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tree
 PORTVERSION=	1.8.0

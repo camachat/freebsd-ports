@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bitmap
 DISTVERSION=	g20181222
 PORTREVISION=	1

@@ -1,5 +1,8 @@
 # Created by: Daniel Eischen <deischen@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nedit
 PORTVERSION=	5.7

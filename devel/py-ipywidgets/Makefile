@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ipywidgets
 PORTVERSION=	7.5.1
 PORTREVISION=	3

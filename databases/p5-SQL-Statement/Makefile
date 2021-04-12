@@ -1,5 +1,8 @@
 # Created by: wolman@cs.washington.edu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	SQL-Statement
 PORTVERSION=	1.414

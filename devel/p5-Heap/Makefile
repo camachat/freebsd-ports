@@ -1,5 +1,8 @@
 # Created by: Anatoliy Dmytriyev
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Heap
 PORTVERSION=	0.80

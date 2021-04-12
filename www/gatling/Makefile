@@ -1,5 +1,8 @@
 # Created by: Thomas-Martin Seck <tmseck@netcologne.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gatling
 PORTVERSION=	0.15

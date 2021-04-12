@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	volpack
 PORTVERSION=	1.0b3
 PORTREVISION=	1

@@ -1,5 +1,8 @@
 # Created by: Maxim Ignatenko
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vsftpd-ext
 PORTVERSION=	${UPSTREAMVERSION}.${EXTVERSION}

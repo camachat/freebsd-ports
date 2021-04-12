@@ -1,5 +1,8 @@
 # Created by: Mark Reidel <ports@mark.reidle.info>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	musicpc
 DISTVERSION=	0.33

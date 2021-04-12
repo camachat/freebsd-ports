@@ -1,5 +1,8 @@
 # Created by: Paul Dlug<paul@nerdlabs.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nrpe
 PORTVERSION=	3.2.1

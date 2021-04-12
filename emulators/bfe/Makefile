@@ -1,5 +1,8 @@
 # Created by: jhb
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bfe2
 PORTVERSION=	20030723

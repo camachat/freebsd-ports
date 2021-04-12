@@ -1,5 +1,8 @@
 # Created by: aaron@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mkhexgrid
 PORTVERSION=	0.1.1

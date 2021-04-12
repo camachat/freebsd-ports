@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gobuffalo
 PORTVERSION=	0.16.21
 DISTVERSIONPREFIX=	v

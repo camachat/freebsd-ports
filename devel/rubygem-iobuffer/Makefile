@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	iobuffer
 PORTVERSION=	1.1.2
 CATEGORIES=	devel rubygems

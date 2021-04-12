@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	copyq
 DISTVERSIONPREFIX=	v
 DISTVERSION=	3.13.0

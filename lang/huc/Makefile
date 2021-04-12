@@ -1,5 +1,8 @@
 # Created by: Frederic Cambus
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	huc
 PORTVERSION=	3.21

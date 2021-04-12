@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	timg
 PORTVERSION=	1.2.0
 DISTVERSIONPREFIX=	v

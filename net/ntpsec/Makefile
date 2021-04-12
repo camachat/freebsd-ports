@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ntpsec
 DISTVERSIONPREFIX=	NTPsec_
 DISTVERSION=	1_2_0

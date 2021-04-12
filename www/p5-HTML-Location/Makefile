@@ -1,5 +1,8 @@
 # Created by: coryking
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HTML-Location
 PORTVERSION=	1.03

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	vcftools
 PORTVERSION=	0.1.16
 DISTVERSIONPREFIX=	v

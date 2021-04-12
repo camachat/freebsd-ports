@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	icingaweb2-module-map
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.1.0

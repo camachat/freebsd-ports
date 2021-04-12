@@ -1,5 +1,8 @@
 # Created by: dirkx@webweaving.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bluez-firmware
 PORTVERSION=	1.2

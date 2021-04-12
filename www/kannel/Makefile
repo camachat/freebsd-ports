@@ -1,5 +1,8 @@
 # Created by: Domas Mituzas <midom@dammit.lt>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	kannel
 PORTVERSION=	1.4.4

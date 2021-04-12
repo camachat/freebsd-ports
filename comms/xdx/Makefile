@@ -1,5 +1,8 @@
 # Created by: Matt Dawson <matt@mattsnetwork.co.uk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xdx
 PORTVERSION=	2.4

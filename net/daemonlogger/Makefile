@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	daemonlogger
 PORTVERSION=	1.2.1
 DISTVERSIONPREFIX=	v

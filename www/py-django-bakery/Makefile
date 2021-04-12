@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	django-bakery
 PORTVERSION=	0.12.7
 CATEGORIES=	www python

@@ -1,5 +1,8 @@
 # Created by: David Le Brun <david@dyn-ns.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Filesys-DiskFree
 PORTVERSION=	0.06

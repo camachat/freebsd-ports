@@ -1,5 +1,8 @@
 # Created by: shurd@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	simsmith
 PORTVERSION=	9.9

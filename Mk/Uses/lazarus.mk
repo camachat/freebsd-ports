@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # Support for Lazarus-based ports.
 #
 # Feature:      lazarus

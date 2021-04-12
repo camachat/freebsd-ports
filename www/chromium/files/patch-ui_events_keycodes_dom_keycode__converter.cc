@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- ui/events/keycodes/dom/keycode_converter.cc.orig	2021-01-18 21:29:48 UTC
+=======
+--- ui/events/keycodes/dom/keycode_converter.cc.orig	2021-03-12 23:57:48 UTC
+>>>>>>> upstream/main
 +++ ui/events/keycodes/dom/keycode_converter.cc
 @@ -24,7 +24,7 @@ namespace {
  #if defined(OS_WIN)

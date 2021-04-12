@@ -1,5 +1,8 @@
 # Created by: Nicole Reid <root@cooltrainer.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	madsonic
 PORTVERSION=	6.2.9040

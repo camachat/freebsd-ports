@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	jmx4perl
 PORTVERSION=	1.11
 DISTVERSIONSUFFIX=	_2

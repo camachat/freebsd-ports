@@ -1,5 +1,8 @@
 # Created by: Alexander Langer <alex@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tuxkart
 PORTVERSION=	0.4.0

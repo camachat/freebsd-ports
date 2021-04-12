@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Router-Boom
 PORTVERSION=	1.02
 CATEGORIES=	www perl5

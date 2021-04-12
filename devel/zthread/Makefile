@@ -1,5 +1,8 @@
 # Created by: pvh@egenetics.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	zthread
 PORTVERSION=	2.3.2

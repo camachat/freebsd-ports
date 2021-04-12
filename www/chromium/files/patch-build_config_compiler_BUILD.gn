@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 --- build/config/compiler/BUILD.gn.orig	2021-01-18 21:28:45 UTC
 +++ build/config/compiler/BUILD.gn
 @@ -129,7 +129,7 @@ declare_args() {
+=======
+--- build/config/compiler/BUILD.gn.orig	2021-03-12 23:57:15 UTC
++++ build/config/compiler/BUILD.gn
+@@ -132,7 +132,7 @@ declare_args() {
+>>>>>>> upstream/main
    #
    # TODO(crbug.com/977230): Enabling this when 'use_xcode_clang' is true may
    # call an old clang that doesn't support auto-init.
@@ -9,7 +15,11 @@
  
    # This argument is to control whether enabling text section splitting in the
    # final binary. When enabled, the separated text sections with prefix
+<<<<<<< HEAD
 @@ -291,7 +291,7 @@ config("compiler") {
+=======
+@@ -316,7 +316,7 @@ config("compiler") {
+>>>>>>> upstream/main
      }
  
      # Linker warnings.
@@ -18,7 +28,11 @@
        ldflags += [ "-Wl,--fatal-warnings" ]
      }
      if (fatal_linker_warnings && is_apple) {
+<<<<<<< HEAD
 @@ -387,7 +387,7 @@ config("compiler") {
+=======
+@@ -411,7 +411,7 @@ config("compiler") {
+>>>>>>> upstream/main
  
      # Compiler instrumentation can introduce dependencies in DSOs to symbols in
      # the executable they are loaded into, so they are unresolved at link-time.
@@ -27,7 +41,11 @@
        ldflags += [
          "-Wl,-z,defs",
          "-Wl,--as-needed",
+<<<<<<< HEAD
 @@ -478,7 +478,7 @@ config("compiler") {
+=======
+@@ -501,7 +501,7 @@ config("compiler") {
+>>>>>>> upstream/main
      ldflags += [ "-Wl,-z,keep-text-section-prefix" ]
    }
  
@@ -36,7 +54,11 @@
      cflags += [ "-fcrash-diagnostics-dir=" + clang_diagnostic_dir ]
  
      cflags += [
+<<<<<<< HEAD
 @@ -777,7 +777,7 @@ config("compiler_cpu_abi") {
+=======
+@@ -796,7 +796,7 @@ config("compiler_cpu_abi") {
+>>>>>>> upstream/main
          cflags += [ "-mtune=$arm_tune" ]
        }
      } else if (current_cpu == "arm64") {
@@ -45,7 +67,11 @@
          cflags += [ "--target=aarch64-linux-gnu" ]
          ldflags += [ "--target=aarch64-linux-gnu" ]
        }
+<<<<<<< HEAD
 @@ -1127,7 +1127,7 @@ config("compiler_deterministic") {
+=======
+@@ -1146,7 +1146,7 @@ config("compiler_deterministic") {
+>>>>>>> upstream/main
        "-Xclang",
        ".",
      ]
@@ -54,7 +80,11 @@
        # We don't use clang -cc1as on Windows (yet? https://crbug.com/762167)
        asmflags = [ "-Wa,-fdebug-compilation-dir,." ]
      }
+<<<<<<< HEAD
 @@ -1510,7 +1510,7 @@ config("default_warnings") {
+=======
+@@ -1529,7 +1529,7 @@ config("default_warnings") {
+>>>>>>> upstream/main
          cflags += [ "-Wno-nonportable-include-path" ]
        }
  
@@ -63,7 +93,30 @@
          # Flags NaCl (Clang 3.7) and Xcode 9.2 (Clang clang-900.0.39.2) do not
          # recognize.
          cflags += [
+<<<<<<< HEAD
 @@ -1685,7 +1685,7 @@ config("no_chromium_code") {
+=======
+@@ -1570,6 +1570,18 @@ config("default_warnings") {
+           cflags += [ "-Wno-max-tokens" ]
+         }
+       }
++
++      if (is_clang && is_bsd) {
++        cflags += [
++          "-Wno-ignored-pragma-optimize",
++          "-Wno-implicit-int-float-conversion",
++          "-Wno-final-dtor-non-final-class",
++          "-Wno-builtin-assume-aligned-alignment",
++          "-Wno-deprecated-copy",
++          "-Wno-thread-safety-analysis",
++          "-Wno-thread-safety-attributes",
++        ]
++      }
+     }
+   }
+ }
+@@ -1699,7 +1711,7 @@ config("no_chromium_code") {
+>>>>>>> upstream/main
        # suppressing them individually, we just blanket suppress them here.
        "-Wno-unused-variable",
      ]
@@ -72,6 +125,7 @@
        cflags += [
          # TODO(https://crbug.com/1031169): Clean up and enable.
          "-Wno-misleading-indentation",
+<<<<<<< HEAD
 @@ -1763,7 +1763,7 @@ config("thin_archive") {
    # Mac and iOS use the mac-specific "libtool" command, not ar, which doesn't
    # have a "thin archive" mode (it does accept -T, but it means truncating
@@ -82,6 +136,18 @@
    } else if (is_win && use_lld) {
      arflags = [ "/llvmlibthin" ]
 @@ -2317,7 +2317,7 @@ config("symbols") {
+=======
+@@ -1777,7 +1789,7 @@ config("export_dynamic") {
+ config("thin_archive") {
+   # The macOS and iOS default linker ld64 does not support reading thin
+   # archives.
+-  if ((is_posix && !is_nacl && (!is_apple || use_lld)) || is_fuchsia) {
++  if ((is_posix && !is_nacl && (!is_apple || use_lld) && !is_bsd) || is_fuchsia) {
+     arflags = [ "-T" ]
+   } else if (is_win && use_lld) {
+     arflags = [ "/llvmlibthin" ]
+@@ -2318,7 +2330,7 @@ config("symbols") {
+>>>>>>> upstream/main
      # flag, so we can use use -g1 for pnacl and nacl-clang compiles.
      # gcc nacl is is_nacl && !is_clang, pnacl and nacl-clang are && is_clang.
      if (!is_nacl || is_clang) {
@@ -90,7 +156,11 @@
      }
  
      # TODO(https://crbug.com/1050118): Investigate missing debug info on mac.
+<<<<<<< HEAD
 @@ -2349,7 +2349,7 @@ config("symbols") {
+=======
+@@ -2350,7 +2362,7 @@ config("symbols") {
+>>>>>>> upstream/main
      # DWARF info may be corrupt; offsets in a range list entry are in different
      # sections" there.  Maybe just a bug in nacl_switch_32.S.
      if (!is_apple && !is_nacl && current_cpu != "x86" &&

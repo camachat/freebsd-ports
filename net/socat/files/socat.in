@@ -1,9 +1,12 @@
 #!/bin/sh
 #
 # Author: Emanuel Haupt <ehaupt@FreeBSD.org>
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 
 # PROVIDE: socat
 # REQUIRE: LOGIN

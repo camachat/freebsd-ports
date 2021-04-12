@@ -1,5 +1,8 @@
 # Created by: Daniel Morante <daniel@morante.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gwsocket
 PORTVERSION=	0.3

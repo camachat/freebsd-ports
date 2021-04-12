@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tomcat
 PORTVERSION=	10.0.4
 CATEGORIES=	www java

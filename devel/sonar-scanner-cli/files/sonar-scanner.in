@@ -1,6 +1,9 @@
 #!/bin/sh
 
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 exec /bin/sh %%PREFIX%%/%%APP_DIR%%/bin/sonar-scanner "$@"
 

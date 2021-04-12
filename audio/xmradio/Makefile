@@ -1,5 +1,8 @@
 # Created by: Thomas Runge <runge@rostock.zgdv.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xmradio
 PORTVERSION=	1.2

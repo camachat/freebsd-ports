@@ -1,8 +1,14 @@
 # Created by: Sergei Vyshenski
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	Workflow
 PORTVERSION=	1.52
+=======
+
+PORTNAME=	Workflow
+PORTVERSION=	1.53
+>>>>>>> upstream/main
 CATEGORIES=	devel perl5
 MASTER_SITES=	CPAN
 PKGNAMEPREFIX=	p5-

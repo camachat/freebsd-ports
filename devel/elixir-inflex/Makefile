@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	inflex
 PORTVERSION=	1.4.1
 DISTVERSIONPREFIX=	v

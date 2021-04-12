@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	matterhorn
 PORTVERSION=	50200.12.0
 CATEGORIES=	net-im

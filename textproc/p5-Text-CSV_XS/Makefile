@@ -1,5 +1,8 @@
 # Created by: Ache
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Text-CSV_XS
 PORTVERSION=	1.46

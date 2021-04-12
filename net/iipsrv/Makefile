@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	iipsrv
 PORTVERSION=	1.1
 DISTVERSIONPREFIX=	${PORTNAME}-

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pomerium
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.8.3

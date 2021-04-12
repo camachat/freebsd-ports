@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	orange3-network
 DISTVERSION=	1.5.1.20210224 # the 1.5.1 was forgotten
 CATEGORIES=	misc python

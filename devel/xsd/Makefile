@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xsd
 PORTVERSION=	4.0.0
 DISTVERSIONSUFFIX=	+dep

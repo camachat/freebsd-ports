@@ -1,5 +1,8 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 %%LOCALBASE%%/bin/java -Ddevisorgrid.home="%%DATADIR%%" -cp "%%DATADIR%%" devisorgrid "$@"

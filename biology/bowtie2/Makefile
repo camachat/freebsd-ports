@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		bowtie2
 DISTVERSIONPREFIX=	v
 DISTVERSION=		2.4.2

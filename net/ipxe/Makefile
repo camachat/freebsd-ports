@@ -1,5 +1,8 @@
 # Created by: Guerkan Karaman <gk.freebsd@googlemail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ipxe
 DISTVERSION=	g20201129

@@ -1,5 +1,8 @@
 # Created by: James Bailie <jimmy@mammothcheese.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dkns
 PORTVERSION=	1.100

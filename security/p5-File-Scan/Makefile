@@ -1,5 +1,8 @@
 # Created by: Martin Matuska <martin@tradex.sk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	File-Scan
 PORTVERSION=	1.43

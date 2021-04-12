@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- chrome/service/cloud_print/print_system.cc.orig	2020-11-13 06:36:38 UTC
+=======
+--- chrome/service/cloud_print/print_system.cc.orig	2021-03-12 23:57:19 UTC
+>>>>>>> upstream/main
 +++ chrome/service/cloud_print/print_system.cc
 @@ -36,7 +36,7 @@ std::string PrintSystem::GenerateProxyId() {
    return base::GenerateGUID();

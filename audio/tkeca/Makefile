@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tkeca
 PORTVERSION=	4.4.3
 CATEGORIES=	audio

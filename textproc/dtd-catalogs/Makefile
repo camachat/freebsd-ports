@@ -1,5 +1,8 @@
 # Created by: shige
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dtd-catalogs
 PORTVERSION=	1.2

@@ -1,5 +1,8 @@
 # Created by: rkw
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mgetty
 PORTVERSION=	1.1.37

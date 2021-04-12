@@ -1,9 +1,16 @@
 # Created by: Bartosz Fabianowski <freebsd@chillt.de>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	widelands
 DISTVERSION=	build21
 PORTREVISION=	1
+=======
+
+PORTNAME=	widelands
+DISTVERSION=	build21
+PORTREVISION=	2
+>>>>>>> upstream/main
 CATEGORIES=	games
 MASTER_SITES=	https://launchpad.net/widelands/${DISTVERSION}/${DISTVERSION}/+download/ \
 		https://mirror.amdmi3.ru/distfiles/

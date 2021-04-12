@@ -1,5 +1,8 @@
 # Created by: Sylvio Cesar <sylvio@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mpop
 DISTVERSION=	1.4.13

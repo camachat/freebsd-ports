@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tamsyn-font
 DISTVERSION=	1.11
 PORTREVISION=	1

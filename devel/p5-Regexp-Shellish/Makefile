@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Regexp-Shellish
 PORTVERSION=	0.93
 PORTREVISION=	1

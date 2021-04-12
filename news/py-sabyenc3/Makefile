@@ -1,5 +1,8 @@
 # Created by: Ralf van der Enden <tremere@cainites.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sabyenc3
 PORTVERSION=	4.0.2

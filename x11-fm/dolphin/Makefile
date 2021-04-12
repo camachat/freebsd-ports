@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dolphin
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
 CATEGORIES=	x11-fm kde kde-applications

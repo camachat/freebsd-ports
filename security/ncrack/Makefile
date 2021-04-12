@@ -1,5 +1,8 @@
 # Created by: David E. Thiel <lx@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ncrack
 DISTVERSION=	0.6

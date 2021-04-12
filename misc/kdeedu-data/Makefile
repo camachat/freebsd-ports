@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kdeedu-data
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
 CATEGORIES=	misc kde kde-applications

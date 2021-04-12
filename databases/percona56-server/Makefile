@@ -1,8 +1,14 @@
 # Created by: Alex Dupre <ale@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME?=	percona
 DISTVERSION=	5.6.49-89.0
+=======
+
+PORTNAME?=	percona
+DISTVERSION=	5.6.51-91.0
+>>>>>>> upstream/main
 PORTREVISION?=	0
 CATEGORIES=	databases
 MASTER_SITES=	http://www.percona.com/downloads/Percona-Server-5.6/Percona-Server-${DISTVERSION}/source/tarball/

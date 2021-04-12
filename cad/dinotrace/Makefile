@@ -1,5 +1,8 @@
 # Created by: Joachim Strombergson <watchman@ludd.ltu.se>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dinotrace
 PORTVERSION=	9.4c

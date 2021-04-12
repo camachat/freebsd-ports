@@ -1,5 +1,8 @@
 # Created by: Vick Khera <vivek@khera.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mod_authnz_crowd
 PORTVERSION=	2.2.2

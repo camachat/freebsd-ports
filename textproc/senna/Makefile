@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	senna
 PORTVERSION=	1.1.5
 PORTREVISION=	9

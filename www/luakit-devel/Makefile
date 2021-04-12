@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	luakit-devel
 DISTVERSION=	2.3-0
 DISTVERSIONSUFFIX=	-g6f69789
+=======
+PORTNAME=	luakit-devel
+DISTVERSION=	2.3-6
+DISTVERSIONSUFFIX=	-gb694214
+>>>>>>> upstream/main
 PORTEPOCH=	1
 CATEGORIES=	www
 

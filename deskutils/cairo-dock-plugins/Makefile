@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cairo-dock-plugins
 PORTVERSION=	3.4.1
 PORTREVISION=	8

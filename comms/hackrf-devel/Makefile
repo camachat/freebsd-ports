@@ -1,5 +1,8 @@
 # Created by: Tomasz "CeDeROM" CEDRO (http://www.tomek.cedro.info)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hackrf
 PORTVERSION=	g${GIT_SRC_DATE}

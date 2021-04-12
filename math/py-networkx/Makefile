@@ -1,5 +1,8 @@
 # Created by: dikshie
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	networkx
 DISTVERSION=	2.5

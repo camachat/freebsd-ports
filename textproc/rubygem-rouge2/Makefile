@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rouge
 PORTVERSION=	2.2.1
 PORTREVISION=	1

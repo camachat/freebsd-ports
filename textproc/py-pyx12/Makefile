@@ -1,5 +1,8 @@
 # Created by: john@zoner.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pyx12
 PORTVERSION=	2.3.3

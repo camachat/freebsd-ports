@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 CATEGORIES=	net-mgmt
 
 MASTERDIR=	${.CURDIR}/../../lang/php73

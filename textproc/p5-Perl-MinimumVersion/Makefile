@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Perl-MinimumVersion
 PORTVERSION=	1.38
 PORTREVISION=	1

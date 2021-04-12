@@ -1,5 +1,8 @@
 # Created by: Marcin Cieslak <saper@SYSTEM.PL>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	c64bdf
 PORTVERSION=	1.0

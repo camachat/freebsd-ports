@@ -1,5 +1,8 @@
 # Created by: John Polstra <jdp@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pptpclient
 DISTVERSION=	1.10.0

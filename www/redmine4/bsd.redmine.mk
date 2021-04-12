@@ -3,8 +3,11 @@
 # Date created:                      2010-09-12
 # Whom:                              Eygene Ryabinkin <rea-fbsd@codelabs.ru>
 #
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # We're assuming standard plugin installation sequence that is described
 # in the https://www.redmine.org/projects/redmine/wiki/Plugins
 #

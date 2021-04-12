@@ -1,5 +1,8 @@
 # Created by: Bill "I hate Perl" Fumerola
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Text-Template
 PORTVERSION=	1.59

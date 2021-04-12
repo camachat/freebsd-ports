@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	lz4
 PORTVERSION=	2.1.10
 CATEGORIES=	archivers python

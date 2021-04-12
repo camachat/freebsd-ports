@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	homebank
 PORTVERSION=	5.5
 CATEGORIES=	finance

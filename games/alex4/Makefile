@@ -1,5 +1,8 @@
 # Created by: Nikolai Lifanov <lifanov@mail.lifanov.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	alex4
 PORTVERSION=	1.1

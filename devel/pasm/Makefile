@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pasm
 PORTVERSION=	0.84
 DISTVERSIONPREFIX=	${PORTNAME}-

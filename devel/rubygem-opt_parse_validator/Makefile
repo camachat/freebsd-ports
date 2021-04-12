@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	opt_parse_validator
 PORTVERSION=	1.9.3
 CATEGORIES=	devel rubygems

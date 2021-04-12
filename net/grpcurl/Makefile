@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	grpcurl
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.8.0

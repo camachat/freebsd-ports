@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	diffobj
 DISTVERSION=	0.3.3
 CATEGORIES=	devel

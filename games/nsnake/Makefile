@@ -1,5 +1,8 @@
 # Created by: markand
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nsnake
 PORTVERSION=	2.2.0

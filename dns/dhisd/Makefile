@@ -1,5 +1,8 @@
 # Created by: Bas Kruit <baskruit@bsltwr.dhis.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dhisd
 PORTVERSION=	5.5

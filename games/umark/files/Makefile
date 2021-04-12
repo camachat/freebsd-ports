@@ -1,7 +1,10 @@
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
 
+=======
+>>>>>>> upstream/main
 BIN=	umark
 
 INCS=	`pkg-config gtk+-2.0 --cflags`

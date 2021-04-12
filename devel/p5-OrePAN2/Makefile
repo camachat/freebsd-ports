@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	OrePAN2
 PORTVERSION=	0.40
 CATEGORIES=	devel perl5

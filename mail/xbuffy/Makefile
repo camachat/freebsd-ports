@@ -1,5 +1,8 @@
 # Created by: dchapes@zeus.leitch.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xbuffy
 PORTVERSION=	3.3.3

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	redis
 PORTVERSION=	5.3.2
 CATEGORIES=	databases

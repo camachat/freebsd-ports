@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	binding_of_caller
 PORTVERSION=	0.8.0
 CATEGORIES=	devel rubygems

@@ -1,5 +1,8 @@
 # Created by: asaddi@philosophysw.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sha
 PORTVERSION=	1.0.4

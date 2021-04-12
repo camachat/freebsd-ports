@@ -1,5 +1,8 @@
 # Created by: Naresh Venkateshappa <nareshov@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fonts-indic
 PORTVERSION=	2.1.5

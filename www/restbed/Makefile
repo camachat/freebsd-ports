@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	restbed
 DISTVERSION=	4.7
 CATEGORIES=	www

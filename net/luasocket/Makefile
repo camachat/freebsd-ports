@@ -1,5 +1,8 @@
 # Created by: Jan Hornyak <pav@oook.cz>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	luasocket
 DISTVERSIONPREFIX=	v

@@ -1,5 +1,8 @@
 # Created by: Will Andrews <will@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	XML-TreeBuilder
 PORTVERSION=	5.4

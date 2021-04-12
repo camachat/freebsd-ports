@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sly-asdf
 PORTVERSION=	20210308
 PORTREVISION=	1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fabla2
 DISTVERSION=	g20180331
 PORTREVISION=	2

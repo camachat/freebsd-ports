@@ -1,5 +1,8 @@
 # Created by: John MacFarlane <jgm@berkeley.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pandoc
 PORTVERSION=	2.11.4

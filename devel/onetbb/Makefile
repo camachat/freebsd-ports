@@ -1,5 +1,8 @@
 # Created by: Arun Sharma <arun@sharma-home.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	onetbb
 PORTVERSION=	2021.1.1

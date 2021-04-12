@@ -1,5 +1,8 @@
 # Created by: Dan Pelleg <dpelleg+unison@cs.cmu.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	unison
 PORTVERSION=	2.40.128

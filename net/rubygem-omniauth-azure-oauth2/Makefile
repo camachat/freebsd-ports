@@ -1,5 +1,8 @@
 # Created by: Torsten Zuehlsdorff <ports@toco-domains.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	omniauth-azure-oauth2
 PORTVERSION=	0.0.10

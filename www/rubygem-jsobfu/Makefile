@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	jsobfu
 PORTVERSION=	0.4.2
 CATEGORIES=	www rubygems

@@ -1,5 +1,8 @@
 # Created by: mahlon
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	volta
 PORTVERSION=	0.3.0

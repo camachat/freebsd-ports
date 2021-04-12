@@ -1,5 +1,8 @@
 # Created by: Alexander Logvinov <avl@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gobject-introspection
 PORTVERSION=	1.66.1

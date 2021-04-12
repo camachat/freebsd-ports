@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	postgrex
 PORTVERSION=	0.13.5
 DISTVERSIONPREFIX=	v

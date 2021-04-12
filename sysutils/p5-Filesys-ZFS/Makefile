@@ -1,5 +1,8 @@
 # Created by: Gleb Smirnoff <glebius@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Filesys-ZFS
 PORTVERSION=	1.5

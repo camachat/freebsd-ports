@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kdev-php
 DISTVERSION=	5.6.2
 CATEGORIES=	devel kde

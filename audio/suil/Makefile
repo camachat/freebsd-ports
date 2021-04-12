@@ -1,5 +1,8 @@
 # Created by: Michael Beer <beerml@sigma6audio.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	suil
 PORTVERSION=	0.10.10

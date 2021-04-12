@@ -1,5 +1,8 @@
 # Created by: Dima Dorfman <dima@unixfreak.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mg
 PORTVERSION=	6.8.1

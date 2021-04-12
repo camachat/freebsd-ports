@@ -1,5 +1,8 @@
 # Created by: Glenn Trewitt <glenn@trewitt.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		htmldoc
 PORTVERSION=		1.9.3

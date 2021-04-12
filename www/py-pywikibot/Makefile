@@ -1,8 +1,14 @@
 # Created by: Yuri Victorovich <yuri@rawbw.com>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	pywikibot
 DISTVERSION=	5.6.0
+=======
+
+PORTNAME=	pywikibot
+DISTVERSION=	6.0.1
+>>>>>>> upstream/main
 CATEGORIES=	www python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -12,7 +18,11 @@ COMMENT=	Wikipedia bot for Python
 
 LICENSE=	MIT
 
+<<<<<<< HEAD
 RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}requests>0:www/py-requests@${PY_FLAVOR}
+=======
+RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}requests>=2.20.1:www/py-requests@${PY_FLAVOR}
+>>>>>>> upstream/main
 
 USES=		dos2unix python:3.5+
 DOS2UNIX_FILES=	setup.py

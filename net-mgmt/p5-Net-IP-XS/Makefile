@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Net-IP-XS
 PORTVERSION=	0.21
 PORTREVISION=	1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tflearn
 DISTVERSION=	0.3.2-53
 DISTVERSIONSUFFIX=	-g5c23566

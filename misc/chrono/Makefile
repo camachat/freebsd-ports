@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	chrono
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.1.0-4

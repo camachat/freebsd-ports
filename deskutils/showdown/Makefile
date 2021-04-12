@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	showdown
 DISTVERSION=	0.6
 PORTREVISION=	2

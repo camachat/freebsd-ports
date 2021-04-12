@@ -1,5 +1,8 @@
 # Created by: Bartoletti <lbartoletti@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lingot
 PORTVERSION=	1.0.1

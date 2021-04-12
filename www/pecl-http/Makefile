@@ -1,8 +1,15 @@
 # Created by: Wen Heping <wenheping@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	http
 PORTVERSION=	3.2.4
+=======
+
+PORTNAME=	http
+PORTVERSION=	3.2.4
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	www
 DISTNAME=	pecl_${PORTNAME}-${PORTVERSION}
 

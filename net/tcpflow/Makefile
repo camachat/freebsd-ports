@@ -1,5 +1,8 @@
 # Created by: Jose M. Alcaide <jose@we.lc.ehu.es>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tcpflow
 PORTVERSION=	1.5.0

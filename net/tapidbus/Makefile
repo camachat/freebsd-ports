@@ -1,5 +1,8 @@
 # Created by: Babak Farrokhi
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tapidbus
 PORTVERSION=	0.2.1

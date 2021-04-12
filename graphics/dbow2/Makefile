@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dbow2
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.1-free-23

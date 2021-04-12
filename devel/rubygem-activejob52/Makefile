@@ -1,5 +1,8 @@
 # Created by: Johannes Jost Meixner <xmj@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	activejob
 PORTVERSION=	5.2.4.5

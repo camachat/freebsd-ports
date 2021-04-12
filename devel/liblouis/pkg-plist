@@ -18,6 +18,11 @@
 %%DATADIR%%/tables/aw-in-g1.utb
 %%DATADIR%%/tables/ba.utb
 %%DATADIR%%/tables/be-in-g1.utb
+<<<<<<< HEAD
+=======
+%%DATADIR%%/tables/bel-comp.utb
+%%DATADIR%%/tables/bel.utb
+>>>>>>> upstream/main
 %%DATADIR%%/tables/bengali.cti
 %%DATADIR%%/tables/bg.ctb
 %%DATADIR%%/tables/bg.tbl
@@ -396,7 +401,11 @@ libdata/pkgconfig/liblouis.pc
 lib/liblouis.a
 lib/liblouis.so
 lib/liblouis.so.20
+<<<<<<< HEAD
 lib/liblouis.so.20.0.4
+=======
+lib/liblouis.so.20.0.5
+>>>>>>> upstream/main
 man/man1/lou_allround.1.gz
 man/man1/lou_checkhyphens.1.gz
 man/man1/lou_checktable.1.gz

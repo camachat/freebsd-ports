@@ -1,5 +1,8 @@
 # Created by: Janos Mohacsi <mohacsi@niif.hu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	send
 PORTVERSION=	0.3

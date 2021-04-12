@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ibus-table-chinese
 PORTVERSION=	1.8.3
 CATEGORIES=	chinese

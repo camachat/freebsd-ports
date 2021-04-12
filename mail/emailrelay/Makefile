@@ -1,5 +1,8 @@
 # Created by: Robert Nelson <robertn@the-nelsons.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	emailrelay
 PORTVERSION=	1.9

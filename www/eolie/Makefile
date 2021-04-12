@@ -1,5 +1,8 @@
 # Created by: Rozhuk Ivan 2019 <rozhuk.im@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	eolie
 PORTVERSION=	0.9.101

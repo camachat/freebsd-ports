@@ -1,5 +1,8 @@
 # Created by: Ask Bjoern Hansen <ask@valueclick.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	http_load
 PORTVERSION=	20160309

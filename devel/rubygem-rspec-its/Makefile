@@ -1,5 +1,8 @@
 # Created by: Yuichiro NAITO <naito.yuichiro@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rspec-its
 PORTVERSION=	1.3.0

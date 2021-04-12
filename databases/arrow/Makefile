@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	arrow
 DISTVERSION=	1.0.1
 CATEGORIES=	databases

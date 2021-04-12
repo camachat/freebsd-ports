@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fpc
 PORTVERSION=	3.2.0
 DISTVERSIONSUFFIX=.source

@@ -1,5 +1,8 @@
 # Created by: Samy Al Bahra <samy@kerneled.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	kacst_fonts
 PORTVERSION=	2.01

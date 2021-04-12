@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	octopress-hooks
 PORTVERSION=	2.6.2
 PORTREVISION=	1

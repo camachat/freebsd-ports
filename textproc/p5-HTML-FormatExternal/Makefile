@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	HTML-FormatExternal
 PORTVERSION=	26
 CATEGORIES=	textproc perl5

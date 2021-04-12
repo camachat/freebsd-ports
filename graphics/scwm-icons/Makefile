@@ -1,5 +1,8 @@
 # Created by: Yukihiro Nakai <nacai@iname.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	scwm-icons
 PORTVERSION=	0.99.2

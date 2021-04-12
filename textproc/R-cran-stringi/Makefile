@@ -1,9 +1,16 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	stringi
 DISTVERSION=	1.5.3
 PORTREVISION=	1
+=======
+
+PORTNAME=	stringi
+DISTVERSION=	1.5.3
+PORTREVISION=	2
+>>>>>>> upstream/main
 CATEGORIES=	textproc
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 

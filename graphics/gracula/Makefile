@@ -1,5 +1,8 @@
 # Created by: G. Adam Stanislav <adam@whizkidtech.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gracula
 PORTVERSION=	3.0

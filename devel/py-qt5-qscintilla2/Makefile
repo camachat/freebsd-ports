@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	qscintilla2
 PORTVERSION=	${QSCI2_VERSION}
 CATEGORIES=	devel python

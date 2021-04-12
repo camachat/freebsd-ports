@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	endian
 PORTVERSION=	1.1
 CATEGORIES=	sysutils

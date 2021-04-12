@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	openkim
 PORTVERSION=	1.1.1
 PORTREVISION=	10

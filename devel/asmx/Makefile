@@ -1,5 +1,8 @@
 # Created by: elbarto
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	asmx
 PORTVERSION=	1.8.2

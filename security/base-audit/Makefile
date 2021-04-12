@@ -1,5 +1,8 @@
 # Created by: Miroslav Lachman
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	base-audit
 PORTVERSION=	0.4

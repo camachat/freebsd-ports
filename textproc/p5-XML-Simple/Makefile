@@ -1,5 +1,8 @@
 # Created by: Andrew <andrew@ugh.net.au>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	XML-Simple
 PORTVERSION=	2.25

@@ -1,5 +1,8 @@
 # Created by: Joseph Koshy <koshy@india.hp.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xaos
 DISTVERSIONPREFIX=	release-

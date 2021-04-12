@@ -1,5 +1,8 @@
 # Created by: Axel Rau <axel.rau@chaos1.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	characteristic
 PORTVERSION=	14.3.0

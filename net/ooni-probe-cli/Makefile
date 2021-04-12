@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		ooni-probe-cli
 DISTVERSIONPREFIX=	v
 DISTVERSION=		3.0.8

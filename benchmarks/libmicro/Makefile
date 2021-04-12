@@ -1,5 +1,8 @@
 # Created by: Vsevolod Stakhov <vsevolod@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libmicro
 PORTVERSION=	0.4.1

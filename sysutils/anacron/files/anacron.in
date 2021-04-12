@@ -1,4 +1,5 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
@@ -10,10 +11,23 @@
 # Add the following line to /etc/rc.conf to enable anacron:
 #
 # anacron_enable="YES"
+=======
+
+# PROVIDE: %%PORTNAME%%
+# REQUIRE: LOGIN
+# KEYWORD: resume
+
+#
+# Execute one of the following commands as root to enable %%PORTNAME%%:
+#
+#    service %%PORTNAME%% enable
+#    sysrc %%PORTNAME%%_enable=YES
+>>>>>>> upstream/main
 #
 
 . /etc/rc.subr
 
+<<<<<<< HEAD
 name=anacron
 rcvar=anacron_enable
 
@@ -22,3 +36,26 @@ load_rc_config $name
 command="%%PREFIX%%/sbin/anacron"
 
 run_rc_command "$1"
+=======
+name=%%PORTNAME%%
+command="%%PREFIX%%/sbin/%%PORTNAME%%"
+desc="%%COMMENT%%"
+extra_commands=resume
+rcvar=%%PORTNAME%%_enable
+required_vars=syslogd_enable
+
+load_rc_config $name
+: ${%%PORTNAME%%_enable:=NO}
+
+if [ $# -gt 0 -a $1 = "resume" ]; then
+   arg=start
+   if checkyesno $rcvar; then
+       info "starting ${name} after resume"
+   fi
+else
+   arg=$1
+fi
+debug "$name: \$1 = $1, arg = $arg"
+
+run_rc_command "$arg"
+>>>>>>> upstream/main

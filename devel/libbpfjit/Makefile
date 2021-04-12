@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libbpfjit
 PORTVERSION=	g2020082801
 CATEGORIES=	devel

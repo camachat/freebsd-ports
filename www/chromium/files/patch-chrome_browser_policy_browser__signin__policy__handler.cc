@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- chrome/browser/policy/browser_signin_policy_handler.cc.orig	2020-11-13 06:36:37 UTC
+=======
+--- chrome/browser/policy/browser_signin_policy_handler.cc.orig	2021-03-12 23:57:18 UTC
+>>>>>>> upstream/main
 +++ chrome/browser/policy/browser_signin_policy_handler.cc
 @@ -52,7 +52,7 @@ void BrowserSigninPolicyHandler::ApplyPolicySettings(c
      }

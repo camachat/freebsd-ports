@@ -1,5 +1,8 @@
 # Created by: MIHIRA Yoshiro <sanpei@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mail-iso-2022-jp
 PORTVERSION=	2.0.8

@@ -31,7 +31,10 @@
  * SUCH DAMAGE.
  *
  *	@(#)queue.h	8.5 (Berkeley) 8/20/94
+<<<<<<< HEAD
  * $FreeBSD: /tmp/pcvs/ports/sysutils/44bsd-more/files/queue.h,v 1.1 2001-01-06 03:41:36 hoek Exp $
+=======
+>>>>>>> upstream/main
  */
 
 #ifndef _SYS_QUEUE_H_

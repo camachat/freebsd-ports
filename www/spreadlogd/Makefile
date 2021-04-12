@@ -1,5 +1,8 @@
 # Created by: Meno Abels <meno.abels@adviser.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	spreadlogd
 PORTVERSION=	1.4.2

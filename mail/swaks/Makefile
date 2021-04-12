@@ -1,5 +1,8 @@
 # Created by: Oliver Eikemeier
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	swaks
 PORTVERSION=	20201010.0

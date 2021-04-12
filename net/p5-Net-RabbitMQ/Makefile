@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Net-RabbitMQ
 PORTVERSION=	0.2.8
 PORTREVISION=	1

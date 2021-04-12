@@ -1,5 +1,8 @@
 # Created by: Sakai Hiroaki <sakai@miya.ee.kagu.sut.ac.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xshodou
 PORTVERSION=	1.11

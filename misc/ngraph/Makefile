@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ngraph
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.29.0-rc.0-345

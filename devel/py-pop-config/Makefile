@@ -1,5 +1,8 @@
 # Created by: Kirill Ponomarev <krion@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=		pop-config
 PORTVERSION=	6.11

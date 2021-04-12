@@ -1,5 +1,8 @@
 # Created by: Sergey Velichkevych <serg@cad.kiev.ua>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wmping
 PORTVERSION=	0.2.1

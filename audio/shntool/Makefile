@@ -1,5 +1,8 @@
 # Created by: Bill Fenner <fenner@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	shntool
 DISTVERSION=	3.0.10

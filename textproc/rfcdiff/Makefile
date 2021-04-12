@@ -1,5 +1,8 @@
 # Created by: lars.eggert@gmx.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rfcdiff
 PORTVERSION=	1.33

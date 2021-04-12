@@ -1,5 +1,8 @@
 # Created by: Daniel Gerzo <danger@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sysinfo
 PORTVERSION=	1.0.1

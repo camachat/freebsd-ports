@@ -1,8 +1,12 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
 #
+=======
+
+>>>>>>> upstream/main
 # PROVIDE: miltersid
 # REQUIRE: DAEMON
 # BEFORE: mail localpkg

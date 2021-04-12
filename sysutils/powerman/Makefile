@@ -1,5 +1,8 @@
 # Created by: Greg Lewis <glewis@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	powerman
 PORTVERSION=	2.3.20

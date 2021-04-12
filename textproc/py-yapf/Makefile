@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	yapf
 PORTVERSION=	0.30.0
 CATEGORIES=	textproc python

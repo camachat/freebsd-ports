@@ -1,5 +1,8 @@
 # Created by: Bartek Rutkowski <r@robakdesign.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pgtop
 PORTVERSION=	0.11

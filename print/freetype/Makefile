@@ -1,5 +1,8 @@
 # Created by: jseger@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	freetype
 PORTVERSION=	1.3.1

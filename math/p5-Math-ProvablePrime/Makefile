@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Math-ProvablePrime
 PORTVERSION=	0.045
 CATEGORIES=	math perl5

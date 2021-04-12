@@ -1,5 +1,8 @@
 # Created by: Dominic Mitchell
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	slime
 DISTVERSIONPREFIX=	v

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	jitsi
 PORTVERSION=	1.0.4048
 PORTREVISION=	2

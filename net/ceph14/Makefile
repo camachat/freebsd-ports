@@ -1,5 +1,8 @@
 # Created by: Willem Jan Withagen <wjw@digiware.nl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ceph
 DISTVERSIONPREFIX=	v

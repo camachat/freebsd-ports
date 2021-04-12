@@ -1,5 +1,8 @@
 # Created by: Stéphane D'Alu <sdalu@sdalu.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ddmemoize
 PORTVERSION=	1.0.0

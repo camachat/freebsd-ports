@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	roadie
 PORTVERSION=	4.0.0
 CATEGORIES=	mail rubygems

@@ -1,5 +1,8 @@
 # Created by: cy@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cfengine-masterfiles
 PORTVERSION=	3.16.0

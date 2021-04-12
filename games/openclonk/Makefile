@@ -1,5 +1,8 @@
 # Created by: Kevin Zheng <kevinz5000@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	openclonk
 DISTVERSION=	8.1

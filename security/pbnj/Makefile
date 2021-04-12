@@ -1,5 +1,8 @@
 # Created by: Joshua D. Abraham <jabra@ccs.neu.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pbnj
 PORTVERSION=	2.04

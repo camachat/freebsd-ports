@@ -9,9 +9,12 @@
 #	.include "bsd.port.post.mk"
 #
 # Created by: Shaun Amott <shaun@inerd.com>
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 
 OPTIONS_Include_MAINTAINER=		portmgr@FreeBSD.org
 

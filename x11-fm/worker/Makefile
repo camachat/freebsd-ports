@@ -1,8 +1,14 @@
 # Created by: Simon Dick <simond@irrelevant.org>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	worker
 PORTVERSION=	4.7.0
+=======
+
+PORTNAME=	worker
+PORTVERSION=	4.8.0
+>>>>>>> upstream/main
 CATEGORIES=	x11-fm
 MASTER_SITES=	http://www.boomerangsworld.de/cms/worker/downloads/
 

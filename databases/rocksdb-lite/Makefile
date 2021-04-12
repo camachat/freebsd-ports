@@ -1,5 +1,8 @@
 # Created by: David Thiel <lx@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTREVISION=	1
 

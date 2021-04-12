@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	erkale-pseudopotentials
 DISTVERSION=	g20200426
 CATEGORIES=	science

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	wwwoffle
 PORTVERSION=	2.9j
 CATEGORIES=	www

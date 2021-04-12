@@ -1,5 +1,8 @@
 # Created by: Tim Niemueller <tim@niemueller.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	yaml-cpp
 PORTVERSION=	0.3.0

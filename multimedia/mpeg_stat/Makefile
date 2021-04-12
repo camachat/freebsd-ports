@@ -1,5 +1,8 @@
 # Created by: erich@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mpeg_stat
 PORTVERSION=	2.2b

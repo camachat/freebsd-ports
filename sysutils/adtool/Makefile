@@ -1,5 +1,8 @@
 # Created by: joseph@randomnetworks.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	adtool
 PORTVERSION=	1.3.3

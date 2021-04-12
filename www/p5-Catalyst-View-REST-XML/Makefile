@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Catalyst-View-REST-XML
 PORTVERSION=	0.02
 PORTREVISION=	1

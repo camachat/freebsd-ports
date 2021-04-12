@@ -1,5 +1,8 @@
 # Created by: Cristiano Rolim Pereira <cristianorolim@outlook.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	vera++
 PORTVERSION=	1.3.0

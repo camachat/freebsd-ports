@@ -1,5 +1,8 @@
 # Created by: Sylvio Cesar Teixeira <sylvio@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Goo-Canvas
 PORTVERSION=	0.06

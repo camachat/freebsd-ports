@@ -1,5 +1,8 @@
 # Created by: Gerrit Beine (<gerrit.beine@gmx.de>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Image_GraphViz
 PORTVERSION=	1.3.0

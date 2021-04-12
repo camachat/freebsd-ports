@@ -1,5 +1,8 @@
 # Created by: keiichi@iijlab.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ical2html
 PORTVERSION=	2.1

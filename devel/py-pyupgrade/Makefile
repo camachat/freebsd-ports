@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pyupgrade
 PORTVERSION=	1.27.0
 CATEGORIES=	devel

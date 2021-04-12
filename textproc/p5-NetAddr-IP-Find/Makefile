@@ -1,5 +1,8 @@
 # Created by: Alex Kapranoff <kappa@FreeBSD.org.ua>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	NetAddr-IP-Find
 PORTVERSION=	0.03

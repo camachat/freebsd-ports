@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	flint2
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.7.1	# See note #1
@@ -17,7 +20,11 @@ LIB_DEPENDS=	libgmp.so:math/gmp \
 		libmpfr.so:math/mpfr \
 		libopenblas.so:math/openblas
 
+<<<<<<< HEAD
 USES=		cmake compiler:c++11-lang
+=======
+USES=		cmake compiler:c++11-lang python:build
+>>>>>>> upstream/main
 USE_GITHUB=	yes
 GH_ACCOUNT=	wbhart
 USE_LDCONFIG=	yes

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	starttls
 PORTVERSION=	0.10
 PORTREVISION=	21

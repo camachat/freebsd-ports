@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	naarad
 PORTVERSION=	1.0.15
 PORTREVISION=	4

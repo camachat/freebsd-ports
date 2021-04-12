@@ -1,5 +1,8 @@
 # Created by: nectar@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	smurflog
 PORTVERSION=	2.1

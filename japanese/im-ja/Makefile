@@ -1,5 +1,8 @@
 # Created by: Jacques Vidrine <nectar@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	im-ja
 PORTVERSION=	1.5

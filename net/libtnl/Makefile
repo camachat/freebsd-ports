@@ -1,5 +1,8 @@
 # Created by: aaron@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libtnl
 PORTVERSION=	1.5.0

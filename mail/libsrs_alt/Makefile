@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		libsrs_alt
 DISTVERSION=		1.0
 PORTREVISION=		2

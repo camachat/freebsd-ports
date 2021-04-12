@@ -1,5 +1,8 @@
 # Created by: Oleh Hushchenkov <gor@clogic.com.ua>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	unclutter-xfixes
 PORTVERSION=	1.5

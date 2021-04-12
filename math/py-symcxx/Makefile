@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	symcxx
 DISTVERSION=	0.1.10
 CATEGORIES=	math python

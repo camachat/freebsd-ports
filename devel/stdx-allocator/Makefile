@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	stdx-allocator
 PORTVERSION=	3.0.2
 DISTVERSIONPREFIX=	v

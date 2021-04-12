@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	azure-mgmt-datalake-analytics
 PORTVERSION=	0.6.0
 CATEGORIES=	devel python

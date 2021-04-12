@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Dumper
 PORTVERSION=	1.2.0
 CATEGORIES=	devel python

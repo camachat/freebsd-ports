@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	shishi
 PORTVERSION=	1.0.2
 PORTREVISION=	11

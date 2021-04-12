@@ -1,5 +1,8 @@
 # Created by: Ying-Chieh Liao <ijliao@csie.nctu.edu.tw>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	WWW-Scraper-ISBN
 PORTVERSION=	1.05

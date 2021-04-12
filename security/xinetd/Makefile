@@ -1,5 +1,8 @@
 # Created by: markm
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xinetd
 PORTVERSION=	2.3.15

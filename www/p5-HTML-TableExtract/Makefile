@@ -1,5 +1,8 @@
 # Created by: Sergey Osokin aka oZZ <ports@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HTML-TableExtract
 PORTVERSION=	2.15

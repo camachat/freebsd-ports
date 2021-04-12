@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bsmtrace
 PORTVERSION=	3.1
 DISTVERSIONPREFIX=	v

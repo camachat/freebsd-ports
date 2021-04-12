@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	wavbreaker
 PORTVERSION=	0.13
 CATEGORIES=	audio

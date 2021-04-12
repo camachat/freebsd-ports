@@ -1,5 +1,8 @@
 # Created by: UMENO Takashi <umeno@rr.iij4u.or.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	klish
 PORTVERSION=	2.1.4

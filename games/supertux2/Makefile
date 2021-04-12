@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	supertux
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.6.2

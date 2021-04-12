@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		mmve
 PORTVERSION=		0.2.0
 DISTVERSIONPREFIX=	v

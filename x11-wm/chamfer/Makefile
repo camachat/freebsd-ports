@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	chamfer
 DISTVERSION=	s20210218
 PORTREVISION=	1

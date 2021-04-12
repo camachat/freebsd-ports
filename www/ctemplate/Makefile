@@ -1,5 +1,8 @@
 # Created by: Alex Pesternikov <ap@page2rss.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ctemplate
 PORTVERSION=	0.5

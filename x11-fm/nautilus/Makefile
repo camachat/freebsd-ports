@@ -1,5 +1,8 @@
 # Created by: ade, archie
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nautilus
 PORTVERSION=	3.36.3

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	currtime
 PORTVERSION=	0.2.5
 DISTVERSIONPREFIX=	v

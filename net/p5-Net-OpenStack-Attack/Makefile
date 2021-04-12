@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Net-OpenStack-Attack
 PORTVERSION=	1.0500
 PORTREVISION=	1

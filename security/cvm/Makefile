@@ -1,5 +1,8 @@
 # Created by: Sergei Kolobov <sergei@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cvm
 PORTVERSION=	0.97

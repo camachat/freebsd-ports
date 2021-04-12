@@ -1,5 +1,8 @@
 # Created by: Marwan BURELLE <marwan.burelle@lri.fr>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ocurl
 PORTVERSION=	0.8.2

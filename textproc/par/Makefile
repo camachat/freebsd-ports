@@ -1,5 +1,8 @@
 # Created by: Mark R V Murray <mark@grondar.za>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	par
 PORTVERSION=	1.53.0

@@ -24,8 +24,11 @@
  * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+<<<<<<< HEAD
  *
  * $FreeBSD: /tmp/pcvs/ports/multimedia/linux_dvbwrapper-kmod/files/linux_dvb_ioctl.h,v 1.1 2011-04-24 15:51:13 nox Exp $
+=======
+>>>>>>> upstream/main
  */
 
 #ifndef _LINUX_DVB_IOCTL_H_

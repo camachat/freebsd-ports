@@ -1,5 +1,8 @@
 # Created by: Ayumi M <ayu@commun.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	packddir
 PORTVERSION=	0.0.6

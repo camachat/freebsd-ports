@@ -1,5 +1,8 @@
 # Created by: Douglas Thrift
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dtflickr
 PORTVERSION=	1.5

@@ -1,7 +1,11 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+
+>>>>>>> upstream/main
 # PROVIDE: bacula_dir
 # REQUIRE: DAEMON %%REQ_MYSQL%% %%REQ_PGSQL%%
 # KEYWORD: shutdown

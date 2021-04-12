@@ -1,5 +1,8 @@
 # Created by: NAKATA Maho <maho@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libEMF
 PORTVERSION=	1.0.7

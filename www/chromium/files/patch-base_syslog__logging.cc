@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- base/syslog_logging.cc.orig	2020-11-13 06:36:34 UTC
+=======
+--- base/syslog_logging.cc.orig	2021-03-12 23:57:15 UTC
+>>>>>>> upstream/main
 +++ base/syslog_logging.cc
 @@ -13,7 +13,7 @@
  #include "base/strings/string_util.h"

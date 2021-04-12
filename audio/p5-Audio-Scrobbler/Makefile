@@ -1,5 +1,8 @@
 # Created by: Peter Pentchev <roam@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Audio-Scrobbler
 PORTVERSION=	0.01

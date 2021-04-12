@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	python-axolotl
 PORTVERSION=	0.1.42
 CATEGORIES=	security python

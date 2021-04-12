@@ -1,5 +1,8 @@
 # Created by: Shen Chuan-Hsing
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	qe
 PORTVERSION=	0.1.1

@@ -1,7 +1,10 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD: head/net/samba43/files/samba_server.in 402642 2015-11-30 01:35:36Z timur $
 #
+=======
+>>>>>>> upstream/main
 
 # PROVIDE: samba_server
 # REQUIRE: NETWORKING SERVERS DAEMON ldconfig resolv ntpd %%SAMBA4_SERVICES%%

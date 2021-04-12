@@ -1,5 +1,8 @@
 # Created by: Igor Vinokurov <igor@zynaps.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-ext
 PORTVERSION=	1.011

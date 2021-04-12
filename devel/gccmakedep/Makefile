@@ -1,5 +1,8 @@
 # Created by: Dave Grochowski
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gccmakedep
 PORTVERSION=	1.0.3

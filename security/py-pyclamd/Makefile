@@ -1,5 +1,8 @@
 # Created by: Milan Obuch
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pyClamd
 PORTVERSION=	0.3.17

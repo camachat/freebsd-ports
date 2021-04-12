@@ -1,5 +1,8 @@
 # Created by: Klayton Monroe <klm@uidzero.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	webjob
 PORTVERSION=	1.9.0

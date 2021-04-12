@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	agate-dbf
 PORTVERSION=	0.2.2
 CATEGORIES=	textproc python

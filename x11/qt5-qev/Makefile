@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	qev
 DISTVERSION=	${QT5_VERSION}
 CATEGORIES=	x11

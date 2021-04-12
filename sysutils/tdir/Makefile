@@ -1,5 +1,8 @@
 # Created by: tundra
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tdir
 PORTVERSION=	1.73

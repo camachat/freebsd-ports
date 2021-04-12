@@ -1,5 +1,8 @@
 # Created by: Jeffrey Baitis <jeff@baitis.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sdr-wspr
 PORTVERSION=	0.1.0

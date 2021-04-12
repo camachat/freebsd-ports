@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	MolScript
 DISTVERSION=	2.1.2
 PORTREVISION=	1

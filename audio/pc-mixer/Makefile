@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pc-mixer
 PORTVERSION=	20171212
 PORTREVISION=	3

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cf
 PORTVERSION=	6.49.0
 DISTVERSIONPREFIX=	v

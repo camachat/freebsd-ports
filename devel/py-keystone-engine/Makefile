@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	keystone-engine
 DISTVERSION=	0.9.1-3
 CATEGORIES=	devel python

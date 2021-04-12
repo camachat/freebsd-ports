@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	webmail
 PORTVERSION=	5.2.22
 CATEGORIES=	mail www pear

@@ -1,9 +1,16 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	horizon-eda
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.4.0
 PORTREVISION=	1
+=======
+PORTNAME=	horizon-eda
+DISTVERSIONPREFIX=	v
+DISTVERSION=	1.4.0
+PORTREVISION=	2
+>>>>>>> upstream/main
 CATEGORIES=	cad
 
 MAINTAINER=	yuri@FreeBSD.org

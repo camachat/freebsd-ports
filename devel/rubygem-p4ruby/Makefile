@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 #	$FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	p4ruby
 PORTVERSION=	2017.1.1599185
 CATEGORIES=	devel rubygems

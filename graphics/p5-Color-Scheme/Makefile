@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Color-Scheme
 PORTVERSION=	1.07
 CATEGORIES=	graphics perl5

@@ -1,7 +1,11 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD: net/kamailio/files/kamailio.in
 #
+=======
+
+>>>>>>> upstream/main
 # PROVIDE: kamailio
 # REQUIRE: NETWORKING SERVERS DAEMON
 # KEYWORD: shutdown

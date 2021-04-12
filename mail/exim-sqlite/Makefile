@@ -1,5 +1,8 @@
 # Created by: krion
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PKGNAMESUFFIX=	-sqlite
 MASTERDIR=	${.CURDIR}/../exim

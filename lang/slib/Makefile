@@ -1,5 +1,8 @@
 # Created by: Yukihiro Nakai <Nakai@technologist.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	slib
 PORTVERSION=	3b6

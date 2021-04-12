@@ -1,5 +1,8 @@
 # Created by: Maxim Maximov (mcsi@agava.com)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	enum
 PORTVERSION=	1.110

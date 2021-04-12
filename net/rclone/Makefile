@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	rclone
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.54.1

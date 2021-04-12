@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # Provide support for Berkeley DB
 # Feature:	bdb
 # Usage:	USES=	bdb[:version]

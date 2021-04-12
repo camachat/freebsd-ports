@@ -1,9 +1,16 @@
 # Created by: Olivier Duchateau
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	dee
 PORTVERSION=	1.2.7
 PORTREVISION=	18
+=======
+
+PORTNAME=	dee
+PORTVERSION=	1.2.7
+PORTREVISION=	19
+>>>>>>> upstream/main
 CATEGORIES=	devel
 MASTER_SITES=	https://launchpadlibrarian.net/151383425/ \
 	https://launchpad.net/${PORTNAME}/1.0/${PORTVERSION}/+download/

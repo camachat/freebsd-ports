@@ -1,5 +1,8 @@
 # Created by: Antonio Carlos Venancio Junior (<antonio@php.net>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	DB_DataObject
 PORTVERSION=	1.11.5

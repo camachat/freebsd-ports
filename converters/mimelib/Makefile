@@ -1,5 +1,8 @@
 # Created by: never@nevermind.kiev.ua
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mimelib
 PORTVERSION=	1.1.2

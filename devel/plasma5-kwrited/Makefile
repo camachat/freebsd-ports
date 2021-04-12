@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kwrited
 DISTVERSION=	${KDE_PLASMA_VERSION}
 CATEGORIES=	devel kde kde-plasma

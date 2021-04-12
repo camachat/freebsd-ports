@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		j2cli
 DISTVERSIONPREFIX=	v
 DISTVERSION=		0.3.12b

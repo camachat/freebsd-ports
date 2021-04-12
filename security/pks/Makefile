@@ -1,5 +1,8 @@
 # Created by: kris@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pks
 PORTVERSION=	0.9.6.20040312

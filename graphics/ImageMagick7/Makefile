@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	ImageMagick
 DISTVERSION=	7.0.10-24
 PORTREVISION=	2
+=======
+PORTNAME=	ImageMagick
+DISTVERSION=	7.0.10-24
+PORTREVISION=	3
+>>>>>>> upstream/main
 CATEGORIES=	graphics perl5
 MASTER_SITES=	https://www.imagemagick.org/download/ \
 		https://www.imagemagick.org/download/releases/ \
@@ -245,8 +251,13 @@ CONFIGURE_ARGS+=	--with-windows-font-dir=${WITH_WINDOWS_FONT_DIR}
 . if ${_IMAGEMAGICK_THREADS} == "no"
 IGNORE=OpenEXR requires threads. ${_IMAGEMAGICK_THREADS_IGNORE_MSG}
 . else
+<<<<<<< HEAD
 LIB_DEPENDS+=		libIlmImf.so:graphics/openexr \
 			libImath.so:graphics/ilmbase
+=======
+LIB_DEPENDS+=		libOpenEXR.so:graphics/openexr \
+			libImath.so:math/Imath
+>>>>>>> upstream/main
 PLIST_SUB+=		OPENEXR=""
 . endif
 .else

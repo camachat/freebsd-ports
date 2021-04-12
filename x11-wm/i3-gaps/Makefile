@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	i3
 DISTVERSION=	4.19.1
 PORTREVISION=	1

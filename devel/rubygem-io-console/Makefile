@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	io-console
 PORTVERSION=	0.5.9
 CATEGORIES=	devel rubygems

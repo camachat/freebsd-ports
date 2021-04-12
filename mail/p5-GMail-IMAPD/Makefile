@@ -1,5 +1,8 @@
 # Created by: Ali Mashtizadeh <ali@mashtizadeh.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	GMail-IMAPD
 PORTVERSION=	0.94

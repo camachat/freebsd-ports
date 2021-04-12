@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	gitea
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.13.6
+=======
+PORTNAME=	gitea
+DISTVERSIONPREFIX=	v
+DISTVERSION=	1.13.7
+>>>>>>> upstream/main
 CATEGORIES=	www
 MASTER_SITES=	https://github.com/go-gitea/gitea/releases/download/${DISTVERSIONPREFIX}${DISTVERSION}/
 DISTNAME=	gitea-src-${DISTVERSION}

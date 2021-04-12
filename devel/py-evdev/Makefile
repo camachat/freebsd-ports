@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	evdev
 PORTVERSION=	1.3.0
 CATEGORIES=	devel python

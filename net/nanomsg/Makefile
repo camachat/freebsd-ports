@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=			nanomsg
 PORTVERSION=			1.1.5
 PORTREVISION=			1

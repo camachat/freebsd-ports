@@ -1,5 +1,8 @@
 # Created by: krion
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	aewan
 PORTVERSION=	1.0.01

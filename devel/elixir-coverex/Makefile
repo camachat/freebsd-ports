@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	coverex
 PORTVERSION=	1.4.15
 DISTVERSIONPREFIX=	v

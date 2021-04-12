@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	jamulus
 DISTVERSIONPREFIX=	r
 DISTVERSION=	3_7_0

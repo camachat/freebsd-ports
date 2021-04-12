@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xmenu
 DISTVERSIONPREFIX=	v
 DISTVERSION=	4.5.4

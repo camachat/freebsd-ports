@@ -1,5 +1,8 @@
 # Created by: Guy Antony Halse <guy@rucus.ru.za.za>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Mail-Ezmlm
 PORTVERSION=	0.08.2

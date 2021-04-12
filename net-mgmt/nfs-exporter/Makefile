@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	nfs-exporter
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.3.0

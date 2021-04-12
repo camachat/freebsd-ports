@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	mongodb42-tools
 DISTVERSIONPREFIX=	r
 DISTVERSION=	4.2.13

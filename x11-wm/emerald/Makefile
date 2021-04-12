@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	emerald
 PORTVERSION=	0.8.8
 PORTREVISION=	5

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	lazpaint
 PORTVERSION=	7.1.6
 DISTVERSIONPREFIX=	v

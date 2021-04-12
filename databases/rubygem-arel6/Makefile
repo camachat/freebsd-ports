@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	arel
 PORTVERSION=	6.0.4
 CATEGORIES=	databases rubygems

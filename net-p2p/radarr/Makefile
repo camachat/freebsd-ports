@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	radarr
 PORTVERSION=	3.0.2.4552
 DISTVERSIONPREFIX=v

@@ -1,5 +1,8 @@
 # Created by: Melvyn Sopacua <melvyn@magemana.nl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	snappy
 PORTVERSION=	0.2.0

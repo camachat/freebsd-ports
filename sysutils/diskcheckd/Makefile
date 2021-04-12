@@ -1,5 +1,8 @@
 # Created by: David W. Chapman Jr. (dwcjr@FreeBSD.org)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	diskcheckd
 PORTVERSION=	20150220

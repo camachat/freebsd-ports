@@ -1,5 +1,8 @@
 # Created by: chuck@pkix.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	clean
 PORTVERSION=	3.4

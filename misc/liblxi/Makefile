@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	liblxi
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.13

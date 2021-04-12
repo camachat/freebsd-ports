@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	kcov
 DISTVERSIONPREFIX=	v
 DISTVERSION=	37

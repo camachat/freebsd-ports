@@ -1,5 +1,8 @@
 # Created by: Ville Eerola <ve@sci.fi>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME?=	fetchmail
 DISTVERSION=	6.4.18

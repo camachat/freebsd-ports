@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	adb
 DISTVERSION=	1.3.0-9
 DISTVERSIONSUFFIX=	-gd0be33c

@@ -1,5 +1,8 @@
 # Created by: Loïc Bartoletti <lbartoletti@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	freeplane
 DISTVERSION=	1.8.11

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cpp2py
 DISTVERSION=	2.0.0
 CATEGORIES=	devel

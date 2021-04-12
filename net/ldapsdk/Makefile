@@ -1,5 +1,8 @@
 # Created by: paul@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ldapsdk
 PORTVERSION=	6.0.7

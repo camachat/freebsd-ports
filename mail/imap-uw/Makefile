@@ -1,5 +1,8 @@
 # Created by: pst
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	imap
 PORTVERSION=	2007f

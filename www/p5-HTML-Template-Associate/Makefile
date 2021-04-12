@@ -1,5 +1,8 @@
 # Created by: Manuel Rábade <mig@mig-29.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	HTML-Template-Associate
 PORTVERSION=	2.01

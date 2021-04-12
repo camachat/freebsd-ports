@@ -1,5 +1,8 @@
 # Created by: Krzysztof Stryjek <ports@bsdserwis.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	self-service-password
 DISTVERSION=	1.3

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	zanata-platform
 PORTVERSION=	4.6.2
 CATEGORIES=	devel java

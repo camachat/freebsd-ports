@@ -1,5 +1,8 @@
 # Created by: wolpert
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rbl-milter
 PORTVERSION=	0.30

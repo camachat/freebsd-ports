@@ -1,5 +1,8 @@
 # Created by: Andrey A. Chernov <ache@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	trans
 PORTVERSION=	1.20

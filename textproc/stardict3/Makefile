@@ -1,5 +1,8 @@
 # Created by: eric
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	stardict
 PORTVERSION=	3.0.6

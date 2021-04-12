@@ -1,5 +1,8 @@
 # Created by: Fumihiko Kimura <jfkimura@yahoo.co.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tdiary
 PORTVERSION=	5.1.5

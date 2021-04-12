@@ -1,5 +1,8 @@
 # Created by: Ben Haga <tuximus@tuximus.mine.nu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tigcc
 PORTVERSION=	0.96.b8

@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	delta
 DISTVERSION=	0.5.1
 PORTREVISION=	2
+=======
+PORTNAME=	delta
+DISTVERSION=	0.5.1
+PORTREVISION=	3
+>>>>>>> upstream/main
 CATEGORIES=	devel
 PKGNAMEPREFIX=	git-
 

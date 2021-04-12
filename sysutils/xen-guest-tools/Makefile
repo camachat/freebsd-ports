@@ -1,5 +1,8 @@
 # Created by: Evan Sarmiento <esarmiento@wayfair.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xen-guest-tools
 PORTVERSION=	4.14.0

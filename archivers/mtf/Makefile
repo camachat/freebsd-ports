@@ -1,5 +1,8 @@
 # Created by: Philippe Casidy <pcasidy@casidy.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mtf
 PORTVERSION=	0.2.1

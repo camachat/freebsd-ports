@@ -1,5 +1,8 @@
 # Created by: Jerry A! <jerry@thehutt.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ap-utils
 PORTVERSION=	1.4.1

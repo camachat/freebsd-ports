@@ -1,5 +1,8 @@
 # Created by: dlowe
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xmake
 PORTVERSION=	1.06

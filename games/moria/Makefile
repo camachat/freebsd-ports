@@ -1,5 +1,8 @@
 # Created by: glewis@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	moria
 PORTVERSION=	5.5.2

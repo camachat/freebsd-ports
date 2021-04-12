@@ -1,5 +1,8 @@
 # Created by: pauls
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	chaosreader
 PORTVERSION=	0.96

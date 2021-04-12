@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	opengrok
 PORTVERSION=	1.3.16
 CATEGORIES=	devel java

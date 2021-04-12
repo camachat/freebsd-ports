@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PKGNAMESUFFIX?=	-ldap-sasl
 
 MAINTAINER=	ohauer@FreeBSD.org

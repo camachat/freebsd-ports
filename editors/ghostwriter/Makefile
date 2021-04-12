@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ghostwriter
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.8.1

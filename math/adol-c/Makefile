@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	adol-c
 DISTVERSION=	2.7.2
 CATEGORIES=	math

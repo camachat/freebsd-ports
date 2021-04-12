@@ -1,5 +1,8 @@
 # Created by: Yinghong Liu <relaxbsd@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	relaxconf
 PORTVERSION=	1.1.1

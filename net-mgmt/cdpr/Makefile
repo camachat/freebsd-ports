@@ -1,5 +1,8 @@
 # Created by: Michael L. Hostbaek (mich@freebsdcluster.org)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cdpr
 PORTVERSION=	2.4

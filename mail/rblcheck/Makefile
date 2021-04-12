@@ -1,5 +1,8 @@
 # Created by: itojun@itojun.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rblcheck
 PORTVERSION=	1.5

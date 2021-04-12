@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 CATEGORIES=	converters
 
 MASTERDIR=	${.CURDIR}/../../lang/php73

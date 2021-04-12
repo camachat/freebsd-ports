@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	pyqtgraph
 DISTVERSION=	0.11.1
+=======
+PORTNAME=	pyqtgraph
+DISTVERSION=	0.12.1
+>>>>>>> upstream/main
 CATEGORIES=	graphics science python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}

@@ -1,5 +1,8 @@
 # Created by: Dmitry Kazarov <d.y.kazarov@mail.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	qpdf
 DISTVERSION=	10.1.0

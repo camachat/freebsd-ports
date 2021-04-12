@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fastentrypoints
 PORTVERSION=	0.9
 PORTREVISION=	1

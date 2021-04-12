@@ -1,5 +1,8 @@
 # Created by: jessekempf@gmail.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mock
 PORTVERSION=	3.0.5

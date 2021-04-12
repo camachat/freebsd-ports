@@ -1,5 +1,8 @@
 # Created by: lippe
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Test-Portability-Files
 PORTVERSION=	0.10

@@ -1,5 +1,8 @@
 # Created by: James Flemer <jflemer@alum.rpi.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	l2a
 PORTVERSION=	1.2

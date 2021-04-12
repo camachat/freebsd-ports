@@ -1,5 +1,8 @@
 # Created by: Vincent Tantardini <vinc@FreeBSD-fr.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libcaca
 DISTVERSION=	0.99.beta19

@@ -1,5 +1,8 @@
 # Created by: Shaun Amott <shaun@inerd.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ratbox-respond
 PORTVERSION=	1.0

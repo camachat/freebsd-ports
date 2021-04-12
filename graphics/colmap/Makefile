@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	colmap
 DISTVERSION=	3.6
 PORTREVISION=	2

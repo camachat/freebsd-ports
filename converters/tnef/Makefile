@@ -1,5 +1,8 @@
 # Created by: Cyrus Rahman <cr@jcmax.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tnef
 PORTVERSION=	1.4.12

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		sope4
 PORTVERSION=		4.3.2
 PORTREVISION=		1

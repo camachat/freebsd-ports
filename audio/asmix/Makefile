@@ -1,5 +1,8 @@
 # Created by: mtm@identd.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	asmix
 PORTVERSION=	1.5

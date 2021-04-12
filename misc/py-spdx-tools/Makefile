@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	spdx-tools
 DISTVERSION=	0.6.1
 CATEGORIES=	misc python

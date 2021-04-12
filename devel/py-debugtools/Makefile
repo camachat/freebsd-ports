@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	debugtools
 PORTVERSION=	0.2.0
 CATEGORIES=	devel python

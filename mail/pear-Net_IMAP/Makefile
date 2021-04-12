@@ -1,5 +1,8 @@
 # Created by: Attila Nagy <bra@fsn.hu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net_IMAP
 PORTVERSION=	1.1.3

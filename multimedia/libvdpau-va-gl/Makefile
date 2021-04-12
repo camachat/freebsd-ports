@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libvdpau-va-gl
 PORTVERSION=	0.4.2
 DISTVERSIONPREFIX=	v

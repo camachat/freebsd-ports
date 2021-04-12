@@ -1,5 +1,8 @@
 # Created by: Alex Kapranoff <kappa@rambler-co.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Set-Array
 PORTVERSION=	0.30

@@ -1,8 +1,14 @@
 # Created by: Qiang Guo <guoqiang_cn@126.com>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	bvm
 PORTVERSION=	1.3.1
+=======
+
+PORTNAME=	bvm
+PORTVERSION=	1.3.2
+>>>>>>> upstream/main
 CATEGORIES=	sysutils
 
 MAINTAINER=	guoqiang_cn@126.com

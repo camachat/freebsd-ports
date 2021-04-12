@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libprojectM
 DISTVERSIONPREFIX=	v
 DISTVERSION=	3.1.12

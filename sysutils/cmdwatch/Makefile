@@ -1,5 +1,8 @@
 # Created by: bjohnson@wedgie.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cmdwatch
 PORTVERSION=	0.2.0

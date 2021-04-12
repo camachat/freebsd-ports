@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gemoji
 PORTVERSION=	3.0.1
 CATEGORIES=	textproc rubygems

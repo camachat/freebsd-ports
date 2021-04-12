@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tealdeer
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.4.1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gmic-qt
 DISTVERSIONPREFIX=	v.
 DISTVERSION=	2.3.6

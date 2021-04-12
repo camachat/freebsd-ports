@@ -1,5 +1,8 @@
 # Created by: Koichiro IWAO <meta@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	awesome_print
 PORTVERSION=	1.8.0

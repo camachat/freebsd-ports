@@ -1,5 +1,8 @@
 # Created by: Bernard Spil <brnrd@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	soundcloud
 PORTVERSION=	0.5.0

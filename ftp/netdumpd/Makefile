@@ -1,5 +1,8 @@
 # Created by: Mark Johnston <markj@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	netdumpd
 PORTVERSION=	20191031

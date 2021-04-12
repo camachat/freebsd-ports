@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	django-staticinline
 PORTVERSION=	1.3.1
 CATEGORIES=	www python

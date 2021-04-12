@@ -1,5 +1,8 @@
 # Created by: Phil Phillips <pphillips@experts-exchange.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	chunky_png
 PORTVERSION=	1.3.11

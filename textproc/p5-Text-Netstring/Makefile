@@ -1,5 +1,8 @@
 # Created by: James Raftery <james@now.ie>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Text-Netstring
 PORTVERSION=	0.07

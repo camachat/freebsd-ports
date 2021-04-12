@@ -1,5 +1,8 @@
 # Created by: Alex de Kruijff
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	samesame
 PORTVERSION=	1.10

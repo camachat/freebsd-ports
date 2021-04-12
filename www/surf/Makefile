@@ -1,5 +1,8 @@
 # Created by: Christopher Knaust <jigboe@gmx.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	surf
 DISTVERSION=	2.0

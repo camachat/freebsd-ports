@@ -1,5 +1,8 @@
 # Created by: roland.jesse@gmx.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	SoXt
 PORTVERSION=	1.3.0

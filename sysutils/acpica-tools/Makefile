@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	acpica
 PORTVERSION=	20210105
+=======
+PORTNAME=	acpica
+PORTVERSION=	20210331
+>>>>>>> upstream/main
 CATEGORIES=	sysutils devel
 MASTER_SITES=	https://acpica.org/sites/acpica/files/ \
 		LOCAL/jkim

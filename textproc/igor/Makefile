@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	igor
 PORTVERSION=	1.595
 CATEGORIES=	textproc

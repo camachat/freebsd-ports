@@ -1,5 +1,8 @@
 # Created by: liamfoy@sepulcrum.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gnetcat
 PORTVERSION=	0.7.1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	httpoison
 PORTVERSION=	0.13.0
 DISTVERSIONPREFIX=	v

@@ -1,5 +1,8 @@
 # Created by: Alexandre Biancalana <ale@biancalanas.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	String-HexConvert
 PORTVERSION=	0.01

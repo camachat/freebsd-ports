@@ -1,5 +1,8 @@
 # Created by: Matthieu Guegan <matt.guegan@free.fr>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xmonad
 PORTVERSION=	0.15

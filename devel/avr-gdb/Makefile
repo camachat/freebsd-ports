@@ -1,5 +1,8 @@
 # Created by: Joerg Wunsch <joerg@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gdb
 PORTVERSION=	7.3.1

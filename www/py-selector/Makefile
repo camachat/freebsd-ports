@@ -1,5 +1,8 @@
 # Created by: Trevor Caira <trevor@bitba.se>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	selector
 PORTVERSION=	0.10.1

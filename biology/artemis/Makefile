@@ -1,5 +1,8 @@
 # Created by: camson@bilateral.com.au
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	artemis
 DISTVERSIONPREFIX=	v

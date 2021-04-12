@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	aws-vault
 DISTVERSIONPREFIX=	v
 DISTVERSION=	6.3.0
+=======
+PORTNAME=	aws-vault
+DISTVERSIONPREFIX=	v
+DISTVERSION=	6.3.1
+>>>>>>> upstream/main
 CATEGORIES=	security
 
 MAINTAINER=	dmgk@FreeBSD.org

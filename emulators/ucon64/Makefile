@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ucon64
 PORTVERSION=	2.2.1
 CATEGORIES=	emulators

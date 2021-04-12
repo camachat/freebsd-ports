@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cfn-lint
 PORTVERSION=	0.27.1
 CATEGORIES=	devel python textproc

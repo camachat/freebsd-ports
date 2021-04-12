@@ -1,5 +1,8 @@
 # Created by: Slava Shwartsman <slavash@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	perftest
 DISTVERSIONPREFIX=	v

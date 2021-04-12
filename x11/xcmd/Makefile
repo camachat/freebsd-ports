@@ -1,5 +1,8 @@
 # Created by: Oliver Breuninger <ob@breuninger.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xcmd
 PORTVERSION=	1.8

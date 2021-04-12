@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	HTML-FillInForm-Lite
 PORTVERSION=	1.13
 PORTREVISION=	1

@@ -1,5 +1,8 @@
 # Created by: Herve Quiroz <herve.quiroz@esil.univ-mrs.fr>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	trove4j
 PORTVERSION=	3.1a1

@@ -1,8 +1,12 @@
 #!/bin/sh
 # Created by: KalleDK <plexmaintainer@k-moeller.dk>
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+
+>>>>>>> upstream/main
 # PROVIDE: %%PORTNAME%%
 # REQUIRE: LOGIN
 # KEYWORD: shutdown

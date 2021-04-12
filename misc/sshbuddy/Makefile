@@ -1,5 +1,8 @@
 # Created by: Dan Moschuk <dan@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	sshbuddy
 PORTVERSION=	1.05

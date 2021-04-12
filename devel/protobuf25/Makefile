@@ -1,5 +1,8 @@
 # Created by: vanilla
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 # devel/hadoop2 needs version 2.5.0
 PORTNAME=	protobuf

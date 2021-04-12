@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Encoding-BER
 PORTVERSION=	1.02
 CATEGORIES=	converters perl5

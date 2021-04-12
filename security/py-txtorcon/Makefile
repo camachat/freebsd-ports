@@ -1,5 +1,8 @@
 # Created by: Yuri Victorovich
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	txtorcon
 DISTVERSION=	20.0.0

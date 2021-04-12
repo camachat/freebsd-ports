@@ -3,8 +3,11 @@
 # setup_fswiki: a script for setup the current directory for fswiki
 #
 # Stolen from: FreeBSD: ports/www/aswiki/files/setup.sh,v 1.2 2003/06/20 10:46:30 matusita Exp
+<<<<<<< HEAD
 #
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 ask_noyes()
 {

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Net-OpenVPN-Manage
 PORTVERSION=	0.02
 CATEGORIES=	net-mgmt perl5

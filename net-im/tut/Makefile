@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tut
 DISTVERSION=	0.0.17
 CATEGORIES=	net-im

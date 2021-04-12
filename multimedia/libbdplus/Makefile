@@ -1,5 +1,8 @@
 # Created by: kamikaze@bsdforen.de
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libbdplus
 DISTVERSION=	0.1.2

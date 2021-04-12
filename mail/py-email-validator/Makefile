@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	email-validator
 DISTVERSION=	1.1.1
 CATEGORIES=	mail python

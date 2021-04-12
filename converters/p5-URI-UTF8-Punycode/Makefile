@@ -1,5 +1,8 @@
 # Created by: Timur Bakeyev <bat@cpan.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	URI-UTF8-Punycode
 PORTVERSION=	1.05

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	systemc
 DISTVERSION=	2.3.4
 DISTVERSIONSUFFIX=	_pub_rev_20190614

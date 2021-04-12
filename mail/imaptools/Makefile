@@ -1,5 +1,8 @@
 # Created by: bsam
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	imaptools
 PORTVERSION=	1.135

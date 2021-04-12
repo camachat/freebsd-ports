@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ssl_verify_fun
 PORTVERSION=	1.1.4
 CATEGORIES=	devel

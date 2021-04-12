@@ -1,5 +1,8 @@
 # Created by: Christian Laursen <xi@borderworlds.dk>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	musiccontrol
 PORTVERSION=	0.3

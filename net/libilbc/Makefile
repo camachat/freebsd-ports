@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libilbc
 DISTVERSION=	3.0.4
 CATEGORIES=	net

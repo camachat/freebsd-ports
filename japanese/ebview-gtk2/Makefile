@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ebview
 PORTVERSION=	0.3.6
 PORTREVISION=	19

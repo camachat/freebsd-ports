@@ -1,5 +1,8 @@
 # Created by: hsu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	scm
 PORTVERSION=	5f2

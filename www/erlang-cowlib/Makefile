@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cowlib
 PORTVERSION=	1.0.2
 PORTEPOCH=	1

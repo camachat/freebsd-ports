@@ -1,5 +1,8 @@
 # Created by: Gautam Mani <execve@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	stockfish
 DISTVERSIONPREFIX=	sf_

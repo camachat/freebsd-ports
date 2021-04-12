@@ -1,5 +1,8 @@
 # Created by: Robert Noland <rnoland@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	compiz-plugins-main
 PORTVERSION=	0.8.8

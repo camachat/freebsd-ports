@@ -1,5 +1,8 @@
 # Created by: Brian Candler <B.Candler@pobox.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	SGMLSpm
 PORTVERSION=	1.03

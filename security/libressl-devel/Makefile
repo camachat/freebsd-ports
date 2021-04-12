@@ -1,5 +1,8 @@
 # Created by: Bernard Spil <brnrd@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libressl
 PORTVERSION=	3.3.1

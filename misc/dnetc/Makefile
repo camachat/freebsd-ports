@@ -1,5 +1,8 @@
 # Created by: dbaker
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dnetc
 PORTVERSION=	${VERSION}

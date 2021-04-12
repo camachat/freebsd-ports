@@ -1,5 +1,8 @@
 # Created by: Stefan Bethke <stb@lassitu.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	login_auth
 PORTVERSION=	3.0

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	shellplay
 PORTVERSION=	0.1.9
 PORTREVISION=	1

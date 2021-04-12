@@ -1,5 +1,8 @@
 # Created by: Anonymous <swell.k@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	apngasm
 PORTVERSION=	2.91

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ping_exporter
 DISTVERSION=	0.44
 PORTREVISION=	3

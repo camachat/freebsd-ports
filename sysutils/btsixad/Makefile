@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	btsixad
 PORTVERSION=	0.1.1
 CATEGORIES=	sysutils

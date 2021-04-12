@@ -1,5 +1,8 @@
 # Created by: Patrick Li <pat@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ut
 PORTVERSION=	3.7

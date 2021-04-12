@@ -1,5 +1,8 @@
 # Created by: Alex Samorukov <samm@freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	anyremote
 PORTVERSION=	6.7.3

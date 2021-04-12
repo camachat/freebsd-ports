@@ -1,5 +1,8 @@
 # Created by: Ralf S. Engelschall <rse@engelschall.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	iselect
 PORTVERSION=	1.4.0

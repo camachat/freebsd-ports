@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	syncthing
 PORTVERSION=	1.13.1
+=======
+PORTNAME=	syncthing
+PORTVERSION=	1.15.1
+>>>>>>> upstream/main
 DISTVERSIONPREFIX=	v
 CATEGORIES=	net
 MASTER_SITES=	https://github.com/syncthing/syncthing/releases/download/v${PORTVERSION}/

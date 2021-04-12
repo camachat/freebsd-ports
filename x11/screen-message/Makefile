@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	screen-message
 PORTVERSION=	0.25
 CATEGORIES=	x11

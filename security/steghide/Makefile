@@ -1,5 +1,8 @@
 # Created by: RaRa Rasputin <rasputin@submonkey.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	steghide
 PORTVERSION=	0.5.1

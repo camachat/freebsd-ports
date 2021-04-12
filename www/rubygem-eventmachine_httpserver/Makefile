@@ -1,5 +1,8 @@
 # Created by: Kimo <kimor79@yahoo.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	eventmachine_httpserver
 PORTVERSION=	0.2.1

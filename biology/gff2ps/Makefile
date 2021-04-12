@@ -1,5 +1,8 @@
 # Created by: Camson Huynh <chuynh@biolateral.com.au>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gff2ps
 PORTVERSION=	0.98l

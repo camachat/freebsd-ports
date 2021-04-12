@@ -1,5 +1,8 @@
 # Created by: Joe Horn <joehorn@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wordpress
 PORTVERSION=	5.5.3

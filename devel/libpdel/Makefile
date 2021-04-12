@@ -1,5 +1,8 @@
 # Created by: Archie Cobbs
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	libpdel
 PORTVERSION=	0.5.3

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	visualvm
 PORTVERSION=	2.0.6
 CATEGORIES=	java devel

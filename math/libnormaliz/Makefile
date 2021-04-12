@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 # PORTNAME block
 PORTNAME=	libnormaliz
 DISTVERSION=	3.8.9

@@ -1,5 +1,8 @@
 # Created by: Fraser Tweedale <frase@frase.id.au>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	asunder
 PORTVERSION=	2.9.6

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dataclasses
 PORTVERSION=	0.8
 CATEGORIES=	devel python

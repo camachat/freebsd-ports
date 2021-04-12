@@ -1,5 +1,8 @@
 # Created by: brix@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Crypt-UnixCrypt_XS
 PORTVERSION=	0.11

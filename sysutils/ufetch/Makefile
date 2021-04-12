@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ufetch
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.2

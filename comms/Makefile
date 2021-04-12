@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
 
+=======
+>>>>>>> upstream/main
     COMMENT = Communication utilities
 
     SUBDIR += acfax
@@ -39,7 +42,10 @@
     SUBDIR += ebook2cwgui
     SUBDIR += ebusd
     SUBDIR += echolinux
+<<<<<<< HEAD
     SUBDIR += efax
+=======
+>>>>>>> upstream/main
     SUBDIR += ems-flasher
     SUBDIR += fl_moxgen
     SUBDIR += flamp
@@ -166,7 +172,10 @@
     SUBDIR += sdr-wspr
     SUBDIR += ser2net
     SUBDIR += serialoverip
+<<<<<<< HEAD
     SUBDIR += seyon
+=======
+>>>>>>> upstream/main
     SUBDIR += sms_client
     SUBDIR += smstools3
     SUBDIR += snap7

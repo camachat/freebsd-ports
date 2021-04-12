@@ -1,5 +1,8 @@
 # Created by: Andrew Thompson <andy@fud.org.nz>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pads
 PORTVERSION=	1.2

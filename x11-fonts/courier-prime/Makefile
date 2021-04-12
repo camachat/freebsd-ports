@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	courier-prime
 PORTVERSION=	g20180831
 PORTREVISION=	1

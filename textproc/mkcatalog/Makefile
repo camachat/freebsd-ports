@@ -1,5 +1,8 @@
 # Created by: shige
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mkcatalog
 PORTVERSION=	1.1

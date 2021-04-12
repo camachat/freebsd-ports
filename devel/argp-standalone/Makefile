@@ -1,5 +1,8 @@
 # Created by: Sergey Matveychuk <sem@ciam.ru>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	argp-standalone
 PORTVERSION=	1.3

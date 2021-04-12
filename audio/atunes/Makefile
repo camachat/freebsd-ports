@@ -1,5 +1,8 @@
 # Created by: Lars Engels <lme@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	atunes
 PORTVERSION=	3.1.2

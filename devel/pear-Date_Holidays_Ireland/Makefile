@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Date_Holidays_Ireland
 PORTVERSION=	0.1.3
 CATEGORIES=	devel www pear

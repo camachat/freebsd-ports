@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libpcl
 DISTVERSION=	1.12
 CATEGORIES=	devel

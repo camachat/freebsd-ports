@@ -1,5 +1,8 @@
 # Created by: jraynard
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	electricfence
 PORTVERSION=	2.2.2

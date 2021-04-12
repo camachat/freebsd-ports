@@ -1,5 +1,8 @@
 # Created by: Martti Kuparinen <martti.kuparinen@ericsson.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	IMAP-Admin
 PORTVERSION=	1.6.8

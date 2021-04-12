@@ -1,5 +1,8 @@
 # Created by: giffunip@asme.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ppm2fli
 PORTVERSION=	2.1

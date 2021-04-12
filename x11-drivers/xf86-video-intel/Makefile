@@ -1,5 +1,8 @@
 # Created by: lesi@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xf86-video-intel
 DISTVERSION=	2.99.917-916

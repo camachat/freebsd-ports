@@ -1,5 +1,8 @@
 # Created by: Marek Holienka	<marekholienka@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	nibbleblog
 PORTVERSION=	3.0.2

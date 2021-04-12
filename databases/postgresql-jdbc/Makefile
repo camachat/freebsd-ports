@@ -1,5 +1,8 @@
 # Created by: Palle Girgensohn <girgen@partitur.se>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	postgresql
 PORTVERSION=	42.2.18

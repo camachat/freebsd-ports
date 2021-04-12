@@ -1,5 +1,8 @@
 # Created by: Frank Steinborn <steinex@nognu.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	SMS-SMS77
 PORTVERSION=	0.01

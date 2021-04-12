@@ -1,5 +1,8 @@
 # Created by: andrewb@cs.cmu.edu
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	twelf
 PORTVERSION=	1.7.1

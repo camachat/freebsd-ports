@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	php80
 PORTVERSION=	1.0
 CATEGORIES=	lang

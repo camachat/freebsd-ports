@@ -1,5 +1,8 @@
 # Created by: Dmitry Frolov <frol@nov.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ipmitool
 PORTVERSION=	1.8.18

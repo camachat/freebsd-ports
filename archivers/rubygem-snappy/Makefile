@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	snappy
 PORTVERSION=	0.0.17
 PORTREVISION=	2

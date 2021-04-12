@@ -1,5 +1,8 @@
 # Created by: yoshiaki Uchikawa
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lame
 PORTVERSION=	3.100

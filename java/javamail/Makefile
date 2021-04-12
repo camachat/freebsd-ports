@@ -1,5 +1,8 @@
 # Created by: Jose Marques
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	javamail
 DISTVERSIONPREFIX=	${PORTNAME:tu}-

@@ -1,5 +1,8 @@
 # Created by: Corey Smith <corsmith@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 #
 # To update the port:
 # The stable libyuv version follows the chromium browser:

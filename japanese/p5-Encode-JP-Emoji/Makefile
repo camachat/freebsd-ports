@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Encode-JP-Emoji
 PORTVERSION=	0.60
 PORTREVISION=	1

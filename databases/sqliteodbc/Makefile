@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sqliteodbc
 PORTVERSION=	0.9998
 PORTREVISION?=	0

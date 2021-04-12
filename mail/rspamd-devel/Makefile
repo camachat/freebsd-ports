@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	rspamd
 PORTVERSION=	2.8.a2.20210324
+=======
+PORTNAME=	rspamd
+PORTVERSION=	2.8.a2.20210324
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	mail
 PKGNAMESUFFIX=	-devel
 

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- ui/gfx/font_list.cc.orig	2020-11-13 06:37:06 UTC
+=======
+--- ui/gfx/font_list.cc.orig	2021-03-12 23:57:48 UTC
+>>>>>>> upstream/main
 +++ ui/gfx/font_list.cc
 @@ -24,7 +24,7 @@ base::LazyInstance<scoped_refptr<gfx::FontListImpl>>::
  bool g_default_impl_initialized = false;

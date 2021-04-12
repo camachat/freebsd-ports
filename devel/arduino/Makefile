@@ -1,5 +1,8 @@
 # Created by: Warren Block <wblock@wonkity.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	arduino
 PORTVERSION=	1.0.6

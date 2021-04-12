@@ -1,5 +1,8 @@
 # Created by: Muhammad Moinur Rahman<bofh@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	raphf
 PORTVERSION=	2.0.1

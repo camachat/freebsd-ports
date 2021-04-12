@@ -1,5 +1,8 @@
 # Created by: Robert Kruus <rob.kruus@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pyodbc
 PORTVERSION=	4.0.30

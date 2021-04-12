@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	infernal
 PORTVERSION=	1.1.3
 CATEGORIES=	biology

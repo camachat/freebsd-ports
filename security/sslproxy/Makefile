@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	sslproxy
 PORTVERSION=	0.8.3
 DISTVERSIONPREFIX=	v

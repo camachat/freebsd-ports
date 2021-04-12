@@ -1,5 +1,8 @@
 # Created by: Melvyn Sopacua <melvyn@magemana.nl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	n98-magerun
 PORTVERSION=	1.98.0

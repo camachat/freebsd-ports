@@ -1,5 +1,8 @@
 # Created by: HOTARU-YA <hotaru@tail.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	oneko
 PORTVERSION=	1.2

@@ -1,5 +1,8 @@
 # Created by: se
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	yaps
 PORTVERSION=	0.96

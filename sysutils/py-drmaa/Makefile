@@ -1,5 +1,8 @@
 # Created by: Mykola Dzham <i@levsha.me>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	drmaa
 PORTVERSION=	0.4b3

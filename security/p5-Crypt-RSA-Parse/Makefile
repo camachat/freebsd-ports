@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Crypt-RSA-Parse
 PORTVERSION=	0.044
 CATEGORIES=	security perl5

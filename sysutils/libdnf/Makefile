@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libdnf
 DISTVERSION=	0.60.0
 CATEGORIES=	sysutils

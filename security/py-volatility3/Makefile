@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	volatility3
 DISTVERSION=	g20200510
 CATEGORIES=	security python

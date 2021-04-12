@@ -1,5 +1,8 @@
 # Created by: Zane C. Bowers <vvelox@vvelox.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Phone-Info
 PORTVERSION=	0.0.1

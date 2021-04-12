@@ -1,5 +1,8 @@
 # Created by: Michael L. Hostbaek <mich@freebsdcluster.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	wping
 PORTVERSION=	0.1a

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	synctex
 PORTVERSION=	1.17.0
 PORTREVISION=	1

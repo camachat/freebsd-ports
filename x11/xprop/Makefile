@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xprop
 PORTVERSION=	1.2.5
 CATEGORIES=	x11

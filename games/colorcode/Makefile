@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	colorcode
 PORTVERSION=	0.8.5
 PORTREVISION=	2

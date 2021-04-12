@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Carp-Always
 PORTVERSION=	0.13
 PORTREVISION=	1

@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	tepl
 DISTVERSION=	5.1.1
+=======
+PORTNAME=	tepl
+DISTVERSION=	5.1.1
+PORTREVISION=	1
+>>>>>>> upstream/main
 CATEGORIES=	x11-toolkits
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	hikidoc
 PORTVERSION=	0.1.0
 CATEGORIES=	textproc ruby

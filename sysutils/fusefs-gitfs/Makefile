@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gitfs
 DISTVERSION=	0.5.2
 PORTREVISION=	2

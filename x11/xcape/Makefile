@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	xcape
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.2-9

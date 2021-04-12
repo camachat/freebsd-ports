@@ -1,5 +1,8 @@
 # Created by: Sean McLaughlin <sigma.zx@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	z80asm
 PORTVERSION=	1.8

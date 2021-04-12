@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libpololu-avr
 PORTVERSION=	151002
 PORTREVISION=	1

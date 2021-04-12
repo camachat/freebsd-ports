@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	tokenize-rt
 PORTVERSION=	4.0.0
 CATEGORIES=	devel

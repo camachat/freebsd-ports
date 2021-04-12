@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	quicktimeline
 DISTVERSION=	${QT5_VERSION}
 PORTREVISION=	1

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	WWW-Pastebin-PastebinCom-Create
 PORTVERSION=	1.003
 PORTREVISION=	1

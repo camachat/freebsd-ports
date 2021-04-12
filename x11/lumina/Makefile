@@ -1,5 +1,8 @@
 # Created by: Ken Moore <ken@pcbsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	lumina
 PORTVERSION=	1.6.0

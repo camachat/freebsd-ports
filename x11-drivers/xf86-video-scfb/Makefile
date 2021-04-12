@@ -1,5 +1,8 @@
 # Created by: Florent Thoumie <flz@freebsd.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xf86-video-scfb
 PORTVERSION=	0.0.5

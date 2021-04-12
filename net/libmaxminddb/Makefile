@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	libmaxminddb
 PORTVERSION=	1.5.0
 CATEGORIES=	net

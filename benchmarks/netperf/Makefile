@@ -1,5 +1,8 @@
 # Created by: koshy
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	netperf
 PORTVERSION=	2.7.1.p20170921

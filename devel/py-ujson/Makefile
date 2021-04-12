@@ -1,5 +1,8 @@
 # Created by: Xin Li <delphij@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ujson
 PORTVERSION=	3.0.0

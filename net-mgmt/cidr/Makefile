@@ -1,5 +1,8 @@
 # Created by: Domas Mituzas <midom@dammit.lt>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cidr
 PORTVERSION=	2.3.2

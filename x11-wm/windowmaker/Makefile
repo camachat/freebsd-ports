@@ -1,5 +1,8 @@
 # Created by: Brian Handy <handy@physics.montana.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	windowmaker
 PORTVERSION=	0.95.9

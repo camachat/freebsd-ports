@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	micro
 PORTVERSION=	2.0.8
 DISTVERSIONPREFIX=	v

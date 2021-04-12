@@ -1,5 +1,8 @@
 # Created by: jsellens
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	xmsg
 PORTVERSION=	1.1

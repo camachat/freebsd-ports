@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # bsd.wx.mk - Support for wxWidgets based ports.
 #
 # Created by: Alejandro Pulver <alepulver@FreeBSD.org>

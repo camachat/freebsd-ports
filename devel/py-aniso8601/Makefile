@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	aniso8601
 PORTVERSION=	9.0.1
 CATEGORIES=	devel python

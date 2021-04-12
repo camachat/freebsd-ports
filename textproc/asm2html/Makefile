@@ -1,5 +1,8 @@
 # Created by: Ben Haga <tuxsuximus@hotmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	asm2html
 PORTVERSION=	1.7

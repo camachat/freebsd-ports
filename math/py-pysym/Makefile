@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pysym
 DISTVERSION=	0.2.3
 PORTREVISION=	2

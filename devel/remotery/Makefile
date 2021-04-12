@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	remotery
 DISTVERSION=	g20190209
 CATEGORIES=	devel

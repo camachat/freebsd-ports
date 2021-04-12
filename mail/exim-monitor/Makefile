@@ -1,5 +1,8 @@
 # Created by: sheldonh@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PKGNAMESUFFIX=	-monitor
 

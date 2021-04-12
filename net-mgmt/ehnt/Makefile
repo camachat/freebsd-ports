@@ -1,5 +1,8 @@
 # Created by: marck@rinet.ru
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	ehnt
 PORTVERSION=	0.3

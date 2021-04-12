@@ -1,5 +1,8 @@
 # Created by: liamfoy@sepulcrum.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	qsf
 PORTVERSION=	1.2.7

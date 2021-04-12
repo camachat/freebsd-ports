@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	CHI-Driver-DBI
 PORTVERSION=	1.27
 PORTREVISION=	1

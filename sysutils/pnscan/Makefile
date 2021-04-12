@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=		pnscan
 DISTVERSIONPREFIX=	v
 DISTVERSION=		1.14.1

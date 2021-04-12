@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 LIB = 	dkim
 SRCS=	dkim.cpp dns.cpp dkimbase.cpp dkimsign.cpp dkimverify.cpp
 INCS=	dkim.h

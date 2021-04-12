@@ -1,5 +1,8 @@
 # Created by: n_hibma@qubesoft.com
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mailman
 DISTVERSION=	2.1.34

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pgdbconn
 PORTVERSION=	0.8.0
 PORTREVISION=	2

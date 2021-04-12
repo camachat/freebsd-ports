@@ -1,5 +1,8 @@
 # Created by: Philip Schulz <phs@deadc0.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	dev86
 PORTVERSION=	0.16.20

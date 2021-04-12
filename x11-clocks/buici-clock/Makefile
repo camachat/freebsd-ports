@@ -1,5 +1,8 @@
 # Created by: Hendrik Scholz <hscholz@raisdorf.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	buici-clock
 PORTVERSION=	0.4.9.4

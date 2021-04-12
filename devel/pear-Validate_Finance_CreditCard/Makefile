@@ -1,5 +1,8 @@
 # Created by: Anish Mistry (<amistry@am-productions.biz>)
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Validate_Finance_CreditCard
 PORTVERSION=	0.6.0

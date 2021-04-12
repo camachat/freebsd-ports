@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	hcloud
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.21.0

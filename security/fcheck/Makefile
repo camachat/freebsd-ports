@@ -1,5 +1,8 @@
 # Created by: Lars Engels <lme@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	fcheck
 PORTVERSION=	2.07.59

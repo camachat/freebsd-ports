@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fortytwo
 PORTVERSION=	0.2.0
 PORTREVISION=	12

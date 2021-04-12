@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	fast-stemmer
 PORTVERSION=	1.0.2
 CATEGORIES=	devel rubygems

@@ -1,5 +1,8 @@
 # Created by: Hakisho Nukama <nukama@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gpgdir
 PORTVERSION=	1.9.5

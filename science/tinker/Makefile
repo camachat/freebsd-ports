@@ -1,5 +1,8 @@
 # Created by: Glenn Johnson
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tinker
 DISTVERSION=	8.8.3

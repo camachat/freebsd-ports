@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	bitrot
 PORTVERSION=	1.0.0
 CATEGORIES=	sysutils

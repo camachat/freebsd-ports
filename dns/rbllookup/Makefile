@@ -1,5 +1,8 @@
 # Created by: Marcin Gondek <drixter@e-utp.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	rbllookup
 PORTVERSION=	0.0.1.1

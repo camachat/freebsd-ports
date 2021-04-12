@@ -1,5 +1,8 @@
 # Created by: Frederic Hardy <frederic.hardy@mageekbox.net>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	mysqlsniffer
 PORTVERSION=	1.2

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- electron/spec-main/api-browser-window-spec.ts.orig	2021-02-02 17:38:53 UTC
+=======
+--- electron/spec-main/api-browser-window-spec.ts.orig	2021-03-23 15:10:33 UTC
+>>>>>>> upstream/main
 +++ electron/spec-main/api-browser-window-spec.ts
 @@ -57,7 +57,7 @@ describe('BrowserWindow module', () => {
        }).not.to.throw();
@@ -27,7 +31,11 @@
          it('checks normal bounds when minimized', async () => {
            const bounds = w.getBounds();
            const minimize = emittedOnce(w, 'minimize');
+<<<<<<< HEAD
 @@ -1669,7 +1669,7 @@ describe('BrowserWindow module', () => {
+=======
+@@ -1685,7 +1685,7 @@ describe('BrowserWindow module', () => {
+>>>>>>> upstream/main
    describe('BrowserWindow.setOpacity(opacity)', () => {
      afterEach(closeAllWindows);
  
@@ -36,7 +44,11 @@
        it('make window with initial opacity', () => {
          const w = new BrowserWindow({ show: false, opacity: 0.5 });
          expect(w.getOpacity()).to.equal(0.5);
+<<<<<<< HEAD
 @@ -1695,7 +1695,7 @@ describe('BrowserWindow module', () => {
+=======
+@@ -1711,7 +1711,7 @@ describe('BrowserWindow module', () => {
+>>>>>>> upstream/main
        });
      });
  
@@ -45,7 +57,11 @@
        it('sets 1 regardless of parameter', () => {
          const w = new BrowserWindow({ show: false });
          w.setOpacity(0);
+<<<<<<< HEAD
 @@ -2531,7 +2531,7 @@ describe('BrowserWindow module', () => {
+=======
+@@ -2547,7 +2547,7 @@ describe('BrowserWindow module', () => {
+>>>>>>> upstream/main
          expect(test.version).to.equal(process.version);
          expect(test.versions).to.deep.equal(process.versions);
  
@@ -54,7 +70,11 @@
            expect(test.creationTime).to.be.null('creation time');
            expect(test.systemMemoryInfo).to.be.null('system memory info');
          } else {
+<<<<<<< HEAD
 @@ -3057,7 +3057,7 @@ describe('BrowserWindow module', () => {
+=======
+@@ -3073,7 +3073,7 @@ describe('BrowserWindow module', () => {
+>>>>>>> upstream/main
      });
    });
  
@@ -63,7 +83,11 @@
      afterEach(closeAllWindows);
      it('emits an event when window is maximized', async () => {
        const w = new BrowserWindow({ show: false });
+<<<<<<< HEAD
 @@ -3635,7 +3635,7 @@ describe('BrowserWindow module', () => {
+=======
+@@ -3651,7 +3651,7 @@ describe('BrowserWindow module', () => {
+>>>>>>> upstream/main
      });
    });
  

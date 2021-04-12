@@ -1,5 +1,8 @@
 # Created by: Cosmin Stroe <cstroe1@uic.edu>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	zidrav
 PORTVERSION=	1.2.0

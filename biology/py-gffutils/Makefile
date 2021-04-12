@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	gffutils
 DISTVERSION=	0.10.1
 CATEGORIES=	biology python

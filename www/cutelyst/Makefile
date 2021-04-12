@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cutelyst
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.14.2

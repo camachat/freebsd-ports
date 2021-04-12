@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	pyzmail
 DISTVERSION=	1.0.3
 CATEGORIES=	mail python

@@ -1,5 +1,8 @@
 # Created by: Franz Klammer <klammer@webonaut.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	zenity
 PORTVERSION=	3.32.0

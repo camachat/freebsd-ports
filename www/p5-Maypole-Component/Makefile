@@ -1,5 +1,8 @@
 # Created by: Marc G. Fournier
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Maypole-Component
 PORTVERSION=	0.03

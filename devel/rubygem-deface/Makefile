@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	deface
 PORTVERSION=	1.7.0
 CATEGORIES=	devel rubygems www

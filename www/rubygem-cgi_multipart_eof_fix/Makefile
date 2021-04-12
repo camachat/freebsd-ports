@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	cgi_multipart_eof_fix
 PORTVERSION=	2.5.0
 CATEGORIES=	www rubygems

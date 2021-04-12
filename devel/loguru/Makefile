@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	loguru
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.1.0-21

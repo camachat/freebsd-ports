@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	lz4
 DISTVERSION=	0.4.1
 CATEGORIES=	archivers

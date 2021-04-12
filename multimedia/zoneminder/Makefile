@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	zoneminder
 PORTVERSION=	1.34.21
 PORTREVISION=	1

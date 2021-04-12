@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	dpf-plugins
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.4

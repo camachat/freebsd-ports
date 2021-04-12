@@ -1,5 +1,8 @@
 # Created by: john@jnielsen.net
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	autocutsel
 PORTVERSION=	0.10.0

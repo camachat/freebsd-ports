@@ -1,7 +1,10 @@
 #!/bin/sh
 
+<<<<<<< HEAD
 # $FreeBSD$
 #
+=======
+>>>>>>> upstream/main
 # PROVIDE: bruteblockd
 # REQUIRE: NETWORKING syslogd ldconfig
 # BEFORE: syslogd

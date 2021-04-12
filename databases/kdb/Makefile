@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=		kdb
 DISTVERSION=		3.2.0
 PORTREVISION=		7
+=======
+PORTNAME=		kdb
+DISTVERSION=		3.2.0
+PORTREVISION=		8
+>>>>>>> upstream/main
 CATEGORIES=		databases kde
 MASTER_SITES=		KDE/stable/${PORTNAME}/src
 DIST_SUBDIR=		KDE/${PORTNAME}

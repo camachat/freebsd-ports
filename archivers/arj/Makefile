@@ -1,5 +1,8 @@
 # Created by: Konstantin Reznichenko <kot@premierbank.dp.ua>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	arj
 PORTVERSION=	3.10.22

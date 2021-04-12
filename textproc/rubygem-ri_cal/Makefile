@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	ri_cal
 PORTVERSION=	0.8.8
 CATEGORIES=	textproc rubygems

@@ -1,5 +1,8 @@
 # Created by: José García Juanino <jjuanino@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	borgbackup
 DISTVERSION=	1.1.15

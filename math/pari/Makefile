@@ -1,5 +1,8 @@
 # Created by: Yoshiaki UCHIKAWA <yoshiaki@kt.rim.or.jp>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	pari
 DISTVERSION=	2.13.1

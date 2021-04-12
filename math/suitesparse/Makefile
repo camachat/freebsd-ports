@@ -1,5 +1,8 @@
 # Created by: Maho Nakata <maho@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	suitesparse
 PORTVERSION=	5.9.0

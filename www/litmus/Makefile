@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	litmus
 PORTVERSION=	0.13
 PORTREVISION=	2

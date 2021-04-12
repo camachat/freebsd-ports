@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # Created by: Dmitry Marakasov <amdmi3@amdmi3.ru>
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	supertuxkart
 PORTVERSION=	1.2
 CATEGORIES=	games
@@ -17,6 +20,10 @@ LIB_DEPENDS=	libsqlite3.so:databases/sqlite3 \
 		libcurl.so:ftp/curl
 
 BROKEN_FreeBSD_12_i386=	does not build (error: this directive must appear between .cfi_startproc and .cfi_endproc directives)
+<<<<<<< HEAD
+=======
+BROKEN_i386=	ld: error: cannot preempt symbol: alcOpenDevice
+>>>>>>> upstream/main
 
 USES=		alias cmake compiler:c++11-lib pkgconfig tar:xz
 CMAKE_OFF=	USE_WIIUSE \

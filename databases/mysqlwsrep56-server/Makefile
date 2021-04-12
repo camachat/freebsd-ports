@@ -1,10 +1,18 @@
 # Created by: Philip Stoev <philip.stoev@galeracluster.com>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	mysqlwsrep
 PORTVERSION?=	5.6.49
 DISTVERSIONPREFIX?=	wsrep_
 DISTVERSIONSUFFIX?=	-25.31
+=======
+
+PORTNAME=	mysqlwsrep
+PORTVERSION?=	5.6.51
+DISTVERSIONPREFIX?=	wsrep_
+DISTVERSIONSUFFIX?=	-25.33
+>>>>>>> upstream/main
 PORTREVISION?=	0
 CATEGORIES=	databases
 PKGNAMESUFFIX=	56-server
@@ -22,12 +30,15 @@ RUN_DEPENDS=	bash:shells/bash \
 		socat:net/socat
 LIB_DEPENDS=	libevent.so:devel/libevent liblz4.so:archivers/liblz4
 
+<<<<<<< HEAD
 #BROKEN_SSL=	openssl111
 #BROKEN_SSL_REASON_openssl111=	incomplete definition of type 'struct dh_st'
 
 DATADIR=	${PREFIX}/share/mysql
 ETCDIR=		${PREFIX}/etc/mysql
 
+=======
+>>>>>>> upstream/main
 USES=		bison \
 		cmake:noninja \
 		compiler:c++11-lib \
@@ -38,6 +49,12 @@ USES=		bison \
 		shebangfix \
 		ssl
 
+<<<<<<< HEAD
+=======
+DATADIR=	${PREFIX}/share/mysql
+ETCDIR=		${PREFIX}/etc/mysql
+
+>>>>>>> upstream/main
 USE_PERL5=	run
 USE_LDCONFIG=	yes
 

@@ -1,5 +1,8 @@
 # Created by: kwm@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	gcab
 PORTVERSION=	1.4

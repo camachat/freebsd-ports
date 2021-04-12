@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	alabaster
 PORTVERSION=	0.7.6
 CATEGORIES=	textproc python

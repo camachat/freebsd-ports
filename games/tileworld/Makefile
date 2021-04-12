@@ -1,5 +1,8 @@
 # Created by: sec@42.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tileworld
 PORTVERSION=	1.3.0

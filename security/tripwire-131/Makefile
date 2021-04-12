@@ -1,5 +1,8 @@
 # Created by: Cy Schubert <Cy.Schubert@uumail.gov.bc.ca>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	tripwire
 PORTVERSION=	1.3.1

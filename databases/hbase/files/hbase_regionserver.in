@@ -1,7 +1,11 @@
 #!/bin/sh
+<<<<<<< HEAD
 #
 # $FreeBSD$
 #
+=======
+
+>>>>>>> upstream/main
 # PROVIDE: hbase_regionserver
 # REQUIRE: LOGIN
 # KEYWORD: shutdown

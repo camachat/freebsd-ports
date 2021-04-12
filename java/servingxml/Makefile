@@ -1,5 +1,8 @@
 # Created by: jpbeconne
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	servingxml
 PORTVERSION=	1.1.2

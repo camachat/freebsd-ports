@@ -1,5 +1,9 @@
 # Created by: Alonso Cardenas <acm@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+
+>>>>>>> upstream/main
 post-patch:
 	@${REINPLACE_CMD}  '69,72d' ${WRKSRC}/CMakeLists.txt
 

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	OpenDiablo2
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.1-g20210312

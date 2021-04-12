@@ -1,4 +1,7 @@
 #! /bin/sh -
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 exec "%%JAVA%%" -jar %%JAVAJARDIR%%/%%JARFILE%% "$@"

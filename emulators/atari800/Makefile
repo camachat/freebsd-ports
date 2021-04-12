@@ -1,5 +1,8 @@
 # Created by: Joel Sutton <jsutton@webnet.com.au>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	atari800
 PORTVERSION=	3.1.0

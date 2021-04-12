@@ -1,5 +1,8 @@
 # Created by: William Grzybowski
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	hgtools
 PORTVERSION=	6.3

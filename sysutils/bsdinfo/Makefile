@@ -1,5 +1,8 @@
 # Created by: samu <freebsd-ports@samu.pl>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	bsdinfo
 PORTVERSION=	0.22

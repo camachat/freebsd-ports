@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	Test-XPath
 PORTVERSION=	0.19
 CATEGORIES=	lang perl5

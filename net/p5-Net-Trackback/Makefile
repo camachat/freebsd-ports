@@ -1,5 +1,8 @@
 # Created by: Cory R. King <coryking@mozimedia.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	Net-Trackback
 PORTVERSION=	1.01

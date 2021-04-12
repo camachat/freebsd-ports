@@ -1,9 +1,16 @@
 # Created by: Jacek Pelka <jacek@combit.com.pl>
+<<<<<<< HEAD
 # $FreeBSD$
 
 PORTNAME=	kadu
 PORTVERSION=	4.3
 PORTREVISION=	22
+=======
+
+PORTNAME=	kadu
+PORTVERSION=	4.3
+PORTREVISION=	23
+>>>>>>> upstream/main
 PORTEPOCH=	1
 CATEGORIES=	polish net-im
 MASTER_SITES=	SF/${PORTNAME}/${PORTNAME}/${PORTVERSION}/:kadu \
@@ -35,7 +42,11 @@ LIB_DEPENDS=	libmpdclient.so:audio/libmpdclient \
 GG6_EMOTS_DISTFILE=	kompatybilne_z_GG6.tar.gz
 GG7_EMOTS_DISTFILE=	dodatkowe_emoty_GG7.tar.gz
 
+<<<<<<< HEAD
 USES=		cmake:insource compiler:c++11-lib gettext-runtime gnome \
+=======
+USES=		cmake:insource compiler:c++17-lang gettext-runtime gnome \
+>>>>>>> upstream/main
 		libarchive pkgconfig qca qt:5 readline tar:bzip2 xorg
 USE_XORG=	x11 xext xfixes xscrnsaver
 USE_GNOME=	glib20

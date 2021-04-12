@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # $FreeBSD$
 
+=======
+>>>>>>> upstream/main
 PORTNAME=	FindBin-libs
 PORTVERSION=	2.1100
 PORTREVISION=	1

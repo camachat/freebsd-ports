@@ -1,5 +1,8 @@
 # Created by: Murilo Opsfelder <mopsfelder@gmail.com>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	List-Uniq
 PORTVERSION=	0.20

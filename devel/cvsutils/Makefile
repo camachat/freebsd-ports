@@ -1,5 +1,8 @@
 # Created by: knu@FreeBSD.org
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	cvsutils
 PORTVERSION=	0.2.6

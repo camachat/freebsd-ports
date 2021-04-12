@@ -1,5 +1,8 @@
 #!/bin/csh
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 set JAVA = "%%LOCALBASE%%/bin/java"
 set JARPATH = "%%JAVALIBDIR%%"

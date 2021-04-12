@@ -1,5 +1,8 @@
 # Created by: Thomas Seck <tmseck@netcologne.de>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	uschedule
 PORTVERSION=	0.7.1

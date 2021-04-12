@@ -1,5 +1,8 @@
 # Created by: Brad Davis <brd@FreeBSD.org>
+<<<<<<< HEAD
 # $FreeBSD$
+=======
+>>>>>>> upstream/main
 
 PORTNAME=	errand
 PORTVERSION=	0.8.1
