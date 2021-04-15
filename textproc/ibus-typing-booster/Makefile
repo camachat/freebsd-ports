@@ -10,27 +10,27 @@ COMMENT=	Faster typing by context sensitive completion
 LICENSE=	GPLv3
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-BUILD_DEPENDS=	${PYTHON_SITELIBDIR}/xdg/Menu.py:devel/py-xdg@${PY_FLAVOR}		\
-		${PYTHON_LIBDIR}/lib-dynload/_sqlite3.so:databases/py-sqlite3@${PY_FLAVOR}
+BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}xdg>0:devel/py-xdg@${PY_FLAVOR}		\
+		${PYTHON_PKGNAMEPREFIX}sqlite3>0:databases/py-sqlite3@${PY_FLAVOR}
 LIB_DEPENDS=	libibus-1.0.so:textproc/ibus	\
 		libm17n.so:devel/m17n-lib
 RUN_DEPENDS=	CLDR>0:textproc/CLDR	\
-		${PYTHON_SITELIBDIR}/xdg/Menu.py:devel/py-xdg@${PY_FLAVOR}		\
-		${PYTHON_SITELIBDIR}/dbus/bus.py:devel/py-dbus@${PY_FLAVOR}		\
-		${PYTHON_SITELIBDIR}/hunspell.so:textproc/py-hunspell@${PY_FLAVOR}	\
-		${LOCALBASE}/share/unicode/ucd/Index.txt:textproc/UCD			\
-		${PYTHON_LIBDIR}/lib-dynload/_sqlite3.so:databases/py-sqlite3@${PY_FLAVOR}
-TEST_DEPENDS=	${LOCALBASE}/share/hunspell/cs_CZ.dic:textproc/cs-hunspell	\
-		${LOCALBASE}/share/hunspell/de_DE.dic:german/hunspell		\
-		${LOCALBASE}/share/hunspell/en_US.aff:textproc/en-hunspell	\
-		${LOCALBASE}/share/hunspell/es_ES.dic:textproc/es-hunspell	\
-		${LOCALBASE}/share/hunspell/it_IT.dic:textproc/it-hunspell	\
+		${PYTHON_PKGNAMEPREFIX}xdg>0:devel/py-xdg@${PY_FLAVOR}		\
+		${PYTHON_PKGNAMEPREFIX}dbus>0:devel/py-dbus@${PY_FLAVOR}		\
+		${PYTHON_PKGNAMEPREFIX}hunspell>0:textproc/py-hunspell@${PY_FLAVOR}	\
+		UCD>0:textproc/UCD			\
+		${PYTHON_PKGNAMEPREFIX}sqlite3>0:databases/py-sqlite3@${PY_FLAVOR}
+TEST_DEPENDS=	cs-hunspell>0:textproc/cs-hunspell	\
+		de-hunspell>0:german/hunspell		\
+		en-hunspell>0:textproc/en-hunspell	\
+		es-hunspell>0:textproc/es-hunspell	\
+		it-hunspell>0:textproc/it-hunspell	\
 		${LOCALBASE}/share/hunspell/ko_KR.aff:korean/hunspell		\
-		${LOCALBASE}/share/hunspell/sv_SE.dic:textproc/sv-hunspell	\
-		${LOCALBASE}/libexec/ibus-engine-m17n:textproc/ibus-m17n	\
-		${LOCALBASE}/share/m17n/hi-inscript2.mim:devel/m17n-inscript2	\
-		${PYTHON_SITELIBDIR}/mock/mock.py:devel/py-mock@${PY_FLAVOR}	\
-		gmake:devel/gmake
+		sv-hunspell>0:textproc/sv-hunspell	\
+		ibus-m17n>0:textproc/ibus-m17n	\
+		inscript2>0:devel/m17n-inscript2	\
+		${PYTHON_PKGNAMEPREFIX}mock>0:devel/py-mock@${PY_FLAVOR}	\
+		gmake>0:devel/gmake
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	mike-fabian
