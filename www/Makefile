@@ -1106,6 +1106,7 @@
     SUBDIR += p5-RT-Extension-LDAPImport
     SUBDIR += p5-RT-Extension-MandatoryOnTransition
     SUBDIR += p5-RT-Extension-RepeatTicket
+    SUBDIR += p5-RT-Extension-RepeatTicket2
     SUBDIR += p5-RTx-Calendar
     SUBDIR += p5-Reaction
     SUBDIR += p5-Reddit
@@ -1865,6 +1866,7 @@
     SUBDIR += rubygem-eventmachine_httpserver
     SUBDIR += rubygem-faraday
     SUBDIR += rubygem-faraday-net_http
+    SUBDIR += rubygem-faraday-net_http_persistent
     SUBDIR += rubygem-faraday0
     SUBDIR += rubygem-faraday_middleware
     SUBDIR += rubygem-faraday_middleware0
