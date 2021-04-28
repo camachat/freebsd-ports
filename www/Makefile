@@ -475,6 +475,7 @@
     SUBDIR += ot-recorder
     SUBDIR += otrs
     SUBDIR += otter-browser
+    SUBDIR += owncast
     SUBDIR += owncloud
     SUBDIR += p5-AMF-Perl
     SUBDIR += p5-Acme-Monta
