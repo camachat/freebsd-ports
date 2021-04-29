@@ -115,12 +115,12 @@ PLIST_SUB+=	${o}="@comment "
 
 post-patch:
 	@${SED} -Ee '\
-		s@^(FORTRAN|LOADER)([[:blank:]]*=)(.*)@\1\2 $${FC}@; \
-		s@^(OPTS[[:blank:]]*=)(.*)@\1 $${FFLAGS} $${EXTRAFLAGS}@; \
-		s@^NOOPT[[:blank:]]*=.*@& $${EXTRAFLAGS}@; \
-		s@^(LOADOPTS[[:blank:]]*=)(.*)@\1 $${LDFLAGS} $${EXTRAFLAGS}@; \
+		s@^(FORTRAN|LOADER)([[:blank:]]*=)(.*)@\1\2 ${FC}@; \
+		s@^(OPTS[[:blank:]]*=)(.*)@\1 ${FFLAGS} ${EXTRAFLAGS}@; \
+		s@^NOOPT[[:blank:]]*=.*@& ${EXTRAFLAGS}@; \
+		s@^(LOADOPTS[[:blank:]]*=)(.*)@\1 ${LDFLAGS} ${EXTRAFLAGS}@; \
 		s@^(CC[[:blank:]]*=)(.*)@@; \
-		s@^(CFLAGS[[:blank:]]*)(=)(.*)@\1 += $${EXTRAFLAGS}@; \
+		s@^(CFLAGS[[:blank:]]*)(=)(.*)@\1 += ${EXTRAFLAGS}@; \
 		\@(BLAS|LAPACKE|RAN)LIB[[:blank:]]*=@d;' \
 			${WRKSRC}/make.inc.example > ${WRKSRC}/make.inc
 	@${REINPLACE_CMD} -e 's@\./lapack_testing\.py@${S} &@' \
