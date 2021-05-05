@@ -294,6 +294,7 @@
     SUBDIR += gambit
     SUBDIR += gap
     SUBDIR += gau2grid
+    SUBDIR += gecode
     SUBDIR += gemmlowp
     SUBDIR += geogebra
     SUBDIR += geogram
@@ -346,6 +347,7 @@
     SUBDIR += ipopt
     SUBDIR += ised
     SUBDIR += jacal
+    SUBDIR += jacop
     SUBDIR += jags
     SUBDIR += jama
     SUBDIR += jeuclid
