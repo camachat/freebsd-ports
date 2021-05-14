@@ -1575,6 +1575,7 @@
     SUBDIR += py-enmerkar
     SUBDIR += py-fake-useragent
     SUBDIR += py-falcon
+    SUBDIR += py-fastapi
     SUBDIR += py-feedgenerator
     SUBDIR += py-flask
     SUBDIR += py-flask-admin
@@ -1774,6 +1775,7 @@
     SUBDIR += py-wsaccel
     SUBDIR += py-wsgidav
     SUBDIR += py-yarl
+    SUBDIR += pydio-cells
     SUBDIR += qdecoder
     SUBDIR += qhttpengine
     SUBDIR += qt5-webchannel
