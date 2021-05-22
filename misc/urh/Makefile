@@ -8,10 +8,15 @@ COMMENT=	Universal Radio Hacker: investigate wireless protocols like a boss
 
 LICENSE=	GPLv3
 
-BUILD_DEPENDS=	${PYNUMPY}
+BUILD_DEPENDS=	${PYNUMPY} \
+		hackrf>0:comms/hackrf \
+		rtl-sdr>0:comms/rtl-sdr
 RUN_DEPENDS=	${PYNUMPY} \
 		${PYTHON_PKGNAMEPREFIX}psutil>0:sysutils/py-psutil@${PY_FLAVOR} \
-		${PYTHON_PKGNAMEPREFIX}pyzmq>0:net/py-pyzmq@${PY_FLAVOR}
+		${PYTHON_PKGNAMEPREFIX}pyzmq>0:net/py-pyzmq@${PY_FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}cython>0:lang/cython@${PY_FLAVOR} \
+		hackrf>0:comms/hackrf \
+		rtl-sdr>0:comms/rtl-sdr
 
 USES=		compiler:c++11-lang fortran python:3.4+ localbase pyqt:5
 USE_PYQT=	core gui test widgets
