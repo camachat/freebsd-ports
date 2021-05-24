@@ -77,6 +77,7 @@
     SUBDIR += R-cran-lme4
     SUBDIR += R-cran-lpSolve
     SUBDIR += R-cran-magic
+    SUBDIR += R-cran-maps
     SUBDIR += R-cran-matrixStats
     SUBDIR += R-cran-maxLik
     SUBDIR += R-cran-mcmc
@@ -117,6 +118,7 @@
     SUBDIR += R-cran-stabledist
     SUBDIR += R-cran-statmod
     SUBDIR += R-cran-survey
+    SUBDIR += R-cran-tensor
     SUBDIR += R-cran-truncnorm
     SUBDIR += R-cran-units
     SUBDIR += R-cran-uroot

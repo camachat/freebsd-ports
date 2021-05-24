@@ -67,6 +67,7 @@
     SUBDIR += R-cran-optparse
     SUBDIR += R-cran-pillar
     SUBDIR += R-cran-pkgbuild
+    SUBDIR += R-cran-pkgcache
     SUBDIR += R-cran-pkgconfig
     SUBDIR += R-cran-pkgload
     SUBDIR += R-cran-pkgmaker
@@ -5046,6 +5047,7 @@
     SUBDIR += py-pyyaml-include
     SUBDIR += py-q
     SUBDIR += py-qasync
+    SUBDIR += py-qstylizer
     SUBDIR += py-qt5
     SUBDIR += py-qt5-core
     SUBDIR += py-qt5-dbus
