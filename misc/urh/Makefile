@@ -9,12 +9,14 @@ COMMENT=	Universal Radio Hacker: investigate wireless protocols like a boss
 LICENSE=	GPLv3
 
 BUILD_DEPENDS=	${PYNUMPY} \
+		gr-osmosdr>0:comms/gr-osmosdr \
 		hackrf>0:comms/hackrf \
 		rtl-sdr>0:comms/rtl-sdr
 RUN_DEPENDS=	${PYNUMPY} \
 		${PYTHON_PKGNAMEPREFIX}psutil>0:sysutils/py-psutil@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}pyzmq>0:net/py-pyzmq@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}cython>0:lang/cython@${PY_FLAVOR} \
+		gr-osmosdr>0:comms/gr-osmosdr \
 		hackrf>0:comms/hackrf \
 		rtl-sdr>0:comms/rtl-sdr
 
