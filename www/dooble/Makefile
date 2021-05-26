@@ -1,5 +1,3 @@
-# $FreeBSD$
-
 PORTNAME=	dooble
 DISTVERSION=	2021.02.20
 CATEGORIES=	www
@@ -10,19 +8,22 @@ COMMENT=	Dooble Web Browser
 LICENSE=	BSD3CLAUSE
 LICENSE_FILE=	${WRKSRC}/../LICENSE
 
-USES=		desktop-file-utils compiler:c++17-lang qt:5 ssl tar xorg gmake qmake
+USES=		compiler:c++17-lang desktop-file-utils gmake qmake qt:5 ssl tar \
+		xorg
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	textbrowser
 
-USE_QT=		concurrent core gui network printsupport sql webengine widgets xml \
-		buildtools_build qmake_build
+USE_QT=		concurrent core gui network printsupport sql webengine widgets \
+		xml buildtools_build qmake_build
 USE_XORG=	xcb
 
-WRKSRC_SUBDIR=	2.x
 QMAKE_SOURCE_PATH=	${PORTNAME}.pro
+WRKSRC_SUBDIR=		2.x
 
-PLIST_FILES=	bin/${PORTNAME} ${PREFIX}/share/pixmaps/${PORTNAME}.png ${PREFIX}/share/applications/${PORTNAME}.desktop
+PLIST_FILES=	${PREFIX}/share/applications/${PORTNAME}.desktop \
+		${PREFIX}/share/pixmaps/${PORTNAME}.png \
+		bin/${PORTNAME}
 
 .include <bsd.port.pre.mk>
 
