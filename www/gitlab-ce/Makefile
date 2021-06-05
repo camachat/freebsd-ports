@@ -1,7 +1,7 @@
 # Created by: Torsten Zuehlsdorff <tz@FreeBSD.org>
 
 PORTNAME=	gitlab-ce
-PORTVERSION=	13.12.1
+PORTVERSION=	13.12.2
 PORTREVISION=	0
 CATEGORIES=	www devel
 
@@ -11,11 +11,11 @@ COMMENT=	Web GUI for managing git repositories
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-#	gitlab-agent>=13.12.0:net/gitlab-agent \
 # the rubygems of RUN_DEPENDS matches the order of the Gemfile
 # which makes maintaining this long list much easier!
 MY_DEPENDS=	git>=2.31.0:devel/git \
 	gitaly>=${PORTVERSION}:devel/gitaly \
+	gitlab-agent>=13.12.0:net/gitlab-agent \
 	gitlab-elasticsearch-indexer>=2.11.0:textproc/gitlab-elasticsearch-indexer \
 	gitlab-pages>=1.39.0:www/gitlab-pages \
 	gitlab-shell>=13.18.0:devel/gitlab-shell \
@@ -271,7 +271,7 @@ USE_GITLAB=	yes
 GL_ACCOUNT?=	gitlab-org
 GL_PROJECT?=	gitlab-foss
 # Find the here: https://gitlab.com/gitlab-org/gitlab-foss/-/tags
-GL_COMMIT?=	bec931306a784792a7a1faa44e0db338fa34b3ee
+GL_COMMIT?=	d98457affdf684f129fd52388ac9e290e4d2924f
 
 USERS=	git
 GROUPS=	git

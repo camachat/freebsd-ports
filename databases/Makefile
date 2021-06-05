@@ -37,6 +37,7 @@
     SUBDIR += cego
     SUBDIR += cegobridge
     SUBDIR += clickhouse
+    SUBDIR += closql
     SUBDIR += cockroach
     SUBDIR += couchdb3
     SUBDIR += courier-authlib-mysql
@@ -65,6 +66,7 @@
     SUBDIR += elixir-mongo
     SUBDIR += elixir-postgrex
     SUBDIR += elixir-timex_ecto
+    SUBDIR += emacsql
     SUBDIR += erlang-couchbeam
     SUBDIR += erlang-epgsql
     SUBDIR += erlang-eredis
@@ -558,6 +560,7 @@
     SUBDIR += percona57-client
     SUBDIR += percona57-pam-for-mysql
     SUBDIR += percona57-server
+    SUBDIR += pg.el
     SUBDIR += pgFormatter
     SUBDIR += pg_activity
     SUBDIR += pg_citus
@@ -572,6 +575,7 @@
     SUBDIR += pg_stat_kcache
     SUBDIR += pgaccess
     SUBDIR += pgadmin3
+    SUBDIR += pgbackrest
     SUBDIR += pgbadger
     SUBDIR += pgbarman
     SUBDIR += pgbouncer
@@ -587,6 +591,7 @@
     SUBDIR += pgpool-II-37
     SUBDIR += pgpool-II-40
     SUBDIR += pgpool-II-41
+    SUBDIR += pgpool-II-42
     SUBDIR += pgreplay
     SUBDIR += pgroonga
     SUBDIR += pgrouting
