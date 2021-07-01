@@ -73,10 +73,10 @@
     SUBDIR += evolution-data-server
     SUBDIR += fastdb
     SUBDIR += firebird25-client
-    SUBDIR += firebird30-client
-    SUBDIR += firebird40-client
     SUBDIR += firebird25-server
+    SUBDIR += firebird30-client
     SUBDIR += firebird30-server
+    SUBDIR += firebird40-client
     SUBDIR += firebird40-server
     SUBDIR += fortytwo-bdb
     SUBDIR += foundationdb
@@ -588,7 +588,6 @@
     SUBDIR += pglogical
     SUBDIR += pgmetrics
     SUBDIR += pgmodeler
-    SUBDIR += pgpool-II-35
     SUBDIR += pgpool-II-36
     SUBDIR += pgpool-II-37
     SUBDIR += pgpool-II-40
