@@ -1188,6 +1188,7 @@
     SUBDIR += routinator
     SUBDIR += rp-pppoe
     SUBDIR += rpki-client
+    SUBDIR += rscsi
     SUBDIR += rsocket-cpp
     SUBDIR += rsplib
     SUBDIR += rsync
@@ -1286,6 +1287,7 @@
     SUBDIR += rubygem-httpauth
     SUBDIR += rubygem-ipaddress
     SUBDIR += rubygem-iproto
+    SUBDIR += rubygem-kas-grpc
     SUBDIR += rubygem-lita-gems
     SUBDIR += rubygem-macaddr
     SUBDIR += rubygem-maxmind-db
