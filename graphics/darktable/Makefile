@@ -1,8 +1,7 @@
 # Created by: Alexey Dokuchaev <danfe@FreeBSD.org>
 
 PORTNAME=	darktable
-PORTVERSION=	3.4.1
-PORTREVISION=	7
+PORTVERSION=	3.6.0
 CATEGORIES=	graphics
 MASTER_SITES=	https://github.com/darktable-org/${PORTNAME}/releases/download/release-${PORTVERSION:C/\.rc/rc/}/
 
@@ -31,7 +30,11 @@ LIB_DEPENDS=	libcolord-gtk.so:graphics/colord-gtk \
 		libsoup-2.4.so:devel/libsoup \
 		libtiff.so:graphics/tiff
 
-USES=		cmake compiler:c++14-lang desktop-file-utils gl gnome jpeg \
+# Fix build against cmake-3.21: the ninja generator in 3.21 suffers a regression
+# (see https://gitlab.kitware.com/cmake/cmake/-/issues/22487) appending an invalid
+# "-Wl,--no-as-needed" to the linker arguments for static libraries.
+# Once this regression has been fixed upstream, this can be switch back to USES=cmake
+USES=		cmake:noninja compiler:c++14-lang desktop-file-utils gl gnome jpeg \
 		perl5 pkgconfig shebangfix sqlite tar:xz xorg
 USE_GL=		glu
 USE_GNOME=	cairo gtk30 intltool librsvg2 libxml2
@@ -117,7 +120,7 @@ PLIST_SUB+=	NO_OPENCL=""
 .include <bsd.port.pre.mk>
 
 .if ${CHOSEN_COMPILER_TYPE} == clang && ${OPSYS} == FreeBSD || ${ARCH} == "i386"
-LLVM_DEFAULT=	10
+LLVM_DEFAULT=	12
 BUILD_DEPENDS+=	clang${LLVM_DEFAULT}:devel/llvm${LLVM_DEFAULT}
 CC=		${LOCALBASE}/bin/clang${LLVM_DEFAULT}
 CPP=		${LOCALBASE}/bin/clang-cpp${LLVM_DEFAULT}
