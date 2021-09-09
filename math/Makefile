@@ -247,6 +247,7 @@
     SUBDIR += dune-functions
     SUBDIR += dune-geometry
     SUBDIR += dune-grid
+    SUBDIR += dune-grid-glue
     SUBDIR += dune-istl
     SUBDIR += dune-localfunctions
     SUBDIR += dune-metagrid
@@ -462,6 +463,7 @@
     SUBDIR += multichoose
     SUBDIR += mumps
     SUBDIR += mumps4
+    SUBDIR += munkres-cpp
     SUBDIR += muparser
     SUBDIR += muparserx
     SUBDIR += nanoflann
