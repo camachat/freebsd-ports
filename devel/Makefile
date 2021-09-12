@@ -385,6 +385,7 @@
     SUBDIR += commoncpp
     SUBDIR += compiler-rt
     SUBDIR += compiz-bcop
+    SUBDIR += concurrencpp
     SUBDIR += concurrencykit
     SUBDIR += configkit
     SUBDIR += cons
@@ -723,6 +724,7 @@
     SUBDIR += frama-c
     SUBDIR += freebsd-gcc6
     SUBDIR += freebsd-gcc9
+    SUBDIR += freebsd-sysroot
     SUBDIR += frink
     SUBDIR += fsmtrie
     SUBDIR += fstrcmp
@@ -6947,6 +6949,7 @@
     SUBDIR += strace
     SUBDIR += string_theory
     SUBDIR += stringencoders
+    SUBDIR += stuffbin
     SUBDIR += stxxl
     SUBDIR += subversion
     SUBDIR += subversion-book
