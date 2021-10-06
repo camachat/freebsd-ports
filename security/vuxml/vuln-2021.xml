@@ -3,7 +3,7 @@
     <affects>
       <package>
 	<name>apache24</name>
-	<range><lt>2.4.50</lt></range>
+	<range><ge>2.4.49</ge><lt>2.4.50</lt></range>
       </package>
     </affects>
     <description>
@@ -27,6 +27,7 @@
     <dates>
       <discovery>2021-10-05</discovery>
       <entry>2021-10-05</entry>
+      <modified>2021-10-06</modified>
     </dates>
   </vuln>
 
@@ -60,6 +61,10 @@
   <vuln vid="9b4806c1-257f-11ec-9db5-0800270512f4">
     <topic>redis -- multiple vulnerabilities</topic>
     <affects>
+      <package>
+	<name>redis-devel</name>
+	<range><lt>7.0.0.20211005</lt></range>
+      </package>
       <package>
 	<name>redis</name>
 	<range><lt>6.2.6</lt></range>
