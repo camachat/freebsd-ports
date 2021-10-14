@@ -5,6 +5,43 @@ they are unavoidable.
 You should get into the habit of checking this file for changes each time
 you update your ports collection, before attempting any port upgrades.
 
+20211012:
+  AFFECTS: users of devel/git
+  AUTHOR: garga@FreeBSD.org
+
+  devel/git port was split into multiple sub-ports that depend on devel/git
+  and install additional files:
+
+  - devel/git-cvs - CVS related scripts and man pages
+  - devel/git-gui - GUI related scripts and man pages
+  - devel/git-p4  - Perforce related scripts and man pages
+  - devel/git-svn - Subversion related scripts and man pages
+
+  Due to these changes, CVS, GUI, PERFORCE, and SUBVERSION options
+  as well as gui and svn flavors were removed from the port.
+
+20211010:
+  AFFECTS: users of gtk2 flavored devel/geany*
+  AUTHOR: madpilot@FreeBSD.org
+
+  Upstream dropped support for gtk2. Due to this the ports are now
+  unflavored, installing only with gtk3 support.
+
+  If you are already using the default gtk3 flavor will get the new
+  version with a simple "pkg upgrade".
+
+  To upgrade when using the gtk2 flavors you need to use "pkg install"
+  to install the new unflavored gtk3 packages, pkg will automatically
+  uninstall the old gtk2 flavors.
+
+  If using ports, you will need to uninstall all geany packages and
+  its plugins and reinstall from an updated ports tree.
+
+  The "geany-plugin-multiterm" plugin was only available as a gtk2
+  flavor when installing the gtk2 flavor of geany and has not been
+  ported to gtk3, so has been removed from the tree, so the
+  geany-plugin-multiterm-gtk2 package should be removed from the system.
+
 20211007:
   AFFECTS: user of security/clamav
   AUTHOR: yasu@FreeBSD.org

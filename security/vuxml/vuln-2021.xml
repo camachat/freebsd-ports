@@ -1,3 +1,248 @@
+  <vuln vid="a9c5e89d-2d15-11ec-8363-0022489ad614">
+    <topic>Node.js -- October 2021 Security Releases</topic>
+    <affects>
+      <package>
+	<name>node</name>
+	<range><lt>16.11.1</lt></range>
+      </package>
+      <package>
+	<name>node14</name>
+	<range><lt>14.18.1</lt></range>
+      </package>
+    </affects>
+    <description>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+	<p>Node.js reports:</p>
+	<blockquote cite="https://nodejs.org/en/blog/vulnerability/oct-2021-security-releases/">
+	  <h1>HTTP Request Smuggling due to spaced in headers (Medium)(CVE-2021-22959)</h1>
+	  <p>The http parser accepts requests with a space (SP) right after the header name before the colon. This can lead to HTTP Request Smuggling (HRS).</p>
+	  <h1>HTTP Request Smuggling when parsing the body (Medium)(CVE-2021-22960)</h1>
+	  <p>The parse ignores chunk extensions when parsing the body of chunked requests. This leads to HTTP Request Smuggling (HRS) under certain conditions.</p>
+	</blockquote>
+      </body>
+    </description>
+    <references>
+      <cvename>CVE-2021-22959</cvename>
+      <cvename>CVE-2021-22960</cvename>
+      <url>https://nodejs.org/en/blog/vulnerability/oct-2021-security-releases/</url>
+    </references>
+    <dates>
+      <discovery>2021-10-12</discovery>
+      <entry>2021-10-14</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="2a1b931f-2b86-11ec-8acd-c80aa9043978">
+    <topic>OpenSSH -- OpenSSH 6.2 through 8.7 failed to correctly initialise supplemental groups when executing an AuthorizedKeysCommand or AuthorizedPrincipalsCommand</topic>
+    <affects>
+      <package>
+	<name>openssh-portable</name>
+	<name>openssh-portable-hpn</name>
+	<name>openssh-portable-gssapi</name>
+	<range><ge>6.2.p1,1</ge><lt>8.7.p1_2,1</lt></range>
+      </package>
+    </affects>
+    <description>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+	<p>OpenBSD Project reports:</p>
+	<blockquote cite="https://www.openssh.com/txt/release-8.8">
+	    <p>
+		sshd(8) from OpenSSH 6.2 through 8.7 failed to correctly initialise
+		supplemental groups when executing an AuthorizedKeysCommand or
+		AuthorizedPrincipalsCommand, where a AuthorizedKeysCommandUser or
+		AuthorizedPrincipalsCommandUser directive has been set to run the
+		command as a different user. Instead these commands would inherit
+		the groups that sshd(8) was started with.
+	    </p>
+	    <p>
+		Depending on system configuration, inherited groups may allow
+		AuthorizedKeysCommand/AuthorizedPrincipalsCommand helper programs to
+		gain unintended privilege.
+	    </p>
+	    <p>
+		Neither AuthorizedKeysCommand nor AuthorizedPrincipalsCommand are
+		enabled by default in sshd_config(5).
+	  </p>
+	</blockquote>
+      </body>
+    </description>
+    <references>
+      <cvename>CVE-2021-41617</cvename>
+      <url>https://www.openssh.com/txt/release-8.8</url>
+    </references>
+    <dates>
+      <discovery>2021-09-26</discovery>
+      <entry>2021-10-12</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="a7dd4c2d-77e4-46de-81a2-c453c317f9de">
+    <topic>couchdb -- user privilege escalation</topic>
+    <affects>
+      <package>
+	<name>couchdb</name>
+	<range><lt>3.1.2,2</lt></range>
+      </package>
+    </affects>
+    <description>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+	<p>Cory Sabol reports:</p>
+    <blockquote cite="https://docs.couchdb.org/en/stable/cve/2021-38295.html">
+      <p>A malicious user with permission to create documents in a
+       database is able to attach a HTML attachment to a document.
+       If a CouchDB admin opens that attachment in a browser, e.g.
+       via the CouchDB admin interface Fauxton, any JavaScript code
+       embedded in that HTML attachment will be executed within the
+       security context of that admin. A similar route is available
+       with the already deprecated _show and _list functionality.
+	  </p>
+	</blockquote>
+      </body>
+    </description>
+    <references>
+      <cvename>CVE-2021-39205</cvename>
+      <url>https://docs.couchdb.org/en/stable/cve/2021-38295.html</url>
+    </references>
+    <dates>
+      <discovery>2021-08-09</discovery>
+      <entry>2021-10-12</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="9a8514f3-2ab8-11ec-b3a1-8c164582fbac">
+    <topic>Ansible -- Ansible user credentials disclosure in ansible-connection module</topic>
+    <affects>
+      <package>
+	<name>py36-ansible-core</name>
+	<name>py37-ansible-core</name>
+	<name>py38-ansible-core</name>
+	<name>py39-ansible-core</name>
+	<name>py310-ansible-core</name>
+	<range><lt>2.11.6</lt></range>
+      </package>
+      <package>
+	<name>py36-ansible-base</name>
+	<name>py37-ansible-base</name>
+	<name>py38-ansible-base</name>
+	<name>py39-ansible-base</name>
+	<name>py310-ansible-base</name>
+	<range><lt>2.10.15</lt></range>
+      </package>
+      <package>
+	<name>py36-ansible2</name>
+	<name>py37-ansible2</name>
+	<name>py38-ansible2</name>
+	<name>py39-ansible2</name>
+	<name>py310-ansible2</name>
+	<range><lt>2.9.27</lt></range>
+      </package>
+      <package>
+	<name>py36-ansible</name>
+	<name>py37-ansible</name>
+	<name>py38-ansible</name>
+	<name>py39-ansible</name>
+	<name>py310-ansible</name>
+	<range><lt>2.9.27</lt></range>
+      </package>
+    </affects>
+    <description>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+	<p>Red Hat reports:</p>
+	<blockquote cite="">
+       <p>A flaw was found in Ansible Engine's ansible-connection
+       module, where sensitive information such as the Ansible
+       user credentials is disclosed by default in the traceback
+       error message. The highest threat from this vulnerability
+       is to confidentiality.</p>
+	</blockquote>
+      </body>
+    </description>
+    <references>
+      <cvename>CVE-2021-3620</cvename>
+      <url>https://access.redhat.com/security/cve/CVE-2021-3620</url>
+      <url>https://nvd.nist.gov/vuln/detail/CVE-2021-3620</url>
+      <url>https://github.com/ansible/ansible/blob/stable-2.9/changelogs/CHANGELOG-v2.9.rst#v2-9-27</url>
+      <url>https://github.com/ansible/ansible/blob/stable-2.10/changelogs/CHANGELOG-v2.10.rst#v2-10-15</url>
+      <url>https://github.com/ansible/ansible/blob/stable-2.11/changelogs/CHANGELOG-v2.11.rst#v2-11-6</url>
+    </references>
+    <dates>
+      <discovery>2021-06-25</discovery>
+      <entry>2021-10-11</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="04d2cf7f-2942-11ec-b48c-1c1b0d9ea7e6">
+    <topic>Apache OpenOffice -- multiple vulnerabilities.</topic>
+    <affects>
+      <package>
+	<name>apache-openoffice</name>
+	<range><lt>4.1.11</lt></range>
+      </package>
+      <package>
+	<name>apache-openoffice-devel</name>
+	<range><lt>4.2.1633255994,4</lt></range>
+      </package>
+    </affects>
+    <description>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+	<p>The Apache Openoffice project reports:</p>
+	<blockquote cite="https://cve.mitre.org/cgi-bin/cvename.cgi?name=2021-33035">
+	  <p>Apache OpenOffice opens dBase/DBF documents and shows the contents as spreadsheets. DBF are database files with data organized in fields. When reading DBF data the size of certain fields is not checked: the data is just copied into local variables. A carefully crafted document could overflow the allocated space, leading to the execution of arbitrary code by altering the contents of the program stack. This issue affects Apache OpenOffice up to and including version 4.1.10</p>
+	</blockquote>
+	<blockquote cite="https://cve.mitre.org/cgi-bin/cvename.cgi?name=2021-41830">
+	  <p>It is possible for an attacker to manipulate signed documents and macros to appear to come from a trusted source. All versions of Apache OpenOffice up to 4.1.10 are affected. Users are advised to update to version 4.1.11. See CVE-2021-25633 for the LibreOffice advisory </p>
+	</blockquote>
+	<blockquote cite="https://cve.mitre.org/cgi-bin/cvename.cgi?name=2021-41831">
+	  <p>It is possible for an attacker to manipulate the timestamp of signed documents. All versions of Apache OpenOffice up to 4.1.10 are affected. Users are advised to update to version 4.1.11. See CVE-2021-25634 for the LibreOffice advisory.</p>
+	</blockquote>
+	<blockquote cite="https://cve.mitre.org/cgi-bin/cvename.cgi?name=2021-41832">
+	  <p>It is possible for an attacker to manipulate documents to appear to be signed by a trusted source. All versions of Apache OpenOffice up to 4.1.10 are affected. Users are advised to update to version 4.1.11. See CVE-2021-25635 for the LibreOffice advisory.</p>
+	</blockquote>
+      </body>
+    </description>
+    <references>
+      <cvename>CVE-2021-33035</cvename>
+      <cvename>CVE-2021-41830</cvename>
+      <cvename>CVE-2021-41831</cvename>
+      <cvename>CVE-2021-41832</cvename>
+      <url>https://cwiki.apache.org/confluence/display/OOOUSERS/AOO+4.1.11+Release+Notes/#AOO4.1.11ReleaseNotes-Security</url>
+    </references>
+    <dates>
+      <discovery>2021-05-04</discovery>
+      <entry>2021-10-09</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="4fce9635-28c0-11ec-9ba8-002324b2fba8">
+    <topic>go -- misc/wasm, cmd/link: do not let command line arguments overwrite global data</topic>
+    <affects>
+      <package>
+	<name>go</name>
+	<range><lt>1.17.2,1</lt></range>
+      </package>
+    </affects>
+    <description>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+	<p>The Go project reports:</p>
+	<blockquote cite="https://github.com/golang/go/issues/48797">
+	  <p>When invoking functions from WASM modules, built using GOARCH=wasm
+	  GOOS=js, passing very large arguments can cause portions of the module
+	  to be overwritten with data from the arguments.</p>
+	  <p>If using wasm_exec.js to execute WASM modules, users will need to
+	  replace their copy after rebuilding any modules.</p>
+	</blockquote>
+      </body>
+    </description>
+    <references>
+      <cvename>CVE-2021-38297</cvename>
+      <url>https://github.com/golang/go/issues/48797</url>
+    </references>
+    <dates>
+      <discovery>2021-10-06</discovery>
+      <entry>2021-10-09</entry>
+    </dates>
+  </vuln>
+
   <vuln vid="7d3d94d3-2810-11ec-9c51-3065ec8fd3ec">
     <topic>chromium -- multiple vulnerabilities</topic>
     <affects>

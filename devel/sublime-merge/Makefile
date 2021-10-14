@@ -1,5 +1,5 @@
 PORTNAME=	sublime-merge
-PORTVERSION=	2059
+PORTVERSION=	2060
 CATEGORIES=	devel linux
 MASTER_SITES=	https://download.sublimetext.com/
 
@@ -15,7 +15,6 @@ ONLY_FOR_ARCHS= aarch64 amd64
 ONLY_FOR_ARCHS_REASON=	Upstream only supports amd64 and arm64
 
 USES=		desktop-file-utils gnome linux tar:xz
-INSTALLS_ICONS=	yes
 USE_LINUX=	gtk3
 
 NO_BUILD=	yes

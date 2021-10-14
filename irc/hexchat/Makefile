@@ -27,7 +27,6 @@ USE_XORG=	x11
 USE_GITHUB=	yes
 
 MESON_ARGS=	-Dtls=enabled -Dgtk-frontend=true -Dwith-python=python-${PYTHON_VER}
-INSTALLS_ICONS=	yes
 INSTALL_TARGET=	install-strip
 
 LIBS+=		-lX11
@@ -39,7 +38,7 @@ PORTDOCS=	*
 OPTIONS_DEFINE=		CA_BUNDLE CANBERRA DBUS DOCS FISHLIM LUA PERL TEXTFE \
 			SYSINFO
 
-OPTIONS_DEFAULT=	CA_BUNDLE CANBERRA DBUS NOTIFY PERL
+OPTIONS_DEFAULT=	CA_BUNDLE CANBERRA DBUS PERL
 
 OPTIONS_SUB=	yes
 
@@ -50,8 +49,6 @@ TEXTFE_DESC=		Text frontend
 SYSINFO_DESC=		Sysinfo plugin
 
 CA_BUNDLE_RUN_DEPENDS=	${LOCALBASE}/share/certs/ca-root-nss.crt:security/ca_root_nss
-CA_BUNDLE_VARS=	CA_BUNDLE="${LOCALBASE}/share/certs/ca-root-nss.crt"
-CA_BUNDLE_VARS_OFF=	CA_BUNDLE=NULL
 CANBERRA_LIB_DEPENDS=	libcanberra.so:audio/libcanberra
 CANBERRA_MESON_ON=	-Dlibcanberra=enabled
 CANBERRA_MESON_OFF=	-Dlibcanberra=disabled
@@ -63,8 +60,6 @@ LUA_MESON_ON=		-Dwith-lua=lua-${LUA_VER}
 LUA_MESON_OFF=		-Dwith-lua=false
 LUA_USES=		lua
 LUA_USE=		GCC=any
-NOTIFY_LIB_DEPENDS=	libnotify.so:devel/libnotify
-NOTIFY_MESON_TRUE=	with-libnotify
 PERL_MESON_TRUE=	with-perl
 PERL_USES=		perl5
 TEXTFE_MESON_TRUE=	text-frontend

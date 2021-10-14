@@ -433,6 +433,7 @@
     SUBDIR += makefaq
     SUBDIR += makepatch
     SUBDIR += man2html
+    SUBDIR += mantra
     SUBDIR += markdown
     SUBDIR += markdown-mode.el
     SUBDIR += markdownfmt
@@ -1485,6 +1486,7 @@
     SUBDIR += py-tinycss2
     SUBDIR += py-toml
     SUBDIR += py-tomli
+    SUBDIR += py-tomli_w
     SUBDIR += py-tomlkit
     SUBDIR += py-toronado
     SUBDIR += py-towncrier
