@@ -4167,6 +4167,7 @@
     SUBDIR += py-azure-identity
     SUBDIR += py-azure-keyvault
     SUBDIR += py-azure-keyvault-administration
+    SUBDIR += py-azure-keyvault-keys
     SUBDIR += py-azure-loganalytics
     SUBDIR += py-azure-mgmt-advisor
     SUBDIR += py-azure-mgmt-apimanagement
@@ -5079,6 +5080,7 @@
     SUBDIR += py-pythonbrew
     SUBDIR += py-pythondialog
     SUBDIR += py-pythonfinder
+    SUBDIR += py-pythran
     SUBDIR += py-pytimeparse
     SUBDIR += py-pytools
     SUBDIR += py-pytrie
