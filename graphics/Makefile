@@ -152,6 +152,7 @@
     SUBDIR += dspdfviewer
     SUBDIR += dssim
     SUBDIR += duhdraw
+    SUBDIR += dust3d
     SUBDIR += dynamechs
     SUBDIR += ebsynth
     SUBDIR += edje_viewer
@@ -1037,6 +1038,7 @@
     SUBDIR += simage
     SUBDIR += simpleviewer
     SUBDIR += skanlite
+    SUBDIR += skanpage
     SUBDIR += spectacle
     SUBDIR += spirv-tools
     SUBDIR += springgraph
