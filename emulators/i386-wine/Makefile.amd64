@@ -2,7 +2,7 @@
 
 DISTVERSION=	6.0.1
 PORTEPOCH=	1
-MASTER_SITES=	http://Alexander88207.de/Homura/Winebuilds/${DIST_SUBDIR}/
+MASTER_SITES=	https://pkg.freebsd.org/${DIST_SUBDIR}/latest/All/
 DISTNAME=	${PKGNAMEPREFIX}${PORTNAME}${PKGNAMESUFFIX}-${PKGVERSION}
 DIST_SUBDIR=	FreeBSD:${OSREL:C/\..*//}:amd64
 
