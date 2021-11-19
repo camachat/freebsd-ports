@@ -924,6 +924,7 @@
     SUBDIR += grcov
     SUBDIR += grex
     SUBDIR += grpc
+    SUBDIR += grpc130
     SUBDIR += grpc134
     SUBDIR += grv
     SUBDIR += gsettings-desktop-schemas
@@ -1859,6 +1860,7 @@
     SUBDIR += p5-Callback-Frame
     SUBDIR += p5-Canary-Stability
     SUBDIR += p5-Capture-Tiny
+    SUBDIR += p5-Capture-Tiny-Extended
     SUBDIR += p5-Carp
     SUBDIR += p5-Carp-Always
     SUBDIR += p5-Carp-Always-Color
@@ -2647,6 +2649,7 @@
     SUBDIR += p5-Iterator-IO
     SUBDIR += p5-Iterator-Misc
     SUBDIR += p5-Iterator-Simple
+    SUBDIR += p5-Iterator-Simple-Lookahead
     SUBDIR += p5-Iterator-Util
     SUBDIR += p5-JIRA-REST
     SUBDIR += p5-JQuery
@@ -2988,6 +2991,7 @@
     SUBDIR += p5-Object-Simple
     SUBDIR += p5-Object-Tiny
     SUBDIR += p5-Object-Tiny-Lvalue
+    SUBDIR += p5-Object-Tiny-RW
     SUBDIR += p5-Olson-Abbreviations
     SUBDIR += p5-Opcodes
     SUBDIR += p5-OrePAN2
@@ -7216,6 +7220,7 @@
     SUBDIR += z80-asm
     SUBDIR += z80asm
     SUBDIR += z80ex
+    SUBDIR += z88dk
     SUBDIR += zanata-cli
     SUBDIR += zanata-platform
     SUBDIR += zapcc
