@@ -296,6 +296,7 @@
     SUBDIR += busybee
     SUBDIR += byacc
     SUBDIR += byaccj
+    SUBDIR += bsddialog
     SUBDIR += c2mdoc
     SUBDIR += caf
     SUBDIR += calibrator
@@ -556,7 +557,7 @@
     SUBDIR += efl
     SUBDIR += egypt
     SUBDIR += eiffelstudio
-    SUBDIR += electron12
+    SUBDIR += electron13
     SUBDIR += elf
     SUBDIR += elf-dissector
     SUBDIR += elfcat
@@ -1790,6 +1791,7 @@
     SUBDIR += p5-B-C
     SUBDIR += p5-B-COW
     SUBDIR += p5-B-Compiling
+    SUBDIR += p5-B-Debug
     SUBDIR += p5-B-Deobfuscate
     SUBDIR += p5-B-Flags
     SUBDIR += p5-B-Generate
@@ -2509,6 +2511,7 @@
     SUBDIR += p5-Function-Fallback-CoreOrPP
     SUBDIR += p5-Function-Parameters
     SUBDIR += p5-Future
+    SUBDIR += p5-Future-IO
     SUBDIR += p5-Gearman
     SUBDIR += p5-Gearman-Client-Async
     SUBDIR += p5-Gearman-Server
@@ -4347,6 +4350,7 @@
     SUBDIR += py-click-plugins
     SUBDIR += py-click-threading
     SUBDIR += py-click6
+    SUBDIR += py-click7
     SUBDIR += py-cliff
     SUBDIR += py-cligj
     SUBDIR += py-clikit
@@ -4765,6 +4769,7 @@
     SUBDIR += py-moto
     SUBDIR += py-mox
     SUBDIR += py-mox3
+    SUBDIR += py-mrkd
     SUBDIR += py-msal
     SUBDIR += py-msal-extensions
     SUBDIR += py-msgpack
@@ -5569,6 +5574,7 @@
     SUBDIR += riscv32-unknown-elf-gcc
     SUBDIR += riscv64-gcc
     SUBDIR += riscv64-none-elf-gcc
+    SUBDIR += rkcommon
     SUBDIR += rlog
     SUBDIR += rlwrap
     SUBDIR += robin-map
@@ -5851,6 +5857,7 @@
     SUBDIR += rubygem-aws-sdk-mgn
     SUBDIR += rubygem-aws-sdk-migrationhub
     SUBDIR += rubygem-aws-sdk-migrationhubconfig
+    SUBDIR += rubygem-aws-sdk-migrationhubstrategyrecommendations
     SUBDIR += rubygem-aws-sdk-mobile
     SUBDIR += rubygem-aws-sdk-mq
     SUBDIR += rubygem-aws-sdk-mturk
@@ -5885,6 +5892,7 @@
     SUBDIR += rubygem-aws-sdk-redshift
     SUBDIR += rubygem-aws-sdk-redshiftdataapiservice
     SUBDIR += rubygem-aws-sdk-rekognition
+    SUBDIR += rubygem-aws-sdk-resiliencehub
     SUBDIR += rubygem-aws-sdk-resourcegroups
     SUBDIR += rubygem-aws-sdk-resourcegroupstaggingapi
     SUBDIR += rubygem-aws-sdk-resources
@@ -6205,6 +6213,7 @@
     SUBDIR += rubygem-ddmetrics
     SUBDIR += rubygem-ddplugin
     SUBDIR += rubygem-ddtrace
+    SUBDIR += rubygem-debase-ruby_core_source
     SUBDIR += rubygem-debug
     SUBDIR += rubygem-debug_inspector
     SUBDIR += rubygem-debugger-linecache
@@ -6263,6 +6272,7 @@
     SUBDIR += rubygem-eventmachine
     SUBDIR += rubygem-excon
     SUBDIR += rubygem-execjs
+    SUBDIR += rubygem-execjs-node16
     SUBDIR += rubygem-extlib
     SUBDIR += rubygem-extras
     SUBDIR += rubygem-facets
@@ -6927,6 +6937,7 @@
     SUBDIR += rubygem-webfinger
     SUBDIR += rubygem-webpacker-rails60
     SUBDIR += rubygem-webpacker-rails61
+    SUBDIR += rubygem-webpacker-rails61-node16
     SUBDIR += rubygem-webpacker4-rails5
     SUBDIR += rubygem-webpacker4-rails50
     SUBDIR += rubygem-webpacker4-rails60
@@ -6965,6 +6976,7 @@
     SUBDIR += schilybase
     SUBDIR += scons
     SUBDIR += sd-mux-ctrl
+    SUBDIR += sdbus-cpp
     SUBDIR += sdl12
     SUBDIR += sdl12-compat
     SUBDIR += sdl20
