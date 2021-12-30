@@ -22,6 +22,7 @@
     SUBDIR += csxcad
     SUBDIR += cura
     SUBDIR += cura-engine
+    SUBDIR += cvc
     SUBDIR += digital
     SUBDIR += dinotrace
     SUBDIR += ecpprog
@@ -94,6 +95,7 @@
     SUBDIR += oregano
     SUBDIR += p5-GDS2
     SUBDIR += p5-Verilog-Perl
+    SUBDIR += padring
     SUBDIR += pcb
     SUBDIR += pdnmesh
     SUBDIR += py-cadquery
