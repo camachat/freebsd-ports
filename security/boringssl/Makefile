@@ -1,14 +1,21 @@
 PORTNAME=	boringssl
 PORTVERSION=	0.0.0.0.2021.12.21.01
+PORTREVISION=	3
 CATEGORIES=	security
 
-MAINTAINER=	ports@FreeBSD.org
+MAINTAINER=	osa@FreeBSD.org
 COMMENT=	Fork of OpenSSL
 
 LICENSE=	OpenSSL
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		cmake:insource cpe go:no_targets localbase perl5
+
+CONFLICTS_INSTALL=	security/libressl \
+			security/libressl-devel \
+			security/openssl \
+			security/openssl-devel \
+			security/openssl-quictls
 
 CPE_VENDOR=	google
 
@@ -32,6 +39,7 @@ post-patch:
 		${XARGS} ${REINPLACE_CMD} -e 's,-D_XOPEN_SOURCE=700,,'
 	@${GREP} -FRl '${GO_EXECUTABLE} run ' ${WRKSRC} | \
 		${XARGS} ${REINPLACE_CMD} -r -e 's,([$][{]GO_EXECUTABLE[}] run),\1 ${GO_BUILDFLAGS},'
+	@${FIND} ${WRKSRC}/include -name '*.bak' -delete
 
 do-install:
 	${INSTALL_PROGRAM} ${WRKSRC}/tool/bssl ${STAGEDIR}${PREFIX}/bin/
