@@ -4910,6 +4910,7 @@
     SUBDIR += py-pendulum
     SUBDIR += py-pep517
     SUBDIR += py-pep562
+    SUBDIR += py-pep621
     SUBDIR += py-pep8-naming
     SUBDIR += py-period
     SUBDIR += py-persistent
@@ -5201,6 +5202,7 @@
     SUBDIR += py-retrying
     SUBDIR += py-retype
     SUBDIR += py-rfc3339
+    SUBDIR += py-rfc3339-validator
     SUBDIR += py-robotframework
     SUBDIR += py-robotframework-databaselibrary
     SUBDIR += py-robotframework-pabot
@@ -6163,6 +6165,7 @@
     SUBDIR += rubygem-blockenspiel
     SUBDIR += rubygem-bones
     SUBDIR += rubygem-bootsnap
+    SUBDIR += rubygem-bootsnap19
     SUBDIR += rubygem-bootstrap_form
     SUBDIR += rubygem-bson
     SUBDIR += rubygem-buftok
@@ -6563,6 +6566,7 @@
     SUBDIR += rubygem-multi_test
     SUBDIR += rubygem-murmurhash3
     SUBDIR += rubygem-mustache
+    SUBDIR += rubygem-mustache-sinatra
     SUBDIR += rubygem-mustache0
     SUBDIR += rubygem-mustermann
     SUBDIR += rubygem-mustermann-grape

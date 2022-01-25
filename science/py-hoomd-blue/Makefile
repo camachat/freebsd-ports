@@ -4,6 +4,9 @@ DISTVERSION=	3.0.0-beta.13
 CATEGORIES=	science # physics
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
+PATCH_SITES=	https://github.com/${GH_ACCOUNT}/${PORTNAME}/commit/
+PATCHFILES=	3f8ed3abb36aa51c6d91c3ff1c1563ffc6ee37c2.patch:-p1
+
 MAINTAINER=	yuri@FreeBSD.org
 COMMENT=	Molecular dynamics and Monte Carlo soft matter simulation
 
@@ -26,9 +29,8 @@ GH_TUPLE=	glotzerlab:libgetar:85de0f2355ea938474452aaf6bb78904a91293ec:glotzerla
 		glotzerlab:HIP:849fb35f674c12f7c534153e2656b27997641866:glotzerlab_HIP/hoomd/extern/HIP \
 		glotzerlab:hipCUB:c70e19332a8402049b3359b409e50220a759c42d:glotzerlab_hipCUB/hoomd/extern/hipCUB \
 		mphowardlab:neighbor:ba0f06869b766066a7068852fa3b8c5fa746f71f:mphowardlab_neighbor/hoomd/extern/neighbor \
-		mphowardlab:hipper:b6da049a516ada03e4e1b66ca6b4c2c7c9668595:mphowardlab_hipper1/hoomd/extern/hipper \
-		glotzerlab:hoomd-examples:5a5e4e11e96397b761e90b27983cc38e2fb1a324:glotzerlab_hoomd_examples/sphinx-doc/tutorial \
-		mphowardlab:hipper:b6da049a516ada03e4e1b66ca6b4c2c7c9668595:mphowardlab_hipper2/hoomd/extern/neighbor/extern/hipper
+		mphowardlab:hipper:b6da049a516ada03e4e1b66ca6b4c2c7c9668595:mphowardlab_hipper/hoomd/extern/hipper \
+		glotzerlab:hoomd-examples:5a5e4e11e96397b761e90b27983cc38e2fb1a324:glotzerlab_hoomd_examples/sphinx-doc/tutorial
 
 SHEBANG_GLOB=	*.sh
 
