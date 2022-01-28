@@ -450,6 +450,7 @@
     SUBDIR += mdbook-linkcheck
     SUBDIR += mdocml
     SUBDIR += meld
+    SUBDIR += meilisearch
     SUBDIR += mergestat
     SUBDIR += metauml
     SUBDIR += mgdiff
@@ -1435,8 +1436,6 @@
     SUBDIR += py-pytoml
     SUBDIR += py-pyx12
     SUBDIR += py-qrcode
-    SUBDIR += py-qt5-xml
-    SUBDIR += py-qt5-xmlpatterns
     SUBDIR += py-rdflib
     SUBDIR += py-readchar
     SUBDIR += py-recommonmark
@@ -1703,6 +1702,7 @@
     SUBDIR += rubygem-minima
     SUBDIR += rubygem-multi_xml
     SUBDIR += rubygem-nokogiri
+    SUBDIR += rubygem-nokogiri111
     SUBDIR += rubygem-nokogiri-diff
     SUBDIR += rubygem-nokogumbo
     SUBDIR += rubygem-octopress-escape-code
