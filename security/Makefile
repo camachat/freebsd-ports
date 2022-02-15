@@ -748,6 +748,7 @@
     SUBDIR += pam_yubico
     SUBDIR += pamtester
     SUBDIR += paperkey
+    SUBDIR += passh
     SUBDIR += passivedns
     SUBDIR += pbc
     SUBDIR += pbnj
@@ -946,6 +947,7 @@
     SUBDIR += py-ospd-openvas
     SUBDIR += py-paramiko
     SUBDIR += py-pass-audit
+    SUBDIR += py-pass-git-helper
     SUBDIR += py-passlib
     SUBDIR += py-pbkdf2
     SUBDIR += py-pgpdump
@@ -1243,6 +1245,7 @@
     SUBDIR += ssb
     SUBDIR += ssdeep
     SUBDIR += ssh-multiadd
+    SUBDIR += ssh-tools
     SUBDIR += ssh-vault
     SUBDIR += sshguard
     SUBDIR += sshpass
