@@ -2,6 +2,7 @@
 
 PORTNAME=	wipeclean
 PORTVERSION=	g20220222
+PORTEPOCH=	1
 CATEGORIES=	games
 
 MAINTAINER=	ehaupt@FreeBSD.org
