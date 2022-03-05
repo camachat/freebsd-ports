@@ -2,6 +2,7 @@
 
 PORTNAME=	Ipopt
 DISTVERSION=	3.14.4
+PORTREVISION=	1
 CATEGORIES=	math
 MASTER_SITES=	https://www.coin-or.org/download/source/${PORTNAME}/
 
@@ -24,7 +25,8 @@ INSTALL_TARGET=	install-strip
 CONFIGURE_ENV+=	PKG_CONFIG_PATH=${PREFIX}/libdata/pkgconfig \
 		CXX="${CXX} -B${LOCALBASE}/bin"
 CONFIGURE_ARGS=	--with-lapack-lib="${LAPACKLIB} -L${LOCALBASE}/lib"	\
-		--with-blas-lib="${BLASLIB} -L${LOCALBASE}/lib"
+		--with-blas-lib="${BLASLIB} -L${LOCALBASE}/lib" \
+		--disable-java
 
 CXXFLAGS+=	-ffast-math
 DEBUG_CXXFLAGS=	-fomit-frame-pointer
