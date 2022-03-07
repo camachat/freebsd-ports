@@ -16,6 +16,8 @@ RUN_DEPENDS=	nextcloud${PHP_PKGNAMESUFFIX}>=21:www/nextcloud@${PHP_FLAVOR}
 
 USES=		php:flavors
 
+MASTER_SITES=	https://github.com/nextcloud-releases/${PORTNAME}/releases/download/${DISTVERSIONPREFIX}${PORTVERSION}/
+
 WRKSRC=		${WRKDIR}/${PORTNAME}
 
 NO_BUILD=	yes
