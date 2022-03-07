@@ -5,7 +5,7 @@ MASTER_SITES=	CHEESESHOP
 a
 KGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
-MAINTAINER=	ports@FreeBSD.org
+MAINTAINER=	sunpoet@FreeBSD.org
 COMMENT=	Python binding to the Brotli library
 
 LICENSE=	MIT
