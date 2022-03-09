@@ -6,7 +6,7 @@ CATEGORIES=	dns python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
-MAINTAINER=	sunpoet@FreeBSD.org
+MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Internationalized Domain Names in Applications (IDNA)
 
 LICENSE=	BSD3CLAUSE PSFL

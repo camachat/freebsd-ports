@@ -6,7 +6,7 @@ CATEGORIES=	net devel python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
-MAINTAINER=	bofh@FreeBSD.org
+MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Utility that helps manage local TCP ports
 
 LICENSE=	MIT
