@@ -145,10 +145,10 @@ post-configure:
 		${SETENV} ${CONFIGURE_ENV} ${CMAKE_BIN} ${CMAKE_ARGS} ${WRKDIR}/${DISTNAME}/libcxxabi
 
 post-build:
-	@${LOCALBASE}/bin/llvm-ranlib${LLVM_SUFFIX} ${CONFIGURE_WRKSRC}/lib/wasm32-wasi/*.a
+	@${LOCALBASE}/bin/llvm-ranlib${LLVM_SUFFIX} ${CONFIGURE_WRKSRC}/lib/*.a
 	@cd ${WRKDIR}/.build_cxxabi && \
 		${SETENV} ${MAKE_ENV} ${MAKE_CMD} ${MAKE_ARGS} ${ALL_TARGET}
-	@${LOCALBASE}/bin/llvm-ranlib${LLVM_SUFFIX} ${WRKDIR}/.build_cxxabi/lib/wasm32-wasi/*.a
+	@${LOCALBASE}/bin/llvm-ranlib${LLVM_SUFFIX} ${WRKDIR}/.build_cxxabi/lib/*.a
 
 post-install:
 	@cd ${WRKDIR}/.build_cxxabi && \
