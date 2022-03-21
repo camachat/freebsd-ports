@@ -21,7 +21,7 @@ GH_ACCOUNT=	WebAssembly
 GH_TAGNAME=	ad5133410f66b93a2381db5b542aad5e0964db96
 GH_TUPLE=	WebAssembly:WASI:ef8c1a53fe:wasi/tools/wasi-headers/WASI
 NO_ARCH=	yes
-LLVM_VERSION?=	13
+LLVM_VERSION?=	${LLVM_DEFAULT}
 
 ALL_TARGET=	finish
 
