@@ -24,8 +24,8 @@ CMAKE_ARGS=	-DROBIN_HOOD_HASHING_INSTALL_DIR:PATH="${WRKSRC_robin_hood}" \
 		-DSPIRV_HEADERS_INSTALL_DIR:PATH="${WRKSRC_headers}"
 CFLAGS+=	${WITH_DEBUG:U-DNDEBUG}
 
-.if ${DISTVERSION:E} < 205
-GH_TUPLE+=	KhronosGroup:Vulkan-Headers:v1.3.204:vkheaders/Vulkan-Headers
+.if ${DISTVERSION:E} < 209
+GH_TUPLE+=	KhronosGroup:Vulkan-Headers:v1.3.208:vkheaders/Vulkan-Headers
 CMAKE_ARGS+=	-DVULKAN_HEADERS_INSTALL_DIR:PATH="${WRKSRC_vkheaders}"
 CFLAGS+=	-I${WRKSRC_vkheaders}/include -isystem${LOCALBASE}/include
 .endif
