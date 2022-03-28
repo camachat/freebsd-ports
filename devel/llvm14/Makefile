@@ -268,13 +268,13 @@ FLANG_PATTERN=	${FLANG_COMMANDS:S/^/bin./:tW:C/  */|/g}|flang|libFIR|libFortran
 
 MLIR_PATTERN=	${MLIR_COMMANDS:S/^/bin./:tW:C/  */|/g}|mlir|libMLIR|obj.MLIRCAP
 
-.include <bsd.port.options.mk>
-
 .if ${OSVERSION} < 1300525
 # An unwind.h is require to build.  I think an in-tree one should be used
 # but this seems to work as a workaround...
 COMPILER_RT_BUILD_DEPENDS=	libunwind>0:devel/libunwind
 .endif
+
+.include <bsd.port.options.mk>
 
 .if defined(PPC_ABI) && ${PPC_ABI} == ELFv2
 EXTRA_PATCHES=	${FILESDIR}/extra-patch-clang_lib_Driver_ToolChains_Clang.cpp
