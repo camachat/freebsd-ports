@@ -4822,6 +4822,7 @@
     SUBDIR += py-notify2
     SUBDIR += py-num2words
     SUBDIR += py-numba
+    SUBDIR += py-objgraph
     SUBDIR += py-oci
     SUBDIR += py-odfpy
     SUBDIR += py-offtrac
@@ -5109,7 +5110,9 @@
     SUBDIR += py-pytest-xprocess
     SUBDIR += py-pytest4
     SUBDIR += py-pytest4-asyncio
+    SUBDIR += py-pytest4-cache
     SUBDIR += py-pytest4-cov
+    SUBDIR += py-pytest4-flakes
     SUBDIR += py-python-Levenshtein
     SUBDIR += py-python-application
     SUBDIR += py-python-bugzilla
@@ -5524,6 +5527,7 @@
     SUBDIR += qbs
     SUBDIR += qca
     SUBDIR += qconf
+    SUBDIR += qcoro
     SUBDIR += qgit
     SUBDIR += qjson
     SUBDIR += qmake
