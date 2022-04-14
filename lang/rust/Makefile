@@ -102,6 +102,8 @@ MAKE_ENV+=	RUST_BACKTRACE=1
 _RUST_TOOLS+=	rls
 .endif
 
+.include <${PORTSDIR}/Mk/site.llvm.mk>
+
 .if exists(${PATCHDIR}/${ARCH}${BOOTSTRAPS_SUFFIX})
 EXTRA_PATCHES+=	${PATCHDIR}/${ARCH}${BOOTSTRAPS_SUFFIX}
 .endif
