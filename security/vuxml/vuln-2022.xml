@@ -1,3 +1,260 @@
+  <vuln vid="a5de43ed-bc49-11ec-b516-0897988a1c07">
+    <topic>Asterisk -- func_odbc: Possible SQL Injection</topic>
+    <affects>
+      <package>
+	<name>asterisk16</name>
+	<range><lt>16.25.2</lt></range>
+      </package>
+      <package>
+	<name>asterisk18</name>
+	<range><lt>18.11.2</lt></range>
+      </package>
+    </affects>
+    <description>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+	<p>The Asterisk project reports:</p>
+	<blockquote cite="https://www.asterisk.org/downloads/security-advisories/">
+	  <p>Some databases can use backslashes to escape certain
+	  characters, such as backticks. If input is provided to
+	  func_odbc which includes backslashes it is possible for
+	  func_odbc to construct a broken SQL query and the SQL
+	  query to fail.</p>
+	</blockquote>
+      </body>
+    </description>
+    <references>
+      <cvename>CVE-2022-26651</cvename>
+      <url>https://downloads.asterisk.org/pub/security/AST-2022-003.html</url>
+    </references>
+    <dates>
+      <discovery>2022-04-14</discovery>
+      <entry>2022-04-14</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="8838abf0-bc47-11ec-b516-0897988a1c07">
+    <topic>Asterisk -- multiple vulnerabilities</topic>
+    <affects>
+      <package>
+	<name>asterisk16</name>
+	<range><gt>16.15.0</gt><lt>16.25.2</lt></range>
+      </package>
+      <package>
+	<name>asterisk18</name>
+	<range><lt>18.11.2</lt></range>
+      </package>
+    </affects>
+    <description>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+	<p>The Asterisk project reports:</p>
+	<blockquote cite="https://www.asterisk.org/downloads/security-advisories/">
+	  <p>AST-2022-001 - When using STIR/SHAKEN, its possible
+	  to download files that are not certificates. These files
+	  could be much larger than what you would expect to
+	  download.</p>
+	  <p>AST-2022-002 - When using STIR/SHAKEN, its possible
+	  to send arbitrary requests like GET to interfaces such
+	  as localhost using the Identity header.</p>
+	</blockquote>
+      </body>
+    </description>
+    <references>
+      <cvename>CVE-2022-26498</cvename>
+      <url>https://downloads.asterisk.org/pub/security/AST-2022-001.html</url>
+      <cvename>CVE-2022-26499</cvename>
+      <url>https://downloads.asterisk.org/pub/security/AST-2022-002.html</url>
+    </references>
+    <dates>
+      <discovery>2022-04-14</discovery>
+      <entry>2022-04-14</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="24a9bd2b-bb43-11ec-af81-0897988a1c07">
+    <topic>Composer -- Command injection vulnerability</topic>
+    <affects>
+      <package>
+	<name>php74-composer</name>
+	<name>php80-composer</name>
+	<name>php81-composer</name>
+	<range><lt>1.10.26</lt></range>
+      </package>
+      <package>
+	<name>php74-composer2</name>
+	<name>php80-composer2</name>
+	<name>php81-composer2</name>
+	<range><ge>2.0.0</ge><lt>2.2.12</lt></range>
+	<range><ge>2.3.0</ge><lt>2.3.5</lt></range>
+      </package>
+    </affects>
+    <description>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+	<p>Composer developers reports:</p>
+	<blockquote cite="https://github.com/composer/composer/security/advisories/GHSA-x7cr-6qr6-2hh6">
+	  <p>The Composer method VcsDriver::getFileContent() with
+	  user-controlled $file or $identifier arguments is susceptible
+	  to an argument injection vulnerability. It can be leveraged
+	  to gain arbitrary command execution if the Mercurial or
+	  the Git driver are used.</p>
+	</blockquote>
+      </body>
+    </description>
+    <references>
+      <cvename>CVE-2022-24828</cvename>
+      <url>https://github.com/composer/composer/security/advisories/GHSA-x7cr-6qr6-2hh6</url>
+    </references>
+    <dates>
+      <discovery>2022-04-13</discovery>
+      <entry>2022-04-13</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="3a1dc8c8-bb27-11ec-98d1-d43d7eed0ce2">
+    <topic>Subversion -- Multiple vulnerabilities in server code</topic>
+    <affects>
+      <package>
+	<name>subversion</name>
+	<range><ge>1.10.0</ge><lt>1.10.8</lt></range>
+	<range><ge>1.11.0</ge><lt>1.14.2</lt></range>
+      </package>
+      <package>
+        <name>mod_dav_svn</name>
+        <range><ge>1.10.0</ge><lt>1.10.8</lt></range>
+        <range><ge>1.11.0</ge><lt>1.14.2</lt></range>
+      </package>
+      <package>
+        <name>subversion-lts</name>
+        <range><ge>1.10.0</ge><lt>1.10.8</lt></range>
+      </package>
+      <package>
+        <name>mod_dav_svn-lts</name>
+        <range><ge>1.10.0</ge><lt>1.10.8</lt></range>
+      </package>
+     </affects>
+    <description>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+	<p>Subversion project reports:</p>
+	<blockquote cite="https://subversion.apache.org/security/CVE-2021-28544-advisory.txt">
+	  <p>
+            Subversion servers reveal 'copyfrom' paths that should be hidden according
+            to configured path-based authorization (authz) rules.  When a node has been
+            copied from a protected location, users with access to the copy can see the
+            'copyfrom' path of the original.  This also reveals the fact that the node
+            was copied.  Only the 'copyfrom' path is revealed; not its contents. Both
+            httpd and svnserve servers are vulnerable.
+          </p>
+	</blockquote>
+        <blockquote cite="https://subversion.apache.org/security/CVE-2022-24070-advisory.txt">
+          <p>
+            While looking up path-based authorization rules, mod_dav_svn servers
+            may attempt to use memory which has already been freed.
+          </p>
+        </blockquote>
+      </body>
+    </description>
+    <references>
+      <cvename>CVE-2021-28544</cvename>
+      <cvename>CVE-2022-24070</cvename>
+      <url>https://subversion.apache.org/security/CVE-2021-28544-advisory.txt</url>
+      <url>https://subversion.apache.org/security/CVE-2022-24070-advisory.txt</url>
+    </references>
+    <dates>
+      <discovery>2022-04-12</discovery>
+      <entry>2022-04-13</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="06ed6a49-bad4-11ec-9cfe-0800270512f4">
+    <topic>Ruby -- Buffer overrun in String-to-Float conversion</topic>
+    <affects>
+      <package>
+	<name>ruby</name>
+	<range><ge>2.7.0,1</ge><lt>2.7.6,1</lt></range>
+	<range><ge>3.0.0,1</ge><lt>3.0.4,1</lt></range>
+	<range><ge>3.1.0,1</ge><lt>3.1.2,1</lt></range>
+      </package>
+      <package>
+	<name>ruby27</name>
+	<range><ge>2.7.0,1</ge><lt>2.7.10,1</lt></range>
+      </package>
+      <package>
+	<name>ruby30</name>
+	<range><ge>3.0.0,1</ge><lt>3.0.4,1</lt></range>
+      </package>
+      <package>
+	<name>ruby31</name>
+	<range><ge>3.1.0,1</ge><lt>3.1.2,1</lt></range>
+      </package>
+    </affects>
+    <description>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+	<p>piao reports:</p>
+	<blockquote cite="https://www.ruby-lang.org/en/news/2022/04/12/buffer-overrun-in-string-to-float-cve-2022-28739/">
+	  <p>
+	    Due to a bug in an internal function that converts a String
+	    to a Float, some convertion methods like <code>Kernel#Float</code>
+	    and <code>String#to_f</code> could cause buffer over-read.
+	    A typical consequence is a process termination due to
+	    segmentation fault, but in a limited circumstances, it may
+	    be exploitable for illegal memory read.
+	  </p>
+	</blockquote>
+      </body>
+    </description>
+    <references>
+      <cvename>CVE-2022-28739</cvename>
+      <url>https://www.ruby-lang.org/en/news/2022/04/12/buffer-overrun-in-string-to-float-cve-2022-28739/</url>
+    </references>
+    <dates>
+      <discovery>2022-04-12</discovery>
+      <entry>2022-04-13</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="f22144d7-bad1-11ec-9cfe-0800270512f4">
+    <topic>Ruby -- Double free in Regexp compilation</topic>
+    <affects>
+      <package>
+	<name>ruby</name>
+	<range><ge>3.0.0,1</ge><lt>3.0.4,1</lt></range>
+	<range><ge>3.1.0,1</ge><lt>3.1.2,1</lt></range>
+      </package>
+      <package>
+	<name>ruby30</name>
+	<range><ge>3.0.0,1</ge><lt>3.0.4,1</lt></range>
+      </package>
+      <package>
+	<name>ruby31</name>
+	<range><ge>3.1.0,1</ge><lt>3.1.2,1</lt></range>
+      </package>
+    </affects>
+    <description>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+	<p>piao reports:</p>
+	<blockquote cite="https://www.ruby-lang.org/en/news/2022/04/12/double-free-in-regexp-compilation-cve-2022-28738/">
+	  <p>
+	    Due to a bug in the Regexp compilation process, creating
+	    a Regexp object with a crafted source string could cause
+	    the same memory to be freed twice. This is known as a
+	    &quot;double free&quot; vulnerability. Note that, in general, it
+	    is considered unsafe to create and use a Regexp object
+	    generated from untrusted input. In this case, however,
+	    following a comprehensive assessment, we treat this issue
+	    as a vulnerability.
+	  </p>
+	</blockquote>
+      </body>
+    </description>
+    <references>
+      <cvename>CVE-2022-28738</cvename>
+      <url>https://www.ruby-lang.org/en/news/2022/04/12/double-free-in-regexp-compilation-cve-2022-28738/</url>
+    </references>
+    <dates>
+      <discovery>2022-04-12</discovery>
+      <entry>2022-04-13</entry>
+    </dates>
+  </vuln>
+
   <vuln vid="b582a85a-ba4a-11ec-8d1e-3065ec8fd3ec">
     <topic>Chromium -- mulitple vulnerabilities</topic>
     <affects>
