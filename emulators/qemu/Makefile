@@ -241,4 +241,5 @@ post-install-DOCS-on:
 	@(cd ${WRKSRC} && ${COPYTREE_SHARE} docs ${STAGEDIR}${DOCSDIR}/)
 .endif
 
+.include <${PORTSDIR}/Mk/site.llvm.mk>
 .include <bsd.port.mk>
