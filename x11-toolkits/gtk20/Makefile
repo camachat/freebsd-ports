@@ -65,4 +65,6 @@ post-install:
 	@${MKDIR} ${STAGEDIR}${PREFIX}/lib/gtk-2.0/${GTK2_VERSION}/loaders
 	@${MKDIR} ${STAGEDIR}${PREFIX}/lib/gtk-2.0/${GTK2_VERSION}/modules
 
-.include <bsd.port.mk>
+.include <bsd.port.pre.mk>
+.include <${PORTSDIR}/Mk/site.llvm.mk>
+.include <bsd.port.post.mk>

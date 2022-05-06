@@ -103,4 +103,6 @@ post-install:
 	${INSTALL_MAN} ${WRKSRC}/docs/reference/gtk/gtk-query-immodules-3.0.1 \
 		${STAGEDIR}${PREFIX}/man/man1
 
-.include <bsd.port.mk>
+.include <bsd.port.pre.mk>
+.include <${PORTSDIR}/Mk/site.llvm.mk>
+.include <bsd.port.post.mk>
