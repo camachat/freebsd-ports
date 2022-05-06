@@ -106,4 +106,5 @@ CONFIGURE_ARGS+=--disable-precomp-headers
 post-build-NLS-on:
 	@${DO_MAKE_BUILD} allmo -C ${BUILD_WRKSRC}/locale
 
+.include <${PORTSDIR}/Mk/site.llvm.mk>
 .include <bsd.port.post.mk>
