@@ -37,4 +37,6 @@ post-patch:
 		-Ee '/set.*(release|debug)_flags_to_test/,/\)/d' \
 		${WRKSRC}/CMakeLists.txt
 
-.include <bsd.port.mk>
+.include <bsd.port.pre.mk>
+.include <${PORTSDIR}/Mk/site.llvm.mk>
+.include <bsd.port.post.mk>

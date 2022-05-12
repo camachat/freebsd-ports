@@ -57,4 +57,5 @@ EXTRA_PATCHES+=	${FILESDIR}/extra-patch-cflags
 post-install:
 	${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/libxvidcore.so
 
+.include <${PORTSDIR}/Mk/site.llvm.mk>
 .include <bsd.port.post.mk>

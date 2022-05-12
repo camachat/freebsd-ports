@@ -116,4 +116,6 @@ post-patch-TT_SIZE_METRICS-on:
 post-install-DOCS-on:
 	(cd ${WRKSRC}/docs && ${COPYTREE_SHARE} "${PORTDOCS}" ${STAGEDIR}${DOCSDIR})
 
+.include <bsd.port.pre.mk>
+.include <${PORTSDIR}/Mk/site.llvm.mk>
 .include <bsd.port.post.mk>

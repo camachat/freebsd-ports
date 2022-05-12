@@ -43,4 +43,6 @@ post-patch:
 	@${REINPLACE_CMD} 's,$${AOM_ROOT}/CHANGELOG,${DISTVERSIONFULL:S/^v//},' \
 		${WRKSRC}/build/cmake/version.cmake
 
-.include <bsd.port.mk>
+.include <bsd.port.pre.mk>
+.include <${PORTSDIR}/Mk/site.llvm.mk>
+.include <bsd.port.post.mk>

@@ -32,4 +32,6 @@ OPTIONS_EXCLUDE_riscv64=	LTO # bug 262871
 LTO_CMAKE_BOOL=		CMAKE_INTERPROCEDURAL_OPTIMIZATION
 LTO_CMAKE_ON=		-DCMAKE_POLICY_DEFAULT_CMP0069:STRING=NEW
 
-.include <bsd.port.mk>
+.include <bsd.port.pre.mk>
+.include <${PORTSDIR}/Mk/site.llvm.mk>
+.include <bsd.port.post.mk>

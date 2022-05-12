@@ -20,4 +20,6 @@ CMAKE_OFF+=	${CMAKE_TESTING_ON}
 CMAKE_TESTING_ON=	LIBGAV1_ENABLE_TESTS
 LDFLAGS+=	-Wl,--as-needed # avoid overlinking (abseil deps)
 
-.include <bsd.port.mk>
+.include <bsd.port.pre.mk>
+.include <${PORTSDIR}/Mk/site.llvm.mk>
+.include <bsd.port.post.mk>

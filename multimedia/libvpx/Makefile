@@ -51,4 +51,6 @@ post-install:
 	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/vpx*
 	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/libvpx.so.*.*.*
 
-.include <bsd.port.mk>
+.include <bsd.port.pre.mk>
+.include <${PORTSDIR}/Mk/site.llvm.mk>
+.include <bsd.port.post.mk>

@@ -27,4 +27,6 @@ USE_GITHUB=	yes
 
 CPE_VENDOR=	uclouvain
 
-.include <bsd.port.mk>
+.include <bsd.port.pre.mk>
+.include <${PORTSDIR}/Mk/site.llvm.mk>
+.include <bsd.port.post.mk>

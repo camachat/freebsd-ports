@@ -212,4 +212,6 @@ post-install:
 	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/mpv
 	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/libmpv.so
 
-.include <bsd.port.mk>
+.include <bsd.port.pre.mk>
+.include <${PORTSDIR}/Mk/site.llvm.mk>
+.include <bsd.port.post.mk>

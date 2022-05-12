@@ -100,4 +100,6 @@ post-install:
 		${STAGEDIR}${PREFIX}/libdata/pkgconfig
 .endif
 
-.include <bsd.port.mk>
+.include <bsd.port.pre.mk>
+.include <${PORTSDIR}/Mk/site.llvm.mk>
+.include <bsd.port.post.mk>

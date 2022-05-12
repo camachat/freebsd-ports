@@ -46,4 +46,6 @@ MESON_ARGS_clang_i386=	-Dstack_alignment=4
 
 pre-install-TEST-on: do-test
 
-.include <bsd.port.mk>
+.include <bsd.port.pre.mk>
+.include <${PORTSDIR}/Mk/site.llvm.mk>
+.include <bsd.port.post.mk>

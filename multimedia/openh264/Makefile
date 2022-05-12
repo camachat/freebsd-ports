@@ -66,4 +66,6 @@ post-install-PLUGINS-on:
 	${INSTALL_LIB} ${WRKSRC}/libgmp${PORTNAME}.so ${STAGEDIR}${WEBPLUGIN_DIR}
 	${INSTALL_DATA} ${WRKDIR}/gmp${PORTNAME}.js ${STAGEDIR}${WEBPLUGIN_DIR}
 
-.include <bsd.port.mk>
+.include <bsd.port.pre.mk>
+.include <${PORTSDIR}/Mk/site.llvm.mk>
+.include <bsd.port.post.mk>

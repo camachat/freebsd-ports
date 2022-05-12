@@ -56,4 +56,6 @@ SVTAV1_DESC=		AV1 encoding via SVT-AV1
 SVTAV1_LIB_DEPENDS=	libSvtAv1Enc.so:multimedia/svt-av1
 SVTAV1_CMAKE_BOOL=	AVIF_CODEC_SVT
 
-.include <bsd.port.mk>
+.include <bsd.port.pre.mk>
+.include <${PORTSDIR}/Mk/site.llvm.mk>
+.include <bsd.port.post.mk>

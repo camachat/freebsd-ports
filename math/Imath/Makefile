@@ -59,4 +59,6 @@ post-install:
 do-test:
 	cd ${BUILD_WRKSRC} && ctest -j ${MAKE_JOBS_NUMBER}
 
-.include <bsd.port.mk>
+.include <bsd.port.pre.mk>
+.include <${PORTSDIR}/Mk/site.llvm.mk>
+.include <bsd.port.post.mk>
