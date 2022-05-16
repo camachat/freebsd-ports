@@ -1,5 +1,5 @@
-TIMESTAMP = 1596954280
-SHA256 (vlang-v-0.1.29_GH0.tar.gz) = 5111d04663d8454c9e8bcbd7e3544dcbd6abc54eb5034e31649417af6e8418a6
-SIZE (vlang-v-0.1.29_GH0.tar.gz) = 2850141
-SHA256 (vlang-vc-0.1.20_GH0.tar.gz) = 5b4fc1f39c3aef5214a3366e0d514ee2879a2e52a918dc0181df833028a0eb72
-SIZE (vlang-vc-0.1.20_GH0.tar.gz) = 218748
+TIMESTAMP = 1652720839
+SHA256 (vlang-v-weekly.2022.19_GH0.tar.gz) = a32c983f7d35b24fc84f76eeac75f33351c86ed3aed12b1d39c8c33b8b255e40
+SIZE (vlang-v-weekly.2022.19_GH0.tar.gz) = 4286946
+SHA256 (vlang-vc-a298ad7069f6_GH0.tar.gz) = 8f60fa59741aee6d399cf93681747ca315bdaaf14be9552510610cb05218b4f1
+SIZE (vlang-vc-a298ad7069f6_GH0.tar.gz) = 1449059

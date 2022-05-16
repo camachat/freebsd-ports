@@ -1,7 +1,8 @@
 # Created by: Po-Chuan Hsieh <sunpoet@FreeBSD.org>
 
 PORTNAME=	v
-PORTVERSION=	0.1.29
+PORTVERSION=	2022.19
+DISTVERSIONPREFIX=	weekly.
 CATEGORIES=	lang
 
 MAINTAINER=	sunpoet@FreeBSD.org
@@ -12,12 +13,12 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		compiler:c11 gmake
 
-LDFLAGS+=	-lm
+LDFLAGS+=	-lm -lexecinfo -lpthread
 
 PLIST_FILES=	bin/v
 
 GH_ACCOUNT=	vlang
-GH_TUPLE=	vlang:vc:0.1.20:vc/vc
+GH_TUPLE=	vlang:vc:a298ad7069f6:vc/vc
 USE_GITHUB=	yes
 
 do-build:
