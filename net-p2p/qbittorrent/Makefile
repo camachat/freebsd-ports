@@ -1,8 +1,7 @@
 # Created by: Doug Barton <dougb@FreeBSD.org>
 
 PORTNAME=	qbittorrent
-DISTVERSION=	4.4.2
-PORTREVISION=	1
+DISTVERSION=	4.4.3.1
 CATEGORIES=	net-p2p
 MASTER_SITES=	SF/${PORTNAME}/${PORTNAME}/${PORTNAME}-${PORTVERSION}
 
@@ -12,7 +11,6 @@ COMMENT=	Bittorrent client using Qt5 and libtorrent-rasterbar
 LICENSE=	GPLv2+
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-BROKEN=		Crashes with boost-libs-1.79.0, see bug#264278
 BROKEN_FreeBSD_12_powerpc64=	fails to build: ./base/tristatebool.h:44:5: 'constexpr' constructor does not have empty body
 
 LIB_DEPENDS=	libtorrent-rasterbar.so:net-p2p/libtorrent-rasterbar \
@@ -28,6 +26,8 @@ GNU_CONFIGURE=		yes
 USE_QT=			core network sql xml buildtools_build linguisttools_build qmake_build
 DESTDIRNAME=		INSTALL_ROOT
 CONFIGURE_ENV+=		openssl_CFLAGS="-I${OPENSSLINC}" openssl_LIBS="-L${OPENSSLLIB} -lssl"
+
+USE_CXXSTD=		c++17 # prevent boost-related SEGV, see bug#264278
 
 .if ${FLAVOR} == default
 USES+=			desktop-file-utils gl
