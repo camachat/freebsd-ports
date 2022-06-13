@@ -21,7 +21,7 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	solemnwarning
 USE_GNOME=	atk cairo gdkpixbuf2 glib20 gtk30 pango
 USE_PERL5=	build
-USE_WX=		3.0+
+USE_WX=		3.1+
 MAKE_ENV=	INSTALL_STRIP="${STRIP}" LUA_PKG="lua-${LUA_VER}" LUA="${LUA_CMD}"
 TEST_TARGET=	check
 
