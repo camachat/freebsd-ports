@@ -197,4 +197,5 @@ do-install:
 	@${FIND} ${STAGEDIR}${INSTALLDIR} -not -type d | ${SORT} | \
 		${SED} -e 's|^${STAGEDIR}${PREFIX}/||' >> ${TMPPLIST}
 
+.include <${PORTSDIR}/Mk/site.llvm.mk>
 .include <bsd.port.post.mk>
