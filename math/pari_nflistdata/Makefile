@@ -1,24 +1,23 @@
-# Created by: thierry@pompo.net
-
-PORTNAME=	elldata
-DISTVERSION=	2021-03-21
+PORTNAME=	nflistdata
+DISTVERSION=	2022-03-26
 CATEGORIES=	math
 MASTER_SITES=	https://pari.math.u-bordeaux.fr/pub/pari/packages/
 PKGNAMEPREFIX=	pari-
 DISTNAME=	${PORTNAME}
 DIST_SUBDIR=	${PKGNAMEPREFIX}${PORTNAME}/${DISTVERSION}
 
-MAINTAINER=	thierry@FreeBSD.org
-COMMENT=	Elliptic Curve Data for PARI/GP
+MAINTAINER=	yuri@FreeBSD.org
+COMMENT=	List fields of small discriminant for nflist() in PARI/GP
 
 LICENSE=	ART20
 
-LIB_DEPENDS=	libpari.so:math/pari
+RUN_DEPENDS=	pari>0:math/pari
 
 USES=		tar:tgz
 
 WRKSRC=		${WRKDIR}/data/${PORTNAME}
 INSTDIR=	${STAGEDIR}${PREFIX}/share/pari/${PORTNAME}
+
 NO_BUILD=	yes
 NO_ARCH=	yes
 
@@ -26,7 +25,7 @@ OPTIONS_DEFINE=	DOCS
 
 do-install:
 	${MKDIR} ${INSTDIR}
-	${INSTALL_DATA} ${WRKSRC}/ell* ${INSTDIR}/
+	cd ${WRKSRC} && ${COPYTREE_SHARE} . ${INSTDIR}/
 	${MKDIR} ${STAGEDIR}${DOCSDIR}
 	${INSTALL_DATA} ${WRKSRC}/README ${STAGEDIR}${DOCSDIR}/
 
