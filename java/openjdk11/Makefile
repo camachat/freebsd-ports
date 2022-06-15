@@ -144,7 +144,7 @@ MAKE_ENV+=	USE_CLANG=true
 .if ${COMPILER_VERSION} >= 130
 # PR258954: OpenJDK <= 13 crash due to undefined behavior with clang >= 13
 # See also https://bugs.openjdk.java.net/browse/JDK-8229258
-LLVM_VER=	12
+LLVM_VER=	14
 BUILD_DEPENDS+=	clang${LLVM_VER}:devel/llvm${LLVM_VER}
 CC=		${LOCALBASE}/bin/clang${LLVM_VER}
 CXX=		${LOCALBASE}/bin/clang++${LLVM_VER}
@@ -196,5 +196,5 @@ do-install:
 	@${FIND} ${STAGEDIR}${INSTALLDIR} -not -type d | ${SORT} | \
 		${SED} -e 's|^${STAGEDIR}${PREFIX}/||' >> ${TMPPLIST}
 
-.include <${PORTSDIR}/Mk/site.llvm.mk>
+#.include <${PORTSDIR}/Mk/site.llvm.mk>
 .include <bsd.port.post.mk>
