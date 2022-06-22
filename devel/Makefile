@@ -572,6 +572,7 @@
     SUBDIR += eiffelstudio
     SUBDIR += electron13
     SUBDIR += electron17
+    SUBDIR += electron18
     SUBDIR += elf
     SUBDIR += elf-dissector
     SUBDIR += elfcat
@@ -5300,6 +5301,7 @@
     SUBDIR += py-sarge
     SUBDIR += py-sarif-om
     SUBDIR += py-schedule
+    SUBDIR += py-scheduler
     SUBDIR += py-schema
     SUBDIR += py-schematics-patched
     SUBDIR += py-scikit-build
