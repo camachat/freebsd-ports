@@ -12,7 +12,7 @@ COMMENT=	GStreamer editing services
 
 LICENSE=	LGPL20
 
-USES=		compiler:c11 gmake gnome gstreamer libtool pathfix perl5 python:3.6-3.9 pkgconfig tar:xz
+USES=		compiler:c11 gmake gnome gstreamer libtool pathfix perl5 python:3.6-3.10 pkgconfig tar:xz
 USE_LDCONFIG=	yes
 USE_PERL5=	build
 GNU_CONFIGURE=	yes
