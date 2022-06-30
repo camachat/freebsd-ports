@@ -201,6 +201,7 @@
     SUBDIR += cadical
     SUBDIR += cado-nfs
     SUBDIR += calc
+    SUBDIR += calcium
     SUBDIR += calcoo
     SUBDIR += cantor
     SUBDIR += casadi
@@ -1094,6 +1095,7 @@
     SUBDIR += triangle
     SUBDIR += trlan
     SUBDIR += trlib
+    SUBDIR += ttmath
     SUBDIR += tvmet
     SUBDIR += ump
     SUBDIR += units
