@@ -1,11 +1,12 @@
 # Created by: Martin Matuska <mm@FreeBSD.org>
 
 PORTNAME=	debootstrap
-PORTVERSION=	1.0.123
-PORTREVISION=	6
+PORTVERSION=	1.0.126
+PORTREVISION=	0
 CATEGORIES=	sysutils
 MASTER_SITES=	DEBIAN
-DISTNAME=	${PORTNAME}_${PORTVERSION}
+DISTVERSIONSUFFIX=	+nmu1
+DISTNAME=	${PORTNAME}_${DISTVERSIONFULL}
 
 MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Install Debian or Ubuntu base system into a directory
@@ -19,7 +20,7 @@ RUN_DEPENDS=	wget:ftp/wget \
 		gpgv2:security/gnupg \
 		${LOCALBASE}/share/keyrings/ubuntu-archive-keyring.gpg:security/ubuntu-keyring
 
-WRKSRC=		${WRKDIR}/${PORTNAME}
+WRKSRC=		${WRKDIR}/${PORTNAME}-${DISTVERSIONFULL}
 NO_BUILD=	yes
 NO_ARCH=	yes
 USES=		gmake perl5
