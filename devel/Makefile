@@ -759,6 +759,7 @@
     SUBDIR += gearmand
     SUBDIR += generate
     SUBDIR += gengetopt
+    SUBDIR += genht
     SUBDIR += genie
     SUBDIR += genromfs
     SUBDIR += getoptions
@@ -4144,6 +4145,7 @@
     SUBDIR += py-aws-requests-auth
     SUBDIR += py-aws-sam-translator
     SUBDIR += py-aws-xray-sdk
+    SUBDIR += py-awscrt
     SUBDIR += py-azure-appconfiguration
     SUBDIR += py-azure-batch
     SUBDIR += py-azure-core
