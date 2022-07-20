@@ -1,5 +1,3 @@
-# Created by: Gleb Kurtsou <gleb@FreeBSD.org>
-
 PORTNAME=	pefs
 DISTVERSION=	g20220405
 PORTEPOCH=     1

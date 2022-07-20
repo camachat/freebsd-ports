@@ -1,5 +1,3 @@
-# Created by: Martin Matuska <mm@FreeBSD.org>
-
 PORTNAME=	debootstrap
 PORTVERSION=	1.0.126
 PORTREVISION=	0

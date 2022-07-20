@@ -1,5 +1,3 @@
-# Created by: Po-Chuan Hsieh <sunpoet@FreeBSD.org>
-
 PORTNAME=	v
 PORTVERSION=	2022.19
 DISTVERSIONPREFIX=	weekly.
