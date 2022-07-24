@@ -8,7 +8,11 @@ COMMENT=	Universal Radio Hacker: investigate wireless protocols like a boss
 
 LICENSE=	GPLv3
 
-BUILD_DEPENDS=	${PYNUMPY} \
+.if !exists(/usr/include/omp.h)
+BROKEN=		requires OpenMP support that is missing on this architecture
+.endif
+
+BUILD_DEPENDS=	${PYNUMPY}
 		gr-osmosdr>0:comms/gr-osmosdr \
 		hackrf>0:comms/hackrf \
 		rtl-sdr>0:comms/rtl-sdr
