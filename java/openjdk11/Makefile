@@ -141,8 +141,6 @@ CONFIGURE_ARGS+=	--with-extra-ldflags="-Wl,-rpath=${LOCALBASE}/lib/gcc${GCC_DEFA
 			--with-extra-cxxflags="-Wl,-rpath=${LOCALBASE}/lib/gcc${GCC_DEFAULT}"
 .else
 MAKE_ENV+=	USE_CLANG=true
-CONFIGURE_ARGS+=	--with-extra-cflags="-Wno-bitwise-instead-of-logical -Wno-unused-command-line-argument" \
-			--with-extra-cxxflags="-Wno-bitwise-instead-of-logical -Wno-unused-command-line-argument"
 .endif
 
 .if ${ARCH} == aarch64 || ${ARCH:Marmv*} || ${ARCH:Mpowerpc64*}
