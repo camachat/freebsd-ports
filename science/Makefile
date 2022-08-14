@@ -68,6 +68,7 @@
     SUBDIR += devisor
     SUBDIR += dftbplus
     SUBDIR += dftd4
+    SUBDIR += dirac
     SUBDIR += dkh
     SUBDIR += dlib-cpp
     SUBDIR += drawxtl
@@ -254,6 +255,8 @@
     SUBDIR += py-MDAnalysis
     SUBDIR += py-MDAnalysisTests
     SUBDIR += py-OpenFermion
+    SUBDIR += py-OpenFermion-Dirac
+    SUBDIR += py-OpenFermion-PySCF
     SUBDIR += py-OpenMC
     SUBDIR += py-PubChemPy
     SUBDIR += py-PyFR
@@ -278,8 +281,13 @@
     SUBDIR += py-cirq-pasqal
     SUBDIR += py-cirq-rigetti
     SUBDIR += py-coards
+    SUBDIR += py-dimod
     SUBDIR += py-dipy
     SUBDIR += py-dlib
+    SUBDIR += py-dwave-neal
+    SUBDIR += py-dwave-networkx
+    SUBDIR += py-dwave-samplers
+    SUBDIR += py-dwave-tabu
     SUBDIR += py-eccodes
     SUBDIR += py-esda
     SUBDIR += py-fresnel

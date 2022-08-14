@@ -1,6 +1,7 @@
 PORTNAME=	nvc
 DISTVERSIONPREFIX=	r
-DISTVERSION=	1.7.0
+DISTVERSION=	1.7.0-23
+DISTVERSIONSUFFIX=	-g265f2800
 CATEGORIES=	cad
 
 MAINTAINER=	yuri@FreeBSD.org
@@ -8,8 +9,6 @@ COMMENT=	VHDL compiler and simulator
 
 LICENSE=	GPLv3
 LICENSE_FILE=	${WRKSRC}/COPYING
-
-BROKEN_i386=	compilation fails: Please port fill_cpu_state to this OS/CPU combination, see https://github.com/nickg/nvc/issues/501
 
 BUILD_DEPENDS=	llvm-config${LLVM_VERSION}:devel/llvm${LLVM_VERSION}
 RUN_DEPENDS=	llvm${LLVM_VERSION}>0:devel/llvm${LLVM_VERSION} \
@@ -44,6 +43,12 @@ BUILD_WRKSRC=		${BUILD_DIR}
 CONFIGURE_WRKSRC=	${BUILD_DIR}
 INSTALL_WRKSRC=		${BUILD_DIR}
 CONFIGURE_CMD=		${WRKSRC}/configure
+
+.include <bsd.port.options.mk>
+
+.if ${ARCH} == powerpc64
+CONFIGURE_ARGS+=	--enable-lto=no
+.endif
 
 post-install:
 	@${FIND} ${STAGEDIR}${PREFIX} -name "*.so" | ${XARGS} ${STRIP_CMD}
