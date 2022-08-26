@@ -248,6 +248,7 @@
     SUBDIR += convertall
     SUBDIR += coq
     SUBDIR += cosma
+    SUBDIR += costa
     SUBDIR += couenne
     SUBDIR += coxeter3
     SUBDIR += cppad
@@ -1011,6 +1012,7 @@
     SUBDIR += randlib
     SUBDIR += rankwidth
     SUBDIR += rapid
+    SUBDIR += readstat
     SUBDIR += reduce
     SUBDIR += reduce-psl
     SUBDIR += reed-solomon
@@ -1062,6 +1064,8 @@
     SUBDIR += spblas
     SUBDIR += spectra
     SUBDIR += speedcrunch
+    SUBDIR += spfft
+    SUBDIR += spla
     SUBDIR += spooles
     SUBDIR += spooles-mpich
     SUBDIR += spot
