@@ -16,7 +16,7 @@ RUN_DEPENDS=	wget:ftp/wget \
 		gpgv2:security/gnupg \
 		${LOCALBASE}/share/keyrings/ubuntu-archive-keyring.gpg:security/ubuntu-keyring
 
-WRKSRC=		${WRKDIR}/${PORTNAME}-${DISTVERSIONFULL}
+WRKSRC=		${WRKDIR}/${PORTNAME}
 NO_BUILD=	yes
 NO_ARCH=	yes
 USES=		gmake perl5
