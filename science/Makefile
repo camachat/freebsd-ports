@@ -69,11 +69,13 @@
     SUBDIR += devisor
     SUBDIR += dftbplus
     SUBDIR += dftd4
+    SUBDIR += dimod
     SUBDIR += dirac
     SUBDIR += dkh
     SUBDIR += dlib-cpp
     SUBDIR += drawxtl
     SUBDIR += dvc
+    SUBDIR += dwave-preprocessing
     SUBDIR += dynare
     SUBDIR += eccodes
     SUBDIR += elk
@@ -192,6 +194,7 @@
     SUBDIR += netcdf-cxx
     SUBDIR += netcdf-fortran
     SUBDIR += nifticlib
+    SUBDIR += nlcglib
     SUBDIR += nwchem
     SUBDIR += nwchem-data
     SUBDIR += octopus
@@ -428,6 +431,7 @@
     SUBDIR += simlib
     SUBDIR += simple-dftd3
     SUBDIR += simsmith
+    SUBDIR += sirius
     SUBDIR += smoldyn
     SUBDIR += sparta
     SUBDIR += spglib

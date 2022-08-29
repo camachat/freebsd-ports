@@ -481,6 +481,7 @@
     SUBDIR += minizinc
     SUBDIR += minizinc-ide
     SUBDIR += minizinc-solvers
+    SUBDIR += minorminer
     SUBDIR += miracl
     SUBDIR += mlpack
     SUBDIR += moab
@@ -1094,6 +1095,7 @@
     SUBDIR += suitesparse-umfpack
     SUBDIR += sundials
     SUBDIR += superlu
+    SUBDIR += superlu-dist
     SUBDIR += symengine
     SUBDIR += symmetrica
     SUBDIR += symphony
