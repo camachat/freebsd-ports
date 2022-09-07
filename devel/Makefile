@@ -1468,6 +1468,7 @@
     SUBDIR += lua-cjson
     SUBDIR += lua-cqueues
     SUBDIR += lua-gettext
+    SUBDIR += lua-language-server
     SUBDIR += lua-lgi
     SUBDIR += lua-libevent
     SUBDIR += lua-lpeg
@@ -1501,6 +1502,7 @@
     SUBDIR += magit-devel
     SUBDIR += make++
     SUBDIR += makedepend
+    SUBDIR += malloy
     SUBDIR += marisa-trie
     SUBDIR += marl
     SUBDIR += mate-common
