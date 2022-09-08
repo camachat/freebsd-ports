@@ -1,10 +1,10 @@
 PORTNAME=	ktp-send-file
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
-PORTREVISION=	1
 CATEGORIES=	net-im kde kde-applications
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	KDE instant messaging file transfer application
+WWW=		https://community.kde.org/KTp
 
 LICENSE=	LGPL21+
 LICENSE_FILE=	${WRKSRC}/COPYING

@@ -1,10 +1,10 @@
 PORTNAME=	kig
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
-PORTREVISION=	1
 CATEGORIES=	math education kde kde-applications
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	KDE interactive geometry application
+WWW=		https://www.kde.org/applications/education/kig
 
 LIB_DEPENDS=	${PY_BOOST}
 

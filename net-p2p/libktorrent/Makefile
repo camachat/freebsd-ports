@@ -1,10 +1,10 @@
 PORTNAME=	libktorrent
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
-PORTREVISION=	2
 CATEGORIES=	net-p2p kde kde-applications
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	Torrent library from KTorrent project
+WWW=		https://ktorrent.org/
 
 BUILD_DEPENDS=	${LOCALBASE}/include/boost/concept_check.hpp:devel/boost-libs
 LIB_DEPENDS=	libgcrypt.so:security/libgcrypt \

@@ -1,10 +1,10 @@
 PORTNAME=	umbrello
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
-PORTREVISION=	1
 CATEGORIES=	devel kde kde-applications
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	UML modeller for KDE
+WWW=		https://umbrello.kde.org/
 
 LIB_DEPENDS=	libboost_thread.so:devel/boost-libs
 

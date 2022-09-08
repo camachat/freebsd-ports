@@ -1,6 +1,5 @@
 PORTNAME=	marble
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
-PORTREVISION=	2
 CATEGORIES=	astro education kde kde-applications
 
 PATCH_SITES=	https://invent.kde.org/education/marble/-/commit/
@@ -8,6 +7,7 @@ PATCHFILES=	677153cc8c1450a8a370fbd1c7505dd7e4ea50fc.diff:-p1
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	Virtual globe and world atlas for KDE
+WWW=		https://marble.kde.org/
 
 LICENSE=	GPLv2+
 LICENSE_FILE=	${WRKSRC}/LICENSE.txt

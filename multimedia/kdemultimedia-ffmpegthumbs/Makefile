@@ -1,11 +1,11 @@
 PORTNAME=	ffmpegthumbs
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
-PORTREVISION=	1
 CATEGORIES=	multimedia kde kde-applications
 PKGNAMEPREFIX=	kdemultimedia-
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	FFmpeg-based thumbnail generator for video files
+WWW=		https://www.kde.org/
 
 LICENSE=	GPLv2
 

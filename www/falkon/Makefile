@@ -1,10 +1,10 @@
 PORTNAME=	falkon
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
-PORTREVISION=	1
 CATEGORIES=	www kde kde-applications
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	Web browser based on Webengine and Qt Framework
+WWW=		https://www.falkon.org/
 
 LICENSE=	GPLv3
 LICENSE_FILE=	${WRKSRC}/COPYING

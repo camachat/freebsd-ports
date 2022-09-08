@@ -1,10 +1,10 @@
 PORTNAME=	kipi-plugins
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
-PORTREVISION=	1
 CATEGORIES=	graphics kde kde-applications
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	Plugin architecture for image applications
+WWW=		https://github.com/kde/kipi-plugins
 
 LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/COPYING

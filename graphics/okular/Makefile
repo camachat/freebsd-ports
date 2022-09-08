@@ -1,10 +1,10 @@
 PORTNAME=	okular
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
-PORTREVISION=	2
 CATEGORIES=	graphics kde kde-applications
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	KDE universal document viewer
+WWW=		https://okular.kde.org
 
 LICENSE=	GPLv2
 

@@ -1,10 +1,10 @@
 PORTNAME=	konversation
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
-PORTREVISION=	2
 CATEGORIES=	irc kde kde-applications
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	User friendly IRC client for KDE
+WWW=		https://konversation.kde.org
 
 LICENSE=	GPLv2+
 

@@ -1,10 +1,10 @@
 PORTNAME=	kgpg
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
-PORTREVISION=	1
 CATEGORIES=	security kde kde-applications
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	Encryption tool for KDE
+WWW=		https://utils.kde.org/projects/kgpg/
 
 RUN_DEPENDS=	gpg2:security/gnupg
 

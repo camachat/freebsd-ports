@@ -1,10 +1,10 @@
 PORTNAME=	skanlite
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
-PORTREVISION=	1
 CATEGORIES=	graphics kde kde-applications
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	Simple image scanning application
+WWW=		https://www.kde.org/applications/graphics/skanlite
 
 LICENSE=	GPLv2
 

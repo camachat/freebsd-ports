@@ -1,10 +1,10 @@
 PORTNAME=	kdepim-addons
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
-PORTREVISION=	1
 CATEGORIES=	deskutils kde kde-applications
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	KDE PIM addons
+WWW=		https://www.kde.org/
 
 LICENSE=	LGPL21
 

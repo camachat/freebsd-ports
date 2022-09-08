@@ -1,10 +1,10 @@
 PORTNAME=	kcachegrind
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
-PORTREVISION=	1
 CATEGORIES=	devel kde kde-applications
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	Profiler frontend for KDE
+WWW=		https://www.kde.org
 
 USES=		cmake compiler:c++11-lang desktop-file-utils kde:5 python:run qt:5 \
 		shebangfix tar:xz xorg

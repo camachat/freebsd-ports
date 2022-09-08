@@ -1,10 +1,10 @@
 PORTNAME=	dolphin
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
-PORTREVISION=	1
 CATEGORIES=	x11-fm kde kde-applications
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	KDE filemanager dolphin
+WWW=		https://userbase.kde.org/Dolphin
 
 LICENSE=	LGPL20
 LICENSE_FILE=	${WRKSRC}/COPYING

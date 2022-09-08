@@ -1,10 +1,10 @@
 PORTNAME=	cantor
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
-PORTREVISION=	1
 CATEGORIES=	math kde kde-applications
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	Mathematical software frontend by KDE
+WWW=		https://edu.kde.org/cantor
 
 LIB_DEPENDS=	libAnalitza.so:math/analitza \
 		libcln.so:math/cln \

@@ -1,11 +1,11 @@
 PORTNAME=	dragon
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
-PORTREVISION=	1
 CATEGORIES=	multimedia kde kde-applications
 PKGNAMESUFFIX=	-player
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	KDE multimedia player with a focus on simplicity
+WWW=		https://www.kde.org/applications/multimedia/dragonplayer/
 
 LICENSE=	GPLv2
 

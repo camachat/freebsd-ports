@@ -1,10 +1,10 @@
 PORTNAME=	zanshin
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
-PORTREVISION=	1
 CATEGORIES=	deskutils kde kde-applications
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	Daily organizer for KDE
+WWW=		https://zanshin.kde.org/
 
 LIB_DEPENDS=	libical.so:devel/libical
 

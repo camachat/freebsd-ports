@@ -1,10 +1,10 @@
 PORTNAME=	markdownpart
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
-PORTREVISION=	1
 CATEGORIES=	textproc kde kde-applications
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	KPart for rendering Markdown content
+WWW=		https://invent.kde.org/utilities/markdownpart
 
 USES=		cmake compiler:c++11-lang kde:5 qt:5 tar:xz xorg
 USE_KDE=	auth codecs completion config configwidgets coreaddons i18n \

@@ -1,10 +1,10 @@
 PORTNAME=	k3b
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
-PORTREVISION=	1
 CATEGORIES=	sysutils multimedia kde-applications
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	KDE CD/DVD writing suite
+WWW=		https://www.k3b.org/
 
 LIB_DEPENDS=	libFLAC.so:audio/flac \
 		libKF5Cddb.so:audio/libkcddb \

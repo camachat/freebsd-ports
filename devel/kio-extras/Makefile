@@ -1,10 +1,10 @@
 PORTNAME=	kio-extras
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
-PORTREVISION=	1
 CATEGORIES=	devel kde kde-applications
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	Plasma5 library to increase the functionality of KIO
+WWW=		https://projects.kde.org/projects/kde/workspace/kio-extras
 
 LIB_DEPENDS=	libtag.so:audio/taglib \
 		libImath.so:math/Imath \

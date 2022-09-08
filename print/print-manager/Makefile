@@ -1,10 +1,10 @@
 PORTNAME=	print-manager
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
-PORTREVISION=	1
 CATEGORIES=	print kde kde-applications
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	Printer manager for KDE
+WWW=		https://www.kde.org
 
 LIB_DEPENDS=	libcups.so:print/cups
 

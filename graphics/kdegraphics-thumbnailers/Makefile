@@ -1,10 +1,10 @@
 PORTNAME=	kdegraphics-thumbnailers
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
-PORTREVISION=	1
 CATEGORIES=	graphics kde kde-applications
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	Thumbnailers for various graphics file formats
+WWW=		https://www.kde.org
 
 LIB_DEPENDS=	 libqmobipocket.so:graphics/kdegraphics-mobipocket
 

@@ -1,10 +1,10 @@
 PORTNAME=	kmouth
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
-PORTREVISION=	1
 CATEGORIES=	accessibility kde kde-applications
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	Speech synthesizer frontend for KDE
+WWW=		https://www.kde.org/applications/utilities/kmouth/
 
 LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/COPYING

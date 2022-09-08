@@ -1,10 +1,10 @@
 PORTNAME=	itinerary
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
-PORTREVISION=	1
 CATEGORIES=	deskutils kde kde-applications
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	Digital travel assistant for KDE
+WWW=		https://apps.kde.org/en/itinerary
 
 USES=		cmake compiler:c++11-lang desktop-file-utils gettext kde:5 qt:5 \
 		tar:xz xorg

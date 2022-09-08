@@ -1,10 +1,10 @@
 PORTNAME=	kwordquiz
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
-PORTREVISION=	1
 CATEGORIES=	misc education kde kde-applications
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	Flash card trainer for KDE Applications
+WWW=		https://www.kde.org/applications/education/kwordquiz
 
 USES=		cmake compiler:c++11-lang desktop-file-utils gettext \
 		kde:5 qt:5 tar:xz xorg

@@ -1,10 +1,10 @@
 PORTNAME=	ktorrent
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
-PORTREVISION=	1
 CATEGORIES=	net-p2p kde kde-applications
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	BitTorrent client for KDE
+WWW=		https://kde.org/applications/en/internet/org.kde.ktorrent
 
 CONFLICTS_BUILD=	libtorrent
 
