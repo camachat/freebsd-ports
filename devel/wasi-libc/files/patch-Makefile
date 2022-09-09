@@ -1,13 +1,11 @@
-complains about: __arraycount
-
---- Makefile.orig	2020-05-16 19:12:43 UTC
+--- Makefile.orig	2022-09-06 21:21:06.000000000 +0000
 +++ Makefile
-@@ -515,7 +515,7 @@ finish: startup_files libc
+@@ -657,7 +657,7 @@ check-symbols: startup_files libc
  
  	# Check that the computed metadata matches the expected metadata.
  	# This ignores whitespace because on Windows the output has CRLF line endings.
--	diff -wur "$(CURDIR)/expected/$(MULTIARCH_TRIPLE)" "$(SYSROOT_SHARE)"
-+	# diff -wur "$(CURDIR)/expected/$(MULTIARCH_TRIPLE)" "$(SYSROOT_SHARE)"
+-	diff -wur "$(CURDIR)/expected/$(MULTIARCH_TRIPLE)/$(THREAD_MODEL)" "$(SYSROOT_SHARE)"
++	# diff -wur "$(CURDIR)/expected/$(MULTIARCH_TRIPLE)/$(THREAD_MODEL)" "$(SYSROOT_SHARE)"
  
- 	#
- 	# The build succeeded! The generated sysroot is in $(SYSROOT).
+ install: finish
+ 	mkdir -p "$(INSTALL_DIR)"
