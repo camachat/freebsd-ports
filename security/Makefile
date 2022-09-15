@@ -120,6 +120,7 @@
     SUBDIR += dehydrated
     SUBDIR += denyhosts
     SUBDIR += destroy
+    SUBDIR += diffcode
     SUBDIR += digestpp
     SUBDIR += dirbuster
     SUBDIR += dirmngr
@@ -1025,6 +1026,7 @@
     SUBDIR += rkhunter
     SUBDIR += rndpassw
     SUBDIR += rnp
+    SUBDIR += rotate
     SUBDIR += rubygem-acme-client
     SUBDIR += rubygem-aes_key_wrap
     SUBDIR += rubygem-airbrussh
