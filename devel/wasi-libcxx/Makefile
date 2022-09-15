@@ -4,6 +4,7 @@ CATEGORIES=	devel lang
 MASTER_SITES=	https://github.com/llvm/llvm-project/releases/download/llvmorg-${DISTVERSION:S/rc/-rc/}/ \
 		https://${PRE_}releases.llvm.org/${LLVM_RELEASE}/${RCDIR}
 PKGNAMEPREFIX=	wasi-
+PKGNAMESUFFIX=	${LLVM_SUFFIX}
 DISTNAME=	llvm-project-${DISTVERSION}.src
 DISTFILES=	llvm-project-${DISTVERSION}.src${EXTRACT_SUFX}
 
@@ -18,6 +19,8 @@ LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 
 BUILD_DEPENDS=	${WASI_SYSROOT}/include/stdarg.h:devel/wasi-libc \
 		clang${LLVM_SUFFIX}:devel/llvm${LLVM_SUFFIX}
+
+PLIST_SUB=	WASI_SYSROOT=${WASI_SYSROOT}
 
 USES=		cmake tar:xz
 NO_ARCH=	yes
@@ -34,7 +37,7 @@ WRKSRC=		${WRKDIR}/${DISTNAME}/libcxx
 CONFIGURE_ENV+=	CC="${CC}" CFLAGS="${CFLAGS}"
 CONFIGURE_ENV+=	CXX="${CXX}" CXXFLAGS="${CXXFLAGS}"
 
-CMAKE_INSTALL_PREFIX=	${PREFIX}/share/wasi-sysroot
+CMAKE_INSTALL_PREFIX=	${WASI_SYSROOT}
 CMAKE_ARGS=	-DCMAKE_C_COMPILER_WORKS=1 \
 		-DCMAKE_CXX_COMPILER_WORKS=1 \
 		-DCXX_SUPPORTS_CXX11=ON \

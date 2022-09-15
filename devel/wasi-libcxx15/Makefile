@@ -17,8 +17,10 @@ LICENSE_NAME=	Apache License 2.0 with LLVM Exceptions
 LICENSE_FILE=	${WRKSRC}/LICENSE.TXT
 LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 
-BUILD_DEPENDS=	${WASI_SYSROOT}/include/stdarg.h:devel/wasi-libc \
+BUILD_DEPENDS=	${WASI_SYSROOT}/include/stdarg.h:devel/wasi-libc${LLVM_SUFFIX} \
 		clang${LLVM_SUFFIX}:devel/llvm${LLVM_SUFFIX}
+
+PLIST_SUB=	WASI_SYSROOT=${WASI_SYSROOT}
 
 USES=		cmake tar:xz
 NO_ARCH=	yes
@@ -32,7 +34,7 @@ CXX=		${LOCALBASE}/bin/clang++${LLVM_SUFFIX}
 LLVM_RELEASE=	${DISTVERSION:C/rc.*//}
 LLVM_SUFFIX=	${LLVM_RELEASE:C/\.[0-9]\.[0-9]$//}
 LLVM_PREFIX=	${PREFIX}/llvm${LLVM_SUFFIX}
-WASI_SYSROOT=	${LOCALBASE}/share/wasi-sysroot
+WASI_SYSROOT=	${LOCALBASE}/share/wasi-sysroot${LLVM_SUFFIX}
 WRKSRC=		${WRKDIR}/${DISTNAME}/libcxx
 
 CFLAGS+=	-I${WRKDIR}/${DISTNAME}/libcxxabi/include -I${CONFIGURE_WRKSRC}/include/c++/v1
@@ -40,7 +42,7 @@ CFLAGS+=	-I${WRKDIR}/${DISTNAME}/libcxxabi/include -I${CONFIGURE_WRKSRC}/include
 CONFIGURE_ENV+=	CC="${CC}" CFLAGS="${CFLAGS}"
 CONFIGURE_ENV+=	CXX="${CXX}" CXXFLAGS="${CXXFLAGS}"
 
-CMAKE_INSTALL_PREFIX=	${PREFIX}/share/wasi-sysroot
+CMAKE_INSTALL_PREFIX=	${WASI_SYSROOT}
 CMAKE_ARGS=	-DCMAKE_C_COMPILER_WORKS=1 \
 		-DCMAKE_CXX_COMPILER_WORKS=1 \
 		-DUNIX:BOOL=ON \

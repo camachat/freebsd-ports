@@ -16,6 +16,8 @@ LICENSE_PERMS_LLVM2=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 
 BUILD_DEPENDS=	clang${LLVM_VERSION}:devel/llvm${LLVM_VERSION}
 
+PLIST_SUB=	WASI_SYSROOT=${WASI_SYSROOT}
+
 USES=		gmake
 USE_GITHUB=	yes
 GH_ACCOUNT=	WebAssembly
@@ -27,7 +29,7 @@ LLVM_VERSION?=	${LLVM_DEFAULT}
 ALL_TARGET=	finish
 
 # NOTE: matches the https://github.com/CraneStation/wasi-sdk
-WASI_SYSROOT=	${PREFIX}/share/wasi-sysroot
+WASI_SYSROOT=	${PREFIX}/share/wasi-sysroot${LLVM_VERSION}
 
 # NOTE: our llvm ports don't ship stdarg/stddef clang headers, so they're in FILESDIR
 #       and we install them to the sysroot

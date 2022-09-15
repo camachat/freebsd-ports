@@ -143,12 +143,13 @@ CONFIGURE_ARGS+=	--with-extra-ldflags="-Wl,-rpath=${LOCALBASE}/lib/gcc${GCC_DEFA
 			--with-extra-cxxflags="-Wl,-rpath=${LOCALBASE}/lib/gcc${GCC_DEFAULT}"
 .else
 MAKE_ENV+=	USE_CLANG=true
-.if ${COMPILER_VERSION} >= 130
-LLVM_VER=	12
-BUILD_DEPENDS+=	clang${LLVM_VER}:devel/llvm${LLVM_VER}
-CC=		${LOCALBASE}/bin/clang${LLVM_VER}
-CXX=		${LOCALBASE}/bin/clang++${LLVM_VER}
-.endif
+#.if ${COMPILER_VERSION} >= 130
+#LLVM_VER=	12
+#BUILD_DEPENDS+=	clang${LLVM_VER}:devel/llvm${LLVM_VER}
+#CC=		${LOCALBASE}/bin/clang${LLVM_VER}
+#CXX=		${LOCALBASE}/bin/clang++${LLVM_VER}
+#.endif
+.include <${PORTSDIR}/Mk/site.llvm.mk>
 .endif
 
 .if ${ARCH} == aarch64 || ${ARCH:Marmv*} || ${ARCH:Mpowerpc64*}
@@ -196,5 +197,4 @@ do-install:
 	@${FIND} ${STAGEDIR}${INSTALLDIR} -not -type d | ${SORT} | \
 		${SED} -e 's|^${STAGEDIR}${PREFIX}/||' >> ${TMPPLIST}
 
-.include <${PORTSDIR}/Mk/site.llvm.mk>
 .include <bsd.port.post.mk>

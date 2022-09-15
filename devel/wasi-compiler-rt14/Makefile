@@ -20,9 +20,9 @@ LLVM_RELEASE=	${DISTVERSION:C/rc.*//}
 LLVM_SUFFIX=	${LLVM_RELEASE:C/\.[0-9]\.[0-9]$//}
 LLVM_PREFIX=	${PREFIX}/llvm${LLVM_SUFFIX}
 
-WASI_SYSROOT=	${LOCALBASE}/share/wasi-sysroot
+WASI_SYSROOT=	${LOCALBASE}/share/wasi-sysroot${LLVM_SUFFIX}
 
-BUILD_DEPENDS=	${WASI_SYSROOT}/include/stdarg.h:devel/wasi-libc \
+BUILD_DEPENDS=	${WASI_SYSROOT}/include/stdarg.h:devel/wasi-libc${LLVM_SUFFIX} \
 		clang${LLVM_SUFFIX}:devel/llvm${LLVM_SUFFIX}
 
 USES=		cmake tar:xz
