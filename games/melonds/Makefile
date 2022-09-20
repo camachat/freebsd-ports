@@ -5,9 +5,12 @@ PKGNAMESUFFIX=	-${FLAVOR}
 
 MAINTAINER=	henry.hu.sh@gmail.com
 COMMENT=	Nintendo DS emulator
+WWW=		WWW: https://melonds.kuribo64.net/
 
 LICENSE=	GPLv3
 LICENSE_FILE=	${WRKSRC}/LICENSE
+
+BROKEN_i386=	static_assert failed due to requirement 'sizeof(TestCase) == 4312'
 
 LIB_DEPENDS=	libslirp.so:net/libslirp \
 		libepoxy.so:graphics/libepoxy
