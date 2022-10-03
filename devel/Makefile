@@ -574,7 +574,6 @@
     SUBDIR += efl
     SUBDIR += egypt
     SUBDIR += eiffelstudio
-    SUBDIR += electron17
     SUBDIR += electron18
     SUBDIR += electron19
     SUBDIR += elf
@@ -626,8 +625,6 @@
     SUBDIR += fire-hpp
     SUBDIR += firmware-utils
     SUBDIR += fistgen
-    SUBDIR += flang
-    SUBDIR += flang-clang
     SUBDIR += flatbuffers
     SUBDIR += flatbuffers205
     SUBDIR += flatcc
@@ -2377,9 +2374,12 @@
     SUBDIR += p5-ExtUtils-PkgConfig
     SUBDIR += p5-ExtUtils-XSBuilder
     SUBDIR += p5-ExtUtils-XSpp
+    SUBDIR += p5-FFI-C-Stat
     SUBDIR += p5-FFI-CheckLib
     SUBDIR += p5-FFI-Platypus
     SUBDIR += p5-FFI-Platypus-Declare
+    SUBDIR += p5-FFI-Platypus-Type-Enum
+    SUBDIR += p5-FFI-Platypus-Type-PtrObject
     SUBDIR += p5-FSA-Rules
     SUBDIR += p5-Feature-Compat-Try
     SUBDIR += p5-Fennec-Lite
@@ -2447,6 +2447,7 @@
     SUBDIR += p5-File-SearchPath
     SUBDIR += p5-File-Share
     SUBDIR += p5-File-ShareDir
+    SUBDIR += p5-File-ShareDir-Dist
     SUBDIR += p5-File-ShareDir-Install
     SUBDIR += p5-File-ShareDir-PAR
     SUBDIR += p5-File-ShareDir-PathClass
@@ -3387,6 +3388,7 @@
     SUBDIR += p5-Test-Able
     SUBDIR += p5-Test-Able-Runner
     SUBDIR += p5-Test-Aggregate
+    SUBDIR += p5-Test-Archive-Libarchive
     SUBDIR += p5-Test-Assertions
     SUBDIR += p5-Test-Auto
     SUBDIR += p5-Test-Base
@@ -3558,6 +3560,7 @@
     SUBDIR += p5-Test2-Plugin-UUID
     SUBDIR += p5-Test2-Suite
     SUBDIR += p5-Test2-Tools-Explain
+    SUBDIR += p5-Test2-Tools-FFI
     SUBDIR += p5-Text-Levenshtein
     SUBDIR += p5-Text-Levenshtein-Damerau
     SUBDIR += p5-Text-LevenshteinXS
@@ -4785,6 +4788,7 @@
     SUBDIR += py-mccabe
     SUBDIR += py-mdv
     SUBDIR += py-mediafile
+    SUBDIR += py-mediapy
     SUBDIR += py-medikit
     SUBDIR += py-memory-allocator
     SUBDIR += py-memory-profiler
@@ -4909,6 +4913,7 @@
     SUBDIR += py-p4python
     SUBDIR += py-packaging
     SUBDIR += py-parallax
+    SUBDIR += py-param
     SUBDIR += py-parameterized
     SUBDIR += py-parsedatetime
     SUBDIR += py-parsley
@@ -5157,6 +5162,7 @@
     SUBDIR += py-pytest-twisted
     SUBDIR += py-pytest-verbose-parametrize
     SUBDIR += py-pytest-virtualenv
+    SUBDIR += py-pytest-watcher
     SUBDIR += py-pytest-xdist
     SUBDIR += py-pytest-xprocess
     SUBDIR += py-pytest4
@@ -5420,6 +5426,7 @@
     SUBDIR += py-types-PyYAML
     SUBDIR += py-types-Werkzeug
     SUBDIR += py-types-click
+    SUBDIR += py-types-cryptography
     SUBDIR += py-types-docutils
     SUBDIR += py-types-futures
     SUBDIR += py-types-mock
@@ -6433,6 +6440,7 @@
     SUBDIR += rubygem-excon
     SUBDIR += rubygem-execjs
     SUBDIR += rubygem-extlib
+    SUBDIR += rubygem-extpp
     SUBDIR += rubygem-extras
     SUBDIR += rubygem-facets
     SUBDIR += rubygem-faker
