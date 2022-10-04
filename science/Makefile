@@ -52,6 +52,7 @@
     SUBDIR += chemtool-devel
     SUBDIR += chimes-calculator
     SUBDIR += chrono
+    SUBDIR += cif-tools
     SUBDIR += clhep
     SUBDIR += clipper
     SUBDIR += code_saturne
@@ -73,6 +74,7 @@
     SUBDIR += dkh
     SUBDIR += dlib-cpp
     SUBDIR += drawxtl
+    SUBDIR += dssp
     SUBDIR += dvc
     SUBDIR += dwave-preprocessing
     SUBDIR += dynare
@@ -135,6 +137,7 @@
     SUBDIR += latte
     SUBDIR += libaec
     SUBDIR += libccp4
+    SUBDIR += libcifpp
     SUBDIR += libcint
     SUBDIR += libctl
     SUBDIR += libecpint
@@ -274,6 +277,7 @@
     SUBDIR += py-asdf-standard
     SUBDIR += py-asdf-transform-schemas
     SUBDIR += py-ase
+    SUBDIR += py-atomium
     SUBDIR += py-avogadrolibs
     SUBDIR += py-cdo
     SUBDIR += py-chainer
