@@ -1,9 +1,9 @@
 PORTNAME=	unibilium
 DISTVERSIONPREFIX=	v
-DISTVERSION=	2.1.0
+DISTVERSION=	2.1.1
 CATEGORIES=	devel
 
-MAINTAINER=	chuck@tuffli.net
+MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Very basic terminfo library
 WWW=		https://github.com/mauke/unibilium
 
@@ -18,7 +18,7 @@ MAKE_ARGS=	MANDIR=${MANPREFIX}/man
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	neovim
-GH_TAGNAME=	92d929f
+GH_TAGNAME=	444e4f3
 
 post-install:
 	${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/libunibilium.so

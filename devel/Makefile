@@ -4667,7 +4667,6 @@
     SUBDIR += py-ipaddr
     SUBDIR += py-ipdb
     SUBDIR += py-ipykernel
-    SUBDIR += py-ipykernel5
     SUBDIR += py-ipympl
     SUBDIR += py-ipyparallel
     SUBDIR += py-ipython_genutils
@@ -4846,6 +4845,7 @@
     SUBDIR += py-nbconvert
     SUBDIR += py-nbdime
     SUBDIR += py-nbformat
+    SUBDIR += py-nbval
     SUBDIR += py-nest-asyncio
     SUBDIR += py-node-semver
     SUBDIR += py-nodeenv
@@ -5169,6 +5169,7 @@
     SUBDIR += py-pytest-sugar
     SUBDIR += py-pytest-timeout
     SUBDIR += py-pytest-tornado
+    SUBDIR += py-pytest-tornasync
     SUBDIR += py-pytest-translations
     SUBDIR += py-pytest-trio
     SUBDIR += py-pytest-twisted
