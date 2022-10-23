@@ -1,5 +1,5 @@
 PORTNAME=	libcxx
-DISTVERSION=	15.0.0
+DISTVERSION=	15.0.3
 CATEGORIES=	devel lang
 MASTER_SITES=	https://github.com/llvm/llvm-project/releases/download/llvmorg-${DISTVERSION:S/rc/-rc/}/ \
 		https://${PRE_}releases.llvm.org/${LLVM_RELEASE}/${RCDIR}

@@ -36,6 +36,7 @@ USES=		cmake compiler:c++11-lib cpe perl5 tar:xz \
 _USES_PYTHON?=	python:3.6+,build
 USES+=		${_USES_PYTHON}
 USE_LDCONFIG=	${LLVM_PREFIX}/lib
+LIB_DEPENDS=    libzstd.so:archivers/zstd
 SHEBANG_FILES=	\
 		clang-tools-extra/clang-include-fixer/find-all-symbols/tool/run-find-all-symbols.py \
 		clang-tools-extra/clang-tidy/tool/clang-tidy-diff.py \
