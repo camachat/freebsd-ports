@@ -1,0 +1,11 @@
+--- ext/svthevcenc/meson.build.orig	2022-06-15 22:36:22 UTC
++++ ext/svthevcenc/meson.build
+@@ -9,7 +9,7 @@ if svthevcenc_dep.found()
+     svthevcenc_sources,
+     c_args : gst_plugins_bad_args + ['-DGST_USE_UNSTABLE_API'],
+     include_directories : [configinc],
+-    dependencies : [gstbase_dep, gstpbutils_dep, gstvideo_dep, gstcodecparsers_dep, svthevcenc_dep],
++    dependencies : [gstbase_dep, gstpbutils_dep, gstvideo_dep, dependency('gstreamer-codecparsers-1.0'), svthevcenc_dep],
+     install : true,
+     install_dir : plugins_install_dir,
+   )
