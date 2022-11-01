@@ -386,6 +386,7 @@
     SUBDIR += hptt
     SUBDIR += hs-Agda
     SUBDIR += hs-penrose
+    SUBDIR += hs-syfco
     SUBDIR += hsl
     SUBDIR += ideep
     SUBDIR += ignition-math
@@ -476,6 +477,7 @@
     SUBDIR += mbasecalc
     SUBDIR += mcsim
     SUBDIR += mdal
+    SUBDIR += mesquite
     SUBDIR += metis
     SUBDIR += mfem
     SUBDIR += mingw32-libgmp
@@ -529,11 +531,15 @@
     SUBDIR += octave-forge-base
     SUBDIR += octave-forge-bim
     SUBDIR += octave-forge-bioinfo
+    SUBDIR += octave-forge-biosig
     SUBDIR += octave-forge-bsltl
+    SUBDIR += octave-forge-cfitsio
     SUBDIR += octave-forge-cgi
     SUBDIR += octave-forge-civil-engineering
+    SUBDIR += octave-forge-coder
     SUBDIR += octave-forge-communications
     SUBDIR += octave-forge-control
+    SUBDIR += octave-forge-csg-toolkit
     SUBDIR += octave-forge-data-smoothing
     SUBDIR += octave-forge-database
     SUBDIR += octave-forge-dataframe
@@ -542,6 +548,7 @@
     SUBDIR += octave-forge-doctest
     SUBDIR += octave-forge-econometrics
     SUBDIR += octave-forge-fda
+    SUBDIR += octave-forge-femoctave
     SUBDIR += octave-forge-fenv
     SUBDIR += octave-forge-financial
     SUBDIR += octave-forge-fits
@@ -568,9 +575,11 @@
     SUBDIR += octave-forge-ltfat
     SUBDIR += octave-forge-mapping
     SUBDIR += octave-forge-matgeom
+    SUBDIR += octave-forge-mccabe-thiele
     SUBDIR += octave-forge-mechanics
     SUBDIR += octave-forge-miscellaneous
     SUBDIR += octave-forge-missing-functions
+    SUBDIR += octave-forge-mqtt
     SUBDIR += octave-forge-msh
     SUBDIR += octave-forge-multicore
     SUBDIR += octave-forge-mvn
@@ -584,6 +593,7 @@
     SUBDIR += octave-forge-octclip
     SUBDIR += octave-forge-octproj
     SUBDIR += octave-forge-odebvp
+    SUBDIR += octave-forge-onsas
     SUBDIR += octave-forge-optics
     SUBDIR += octave-forge-optim
     SUBDIR += octave-forge-optiminterp
@@ -604,6 +614,7 @@
     SUBDIR += octave-forge-specfun
     SUBDIR += octave-forge-special-matrix
     SUBDIR += octave-forge-splines
+    SUBDIR += octave-forge-sqlite
     SUBDIR += octave-forge-statistics
     SUBDIR += octave-forge-statistics-bootstrap
     SUBDIR += octave-forge-stk
