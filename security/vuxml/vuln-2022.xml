@@ -1,3 +1,72 @@
+  <vuln vid="26b1100a-5a27-11ed-abfe-29ac76ec31b5">
+    <topic>go -- syscall, os/exec: unsanitized NUL in environment variables</topic>
+    <affects>
+      <package>
+	<name>go118</name>
+	<range><lt>1.18.8</lt></range>
+      </package>
+      <package>
+	<name>go119</name>
+	<range><lt>1.19.3</lt></range>
+      </package>
+    </affects>
+    <description>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+	<p>The Go project reports:</p>
+	<blockquote cite="https://go.dev/issue/56284">
+	  <p>syscall, os/exec: unsanitized NUL in environment
+	    variables</p>
+	  <p>On Windows, syscall.StartProcess and os/exec.Cmd did not
+	    properly check for invalid environment variable values. A
+	    malicious environment variable value could exploit this
+	    behavior to set a value for a different environment
+	    variable. For example, the environment variable string
+	    "A=B\x00C=D" set the variables "A=B" and "C=D".</p>
+	</blockquote>
+      </body>
+    </description>
+    <references>
+      <cvename>CVE-2022-41716</cvename>
+      <url>https://groups.google.com/g/golang-dev/c/83nKqv2W1Dk/m/gEJdD5vjDwAJ</url>
+    </references>
+    <dates>
+      <discovery>2022-10-17</discovery>
+      <entry>2022-11-01</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="0844671c-5a09-11ed-856e-d4c9ef517024">
+    <topic>OpenSSL -- Buffer overflows in Email verification</topic>
+    <affects>
+      <package>
+	<name>openssl-devel</name>
+	<range><lt>3.0.7</lt></range>
+      </package>
+    </affects>
+    <description>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+	<p>The OpenSSL project reports:</p>
+	<blockquote cite="https://www.openssl.org/news/secadv/20221101.txt">
+	  <p>X.509 Email Address 4-byte Buffer Overflow (CVE-2022-3602) (High):
+	    A buffer overrun can be triggered in X.509 certificate verification,
+	    specifically in name constraint checking.</p>
+	  <p>X.509 Email Address Variable Length Buffer Overflow (CVE-2022-3786)
+	    (High): A buffer overrun can be triggered in X.509 certificate
+	    verification, specifically in name constraint checking.</p>
+	</blockquote>
+      </body>
+    </description>
+    <references>
+      <cvename>CVE-2022-3602</cvename>
+      <cvename>CVE-2022-3786</cvename>
+      <url>https://www.openssl.org/news/secadv/20221101.txt</url>
+    </references>
+    <dates>
+      <discovery>2022-11-01</discovery>
+      <entry>2022-11-01</entry>
+    </dates>
+  </vuln>
+
   <vuln vid="4b9c1c17-587c-11ed-856e-d4c9ef517024">
     <topic>MySQL -- Multiple vulnerabilities</topic>
     <affects>
@@ -403,7 +472,7 @@
     </description>
     <references>
       <cvename>CVE-2022-3358</cvename>
-      <url>https://www.openssl.org/news/secadv/20221011.txtE</url>
+      <url>https://www.openssl.org/news/secadv/20221011.txt</url>
     </references>
     <dates>
       <discovery>2022-10-11</discovery>
