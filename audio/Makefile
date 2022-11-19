@@ -146,6 +146,7 @@
     SUBDIR += eq10q-lv2
     SUBDIR += espeak-ng
     SUBDIR += espressivo-lv2
+    SUBDIR += essentia
     SUBDIR += etcd
     SUBDIR += eteroj-lv2
     SUBDIR += etktab
@@ -640,6 +641,7 @@
     SUBDIR += py-audioread
     SUBDIR += py-discid
     SUBDIR += py-discogs-client
+    SUBDIR += py-essentia
     SUBDIR += py-eyed3
     SUBDIR += py-fmoo-audiotools
     SUBDIR += py-gtts
@@ -670,6 +672,7 @@
     SUBDIR += py-zita-audiotools
     SUBDIR += py-zita-jacktools
     SUBDIR += qaudiosonar
+    SUBDIR += qjackcapture
     SUBDIR += qjackctl
     SUBDIR += qmidiarp
     SUBDIR += qmidictl

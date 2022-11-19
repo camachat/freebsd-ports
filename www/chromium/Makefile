@@ -1,6 +1,5 @@
 PORTNAME=	chromium
-PORTVERSION=	107.0.5304.87
-PORTREVISION=	1
+PORTVERSION=	107.0.5304.110
 CATEGORIES=	www wayland
 MASTER_SITES=	https://commondatastorage.googleapis.com/chromium-browser-official/ \
 		https://nerd.hu/distfiles/:external
@@ -15,7 +14,6 @@ LICENSE=	BSD3CLAUSE LGPL21 MPL11
 LICENSE_COMB=	multi
 
 ONLY_FOR_ARCHS=	aarch64 amd64 i386
-BROKEN_i386=	does not build due to 4k alignment
 
 BUILD_DEPENDS=	bash:shells/bash \
 		${PYTHON_PKGNAMEPREFIX}Jinja2>0:devel/py-Jinja2@${PY_FLAVOR} \
