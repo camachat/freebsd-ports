@@ -102,6 +102,9 @@ CONFIGURE_ARGS=	--with-boot-jdk=${BOOTSTRAPJDKDIR} \
 		--with-vendor-url="https://github.com/${GH_ACCOUNT}/${GH_PROJECT}/" \
 		--with-vendor-bug-url="${JDK_BUG_URL}" \
 		--with-vendor-vm-bug-url="${JDK_BUG_URL}"
+.if ${OPTIONS_UNSET:MDTRACE}
+CONFIGURE_ARGS+=	--enable-dtrace=no
+.endif
 
 JAVAVMS_COMMENT=	OpenJDK${JDK_MAJOR_VERSION}
 
@@ -142,13 +145,20 @@ CONFIGURE_ARGS+=	--with-extra-ldflags="-Wl,-rpath=${LOCALBASE}/lib/gcc${GCC_DEFA
 			--with-extra-cxxflags="-Wl,-rpath=${LOCALBASE}/lib/gcc${GCC_DEFAULT}"
 .else
 MAKE_ENV+=	USE_CLANG=true
-#.if ${COMPILER_VERSION} >= 130
-#LLVM_VER=	12
-#BUILD_DEPENDS+=	clang${LLVM_VER}:devel/llvm${LLVM_VER}
-#CC=		${LOCALBASE}/bin/clang${LLVM_VER}
-#CXX=		${LOCALBASE}/bin/clang++${LLVM_VER}
-#.endif
 .include <${PORTSDIR}/Mk/site.llvm.mk>
+.if ${LLVM_DEFAULT} >= 13
+EXTRA_CFLAGS+= 	-Wno-unused-but-set-parameter
+.if ${LLVM_DEFAULT} >= 14
+EXTRA_CFLAGS+= 	-Wno-bitwise-instead-of-logical
+.if ${LLVM_DEFAULT} >= 15
+EXTRA_CFLAGS+= 	-Wno-deprecated-non-prototype \
+			-Wno-unreachable-code-generic-assoc \
+			-Wno-deprecated-builtins
+.endif
+.endif
+CONFIGURE_ARGS+= 	--with-extra-cflags="${EXTRA_CFLAGS}"
+CONFIGURE_ARGS+= 	--with-extra-cxxflags="${EXTRA_CFLAGS}"
+.endif
 .endif
 
 .if ${ARCH} == aarch64 || ${ARCH:Marmv*} || ${ARCH:Mpowerpc64*}
