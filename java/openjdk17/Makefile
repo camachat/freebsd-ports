@@ -101,6 +101,10 @@ CONFIGURE_ARGS=	--with-boot-jdk=${BOOTSTRAPJDKDIR} \
 		--with-vendor-url="https://github.com/${GH_ACCOUNT}/${GH_PROJECT}/" \
 		--with-vendor-bug-url="${JDK_BUG_URL}" \
 		--with-vendor-vm-bug-url="${JDK_BUG_URL}"
+.if ${OPTIONS_UNSET:MDTRACE}
+CONFIGURE_ARGS+=	--disable-jvm-feature-dtrace \
+	    --with-jvm-features=-dtrace
+.endif
 
 JAVAVMS_COMMENT=	OpenJDK${JDK_MAJOR_VERSION}
 
@@ -140,10 +144,14 @@ CONFIGURE_ARGS+=	--with-extra-ldflags="-Wl,-rpath=${LOCALBASE}/lib/gcc${GCC_DEFA
 			--with-extra-cxxflags="-Wl,-rpath=${LOCALBASE}/lib/gcc${GCC_DEFAULT}"
 .else
 MAKE_ENV+=	USE_CLANG=true
-.if ${COMPILER_VERSION} >= 130
+.include <${PORTSDIR}/Mk/site.llvm.mk>
+.if ${LLVM_DEFAULT} >= 13
 EXTRA_CFLAGS+=		-Wno-unused-but-set-parameter
-.if ${COMPILER_VERSION} >= 140
+.if ${LLVM_DEFAULT} >= 14
 EXTRA_CFLAGS+=		-Wno-bitwise-instead-of-logical
+.if ${LLVM_DEFAULT} >= 15
+EXTRA_CFLAGS+=		-Wno-deprecated-non-prototype
+.endif
 .endif
 CONFIGURE_ARGS+=	--with-extra-cflags="${EXTRA_CFLAGS}"
 CONFIGURE_ARGS+=	--with-extra-cxxflags="${EXTRA_CFLAGS}"
@@ -189,5 +197,4 @@ do-install:
 	@${FIND} ${STAGEDIR}${INSTALLDIR} -not -type d | ${SORT} | \
 		${SED} -e 's|^${STAGEDIR}${PREFIX}/||' >> ${TMPPLIST}
 
-.include <${PORTSDIR}/Mk/site.llvm.mk>
 .include <bsd.port.post.mk>
