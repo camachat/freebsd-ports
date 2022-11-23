@@ -251,6 +251,7 @@
     SUBDIR += axmldec
     SUBDIR += ayatana-ido
     SUBDIR += b2
+    SUBDIR += babelflow
     SUBDIR += babeltrace
     SUBDIR += bam
     SUBDIR += bashdb
@@ -6317,6 +6318,7 @@
     SUBDIR += rubygem-baf
     SUBDIR += rubygem-batch-loader
     SUBDIR += rubygem-benelux
+    SUBDIR += rubygem-better_html-rails61
     SUBDIR += rubygem-bin_utils
     SUBDIR += rubygem-bindata
     SUBDIR += rubygem-bindex
@@ -6628,6 +6630,7 @@
     SUBDIR += rubygem-holidays
     SUBDIR += rubygem-http_accept_language
     SUBDIR += rubygem-i18n
+    SUBDIR += rubygem-i18n-tasks-rails61
     SUBDIR += rubygem-i18n_data
     SUBDIR += rubygem-icalendar
     SUBDIR += rubygem-ice_cube
