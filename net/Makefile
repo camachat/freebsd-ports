@@ -977,13 +977,11 @@
     SUBDIR += pear-XML_RPC
     SUBDIR += pear-XML_RPC2
     SUBDIR += pecl-amqp
-    SUBDIR += pecl-mosquitto
     SUBDIR += pecl-oauth2
     SUBDIR += pecl-radius
     SUBDIR += pecl-rdkafka
     SUBDIR += pecl-smbclient
     SUBDIR += pecl-xmlrpc
-    SUBDIR += pecl-zmq
     SUBDIR += pen
     SUBDIR += php74-ldap
     SUBDIR += php74-soap
@@ -1432,6 +1430,7 @@
     SUBDIR += sl2tps
     SUBDIR += slackcat
     SUBDIR += smb4k
+    SUBDIR += smbldap-tools
     SUBDIR += smcroute
     SUBDIR += smm++
     SUBDIR += sngrep
