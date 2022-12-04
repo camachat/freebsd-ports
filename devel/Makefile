@@ -4117,6 +4117,7 @@
     SUBDIR += py-Jinja2
     SUBDIR += py-Jinja2-doc
     SUBDIR += py-Js2Py
+    SUBDIR += py-PYB11Generator
     SUBDIR += py-PeachPy
     SUBDIR += py-Products.ExternalEditor
     SUBDIR += py-Products.PloneLanguageTool
@@ -5714,6 +5715,7 @@
     SUBDIR += rapidfuzz-cpp
     SUBDIR += rapidjson
     SUBDIR += rapidyaml
+    SUBDIR += rationl
     SUBDIR += raylib
     SUBDIR += rbenv
     SUBDIR += rbtools
@@ -7391,6 +7393,7 @@
     SUBDIR += treepy.el
     SUBDIR += trellis
     SUBDIR += trio
+    SUBDIR += trompeloeil
     SUBDIR += truc
     SUBDIR += tup
     SUBDIR += ua_parser-core
