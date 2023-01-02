@@ -108,6 +108,7 @@
     SUBDIR += gbtolib
     SUBDIR += gchemutils
     SUBDIR += gdma
+    SUBDIR += geant4
     SUBDIR += gemmi
     SUBDIR += getdp
     SUBDIR += ghemical
@@ -258,6 +259,7 @@
     SUBDIR += p5-Geo-Calc
     SUBDIR += p5-Geo-Coordinates-Converter
     SUBDIR += p5-Geo-Coordinates-Converter-iArea
+    SUBDIR += p5-Geo-Coordinates-Transform
     SUBDIR += p5-Geo-WebService-Elevation-USGS
     SUBDIR += p5-Mcstas-Tools
     SUBDIR += p5-PerlMol
@@ -291,6 +293,7 @@
     SUBDIR += py-abipy
     SUBDIR += py-access
     SUBDIR += py-arbor
+    SUBDIR += py-arch
     SUBDIR += py-asap3
     SUBDIR += py-asdf
     SUBDIR += py-asdf-standard
