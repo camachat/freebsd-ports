@@ -837,6 +837,7 @@
     SUBDIR += glib20
     SUBDIR += glibmm
     SUBDIR += glibmm26
+    SUBDIR += glitter
     SUBDIR += gllvm
     SUBDIR += global
     SUBDIR += glog
@@ -7349,6 +7350,7 @@
     SUBDIR += tabulate
     SUBDIR += tailor
     SUBDIR += talloc
+    SUBDIR += tarpaulin
     SUBDIR += taskctl
     SUBDIR += taskflow
     SUBDIR += tass64

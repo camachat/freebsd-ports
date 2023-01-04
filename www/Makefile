@@ -87,6 +87,7 @@
     SUBDIR += clearsilver
     SUBDIR += closure-compiler
     SUBDIR += cntlm
+    SUBDIR += cobalt
     SUBDIR += codeigniter
     SUBDIR += colly
     SUBDIR += coppermine
@@ -1014,6 +1015,7 @@
     SUBDIR += p5-Mojolicious-Plugin-Database
     SUBDIR += p5-Mojolicious-Plugin-HamlRenderer
     SUBDIR += p5-Mojolicious-Plugin-Mongodb
+    SUBDIR += p5-Mojolicious-Plugin-OpenAPI
     SUBDIR += p5-Mojolicious-Plugin-SetUserGroup
     SUBDIR += p5-Mojolicious-Plugin-TtRenderer
     SUBDIR += p5-Mojolicious-Plugin-YamlConfig
@@ -1040,6 +1042,7 @@
     SUBDIR += p5-Newsletter
     SUBDIR += p5-Nginx-ReadBody
     SUBDIR += p5-Nginx-Simple
+    SUBDIR += p5-OpenAPI-Client
     SUBDIR += p5-PHP-Session
     SUBDIR += p5-POE-Component-Client-HTTP
     SUBDIR += p5-POE-Component-Client-UserAgent
@@ -1817,6 +1820,7 @@
     SUBDIR += qutebrowser
     SUBDIR += radicale
     SUBDIR += rearx
+    SUBDIR += reddsaver
     SUBDIR += redmine42
     SUBDIR += redmine50
     SUBDIR += rejik
@@ -2237,6 +2241,7 @@
     SUBDIR += srg
     SUBDIR += srt
     SUBDIR += stagit
+    SUBDIR += stork
     SUBDIR += subsonic-standalone
     SUBDIR += suphp
     SUBDIR += surf
