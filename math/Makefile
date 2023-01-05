@@ -263,8 +263,7 @@
     SUBDIR += ctl-sat
     SUBDIR += cudd
     SUBDIR += curv
-    SUBDIR += cvc3
-    SUBDIR += cvc4
+    SUBDIR += cvc5
     SUBDIR += dbcsr
     SUBDIR += deal.ii
     SUBDIR += dieharder
@@ -458,6 +457,7 @@
     SUBDIR += libxsmm
     SUBDIR += lidia
     SUBDIR += linbox
+    SUBDIR += lingeling
     SUBDIR += linpack
     SUBDIR += lis
     SUBDIR += lll_spect
@@ -1139,6 +1139,7 @@
     SUBDIR += superlu
     SUBDIR += superlu-dist
     SUBDIR += symengine
+    SUBDIR += symfpu
     SUBDIR += symmetrica
     SUBDIR += symphony
     SUBDIR += sympol
