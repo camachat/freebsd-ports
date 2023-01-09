@@ -1181,6 +1181,7 @@
     SUBDIR += radreport
     SUBDIR += radsecproxy
     SUBDIR += radvd
+    SUBDIR += rathole
     SUBDIR += rclone
     SUBDIR += rclone-browser
     SUBDIR += rdapper
@@ -1414,6 +1415,7 @@
     SUBDIR += serviio
     SUBDIR += sflowtool
     SUBDIR += shadowsocks-libev
+    SUBDIR += shadowsocks-rust
     SUBDIR += shelldap
     SUBDIR += shmux
     SUBDIR += sie-nmsg
