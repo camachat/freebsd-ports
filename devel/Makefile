@@ -5259,6 +5259,7 @@
     SUBDIR += py-pythonfinder
     SUBDIR += py-pythran
     SUBDIR += py-pytimeparse
+    SUBDIR += py-pytoolconfig
     SUBDIR += py-pytools
     SUBDIR += py-pytrie
     SUBDIR += py-pytvmaze
@@ -5397,6 +5398,7 @@
     SUBDIR += py-speaklater
     SUBDIR += py-speg
     SUBDIR += py-spyder-kernels
+    SUBDIR += py-spyder-unittest
     SUBDIR += py-squint
     SUBDIR += py-sre-yield
     SUBDIR += py-srsly
