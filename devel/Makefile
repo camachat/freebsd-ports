@@ -153,7 +153,6 @@
     SUBDIR += ammonite
     SUBDIR += amqp-cpp
     SUBDIR += android-tools
-    SUBDIR += android-tools-simpleperf
     SUBDIR += anjuta
     SUBDIR += antlr
     SUBDIR += antlr3
@@ -338,7 +337,6 @@
     SUBDIR += ccache-static
     SUBDIR += cccc
     SUBDIR += ccdoc
-    SUBDIR += ccls
     SUBDIR += ccrtp
     SUBDIR += cctz
     SUBDIR += cdash
@@ -625,7 +623,6 @@
     SUBDIR += eventxx
     SUBDIR += exercisix
     SUBDIR += exomizer
-    SUBDIR += f18
     SUBDIR += f77flow
     SUBDIR += fam
     SUBDIR += fastcrc
@@ -704,6 +701,7 @@
     SUBDIR += fsmtrie
     SUBDIR += fstrcmp
     SUBDIR += fstrm
+    SUBDIR += fsx
     SUBDIR += ftjam
     SUBDIR += ftnchek
     SUBDIR += ftxui
@@ -990,6 +988,7 @@
     SUBDIR += ignition-tools
     SUBDIR += ikos
     SUBDIR += imake
+    SUBDIR += imtui
     SUBDIR += inastemp
     SUBDIR += include-what-you-use
     SUBDIR += indi
@@ -1472,9 +1471,6 @@
     SUBDIR += llvm13
     SUBDIR += llvm14
     SUBDIR += llvm15
-    SUBDIR += llvm70
-    SUBDIR += llvm80
-    SUBDIR += llvm90
     SUBDIR += lm4tools
     SUBDIR += lmdbg
     SUBDIR += lndir
@@ -5372,6 +5368,7 @@
     SUBDIR += py-setuptools-pkg
     SUBDIR += py-setuptools-rust
     SUBDIR += py-setuptools44
+    SUBDIR += py-setuptools58
     SUBDIR += py-setuptools_hg
     SUBDIR += py-setuptools_scm
     SUBDIR += py-setuptools_scm_git_archive
@@ -7534,8 +7531,6 @@
     SUBDIR += xtl
     SUBDIR += xtl-quant-stack
     SUBDIR += xtoolchain-llvm-devel
-    SUBDIR += xtoolchain-llvm80
-    SUBDIR += xtoolchain-llvm90
     SUBDIR += xwpe
     SUBDIR += xxgdb
     SUBDIR += xxhash
