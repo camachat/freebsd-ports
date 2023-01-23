@@ -218,6 +218,7 @@
     SUBDIR += h2o
     SUBDIR += h2o-devel
     SUBDIR += habari
+    SUBDIR += hedgedoc
     SUBDIR += hiawatha
     SUBDIR += hiawatha-monitor
     SUBDIR += horde-ansel
@@ -296,6 +297,7 @@
     SUBDIR += libnghttp3
     SUBDIR += libresonic-standalone
     SUBDIR += librespeed
+    SUBDIR += librewolf
     SUBDIR += librtcdcpp
     SUBDIR += libwpe
     SUBDIR += libwww

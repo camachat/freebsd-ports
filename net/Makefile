@@ -339,6 +339,7 @@
     SUBDIR += krill
     SUBDIR += ksmtp
     SUBDIR += ktnef
+    SUBDIR += kube-apiserver
     SUBDIR += kube-controller-manager
     SUBDIR += kube-scheduler
     SUBDIR += l2tpd
@@ -1427,6 +1428,7 @@
     SUBDIR += skstream
     SUBDIR += sl2tps
     SUBDIR += slackcat
+    SUBDIR += slurm
     SUBDIR += smb4k
     SUBDIR += smbldap-tools
     SUBDIR += smcroute

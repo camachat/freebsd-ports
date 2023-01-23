@@ -7247,7 +7247,7 @@
     SUBDIR += rudiments
     SUBDIR += ruff
     SUBDIR += rust-analyzer
-    SUBDIR += rust-bindgen
+    SUBDIR += rust-bindgen-cli
     SUBDIR += rust-cbindgen
     SUBDIR += rustc-demangle
     SUBDIR += rvi
@@ -7283,6 +7283,7 @@
     SUBDIR += sfml1
     SUBDIR += sfsexp
     SUBDIR += sgb
+    SUBDIR += shadered
     SUBDIR += shapelib
     SUBDIR += shards
     SUBDIR += shell-toolbox
