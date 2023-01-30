@@ -1,5 +1,6 @@
 PORTNAME=	poetry
 DISTVERSION=	1.3.2
+PORTREVISION=	1
 CATEGORIES=	devel python
 MASTER_SITES=	PYPI
 PKGNAMESUFFIX=	-python-tool
@@ -39,8 +40,10 @@ BUILD_DEPENDS=	${PY_DEPENDS}
 RUN_DEPENDS=	${PY_DEPENDS}
 
 USES=		python:3.7+
-USE_PYTHON=	pep517 noflavors concurrent autoplist
+USE_PYTHON=	pep517 noflavors autoplist
 
 NO_ARCH=	yes
+
+BINARY_ALIAS=	git=false # when git is present it picks .gitignore for somne reason and fails to create a proper wheel because 'work' is in .gitignore
 
 .include <bsd.port.mk>
