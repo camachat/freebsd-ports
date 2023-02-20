@@ -7612,7 +7612,6 @@
     SUBDIR += yajl
     SUBDIR += yajl-tcl
     SUBDIR += yaml-cpp
-    SUBDIR += yaml-cpp03
     SUBDIR += yaml2argdata
     SUBDIR += yasm
     SUBDIR += yder
