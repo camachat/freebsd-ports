@@ -1,0 +1,4 @@
+MASTERDIR=	${.CURDIR:H:H}/devel/wasi-libc
+LLVM_VERSION=	16
+PKGNAMESUFFIX=	${LLVM_VERSION}
+.include "${MASTERDIR}/Makefile"

@@ -7609,14 +7609,17 @@
     SUBDIR += wasi-compiler-rt13
     SUBDIR += wasi-compiler-rt14
     SUBDIR += wasi-compiler-rt15
+    SUBDIR += wasi-compiler-rt16
     SUBDIR += wasi-libc
     SUBDIR += wasi-libc13
     SUBDIR += wasi-libc14
     SUBDIR += wasi-libc15
+    SUBDIR += wasi-libc16
     SUBDIR += wasi-libcxx
     SUBDIR += wasi-libcxx13
     SUBDIR += wasi-libcxx14
     SUBDIR += wasi-libcxx15
+    SUBDIR += wasi-libcxx16
     SUBDIR += wasm3
     SUBDIR += websocketpp
     SUBDIR += websvn
