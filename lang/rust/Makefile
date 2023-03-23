@@ -114,6 +114,8 @@ MAKE_ENV+=	RUSTFLAGS="-L/usr/local/lib/gcc${GCC_DEFAULT}"
 MAKE_ENV+=	RUST_BACKTRACE=1
 .endif
 
+CFLAGS+=	-Wno-implicit-function-declaration
+
 # rls doesn't build on rust nightly
 # rls needs 64-bit atomics: it doesn't build on powerpc
 .if !defined(NIGHTLY_DATE) && ${ARCH} != powerpc
