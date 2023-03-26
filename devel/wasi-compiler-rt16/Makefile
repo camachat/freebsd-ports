@@ -17,6 +17,7 @@ LICENSE_NAME=	Apache License 2.0 with LLVM Exceptions
 LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 
 LLVM_RELEASE=	${DISTVERSION:C/rc.*//}
+LLVM_MAJOR=	${LLVM_RELEASE:C/\.[0-9]\.[0-9]$//}
 LLVM_SUFFIX=	${LLVM_RELEASE:C/\.[0-9]\.[0-9]$//}
 LLVM_PREFIX=	${PREFIX}/llvm${LLVM_SUFFIX}
 
@@ -28,14 +29,14 @@ BUILD_DEPENDS=	${WASI_SYSROOT}/include/stdarg.h:devel/wasi-libc${LLVM_SUFFIX} \
 USES=		cmake tar:xz
 NO_ARCH=	yes
 
-PLIST_FILES=	llvm${LLVM_SUFFIX}/lib/clang/${LLVM_RELEASE}/lib/wasi/libclang_rt.builtins-wasm32.a
+PLIST_FILES=	llvm${LLVM_SUFFIX}/lib/clang/${LLVM_MAJOR}/lib/wasi/libclang_rt.builtins-wasm32.a
 
 CC=		${LOCALBASE}/bin/clang${LLVM_SUFFIX}
 CXX=		${LOCALBASE}/bin/clang++${LLVM_SUFFIX}
 CFLAGS+=	-I${WASI_SYSROOT}/include
 
 CMAKE_SOURCE_PATH=	${WRKSRC}/compiler-rt/lib/builtins
-CMAKE_INSTALL_PREFIX=	${LLVM_PREFIX}/lib/clang/${LLVM_RELEASE}
+CMAKE_INSTALL_PREFIX=	${LLVM_PREFIX}/lib/clang/${LLVM_MAJOR}
 CMAKE_ARGS=	-DCMAKE_C_COMPILER_WORKS=1 \
 		-DCMAKE_SYSROOT=${WASI_SYSROOT} \
 		-DLLVM_CONFIG_PATH=${LOCALBASE}/bin/llvm-config${LLVM_SUFFIX} \
