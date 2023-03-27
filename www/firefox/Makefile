@@ -54,7 +54,7 @@ MOZ_OPTIONS+=	--without-wasm-sandboxed-libraries
 .else
 BUILD_DEPENDS+=	${LOCALBASE}/share/wasi-sysroot${LLVM_DEFAULT}/lib/wasm32-wasi/libc++abi.a:devel/wasi-libcxx${LLVM_DEFAULT} \
 		${LOCALBASE}/share/wasi-sysroot${LLVM_DEFAULT}/lib/wasm32-wasi/libc.a:devel/wasi-libc${LLVM_DEFAULT} \
-		${LOCALBASE}/llvm${LLVM_DEFAULT}/lib/clang/${LLVM_VERSION}/lib/wasi/libclang_rt.builtins-wasm32.a:devel/wasi-compiler-rt${LLVM_DEFAULT}
+		${LOCALBASE}/llvm${LLVM_DEFAULT}/lib/clang/${LLVM_DEFAULT}/lib/wasi/libclang_rt.builtins-wasm32.a:devel/wasi-compiler-rt${LLVM_DEFAULT}
 MOZ_OPTIONS+=	--with-wasi-sysroot=${LOCALBASE}/share/wasi-sysroot${LLVM_DEFAULT}
 .endif
 
