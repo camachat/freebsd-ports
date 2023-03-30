@@ -514,6 +514,7 @@
     SUBDIR += dasm
     SUBDIR += datadraw
     SUBDIR += date
+    SUBDIR += datovka
     SUBDIR += dbus
     SUBDIR += dbus-c++
     SUBDIR += dbus-glib
@@ -1180,6 +1181,7 @@
     SUBDIR += libdaemon
     SUBDIR += libdap
     SUBDIR += libdatadog
+    SUBDIR += libdatovka
     SUBDIR += libdatrie
     SUBDIR += libdbusmenu
     SUBDIR += libdbusmenu-qt
