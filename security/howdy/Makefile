@@ -1,5 +1,5 @@
 PORTNAME=	howdy
-PORTVERSION=	3.0.0.b
+PORTVERSION=	3.0.0.b.20230306
 CATEGORIES=	security
 
 MAINTAINER=	arrowd@FreeBSD.org
@@ -14,12 +14,12 @@ RUN_DEPENDS=	opencv>0:graphics/opencv \
 		${PYTHON_PKGNAMEPREFIX}dlib>0:science/py-dlib@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}numpy>0:math/py-numpy@${PY_FLAVOR}
 
-USES=		python:run shebangfix
+USES=		python:3.7-3.10,run shebangfix
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	boltgolt
 GH_PROJECT=	howdy
-GH_TAGNAME=	30728a6d3634479c24ffd4e094c34a30bbb43058
+GH_TAGNAME=	30728a6d36
 
 SHEBANG_GLOB=	*.py
 
