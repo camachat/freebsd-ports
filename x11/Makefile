@@ -384,6 +384,7 @@
     SUBDIR += swayrbar
     SUBDIR += swaysettings
     SUBDIR += sxhkd
+    SUBDIR += sxmo-wayout
     SUBDIR += sxpc
     SUBDIR += tabbed
     SUBDIR += taiga
