@@ -19,6 +19,7 @@ CPE_VENDOR=	info-zip_project
 
 OPTIONS_DEFINE=	DOCS
 
+MAKE_ARGS=	CC="${CC}" CFLAGS="${CFLAGS}"
 MAKEFILE=	unix/Makefile
 ALL_TARGET=	generic
 
