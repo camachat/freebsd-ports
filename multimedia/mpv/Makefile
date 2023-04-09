@@ -199,6 +199,4 @@ pre-install-TEST-on:
 	@(cd ${WRKSRC} && ${SETENV} ${TEST_ENV} \
 		${MESON_BUILD_DIR}/${PORTNAME} --unittest=all-simple)
 
-.include <bsd.port.pre.mk>
-.include <${PORTSDIR}/Mk/site.llvm.mk>
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>

@@ -40,6 +40,4 @@ post-patch:
 	@${GREP} --exclude='*/third_party/*' -Flr '__linux' ${WRKSRC} | ${XARGS} \
 		${REINPLACE_CMD} -i .opsys -E 's/__linux(__)?/__unix__/'
 
-.include <bsd.port.pre.mk>
-.include <${PORTSDIR}/Mk/site.llvm.mk>
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>

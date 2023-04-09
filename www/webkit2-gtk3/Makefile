@@ -114,6 +114,4 @@ post-install:
 	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/libexec/webkit2gtk-4.0/*
 	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/WebKitWebDriver
 
-.include <bsd.port.pre.mk>
-.include <${PORTSDIR}/Mk/site.llvm.mk>
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>

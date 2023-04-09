@@ -52,6 +52,4 @@ post-patch:
 	@${REINPLACE_CMD} -e 's|CMAKE_DEBUG_POSTFIX "d"|CMAKE_DEBUG_POSTFIX ""|g' \
 		${PATCH_WRKSRC}/CMakeLists.txt
 
-.include <bsd.port.pre.mk>
-.include <${PORTSDIR}/Mk/site.llvm.mk>
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>

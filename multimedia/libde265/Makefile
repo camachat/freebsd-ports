@@ -36,5 +36,4 @@ post-install:
 	${MV} ${STAGEDIR}${PREFIX}/bin/dec265 \
 		${STAGEDIR}${PREFIX}/bin/libde265-dec265
 
-.include <${PORTSDIR}/Mk/site.llvm.mk>
 .include <bsd.port.post.mk>

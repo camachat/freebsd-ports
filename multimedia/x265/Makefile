@@ -164,6 +164,4 @@ do-test:
 CMAKE_ARGS+=	-D_END_CUSTOM_OPTIONS=1
 CMAKE_ARGS+=	-DENABLE_PIC:BOOL=true
 
-.include <bsd.port.pre.mk>
-.include <${PORTSDIR}/Mk/site.llvm.mk>
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>

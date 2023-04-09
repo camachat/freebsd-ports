@@ -52,6 +52,4 @@ CONFLICTS_INSTALL=	mozjpeg
 PLIST_SUB+=	JPEG="" LIBTURBOJPEG="@comment "
 .endif
 
-.include <bsd.port.pre.mk>
-.include <${PORTSDIR}/Mk/site.llvm.mk>
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>

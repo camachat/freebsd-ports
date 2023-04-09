@@ -133,6 +133,4 @@ pre-test-TESTS-off:
 	${ECHO_MSG} '******************************************************************' && \
 	${FALSE}
 
-.include <bsd.port.pre.mk>
-.include <${PORTSDIR}/Mk/site.llvm.mk>
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>

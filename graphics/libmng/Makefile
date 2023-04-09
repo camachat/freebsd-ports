@@ -26,6 +26,4 @@ post-install:
 	cd ${WRKSRC}/doc/man && ${INSTALL_MAN} libmng.3 ${STAGEDIR}${PREFIX}/man/man3 \
 		&& ${INSTALL_MAN} mng.5 jng.5 ${STAGEDIR}${PREFIX}/man/man5
 
-.include <bsd.port.pre.mk>
-.include <${PORTSDIR}/Mk/site.llvm.mk>
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>

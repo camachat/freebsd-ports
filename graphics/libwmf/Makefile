@@ -58,6 +58,4 @@ post-install-DOCS-on:
 	@${TAR} -C ${WRKSRC}/doc --exclude '*Makefile*' -cf - . | \
 		${TAR} -C ${STAGEDIR}${DOCSDIR} --unlink -xf -
 
-.include <bsd.port.pre.mk>
-.include <${PORTSDIR}/Mk/site.llvm.mk>
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>

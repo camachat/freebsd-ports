@@ -143,14 +143,10 @@ CONFIGURE_ARGS+=	--with-extra-ldflags="-Wl,-rpath=${LOCALBASE}/lib/gcc${GCC_DEFA
 			--with-extra-cxxflags="-Wl,-rpath=${LOCALBASE}/lib/gcc${GCC_DEFAULT}"
 .else
 MAKE_ENV+=	USE_CLANG=true
-.include <${PORTSDIR}/Mk/site.llvm.mk>
-.if ${LLVM_DEFAULT} >= 13
+.if ${COMPILER_VERSION} >= 130
 EXTRA_CFLAGS+=		-Wno-unused-but-set-parameter
-.if ${LLVM_DEFAULT} >= 14
+.if ${COMPILER_VERSION} >= 140
 EXTRA_CFLAGS+=		-Wno-bitwise-instead-of-logical
-.if ${LLVM_DEFAULT} >= 15
-EXTRA_CFLAGS+=		-Wno-deprecated-non-prototype
-.endif
 .endif
 .if ${COMPILER_VERSION} >= 150
 EXTRA_CFLAGS+=		-Wno-deprecated-non-prototype

@@ -9,14 +9,23 @@ WWW=		https://textbrowser.github.io/dooble/
 LICENSE=	BSD3CLAUSE
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		compiler:c++17-lang desktop-file-utils gl gmake qmake qt:5 ssl \
+FLAVORS=	qt5 qt6
+FLAVOR?=	${FLAVORS:[1]}
+qt5_CONFLICTS_INSTALL=	qt6
+qt6_CONFLICTS_INSTALL=	qt5
+
+USES=		compiler:c++17-lang desktop-file-utils gl gmake qmake qt:${FLAVOR:S/qt//1} ssl \
 		tar xorg
 USE_GITHUB=	yes
 GH_ACCOUNT=	textbrowser
 USE_GL=		gl
+.if ${FLAVOR} == qt5
 USE_QT=		concurrent core declarative gui location network printsupport \
 		sql webchannel webengine widgets xml sql-sqlite3:run \
 		buildtools:build qmake:build
+. elif ${FLAVOR} == qt6
+USE_QT=		base charts webchannel webengine
+.endif
 USE_XORG=	xcb
 
 QMAKE_SOURCE_PATH=	${PORTNAME}.pro
@@ -27,9 +36,11 @@ PLIST_FILES=	${PREFIX}/share/applications/${PORTNAME}.desktop \
 
 .include <bsd.port.pre.mk>
 
+.if ${FLAVOR:U} == qt5
 QT5_VER_MINOR=	${QT5_VERSION:C/^[0-9]+\.//:C/\..+$//}
 .if ${QT5_VER_MINOR} < 15
 BROKEN=		Qt 5.15 or higher required, using 5.${QT5_VER_MINOR} now
+.endif
 .endif
 
 do-install:

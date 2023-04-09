@@ -170,5 +170,4 @@ pre-configure:
 # Rerun syncqt.pl -- otherwise the resulting package misses some forwarding headers.
 	cd ${WRKSRC} && ${QT_BINDIR}/syncqt.pl -version ${QT5_VERSION}
 
-.include <${PORTSDIR}/Mk/site.llvm.mk>
 .include <bsd.port.post.mk>

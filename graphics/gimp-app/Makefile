@@ -154,6 +154,4 @@ post-patch:
 		-e 's|x86_64|amd64|g' \
 		${WRKSRC}/configure
 
-.include <bsd.port.pre.mk>
-.include <${PORTSDIR}/Mk/site.llvm.mk>
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>

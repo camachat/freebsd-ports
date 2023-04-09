@@ -58,6 +58,4 @@ GSTREAMER_CMAKE_OFF=	-DUSE_GSTREAMER:BOOL=OFF
 
 BINARY_ALIAS=		python3=${PYTHON_CMD}
 
-.include <bsd.port.pre.mk>
-.include <${PORTSDIR}/Mk/site.llvm.mk>
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>

@@ -650,5 +650,4 @@ post-install:
 	(cd ${WRKSRC}/doc && ${COPYTREE_SHARE} \
 		"${DOC_DOCFILES}" ${STAGEDIR}${DOCSDIR})
 
-.include <${PORTSDIR}/Mk/site.llvm.mk>
 .include <bsd.port.post.mk>

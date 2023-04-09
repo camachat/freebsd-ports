@@ -129,6 +129,4 @@ pre-build:
 	@(${RM} ${WRKSRC}/x264_config.h)
 .endif
 
-.include <bsd.port.pre.mk>
-.include <${PORTSDIR}/Mk/site.llvm.mk>
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>

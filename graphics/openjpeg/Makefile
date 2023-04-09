@@ -36,6 +36,4 @@ post-patch:
 	@${RM} -r ${WRKSRC}/thirdparty/libtiff/
 	@${RM} -r ${WRKSRC}/thirdparty/libz/
 
-.include <bsd.port.pre.mk>
-.include <${PORTSDIR}/Mk/site.llvm.mk>
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>

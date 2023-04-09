@@ -110,6 +110,4 @@ pre-test:
 		${TOUCH} ${WRKDIR}/.meson_build_tests; \
 	fi
 
-.include <bsd.port.pre.mk>
-.include <${PORTSDIR}/Mk/site.llvm.mk>
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>

@@ -83,6 +83,4 @@ post-patch-DOCS-off:
 	@${REINPLACE_CMD} -e '/^GTK_DOC_CHECK/d' -e '/doc\/.*Makefile/d' \
 		${WRKSRC}/configure.ac
 
-.include <bsd.port.pre.mk>
-.include <${PORTSDIR}/Mk/site.llvm.mk>
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>

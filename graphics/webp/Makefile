@@ -40,6 +40,4 @@ X11_CONFIGURE_ON=	build_vwebp=yes
 X11_USE=		GL=glut
 X11_USES=		gl
 
-.include <bsd.port.pre.mk>
-.include <${PORTSDIR}/Mk/site.llvm.mk>
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>

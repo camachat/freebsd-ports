@@ -54,6 +54,4 @@ RAV1E_CMAKE_BOOL=	WITH_RAV1E
 X265_LIB_DEPENDS=	libx265.so:multimedia/x265
 X265_CMAKE_BOOL=	WITH_X265
 
-.include <bsd.port.pre.mk>
-.include <${PORTSDIR}/Mk/site.llvm.mk>
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>
