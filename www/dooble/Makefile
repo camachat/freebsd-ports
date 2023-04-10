@@ -14,7 +14,7 @@ FLAVOR?=	${FLAVORS:[1]}
 qt5_CONFLICTS_INSTALL=	qt6
 qt6_CONFLICTS_INSTALL=	qt5
 
-USES=		compiler:c++17-lang desktop-file-utils gl gmake qmake qt:${FLAVOR:S/qt//1} ssl \
+USES=		compiler:c++17-lang desktop-file-utils gl gmake qmake qt:${FLAVOR:S/qt//} ssl \
 		tar xorg
 USE_GITHUB=	yes
 GH_ACCOUNT=	textbrowser
