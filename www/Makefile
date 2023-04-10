@@ -1924,7 +1924,6 @@
     SUBDIR += rubygem-em-websocket
     SUBDIR += rubygem-emk-sinatra-url-for
     SUBDIR += rubygem-erubi
-    SUBDIR += rubygem-erubi19
     SUBDIR += rubygem-erubis
     SUBDIR += rubygem-ethon
     SUBDIR += rubygem-eventmachine_httpserver
@@ -2382,6 +2381,7 @@
     SUBDIR += varnish6
     SUBDIR += varnish7
     SUBDIR += varnish_exporter
+    SUBDIR += vaultwarden-web_vault
     SUBDIR += vdr-plugin-live
     SUBDIR += vdradmin-am
     SUBDIR += vertx
