@@ -23,16 +23,10 @@ OPTIONS_DEFINE=		DOCS VAPI
 OPTIONS_DEFAULT=	DOCS VAPI
 OPTIONS_SUB=		yes
 
+DOCS_MESON_TRUE=	docs
+VAPI_MESON_TRUE=	vapi
+MESON_ARGS+=		-Dumockdev=disabled
+
 DOCS_BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}gi-docgen>=0:textproc/py-gi-docgen@${PY_FLAVOR}
-
-.include <bsd.port.options.mk>
-
-MESON_ARGS+=	-Dumockdev=disabled
-.if !${PORT_OPTIONS:MDOCS}
-MESON_ARGS+=	-Ddocs=false
-.endif
-.if !${PORT_OPTIONS:MVAPI}
-MESON_ARGS+=	-Dvapi=false
-.endif
 
 .include <bsd.port.mk>
