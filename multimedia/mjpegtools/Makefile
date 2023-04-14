@@ -31,12 +31,15 @@ OPTIONS_SUB=		yes
 
 DV_LIB_DEPENDS=		libdv.so:multimedia/libdv
 DV_CONFIGURE_WITH=	libdv
-GTK2_USE=		GNOME=gtk20
+GTK2_USE=		GNOME=cairo,gdkpixbuf2,gtk20
 GTK2_CONFIGURE_WITH=	gtk
+GTK2_LIB_DEPENDS=	libharfbuzz.so:print/harfbuzz \
+			libfontconfig.so:x11-fonts/fontconfig \
+			libfreetype.so:print/freetype2
 PNG_LIB_DEPENDS=	libpng.so:graphics/png
 PNG_CONFIGURE_WITH=	libpng
-SDL_USES=		sdl
-SDL_USE=		SDL=gfx,sdl
+SDL_USES=		sdl xorg
+SDL_USE=		SDL=gfx,sdl XORG=x11
 SDL_CONFIGURE_OFF=	--without-libsdl --without-sdlgfx
 
 post-patch:
