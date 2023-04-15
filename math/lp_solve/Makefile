@@ -27,7 +27,7 @@ LPSOLVE_ARCH=	ux64
 
 pre-build:
 	@${FIND} ${WRKSRC} -name "ccc" | ${XARGS} ${REINPLACE_CMD} -e \
-		"s|^c=.*$$|c='${CC} ${CFLAGS}'|g ; \
+		"s|^c=.*$$|c='${CC}'|g ; \
 		 s|^opts=.*$$|opts='${CFLAGS}'|g ; \
 		 s|-fpic|-fPIC|g ; \
 		 s|-ldl||g"
