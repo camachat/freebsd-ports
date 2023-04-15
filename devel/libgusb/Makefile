@@ -9,10 +9,10 @@ WWW=		https://github.com/hughsie/libgusb
 LICENSE=	LGPL21
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-BUILD_DEPENDS=	gtk-doc>0:textproc/gtk-doc
+BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}setuptools>=0:devel/py-setuptools@${PY_FLAVOR}
 LIB_DEPENDS=	libjson-glib-1.0.so:devel/json-glib
 
-USES=		gnome meson pkgconfig python:build vala:build
+USES=		gnome meson pkgconfig python:build
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	hughsie
@@ -23,10 +23,13 @@ OPTIONS_DEFINE=		DOCS VAPI
 OPTIONS_DEFAULT=	DOCS VAPI
 OPTIONS_SUB=		yes
 
-DOCS_MESON_TRUE=	docs
-VAPI_MESON_TRUE=	vapi
 MESON_ARGS+=		-Dumockdev=disabled
 
-DOCS_BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}gi-docgen>=0:textproc/py-gi-docgen@${PY_FLAVOR}
+DOCS_MESON_TRUE=	docs
+DOCS_BUILD_DEPENDS=	gtk-doc>0:textproc/gtk-doc \
+			${PYTHON_PKGNAMEPREFIX}gi-docgen>=0:textproc/py-gi-docgen@${PY_FLAVOR}
+
+VAPI_MESON_TRUE=	vapi
+VAPI_USES=		vala:build
 
 .include <bsd.port.mk>
