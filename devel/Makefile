@@ -5431,6 +5431,7 @@
     SUBDIR += py-schema
     SUBDIR += py-schematics-patched
     SUBDIR += py-scikit-build
+    SUBDIR += py-scikit-build-core
     SUBDIR += py-scooby
     SUBDIR += py-scripttest
     SUBDIR += py-selection
@@ -7478,6 +7479,7 @@
     SUBDIR += statik
     SUBDIR += statsvn
     SUBDIR += stb
+    SUBDIR += stdman
     SUBDIR += stdx-allocator
     SUBDIR += stfl
     SUBDIR += stlfilt
