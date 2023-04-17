@@ -48,7 +48,7 @@ do-install:
 		${MKDIR} ${STAGEDIR}${PREFIX}/share/pixmaps
 		${INSTALL_DATA} ${WRKSRC}/Icons/Logo/${PORTNAME}.png ${STAGEDIR}${PREFIX}/share/pixmaps/${PORTNAME}.png
 		desktop-file-edit --remove-category=Web --add-category=Network --add-category=WebBrowser ${WRKSRC}/${PORTNAME}.desktop
-		desktop-file-edit --set-key=Exec --set-value=${PREFIX}/bin/${PORTNAME} ${WRKSRC}/${PORTNAME}.desktop
+		desktop-file-edit --set-key=Exec --set-value="/usr/bin/env QTWEBENGINE_DICTIONARIES_PATH=${QT_DATADIR}/qtwebengine_dictionaries ${PREFIX}/bin/${PORTNAME}" ${WRKSRC}/${PORTNAME}.desktop
 		desktop-file-edit --set-icon=${PREFIX}/share/pixmaps/${PORTNAME}.png ${WRKSRC}/${PORTNAME}.desktop
 		${INSTALL_DATA} ${WRKSRC}/${PORTNAME}.desktop ${STAGEDIR}${PREFIX}/share/applications/${PORTNAME}.desktop
 
