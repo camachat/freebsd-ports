@@ -1,6 +1,7 @@
 PORTNAME=	dooble
 DISTVERSION=	2023.04.20
 CATEGORIES=	www
+PKGNAMESUFFIX=	-${FLAVOR}
 
 MAINTAINER=	eric@camachat.org
 COMMENT=	Dooble Web Browser
