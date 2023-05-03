@@ -33,6 +33,9 @@ GH_TAGNAME=	v0.1.1f:ade \
 		8afa57abc8229d611c4937165d20e2a2d9fc5a12:face \
 		a56b6ac6f030c312b2dce17430eef13aed9af274:ippicv
 
+PATCH_SITES=	https://github.com/${PORTNAME}/${PORTNAME}/commit/
+PATCHFILES+=	496eed950f6d0e7fd92619d47e3cec8f06e96ace.patch:-p1 # https://github.com/opencv/opencv/pull/22357 Add missing header for LIBAVCODEC_VERSION_INT 
+
 CMAKE_ON=	OPENCV_GENERATE_PKGCONFIG
 CMAKE_OFF=	OPENCV_GENERATE_SETUPVARS \
 		BUILD_opencv_python2 \
