@@ -196,7 +196,7 @@
     SUBDIR += gpgdir
     SUBDIR += gpgme
     SUBDIR += gpgme-cpp
-    SUBDIR += gpgme-qt5
+    SUBDIR += gpgme-qt
     SUBDIR += gsa
     SUBDIR += gsad
     SUBDIR += gsasl
@@ -918,6 +918,7 @@
     SUBDIR += py-iris-check-module
     SUBDIR += py-iris-client
     SUBDIR += py-iris-evtx-module
+    SUBDIR += py-iris-intelowl-module
     SUBDIR += py-iris-misp-module
     SUBDIR += py-iris-module-interface
     SUBDIR += py-iris-vt-module
@@ -1293,6 +1294,7 @@
     SUBDIR += tinc-devel
     SUBDIR += tinyca
     SUBDIR += tls-check
+    SUBDIR += tlsc
     SUBDIR += tor
     SUBDIR += tor-devel
     SUBDIR += totp-cli
