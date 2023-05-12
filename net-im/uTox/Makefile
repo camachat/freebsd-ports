@@ -36,7 +36,7 @@ OPTIONS_DEFAULT=	DBUS
 DBUS_LIB_DEPENDS=	libdbus-1.so:devel/dbus
 DBUS_CMAKE_BOOL=	ENABLE_DBUS
 
-.if ${/usr/bin/ld:L:tA} == /usr/bin/ld.lld
+#.if ${/usr/bin/ld:L:tA} == /usr/bin/ld.lld
 # ld.lld lacks default output emulation.  Using -b binary without
 # explicit -m will fail.  Mapping taken from lld/ELF/Driver.cpp.
 _LLD_EMUL_aarch64=	aarch64elf_fbsd
@@ -51,7 +51,7 @@ _LLD_EMUL_powerpc64le=	elf64lppc_fbsd
 post-patch:
 	@${REINPLACE_CMD} 's,[[:<:]]ld[[:>:]],ld -m${_LLD_EMUL_${ARCH}},' \
 		${WRKSRC}/src/xlib/CMakeLists.txt
-.endif
+#.endif
 
 do-test:
 	@cd ${TEST_WRKSRC} && \
