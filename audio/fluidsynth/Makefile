@@ -20,6 +20,7 @@ USE_LDCONFIG=	yes
 # would require unreleased libinstpatch >= 1.1.0
 CMAKE_OFF=	enable-libinstpatch enable-midishare
 LDFLAGS+=	-lpthread
+LDFLAGS+=	-lomp
 
 OPTIONS_DEFINE=		ALSA DBUS JACK LADSPA LASH PIPEWIRE PORTAUDIO \
 			PULSEAUDIO READLINE SDL SNDFILE SNDIO
