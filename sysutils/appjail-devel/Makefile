@@ -1,21 +1,22 @@
 PORTNAME=	appjail
 DISTVERSIONPREFIX=	v
-DISTVERSION=	2.4.0
-PORTREVISION=	1
+DISTVERSION=	g20230515
 CATEGORIES=	sysutils
+PKGNAMESUFFIX= -devel
 
-MAINTAINER=	DtxdF@disroot.org
-COMMENT=	Simple and easy-to-use tool for creating portable jails
+MAINTAINER=	acm@FreeBSD.org
+COMMENT=	Simple and easy-to-use tool for creating portable jails (devel)
 WWW=		https://github.com/DtxdF/AppJail
 
 LICENSE=	BSD3CLAUSE
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-CONFLICTS=	appjail-devel
+CONFLICTS=	appjail
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	DtxdF
 GH_PROJECT=	AppJail
+GH_TAGNAME=	f32080a9de86dfe1acd80b8728ad637994227a9a
 
 ALL_TARGET=	utils-strip
 
