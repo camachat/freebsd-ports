@@ -1475,6 +1475,8 @@
     SUBDIR += py-dj41-django-taggit
     SUBDIR += py-dj41-django-timezone-field
     SUBDIR += py-dj41-djangorestframework
+    SUBDIR += py-dj41-drf-spectacular
+    SUBDIR += py-dj41-drf-spectacular-sidecar
     SUBDIR += py-dj41-drf-yasg
     SUBDIR += py-django-admin-rangefilter
     SUBDIR += py-django-advanced-filters
@@ -2407,7 +2409,6 @@
     SUBDIR += websocat
     SUBDIR += websocketd
     SUBDIR += webstone
-    SUBDIR += webstone-ssl
     SUBDIR += webtrees20
     SUBDIR += webtrees21
     SUBDIR += wget2
