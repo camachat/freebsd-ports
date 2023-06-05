@@ -1105,6 +1105,7 @@
     SUBDIR += kio-extras
     SUBDIR += kirigami-gallery
     SUBDIR += kiwix-lib
+    SUBDIR += klib
     SUBDIR += kms-cmake-utils
     SUBDIR += kodi-platform
     SUBDIR += kokkos
@@ -5492,6 +5493,7 @@
     SUBDIR += py-setproctitle
     SUBDIR += py-setuptools
     SUBDIR += py-setuptools-declarative-requirements
+    SUBDIR += py-setuptools-gettext
     SUBDIR += py-setuptools-git
     SUBDIR += py-setuptools-pkg
     SUBDIR += py-setuptools-rust
