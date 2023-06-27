@@ -42,10 +42,20 @@ SDL_USES=		sdl xorg
 SDL_USE=		SDL=gfx,sdl XORG=x11
 SDL_CONFIGURE_OFF=	--without-libsdl --without-sdlgfx
 
+.include <bsd.port.options.mk>
+
+.if ${OPSYS} == FreeBSD && ${OSVERSION} >= 1400091
+CPPFLAGS+=  -Dregister=
+.endif
+
 post-patch:
 	@${REINPLACE_CMD} \
 		-e 's| \*-\*-linux\*)| *-*-*)|' \
 		-e '/ARCHFLAGS=/d' ${WRKSRC}/configure
+.if ${OPSYS} == FreeBSD && ${OSVERSION} >= 1400091
+	@${REINPLACE_CMD} -e 's|auto_ptr|unique_ptr|' \
+		${WRKSRC}/mplex/main.cpp
+.endif
 
 post-install-DOCS-on:
 	@${MKDIR} ${STAGEDIR}${DOCSDIR}
