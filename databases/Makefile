@@ -25,7 +25,6 @@
     SUBDIR += cassandra3
     SUBDIR += cassandra4
     SUBDIR += casstcl
-    SUBDIR += caterva
     SUBDIR += cayley
     SUBDIR += cdb
     SUBDIR += cego
@@ -177,8 +176,6 @@
     SUBDIR += mariadb-connector-odbc
     SUBDIR += mariadb1011-client
     SUBDIR += mariadb1011-server
-    SUBDIR += mariadb104-client
-    SUBDIR += mariadb104-server
     SUBDIR += mariadb105-client
     SUBDIR += mariadb105-server
     SUBDIR += mariadb106-client
@@ -189,8 +186,6 @@
     SUBDIR += memcached
     SUBDIR += metabase
     SUBDIR += mongodb-tools
-    SUBDIR += mongodb40
-    SUBDIR += mongodb40-tools
     SUBDIR += mongodb42
     SUBDIR += mongodb42-tools
     SUBDIR += mongodb44
@@ -201,7 +196,6 @@
     SUBDIR += mroonga
     SUBDIR += mtop
     SUBDIR += mydumper
-    SUBDIR += mysac
     SUBDIR += mysql++
     SUBDIR += mysql-connector-c++
     SUBDIR += mysql-connector-java
@@ -752,7 +746,6 @@
     SUBDIR += py-berkeleydb
     SUBDIR += py-carbon
     SUBDIR += py-cassandra-driver
-    SUBDIR += py-caterva
     SUBDIR += py-couchdb
     SUBDIR += py-databases
     SUBDIR += py-dbf
@@ -784,7 +777,6 @@
     SUBDIR += py-peewee
     SUBDIR += py-peewee_migrate
     SUBDIR += py-pg8000
-    SUBDIR += py-pg8000-112
     SUBDIR += py-pgcli
     SUBDIR += py-pgdbconn
     SUBDIR += py-pglast

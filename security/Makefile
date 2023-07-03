@@ -417,7 +417,6 @@
     SUBDIR += openssl-unsafe
     SUBDIR += openssl30
     SUBDIR += openssl31
-    SUBDIR += openssl_tpm_engine
     SUBDIR += openvas
     SUBDIR += openvpn
     SUBDIR += openvpn-admin
@@ -1125,7 +1124,6 @@
     SUBDIR += rubygem-omniauth-atlassian-oauth2
     SUBDIR += rubygem-omniauth-bitbucket
     SUBDIR += rubygem-omniauth-cas
-    SUBDIR += rubygem-omniauth-cas3
     SUBDIR += rubygem-omniauth-dingtalk-oauth2
     SUBDIR += rubygem-omniauth-gitlab
     SUBDIR += rubygem-omniauth-jwt

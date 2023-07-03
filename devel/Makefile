@@ -343,8 +343,6 @@
     SUBDIR += cbrowser
     SUBDIR += cc65
     SUBDIR += ccache
-    SUBDIR += ccache-memcached
-    SUBDIR += ccache-memcached-static
     SUBDIR += ccache-static
     SUBDIR += ccache4
     SUBDIR += cccc
@@ -598,8 +596,6 @@
     SUBDIR += efl
     SUBDIR += egypt
     SUBDIR += eiffelstudio
-    SUBDIR += electron19
-    SUBDIR += electron21
     SUBDIR += electron22
     SUBDIR += electron23
     SUBDIR += electron24
@@ -899,7 +895,6 @@
     SUBDIR += golangci-lint
     SUBDIR += golint
     SUBDIR += google-cloud-cpp
-    SUBDIR += google-cloud-cpp117
     SUBDIR += google-perftools
     SUBDIR += google-styleguide
     SUBDIR += googletest
@@ -1203,7 +1198,6 @@
     SUBDIR += libdispatch
     SUBDIR += libdistance
     SUBDIR += libdlmalloc
-    SUBDIR += libdlna
     SUBDIR += libdnsres
     SUBDIR += libdombey
     SUBDIR += libdparse
@@ -1456,7 +1450,6 @@
     SUBDIR += libzvbi
     SUBDIR += lightning
     SUBDIR += linenoise-ng
-    SUBDIR += linux-c7-dbus-glib
     SUBDIR += linux-c7-dbus-libs
     SUBDIR += linux-c7-devtools
     SUBDIR += linux-c7-elfutils-libelf
@@ -1572,6 +1565,7 @@
     SUBDIR += mcpp
     SUBDIR += mdb
     SUBDIR += mdds
+    SUBDIR += mdspan
     SUBDIR += menhir
     SUBDIR += mercator
     SUBDIR += mercurial
@@ -1617,6 +1611,7 @@
     SUBDIR += mutagen
     SUBDIR += myrepos
     SUBDIR += nana
+    SUBDIR += nano-signal-slot
     SUBDIR += nanopb
     SUBDIR += nant
     SUBDIR += nasm
@@ -4432,6 +4427,7 @@
     SUBDIR += py-characteristic
     SUBDIR += py-check-jsonschema
     SUBDIR += py-check-manifest
+    SUBDIR += py-check-sdist
     SUBDIR += py-cheetah3
     SUBDIR += py-circuitbreaker
     SUBDIR += py-circuits
@@ -4512,6 +4508,7 @@
     SUBDIR += py-curio
     SUBDIR += py-cursive
     SUBDIR += py-curtsies
+    SUBDIR += py-custodian
     SUBDIR += py-cvss
     SUBDIR += py-cwcwidth
     SUBDIR += py-cxx
@@ -4652,6 +4649,7 @@
     SUBDIR += py-flask-babel
     SUBDIR += py-flatbuffers
     SUBDIR += py-flatdict
+    SUBDIR += py-flatten-dict
     SUBDIR += py-flex
     SUBDIR += py-flexmock
     SUBDIR += py-flit
@@ -5003,6 +5001,7 @@
     SUBDIR += py-nose-cov
     SUBDIR += py-nose-timer
     SUBDIR += py-nose2
+    SUBDIR += py-nose3
     SUBDIR += py-noseofyeti
     SUBDIR += py-nosexcover
     SUBDIR += py-notebook-shim
@@ -5911,6 +5910,7 @@
     SUBDIR += qtcreator
     SUBDIR += quantum
     SUBDIR += quickcheck++
+    SUBDIR += quickcpplib
     SUBDIR += quilt
     SUBDIR += qxlsx
     SUBDIR += rabs
@@ -6300,6 +6300,8 @@
     SUBDIR += rubygem-aws-sdk-osis
     SUBDIR += rubygem-aws-sdk-outposts
     SUBDIR += rubygem-aws-sdk-panorama
+    SUBDIR += rubygem-aws-sdk-paymentcryptography
+    SUBDIR += rubygem-aws-sdk-paymentcryptographydata
     SUBDIR += rubygem-aws-sdk-personalize
     SUBDIR += rubygem-aws-sdk-personalizeevents
     SUBDIR += rubygem-aws-sdk-personalizeruntime
@@ -6749,6 +6751,7 @@
     SUBDIR += rubygem-ffi-libarchive
     SUBDIR += rubygem-ffi-win32-extensions
     SUBDIR += rubygem-ffi-yajl
+    SUBDIR += rubygem-fiber-annotation
     SUBDIR += rubygem-fiber-local
     SUBDIR += rubygem-fiddle
     SUBDIR += rubygem-file-tail
