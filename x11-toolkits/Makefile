@@ -122,6 +122,7 @@
     SUBDIR += p5-Gtk3-SimpleList
     SUBDIR += p5-Pango
     SUBDIR += p5-Prima
+    SUBDIR += p5-Test-Tk
     SUBDIR += p5-Tk
     SUBDIR += p5-Tk-Action
     SUBDIR += p5-Tk-Autoscroll
@@ -180,7 +181,6 @@
     SUBDIR += qt5-virtualkeyboard
     SUBDIR += qt5-widgets
     SUBDIR += qt5pas
-    SUBDIR += qt6pas
     SUBDIR += qt6-charts
     SUBDIR += qt6-datavis3d
     SUBDIR += qt6-declarative
@@ -188,6 +188,7 @@
     SUBDIR += qt6-quicktimeline
     SUBDIR += qt6-shadertools
     SUBDIR += qt6-virtualkeyboard
+    SUBDIR += qt6pas
     SUBDIR += qtermwidget
     SUBDIR += qwt5-qt5
     SUBDIR += qwt6

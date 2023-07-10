@@ -4197,12 +4197,14 @@
     SUBDIR += py-aiologger
     SUBDIR += py-aiorpcX
     SUBDIR += py-aiortc
+    SUBDIR += py-aiorwlock
     SUBDIR += py-aiosignal
     SUBDIR += py-airtable-python-wrapper
     SUBDIR += py-amalgamate
     SUBDIR += py-aniso8601
     SUBDIR += py-aniso86016
     SUBDIR += py-anndata
+    SUBDIR += py-annotated-types
     SUBDIR += py-ansi
     SUBDIR += py-antlr4-python3-runtime
     SUBDIR += py-anyconfig
@@ -4849,6 +4851,7 @@
     SUBDIR += py-jsonrpclib-pelix
     SUBDIR += py-jsonschema
     SUBDIR += py-jsonschema-spec
+    SUBDIR += py-jsonschema-specifications
     SUBDIR += py-jsonschema3
     SUBDIR += py-jsonsir
     SUBDIR += py-jupyter-client
@@ -5098,6 +5101,7 @@
     SUBDIR += py-pbr
     SUBDIR += py-pcodedmp
     SUBDIR += py-pdm
+    SUBDIR += py-pdm-autoexport
     SUBDIR += py-pdm-backend
     SUBDIR += py-pdm-pep517
     SUBDIR += py-pdoc
@@ -5127,7 +5131,9 @@
     SUBDIR += py-pint-pandas
     SUBDIR += py-pip
     SUBDIR += py-pip-api
+    SUBDIR += py-pip-audit
     SUBDIR += py-pip-licenses
+    SUBDIR += py-pip-requirements-parser
     SUBDIR += py-pip-run
     SUBDIR += py-pip-shims
     SUBDIR += py-pip-tools
@@ -5198,6 +5204,7 @@
     SUBDIR += py-purl
     SUBDIR += py-py
     SUBDIR += py-py-partiql-parser
+    SUBDIR += py-py-serializable
     SUBDIR += py-py-ubjson
     SUBDIR += py-py3nvml
     SUBDIR += py-pyTooling
@@ -5220,6 +5227,8 @@
     SUBDIR += py-pycparser
     SUBDIR += py-pydantic
     SUBDIR += py-pydantic-core
+    SUBDIR += py-pydantic-extra-types
+    SUBDIR += py-pydantic2
     SUBDIR += py-pydash
     SUBDIR += py-pydecor
     SUBDIR += py-pydenticon
@@ -5446,6 +5455,7 @@
     SUBDIR += py-recurring-ical-events
     SUBDIR += py-rednose
     SUBDIR += py-reedsolo
+    SUBDIR += py-referencing
     SUBDIR += py-remote-pdb
     SUBDIR += py-repoze.lru
     SUBDIR += py-repoze.sphinx.autointerface
@@ -5481,6 +5491,7 @@
     SUBDIR += py-rope
     SUBDIR += py-rose
     SUBDIR += py-rpcq
+    SUBDIR += py-rpds-py
     SUBDIR += py-rply
     SUBDIR += py-rq
     SUBDIR += py-rq-scheduler
@@ -5501,6 +5512,7 @@
     SUBDIR += py-scheduler
     SUBDIR += py-schema
     SUBDIR += py-schematics-patched
+    SUBDIR += py-scikit-base
     SUBDIR += py-scikit-build
     SUBDIR += py-scikit-build-core
     SUBDIR += py-scooby
@@ -6067,6 +6079,7 @@
     SUBDIR += rubygem-aws-sdk-apigatewayv2
     SUBDIR += rubygem-aws-sdk-appconfig
     SUBDIR += rubygem-aws-sdk-appconfigdata
+    SUBDIR += rubygem-aws-sdk-appfabric
     SUBDIR += rubygem-aws-sdk-appflow
     SUBDIR += rubygem-aws-sdk-appintegrationsservice
     SUBDIR += rubygem-aws-sdk-applicationautoscaling
@@ -6121,6 +6134,7 @@
     SUBDIR += rubygem-aws-sdk-codedeploy
     SUBDIR += rubygem-aws-sdk-codeguruprofiler
     SUBDIR += rubygem-aws-sdk-codegurureviewer
+    SUBDIR += rubygem-aws-sdk-codegurusecurity
     SUBDIR += rubygem-aws-sdk-codepipeline
     SUBDIR += rubygem-aws-sdk-codestar
     SUBDIR += rubygem-aws-sdk-codestarconnections
@@ -6141,7 +6155,6 @@
     SUBDIR += rubygem-aws-sdk-controltower
     SUBDIR += rubygem-aws-sdk-core
     SUBDIR += rubygem-aws-sdk-core2
-    SUBDIR += rubygem-aws-sdk-core3172
     SUBDIR += rubygem-aws-sdk-core3175
     SUBDIR += rubygem-aws-sdk-costandusagereportservice
     SUBDIR += rubygem-aws-sdk-costexplorer
@@ -6346,7 +6359,6 @@
     SUBDIR += rubygem-aws-sdk-route53resolver
     SUBDIR += rubygem-aws-sdk-s3
     SUBDIR += rubygem-aws-sdk-s31121
-    SUBDIR += rubygem-aws-sdk-s31122
     SUBDIR += rubygem-aws-sdk-s31126
     SUBDIR += rubygem-aws-sdk-s3control
     SUBDIR += rubygem-aws-sdk-s3outposts
@@ -6398,6 +6410,7 @@
     SUBDIR += rubygem-aws-sdk-transcribestreamingservice
     SUBDIR += rubygem-aws-sdk-transfer
     SUBDIR += rubygem-aws-sdk-translate
+    SUBDIR += rubygem-aws-sdk-verifiedpermissions
     SUBDIR += rubygem-aws-sdk-voiceid
     SUBDIR += rubygem-aws-sdk-vpclattice
     SUBDIR += rubygem-aws-sdk-waf
@@ -6864,7 +6877,6 @@
     SUBDIR += rubygem-google-iam-credentials-v1
     SUBDIR += rubygem-google-iam-v1
     SUBDIR += rubygem-google-protobuf
-    SUBDIR += rubygem-google-protobuf322
     SUBDIR += rubygem-google-protobuf323
     SUBDIR += rubygem-googleapis-common-protos
     SUBDIR += rubygem-googleapis-common-protos-types
@@ -6875,7 +6887,6 @@
     SUBDIR += rubygem-grape-route-helpers
     SUBDIR += rubygem-grape-swagger
     SUBDIR += rubygem-grape-swagger-entity
-    SUBDIR += rubygem-grape15
     SUBDIR += rubygem-grape_logging
     SUBDIR += rubygem-graphiql-rails
     SUBDIR += rubygem-graphlient
@@ -6959,6 +6970,7 @@
     SUBDIR += rubygem-kafo_wizards
     SUBDIR += rubygem-kgio
     SUBDIR += rubygem-kt-paperclip-rails61
+    SUBDIR += rubygem-language_server-protocol
     SUBDIR += rubygem-launchy
     SUBDIR += rubygem-lazy_priority_queue
     SUBDIR += rubygem-libdatadog
