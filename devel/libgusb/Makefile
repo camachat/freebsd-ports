@@ -10,6 +10,7 @@ LICENSE=	LGPL21
 LICENSE_FILE=	${WRKSRC}/COPYING
 
 BUILD_DEPENDS=	${PY_SETUPTOOLS}
+LIB_DEPENDS=	libjson-glib-1.0.so:devel/json-glib
 
 USES=		gnome meson pkgconfig python:build
 
