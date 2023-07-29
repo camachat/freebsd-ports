@@ -5921,6 +5921,7 @@
     SUBDIR += qt6-5compat
     SUBDIR += qt6-base
     SUBDIR += qt6-languageserver
+    SUBDIR += qt6-location
     SUBDIR += qt6-positioning
     SUBDIR += qt6-remoteobjects
     SUBDIR += qt6-scxml
@@ -7511,6 +7512,7 @@
     SUBDIR += sbt
     SUBDIR += scalatest
     SUBDIR += scandoc
+    SUBDIR += scc
     SUBDIR += sccache
     SUBDIR += sccs
     SUBDIR += schilybase
