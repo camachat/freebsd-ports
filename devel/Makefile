@@ -123,6 +123,7 @@
     SUBDIR += R-cran-sfsmisc
     SUBDIR += R-cran-sourcetools
     SUBDIR += R-cran-sys
+    SUBDIR += R-cran-testit
     SUBDIR += R-cran-testthat
     SUBDIR += R-cran-tibble
     SUBDIR += R-cran-tidyr
@@ -293,6 +294,7 @@
     SUBDIR += blame
     SUBDIR += blitz
     SUBDIR += bloaty
+    SUBDIR += bloomberg-bde
     SUBDIR += blueprint-compiler
     SUBDIR += bmake
     SUBDIR += bmkdep
@@ -725,6 +727,7 @@
     SUBDIR += fungw
     SUBDIR += fuzzylite
     SUBDIR += fxdiv
+    SUBDIR += g-golf
     SUBDIR += g-wrap
     SUBDIR += ga
     SUBDIR += gaa
@@ -951,7 +954,6 @@
     SUBDIR += hexd
     SUBDIR += hgreviewboard
     SUBDIR += hgsvn
-    SUBDIR += hhdate
     SUBDIR += highlighterkit
     SUBDIR += highway
     SUBDIR += hoel
@@ -1037,6 +1039,7 @@
     SUBDIR += jetbrains-goland
     SUBDIR += jetbrains-phpstorm
     SUBDIR += jetbrains-pty4j
+    SUBDIR += jetbrains-sqlite
     SUBDIR += jetbrains-webstorm
     SUBDIR += jgoodies-looks
     SUBDIR += jiic
@@ -1049,6 +1052,7 @@
     SUBDIR += jsmin
     SUBDIR += json-c
     SUBDIR += json-dto
+    SUBDIR += json-fortran
     SUBDIR += json-glib
     SUBDIR += jsoncpp
     SUBDIR += jsonnet
@@ -1441,6 +1445,7 @@
     SUBDIR += libvshadow
     SUBDIR += libvslvm
     SUBDIR += libvterm
+    SUBDIR += libwasmtime
     SUBDIR += libwfut
     SUBDIR += libx86
     SUBDIR += libxalloc
@@ -1518,6 +1523,7 @@
     SUBDIR += love5
     SUBDIR += lpc21isp
     SUBDIR += lrmi
+    SUBDIR += lua-Penlight
     SUBDIR += lua-argparse
     SUBDIR += lua-bitlib
     SUBDIR += lua-bitop
@@ -4522,6 +4528,7 @@
     SUBDIR += py-cwcwidth
     SUBDIR += py-cxx
     SUBDIR += py-cycler
+    SUBDIR += py-cykhash
     SUBDIR += py-cymbal
     SUBDIR += py-cymem
     SUBDIR += py-cysignals
