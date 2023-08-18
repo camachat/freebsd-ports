@@ -7551,6 +7551,7 @@
     SUBDIR += sdsl-lite
     SUBDIR += sdts++
     SUBDIR += sedsed
+    SUBDIR += seer-gdb
     SUBDIR += selene
     SUBDIR += sentry-cli
     SUBDIR += serd
@@ -7837,6 +7838,7 @@
     SUBDIR += yder
     SUBDIR += youcompleteme
     SUBDIR += yuck
+    SUBDIR += yyjson
     SUBDIR += z80-asm
     SUBDIR += z80asm
     SUBDIR += z80ex
