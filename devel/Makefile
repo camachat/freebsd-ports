@@ -1531,7 +1531,6 @@
     SUBDIR += lua-cjson
     SUBDIR += lua-cqueues
     SUBDIR += lua-gettext
-    SUBDIR += lua-language-server
     SUBDIR += lua-lgi
     SUBDIR += lua-libevent
     SUBDIR += lua-lpeg
@@ -5349,7 +5348,6 @@
     SUBDIR += py-pytest-flakes
     SUBDIR += py-pytest-flask
     SUBDIR += py-pytest-forked
-    SUBDIR += py-pytest-freezegun
     SUBDIR += py-pytest-freezer
     SUBDIR += py-pytest-helpers-namespace
     SUBDIR += py-pytest-html
@@ -7812,6 +7810,7 @@
     SUBDIR += xbyak
     SUBDIR += xc3sprog
     SUBDIR += xcscope.el
+    SUBDIR += xdg-dbus-proxy
     SUBDIR += xdg-user-dirs
     SUBDIR += xdg-utils
     SUBDIR += xdgpaths
