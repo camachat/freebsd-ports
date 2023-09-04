@@ -2996,6 +2996,7 @@
     SUBDIR += p5-MooseX-Singleton
     SUBDIR += p5-MooseX-Storage
     SUBDIR += p5-MooseX-StrictConstructor
+    SUBDIR += p5-MooseX-Test-Role
     SUBDIR += p5-MooseX-TraitFor-Meta-Class-BetterAnonClassNames
     SUBDIR += p5-MooseX-Traits
     SUBDIR += p5-MooseX-Traits-Pluggable
@@ -7575,6 +7576,7 @@
     SUBDIR += smooth
     SUBDIR += smv
     SUBDIR += snazy
+    SUBDIR += snitch
     SUBDIR += soapui
     SUBDIR += sobjectizer
     SUBDIR += socket_wrapper
