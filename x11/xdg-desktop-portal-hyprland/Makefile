@@ -3,6 +3,9 @@ DISTVERSIONPREFIX=	v
 DISTVERSION=	1.0.0
 CATEGORIES=	x11 wayland
 
+PATCH_SITES=	https://github.com/${GH_ACCOUNT}/${GH_PROJECT}/commit/
+PATCHFILES+=	676571b2c042.patch:-p1 # https://github.com/hyprwm/xdg-desktop-portal-hyprland/pull/84
+
 MAINTAINER=	jbeich@FreeBSD.org
 COMMENT=	xdg-desktop-portal backend for hyprland
 WWW=		https://github.com/hyprwm/xdg-desktop-portal-hyprland
@@ -34,16 +37,12 @@ PLIST_FILES=	libexec/${PORTNAME} \
 		share/dbus-1/services/org.freedesktop.impl.portal.desktop.hyprland.service \
 		share/xdg-desktop-portal/portals/hyprland.portal
 
+# XXX Drop after FreeBSD 14.0 EOL around 2025-03-01
 .if exists(/usr/lib/libc++.so) && !exists(/usr/include/c++/v1/__format/write_escaped.h)
+# Emulate -fexperimental-library for GCC
 CXXFLAGS+=	-D_LIBCPP_ENABLE_EXPERIMENTAL # std::vformat
+LDFLAGS+=	-lc++experimental
 .endif
-
-post-patch:
-# Drop unused dependencies
-	@${REINPLACE_CMD} -e '/cairo/d' \
-		-e '/jpeg/d' \
-		-e '/pango/d' \
-		${WRKSRC}/src/meson.build
 
 .ifdef GH_TUPLE
 post-configure:
