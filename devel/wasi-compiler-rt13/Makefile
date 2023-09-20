@@ -7,7 +7,7 @@ PKGNAMEPREFIX=	wasi-
 PKGNAMESUFFIX=	${LLVM_SUFFIX}
 DISTNAME=	llvm-project-${DISTVERSION}.src
 DISTFILES=	llvm-project-${DISTVERSION}.src${EXTRACT_SUFX}
-DISTINFO_FILE=	${.CURDIR}/../llvm13/distinfo
+DISTINFO_FILE=	${.CURDIR}/../llvm${LLVM_SUFFIX}/distinfo
 
 MAINTAINER=	vishwin@FreeBSD.org
 COMMENT=	Clang builtins library for WebAssembly System Interface
