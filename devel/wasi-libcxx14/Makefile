@@ -25,6 +25,7 @@ PLIST_SUB=	WASI_SYSROOT=${WASI_SYSROOT}
 
 USES=		cmake tar:xz
 NO_ARCH=	yes
+WITHOUT_CPU_CFLAGS=	yes
 
 SSP_UNSAFE=	yes
 AR=		${LOCALBASE}/bin/llvm-ar${LLVM_SUFFIX}
