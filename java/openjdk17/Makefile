@@ -152,8 +152,12 @@ EXTRA_CFLAGS+=		-Wno-bitwise-instead-of-logical
 .if ${COMPILER_VERSION} >= 150
 EXTRA_CFLAGS+=		-Wno-deprecated-non-prototype
 .endif
+.if ${COMPILER_VERSION} >= 170
+EXTRA_LDFLAGS+=		-Wl,--undefined-version
+.endif
 CONFIGURE_ARGS+=	--with-extra-cflags="${EXTRA_CFLAGS}"
 CONFIGURE_ARGS+=	--with-extra-cxxflags="${EXTRA_CFLAGS}"
+CONFIGURE_ARGS+=	--with-extra-ldflags="${EXTRA_LDFLAGS}"
 .endif
 .endif
 
