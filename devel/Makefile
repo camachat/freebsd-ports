@@ -334,7 +334,6 @@
     SUBDIR += capnproto080
     SUBDIR += capslock
     SUBDIR += capstone
-    SUBDIR += capstone3
     SUBDIR += capstone4
     SUBDIR += cargo-bloat
     SUBDIR += cargo-c
@@ -555,7 +554,6 @@
     SUBDIR += dia2code
     SUBDIR += dia2code+
     SUBDIR += ding-libs
-    SUBDIR += directfb
     SUBDIR += dispy
     SUBDIR += distcc
     SUBDIR += distel
@@ -603,7 +601,6 @@
     SUBDIR += egypt
     SUBDIR += eiffelstudio
     SUBDIR += electron22
-    SUBDIR += electron23
     SUBDIR += electron24
     SUBDIR += electron25
     SUBDIR += elf
@@ -1407,7 +1404,6 @@
     SUBDIR += libsysinfo
     SUBDIR += libtai
     SUBDIR += libtap
-    SUBDIR += libtar
     SUBDIR += libtecla
     SUBDIR += libtermkey
     SUBDIR += libtextstyle
@@ -1465,6 +1461,7 @@
     SUBDIR += linenoise-ng
     SUBDIR += linux-c7-dbus-libs
     SUBDIR += linux-c7-devtools
+    SUBDIR += linux-c7-devtoolset
     SUBDIR += linux-c7-elfutils-libelf
     SUBDIR += linux-c7-elfutils-libs
     SUBDIR += linux-c7-icu
@@ -4033,7 +4030,6 @@
     SUBDIR += pear-channel-ezc
     SUBDIR += pear-channel-geshi
     SUBDIR += pear-channel-horde
-    SUBDIR += pear-channel-htmlpurifier.org
     SUBDIR += pear-channel-openpear
     SUBDIR += pear-channel-pdepend
     SUBDIR += pear-channel-phing
@@ -4048,7 +4044,6 @@
     SUBDIR += pear-ezc_Base
     SUBDIR += pear-ezc_ConsoleTools
     SUBDIR += pear-geshi
-    SUBDIR += pear-htmlpurifier
     SUBDIR += pear-pdepend-staticReflection
     SUBDIR += pear-phing
     SUBDIR += pecl-APCu
@@ -4087,7 +4082,6 @@
     SUBDIR += phasar
     SUBDIR += php-Psr_Log
     SUBDIR += php-composer
-    SUBDIR += php-composer2
     SUBDIR += php-geshi
     SUBDIR += php-ice37
     SUBDIR += php-libawl
@@ -4154,7 +4148,6 @@
     SUBDIR += please
     SUBDIR += pmccabe
     SUBDIR += pmd
-    SUBDIR += pmdk
     SUBDIR += poco
     SUBDIR += popt
     SUBDIR += poser
@@ -5864,6 +5857,7 @@
     SUBDIR += py-ypy-websocket
     SUBDIR += py-yunomi
     SUBDIR += py-zarr
+    SUBDIR += py-zc.lockfile
     SUBDIR += py-zclockfile
     SUBDIR += py-zconfig
     SUBDIR += py-zfp
@@ -6126,6 +6120,8 @@
     SUBDIR += rubygem-aws-sdk-backupgateway
     SUBDIR += rubygem-aws-sdk-backupstorage
     SUBDIR += rubygem-aws-sdk-batch
+    SUBDIR += rubygem-aws-sdk-bedrock
+    SUBDIR += rubygem-aws-sdk-bedrockruntime
     SUBDIR += rubygem-aws-sdk-billingconductor
     SUBDIR += rubygem-aws-sdk-braket
     SUBDIR += rubygem-aws-sdk-budgets
