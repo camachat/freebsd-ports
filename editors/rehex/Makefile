@@ -15,7 +15,7 @@ LIB_DEPENDS=	libcapstone.so:devel/capstone4 \
 		libjansson.so:devel/jansson \
 		libunistring.so:devel/libunistring
 
-USES=		compiler:c++11-lang gmake gnome lua:53 perl5 pkgconfig
+USES=		compiler:c++11-lang gmake gnome lua perl5 pkgconfig
 USE_GITHUB=	yes
 GH_ACCOUNT=	solemnwarning
 USE_GNOME=	atk cairo gdkpixbuf2 glib20 gtk30 pango
