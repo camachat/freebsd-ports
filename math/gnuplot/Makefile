@@ -43,7 +43,7 @@ CONFIGURE_ARGS+=--disable-x11-mbfonts \
 		--without-kpsexpand
 PLIST_SUB+=	X11="@comment "
 .else
-USES+=		gnome jpeg lua:53 ncurses tex xorg
+USES+=		gnome jpeg lua ncurses tex xorg
 USE_TEX=	kpathsea
 USE_GNOME+=	atk cairo gtk30 gdkpixbuf2
 USE_WX=		3.2+
@@ -83,6 +83,10 @@ post-patch:
 		's|)/@PACKAGE@/@PKG_MAJOR@|)|g' ${WRKSRC}/src/Makefile.in
 	@${REINPLACE_CMD} -e \
 		's|luaL_checkint(|(int)luaL_checkinteger(|' ${WRKSRC}/term/lua.trm
+	@${REINPLACE_CMD} \
+		-e 's|lua-5\.3|lua-${LUA_VER}|g' \
+		-e 's|lua53|lua${LUA_VER_STR}|g' \
+		${WRKSRC}/configure
 
 post-build-DOCS-on:
 	@cd ${WRKSRC}/docs && ${MAKE} groff
