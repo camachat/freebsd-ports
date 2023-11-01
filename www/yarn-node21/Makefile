@@ -1,4 +1,4 @@
-USES=		nodejs:18,run
+USES=		nodejs:21,run
 
 MASTERDIR=	${.CURDIR}/../yarn-node20
 
