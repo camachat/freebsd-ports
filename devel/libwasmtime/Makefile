@@ -1,6 +1,7 @@
-PORTNAME=	lib${GH_PROJECT}
+PORTNAME=	${GH_PROJECT}
 PORTVERSION=	14.0.3
 DISTVERSIONPREFIX=	v
+PKGNAMEPREFIX?=	lib
 CATEGORIES=	devel
 
 MAINTAINER=	osa@FreeBSD.org
@@ -22,7 +23,9 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	bytecodealliance
 GH_PROJECT=	wasmtime
 
-CARGO_CARGOTOML=	${WRKSRC}/crates/c-api/Cargo.toml
+WASMTIME_SLAVE?=	no
+
+CARGO_CARGOTOML?=	${WRKSRC}/crates/c-api/Cargo.toml
 
 CARGO_CRATES=	addr2line-0.21.0 \
 		adler-1.0.2 \
@@ -354,7 +357,7 @@ GH_TUPLE=	WebAssembly:wasm-c-api:c9d3128:wasm_c_api/crates/c-api/wasm-c-api \
 		WebAssembly:wasi-testsuite:09517e5:wasi_testsuite/tests/wasi_testsuite/wasi-common \
 		WebAssembly:wasi-threads:e1893c0:wasi_threads/tests/wasi_testsuite/wasi-threads
 
-PLIST_FILES=	include/doc-wasm.h \
+PLIST_FILES?=	include/doc-wasm.h \
 		include/wasi.h \
 		include/wasm.h \
 		include/wasmtime.h \
@@ -376,11 +379,13 @@ PLIST_FILES=	include/doc-wasm.h \
 		lib/libwasmtime.a \
 		lib/libwasmtime.so
 
+.if ${WASMTIME_SLAVE} == no
 do-install:
 	${MKDIR} ${STAGEDIR}${PREFIX}/include/wasmtime
 	${INSTALL_DATA} ${WRKSRC}/crates/c-api/wasm-c-api/include/wasm.h ${STAGEDIR}${PREFIX}/include
 	(cd ${WRKSRC}/crates/c-api/include && ${COPYTREE_SHARE} . ${STAGEDIR}${PREFIX}/include)
 	${INSTALL_LIB} ${WRKDIR}/target/*-unknown-freebsd/release/libwasmtime.a ${STAGEDIR}${PREFIX}/lib
 	${INSTALL_LIB} ${WRKDIR}/target/*-unknown-freebsd/release/libwasmtime.so ${STAGEDIR}${PREFIX}/lib
+.endif
 
 .include <bsd.port.mk>
