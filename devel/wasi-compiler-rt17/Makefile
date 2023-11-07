@@ -1,44 +1,8 @@
-PORTNAME=	compiler-rt
+MASTERDIR=	${.CURDIR:H:H}/devel/wasi-compiler-rt
+
 DISTVERSION=	17.0.4
-CATEGORIES=	devel lang
-MASTER_SITES=	https://github.com/llvm/llvm-project/releases/download/llvmorg-${DISTVERSION:S/rc/-rc/}/ \
-		https://${PRE_}releases.llvm.org/${LLVM_RELEASE}/${RCDIR}
-PKGNAMEPREFIX=	wasi-
-PKGNAMESUFFIX=	${LLVM_SUFFIX}
-DISTNAME=	llvm-project-${DISTVERSION}.src
-DISTFILES=	llvm-project-${DISTVERSION}.src${EXTRACT_SUFX}
-DISTINFO_FILE=	${.CURDIR}/../llvm${LLVM_SUFFIX}/distinfo
+PKGNAMESUFFIX=	${LLVM_MAJOR}
 
-MAINTAINER=	greg@unrelenting.technology
-COMMENT=	Clang builtins library for WebAssembly System Interface
-
-LICENSE=	LLVM2
-LICENSE_FILE=	${WRKSRC}/llvm/LICENSE.TXT
-LICENSE_NAME=	Apache License 2.0 with LLVM Exceptions
-LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
-
-LLVM_RELEASE=	${DISTVERSION:C/rc.*//}
-LLVM_MAJOR=	${LLVM_RELEASE:C/\.[0-9]\.[0-9]$//}
-LLVM_SUFFIX=	${LLVM_RELEASE:C/\.[0-9]\.[0-9]$//}
-LLVM_PREFIX=	${PREFIX}/llvm${LLVM_SUFFIX}
-
-WASI_SYSROOT=	${LOCALBASE}/share/wasi-sysroot${LLVM_SUFFIX}
-
-BUILD_DEPENDS=	${WASI_SYSROOT}/include/stdarg.h:devel/wasi-libc${LLVM_SUFFIX} \
-		clang${LLVM_SUFFIX}:devel/llvm${LLVM_SUFFIX}
-
-USES=		cmake tar:xz
-NO_ARCH=	yes
-WITHOUT_CPU_CFLAGS=	yes
-
-PLIST_FILES=	llvm${LLVM_SUFFIX}/lib/clang/${LLVM_MAJOR}/lib/wasi/libclang_rt.builtins-wasm32.a
-
-CC=		${LOCALBASE}/bin/clang${LLVM_SUFFIX}
-CXX=		${LOCALBASE}/bin/clang++${LLVM_SUFFIX}
-CFLAGS+=	-I${WASI_SYSROOT}/include
-
-CMAKE_SOURCE_PATH=	${WRKSRC}/compiler-rt/lib/builtins
-CMAKE_INSTALL_PREFIX=	${LLVM_PREFIX}/lib/clang/${LLVM_MAJOR}
 CMAKE_ARGS=	-DCMAKE_C_COMPILER_WORKS=1 \
 		-DCMAKE_SYSROOT=${WASI_SYSROOT} \
 		-DLLVM_CONFIG_PATH=${LOCALBASE}/bin/llvm-config${LLVM_SUFFIX} \
@@ -56,7 +20,4 @@ CMAKE_ARGS=	-DCMAKE_C_COMPILER_WORKS=1 \
 		-DCOMPILER_RT_HAS_VISIBILITY_HIDDEN_FLAG:BOOL=ON \
 		-DCOMPILER_RT_HAS_XRAY_COMPILER_FLAG:BOOL=OFF
 
-post-build:
-	${LOCALBASE}/bin/llvm-ranlib${LLVM_SUFFIX} ${CONFIGURE_WRKSRC}/lib/wasi/*.a
-
-.include <bsd.port.mk>
+.include "${MASTERDIR}/Makefile"

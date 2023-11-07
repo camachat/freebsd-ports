@@ -29,7 +29,7 @@ LLVM_VERSION?=	${LLVM_DEFAULT}
 ALL_TARGET=	finish
 
 # NOTE: matches the https://github.com/CraneStation/wasi-sdk
-WASI_SYSROOT=	${PREFIX}/share/wasi-sysroot${LLVM_VERSION}
+WASI_SYSROOT=	${PREFIX}/share/wasi-sysroot${PKGNAMESUFFIX}
 
 # NOTE: our llvm ports don't ship stdarg/stddef clang headers, so they're in FILESDIR
 #       and we install them to the sysroot

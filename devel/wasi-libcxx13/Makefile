@@ -1,48 +1,9 @@
-PORTNAME=	libcxx
+MASTERDIR=	${.CURDIR:H:H}/devel/wasi-libcxx
+
 DISTVERSION=	13.0.1
-CATEGORIES=	devel lang
-MASTER_SITES=	https://github.com/llvm/llvm-project/releases/download/llvmorg-${DISTVERSION:S/rc/-rc/}/ \
-		https://${PRE_}releases.llvm.org/${LLVM_RELEASE}/${RCDIR}
-PKGNAMEPREFIX=	wasi-
-PKGNAMESUFFIX=	${LLVM_SUFFIX}
-DISTNAME=	llvm-project-${DISTVERSION}.src
-DISTFILES=	llvm-project-${DISTVERSION}.src${EXTRACT_SUFX}
-DISTINFO_FILE=	${.CURDIR}/../llvm${LLVM_SUFFIX}/distinfo
+PLIST=		${.CURDIR}/pkg-plist
+PKGNAMESUFFIX=	${LLVM_MAJOR}
 
-MAINTAINER=	greg@unrelenting.technology
-COMMENT=	C++ standard library for WebAssembly System Interface
-WWW=		https://llvm.org/
-
-LICENSE=	LLVM2
-LICENSE_NAME=	Apache License 2.0 with LLVM Exceptions
-LICENSE_FILE=	${WRKSRC}/LICENSE.TXT
-LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
-
-BUILD_DEPENDS=	${WASI_SYSROOT}/include/stdarg.h:devel/wasi-libc${LLVM_SUFFIX} \
-		clang${LLVM_SUFFIX}:devel/llvm${LLVM_SUFFIX}
-
-PLIST_SUB=	WASI_SYSROOT=${WASI_SYSROOT}
-
-USES=		cmake tar:xz
-NO_ARCH=	yes
-WITHOUT_CPU_CFLAGS=	yes
-
-SSP_UNSAFE=	yes
-AR=		${LOCALBASE}/bin/llvm-ar${LLVM_SUFFIX}
-NM=		${LOCALBASE}/bin/llvm-nm${LLVM_SUFFIX}
-CC=		${LOCALBASE}/bin/clang${LLVM_SUFFIX}
-CPP=		${LOCALBASE}/bin/clang-cpp${LLVM_SUFFIX}
-CXX=		${LOCALBASE}/bin/clang++${LLVM_SUFFIX}
-LLVM_RELEASE=	${DISTVERSION:C/rc.*//}
-LLVM_SUFFIX=	${LLVM_RELEASE:C/\.[0-9]\.[0-9]$//}
-LLVM_PREFIX=	${PREFIX}/llvm${LLVM_SUFFIX}
-WASI_SYSROOT=	${LOCALBASE}/share/wasi-sysroot${LLVM_SUFFIX}
-WRKSRC=		${WRKDIR}/${DISTNAME}/libcxx
-
-CONFIGURE_ENV+=	CC="${CC}" CFLAGS="${CFLAGS}"
-CONFIGURE_ENV+=	CXX="${CXX}" CXXFLAGS="${CXXFLAGS}"
-
-CMAKE_INSTALL_PREFIX=	${WASI_SYSROOT}
 CMAKE_ARGS=	-DCMAKE_C_COMPILER_WORKS=1 \
 		-DCMAKE_CXX_COMPILER_WORKS=1 \
 		-DCXX_SUPPORTS_CXX11=ON \
@@ -146,21 +107,4 @@ CMAKE_ARGS=	-DCMAKE_C_COMPILER_WORKS=1 \
 		-DLIBCXXABI_SUPPORTS_WX_FLAG:BOOL=ON \
 		-DLIBCXXABI_SUPPORTS_ZL_FLAG:BOOL=OFF
 
-post-extract:
-	@${MKDIR} ${WRKDIR}/.build_cxxabi
-
-post-configure:
-	@cd ${WRKDIR}/.build_cxxabi  && \
-		${SETENV} ${CONFIGURE_ENV} ${CMAKE_BIN} ${CMAKE_ARGS} ${WRKDIR}/${DISTNAME}/libcxxabi
-
-post-build:
-	@${LOCALBASE}/bin/llvm-ranlib${LLVM_SUFFIX} ${CONFIGURE_WRKSRC}/lib/wasm32-wasi/*.a
-	@cd ${WRKDIR}/.build_cxxabi && \
-		${SETENV} ${MAKE_ENV} ${MAKE_CMD} ${MAKE_ARGS} ${ALL_TARGET}
-	@${LOCALBASE}/bin/llvm-ranlib${LLVM_SUFFIX} ${WRKDIR}/.build_cxxabi/lib/wasm32-wasi/*.a
-
-post-install:
-	@cd ${WRKDIR}/.build_cxxabi && \
-		${SETENV} ${MAKE_ENV} ${MAKE_CMD} ${MAKE_ARGS} ${INSTALL_TARGET}
-
-.include <bsd.port.mk>
+.include "${MASTERDIR}/Makefile"
