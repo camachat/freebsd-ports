@@ -190,8 +190,8 @@ LLDB_CMAKE_ON= \
 	-DPANEL_LIBRARIES=/usr/lib/libpanel.so
 LLDB_DESC=		Install lldb, the LLVM debugger
 LLDB_IMPLIES=		CLANG
-LLDB_PLIST_SUB=		PYTHON_ABIVER=${PYTHON_ABIVER}
-LLDB_USES=		lua:53 libedit
+LLDB_PLIST_SUB=		PYTHON_ABIVER=${PYTHON_ABIVER} LUA_VER="${LUA_VER}"
+LLDB_USES=		lua libedit
 LLDB_VARS=		_USES_PYTHON=python
 MLIR_DESC=		Multi-Level Intermediate Representation
 OPENMP_DESC=		Install libomp, the LLVM OpenMP runtime library
