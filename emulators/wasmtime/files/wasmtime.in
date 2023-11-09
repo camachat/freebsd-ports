@@ -1,0 +1,49 @@
+#!/bin/sh
+
+# PROVIDE: %%NAME%%
+# REQUIRE: LOGIN
+# KEYWORD: shutdown
+
+# Add the following lines to /etc/rc.conf to enable `%%NAME%%':
+#
+# %%NAME%%_enable="YES"
+#
+
+. /etc/rc.subr
+
+name=%%NAME%%
+rcvar=%%NAME%%_enable
+
+# read configuration and set defaults
+load_rc_config "$name"
+
+: ${%%NAME%%_enable:="NO"}
+
+BINMISCCTL=/usr/sbin/binmiscctl
+WASMTIME=%%PREFIX%%/bin/wasmtime
+
+start_cmd=%%NAME%%_start
+stop_cmd=%%NAME%%_stop
+extra_commands=list
+list_cmd="${BINMISCCTL} list"
+
+%%NAME%%_start()
+{
+# 	# register wasm32-wasi interpreter styled 'wasm1'
+	interpreter=${WASMTIME}
+	if [ -x "${interpreter}" ]; then
+		${BINMISCCTL} add wasm1 --interpreter "${interpreter}" \
+			--magic "\x00\x61\x73\x6d\x01\x00\x00\x00" \
+			--mask  "\xff\xff\xff\xff\xff\xff\xff\xff" \
+			--size 8 --set-enabled
+	else
+		echo "$0: interpreter ${interpreter} not found, cannot register."
+	fi
+}
+
+%%NAME%%_stop()
+{
+	${BINMISCCTL} remove wasm1
+}
+
+run_rc_command "$1"

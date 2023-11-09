@@ -166,6 +166,7 @@
     SUBDIR += vmw
     SUBDIR += vt100
     SUBDIR += vxtools
+    SUBDIR += wasmtime
     SUBDIR += wine
     SUBDIR += wine-devel
     SUBDIR += wine-gecko

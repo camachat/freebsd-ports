@@ -2,7 +2,7 @@ PORTNAME=	${GH_PROJECT}
 PORTVERSION=	14.0.4
 DISTVERSIONPREFIX=	v
 PKGNAMEPREFIX?=	lib
-CATEGORIES=	devel
+CATEGORIES?=	devel
 
 MAINTAINER=	osa@FreeBSD.org
 COMMENT=	Library for fast and secure runtime for WebAssembly
@@ -24,7 +24,6 @@ GH_ACCOUNT=	bytecodealliance
 GH_PROJECT=	wasmtime
 
 WASMTIME_SLAVE?=	no
-
 CARGO_CARGOTOML?=	${WRKSRC}/crates/c-api/Cargo.toml
 
 CARGO_CRATES=	addr2line-0.21.0 \
