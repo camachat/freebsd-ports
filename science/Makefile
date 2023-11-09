@@ -175,6 +175,7 @@
     SUBDIR += maeparser
     SUBDIR += massxpert
     SUBDIR += mbdyn
+    SUBDIR += mcpl
     SUBDIR += mcstas
     SUBDIR += mcstas-comps
     SUBDIR += mctc-lib
@@ -369,6 +370,7 @@
     SUBDIR += py-mp-api
     SUBDIR += py-mpcontribs-client
     SUBDIR += py-mrchem
+    SUBDIR += py-ncrystal
     SUBDIR += py-netCDF4
     SUBDIR += py-netcdf-flattener
     SUBDIR += py-nglview
