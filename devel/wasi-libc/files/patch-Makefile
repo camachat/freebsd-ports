@@ -1,0 +1,11 @@
+--- Makefile.orig	2023-09-18 13:41:36.000000000 -0500
++++ Makefile	2023-11-10 17:33:30.862863000 -0600
+@@ -653,7 +653,7 @@ check-symbols: startup_files libc
+ 	# Generate a test file that includes all public C header files.
+ 	#
+ 	cd "$(SYSROOT_INC)" && \
+-	  for header in $$(find . -type f -not -name mman.h -not -name signal.h -not -name times.h -not -name resource.h |grep -v /bits/ |grep -v /c++/); do \
++	  for header in $$(find . -type f -not -name mman.h -not -name signal.h -not -name times.h -not -name resource.h -not -name stdatomic.h -not -name cdefs.h -not -name _types.h -not -name _limits.h|grep -v /bits/ |grep -v /c++/); do \
+ 	      echo '#include <'$$header'>' | sed 's/\.\///' ; \
+ 	done |LC_ALL=C sort >$(SYSROOT_SHARE)/include-all.c ; \
+ 	cd - >/dev/null

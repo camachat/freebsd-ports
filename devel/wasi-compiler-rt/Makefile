@@ -22,7 +22,20 @@ LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 IGNORE=		is a meta-port; there is nothing to build
 .endif
 
-BUILD_DEPENDS=	${WASI_SYSROOT}/include/stdarg.h:devel/wasi-libc
+FLAVORS=	single threads
+FLAVOR?=	${FLAVORS[1]}
+
+threads_PKGNAMESUFFIX=	-threads${LLVM_VERSION}
+
+.if ${FLAVOR:U}	== threads
+WASI_SYSROOT=	${LOCALBASE}/share/wasi-sysroot-threads
+TRIPLE=		wasm32-wasi-threads
+.else
+WASI_SYSROOT=	${LOCALBASE}/share/wasi-sysroot
+TRIPLE=		wasm32-wasi
+.endif
+
+BUILD_DEPENDS=	${WASI_SYSROOT}/include/stdarg.h:devel/wasi-libc@${FLAVOR:U}
 
 USES=		cmake llvm:${LLVM_SUFFIX} tar:xz
 
@@ -34,8 +47,6 @@ WITHOUT_CPU_CFLAGS=	yes
 
 CC=		${LOCALBASE}/bin/clang${LLVM_VERSION}
 CXX=		${LOCALBASE}/bin/clang++${LLVM_VERSION}
-WASI_SYSROOT=	${LOCALBASE}/share/wasi-sysroot
-TRIPLE=		wasm32-wasi
 # try to sync with https://github.com/WebAssembly/wasi-sdk
 # Makefile and wasi-sdk.cmake
 CMAKE_SOURCE_PATH=	${WRKSRC}/compiler-rt/lib/builtins

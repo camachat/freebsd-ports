@@ -22,8 +22,26 @@ LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 IGNORE=		is a meta port; there is nothing to build
 .endif
 
-BUILD_DEPENDS=	${WASI_SYSROOT}/include/stdarg.h:devel/wasi-libc \
-		wasi-compiler-rt${LLVM_VERSION}>0:devel/wasi-compiler-rt${LLVM_VERSION}
+FLAVORS=	single threads
+FLAVOR?=	${FLAVORS[1]}
+
+threads_PKGNAMESUFFIX=	-threads${LLVM_VERSION}
+
+.if ${FLAVOR:U}	== threads
+WASI_SYSROOT=	${LOCALBASE}/share/wasi-sysroot-threads
+CMAKE_INSTALL_PREFIX=	${PREFIX}/share/wasi-sysroot-threads
+TRIPLE=		wasm32-wasi-threads
+CFLAGS+=	-pthread
+.else
+WASI_SYSROOT=	${LOCALBASE}/share/wasi-sysroot
+CMAKE_INSTALL_PREFIX=	${PREFIX}/share/wasi-sysroot
+TRIPLE=		wasm32-wasi
+.endif
+PLIST_SUB+=	WASI_SYSROOT=${WASI_SYSROOT} TRIPLE=${TRIPLE}
+
+BUILD_DEPENDS=	${WASI_SYSROOT}/include/stdarg.h:devel/wasi-libc@${FLAVOR:U}
+single_BUILD_DEPENDS=	wasi-compiler-rt${LLVM_VERSION}>0:devel/wasi-compiler-rt${LLVM_VERSION}@${FLAVOR:U}
+threads_BUILD_DEPENDS=	wasi-compiler-rt-threads${LLVM_VERSION}>0:devel/wasi-compiler-rt${LLVM_VERSION}@${FLAVOR:U}
 
 USES=		cmake llvm:${LLVM_SUFFIX} tar:xz
 
@@ -39,11 +57,8 @@ CONFIGURE_ENV+=	CC="${CC}" CFLAGS="${CFLAGS}" \
 		CXX="${CXX}" CXXFLAGS="${CXXFLAGS}"
 CC=		${LOCALBASE}/bin/clang${LLVM_VERSION}
 CXX=		${LOCALBASE}/bin/clang++${LLVM_VERSION}
-WASI_SYSROOT=	${LOCALBASE}/share/wasi-sysroot
-TRIPLE=		wasm32-wasi
 # try to sync with https://github.com/WebAssembly/wasi-sdk
 # Makefile and wasi-sdk.cmake
-CMAKE_INSTALL_PREFIX=	${PREFIX}/share/wasi-sysroot
 CMAKE_SOURCE_PATH=	${WRKSRC}/runtimes
 CMAKE_ARGS+=	-DCMAKE_AR=${LOCALBASE}/bin/llvm-ar${LLVM_VERSION} \
 		-DCMAKE_RANLIB=${LOCALBASE}/bin/llvm-ranlib${LLVM_VERSION} \
@@ -58,8 +73,8 @@ CMAKE_ARGS+=	-DCMAKE_AR=${LOCALBASE}/bin/llvm-ar${LLVM_VERSION} \
 		-DCMAKE_STAGING_PREFIX=${CMAKE_INSTALL_PREFIX} \
 		-DLLVM_CONFIG_PATH=${LOCALBASE}/bin/${LLVM_CONFIG} \
 		-DCXX_SUPPORTS_CXX11=ON \
-		-DLIBCXX_ENABLE_THREADS:BOOL=OFF \
-		-DLIBCXX_HAS_PTHREAD_API:BOOL=OFF \
+		-DLIBCXX_ENABLE_THREADS:BOOL=${"${FLAVOR:Mthreads}" != "":?ON:OFF} \
+		-DLIBCXX_HAS_PTHREAD_API:BOOL=${"${FLAVOR:Mthreads}" != "":?ON:OFF} \
 		-DLIBCXX_HAS_EXTERNAL_THREAD_API:BOOL=OFF \
 		-DLIBCXX_BUILD_EXTERNAL_THREAD_LIBRARY:BOOL=OFF \
 		-DLIBCXX_HAS_WIN32_THREAD_API:BOOL=OFF \
@@ -74,8 +89,8 @@ CMAKE_ARGS+=	-DCMAKE_AR=${LOCALBASE}/bin/llvm-ar${LLVM_VERSION} \
 		-DLIBCXXABI_ENABLE_EXCEPTIONS:BOOL=OFF \
 		-DLIBCXXABI_ENABLE_SHARED:BOOL=OFF \
 		-DLIBCXXABI_SILENT_TERMINATE:BOOL=ON \
-		-DLIBCXXABI_ENABLE_THREADS:BOOL=OFF \
-		-DLIBCXXABI_HAS_PTHREAD_API:BOOL=OFF \
+		-DLIBCXXABI_ENABLE_THREADS:BOOL=${"${FLAVOR:Mthreads}" != "":?ON:OFF} \
+		-DLIBCXXABI_HAS_PTHREAD_API:BOOL=${"${FLAVOR:Mthreads}" != "":?ON:OFF} \
 		-DLIBCXXABI_HAS_EXTERNAL_THREAD_API:BOOL=OFF \
 		-DLIBCXXABI_BUILD_EXTERNAL_THREAD_LIBRARY:BOOL=OFF \
 		-DLIBCXXABI_HAS_WIN32_THREAD_API:BOOL=OFF \
