@@ -57,6 +57,7 @@ CONFIGURE_ENV+=	CC="${CC}" CFLAGS="${CFLAGS}" \
 		CXX="${CXX}" CXXFLAGS="${CXXFLAGS}"
 CC=		${LOCALBASE}/bin/clang${LLVM_VERSION}
 CXX=		${LOCALBASE}/bin/clang++${LLVM_VERSION}
+CFLAGS+=	-fno-exceptions
 # try to sync with https://github.com/WebAssembly/wasi-sdk
 # Makefile and wasi-sdk.cmake
 CMAKE_SOURCE_PATH=	${WRKSRC}/runtimes
