@@ -20,7 +20,7 @@ load_rc_config "$name"
 : ${%%NAME%%_enable:="NO"}
 
 BINMISCCTL=/usr/sbin/binmiscctl
-WASMTIME=%%PREFIX%%/bin/wasmtime
+WASMTIME=%%PREFIX%%/bin/%%WASMTIME_CLI%%
 
 start_cmd=%%NAME%%_start
 stop_cmd=%%NAME%%_stop
