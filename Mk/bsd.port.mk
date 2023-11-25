@@ -1781,7 +1781,7 @@ PLIST_SUB_SED?= ${PLIST_SUB_SED_tmp3:C/([^=]*)="?([^"]*)"?/s!\2!%%\1%%!g;/g:C/\.
 # sub-configure will not # survive double space
 CFLAGS:=	${CFLAGS:C/ $//}
 
-.    if defined(WITHOUT_CPU_CFLAGS)
+.    if defined(WITHOUT_CPU_CFLAGS) || defined(NO_ARCH)
 .      if defined(_CPUCFLAGS)
 .        if !empty(_CPUCFLAGS)
 CFLAGS:=	${CFLAGS:C/${_CPUCFLAGS}//}
