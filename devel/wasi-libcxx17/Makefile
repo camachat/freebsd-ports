@@ -1,5 +1,5 @@
 # must sync with devel/llvm17
-DISTVERSION=	17.0.4
+DISTVERSION=	17.0.5
 
 MASTERDIR=	${.CURDIR}/../wasi-libcxx
 
