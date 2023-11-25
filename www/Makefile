@@ -132,10 +132,10 @@
     SUBDIR += davix
     SUBDIR += dddbl
     SUBDIR += ddgr
+    SUBDIR += deforaos-surfer
     SUBDIR += deno
     SUBDIR += devd
     SUBDIR += dezoomify-rs
-    SUBDIR += dfileserver
     SUBDIR += dillo2
     SUBDIR += dojo
     SUBDIR += dokuwiki
@@ -230,7 +230,6 @@
     SUBDIR += gstreamer1-plugins-srt
     SUBDIR += gtkhtml4
     SUBDIR += guacamole-client
-    SUBDIR += guile-www
     SUBDIR += gurl
     SUBDIR += gwsocket
     SUBDIR += h2c
@@ -296,6 +295,7 @@
     SUBDIR += kineto
     SUBDIR += kiwix-tools
     SUBDIR += kohana
+    SUBDIR += ladybird
     SUBDIR += lagrange
     SUBDIR += larbin
     SUBDIR += libapreq2

@@ -60,8 +60,8 @@ MOZILLA?=	${PORTNAME}
 MOZILLA_VER?=	${PORTVERSION}
 MOZILLA_BIN?=	${PORTNAME}-bin
 MOZILLA_EXEC_NAME?=${MOZILLA}
-USES+=		compiler:c++17-lang cpe gl gmake gnome iconv llvm localbase pkgconfig \
-			python:build desktop-file-utils
+USES+=		compiler:c++17-lang cpe gl gmake gnome iconv llvm:noexport localbase \
+			pkgconfig python:build desktop-file-utils
 CPE_VENDOR?=mozilla
 USE_GL=		gl
 USE_GNOME=	cairo gdkpixbuf2 gtk30
@@ -86,7 +86,16 @@ MOZ_OPTIONS+=	--prefix="${PREFIX}"
 MOZ_MK_OPTIONS+=MOZ_OBJDIR="${BUILD_WRKSRC}"
 
 MOZ_OPTIONS+=	--with-libclang-path="${LLVM_PREFIX:S/${PREFIX}/${LOCALBASE}/}/lib"
-MOZ_EXPORT+=	LLVM_OBJDUMP="${LLVM_PREFIX}/bin/llvm-objdump"
+.    if !exists(/usr/bin/llvm-objdump)
+MOZ_EXPORT+=	LLVM_OBJDUMP="${LOCALBASE}/bin/llvm-objdump${LLVM_VERSION}"
+.    endif
+# Require newer Clang than what's in base system unless user opted out
+.    if ${CC} == cc && ${CXX} == c++ && exists(/usr/lib/libc++.so)
+CPP=			${LOCALBASE}/bin/clang-cpp${LLVM_VERSION}
+CC=				${LOCALBASE}/bin/clang${LLVM_VERSION}
+CXX=			${LOCALBASE}/bin/clang++${LLVM_VERSION}
+USES:=			${USES:Ncompiler\:*} # XXX avoid warnings
+.    endif
 
 MOZSRC?=	${WRKSRC}
 PLISTF?=	${WRKDIR}/plist_files

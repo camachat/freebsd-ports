@@ -56,6 +56,3 @@ lib/cmake/Qt6Coap/Qt6CoapVersionlessTargets.cmake
 %%QT_MKSPECDIR%%/modules/qt_lib_coap_private.pri
 libdata/pkgconfig/Qt6Coap.pc
 %%QT_DATADIR%%/modules/Coap.json
-@dir %%QT_LIBDIR%%/cmake/Qt6BuildInternals/StandaloneTests
-@dir %%QT_LIBDIR%%/cmake/Qt6Coap
-@dir %%QT_LIBDIR%%/pkgconfig

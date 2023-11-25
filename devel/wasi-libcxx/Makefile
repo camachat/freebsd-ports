@@ -20,6 +20,7 @@ LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 
 .if ${DISTVERSION} == 0
 IGNORE=		is a meta port; there is nothing to build
+PKGNAMESUFFIX=	-master
 .endif
 
 FLAVORS=	single threads
@@ -43,6 +44,9 @@ BUILD_DEPENDS=	${WASI_SYSROOT}/include/stdarg.h:devel/wasi-libc@${FLAVOR:U}
 single_BUILD_DEPENDS=	wasi-compiler-rt${LLVM_VERSION}>0:devel/wasi-compiler-rt${LLVM_VERSION}@${FLAVOR:U}
 threads_BUILD_DEPENDS=	wasi-compiler-rt-threads${LLVM_VERSION}>0:devel/wasi-compiler-rt${LLVM_VERSION}@${FLAVOR:U}
 
+BUILD_DEPENDS=	${WASI_SYSROOT}/include/stdarg.h:devel/wasi-libc \
+		wasi-compiler-rt${LLVM_VERSION}>0:devel/wasi-compiler-rt${LLVM_VERSION}
+
 USES=		cmake llvm:${LLVM_SUFFIX} tar:xz
 
 LLVM_RELEASE=	${DISTVERSION:C/rc.*//}
@@ -65,7 +69,6 @@ CMAKE_ARGS+=	-DCMAKE_AR=${LOCALBASE}/bin/llvm-ar${LLVM_VERSION} \
 		-DCMAKE_C_COMPILER_TARGET=${TRIPLE} \
 		-DCMAKE_CXX_COMPILER_TARGET=${TRIPLE} \
 		-DCMAKE_FIND_ROOT_PATH_MODE_PROGRAM=NEVER \
-		-DCMAKE_FIND_ROOT_PATH_MODE_LIBRARY=ONLY \
 		-DCMAKE_FIND_ROOT_PATH_MODE_INCLUDE=ONLY \
 		-DCMAKE_FIND_ROOT_PATH_MODE_PACKAGE=ONLY \
 		-DCMAKE_C_COMPILER_WORKS=ON \
