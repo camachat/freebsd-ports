@@ -87,19 +87,6 @@ CONFIGURE_ENV+=	LLVM_CONFIG=${LLVM_CONFIG}
 # depending on configuration options. Suppress errors with lld >= 17 due to
 # these undefined symbols.
 LDFLAGS+=	-Wl,--undefined-version
-
-.if ${COMPILER_TYPE} == clang && ${COMPILER_VERSION} >= 170
-EXTRA_PATCHES+=	${PATCHDIR}/extra-patch-src_amd_llvm_ac__llvm__util.c \
-		${PATCHDIR}/extra-patch-src_gallium_auxiliary_draw_draw__llvm.c \
-		${PATCHDIR}/extra-patch-src_gallium_auxiliary_gallivm_lp__bld__init.c \
-		${PATCHDIR}/extra-patch-src_gallium_auxiliary_gallivm_lp__bld__misc.cpp \
-		${PATCHDIR}/extra-patch-src_gallium_drivers_llvmpipe_lp__context.c \
-		${PATCHDIR}/extra-patch-src_gallium_drivers_llvmpipe_lp__test__arit.c \
-		${PATCHDIR}/extra-patch-src_gallium_drivers_llvmpipe_lp__test__blend.c \
-		${PATCHDIR}/extra-patch-src_gallium_drivers_llvmpipe_lp__test__conv.c \
-		${PATCHDIR}/extra-patch-src_gallium_drivers_llvmpipe_lp__test__format.c \
-		${PATCHDIR}/extra-patch-src_gallium_drivers_llvmpipe_lp__test__printf.c
-.endif
 LDFLAGS+=	-Wl,-rpath=${LOCALBASE}/llvm${LLVM_VERSION}/lib
 MESON_ARGS+=	-Dllvm=enabled \
 		-Dlibunwind=disabled \
