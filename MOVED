@@ -7190,7 +7190,6 @@ sysutils/cfengine-masterfiles317||2022-12-10|Has expired: Expire one year after 
 net-mgmt/icingaweb2-module-ipl|net-mgmt/icinga-php-library|2022-12-13|Renamed by project
 x11/darkman|accessibility/darkman|2022-12-14|Moved to a better category
 net/samba412||2022-12-18|Has expired: Reached its EoL on September 20, 2021
-graphics/opencoloriov1|graphics/opencolorio|2022-12-20|Used by blender-lts28 which is EOL'd
 graphics/openimageio-ociov1|graphics/openimageio|2022-12-20|Used by blender-lts28 which is EOL'd
 textproc/retext|editors/retext|2022-12-21|Moved to a better category
 math/vtk6||2022-12-24|Has expired: Old version not used anywhere in the ports tree
@@ -8099,3 +8098,6 @@ devel/rubygem-rdoc63|devel/rubygem-rdoc|2023-11-27|Remove obsoleted port. Use de
 security/rubygem-devise-two-factor40-rails70|security/rubygem-devise-two-factor41-rails70|2023-11-27|Remove obsoleted port. Use security/rubygem-devise-two-factor41-rails70 instead
 www/rubygem-rqrcode-rails3|www/rubygem-rqrcode|2023-11-27|Remove obsoleted port. Use www/rubygem-rqrcode instead
 textproc/py-pygments-25|textproc/py-pygments|2023-11-27|Remove obsoleted port. Use textproc/py-pygments instead
+devel/rubygem-devise48-rails70|devel/rubygem-devise-rails70|2023-11-29|Use devel/rubygem-devise-rails70 instead
+textproc/rubygem-rouge41|textproc/rubygem-rouge|2023-11-29|Use textproc/rubygem-rouge instead
+devel/rubygem-aws-sdk-s31121|devel/rubygem-aws-sdk-s3|2023-11-29|Use devel/rubygem-aws-sdk-s3 instead
