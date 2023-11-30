@@ -3,7 +3,7 @@ CATEGORIES=	emulators
 
 PKGNAMEPREFIX=
 WASMTIME_SLAVE=	cli
-CARGO_CARGOTOML=	${WRKSRC}/Cargo.toml
+CARGO_BUILD_ARGS=	-p wasmtime-cli
 PLIST_FILES=	bin/wasmtime
 #PLIST_FILES=	bin/wasmtime bin/binmisc-wasmtime-wrapper
 

@@ -1,4 +1,4 @@
-PORTNAME=	lib${GH_PROJECT}
+PORTNAME=	${GH_PROJECT}
 PORTVERSION=	15.0.0
 DISTVERSIONPREFIX=	v
 PKGNAMEPREFIX?=	lib
@@ -23,7 +23,8 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	bytecodealliance
 GH_PROJECT=	wasmtime
 
-CARGO_BUILD_ARGS=	-p wasmtime-c-api
+WASMTIME_SLAVE?=	master
+CARGO_BUILD_ARGS?=	-p wasmtime-c-api
 
 CARGO_CRATES=	addr2line-0.21.0 \
 		adler-1.0.2 \
@@ -380,7 +381,7 @@ PLIST_FILES?=	include/doc-wasm.h \
 		lib/libwasmtime.a \
 		lib/libwasmtime.so
 
-.if ${WASMTIME_SLAVE} == no
+.if ${WASMTIME_SLAVE} == master
 do-install:
 	${MKDIR} ${STAGEDIR}${PREFIX}/include/wasmtime
 	${INSTALL_DATA} ${WRKSRC}/crates/c-api/wasm-c-api/include/wasm.h ${STAGEDIR}${PREFIX}/include
