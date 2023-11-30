@@ -4409,7 +4409,6 @@ www/redmine-sidebar_hide||2020-05-05|Has expired: Broken for more than 6 months
 www/rssowl||2020-05-05|Has expired: Broken for more than 6 months
 www/skytemplate||2020-05-05|Has expired: Broken for more than 6 months
 www/surfraw||2020-05-05|Has expired: Broken for more than 6 months
-www/sws||2020-05-05|Has expired: Broken for more than 6 months
 www/tickr||2020-05-05|Has expired: Broken for more than 6 months
 www/tinytinyhttpd||2020-05-05|Has expired: Broken for more than 6 months
 www/udmsearch||2020-05-05|Has expired: Broken for more than 6 months
@@ -8101,3 +8100,4 @@ textproc/py-pygments-25|textproc/py-pygments|2023-11-27|Remove obsoleted port. U
 devel/rubygem-devise48-rails70|devel/rubygem-devise-rails70|2023-11-29|Use devel/rubygem-devise-rails70 instead
 textproc/rubygem-rouge41|textproc/rubygem-rouge|2023-11-29|Use textproc/rubygem-rouge instead
 devel/rubygem-aws-sdk-s31121|devel/rubygem-aws-sdk-s3|2023-11-29|Use devel/rubygem-aws-sdk-s3 instead
+games/py-mnemosyne|games/py-mnemosyne-proj|2023-11-30|Rename to match PyPI name
