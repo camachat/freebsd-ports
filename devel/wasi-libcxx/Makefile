@@ -25,9 +25,26 @@ PKGNAMESUFFIX=	-master
 
 FLAVORS=	single threads
 FLAVOR?=	${FLAVORS[1]}
-
 threads_PKGNAMESUFFIX=	-threads${LLVM_VERSION}
+PLIST_SUB+=	WASI_SYSROOT=${WASI_SYSROOT} TRIPLE=${TRIPLE}
 
+BUILD_DEPENDS=	${WASI_SYSROOT}/include/stdarg.h:devel/wasi-libc@${FLAVOR:U}
+single_BUILD_DEPENDS=	wasi-compiler-rt${LLVM_VERSION}>0:devel/wasi-compiler-rt${LLVM_VERSION}@${FLAVOR:U}
+threads_BUILD_DEPENDS=	wasi-compiler-rt-threads${LLVM_VERSION}>0:devel/wasi-compiler-rt${LLVM_VERSION}@${FLAVOR:U}
+
+USES=		cmake llvm:${LLVM_SUFFIX} tar:xz
+
+LLVM_RELEASE=	${DISTVERSION:C/rc.*//}
+LLVM_SUFFIX=	${LLVM_RELEASE:C/\.[0-9]\.[0-9]$//}
+DISTINFO_FILE=	${PORTSDIR}/${LLVM_PORT}/distinfo
+SSP_UNSAFE=	yes
+NO_ARCH=	yes
+PLIST=		${.CURDIR}/pkg-plist
+
+CONFIGURE_ENV+=	CC="${CC}" CFLAGS="${CFLAGS}" \
+		CXX="${CXX}" CXXFLAGS="${CXXFLAGS}"
+CC=		${LOCALBASE}/bin/clang${LLVM_VERSION}
+CXX=		${LOCALBASE}/bin/clang++${LLVM_VERSION}
 .if ${FLAVOR:U}	== threads
 WASI_SYSROOT=	${LOCALBASE}/share/wasi-sysroot-threads
 CMAKE_INSTALL_PREFIX=	${PREFIX}/share/wasi-sysroot-threads
@@ -38,29 +55,7 @@ WASI_SYSROOT=	${LOCALBASE}/share/wasi-sysroot
 CMAKE_INSTALL_PREFIX=	${PREFIX}/share/wasi-sysroot
 TRIPLE=		wasm32-wasi
 .endif
-PLIST_SUB+=	WASI_SYSROOT=${WASI_SYSROOT} TRIPLE=${TRIPLE}
-
-BUILD_DEPENDS=	${WASI_SYSROOT}/include/stdarg.h:devel/wasi-libc@${FLAVOR:U}
-single_BUILD_DEPENDS=	wasi-compiler-rt${LLVM_VERSION}>0:devel/wasi-compiler-rt${LLVM_VERSION}@${FLAVOR:U}
-threads_BUILD_DEPENDS=	wasi-compiler-rt-threads${LLVM_VERSION}>0:devel/wasi-compiler-rt${LLVM_VERSION}@${FLAVOR:U}
-
-BUILD_DEPENDS=	${WASI_SYSROOT}/include/stdarg.h:devel/wasi-libc \
-		wasi-compiler-rt${LLVM_VERSION}>0:devel/wasi-compiler-rt${LLVM_VERSION}
-
-USES=		cmake llvm:${LLVM_SUFFIX} tar:xz
-
-LLVM_RELEASE=	${DISTVERSION:C/rc.*//}
-LLVM_SUFFIX=	${LLVM_RELEASE:C/\.[0-9]\.[0-9]$//}
-DISTINFO_FILE=	${PORTSDIR}/${LLVM_PORT}/distinfo
-SSP_UNSAFE=	yes
-NO_ARCH=	yes
 WITHOUT_CPU_CFLAGS=    yes
-PLIST=		${.CURDIR}/pkg-plist
-
-CONFIGURE_ENV+=	CC="${CC}" CFLAGS="${CFLAGS}" \
-		CXX="${CXX}" CXXFLAGS="${CXXFLAGS}"
-CC=		${LOCALBASE}/bin/clang${LLVM_VERSION}
-CXX=		${LOCALBASE}/bin/clang++${LLVM_VERSION}
 # try to sync with https://github.com/WebAssembly/wasi-sdk
 # Makefile and wasi-sdk.cmake
 CMAKE_SOURCE_PATH=	${WRKSRC}/runtimes

@@ -25,16 +25,7 @@ PKGNAMESUFFIX=	-master
 
 FLAVORS=	single threads
 FLAVOR?=	${FLAVORS[1]}
-
 threads_PKGNAMESUFFIX=	-threads${LLVM_VERSION}
-
-.if ${FLAVOR:U}	== threads
-WASI_SYSROOT=	${LOCALBASE}/share/wasi-sysroot-threads
-TRIPLE=		wasm32-wasi-threads
-.else
-WASI_SYSROOT=	${LOCALBASE}/share/wasi-sysroot
-TRIPLE=		wasm32-wasi
-.endif
 
 BUILD_DEPENDS=	${WASI_SYSROOT}/include/stdarg.h:devel/wasi-libc@${FLAVOR:U}
 
@@ -47,7 +38,13 @@ NO_ARCH=	yes
 
 CC=		${LOCALBASE}/bin/clang${LLVM_VERSION}
 CXX=		${LOCALBASE}/bin/clang++${LLVM_VERSION}
+.if ${FLAVOR:U}	== threads
+WASI_SYSROOT=	${LOCALBASE}/share/wasi-sysroot-threads
+TRIPLE=		wasm32-wasi-threads
+.else
 WASI_SYSROOT=	${LOCALBASE}/share/wasi-sysroot
+TRIPLE=		wasm32-wasi
+.endif
 WITHOUT_CPU_CFLAGS=	yes
 # try to sync with https://github.com/WebAssembly/wasi-sdk
 # Makefile and wasi-sdk.cmake
