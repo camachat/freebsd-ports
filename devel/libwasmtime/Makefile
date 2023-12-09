@@ -1,8 +1,9 @@
 PORTNAME=	${GH_PROJECT}
 PORTVERSION=	15.0.1
 DISTVERSIONPREFIX=	v
-PKGNAMEPREFIX?=	lib
+PORTREVISION=	1
 CATEGORIES?=	devel
+PKGNAMEPREFIX?=	lib
 
 MAINTAINER=	osa@FreeBSD.org
 COMMENT=	Library for fast and secure runtime for WebAssembly
