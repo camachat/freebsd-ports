@@ -379,7 +379,6 @@
     SUBDIR += pecl-timezonedb
     SUBDIR += perkeep
     SUBDIR += pfm
-    SUBDIR += php80-calendar
     SUBDIR += php81-calendar
     SUBDIR += php82-calendar
     SUBDIR += php83-calendar
@@ -402,6 +401,7 @@
     SUBDIR += py-alive-progress
     SUBDIR += py-apache-beam
     SUBDIR += py-ascii-magic
+    SUBDIR += py-ast-comments
     SUBDIR += py-boost-histogram
     SUBDIR += py-censys
     SUBDIR += py-cinder
@@ -499,6 +499,7 @@
     SUBDIR += py-tqdm
     SUBDIR += py-tvm
     SUBDIR += py-uhi
+    SUBDIR += py-vaderSentiment
     SUBDIR += py-wandb
     SUBDIR += py-wurlitzer
     SUBDIR += py-xgboost
