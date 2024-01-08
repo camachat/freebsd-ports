@@ -65,4 +65,7 @@ post-patch:
 	@${REINPLACE_CMD} 's,/usr,${LOCALBASE},' \
 		${WRKSRC}/plugins/gdk-pixbuf/jxl.thumbnailer
 
+pre-build:
+	@${TOUCH} ${BUILD_WRKSRC}/lib/CMakeFiles/jxl_export.dir
+
 .include <bsd.port.mk>
