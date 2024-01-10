@@ -685,7 +685,6 @@
     SUBDIR += fpp
     SUBDIR += freebsd-gcc12
     SUBDIR += freebsd-gcc13
-    SUBDIR += freebsd-gcc9
     SUBDIR += freebsd-git-devtools
     SUBDIR += freebsd-sysroot
     SUBDIR += frink
@@ -3701,6 +3700,7 @@
     SUBDIR += p5-Tie-Restore
     SUBDIR += p5-Tie-ShareLite
     SUBDIR += p5-Tie-Simple
+    SUBDIR += p5-Tie-Sub
     SUBDIR += p5-Tie-ToObject
     SUBDIR += p5-Tie-Util
     SUBDIR += p5-Tie-iCal
