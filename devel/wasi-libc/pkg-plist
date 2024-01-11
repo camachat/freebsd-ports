@@ -95,6 +95,7 @@
 %%WASI_SYSROOT%%/include/crypt.h
 %%WASI_SYSROOT%%/include/ctype.h
 %%WASI_SYSROOT%%/include/dirent.h
+%%WASI_SYSROOT%%/include/dlfcn.h
 %%WASI_SYSROOT%%/include/endian.h
 %%WASI_SYSROOT%%/include/err.h
 %%WASI_SYSROOT%%/include/errno.h
