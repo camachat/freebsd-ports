@@ -436,6 +436,7 @@
     SUBDIR += lcalc
     SUBDIR += ldouble
     SUBDIR += lean
+    SUBDIR += lean4
     SUBDIR += lemon
     SUBDIR += levmar
     SUBDIR += lib2geom
@@ -1178,6 +1179,7 @@
     SUBDIR += suitesparse-lagraph
     SUBDIR += suitesparse-ldl
     SUBDIR += suitesparse-mongoose
+    SUBDIR += suitesparse-paru
     SUBDIR += suitesparse-rbio
     SUBDIR += suitesparse-spex
     SUBDIR += suitesparse-spqr
