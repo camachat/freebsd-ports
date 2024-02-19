@@ -210,6 +210,7 @@
     SUBDIR += argparse
     SUBDIR += args
     SUBDIR += argtable
+    SUBDIR += argtable3
     SUBDIR += arm-elf-binutils
     SUBDIR += arm-none-eabi-gcc
     SUBDIR += arm-none-eabi-newlib
@@ -1294,6 +1295,7 @@
     SUBDIR += libhtp
     SUBDIR += libibuddy
     SUBDIR += libical
+    SUBDIR += libiec61850
     SUBDIR += libindicator
     SUBDIR += libinjection
     SUBDIR += libinotify
@@ -4832,6 +4834,8 @@
     SUBDIR += py-iniconfig
     SUBDIR += py-inifile
     SUBDIR += py-iniparse
+    SUBDIR += py-inotify-simple
+    SUBDIR += py-inotifyrecursive
     SUBDIR += py-installer
     SUBDIR += py-intbitset
     SUBDIR += py-intelhex
@@ -5157,6 +5161,7 @@
     SUBDIR += py-pathos
     SUBDIR += py-pathspec
     SUBDIR += py-pathtools
+    SUBDIR += py-pathvalidate
     SUBDIR += py-paver
     SUBDIR += py-pbr
     SUBDIR += py-pcodedmp
@@ -5215,6 +5220,7 @@
     SUBDIR += py-pluginbase
     SUBDIR += py-plux
     SUBDIR += py-ply
+    SUBDIR += py-pnio-dcp
     SUBDIR += py-pockets
     SUBDIR += py-podcastparser
     SUBDIR += py-poetry
@@ -5405,6 +5411,7 @@
     SUBDIR += py-pytest-html
     SUBDIR += py-pytest-httpbin
     SUBDIR += py-pytest-httpserver
+    SUBDIR += py-pytest-httpx
     SUBDIR += py-pytest-isort
     SUBDIR += py-pytest-jupyter
     SUBDIR += py-pytest-lazy-fixture
@@ -7410,6 +7417,7 @@
     SUBDIR += rubygem-sidekiq-scheduler
     SUBDIR += rubygem-sidekiq-unique-jobs
     SUBDIR += rubygem-sidekiq6
+    SUBDIR += rubygem-sidekiq71
     SUBDIR += rubygem-sidetiq
     SUBDIR += rubygem-sigdump
     SUBDIR += rubygem-simple-navigation
