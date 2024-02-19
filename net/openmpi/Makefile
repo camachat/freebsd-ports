@@ -1,5 +1,5 @@
 PORTNAME=	openmpi
-PORTVERSION=	5.0.1
+PORTVERSION=	5.0.2
 CATEGORIES=	net parallel
 MASTER_SITES=	https://download.open-mpi.org/release/open-mpi/v${PORTVERSION:R}/
 
@@ -20,7 +20,7 @@ LIB_DEPENDS=	libhwloc.so.15:devel/hwloc2 \
 
 # :keepla because port uses lt_dlopen
 USES=		compiler:c11 fortran gmake libtool:keepla localbase perl5 \
-		pkgconfig shebangfix tar:bzip2
+		pkgconfig python:build shebangfix tar:bzip2
 
 CONFLICTS_INSTALL=	openmpi4-4*
 
