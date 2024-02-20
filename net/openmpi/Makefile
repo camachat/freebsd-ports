@@ -24,6 +24,8 @@ USES=		compiler:c11 fortran gmake libtool:keepla localbase perl5 \
 
 CONFLICTS_INSTALL=	openmpi4-4*
 
+BINARY_ALIAS=	python3=${PYTHON_CMD}
+
 USE_PERL5=	build
 
 MPIBASE?=	mpi
@@ -81,7 +83,6 @@ DEBUG_INSTALL_TARGET_OFF=	install-strip
 DOCS_BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}sphinx>0:textproc/py-sphinx@${PY_FLAVOR}	\
 			${PYTHON_PKGNAMEPREFIX}recommonmark>0:textproc/py-recommonmark@${PY_FLAVOR} \
 			${PYTHON_PKGNAMEPREFIX}sphinx_rtd_theme>0:textproc/py-sphinx_rtd_theme@${PY_FLAVOR}
-DOCS_USES=		python:build
 
 IPV6_CONFIGURE_ENABLE=	ipv6
 
