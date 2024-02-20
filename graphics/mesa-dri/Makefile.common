@@ -95,6 +95,7 @@ MESON_ARGS+=	-Dlibelf=disabled
 # depending on configuration options. Suppress errors with lld >= 17 due to
 # these undefined symbols.
 LDFLAGS+=	-Wl,--undefined-version
+
 LDFLAGS+=	-Wl,-rpath=${LOCALBASE}/llvm${LLVM_VERSION}/lib
 MESON_ARGS+=	-Dllvm=enabled \
 		-Dlibunwind=disabled
