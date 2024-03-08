@@ -54,6 +54,7 @@ MAKE_ENV+=	INSTALL_DIR=${STAGEDIR}${WASI_SYSROOT} \
 post-extract:
 	${MKDIR} ${WRKSRC}/host-sysroot
 	(tar -cf - -C /usr/include `cd /usr/include && find . -name stdatomic.h -o -name cdefs.h -o -name _types.h -o -name _limits.h` | tar -xf - -C ${WRKSRC}/host-sysroot)
+	(tar -cf - -C /usr/lib/clang/16/include `cd /usr/lib/clang/16/include && find . -name __stddef_max_align_t.h` | tar -xf - -C ${WRKSRC}/host-sysroot)
 	${INSTALL_DATA} ${FILESDIR}/stdarg.h ${WRKSRC}/host-sysroot/
 	${INSTALL_DATA} ${FILESDIR}/stddef.h ${WRKSRC}/host-sysroot/
 
