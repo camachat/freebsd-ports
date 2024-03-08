@@ -6779,7 +6779,7 @@ llvm%%LLVM_SUFFIX%%/lib/libRemarks.so.18.1
 %%CLANG%%llvm%%LLVM_SUFFIX%%/lib/libscanbuild/resources/selectable.js
 %%CLANG%%llvm%%LLVM_SUFFIX%%/lib/libscanbuild/resources/sorttable.js
 %%CLANG%%llvm%%LLVM_SUFFIX%%/lib/libscanbuild/shell.py
-%%LLDB%%llvm%%LLVM_SUFFIX%%/lib/lua/5.3/lldb.so
+%%LLDB%%llvm%%LLVM_SUFFIX%%/lib/lua/%%LUA_VER%%/lldb.so
 %%MLIR%%llvm%%LLVM_SUFFIX%%/lib/objects-Release/obj.MLIRCAPIAMDGPU/AMDGPU.cpp.o
 %%MLIR%%llvm%%LLVM_SUFFIX%%/lib/objects-Release/obj.MLIRCAPIArith/Arith.cpp.o
 %%MLIR%%llvm%%LLVM_SUFFIX%%/lib/objects-Release/obj.MLIRCAPIAsync/Async.cpp.o
