@@ -21,6 +21,7 @@
 %%WASI_SYSROOT%%/include/__macro_PAGESIZE.h
 %%WASI_SYSROOT%%/include/__mode_t.h
 %%WASI_SYSROOT%%/include/__seek.h
+%%WASI_SYSROOT%%/include/__stddef_max_align_t.h
 %%WASI_SYSROOT%%/include/__struct_dirent.h
 %%WASI_SYSROOT%%/include/__struct_in6_addr.h
 %%WASI_SYSROOT%%/include/__struct_in_addr.h

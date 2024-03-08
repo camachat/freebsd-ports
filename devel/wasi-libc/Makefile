@@ -68,5 +68,6 @@ post-patch:
 post-install:
 	${INSTALL_DATA} ${FILESDIR}/stdarg.h ${STAGEDIR}${WASI_SYSROOT}/include/
 	${INSTALL_DATA} ${FILESDIR}/stddef.h ${STAGEDIR}${WASI_SYSROOT}/include/
+	${INSTALL_DATA} ${WRKSRC}/host-sysroot/__stddef_max_align_t.h ${STAGEDIR}${WASI_SYSROOT}/include/__stddef_max_align_t.h
 
 .include <bsd.port.mk>
