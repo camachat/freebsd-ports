@@ -1,6 +1,6 @@
 PORTNAME=	yuzu
 PORTVERSION=	s20240301
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	emulators wayland
 .if make(makesum)
 MASTER_SITES=	https://api.yuzu-emu.org/gamedb/?dummy=/:gamedb
@@ -23,7 +23,7 @@ LICENSE_FILE_MIT=	${WRKSRC}/externals/sirit/externals/SPIRV-Headers/LICENSE
 
 ONLY_FOR_ARCHS=	aarch64 amd64
 ONLY_FOR_ARCHS_REASON=	requires int128 and dynarmic backend
-
+# XXX Need Ryujinx or a Yuzu fork that regularly improves game compatibility
 DEPRECATED=	Project discontinued
 
 BUILD_DEPENDS=	boost-libs>0:devel/boost-libs \
@@ -41,12 +41,12 @@ LIB_DEPENDS=	liblz4.so:archivers/liblz4 \
 		libenet.so:net/enet
 TEST_DEPENDS=	catch2>0:devel/catch2
 
-FLAVORS=	qt5 qt6
-qt5_CONFLICTS_INSTALL=	${PORTNAME}-qt6
-qt6_PKGNAMESUFFIX=	-qt6
-qt6_CONFLICTS_INSTALL=	${PORTNAME}
-qt6_OPTIONS_SLAVE=	QT6
-qt6_OPTIONS_EXCLUDE=	QT5
+FLAVORS=	qt6 qt5
+qt5_PKGNAMESUFFIX=	-qt5
+qt5_CONFLICTS_INSTALL=	${PORTNAME}
+qt5_OPTIONS_SLAVE=	QT5
+qt5_OPTIONS_EXCLUDE=	QT6
+qt6_CONFLICTS_INSTALL=	${PORTNAME}-qt5
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	yuzu-mirror
@@ -81,7 +81,7 @@ PLIST_FILES=	bin/${PORTNAME}-cmd \
 		bin/${PORTNAME}-room
 
 OPTIONS_DEFINE=	ALSA GUI PULSEAUDIO JACK LTO NLS SNDIO VAAPI VULKAN WEBENGINE
-OPTIONS_DEFAULT=PULSEAUDIO JACK LTO QT5 SNDIO VAAPI VULKAN WEBENGINE
+OPTIONS_DEFAULT=PULSEAUDIO JACK LTO QT6 SNDIO VAAPI VULKAN WEBENGINE
 OPTIONS_SINGLE=	GUI
 OPTIONS_SINGLE_GUI=	QT5 QT6
 OPTIONS_SLAVE=		${${FLAVOR}_OPTIONS_SLAVE}
@@ -157,14 +157,8 @@ post-patch-VAAPI-off:
 	@${REINPLACE_CMD} -i .nova '/pkg_check.*libva/d' \
 		${WRKSRC}/CMakeLists.txt
 
-# XXX Drop after FreeBSD 13.2 EOL around 2024-05-01 (don't forget distinfo)
+# XXX Drop after FreeBSD 13.2 EOL around 2024-07-01 (don't forget distinfo)
 .if !exists(/usr/include/c++/v1/__ranges/as_rvalue_view.h) || make(makesum) || make(fetch)
-. if !exists(/usr/include/c++/v1/__memory/concepts.h)
-USES+=		llvm:min=14,build,export
-PATH:=		${LLVM_PREFIX}/bin:${PATH} # XXX _CMAKE_TOOLCHAIN_SUFFIX vs. devel/llvm*
-CONFIGURE_ENV+=	CC="${CC}" CXX="${CXX}" CPP="${CPP}"
-. endif
-
 # XXX Move into separate port and standardize via USES
 GH_TUPLE+=	llvm:llvm-project:llvmorg-16.0.1:libcxx
 CXXFLAGS+=	-nostdinc++ -isystem${WRKDIR}/libcxx_prefix/include/c++/v1
