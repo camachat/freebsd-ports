@@ -45,19 +45,10 @@ MAKE_ENV+=	BULK_MEMORY_SOURCES=
 .endif
 PLIST_SUB+=	WASI_SYSROOT=${WASI_SYSROOT} TRIPLE=${TRIPLE}
 
-# NOTE: our llvm ports don't ship stdarg/stddef clang headers, so they're in FILESDIR
-#       and we install them to the sysroot
 MAKE_ENV+=	INSTALL_DIR=${STAGEDIR}${WASI_SYSROOT} \
 		EXTRA_CFLAGS="-O2 -DNDEBUG -isystem ${FILESDIR}" \
 		AR=${LOCALBASE}/bin/llvm-ar${LLVM_VERSION} \
-		NM=${LOCALBASE}/bin/llvm-nm${LLVM_VERSION}
-
-post-extract:
-	${MKDIR} ${WRKSRC}/host-sysroot
-	(tar -cf - -C /usr/include `cd /usr/include && find . -name stdatomic.h -o -name cdefs.h -o -name _types.h -o -name _limits.h` | tar -xf - -C ${WRKSRC}/host-sysroot)
-	(tar -cf - -C /usr/lib/clang/16/include `cd /usr/lib/clang/16/include && find . -name __stddef_max_align_t.h` | tar -xf - -C ${WRKSRC}/host-sysroot)
-	${INSTALL_DATA} ${FILESDIR}/stdarg.h ${WRKSRC}/host-sysroot/
-	${INSTALL_DATA} ${FILESDIR}/stddef.h ${WRKSRC}/host-sysroot/
+		NM=${LOCALBASE}/bin/llvm-nm${LLVM_VERSION} \
 
 post-patch:
 	${REINPLACE_CMD} -e 's|BULK_MEMORY_SOURCES =|BULK_MEMORY_SOURCES ?=|' \
