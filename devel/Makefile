@@ -1387,6 +1387,7 @@
     SUBDIR += libs11n
     SUBDIR += libsavitar
     SUBDIR += libscca
+    SUBDIR += libscfg
     SUBDIR += libsearpc
     SUBDIR += libserdes
     SUBDIR += libserialport
@@ -7948,6 +7949,7 @@
     SUBDIR += wasi-compiler-rt15
     SUBDIR += wasi-compiler-rt16
     SUBDIR += wasi-compiler-rt17
+    SUBDIR += wasi-compiler-rt18
     SUBDIR += wasi-libc
     SUBDIR += wasi-libcxx
     SUBDIR += wasi-libcxx12
@@ -7956,6 +7958,7 @@
     SUBDIR += wasi-libcxx15
     SUBDIR += wasi-libcxx16
     SUBDIR += wasi-libcxx17
+    SUBDIR += wasi-libcxx18
     SUBDIR += wasm3
     SUBDIR += wasmer
     SUBDIR += websocketpp

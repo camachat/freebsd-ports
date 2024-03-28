@@ -1,4 +1,4 @@
-# must sync with devel/llvm17
+# must sync with devel/llvm18
 DISTVERSION=	18.1.2
 #PORTREVISION=	0
 
