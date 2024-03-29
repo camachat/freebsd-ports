@@ -845,6 +845,7 @@
     SUBDIR += glrparser
     SUBDIR += glui
     SUBDIR += gmake
+    SUBDIR += gmake43
     SUBDIR += gn
     SUBDIR += gnome-builder
     SUBDIR += gnome-common
@@ -7932,6 +7933,7 @@
     SUBDIR += vc
     SUBDIR += vc-intrinsics
     SUBDIR += vcglib
+    SUBDIR += venom
     SUBDIR += vera++
     SUBDIR += vexcl
     SUBDIR += viewvc-devel

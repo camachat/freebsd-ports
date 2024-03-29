@@ -1,3 +1,36 @@
+  <vuln vid="bdcd041e-5811-4da3-9243-573a9890fdb1">
+    <topic>electron{27,28} -- Object lifecycle issue in V8</topic>
+    <affects>
+      <package>
+	<name>electron27</name>
+	<range><lt>27.3.8</lt></range>
+      </package>
+      <package>
+	<name>electron28</name>
+	<range><lt>28.2.9</lt></range>
+      </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>Electron developers report:</p>
+	<blockquote cite="https://github.com/electron/electron/releases/tag/v27.3.8">
+	  <p>This update fixes the following vulnerability:</p>
+	  <ul>
+	    <li>Security: backported fix for CVE-2024-2625.</li>
+	  </ul>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2024-2625</cvename>
+      <url>https://github.com/advisories/GHSA-j7h3-fcrw-g6j8</url>
+    </references>
+    <dates>
+      <discovery>2024-03-28</discovery>
+      <entry>2024-03-29</entry>
+    </dates>
+  </vuln>
+
   <vuln vid="d2992bc2-ed18-11ee-96dc-001b217b3468">
     <topic>Gitlab -- vulnerabilities</topic>
     <affects>
@@ -138,6 +171,45 @@
     </references>
     <dates>
       <discovery>2024-03-24</discovery>
+      <entry>2024-03-26</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="34f98d06-eb56-11ee-8007-6805ca2fa271">
+    <topic>quiche -- Multiple Vulnerabilities</topic>
+    <affects>
+      <package>
+       <name>quiche</name>
+       <range><lt>0.20.1</lt></range>
+      </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>Quiche Releases reports:</p>
+	<blockquote cite="https://github.com/cloudflare/quiche/releases/tag/0.20.1">
+	 <p>This release includes 2 security fixes:</p>
+	 <ul>
+	  <li>
+		CVE-2024-1410: Unbounded storage of information related to
+		connection ID retirement, in quiche. Reported by Marten
+		Seeman (@marten-seeman)
+	  </li>
+	  <li>
+		CVE-2024-1765: Unlimited resource allocation by QUIC
+		CRYPTO frames flooding in quiche. Reported by Marten
+		Seeman (@marten-seeman)
+	  </li>
+	 </ul>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2024-1410</cvename>
+      <cvename>CVE-2024-1765</cvename>
+      <url>https://github.com/cloudflare/quiche/releases/tag/0.20.1</url>
+    </references>
+    <dates>
+      <discovery>2024-03-12</discovery>
       <entry>2024-03-26</entry>
     </dates>
   </vuln>
