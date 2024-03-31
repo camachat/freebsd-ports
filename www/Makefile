@@ -1538,6 +1538,7 @@
     SUBDIR += py-django-bootstrap4
     SUBDIR += py-django-braces
     SUBDIR += py-django-cacheops
+    SUBDIR += py-django-choices-field
     SUBDIR += py-django-ckeditor-5
     SUBDIR += py-django-classy-tags
     SUBDIR += py-django-cms
@@ -1843,6 +1844,7 @@
     SUBDIR += py-spyne
     SUBDIR += py-sseclient
     SUBDIR += py-starlette
+    SUBDIR += py-strawberry-graphql-django
     SUBDIR += py-swapper
     SUBDIR += py-textile
     SUBDIR += py-ticketutil
