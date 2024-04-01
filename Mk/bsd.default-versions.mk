@@ -89,7 +89,7 @@ LIBRSVG2_DEFAULT?=	legacy
 .  endif
 # Possible values: c7
 LINUX_DEFAULT?=		c7
-# Possible values: 10, 11, 12, 13, 14, 15, 16, 17, -devel (to be used when non-base compiler is required)
+# Possible values: 11, 12, 13, 14, 15, 16, 17, -devel (to be used when non-base compiler is required)
 LLVM_DEFAULT?=		15
 # Possible values: 5.1, 5.2, 5.3, 5.4
 LUA_DEFAULT?=		5.4
@@ -142,7 +142,7 @@ PYTHON2_DEFAULT?=	2.7
 RUBY_DEFAULT?=		3.2
 # Possible values: rust, rust-nightly
 RUST_DEFAULT?=		rust
-# Possible values: 4.13, 4.16, 4.19
+# Possible values: 4.16, 4.19
 SAMBA_DEFAULT?=		4.16
 # Possible values: base, openssl, openssl111, openssl31, openssl32, libressl, libressl-devel
 .  if !defined(SSL_DEFAULT)

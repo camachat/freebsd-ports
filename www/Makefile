@@ -204,7 +204,6 @@
     SUBDIR += geckodriver
     SUBDIR += geneweb
     SUBDIR += geolizer
-    SUBDIR += get_flash_videos
     SUBDIR += ghostunnel
     SUBDIR += gist
     SUBDIR += gitea
@@ -352,7 +351,6 @@
     SUBDIR += matomo
     SUBDIR += mattermost-server
     SUBDIR += mattermost-webapp
-    SUBDIR += mediawiki135
     SUBDIR += mediawiki139
     SUBDIR += mediawiki140
     SUBDIR += mediawiki141
@@ -1914,6 +1912,7 @@
     SUBDIR += rearx
     SUBDIR += reddsaver
     SUBDIR += redmine50
+    SUBDIR += redmine51
     SUBDIR += rejik
     SUBDIR += remark42
     SUBDIR += reportmagic
@@ -2015,7 +2014,6 @@
     SUBDIR += rubygem-faraday-retry1
     SUBDIR += rubygem-faraday0
     SUBDIR += rubygem-faraday1
-    SUBDIR += rubygem-faraday14
     SUBDIR += rubygem-faraday_middleware
     SUBDIR += rubygem-faraday_middleware0
     SUBDIR += rubygem-faye
@@ -2334,6 +2332,7 @@
     SUBDIR += smarty
     SUBDIR += smarty2
     SUBDIR += smarty3
+    SUBDIR += smarty4
     SUBDIR += smb_auth
     SUBDIR += snarf
     SUBDIR += so
@@ -2533,7 +2532,6 @@
     SUBDIR += yaws
     SUBDIR += you-get
     SUBDIR += yourls
-    SUBDIR += youtube_dl
     SUBDIR += yt-dlp
     SUBDIR += ytdl
     SUBDIR += yuicompressor
