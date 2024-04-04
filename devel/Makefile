@@ -227,6 +227,7 @@
     SUBDIR += asyncplusplus
     SUBDIR += atf
     SUBDIR += athens
+    SUBDIR += atl
     SUBDIR += atlantis
     SUBDIR += autobook
     SUBDIR += autoconf
@@ -761,7 +762,6 @@
     SUBDIR += geany-plugins
     SUBDIR += geany-plugins-l10n
     SUBDIR += geany-themes
-    SUBDIR += gearmand
     SUBDIR += generate
     SUBDIR += gengetopt
     SUBDIR += genht
@@ -2596,7 +2596,6 @@
     SUBDIR += p5-Gearman
     SUBDIR += p5-Gearman-Client-Async
     SUBDIR += p5-Gearman-Server
-    SUBDIR += p5-Gearman-XS
     SUBDIR += p5-Geo-JSON
     SUBDIR += p5-Geo-ShapeFile
     SUBDIR += p5-Getargs-Long
