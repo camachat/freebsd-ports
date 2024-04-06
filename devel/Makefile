@@ -33,6 +33,7 @@
     SUBDIR += R-cran-clisymbols
     SUBDIR += R-cran-clock
     SUBDIR += R-cran-collapse
+    SUBDIR += R-cran-conflicted
     SUBDIR += R-cran-covr
     SUBDIR += R-cran-cpp11
     SUBDIR += R-cran-crayon
@@ -51,6 +52,7 @@
     SUBDIR += R-cran-foreach
     SUBDIR += R-cran-future
     SUBDIR += R-cran-future.apply
+    SUBDIR += R-cran-gargle
     SUBDIR += R-cran-gbRd
     SUBDIR += R-cran-gbm
     SUBDIR += R-cran-gdata
@@ -62,10 +64,13 @@
     SUBDIR += R-cran-globals
     SUBDIR += R-cran-glue
     SUBDIR += R-cran-gmodels
+    SUBDIR += R-cran-googledrive
+    SUBDIR += R-cran-googlesheets4
     SUBDIR += R-cran-gsubfn
     SUBDIR += R-cran-gtools
     SUBDIR += R-cran-hardhat
     SUBDIR += R-cran-hms
+    SUBDIR += R-cran-ids
     SUBDIR += R-cran-ini
     SUBDIR += R-cran-iterators
     SUBDIR += R-cran-itertools
@@ -80,6 +85,8 @@
     SUBDIR += R-cran-microbenchmark
     SUBDIR += R-cran-mlbench
     SUBDIR += R-cran-mockery
+    SUBDIR += R-cran-mockr
+    SUBDIR += R-cran-modelr
     SUBDIR += R-cran-msm
     SUBDIR += R-cran-multicool
     SUBDIR += R-cran-optparse
@@ -124,12 +131,14 @@
     SUBDIR += R-cran-sessioninfo
     SUBDIR += R-cran-sfsmisc
     SUBDIR += R-cran-sourcetools
+    SUBDIR += R-cran-systemfonts
     SUBDIR += R-cran-sys
     SUBDIR += R-cran-testit
     SUBDIR += R-cran-testthat
     SUBDIR += R-cran-tibble
     SUBDIR += R-cran-tidyr
     SUBDIR += R-cran-tidyselect
+    SUBDIR += R-cran-tidyverse
     SUBDIR += R-cran-timechange
     SUBDIR += R-cran-tinytest
     SUBDIR += R-cran-tzdb
@@ -569,7 +578,6 @@
     SUBDIR += dmake
     SUBDIR += dmalloc
     SUBDIR += dmlc-core
-    SUBDIR += dmucs
     SUBDIR += docopt.cpp
     SUBDIR += doctest
     SUBDIR += doctorj
@@ -581,7 +589,6 @@
     SUBDIR += dparser
     SUBDIR += dra
     SUBDIR += dragon
-    SUBDIR += ds2
     SUBDIR += dsymbol
     SUBDIR += dtool
     SUBDIR += dub
@@ -4812,6 +4819,7 @@
     SUBDIR += py-gtfslib
     SUBDIR += py-guppy3
     SUBDIR += py-gyp
+    SUBDIR += py-hammett
     SUBDIR += py-hash_ring
     SUBDIR += py-hatch
     SUBDIR += py-hatch-autorun
@@ -5056,6 +5064,7 @@
     SUBDIR += py-monotonic
     SUBDIR += py-monty
     SUBDIR += py-more-itertools
+    SUBDIR += py-moreorless
     SUBDIR += py-moto
     SUBDIR += py-mox
     SUBDIR += py-mrkd
@@ -5701,6 +5710,7 @@
     SUBDIR += py-statgrab
     SUBDIR += py-statsd
     SUBDIR += py-stdlib-list
+    SUBDIR += py-stdlibs
     SUBDIR += py-stdnum
     SUBDIR += py-stevedore
     SUBDIR += py-stone
@@ -5770,6 +5780,7 @@
     SUBDIR += py-toposort
     SUBDIR += py-tox
     SUBDIR += py-traceback2
+    SUBDIR += py-trailrunner
     SUBDIR += py-traitlets
     SUBDIR += py-traits
     SUBDIR += py-traittypes
@@ -5822,6 +5833,7 @@
     SUBDIR += py-u-msgpack-python
     SUBDIR += py-ua_parser
     SUBDIR += py-ubelt
+    SUBDIR += py-ufmt
     SUBDIR += py-uhid-freebsd
     SUBDIR += py-ujson
     SUBDIR += py-undefined
@@ -5842,6 +5854,7 @@
     SUBDIR += py-us
     SUBDIR += py-user_agents
     SUBDIR += py-userpath
+    SUBDIR += py-usort
     SUBDIR += py-uvloop
     SUBDIR += py-validate-pyproject
     SUBDIR += py-validators
