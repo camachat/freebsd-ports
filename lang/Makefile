@@ -228,7 +228,6 @@
     SUBDIR += ocaml
     SUBDIR += ocaml-autoconf
     SUBDIR += ocaml-camlidl
-    SUBDIR += ocaml-nox11
     SUBDIR += oo2c
     SUBDIR += opencoarrays
     SUBDIR += opensycl
@@ -307,7 +306,6 @@
     SUBDIR += python38
     SUBDIR += python39
     SUBDIR += qmasm
-    SUBDIR += qscheme
     SUBDIR += quickjs
     SUBDIR += quilc
     SUBDIR += racket
