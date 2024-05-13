@@ -2,7 +2,8 @@ PKGNAMEPREFIX?=	lib
 PORTNAME=	${GH_PROJECT}
 PORTVERSION=	20.0.2
 DISTVERSIONPREFIX=	v
-CATEGORIES?=	devel
+PORTREVISION=	1
+CATEGORIES=	devel
 
 MAINTAINER=	osa@FreeBSD.org
 COMMENT=	Library for fast and secure runtime for WebAssembly
