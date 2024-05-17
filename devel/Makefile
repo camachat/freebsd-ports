@@ -5316,6 +5316,7 @@
     SUBDIR += py-prettyprinter
     SUBDIR += py-prettytable
     SUBDIR += py-prettytable0
+    SUBDIR += py-printree
     SUBDIR += py-process-tests
     SUBDIR += py-proglog
     SUBDIR += py-progress
@@ -7876,6 +7877,7 @@
     SUBDIR += systemc
     SUBDIR += t1lib
     SUBDIR += ta-lib
+    SUBDIR += tabby
     SUBDIR += tablist
     SUBDIR += tabulate
     SUBDIR += tagref
