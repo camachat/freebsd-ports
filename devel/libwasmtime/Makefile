@@ -3,7 +3,7 @@ PORTNAME=	${GH_PROJECT}
 PORTVERSION=	20.0.2
 DISTVERSIONPREFIX=	v
 PORTREVISION=	1
-CATEGORIES=	devel
+CATEGORIES?=	devel
 
 MAINTAINER=	osa@FreeBSD.org
 COMMENT=	Library for fast and secure runtime for WebAssembly
