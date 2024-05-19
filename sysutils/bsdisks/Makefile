@@ -1,6 +1,7 @@
 PORTNAME=	bsdisks
 DISTVERSION=	0.35
 CATEGORIES=	sysutils
+PKGNAMESUFFIX=	-${FLAVOR}
 
 MAINTAINER=	arrowd@FreeBSD.org
 COMMENT=	UDisks2 service implementation for FreeBSD
@@ -8,11 +9,16 @@ WWW=		https://foss.heptapod.net/bsdutils/bsdisks
 
 LICENSE=	BSD3CLAUSE
 
-LIB_DEPENDS=	libpolkit-qt5-core-1.so:sysutils/polkit-qt-1@qt5
+FLAVORS=	qt5 qt6
+FLAVOR?=	qt5
 
-USES=		cmake compiler:c++11-lang qt:5
+LIB_DEPENDS=	libpolkit-qt${FLAVOR:C/qt//}-core-1.so:sysutils/polkit-qt-1@${FLAVOR}
 
-USE_QT=		qmake:build buildtools:build core dbus
+USES=		cmake compiler:c++11-lang qt:${FLAVOR:C/qt//}
+USE_QT=	${_USE_QT_${FLAVOR}}
+CMAKE_ARGS=	-DQT_MAJOR_VERSION=${FLAVOR:C/qt//}
+_USE_QT_qt5=		qmake:build buildtools:build core dbus
+_USE_QT_qt6=		base
 
 USE_GITLAB=		yes
 GL_SITE=		https://foss.heptapod.net
