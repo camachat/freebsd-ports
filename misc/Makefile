@@ -404,6 +404,7 @@
     SUBDIR += py-SoapySDR
     SUBDIR += py-accelerate
     SUBDIR += py-alive-progress
+    SUBDIR += py-anthropic
     SUBDIR += py-apache-beam
     SUBDIR += py-ascii-magic
     SUBDIR += py-ast-comments
@@ -423,6 +424,7 @@
     SUBDIR += py-facenet-pytorch
     SUBDIR += py-fast-histogram
     SUBDIR += py-fastscapelib
+    SUBDIR += py-files-to-prompt
     SUBDIR += py-fleep
     SUBDIR += py-fuzzy
     SUBDIR += py-gluoncv
@@ -441,6 +443,8 @@
     SUBDIR += py-lightgbm
     SUBDIR += py-lightning-utilities
     SUBDIR += py-litellm
+    SUBDIR += py-llm
+    SUBDIR += py-llm-claude-3
     SUBDIR += py-log_symbols
     SUBDIR += py-mffpy
     SUBDIR += py-mmcv
@@ -497,6 +501,7 @@
     SUBDIR += py-spdx-lookup
     SUBDIR += py-spdx-tools
     SUBDIR += py-spinners
+    SUBDIR += py-streamlit
     SUBDIR += py-synced-collections
     SUBDIR += py-tes
     SUBDIR += py-tflearn
