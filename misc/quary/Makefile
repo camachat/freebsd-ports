@@ -1,6 +1,6 @@
 PORTNAME=	quary
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.1.5
+DISTVERSION=	0.2.0
 CATEGORIES=	misc
 
 MAINTAINER=	yuri@FreeBSD.org
@@ -14,6 +14,8 @@ USES=		cargo
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	quarylabs
+
+RUSTFLAGS=	${ARCH:S/i386/YES/:C/^[a-z].*//:S/YES/-C target-feature=+sse,+sse2/} # add sse sse2 target-features only on i386
 
 CARGO_CRATES=	addr2line-0.21.0 \
 		adler-1.0.2 \
@@ -331,7 +333,6 @@ CARGO_CRATES=	addr2line-0.21.0 \
 		semver-1.0.22 \
 		send_wrapper-0.6.0 \
 		serde-1.0.197 \
-		serde-wasm-bindgen-0.6.5 \
 		serde_derive-1.0.197 \
 		serde_json-1.0.117 \
 		serde_repr-0.1.19 \
