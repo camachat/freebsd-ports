@@ -1,11 +1,11 @@
 PORTNAME=	opencolorio
 DISTVERSIONPREFIX=	v
-DISTVERSION=	2.2.1
+DISTVERSION=	2.3.2
 # PORTREVISION must be set with ?= so as not to stomp over
 # py-opencolorio's PORTREVISION.
 # Also, just to be on the safe side, when resetting,
 # best keep PORTREVISION?=	0.
-PORTREVISION?=	4
+PORTREVISION?=	0
 CATEGORIES=	graphics multimedia
 
 MAINTAINER?=	FreeBSD@Shaneware.biz
@@ -44,9 +44,9 @@ PLIST_SUB=	SHL3=${PORTVERSION} SHL2=${PORTVERSION:R}
 .include <bsd.port.options.mk>
 
 .if (defined(MACHINE_CPU) && ${MACHINE_CPU:Msse2})
-CMAKE_ON+=	OCIO_USE_SSE
+CMAKE_ON+=	OCIO_USE_SSE2
 .else
-CMAKE_OFF+=	OCIO_USE_SSE
+CMAKE_OFF+=	OCIO_USE_SSE2
 .endif
 
 .if ${PORT_OPTIONS:MDOCS}
