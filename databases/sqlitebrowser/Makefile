@@ -14,8 +14,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 BUILD_DEPENDS=	${LOCALBASE}/lib/libantlr.a:devel/antlr
 LIB_DEPENDS=	libqscintilla2_qt5.so:devel/qscintilla2-qt5
 
-USES=		compiler:c++11-lang cmake desktop-file-utils gnome qt:5 sqlite
-CMAKE_ARGS+=	-DQT_INCLUDE_DIR=${QT_INCDIR} -DQT_LIBRARY_DIR=${QT_LIBDIR}
+USES=		cmake desktop-file-utils gnome qt:5 sqlite
 USE_QT=		core concurrent gui network printsupport testlib widgets \
 		buildtools:build linguisttools:build qmake:build xml
 USE_GITHUB=	yes
