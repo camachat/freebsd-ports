@@ -11,7 +11,8 @@ RUN_DEPENDS=	plasma6-plasma>0:x11/plasma6-plasma \
 		kate-devel>0:editors/kate-devel \
 		dolphin-devel>0:x11-fm/dolphin-devel \
 		konsole-devel>0:x11/konsole-devel \
-		gwenview-devel>0:graphics/gwenview-devel
+		gwenview-devel>0:graphics/gwenview-devel \
+		okular-devel>0:graphics/okular-devel
 
 USES=		kde:6 metaport qt:6
 USE_QT=		# empty
