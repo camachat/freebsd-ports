@@ -143,21 +143,12 @@ CONFIGURE_ARGS+=	--with-extra-ldflags="-Wl,-rpath=${LOCALBASE}/lib/gcc${GCC_DEFA
 			--with-extra-cxxflags="-Wl,-rpath=${LOCALBASE}/lib/gcc${GCC_DEFAULT}"
 .else
 MAKE_ENV+=	USE_CLANG=true
-.if ${COMPILER_VERSION} >= 130
 EXTRA_CFLAGS+=		-Wno-unused-but-set-parameter
-.if ${COMPILER_VERSION} >= 140
 EXTRA_CFLAGS+=		-Wno-bitwise-instead-of-logical
-.endif
-.if ${COMPILER_VERSION} >= 150
 EXTRA_CFLAGS+=		-Wno-deprecated-non-prototype
-.endif
-.if ${COMPILER_VERSION} >= 170
-EXTRA_LDFLAGS+=		-Wl,--undefined-version
-.endif
 CONFIGURE_ARGS+=	--with-extra-cflags="${EXTRA_CFLAGS}"
 CONFIGURE_ARGS+=	--with-extra-cxxflags="${EXTRA_CFLAGS}"
 CONFIGURE_ARGS+=	--with-extra-ldflags="${EXTRA_LDFLAGS}"
-.endif
 .endif
 
 .if ${ARCH} == aarch64 || ${ARCH:Mpowerpc64*}
