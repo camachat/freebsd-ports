@@ -1,5 +1,4 @@
 bin/gusbcmd
-include/gusb-1/gusb.h
 include/gusb-1/gusb/gusb-bos-descriptor-private.h
 include/gusb-1/gusb/gusb-bos-descriptor.h
 include/gusb-1/gusb/gusb-context-private.h
@@ -9,6 +8,12 @@ include/gusb-1/gusb/gusb-device-list.h
 include/gusb-1/gusb/gusb-device-private.h
 include/gusb-1/gusb/gusb-device.h
 include/gusb-1/gusb/gusb-endpoint-private.h
+include/gusb-1/gusb/gusb-endpoint.h
+include/gusb-1/gusb/gusb-interface-private.h
+include/gusb-1/gusb/gusb-interface.h
+include/gusb-1/gusb/gusb-source.h
+include/gusb-1/gusb/gusb-util.h
+include/gusb-1/gusb/gusb-version.h
 include/gusb-1/gusb.h
 lib/girepository-1.0/GUsb-1.0.typelib
 lib/libgusb.so
