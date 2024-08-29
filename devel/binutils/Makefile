@@ -1,6 +1,6 @@
 PORTNAME=	binutils
 DISTVERSION=	2.40
-PORTREVISION=	7
+PORTREVISION=	8
 PORTEPOCH?=	1
 CATEGORIES?=	devel
 MASTER_SITES=	GNU \
@@ -49,7 +49,7 @@ LDFLAGS+=	-Wl,--undefined-version
 
 CONFLICTS=	libbfd
 
-OPTIONS_DEFINE=	INFO NLS RELRO
+OPTIONS_DEFINE=	ELFU INFO NLS RELRO
 OPTIONS_DEFAULT=	INFO
 OPTIONS_EXCLUDE=	NLS
 OPTIONS_SUB=	yes
@@ -61,6 +61,10 @@ NLS_CONFIGURE_ENABLE=	nls
 RELRO_CONFIGURE_ON=	--enable-relro
 RELRO_CONFIGURE_OFF=	--enable-relro=no
 RELRO_DESC=	Enable relocation memory corruption mitigation (-z relro) by default
+NLS_CONFIGURE_ENABLE=	nls
+ELFU_DESC=		Depend on devel/elfutils
+ELFU_CONFIGURE_WITH=	debuginfod
+ELFU_LIB_DEPENDS=	libdebuginfod.so:devel/elfutils
 
 aarch64_COMMENT=	GNU binutils for ${FLAVOR} development
 
