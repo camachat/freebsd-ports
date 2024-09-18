@@ -1674,6 +1674,7 @@
     SUBDIR += py-flask-smorest
     SUBDIR += py-flask-socketio
     SUBDIR += py-flask-sockets
+    SUBDIR += py-flask-theme
     SUBDIR += py-flask-uploads
     SUBDIR += py-flask-wtf
     SUBDIR += py-flower
@@ -1932,6 +1933,7 @@
     SUBDIR += rubygem-actioncable61
     SUBDIR += rubygem-actioncable70
     SUBDIR += rubygem-actioncable71
+    SUBDIR += rubygem-actioncable72
     SUBDIR += rubygem-actionpack4
     SUBDIR += rubygem-actionpack5
     SUBDIR += rubygem-actionpack50
@@ -1940,6 +1942,7 @@
     SUBDIR += rubygem-actionpack61
     SUBDIR += rubygem-actionpack70
     SUBDIR += rubygem-actionpack71
+    SUBDIR += rubygem-actionpack72
     SUBDIR += rubygem-activeresource
     SUBDIR += rubygem-activeresource4
     SUBDIR += rubygem-acts-as-taggable-on
@@ -1985,6 +1988,7 @@
     SUBDIR += rubygem-crass
     SUBDIR += rubygem-cssbundling-rails
     SUBDIR += rubygem-cssbundling-rails-rails70
+    SUBDIR += rubygem-cssbundling-rails-rails71
     SUBDIR += rubygem-cuba
     SUBDIR += rubygem-d3_rails
     SUBDIR += rubygem-davclient
@@ -2079,6 +2083,7 @@
     SUBDIR += rubygem-hurley
     SUBDIR += rubygem-importmap-rails
     SUBDIR += rubygem-importmap-rails-rails70
+    SUBDIR += rubygem-importmap-rails-rails71
     SUBDIR += rubygem-innate
     SUBDIR += rubygem-jekyll
     SUBDIR += rubygem-jekyll-sanity
@@ -2096,6 +2101,7 @@
     SUBDIR += rubygem-jruby-rack
     SUBDIR += rubygem-jsbundling-rails
     SUBDIR += rubygem-jsbundling-rails-rails70
+    SUBDIR += rubygem-jsbundling-rails-rails71
     SUBDIR += rubygem-jsobfu
     SUBDIR += rubygem-json-jwt
     SUBDIR += rubygem-jsonb_accessor
@@ -2167,6 +2173,7 @@
     SUBDIR += rubygem-possessive
     SUBDIR += rubygem-propshaft
     SUBDIR += rubygem-propshaft-rails70
+    SUBDIR += rubygem-propshaft-rails71
     SUBDIR += rubygem-protocol-hpack
     SUBDIR += rubygem-protocol-http
     SUBDIR += rubygem-protocol-http1
@@ -2210,6 +2217,7 @@
     SUBDIR += rubygem-rails61
     SUBDIR += rubygem-rails70
     SUBDIR += rubygem-rails71
+    SUBDIR += rubygem-rails72
     SUBDIR += rubygem-rails_12factor
     SUBDIR += rubygem-rails_autolink
     SUBDIR += rubygem-rails_serve_static_assets
@@ -2222,6 +2230,7 @@
     SUBDIR += rubygem-railties61
     SUBDIR += rubygem-railties70
     SUBDIR += rubygem-railties71
+    SUBDIR += rubygem-railties72
     SUBDIR += rubygem-raindrops
     SUBDIR += rubygem-ramaze
     SUBDIR += rubygem-raphael-rails
@@ -2281,9 +2290,11 @@
     SUBDIR += rubygem-socksify
     SUBDIR += rubygem-stimulus-rails
     SUBDIR += rubygem-stimulus-rails-rails70
+    SUBDIR += rubygem-stimulus-rails-rails71
     SUBDIR += rubygem-swd
     SUBDIR += rubygem-tailwindcss-rails
     SUBDIR += rubygem-tailwindcss-rails-rails70
+    SUBDIR += rubygem-tailwindcss-rails-rails71
     SUBDIR += rubygem-task_list
     SUBDIR += rubygem-thin
     SUBDIR += rubygem-tinyatom
@@ -2293,6 +2304,7 @@
     SUBDIR += rubygem-tumblr_client
     SUBDIR += rubygem-turbo-rails
     SUBDIR += rubygem-turbo-rails-rails70
+    SUBDIR += rubygem-turbo-rails-rails71
     SUBDIR += rubygem-turbolinks
     SUBDIR += rubygem-turbolinks-source
     SUBDIR += rubygem-typhoeus
