@@ -15,7 +15,7 @@ LICENSE=	APACHE20 GPLv2 GPLv3 LGPL21
 LICENSE_COMB=	dual
 
 LIB_DEPENDS=	libraptor2.so:textproc/raptor2 \
-		libpcre.so:devel/pcre
+		libpcre2-8.so:devel/pcre2
 
 USES=		gmake libtool pathfix perl5 pkgconfig ssl
 USE_PERL5=	build
