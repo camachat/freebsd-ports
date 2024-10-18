@@ -18,21 +18,16 @@ LICENSE_NAME=	Apache License 2.0 with LLVM Exceptions
 LICENSE_FILE=	${WRKSRC}/llvm/LICENSE.TXT
 LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 
+USES=		cmake tar:xz
+
 .if ${DISTVERSION} == 0
 IGNORE=		is a meta port; there is nothing to build
 PKGNAMESUFFIX=	-master
+.else
+BUILD_DEPENDS=	${WASI_SYSROOT}/include/stdarg.h:devel/wasi-libc@${LLVM_VERSION} \
+		wasi-compiler-rt${LLVM_VERSION}>0:devel/wasi-compiler-rt${LLVM_VERSION}
+USES+=		llvm:${LLVM_SUFFIX}
 .endif
-
-FLAVORS=	single threads
-FLAVOR?=	${FLAVORS[1]}
-threads_PKGNAMESUFFIX=	-threads${LLVM_VERSION}
-PLIST_SUB+=	WASI_SYSROOT=${WASI_SYSROOT} TRIPLE=${TRIPLE}
-
-BUILD_DEPENDS=	${WASI_SYSROOT}/include/stdarg.h:devel/wasi-libc@${FLAVOR:U}
-single_BUILD_DEPENDS=	wasi-compiler-rt${LLVM_VERSION}>0:devel/wasi-compiler-rt${LLVM_VERSION}@${FLAVOR:U}
-threads_BUILD_DEPENDS=	wasi-compiler-rt-threads${LLVM_VERSION}>0:devel/wasi-compiler-rt${LLVM_VERSION}@${FLAVOR:U}
-
-USES=		cmake llvm:${LLVM_SUFFIX} tar:xz
 
 LLVM_RELEASE=	${DISTVERSION:C/rc.*//}
 LLVM_SUFFIX=	${LLVM_RELEASE:C/\.[0-9]\.[0-9]$//}
@@ -41,35 +36,30 @@ SSP_UNSAFE=	yes
 NO_ARCH=	yes
 PLIST=		${.CURDIR}/pkg-plist
 
-CONFIGURE_ENV+=	CC="${CC}" CFLAGS="${CFLAGS}" \
-		CXX="${CXX}" CXXFLAGS="${CXXFLAGS}"
-CC=		${LOCALBASE}/bin/clang${LLVM_VERSION}
-CXX=		${LOCALBASE}/bin/clang++${LLVM_VERSION}
-.if ${FLAVOR:U}	== threads
-WASI_SYSROOT=	${LOCALBASE}/share/wasi-sysroot-threads
-CMAKE_INSTALL_PREFIX=	${PREFIX}/share/wasi-sysroot-threads
-TRIPLE=		wasm32-wasi-threads
-CFLAGS+=	-pthread
-.else
 WASI_SYSROOT=	${LOCALBASE}/share/wasi-sysroot
 CMAKE_INSTALL_PREFIX=	${PREFIX}/share/wasi-sysroot
 TRIPLE=		wasm32-wasi
 .endif
 WITHOUT_CPU_CFLAGS=    yes
 # try to sync with https://github.com/WebAssembly/wasi-sdk
-# Makefile and wasi-sdk.cmake
+# wasi-sdk.cmake and cmake/wasi-sdk-sysroot.cmake
+CMAKE_INSTALL_PREFIX=	${PREFIX}/share/wasi-sysroot
 CMAKE_SOURCE_PATH=	${WRKSRC}/runtimes
-CMAKE_ARGS+=	-DCMAKE_AR=${LOCALBASE}/bin/llvm-ar${LLVM_VERSION} \
+CMAKE_ARGS=	-DCMAKE_SYSTEM_NAME=WASI \
+		-DCMAKE_SYSTEM_VERSION=1 \
+		-DCMAKE_SYSTEM_PROCESSOR=wasm32 \
+		-DCMAKE_AR=${LOCALBASE}/bin/llvm-ar${LLVM_VERSION} \
 		-DCMAKE_RANLIB=${LOCALBASE}/bin/llvm-ranlib${LLVM_VERSION} \
 		-DCMAKE_C_COMPILER_TARGET=${TRIPLE} \
 		-DCMAKE_CXX_COMPILER_TARGET=${TRIPLE} \
+		-DCMAKE_ASM_COMPILER_TARGET=${TRIPLE} \
 		-DCMAKE_FIND_ROOT_PATH_MODE_PROGRAM=NEVER \
+		-DCMAKE_FIND_ROOT_PATH_MODE_LIBRARY=ONLY \
 		-DCMAKE_FIND_ROOT_PATH_MODE_INCLUDE=ONLY \
 		-DCMAKE_FIND_ROOT_PATH_MODE_PACKAGE=ONLY \
 		-DCMAKE_C_COMPILER_WORKS=ON \
 		-DCMAKE_CXX_COMPILER_WORKS=ON \
-		-DCMAKE_STAGING_PREFIX=${CMAKE_INSTALL_PREFIX} \
-		-DLLVM_CONFIG_PATH=${LOCALBASE}/bin/${LLVM_CONFIG} \
+		-DCMAKE_SYSROOT=${WASI_SYSROOT} \
 		-DCXX_SUPPORTS_CXX11=ON \
 		-DLIBCXX_ENABLE_THREADS:BOOL=${"${FLAVOR:Mthreads}" != "":?ON:OFF} \
 		-DLIBCXX_HAS_PTHREAD_API:BOOL=${"${FLAVOR:Mthreads}" != "":?ON:OFF} \
@@ -94,9 +84,10 @@ CMAKE_ARGS+=	-DCMAKE_AR=${LOCALBASE}/bin/llvm-ar${LLVM_VERSION} \
 		-DLIBCXXABI_HAS_WIN32_THREAD_API:BOOL=OFF \
 		-DLIBCXXABI_USE_LLVM_UNWINDER:BOOL=OFF \
 		-DUNIX:BOOL=ON \
-		-DCMAKE_SYSROOT=${WASI_SYSROOT} \
 		-DLIBCXX_LIBDIR_SUFFIX=/${TRIPLE} \
 		-DLIBCXXABI_LIBDIR_SUFFIX=/${TRIPLE} \
+		-DLIBCXX_INCLUDE_TESTS=OFF \
+		-DLIBCXX_INCLUDE_BENCHMARKS=OFF \
 		-DLLVM_ENABLE_RUNTIMES="libcxx;libcxxabi"
 
 .include <bsd.port.mk>
