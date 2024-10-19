@@ -29,35 +29,15 @@ CONFLICTS_INSTALL=	wasi-libc[0-9]*
 
 ALL_TARGET=	finish
 
-FLAVORS=	single threads
-FLAVOR?=	${FLAVORS[1]}
-
-threads_PKGNAMESUFFIX=	-threads
-
-.if ${FLAVOR:U}	== threads
-# NOTE: matches the https://github.com/WebAssembly/wasi-sdk
-WASI_SYSROOT=	${PREFIX}/share/wasi-sysroot-threads
-TRIPLE=		wasm32-wasi-threads
-PLIST_SUB+=	THREADS=""
-MAKE_ENV+=	THREAD_MODEL=posix
-.else
 # NOTE: matches the https://github.com/WebAssembly/wasi-sdk
 WASI_SYSROOT=	${PREFIX}/share/wasi-sysroot
-TRIPLE=		wasm32-wasi
-PLIST_SUB+=	THREADS="@comment "
-# https://bugzilla.mozilla.org/show_bug.cgi?id=1773200#c4
-MAKE_ENV+=	BULK_MEMORY_SOURCES=
-.endif
-PLIST_SUB+=	WASI_SYSROOT=${WASI_SYSROOT} TRIPLE=${TRIPLE}
 
-MAKE_ENV+=	INSTALL_DIR=${STAGEDIR}${WASI_SYSROOT} \
+MAKE_ENV=	INSTALL_DIR=${STAGEDIR}${WASI_SYSROOT} \
 		EXTRA_CFLAGS="-O2 -DNDEBUG -isystem ${FILESDIR}" \
 		AR=${LOCALBASE}/bin/llvm-ar${LLVM_VERSION} \
 		NM=${LOCALBASE}/bin/llvm-nm${LLVM_VERSION} \
 
 post-patch:
-	${REINPLACE_CMD} -e 's|BULK_MEMORY_SOURCES =|BULK_MEMORY_SOURCES ?=|' \
-		${WRKSRC}/Makefile
 # NOTE: phony targets cause make install to rebuild everything
 #       https://github.com/WebAssembly/wasi-libc/issues/156
 	${REINPLACE_CMD} -e 's|install: finish|install:|' ${WRKSRC}/Makefile
