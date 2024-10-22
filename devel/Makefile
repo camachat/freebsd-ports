@@ -829,6 +829,7 @@
     SUBDIR += git-delta
     SUBDIR += git-extras
     SUBDIR += git-filter-repo
+    SUBDIR += git-filter-repo-devel
     SUBDIR += git-gui
     SUBDIR += git-lab
     SUBDIR += git-lfs
@@ -5977,6 +5978,7 @@
     SUBDIR += py-tinyrpc
     SUBDIR += py-tipper
     SUBDIR += py-tokenize-rt
+    SUBDIR += py-toml-fmt-common
     SUBDIR += py-toolz
     SUBDIR += py-tooz
     SUBDIR += py-toposort
