@@ -95,7 +95,6 @@
     SUBDIR += dtach
     SUBDIR += dvorak7min
     SUBDIR += dynomite
-    SUBDIR += e2fsprogs-libblkid
     SUBDIR += e2fsprogs-libuuid
     SUBDIR += ecflow
     SUBDIR += edfbrowser
@@ -152,6 +151,7 @@
     SUBDIR += g810-led
     SUBDIR += gedkeeper
     SUBDIR += geekcode
+    SUBDIR += getopt
     SUBDIR += gimp-help-en
     SUBDIR += gkrellm-gamma
     SUBDIR += gkrellm-xkb
