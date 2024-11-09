@@ -452,6 +452,6 @@ do-install:
 	${RM} ${STAGEDIR}${PREFIX}/include/wasmtime/conf.h.in
 	${INSTALL_LIB} ${WRKDIR}/target/release/libwasmtime.a ${STAGEDIR}${PREFIX}/lib
 	${INSTALL_LIB} ${WRKDIR}/target/release/libwasmtime.so ${STAGEDIR}${PREFIX}/lib
-	.endif
+.endif
 
 .include <bsd.port.mk>
