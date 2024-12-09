@@ -1,7 +1,6 @@
 PORTNAME=	fluidsynth
 DISTVERSIONPREFIX=	v
-DISTVERSION=	2.4.0
-PORTREVISION=	1
+DISTVERSION=	2.4.1
 CATEGORIES=	audio
 
 MAINTAINER=	multimedia@FreeBSD.org
@@ -21,12 +20,13 @@ LDFLAGS+=	-lpthread
 LDFLAGS+=	-lomp
 
 # would require unreleased libinstpatch >= 1.1.0
-CMAKE_OFF=	CMAKE_DISABLE_FIND_PACKAGE_Doxygen \
-		enable-dsound \
+CMAKE_OFF=	enable-dsound \
 		enable-libinstpatch \
 		enable-midishare \
 		enable-waveout \
 		enable-winmidi
+CMAKE_ON=	CMAKE_DISABLE_FIND_PACKAGE_Doxygen \
+		CMAKE_DISABLE_FIND_PACKAGE_Git
 
 OPTIONS_DEFINE=		ALSA DBUS JACK LADSPA PIPEWIRE PORTAUDIO \
 			PULSEAUDIO READLINE SDL SNDFILE
