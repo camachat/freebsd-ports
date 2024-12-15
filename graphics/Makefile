@@ -943,6 +943,8 @@
     SUBDIR += py-momepy
     SUBDIR += py-mpl-interactions
     SUBDIR += py-mpl-scatter-density
+    SUBDIR += py-napari-console
+    SUBDIR += py-napari-plugin-engine
     SUBDIR += py-nwdiag
     SUBDIR += py-opencolorio
     SUBDIR += py-openimageio
@@ -1118,6 +1120,8 @@
     SUBDIR += rubygem-ruby-graphviz
     SUBDIR += rubygem-ruby-vips
     SUBDIR += rubygem-scruffy
+    SUBDIR += rubygem-svg_optimizer
+    SUBDIR += rubygem-svg_sprite
     SUBDIR += rubygem-tanuki_emoji
     SUBDIR += rx
     SUBDIR += s10sh
