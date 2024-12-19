@@ -122,6 +122,7 @@
     SUBDIR += curtail
     SUBDIR += cuttlefish
     SUBDIR += cxxplot
+    SUBDIR += d2
     SUBDIR += darktable
     SUBDIR += dataplot
     SUBDIR += dbow2
@@ -337,6 +338,7 @@
     SUBDIR += hobbes-icons-xpm
     SUBDIR += hppsmtools
     SUBDIR += hugin
+    SUBDIR += hyprgraphics
     SUBDIR += icat
     SUBDIR += icc-profiles-adobe-cs4
     SUBDIR += icc-profiles-basiccolor
