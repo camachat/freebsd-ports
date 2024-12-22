@@ -1,6 +1,6 @@
 PORTNAME=	mise
 DISTVERSIONPREFIX=	v
-DISTVERSION=	2024.12.14
+DISTVERSION=	2024.12.17
 CATEGORIES=	sysutils
 
 MAINTAINER=	yuri@FreeBSD.org
@@ -69,7 +69,7 @@ CARGO_CRATES=	addr2line-0.21.0 \
 		bzip2-sys-0.1.11+1.0.8 \
 		calm_io-0.1.1 \
 		calmio_filters-0.1.0 \
-		cc-1.2.4 \
+		cc-1.2.5 \
 		cfg-if-1.0.0 \
 		cfg_aliases-0.2.1 \
 		chacha20-0.9.1 \
@@ -122,7 +122,7 @@ CARGO_CRATES=	addr2line-0.21.0 \
 		darling_macro-0.20.10 \
 		dashmap-5.5.3 \
 		deflate64-0.1.9 \
-		demand-1.5.0 \
+		demand-1.6.0 \
 		der-0.7.9 \
 		deranged-0.3.11 \
 		derive_arbitrary-1.4.1 \
@@ -142,8 +142,9 @@ CARGO_CRATES=	addr2line-0.21.0 \
 		either-1.13.0 \
 		encode_unicode-1.0.0 \
 		encoding_rs-0.8.35 \
-		env_filter-0.1.2 \
-		env_logger-0.11.5 \
+		env_filter-0.1.3 \
+		env_home-0.1.0 \
+		env_logger-0.11.6 \
 		envmnt-0.10.4 \
 		equivalent-1.0.1 \
 		erased-serde-0.4.5 \
@@ -198,7 +199,7 @@ CARGO_CRATES=	addr2line-0.21.0 \
 		hex-0.4.3 \
 		hkdf-0.12.4 \
 		hmac-0.12.1 \
-		home-0.5.9 \
+		home-0.5.11 \
 		homedir-0.3.4 \
 		http-1.2.0 \
 		http-body-1.0.1 \
@@ -207,7 +208,7 @@ CARGO_CRATES=	addr2line-0.21.0 \
 		humansize-2.1.3 \
 		humantime-2.1.0 \
 		hyper-1.5.2 \
-		hyper-rustls-0.27.4 \
+		hyper-rustls-0.27.5 \
 		hyper-tls-0.6.0 \
 		hyper-util-0.1.10 \
 		i18n-config-0.4.7 \
@@ -230,8 +231,8 @@ CARGO_CRATES=	addr2line-0.21.0 \
 		idna-1.0.3 \
 		idna_adapter-1.2.0 \
 		ignore-0.4.23 \
-		impl-tools-0.10.2 \
-		impl-tools-lib-0.11.0 \
+		impl-tools-0.10.3 \
+		impl-tools-lib-0.11.1 \
 		indenter-0.3.3 \
 		indexmap-1.9.3 \
 		indexmap-2.7.0 \
@@ -254,7 +255,7 @@ CARGO_CRATES=	addr2line-0.21.0 \
 		lazy-regex-3.3.0 \
 		lazy-regex-proc_macros-3.3.0 \
 		lazy_static-1.5.0 \
-		libc-0.2.168 \
+		libc-0.2.169 \
 		libgit2-sys-0.17.0+1.8.1 \
 		libm-0.2.11 \
 		libredox-0.1.3 \
@@ -463,7 +464,7 @@ CARGO_CRATES=	addr2line-0.21.0 \
 		time-core-0.1.2 \
 		time-macros-0.2.19 \
 		tinystr-0.7.6 \
-		tinyvec-1.8.0 \
+		tinyvec-1.8.1 \
 		tinyvec_macros-0.1.1 \
 		tokio-1.42.0 \
 		tokio-macros-2.4.0 \
@@ -504,7 +505,7 @@ CARGO_CRATES=	addr2line-0.21.0 \
 		untrusted-0.9.0 \
 		url-2.5.4 \
 		urlencoding-2.1.3 \
-		usage-lib-1.7.2 \
+		usage-lib-1.7.4 \
 		utf16_iter-1.0.5 \
 		utf8_iter-1.0.4 \
 		utf8parse-0.2.2 \
@@ -528,7 +529,7 @@ CARGO_CRATES=	addr2line-0.21.0 \
 		web-time-1.1.0 \
 		webpki-roots-0.26.7 \
 		which-6.0.3 \
-		which-7.0.0 \
+		which-7.0.1 \
 		widestring-1.1.0 \
 		winapi-0.3.9 \
 		winapi-i686-pc-windows-gnu-0.4.0 \

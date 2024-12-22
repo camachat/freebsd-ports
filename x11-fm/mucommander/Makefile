@@ -3,7 +3,7 @@ DISTVERSION=	1.5.2-1
 CATEGORIES=	x11-fm java
 MASTER_SITES=	https://github.com/${PORTNAME}/${PORTNAME}/releases/download/${DISTVERSION}/
 
-MAINTAINER=	bofh@FreeBSD.org
+MAINTAINER=	eric@camachat.org
 COMMENT=	Lightweight file manager featuring a Norton Commander style interface
 WWW=		https://www.mucommander.com
 
