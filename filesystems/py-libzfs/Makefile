@@ -3,7 +3,7 @@ PORTVERSION=	1.1.2024040300
 CATEGORIES=	filesystems devel python
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
-MAINTAINER=	ports@FreeBSD.org
+MAINTAINER=	meka@tilda.center
 COMMENT=	Python libzfs bindings
 WWW=		https://github.com/freenas/py-libzfs
 
@@ -30,6 +30,11 @@ MAKE_ENV=	freebsd_src=${SRC_BASE}
 
 .if !exists(${SRC_BASE}/sys/Makefile)
 IGNORE=		requires kernel source files in ${SRC_BASE}
+.endif
+
+.if ${OPSYS} == FreeBSD && ${OSVERSION} >= 1400000
+PATCH_SITES=    https://github.com/${GH_ACCOUNT}/${GH_PROJECT}/commit/
+PATCHFILES=     0b2ab0594997c44e80e3fdfe9d2add106d81149a.diff:-p1 # backport of https://github.com/truenas/py-libzfs/pull/251
 .endif
 
 .include <bsd.port.mk>
