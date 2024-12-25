@@ -57,7 +57,6 @@
     SUBDIR += apache-commons-digester
     SUBDIR += apache-poi
     SUBDIR += apache-solr
-    SUBDIR += apache-solr8
     SUBDIR += apache-xmlbeans
     SUBDIR += apertium
     SUBDIR += apertium-eng
@@ -1947,6 +1946,7 @@
     SUBDIR += rubygem-reverse_markdown
     SUBDIR += rubygem-rexml
     SUBDIR += rubygem-rexml32
+    SUBDIR += rubygem-rexml33
     SUBDIR += rubygem-ri_cal
     SUBDIR += rubygem-rly
     SUBDIR += rubygem-rmmseg-cpp
