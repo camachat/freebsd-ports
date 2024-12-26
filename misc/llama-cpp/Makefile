@@ -13,7 +13,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 BROKEN_armv7=	clang crashes, see https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=278810
 BROKEN_i386=	compilation fails, see https://github.com/ggerganov/llama.cpp/issues/9545
 
-USES=		cmake:testing compiler:c++11-lang python:run,test shebangfix
+USES=		cmake:testing compiler:c++11-lang python:build,run,test shebangfix
 USE_LDCONFIG=	yes
 
 USE_GITHUB=	yes
