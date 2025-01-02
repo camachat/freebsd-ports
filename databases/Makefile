@@ -35,7 +35,6 @@
     SUBDIR += closql
     SUBDIR += closql-devel
     SUBDIR += cockroach
-    SUBDIR += compass
     SUBDIR += couchdb3
     SUBDIR += courier-authlib-mysql
     SUBDIR += courier-authlib-pgsql
@@ -118,7 +117,6 @@
     SUBDIR += keydb
     SUBDIR += kyotocabinet
     SUBDIR += kyototycoon
-    SUBDIR += ldb22
     SUBDIR += ldb25
     SUBDIR += ldb28
     SUBDIR += leo_center
@@ -573,7 +571,6 @@
     SUBDIR += pglogical
     SUBDIR += pgmetrics
     SUBDIR += pgmodeler
-    SUBDIR += pgpool-II-41
     SUBDIR += pgpool-II-42
     SUBDIR += pgpool-II-43
     SUBDIR += pgpool-II-44
@@ -646,7 +643,6 @@
     SUBDIR += pointcloud
     SUBDIR += postgis-jdbc
     SUBDIR += postgis31
-    SUBDIR += postgis32
     SUBDIR += postgis33
     SUBDIR += postgis34
     SUBDIR += postgis35
@@ -671,14 +667,6 @@
     SUBDIR += postgresql-tds_fdw
     SUBDIR += postgresql-wal2json
     SUBDIR += postgresql-zhparser
-    SUBDIR += postgresql12-client
-    SUBDIR += postgresql12-contrib
-    SUBDIR += postgresql12-docs
-    SUBDIR += postgresql12-pgtcl
-    SUBDIR += postgresql12-plperl
-    SUBDIR += postgresql12-plpython
-    SUBDIR += postgresql12-pltcl
-    SUBDIR += postgresql12-server
     SUBDIR += postgresql13-client
     SUBDIR += postgresql13-contrib
     SUBDIR += postgresql13-docs
@@ -803,7 +791,6 @@
     SUBDIR += py-pglite
     SUBDIR += py-pgmigrate
     SUBDIR += py-pgspecial
-    SUBDIR += py-pgspecial1
     SUBDIR += py-pgxnclient
     SUBDIR += py-pickledb
     SUBDIR += py-pickleshare
@@ -1035,11 +1022,8 @@
     SUBDIR += rubygem-redis-client
     SUBDIR += rubygem-redis-cluster-client
     SUBDIR += rubygem-redis-clustering
-    SUBDIR += rubygem-redis-clustering52
     SUBDIR += rubygem-redis-namespace
     SUBDIR += rubygem-redis-namespace110
-    SUBDIR += rubygem-redis4
-    SUBDIR += rubygem-redis52
     SUBDIR += rubygem-ruby-mysql
     SUBDIR += rubygem-scenic61
     SUBDIR += rubygem-sdbm

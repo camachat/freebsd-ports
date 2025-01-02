@@ -1164,7 +1164,7 @@ OSVERSION!=	${AWK} '/^\#define[[:blank:]]__FreeBSD_version/ {print $$3}' < ${SRC
 .    endif
 _EXPORTED_VARS+=	OSVERSION
 
-.    if ${OPSYS} == FreeBSD && (${OSVERSION} < 1303000 || (${OSVERSION} >= 1400000 && ${OSVERSION} < 1401000))
+.    if ${OPSYS} == FreeBSD && (${OSVERSION} < 1304000 || (${OSVERSION} >= 1400000 && ${OSVERSION} < 1401000))
 _UNSUPPORTED_SYSTEM_MESSAGE=	Ports Collection support for your ${OPSYS} version has ended, and no ports\
 								are guaranteed to build on this system. Please upgrade to a supported release.
 .      if defined(ALLOW_UNSUPPORTED_SYSTEM)
@@ -2554,8 +2554,8 @@ check-categories:
 VALID_CATEGORIES+= accessibility afterstep arabic archivers astro audio \
 	benchmarks biology budgie cad chinese comms converters \
 	databases deskutils devel dns docs \
-	editors education elisp emulators enlightenment finance french ftp \
-	filesystems \
+	editors education elisp emulators enlightenment \
+	filesystems finance french ftp \
 	games geography german gnome gnustep graphics \
 	hamradio haskell hebrew hungarian irc japanese java \
 	kde ${_KDE_CATEGORIES_SUPPORTED} kld korean \
