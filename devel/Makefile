@@ -4209,6 +4209,7 @@
     SUBDIR += pecl-json_post
     SUBDIR += pecl-msgpack
     SUBDIR += pecl-mustache
+    SUBDIR += pecl-opentelemetry
     SUBDIR += pecl-pcov
     SUBDIR += pecl-protobuf
     SUBDIR += pecl-psr
@@ -5512,6 +5513,7 @@
     SUBDIR += py-pyTooling
     SUBDIR += py-py_interface
     SUBDIR += py-pyairtable
+    SUBDIR += py-pyairtable2
     SUBDIR += py-pyaml-env
     SUBDIR += py-pyasn1
     SUBDIR += py-pyasn1-modules
@@ -6400,6 +6402,7 @@
     SUBDIR += rubygem-actionview70
     SUBDIR += rubygem-actionview71
     SUBDIR += rubygem-actionview72
+    SUBDIR += rubygem-actionview80
     SUBDIR += rubygem-active_hash
     SUBDIR += rubygem-active_scaffold
     SUBDIR += rubygem-activejob4
@@ -6411,6 +6414,7 @@
     SUBDIR += rubygem-activejob70
     SUBDIR += rubygem-activejob71
     SUBDIR += rubygem-activejob72
+    SUBDIR += rubygem-activejob80
     SUBDIR += rubygem-activemessaging
     SUBDIR += rubygem-activerecord-deprecated_finders
     SUBDIR += rubygem-activesupport4
@@ -6422,6 +6426,7 @@
     SUBDIR += rubygem-activesupport70
     SUBDIR += rubygem-activesupport71
     SUBDIR += rubygem-activesupport72
+    SUBDIR += rubygem-activesupport80
     SUBDIR += rubygem-airborne
     SUBDIR += rubygem-akismet
     SUBDIR += rubygem-algebrick
@@ -7036,6 +7041,7 @@
     SUBDIR += rubygem-bcp47_spec
     SUBDIR += rubygem-benelux
     SUBDIR += rubygem-better_html
+    SUBDIR += rubygem-bin_struct
     SUBDIR += rubygem-bin_utils
     SUBDIR += rubygem-bindata
     SUBDIR += rubygem-bindex
@@ -7437,6 +7443,7 @@
     SUBDIR += rubygem-jbuilder-rails61
     SUBDIR += rubygem-jbuilder-rails71
     SUBDIR += rubygem-jbuilder-rails72
+    SUBDIR += rubygem-jbuilder-rails80
     SUBDIR += rubygem-jekyll-coffeescript
     SUBDIR += rubygem-jenkins_api_client
     SUBDIR += rubygem-jeweler
@@ -7879,6 +7886,7 @@
     SUBDIR += rubygem-sprockets-rails-rails70
     SUBDIR += rubygem-sprockets-rails-rails71
     SUBDIR += rubygem-sprockets-rails-rails72
+    SUBDIR += rubygem-sprockets-rails-rails80
     SUBDIR += rubygem-sprockets-sass
     SUBDIR += rubygem-sprockets2
     SUBDIR += rubygem-sprockets3
@@ -8004,6 +8012,7 @@
     SUBDIR += rubygem-validate_email
     SUBDIR += rubygem-validate_url
     SUBDIR += rubygem-validates_timeliness
+    SUBDIR += rubygem-validates_timeliness7
     SUBDIR += rubygem-version_gem
     SUBDIR += rubygem-versionomy
     SUBDIR += rubygem-view_component-rails70
@@ -8020,6 +8029,7 @@
     SUBDIR += rubygem-web-console-rails61
     SUBDIR += rubygem-web-console-rails71
     SUBDIR += rubygem-web-console-rails72
+    SUBDIR += rubygem-web-console-rails80
     SUBDIR += rubygem-web-console2
     SUBDIR += rubygem-web-console3-rails5
     SUBDIR += rubygem-web-console3-rails50
