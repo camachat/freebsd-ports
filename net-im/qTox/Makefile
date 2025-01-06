@@ -1,11 +1,12 @@
 PORTNAME=	qTox
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.18.0
+DISTVERSION=	1.18.1
 CATEGORIES=	net-im net-p2p
 
 MAINTAINER=	yuri@FreeBSD.org
 COMMENT=	Qt based Tox client
-WWW=		https://qtox.github.io/
+WWW=		https://qtox.github.io/ \
+		https://github.com/TokTok/qTox
 
 LICENSE=	GPLv3
 LICENSE_FILE=	${WRKSRC}/LICENSE
@@ -27,6 +28,7 @@ LIB_DEPENDS=	libavcodec.so:multimedia/ffmpeg \
 USES=		cmake compiler:c++11-lib desktop-file-utils gettext gl openal:soft pkgconfig qt:6
 USE_GL=		opengl
 USE_QT=		base sqldriver-sqlite:run svg
+
 USE_GITHUB=	yes
 GH_ACCOUNT=	TokTok
 
