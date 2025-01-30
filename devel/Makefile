@@ -8206,6 +8206,7 @@
     SUBDIR += tagref
     SUBDIR += tailor
     SUBDIR += talloc
+    SUBDIR += talloc242
     SUBDIR += task
     SUBDIR += taskctl
     SUBDIR += taskflow
@@ -8235,6 +8236,7 @@
     SUBDIR += terraform-ls
     SUBDIR += test-drive
     SUBDIR += tevent
+    SUBDIR += tevent016
     SUBDIR += tex-kpathsea
     SUBDIR += tex-libtexlua
     SUBDIR += tex-libtexluajit
