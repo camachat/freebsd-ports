@@ -1566,6 +1566,7 @@
     SUBDIR += linux_libusb
     SUBDIR += listserialc
     SUBDIR += liteide
+    SUBDIR += llama.el
     SUBDIR += llbuild
     SUBDIR += lldb-mi
     SUBDIR += llnextgen
@@ -3728,6 +3729,7 @@
     SUBDIR += p5-Test-Pod
     SUBDIR += p5-Test-Pod-Coverage
     SUBDIR += p5-Test-Pod-Coverage-Permissive
+    SUBDIR += p5-Test-Pod-Links
     SUBDIR += p5-Test-Portability-Files
     SUBDIR += p5-Test-Prereq
     SUBDIR += p5-Test-RandomResults
@@ -3934,6 +3936,7 @@
     SUBDIR += p5-XS-Parse-Keyword
     SUBDIR += p5-XS-Parse-Sublike
     SUBDIR += p5-XSLoader
+    SUBDIR += p5-XT-Files
     SUBDIR += p5-XXX
     SUBDIR += p5-Xporter
     SUBDIR += p5-YAML-AppConfig
