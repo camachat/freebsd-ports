@@ -136,6 +136,7 @@
     SUBDIR += R-cran-sessioninfo
     SUBDIR += R-cran-sfsmisc
     SUBDIR += R-cran-sourcetools
+    SUBDIR += R-cran-sparsevctrs
     SUBDIR += R-cran-sys
     SUBDIR += R-cran-systemfonts
     SUBDIR += R-cran-testit
@@ -937,6 +938,7 @@
     SUBDIR += gradle-completion
     SUBDIR += gradle5
     SUBDIR += gradle6
+    SUBDIR += gradle8
     SUBDIR += gradle62
     SUBDIR += gradle761
     SUBDIR += grantlee5
