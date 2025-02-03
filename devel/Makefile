@@ -154,6 +154,7 @@
     SUBDIR += R-cran-vcd
     SUBDIR += R-cran-vctrs
     SUBDIR += R-cran-waldo
+    SUBDIR += R-cran-webfakes
     SUBDIR += R-cran-whisker
     SUBDIR += R-cran-whoami
     SUBDIR += R-cran-withr
@@ -732,6 +733,7 @@
     SUBDIR += freebsd-git-devtools
     SUBDIR += freebsd-sysroot
     SUBDIR += frink
+    SUBDIR += fruit
     SUBDIR += fsmtrie
     SUBDIR += fstrcmp
     SUBDIR += fstrm
@@ -938,9 +940,9 @@
     SUBDIR += gradle-completion
     SUBDIR += gradle5
     SUBDIR += gradle6
-    SUBDIR += gradle8
     SUBDIR += gradle62
     SUBDIR += gradle761
+    SUBDIR += gradle8
     SUBDIR += grantlee5
     SUBDIR += grcov
     SUBDIR += grex
@@ -1046,6 +1048,7 @@
     SUBDIR += ipython
     SUBDIR += ireport
     SUBDIR += isa-l
+    SUBDIR += isa-l_crypto
     SUBDIR += iscd-commons
     SUBDIR += isfreedesktop
     SUBDIR += isl
