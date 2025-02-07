@@ -1,3 +1,83 @@
+  <vuln vid="c10b639c-e51c-11ef-9e76-4ccc6adda413">
+    <topic>libcaca -- Multiple vulnerabilities</topic>
+    <affects>
+      <package>
+	<name>libcaca</name>
+	<range><lt>0.99.b20</lt></range>
+      </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>Sam Hocevar reports:</p>
+	<blockquote cite="https://github.com/cacalabs/libcaca/releases/tag/v0.99.beta20">
+	  <p>Multiple memory leaks and invalid memory accesses:</p>
+	  <ul>
+	    <li>CVE-2018-20545: Illegal WRITE memory access at common-image.c</li>
+	    <li>CVE-2018-20546: Illegal READ memory access at caca/dither.c</li>
+	    <li>CVE-2018-20547: Illegal READ memory access at caca/dither.c</li>
+	    <li>CVE-2018-20548: Illegal WRITE memory access at common-image.c</li>
+	    <li>CVE-2018-20549: Illegal WRITE memory access at caca/file.c</li>
+	    <li>CVE-2021-3410:  Buffer overflow in libcaca/caca/canvas.c in function caca_resize</li>
+	    <li>CVE-2021-30498: Heap buffer overflow in export.c in function export_tga</li>
+	    <li>CVE-2021-30499: Buffer overflow in export.c in function export_troff</li>
+	  </ul>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2018-20545</cvename>
+      <cvename>CVE-2018-20546</cvename>
+      <cvename>CVE-2018-20547</cvename>
+      <cvename>CVE-2018-20548</cvename>
+      <cvename>CVE-2018-20549</cvename>
+      <cvename>CVE-2021-3410</cvename>
+      <cvename>CVE-2021-30498</cvename>
+      <cvename>CVE-2021-30499</cvename>
+      <url>https://github.com/cacalabs/libcaca/releases/tag/v0.99.beta20</url>
+    </references>
+    <dates>
+      <discovery>2021-10-19</discovery>
+      <entry>2025-02-07</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="e7974ca5-e4c8-11ef-aab3-40b034429ecf">
+    <topic>cacti -- Multiple vulnerabilities</topic>
+    <affects>
+      <package>
+	<name>cacti</name>
+	<range><lt>1.2.29</lt></range>
+      </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>Cacti repo reports:</p>
+	<blockquote cite="https://github.com/Cacti/cacti/releases/tag/release%2F1.2.29">
+	  <ul>
+	    <li>security #GHSA-c5j8-jxj3-hh36: Authenticated RCE via multi-line SNMP responses</li>
+	    <li>security #GHSA-f9c7-7rc3-574c: SQL Injection vulnerability when using tree rules through Automation API</li>
+	    <li>security #GHSA-fh3x-69rr-qqpp: SQL Injection vulnerability when request automation devices</li>
+	    <li>security #GHSA-fxrq-fr7h-9rqq: Arbitrary File Creation leading to RCE</li>
+	    <li>security #GHSA-pv2c-97pp-vxwg: Local File Inclusion (LFI) Vulnerability via Poller Standard Error Log Path</li>
+	    <li>security #GHSA-vj9g-p7f2-4wqj: SQL Injection vulnerability when view host template</li>
+	  </ul>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2025-22604</cvename>
+      <cvename>CVE-2025-24368</cvename>
+      <cvename>CVE-2024-54145</cvename>
+      <cvename>CVE-2025-24367</cvename>
+      <cvename>CVE-2024-45598</cvename>
+      <cvename>CVE-2024-54146</cvename>
+    </references>
+    <dates>
+      <discovery>2025-02-02</discovery>
+      <entry>2025-02-05</entry>
+    </dates>
+  </vuln>
+
   <vuln vid="9761af78-e3e4-11ef-9f4a-589cfc10a551">
     <topic>nginx-devel -- SSL session reuse vulnerability</topic>
     <affects>
