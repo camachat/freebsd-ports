@@ -1,5 +1,5 @@
---- libgcc/config.host.orig    2025-01-30 12:31:26.479569000 -0800
-+++ libgcc/config.host 2025-01-30 12:32:03.732682000 -0800
+--- libgcc/config.host.orig	2025-01-30 12:31:26.479569000 -0800
++++ libgcc/config.host	2025-01-30 12:32:03.732682000 -0800
 @@ -286,7 +286,7 @@
    # machine-specific sections may refine and add to this
    # configuration.
