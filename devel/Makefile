@@ -1046,6 +1046,7 @@
     SUBDIR += injeqt
     SUBDIR += intel-graphics-compiler
     SUBDIR += interactive_rebase_tool
+    SUBDIR += intervaltree
     SUBDIR += ioncube
     SUBDIR += ipython
     SUBDIR += ireport
@@ -1096,6 +1097,7 @@
     SUBDIR += jwasm
     SUBDIR += kBuild
     SUBDIR += kapptemplate
+    SUBDIR += kassert
     SUBDIR += kcachegrind
     SUBDIR += kconfig-frontends
     SUBDIR += kcov
@@ -5704,6 +5706,7 @@
     SUBDIR += py-pytest-repeat
     SUBDIR += py-pytest-rerunfailures
     SUBDIR += py-pytest-ruff
+    SUBDIR += py-pytest-run-parallel
     SUBDIR += py-pytest-runner
     SUBDIR += py-pytest-services
     SUBDIR += py-pytest-shutil
@@ -8200,6 +8203,7 @@
     SUBDIR += subversion-lts
     SUBDIR += subversive
     SUBDIR += sunpromake
+    SUBDIR += sv
     SUBDIR += svk
     SUBDIR += svn2git
     SUBDIR += svn_load_dirs
@@ -8224,6 +8228,7 @@
     SUBDIR += taskflow
     SUBDIR += tass64
     SUBDIR += tbb
+    SUBDIR += tbox
     SUBDIR += tcl-memchan
     SUBDIR += tcl-mmap
     SUBDIR += tcl-signal
