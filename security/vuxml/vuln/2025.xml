@@ -1,3 +1,69 @@
+  <vuln vid="8fb9101e-f58a-11ef-b4e4-2cf05da270f3">
+    <topic>Gitlab -- Vulnerabilities</topic>
+    <affects>
+      <package>
+	<name>gitlab-ce</name>
+	<name>gitlab-ee</name>
+	<range><ge>17.9.0</ge><lt>17.9.1</lt></range>
+	<range><ge>17.8.0</ge><lt>17.8.4</lt></range>
+	<range><ge>15.10.0</ge><lt>17.7.6</lt></range>
+      </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>Gitlab reports:</p>
+	<blockquote cite="https://about.gitlab.com/releases/2025/02/26/patch-release-gitlab-17-9-1-released/">
+	  <p>XSS in k8s proxy endpoint</p>
+	  <p>XSS Maven Dependency Proxy</p>
+	  <p>HTML injection leads to XSS on self hosted instances</p>
+	  <p>Improper Authorisation Check Allows Guest User to Read Security Policy</p>
+	  <p>Planner role can read code review analytics in private projects</p>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2025-0475</cvename>
+      <cvename>CVE-2025-0555</cvename>
+      <cvename>CVE-2024-8186</cvename>
+      <cvename>CVE-2024-10925</cvename>
+      <cvename>CVE-2025-0307</cvename>
+      <url>https://about.gitlab.com/releases/2025/02/26/patch-release-gitlab-17-9-1-released/</url>
+    </references>
+    <dates>
+      <discovery>2025-02-26</discovery>
+      <entry>2025-02-28</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="a4cb7f9b-f506-11ef-85f3-a8a1599412c6">
+    <topic>chromium -- multiple security fixes</topic>
+    <affects>
+      <package>
+       <name>chromium</name>
+       <range><lt>133.0.6943.141</lt></range>
+      </package>
+      <package>
+       <name>ungoogled-chromium</name>
+       <range><lt>133.0.6943.141</lt></range>
+      </package>
+    </affects>
+    <description>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+       <p>Chrome Releases reports:</p>
+       <blockquote cite="https://chromereleases.googleblog.com/2025/02/stable-channel-update-for-desktop_25.html">
+	 <p>This update includes 1 security fix.</p>
+       </blockquote>
+      </body>
+    </description>
+    <references>
+      <url>https://chromereleases.googleblog.com/2025/02/stable-channel-update-for-desktop_25.html</url>
+    </references>
+    <dates>
+      <discovery>2025-02-25</discovery>
+      <entry>2025-02-27</entry>
+    </dates>
+  </vuln>
+
   <vuln vid="6ae77556-f31d-11ef-a695-4ccc6adda413">
     <topic>exiv2 -- Use after free in TiffSubIfd</topic>
     <affects>
