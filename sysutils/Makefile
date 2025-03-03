@@ -403,7 +403,6 @@
     SUBDIR += flog
     SUBDIR += flowgger
     SUBDIR += fluent-bit
-    SUBDIR += fluxengine
     SUBDIR += fonteditfs
     SUBDIR += foremost
     SUBDIR += fortunelock
@@ -894,7 +893,6 @@
     SUBDIR += parkverbot
     SUBDIR += pass-coffin
     SUBDIR += pass-otp
-    SUBDIR += pass-secrets
     SUBDIR += pass-update
     SUBDIR += password-store
     SUBDIR += passwordsafe
@@ -1056,7 +1054,6 @@
     SUBDIR += py-pyinfra
     SUBDIR += py-python-bareos
     SUBDIR += py-python-consul
-    SUBDIR += py-python-consul2
     SUBDIR += py-python-crontab
     SUBDIR += py-python-nomad
     SUBDIR += py-pytsk
