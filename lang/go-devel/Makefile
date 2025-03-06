@@ -32,6 +32,7 @@ TEST_DEPENDS_aarch64=	binutils>0:devel/binutils
 USES=		cpe shebangfix
 
 CPE_VENDOR=	golang
+NO_SHLIBS_REQUIRES_GLOB=	*/gcc-386-freebsd-exec
 
 .ifndef MASTERDIR
 USE_GITHUB=	yes
@@ -116,7 +117,7 @@ do-install:
 		pkg/obj pkg/bootstrap pkg/${OPSYS:tl}_${GOARCH_${ARCH}}/cmd
 	@${MKDIR} ${STAGEDIR}${PREFIX}/go${GO_SUFFIX}
 	@${CP} -a ${WRKSRC}/* ${STAGEDIR}${PREFIX}/go${GO_SUFFIX}
-	@${RM} -rf ${STAGEDIR}${PREFIX}/go${GO_SUFFIX}/src/debug/elf/testdata
+	@${RM} -r ${STAGEDIR}${PREFIX}/go${GO_SUFFIX}/src/debug/elf/testdata
 	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/go${GO_SUFFIX}/bin/*
 	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/go${GO_SUFFIX}/pkg/tool/${OPSYS:tl}_${GOARCH_${ARCH}}/*
 .for f in go gofmt
