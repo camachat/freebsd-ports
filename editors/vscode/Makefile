@@ -1,5 +1,6 @@
 PORTNAME=	vscode
 DISTVERSION=	1.98.2
+PORTREVISION=	1
 CATEGORIES=	editors
 MASTER_SITES=	https://github.com/tagattie/FreeBSD-VSCode/releases/download/${DISTVERSION}/:node_modules
 DISTFILES=	vscode-node-modules-${DISTVERSION}${EXTRACT_SUFX}:node_modules \
@@ -76,7 +77,7 @@ BINARY_ALIAS=	python=${PYTHON_CMD}
 USE_XORG=	x11 xcb xcomposite xcursor xdamage xext xfixes xi xkbfile \
 		xrandr xrender xscrnsaver xtst
 USE_GL=		gbm gl glesv2
-USE_GNOME=	atk cairo pango gdkpixbuf2 gtk30 libxml2 libxslt
+USE_GNOME=	atk cairo pango gdkpixbuf gtk30 libxml2 libxslt
 
 SHEBANG_REGEX=	./(extensions|node_modules|resources|scripts|src)/.*\.sh$$
 PATHFIX_FILES=	src/vs/workbench/contrib/debug/node/terminals.ts
