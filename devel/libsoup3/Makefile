@@ -1,5 +1,6 @@
 PORTNAME=	libsoup
 PORTVERSION=	3.6.5
+PORTREVISION=	2
 CATEGORIES=	devel gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome
@@ -65,5 +66,9 @@ VAPI_USES=			vala:build
 VAPI_MESON_ENABLED=		vapi
 
 BINARY_ALIAS=	python3=${PYTHON_CMD}
+
+post-install-GSSAPI_BASE-on:
+	${SED} -e 's|krb5-gssapi,||' \
+		${BUILD_WRKSRC}/meson-private/libsoup-3.0.pc > ${STAGEDIR}${PREFIX}/libdata/pkgconfig/libsoup-3.0.pc
 
 .include <bsd.port.mk>
