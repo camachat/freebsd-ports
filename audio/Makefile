@@ -518,6 +518,7 @@
     SUBDIR += ncpamixer
     SUBDIR += ncspot
     SUBDIR += netease-music-tui
+    SUBDIR += neuralrack-lv2
     SUBDIR += noise-repellent-lv2
     SUBDIR += noise-suppression-for-voice-lv2
     SUBDIR += normalize
@@ -685,6 +686,7 @@
     SUBDIR += qtractor
     SUBDIR += quimup
     SUBDIR += qxgedit
+    SUBDIR += ratatouille-lv2
     SUBDIR += raul
     SUBDIR += rawrec
     SUBDIR += re
