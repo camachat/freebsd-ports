@@ -987,12 +987,14 @@
     SUBDIR += hs-ShellCheck
     SUBDIR += hs-alex
     SUBDIR += hs-cabal-install
+    SUBDIR += hs-cabal-plan
     SUBDIR += hs-cpphs
     SUBDIR += hs-darcs
     SUBDIR += hs-ghc-events
     SUBDIR += hs-ghcprofview
     SUBDIR += hs-git-annex
     SUBDIR += hs-git-brunch
+    SUBDIR += hs-hadolint
     SUBDIR += hs-happy
     SUBDIR += hs-haskell-language-server
     SUBDIR += hs-hasktags
@@ -1185,6 +1187,7 @@
     SUBDIR += kyra
     SUBDIR += kyua
     SUBDIR += lab
+    SUBDIR += lace
     SUBDIR += lager
     SUBDIR += laminar
     SUBDIR += lasi
@@ -8315,6 +8318,7 @@
     SUBDIR += trompeloeil
     SUBDIR += truc
     SUBDIR += tup
+    SUBDIR += tvision
     SUBDIR += twiggy
     SUBDIR += typeshare
     SUBDIR += ua_parser-core
