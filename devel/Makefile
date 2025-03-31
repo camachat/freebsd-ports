@@ -4378,7 +4378,6 @@
     SUBDIR += py-aenum
     SUBDIR += py-aioapns
     SUBDIR += py-aiobotocore
-    SUBDIR += py-aiocontextvars
     SUBDIR += py-aiofiles
     SUBDIR += py-aiohttp-apispec
     SUBDIR += py-aioice
@@ -4566,6 +4565,7 @@
     SUBDIR += py-backports.zoneinfo
     SUBDIR += py-banal
     SUBDIR += py-bandit
+    SUBDIR += py-bashlex
     SUBDIR += py-bcdoc
     SUBDIR += py-beartype
     SUBDIR += py-beautifultable
