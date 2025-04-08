@@ -1,6 +1,7 @@
 PORTNAME=	sudo-rs
 PORTVERSION=	0.2.5
 DISTVERSIONPREFIX=	v
+PORTREVISION=	1
 CATEGORIES=	security
 
 MAINTAINER=	marc@trifectatech.org
@@ -39,7 +40,7 @@ PORTDOCS=	CHANGELOG.md CONTRIBUTING.md COPYRIGHT LICENSE-* README.md \
 OPTIONS_DEFINE=	COEXIST DOCS
 OPTIONS_SUB=	yes
 
-COEXIST_DESC=			Install using -rs prefix to coexist with security/sudo
+COEXIST_DESC=			Install using -rs suffix to coexist with security/sudo
 COEXIST_CONFLICTS_INSTALL_OFF=	sudo
 COEXIST_VARS=			RS_SUFFIX=-rs
 
