@@ -1409,6 +1409,7 @@
     SUBDIR += libplist
     SUBDIR += libpo6
     SUBDIR += libpololu-avr
+    SUBDIR += libprotobuf-mutator
     SUBDIR += libpru
     SUBDIR += libqb
     SUBDIR += libqcow
@@ -4580,6 +4581,7 @@
     SUBDIR += py-blessed
     SUBDIR += py-blessings
     SUBDIR += py-blinker
+    SUBDIR += py-blockbuster
     SUBDIR += py-bluelet
     SUBDIR += py-boltons
     SUBDIR += py-boolean.py
@@ -4907,6 +4909,7 @@
     SUBDIR += py-flufl.lock
     SUBDIR += py-flynt
     SUBDIR += py-foolscap
+    SUBDIR += py-forbiddenfruit
     SUBDIR += py-freebsd
     SUBDIR += py-freebsd-sysctl
     SUBDIR += py-freenas.utils
@@ -5435,6 +5438,7 @@
     SUBDIR += py-pip
     SUBDIR += py-pip-api
     SUBDIR += py-pip-audit
+    SUBDIR += py-pip-check
     SUBDIR += py-pip-licenses
     SUBDIR += py-pip-requirements-parser
     SUBDIR += py-pip-run
@@ -6148,8 +6152,8 @@
     SUBDIR += py-websockets
     SUBDIR += py-websockify
     SUBDIR += py-wheel
-    SUBDIR += py-wheel044
     SUBDIR += py-wheel-filename
+    SUBDIR += py-wheel044
     SUBDIR += py-whichcraft
     SUBDIR += py-whistle
     SUBDIR += py-widgetsnbextension
