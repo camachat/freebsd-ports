@@ -1,6 +1,7 @@
 PORTNAME=	llama-cpp
 DISTVERSIONPREFIX=	b
-DISTVERSION=	5097
+DISTVERSION=	5106
+PORTREVISION=	1
 CATEGORIES=	misc # machine-learning
 
 MAINTAINER=	yuri@FreeBSD.org
@@ -24,7 +25,9 @@ GH_TUPLE=	nomic-ai:kompute:4565194:kompute/kompute
 SHEBANG_GLOB=	*.py
 
 CMAKE_ON=	BUILD_SHARED_LIBS
-CMAKE_OFF=	LLAMA_BUILD_TESTS
+CMAKE_OFF=	GGML_NATIVE \
+		FREEBSD_ALLOW_ADVANCED_CPU_FEATURES \
+		LLAMA_BUILD_TESTS
 CMAKE_TESTING_ON=	LLAMA_BUILD_TESTS
 
 # user for llama-server, only used when EXAMPLES=ON
@@ -50,6 +53,11 @@ VULKAN_LIB_DEPENDS=	libvulkan.so:graphics/vulkan-loader
 
 BINARY_ALIAS=	git=false \
 		python=${PYTHON_CMD} # for tests
+
+post-patch: # set version in the code
+	@${REINPLACE_CMD} \
+		-e "s|set(BUILD_NUMBER 0)|set(BUILD_NUMBER ${DISTVERSION})|" \
+		${WRKSRC}/cmake/build-info.cmake
 
 do-test-ci: # build of tests fails, see https://github.com/ggerganov/llama.cpp/issues/10955
 	@cd ${WRKSRC} && \
