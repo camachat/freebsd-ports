@@ -395,6 +395,7 @@
     SUBDIR += monocypher
     SUBDIR += munge
     SUBDIR += n2n
+    SUBDIR += naabu
     SUBDIR += ncrack
     SUBDIR += ncrypt
     SUBDIR += nebula
@@ -408,9 +409,9 @@
     SUBDIR += nikto
     SUBDIR += nist-kat
     SUBDIR += nitrokey-app
-    SUBDIR += node-sqlcipher
     SUBDIR += nmap
     SUBDIR += nmap-devel
+    SUBDIR += node-sqlcipher
     SUBDIR += nss
     SUBDIR += nss_compat_ossl
     SUBDIR += nuclei
