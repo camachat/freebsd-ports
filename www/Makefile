@@ -146,6 +146,7 @@
     SUBDIR += dolibarr17
     SUBDIR += dolibarr18
     SUBDIR += dolibarr19
+    SUBDIR += dolibarr20
     SUBDIR += domoticz
     SUBDIR += domoticz-devel
     SUBDIR += dooble
@@ -2610,6 +2611,7 @@
     SUBDIR += websocketd
     SUBDIR += webstone
     SUBDIR += webtrees21
+    SUBDIR += webtrees22
     SUBDIR += wget2
     SUBDIR += wgetpaste
     SUBDIR += wiki-tui
