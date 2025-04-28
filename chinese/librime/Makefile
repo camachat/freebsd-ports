@@ -1,5 +1,5 @@
 PORTNAME=	librime
-PORTVERSION=	1.12.0
+PORTVERSION=	1.13.1
 CATEGORIES=	chinese textproc
 
 MAINTAINER=	khng@FreeBSD.org
