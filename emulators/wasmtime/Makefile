@@ -4,10 +4,9 @@ CATEGORIES=	emulators
 PKGNAMEPREFIX=
 WASMTIME_SLAVE=	cli
 CARGO_BUILD_ARGS=	-p wasmtime-cli
-PLIST_FILES=	bin/wasmtime
-#PLIST_FILES=	bin/wasmtime bin/binmisc-wasmtime-wrapper
 
 FILESDIR=	${.CURDIR}/files
+PLIST=	${.CURDIR}/pkg-plist
 SUB_FILES=	binmisc-wasmtime-wrapper
 SUB_LIST=	NAME=wasmtime WASMTIME_CLI=wasmtime
 USE_RC_SUBR=	wasmtime
