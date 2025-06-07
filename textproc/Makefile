@@ -1313,6 +1313,8 @@
     SUBDIR += py-ansicolors
     SUBDIR += py-ansiwrap
     SUBDIR += py-anyascii
+    SUBDIR += py-anymarkup
+    SUBDIR += py-anymarkup-core
     SUBDIR += py-arabic-reshaper
     SUBDIR += py-asciinema
     SUBDIR += py-asonic
@@ -2149,7 +2151,6 @@
     SUBDIR += xhtml-basic
     SUBDIR += xhtml-modularization
     SUBDIR += xhtml1-xsd
-    SUBDIR += xincluder
     SUBDIR += xlhtml
     SUBDIR += xlnt
     SUBDIR += xlreader
