@@ -560,6 +560,7 @@
     SUBDIR += qt6ct
     SUBDIR += quantum++
     SUBDIR += quary
+    SUBDIR += radio_datetime_analyzer
     SUBDIR += randomx
     SUBDIR += rash
     SUBDIR += raspberrypi-gpioshutdown
@@ -594,6 +595,7 @@
     SUBDIR += seabios
     SUBDIR += sent
     SUBDIR += seq2
+    SUBDIR += sff
     SUBDIR += sfm
     SUBDIR += shared-mime-info
     SUBDIR += shc

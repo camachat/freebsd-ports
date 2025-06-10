@@ -17,6 +17,7 @@
     SUBDIR += akonadi-search
     SUBDIR += alligator
     SUBDIR += aluminum
+    SUBDIR += amqpcat
     SUBDIR += aoe
     SUBDIR += apache-commons-net
     SUBDIR += apinger
@@ -1210,7 +1211,6 @@
     SUBDIR += quagga
     SUBDIR += quiche
     SUBDIR += quoted
-    SUBDIR += rabbiteer
     SUBDIR += rabbitmq
     SUBDIR += rabbitmq-c
     SUBDIR += rabbitmqadmin
