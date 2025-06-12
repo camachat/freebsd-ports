@@ -650,6 +650,7 @@
     SUBDIR += easyloggingpp
     SUBDIR += ebnf2yacc
     SUBDIR += ecgi
+    SUBDIR += eclipse-titan
     SUBDIR += edi
     SUBDIR += editline
     SUBDIR += efivar
@@ -6384,6 +6385,7 @@
     SUBDIR += remotery
     SUBDIR += replay
     SUBDIR += replxx
+    SUBDIR += reposilite
     SUBDIR += reproc
     SUBDIR += resolv_wrapper
     SUBDIR += revive
