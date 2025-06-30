@@ -287,7 +287,6 @@
     SUBDIR += libargon2
     SUBDIR += libassuan
     SUBDIR += libcaes
-    SUBDIR += libcryptui
     SUBDIR += libdecaf
     SUBDIR += libecc
     SUBDIR += libfcrypto
@@ -324,7 +323,6 @@
     SUBDIR += libscep
     SUBDIR += libscrypt
     SUBDIR += libsecret
-    SUBDIR += libsectok
     SUBDIR += libsodium
     SUBDIR += libssh
     SUBDIR += libssh2
@@ -1283,7 +1281,6 @@
     SUBDIR += seccure
     SUBDIR += seclists
     SUBDIR += secpanel
-    SUBDIR += sectok
     SUBDIR += secure_delete
     SUBDIR += sedutil
     SUBDIR += sequoia

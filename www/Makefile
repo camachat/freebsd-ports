@@ -183,7 +183,6 @@
     SUBDIR += fcgiwrap
     SUBDIR += feroxbuster
     SUBDIR += ffproxy
-    SUBDIR += ffsend
     SUBDIR += fgallery
     SUBDIR += filebrowser
     SUBDIR += filtron
@@ -2013,6 +2012,7 @@
     SUBDIR += rsstool
     SUBDIR += rt44
     SUBDIR += rt50
+    SUBDIR += rt60
     SUBDIR += rubygem-ace-rails-ap
     SUBDIR += rubygem-actioncable-gitlab
     SUBDIR += rubygem-actioncable5

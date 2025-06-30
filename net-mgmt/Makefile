@@ -407,7 +407,6 @@
     SUBDIR += torrus
     SUBDIR += triton-guesttools
     SUBDIR += unbound_exporter
-    SUBDIR += unifi8
     SUBDIR += unifi9
     SUBDIR += victoria-logs
     SUBDIR += victoria-metrics
@@ -420,10 +419,6 @@
     SUBDIR += xymon-client
     SUBDIR += xymon-server
     SUBDIR += yaf
-    SUBDIR += zabbix5-agent
-    SUBDIR += zabbix5-java
-    SUBDIR += zabbix5-proxy
-    SUBDIR += zabbix5-server
     SUBDIR += zabbix6-agent
     SUBDIR += zabbix6-frontend
     SUBDIR += zabbix6-java

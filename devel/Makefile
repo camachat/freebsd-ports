@@ -403,7 +403,6 @@
     SUBDIR += cflow2vcg
     SUBDIR += cfr
     SUBDIR += cgdb
-    SUBDIR += cgilib
     SUBDIR += cgit
     SUBDIR += cgprof
     SUBDIR += charva
@@ -604,7 +603,6 @@
     SUBDIR += dev86
     SUBDIR += devhelp
     SUBDIR += devtodo
-    SUBDIR += dfuife-curses
     SUBDIR += dia2code
     SUBDIR += dill
     SUBDIR += ding-libs
@@ -656,7 +654,6 @@
     SUBDIR += egypt
     SUBDIR += eiffelstudio
     SUBDIR += electron32
-    SUBDIR += electron33
     SUBDIR += electron34
     SUBDIR += electron35
     SUBDIR += electron36
@@ -695,7 +692,6 @@
     SUBDIR += evcxr-jupyter
     SUBDIR += evdev-proto
     SUBDIR += evemu
-    SUBDIR += exercisix
     SUBDIR += exomizer
     SUBDIR += expected
     SUBDIR += f77flow
@@ -710,7 +706,6 @@
     SUBDIR += fhist
     SUBDIR += fifechan
     SUBDIR += fire-hpp
-    SUBDIR += firmware-utils
     SUBDIR += fistgen
     SUBDIR += flatbuffers
     SUBDIR += flatcc
@@ -897,8 +892,6 @@
     SUBDIR += gllvm
     SUBDIR += global
     SUBDIR += glog
-    SUBDIR += glrparser
-    SUBDIR += glui
     SUBDIR += gmake
     SUBDIR += gn
     SUBDIR += gnome-builder
@@ -942,7 +935,6 @@
     SUBDIR += got
     SUBDIR += gpds
     SUBDIR += gperf
-    SUBDIR += gpm
     SUBDIR += gprbuild
     SUBDIR += gputils
     SUBDIR += gradle
@@ -967,7 +959,6 @@
     SUBDIR += guile-lib
     SUBDIR += gum
     SUBDIR += gumbo
-    SUBDIR += gvp
     SUBDIR += gwenhywfar
     SUBDIR += gwenhywfar-fox16
     SUBDIR += gwenhywfar-gtk2
@@ -1049,7 +1040,6 @@
     SUBDIR += influx-pkg-config
     SUBDIR += inifiled
     SUBDIR += inih
-    SUBDIR += inilib
     SUBDIR += inilike
     SUBDIR += iniparser
     SUBDIR += initutil
@@ -1059,7 +1049,6 @@
     SUBDIR += intervaltree
     SUBDIR += ioncube
     SUBDIR += ipython
-    SUBDIR += ireport
     SUBDIR += isa-l
     SUBDIR += isa-l_crypto
     SUBDIR += iscd-commons
@@ -1188,9 +1177,7 @@
     SUBDIR += kopeninghours
     SUBDIR += kpublictransport
     SUBDIR += kronosnet
-    SUBDIR += ksql
     SUBDIR += ktextaddons
-    SUBDIR += kyra
     SUBDIR += kyua
     SUBDIR += lab
     SUBDIR += lace
@@ -1209,7 +1196,6 @@
     SUBDIR += lfcxml
     SUBDIR += libCello
     SUBDIR += libIDL
-    SUBDIR += libPropList
     SUBDIR += libabigail
     SUBDIR += libac
     SUBDIR += libada
@@ -1226,7 +1212,6 @@
     SUBDIR += libastylej
     SUBDIR += libastylej-arduino
     SUBDIR += libatomic_ops
-    SUBDIR += libaura
     SUBDIR += libavl
     SUBDIR += libayatana-appindicator
     SUBDIR += libayatana-indicator
@@ -1251,7 +1236,6 @@
     SUBDIR += libcircllhist
     SUBDIR += libcjson
     SUBDIR += libclc
-    SUBDIR += libcli
     SUBDIR += libconcurrent
     SUBDIR += libconfig
     SUBDIR += libconfuse
@@ -1272,14 +1256,12 @@
     SUBDIR += libddoc
     SUBDIR += libddwaf
     SUBDIR += libdex
-    SUBDIR += libdfui
     SUBDIR += libdill
     SUBDIR += libdisasm
     SUBDIR += libdisorder
     SUBDIR += libdispatch
     SUBDIR += libdistance
     SUBDIR += libdlmalloc
-    SUBDIR += libdnsres
     SUBDIR += libdombey
     SUBDIR += libdparse
     SUBDIR += libds
@@ -1311,7 +1293,6 @@
     SUBDIR += libffi33
     SUBDIR += libfirm
     SUBDIR += libfixposix
-    SUBDIR += libflatarray
     SUBDIR += libfmt
     SUBDIR += libfort
     SUBDIR += libfortuna
@@ -1377,7 +1358,6 @@
     SUBDIR += libmba
     SUBDIR += libmcfp
     SUBDIR += libmill
-    SUBDIR += libmimedir
     SUBDIR += libmowgli
     SUBDIR += libmowgli2
     SUBDIR += libmpcbdm
@@ -1528,7 +1508,6 @@
     SUBDIR += libzvbi
     SUBDIR += lightning
     SUBDIR += linenoise
-    SUBDIR += linenoise-ng
     SUBDIR += linux-c7-dbus-libs
     SUBDIR += linux-c7-devtools
     SUBDIR += linux-c7-devtoolset
@@ -1749,7 +1728,6 @@
     SUBDIR += nsync
     SUBDIR += nuitka
     SUBDIR += ob-rust
-    SUBDIR += obby
     SUBDIR += objconv
     SUBDIR += objecthash
     SUBDIR += objfw
@@ -1851,7 +1829,6 @@
     SUBDIR += openocd
     SUBDIR += opentelemetry-cpp
     SUBDIR += opentelemetry-proto
-    SUBDIR += openwince-include
     SUBDIR += orc
     SUBDIR += orcania
     SUBDIR += osc
@@ -4608,6 +4585,7 @@
     SUBDIR += py-buildbot-pkg
     SUBDIR += py-buildbot-react-console-view
     SUBDIR += py-buildbot-waterfall-view
+    SUBDIR += py-buildbot-wsgi-dashboards
     SUBDIR += py-buildbot-worker
     SUBDIR += py-buildbot-www
     SUBDIR += py-bullet3
@@ -4724,8 +4702,6 @@
     SUBDIR += py-convertdate
     SUBDIR += py-cookiecutter
     SUBDIR += py-copier
-    SUBDIR += py-coreapi
-    SUBDIR += py-coreschema
     SUBDIR += py-country
     SUBDIR += py-cov-core
     SUBDIR += py-covdefaults
@@ -5086,7 +5062,6 @@
     SUBDIR += py-iterable-io
     SUBDIR += py-iteration-utilities
     SUBDIR += py-itertree
-    SUBDIR += py-itypes
     SUBDIR += py-janus
     SUBDIR += py-jaraco.classes
     SUBDIR += py-jaraco.collections
@@ -5335,7 +5310,6 @@
     SUBDIR += py-oncalendar
     SUBDIR += py-onigurumacffi
     SUBDIR += py-opcodes
-    SUBDIR += py-openapi-codec
     SUBDIR += py-openapi-core
     SUBDIR += py-openapi-schema-validator
     SUBDIR += py-openapi-spec-validator
