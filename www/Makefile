@@ -488,7 +488,6 @@
     SUBDIR += node18
     SUBDIR += node20
     SUBDIR += node22
-    SUBDIR += node23
     SUBDIR += node24
     SUBDIR += nostromo
     SUBDIR += novnc
@@ -498,7 +497,6 @@
     SUBDIR += npm-node18
     SUBDIR += npm-node20
     SUBDIR += npm-node22
-    SUBDIR += npm-node23
     SUBDIR += npm-node24
     SUBDIR += nyxt
     SUBDIR += oauth2-proxy
@@ -992,7 +990,6 @@
     SUBDIR += p5-HTTP-Tiny
     SUBDIR += p5-HTTP-Tiny-Multipart
     SUBDIR += p5-HTTP-Tiny-Paranoid
-    SUBDIR += p5-HTTP-Tiny-SPDY
     SUBDIR += p5-HTTP-Tiny-UA
     SUBDIR += p5-HTTP-Tiny-UNIX
     SUBDIR += p5-HTTP-WebTest
@@ -2508,6 +2505,7 @@
     SUBDIR += surf
     SUBDIR += swiggle
     SUBDIR += sws
+    SUBDIR += tailwindcss3
     SUBDIR += tcexam
     SUBDIR += tclhttpd
     SUBDIR += tclwebtest
@@ -2676,7 +2674,6 @@
     SUBDIR += yarn-node18
     SUBDIR += yarn-node20
     SUBDIR += yarn-node22
-    SUBDIR += yarn-node23
     SUBDIR += yarn-node24
     SUBDIR += yarr
     SUBDIR += yaws

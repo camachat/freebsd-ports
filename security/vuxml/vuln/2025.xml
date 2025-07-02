@@ -1,3 +1,254 @@
+  <vuln vid="5c777f88-40ff-4e1e-884b-ad63dfb9bb15">
+    <topic>chromium -- multiple security fixes</topic>
+    <affects>
+      <package>
+       <name>chromium</name>
+       <range><lt>138.0.7204.96</lt></range>
+      </package>
+      <package>
+       <name>ungoogled-chromium</name>
+       <range><lt>138.0.7204.96</lt></range>
+      </package>
+    </affects>
+    <description>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+       <p>Chrome Releases reports:</p>
+       <blockquote cite="https://chromereleases.googleblog.com/2025/06/stable-channel-update-for-desktop_30.html">
+	 <p>This update includes 1 security fix:</p>
+	 <ul>
+	    <li>[427663123] High CVE-2025-6554: Type Confusion in V8.</li>
+	 </ul>
+       </blockquote>
+      </body>
+    </description>
+    <references>
+      <cvename>CVE-2025-6554</cvename>
+      <url>https://chromereleases.googleblog.com/2025/06/stable-channel-update-for-desktop_30.html</url>
+    </references>
+    <dates>
+      <discovery>2025-06-30</discovery>
+      <entry>2025-07-02</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="9c91e1f8-f255-4b57-babe-2e385558f1dc">
+    <topic>chromium -- multiple security fixes</topic>
+    <affects>
+      <package>
+       <name>chromium</name>
+       <range><lt>138.0.7204.49</lt></range>
+      </package>
+      <package>
+       <name>ungoogled-chromium</name>
+       <range><lt>138.0.7204.49</lt></range>
+      </package>
+    </affects>
+    <description>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+       <p>Chrome Releases reports:</p>
+       <blockquote cite="https://chromereleases.googleblog.com/2025/06/stable-channel-update-for-desktop_24.html">
+	 <p>This update includes 11 security fixes:</p>
+	 <ul>
+	    <li>[407328533] Medium CVE-2025-6555: Use after free in Animation. Reported by Lyra Rebane (rebane2001) on 2025-03-30</li>
+	    <li>[40062462] Low CVE-2025-6556: Insufficient policy enforcement in Loader. Reported by Shaheen Fazim on 2023-01-02</li>
+	    <li>[406631048] Low CVE-2025-6557: Insufficient data validation in DevTools. Reported by Ameen Basha M K on 2025-03-27</li>
+	 </ul>
+       </blockquote>
+      </body>
+    </description>
+    <references>
+      <cvename>CVE-2025-6555</cvename>
+      <cvename>CVE-2025-6556</cvename>
+      <cvename>CVE-2025-6557</cvename>
+      <url>https://chromereleases.googleblog.com/2025/06/stable-channel-update-for-desktop_24.html</url>
+    </references>
+    <dates>
+      <discovery>2025-06-24</discovery>
+      <entry>2025-07-02</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="24f4b495-56a1-11f0-9621-93abbef07693">
+    <topic>sudo -- privilege escalation vulnerability through host and chroot options</topic>
+    <affects>
+      <package>
+	<name>sudo</name>
+	<range><lt>1.9.17p1</lt></range>
+      </package>
+      <package>
+	<name>sudo-sssd</name>
+	<range><lt>1.9.17p1</lt></range>
+      </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>Todd C. Miller reports, crediting Rich Mirch from Stratascale Cyber Research Unit (CRU):</p>
+	<blockquote cite="https://www.sudo.ws/releases/stable/">
+	  <p>Sudo 1.9.17p1:</p>
+	  <ul>
+	    <li>
+	      Fixed CVE-2025-32462. Sudo's -h (--host) option could be specified
+	      when running a command or editing a file. This could enable a
+	      local privilege escalation attack if the sudoers file allows the
+	      user to run commands on a different host. For more information,
+	      see Local Privilege Escalation via host option.
+	    </li>
+	    <li>
+	      Fixed CVE-2025-32463. An attacker can leverage sudo's -R
+	      (--chroot) option to run arbitrary commands as root, even if they
+	      are not listed in the sudoers file. The chroot support has been
+	      deprecated an will be removed entirely in a future release. For
+	      more information, see Local Privilege Escalation via chroot
+	      option.
+	    </li>
+	  </ul>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2025-32462</cvename>
+      <cvename>CVE-2025-32463</cvename>
+      <url>https://www.sudo.ws/releases/stable/</url>
+      <url>https://www.stratascale.com/vulnerability-alert-CVE-2025-32462-sudo-host</url>
+      <url>https://www.stratascale.com/vulnerability-alert-CVE-2025-32463-sudo-chroot</url>
+    </references>
+    <dates>
+      <discovery>2025-04-01</discovery>
+      <entry>2025-07-01</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="8df49466-5664-11f0-943a-18c04d5ea3dc">
+    <topic>xorg server -- Multiple vulnerabilities</topic>
+    <affects>
+      <package>
+	<name>xorg-server</name>
+	<name>xephyr</name>
+	<name>xorg-vfbserver</name>
+	<range><lt>21.1.18,1</lt></range>
+      </package>
+      <package>
+	<name>xorg-nextserver</name>
+	<range><lt>21.1.18,2</lt></range>
+      </package>
+      <package>
+	<name>xwayland</name>
+	<range><lt>24.1.8,1</lt></range>
+      </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>The X.Org project reports:</p>
+	<blockquote cite="https://lists.x.org/archives/xorg-announce/2025-February/003584.html">
+	  <ul>
+	    <li>
+	      CVE-2025-49176: Integer overflow in Big Requests Extension
+	      <p>The Big Requests extension allows requests larger than the 16-bit length
+	      limit.
+	      It uses integers for the request length and checks for the size not to
+	      exceed the maxBigRequestSize limit, but does so after translating the
+	      length to integer by multiplying the given size in bytes by 4.
+	      In doing so, it might overflow the integer size limit before actually
+	      checking for the overflow, defeating the purpose of the test.</p>
+	    </li>
+	  </ul>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2025-49176</cvename>
+      <url>https://lists.x.org/archives/xorg/2025-June/062055.html</url>
+    </references>
+    <dates>
+      <discovery>2025-06-17</discovery>
+      <entry>2025-07-01</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="b14cabf7-5663-11f0-943a-18c04d5ea3dc">
+    <topic>xorg server -- Multiple vulnerabilities</topic>
+    <affects>
+      <package>
+	<name>xorg-server</name>
+	<name>xephyr</name>
+	<name>xorg-vfbserver</name>
+	<range><lt>21.1.17,1</lt></range>
+      </package>
+      <package>
+	<name>xorg-nextserver</name>
+	<range><lt>21.1.17,2</lt></range>
+      </package>
+      <package>
+	<name>xwayland</name>
+	<range><lt>24.1.7,1</lt></range>
+      </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>The X.Org project reports:</p>
+	<blockquote cite="https://lists.x.org/archives/xorg-announce/2025-February/003584.html">
+	  <ul>
+	    <li>
+	      CVE-2025-49175: Out-of-bounds access in X Rendering extension (Animated cursors)
+	      <p>The X Rendering extension allows creating animated cursors providing a
+	      list of cursors.
+	      By default, the Xserver assumes at least one cursor is provided while a
+	      client may actually pass no cursor at all, which causes an out-of-bound
+	      read creating the animated cursor and a crash of the Xserver.</p>
+	    </li>
+	    <li>
+	      CVE-2025-49177: Data leak in XFIXES Extension 6 (XFixesSetClientDisconnectMode)
+
+	      <p>The handler of XFixesSetClientDisconnectMode does not check the client
+	      request length.
+	      A client could send a shorter request and read data from a former
+	      request.</p>
+	    </li>
+	    <li>
+	      CVE-2025-49178: Unprocessed client request via bytes to ignore
+
+	      <p>When reading requests from the clients, the input buffer might be shared
+	      and used between different clients.
+	      If a given client sends a full request with non-zero bytes to ignore,
+	      the bytes to ignore may still be non-zero even though the request is
+	      full, in which case the buffer could be shared with another client who's
+	      request will not be processed because of those bytes to ignore, leading
+	      to a possible hang of the other client request.</p>
+	    </li>
+	    <li>
+	      CVE-2025-49179: Integer overflow in X Record extension
+
+	      <p>The RecordSanityCheckRegisterClients() function in the X Record extension
+	      implementation of the Xserver checks for the request length, but does not
+	      check for integer overflow.
+	      A client might send a very large value for either the number of clients
+	      or the number of protocol ranges that will cause an integer overflow in
+	      the request length computation, defeating the check for request length.</p>
+	    </li>
+	    <li>
+	      CVE-2025-49180: Integer overflow in RandR extension (RRChangeProviderProperty)
+
+	      <p>A client might send a request causing an integer overflow when computing
+	      the total size to allocate in RRChangeProviderProperty().</p>
+	    </li>
+	  </ul>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2025-49175</cvename>
+      <cvename>CVE-2025-49177</cvename>
+      <cvename>CVE-2025-49178</cvename>
+      <cvename>CVE-2025-49179</cvename>
+      <cvename>CVE-2025-49180</cvename>
+      <url>https://lists.x.org/archives/xorg/2025-June/062055.html</url>
+    </references>
+    <dates>
+      <discovery>2025-06-17</discovery>
+      <entry>2025-07-01</entry>
+    </dates>
+  </vuln>
+
   <vuln vid="6b1b8989-55b0-11f0-ac64-589cfc10a551">
     <topic>podman -- TLS connection used to pull VM images was not validated</topic>
     <affects>
