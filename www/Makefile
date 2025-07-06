@@ -250,6 +250,7 @@
     SUBDIR += habari
     SUBDIR += hiawatha
     SUBDIR += hiawatha-monitor
+    SUBDIR += homepage
     SUBDIR += homer-web
     SUBDIR += hotcrp
     SUBDIR += hs-DAV
@@ -369,6 +370,7 @@
     SUBDIR += mediawiki139
     SUBDIR += mediawiki142
     SUBDIR += mediawiki143
+    SUBDIR += mediawiki144
     SUBDIR += mergelog
     SUBDIR += mhonarc
     SUBDIR += micro_httpd

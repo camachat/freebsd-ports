@@ -596,6 +596,7 @@
     SUBDIR += deheader
     SUBDIR += delta
     SUBDIR += delve
+    SUBDIR += demumble
     SUBDIR += deployer
     SUBDIR += derelict-sdl2
     SUBDIR += derelict-util
@@ -5856,6 +5857,7 @@
     SUBDIR += py-rfc3339-validator
     SUBDIR += py-rfc3986-validator
     SUBDIR += py-rich-click
+    SUBDIR += py-rich-toolkit
     SUBDIR += py-riot
     SUBDIR += py-robotframework
     SUBDIR += py-robotframework-assertion-engine
