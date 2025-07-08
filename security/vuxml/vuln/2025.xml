@@ -1,3 +1,399 @@
+  <vuln vid="2a4472ed-5c0d-11f0-b991-291fce777db8">
+    <topic>git -- multiple vulnerabilities</topic>
+    <affects>
+      <package>
+	<name>git</name>
+	<name>git-cvs</name>
+	<name>git-gui</name>
+	<name>git-p4</name>
+	<name>git-svn</name>
+	<range><lt>2.50.1</lt></range>
+      </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>Git development team reports:</p>
+	<blockquote cite="https://lore.kernel.org/git/xmqq5xg2wrd1.fsf@gitster.g">
+	  <p>CVE-2025-27613: Gitk:
+	     When a user clones an untrusted repository and runs Gitk without
+	     additional command arguments, any writable file can be created and
+	     truncated. The option "Support per-file encoding" must have been
+	     enabled. The operation "Show origin of this line" is affected as
+	     well, regardless of the option being enabled or not.
+	  </p>
+	  <p>CVE-2025-27614: Gitk:
+	    A Git repository can be crafted in such a way that a user who has
+	    cloned the repository can be tricked into running any script
+	    supplied by the attacker by invoking `gitk filename`, where
+	    `filename` has a particular structure.
+	  </p>
+	  <p>CVE-2025-46835: Git GUI:
+	    When a user clones an untrusted repository and is tricked into
+	    editing a file located in a maliciously named directory in the
+	    repository, then Git GUI can create and overwrite any writable
+	    file.
+	  </p>
+	  <p>CVE-2025-48384: Git:
+	    When reading a config value, Git strips any trailing carriage
+	    return and line feed (CRLF). When writing a config entry, values
+	    with a trailing CR are not quoted, causing the CR to be lost when
+	    the config is later read.  When initializing a submodule, if the
+	    submodule path contains a trailing CR, the altered path is read
+	    resulting in the submodule being checked out to an incorrect
+	    location. If a symlink exists that points the altered path to the
+	    submodule hooks directory, and the submodule contains an executable
+	    post-checkout hook, the script may be unintentionally executed
+	    after checkout.
+	  </p>
+	  <p>CVE-2025-48385: Git:
+	    When cloning a repository Git knows to optionally fetch a bundle
+	    advertised by the remote server, which allows the server-side to
+	    offload parts of the clone to a CDN. The Git client does not
+	    perform sufficient validation of the advertised bundles, which
+	    allows the remote side to perform protocol injection.
+	    This protocol injection can cause the client to write the fetched
+	    bundle to a location controlled by the adversary. The fetched
+	    content is fully controlled by the server, which can in the worst
+	    case lead to arbitrary code execution.
+	  </p>
+	  <p>CVE-2025-48386: Git:
+	    The wincred credential helper uses a static buffer (`target`) as a
+	    unique key for storing and comparing against internal storage. This
+	    credential helper does not properly bounds check the available
+	    space remaining in the buffer before appending to it with
+	    `wcsncat()`, leading to potential buffer overflows.
+	  </p>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2025-27613</cvename>
+      <url>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-27613</url>
+      <cvename>CVE-2025-27614</cvename>
+      <url>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-27614</url>
+      <cvename>CVE-2025-46835</cvename>
+      <url>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-46835</url>
+      <cvename>CVE-2025-48384</cvename>
+      <url>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-48384</url>
+      <cvename>CVE-2025-48385</cvename>
+      <url>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-48385</url>
+      <cvename>CVE-2025-48386</cvename>
+      <url>https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-48386</url>
+    </references>
+    <dates>
+      <discovery>2025-04-11</discovery>
+      <entry>2025-07-08</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="79251dc8-5bc5-11f0-834f-b42e991fc52e">
+    <topic>MongoDB -- Incorrect Handling of incomplete data may prevent mongoS from Accepting New Connections</topic>
+    <affects>
+      <package>
+	<name>mongodb60</name>
+	<range><lt>6.0.23</lt></range>
+      </package>
+      <package>
+	<name>mongodb70</name>
+	<range><lt>7.0.20</lt></range>
+      </package>
+      <package>
+	<name>mongodb80</name>
+	<range><lt>8.0.9</lt></range>
+      </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>cna@mongodb.com reports:</p>
+	<blockquote cite="https://jira.mongodb.org/browse/SERVER-106753">
+	 <p>MongoDB Server&apos;s mongos component can become
+	unresponsive to new connections due to incorrect handling of
+	incomplete data. This affects MongoDB when configured with
+	load balancer support.
+	Required Configuration:
+	This affects MongoDB sharded clusters when configured with load
+	balancer support for mongos using HAProxy on specified ports.</p>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2025-6714</cvename>
+      <url>https://nvd.nist.gov/vuln/detail/CVE-2025-6714</url>
+    </references>
+    <dates>
+      <discovery>2025-07-07</discovery>
+      <entry>2025-07-08</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="77dc1fc4-5bc5-11f0-834f-b42e991fc52e">
+    <topic>MongoDB -- may be susceptible to privilege escalation due to $mergeCursors stage</topic>
+    <affects>
+      <package>
+	<name>mongodb60</name>
+	<range><lt>6.0.22</lt></range>
+      </package>
+      <package>
+	<name>mongodb70</name>
+	<range><lt>7.0.20</lt></range>
+      </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>cna@mongodb.com reports:</p>
+	<blockquote cite="https://jira.mongodb.org/browse/SERVER-106752">
+	  <p>An unauthorized user may leverage a specially crafted
+	  aggregation pipeline to access data without proper
+	  authorization due to improper handling of the $mergeCursors
+	  stage in MongoDB Server. This may lead to access to data
+	  without further authorisation.</p>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2025-6713</cvename>
+      <url>https://nvd.nist.gov/vuln/detail/CVE-2025-6713</url>
+    </references>
+    <dates>
+      <discovery>2025-07-07</discovery>
+      <entry>2025-07-08</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="764204eb-5bc5-11f0-834f-b42e991fc52e">
+    <topic>MongoDB -- may be susceptible to DoS due to Accumulated Memory Allocation</topic>
+    <affects>
+      <package>
+	<name>mongodb80</name>
+	<range><lt>8.0.10</lt></range>
+      </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>cna@mongodb.com reports:</p>
+	<blockquote cite="https://jira.mongodb.org/browse/SERVER-106751">
+	  <p>MongoDB Server may be susceptible to disruption caused by
+	  high memory usage, potentially leading to server crash. This
+	  condition is linked to inefficiencies in memory management
+	  related to internal operations. In scenarios where certain
+	  internal processes persist longer than anticipated, memory
+	  consumption can increase, potentially impacting server
+	  stability and availability.</p>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2025-6712</cvename>
+      <url>https://nvd.nist.gov/vuln/detail/CVE-2025-6712</url>
+    </references>
+    <dates>
+      <discovery>2025-07-07</discovery>
+      <entry>2025-07-08</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="72ddee1f-5bc5-11f0-834f-b42e991fc52e">
+    <topic>MongoDB -- Incomplete Redaction of Sensitive Information in MongoDB Server Logs</topic>
+    <affects>
+      <package>
+	<name>mongodb60</name>
+	<range><lt>6.0.21</lt></range>
+      </package>
+      <package>
+	<name>mongodb70</name>
+	<range><lt>7.0.18</lt></range>
+      </package>
+      <package>
+	<name>mongodb80</name>
+	<range><lt>8.0.5</lt></range>
+      </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>cna@mongodb.com reports:</p>
+	<blockquote cite="https://jira.mongodb.org/browse/SERVER-98720">
+	  <p>An issue has been identified in MongoDB Server where
+	  unredacted queries may inadvertently appear in server logs
+	  when certain error conditions are encountered.</p>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2025-6711</cvename>
+      <url>https://nvd.nist.gov/vuln/detail/CVE-2025-6711</url>
+    </references>
+    <dates>
+      <discovery>2025-07-07</discovery>
+      <entry>2025-07-08</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="c0f3f54c-5bc4-11f0-834f-b42e991fc52e">
+    <topic>ModSecurity -- empty XML tag causes segmentation fault</topic>
+    <affects>
+      <package>
+	<name>ap24-mod_security</name>
+	<range><lt>2.9.11</lt></range>
+      </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>security-advisories@github.com reports:</p>
+	<blockquote cite="https://github.com/owasp-modsecurity/ModSecurity/commit/ecd7b9736836eee391d25f35d5bd06a3ce35a45d">
+	  <p>ModSecurity is an open source, cross platform web application
+	firewall (WAF) engine for Apache, IIS and Nginx.  In versions 2.9.8
+	to before 2.9.11, an empty XML tag can cause a segmentation fault.
+	If SecParseXmlIntoArgs is set to On or OnlyArgs, and the request
+	type is application/xml, and at least one XML tag is empty (eg
+	&lt;foo&gt;&lt;/foo&gt;), then a segmentation fault occurs.  This
+	issue has been patched in version 2.9.11.  A workaround involves
+	setting SecParseXmlIntoArgs to Off.</p>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2025-52891</cvename>
+      <url>https://nvd.nist.gov/vuln/detail/CVE-2025-52891</url>
+    </references>
+    <dates>
+      <discovery>2025-07-02</discovery>
+      <entry>2025-07-08</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="7b3e7f71-5b30-11f0-b507-000c295725e4">
+    <topic>redis,valkey -- DoS Vulnerability due to bad connection error handling</topic>
+    <affects>
+      <package>
+	<name>redis</name>
+	<range><ge>8.0.0</ge><lt>8.0.3</lt></range>
+      </package>
+      <package>
+	<name>redis74</name>
+	<range><ge>7.4.0</ge><lt>7.4.5</lt></range>
+      </package>
+      <package>
+	<name>redis72</name>
+	<range><ge>7.2.0</ge><lt>7.2.10</lt></range>
+      </package>
+      <package>
+	<name>redis62</name>
+	<range><ge>6.2.0</ge><lt>6.2.19</lt></range>
+      </package>
+      <package>
+	<name>valkey</name>
+	<range><lt>8.1.3</lt></range>
+      </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>@julienperriercornet reports:</p>
+	<blockquote cite="https://github.com/redis/redis/security/advisories/GHSA-4q32-c38c-pwgq">
+	  <p>
+	     An unauthenticated connection can cause repeated IP
+	     protocol errors, leading to client starvation and,
+	     ultimately, a denial of service.
+	  </p>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2025-48367</cvename>
+      <url>https://github.com/redis/redis/security/advisories/GHSA-4q32-c38c-pwgq</url>
+    </references>
+    <dates>
+      <discovery>2025-07-06</discovery>
+      <entry>2025-07-07</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="f11d0a69-5b2d-11f0-b507-000c295725e4">
+    <topic>redis,valkey -- Out of bounds write in hyperloglog commands leads to RCE</topic>
+    <affects>
+      <package>
+	<name>redis</name>
+	<range><ge>8.0.0</ge><lt>8.0.3</lt></range>
+      </package>
+      <package>
+	<name>redis74</name>
+	<range><ge>7.4.0</ge><lt>7.4.5</lt></range>
+      </package>
+      <package>
+	<name>redis72</name>
+	<range><ge>7.2.0</ge><lt>7.2.10</lt></range>
+      </package>
+      <package>
+	<name>redis62</name>
+	<range><ge>6.2.0</ge><lt>6.2.19</lt></range>
+      </package>
+      <package>
+	<name>valkey</name>
+	<range><lt>8.1.3</lt></range>
+      </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>Seunghyun Lee reports:</p>
+	<blockquote cite="https://github.com/redis/redis/security/advisories/GHSA-rp2m-q4j6-gr43">
+	  <p>
+	    An authenticated user may use a specially crafted string
+	    to trigger a stack/heap out of bounds write on hyperloglog
+	    operations, potentially leading to remote code execution.
+	  </p>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2025-32023</cvename>
+      <url>https://github.com/redis/redis/security/advisories/GHSA-rp2m-q4j6-gr43</url>
+    </references>
+    <dates>
+      <discovery>2025-07-06</discovery>
+      <entry>2025-07-07</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="4ea9cbc3-5b28-11f0-b507-000c295725e4">
+    <topic>redis,valkey -- {redis,valkey}-check-aof may lead to stack overflow and potential RCE</topic>
+    <affects>
+      <package>
+	<name>redis</name>
+	<range><ge>8.0.0</ge><lt>8.0.2</lt></range>
+      </package>
+      <package>
+	<name>redis74</name>
+	<range><ge>7.4.0</ge><lt>7.4.4</lt></range>
+      </package>
+      <package>
+	<name>redis72</name>
+	<range><ge>7.2.0</ge><lt>7.2.9</lt></range>
+      </package>
+      <package>
+	<name>valkey</name>
+	<range><lt>8.1.2</lt></range>
+      </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>Simcha Kosman &amp; CyberArk Labs reports:</p>
+	<blockquote cite="https://github.com/redis/redis/security/advisories/GHSA-5453-q98w-cmvm">
+	  <p>A user can run the {redis,valkeyu}-check-aof cli and pass
+	  a long file path to trigger a stack buffer overflow, which
+	  may potentially lead to remote code execution.</p>
+	  <p></p>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2025-27151</cvename>
+      <url>https://github.com/redis/redis/security/advisories/GHSA-5453-q98w-cmvm</url>
+    </references>
+    <dates>
+      <discovery>2025-05-28</discovery>
+      <entry>2025-07-07</entry>
+    </dates>
+  </vuln>
+
   <vuln vid="7642ba72-5abf-11f0-87ba-002590c1f29c">
     <topic>FreeBSD -- Use-after-free in multi-threaded xz decoder</topic>
     <affects>

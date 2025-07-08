@@ -684,9 +684,6 @@
     SUBDIR += esbuild
     SUBDIR += estd
     SUBDIR += etcd
-    SUBDIR += etcd31
-    SUBDIR += etcd32
-    SUBDIR += etcd33
     SUBDIR += etcd34
     SUBDIR += etcd35
     SUBDIR += etcd36
@@ -4326,6 +4323,7 @@
     SUBDIR += premake4
     SUBDIR += premake5
     SUBDIR += projectcenter
+    SUBDIR += prometheus-cpp
     SUBDIR += protobuf
     SUBDIR += protobuf-c
     SUBDIR += protobuf-go
