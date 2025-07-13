@@ -783,6 +783,7 @@
     SUBDIR += geany-plugin-latex
     SUBDIR += geany-plugin-lineoperations
     SUBDIR += geany-plugin-lipsum
+    SUBDIR += geany-plugin-lsp
     SUBDIR += geany-plugin-lua
     SUBDIR += geany-plugin-macro
     SUBDIR += geany-plugin-markdown
@@ -7176,6 +7177,7 @@
     SUBDIR += rubygem-cucumber-messages22
     SUBDIR += rubygem-cucumber-messages24
     SUBDIR += rubygem-cucumber-messages25
+    SUBDIR += rubygem-cucumber-messages27
     SUBDIR += rubygem-cucumber-rails
     SUBDIR += rubygem-cucumber-tag-expressions
     SUBDIR += rubygem-cucumber-wire
