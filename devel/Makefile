@@ -1995,6 +1995,7 @@
     SUBDIR += p5-CLI-Osprey
     SUBDIR += p5-CPAN-Changes
     SUBDIR += p5-CPAN-Checksums
+    SUBDIR += p5-CPAN-Common-Index
     SUBDIR += p5-CPAN-DistnameInfo
     SUBDIR += p5-CPAN-Inject
     SUBDIR += p5-CPAN-Meta
@@ -3628,6 +3629,7 @@
     SUBDIR += p5-Test-CPAN-Meta
     SUBDIR += p5-Test-CPAN-Meta-YAML
     SUBDIR += p5-Test-CheckDeps
+    SUBDIR += p5-Test-CPANfile
     SUBDIR += p5-Test-CheckManifest
     SUBDIR += p5-Test-Class
     SUBDIR += p5-Test-Class-Most
@@ -4697,6 +4699,7 @@
     SUBDIR += py-comm
     SUBDIR += py-commandlines
     SUBDIR += py-commentjson
+    SUBDIR += py-commoncode
     SUBDIR += py-condense-json
     SUBDIR += py-conditional
     SUBDIR += py-confection
@@ -5364,6 +5367,7 @@
     SUBDIR += py-orderedmultidict
     SUBDIR += py-orderly-set
     SUBDIR += py-orjson
+    SUBDIR += py-ormsgpack
     SUBDIR += py-os-brick
     SUBDIR += py-os-client-config
     SUBDIR += py-os-service-types
@@ -5482,6 +5486,7 @@
     SUBDIR += py-pluggy
     SUBDIR += py-pluggy0
     SUBDIR += py-pluginbase
+    SUBDIR += py-plugincode
     SUBDIR += py-plux
     SUBDIR += py-ply
     SUBDIR += py-pnio-dcp
@@ -6076,6 +6081,7 @@
     SUBDIR += py-txi2p-tahoe
     SUBDIR += py-ty
     SUBDIR += py-typechecks
+    SUBDIR += py-typecode
     SUBDIR += py-typeguard
     SUBDIR += py-typer
     SUBDIR += py-types-Flask
@@ -7235,6 +7241,7 @@
     SUBDIR += rubygem-docile
     SUBDIR += rubygem-docopt
     SUBDIR += rubygem-drb
+    SUBDIR += rubygem-drb-gitlab
     SUBDIR += rubygem-dry-cli
     SUBDIR += rubygem-dry-configurable
     SUBDIR += rubygem-dry-container
