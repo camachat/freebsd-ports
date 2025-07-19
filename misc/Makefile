@@ -444,6 +444,7 @@
     SUBDIR += py-fleep
     SUBDIR += py-fuzzy
     SUBDIR += py-gguf
+    SUBDIR += py-google-ai-generativelanguage
     SUBDIR += py-gpiozero
     SUBDIR += py-halo
     SUBDIR += py-hf-xet
@@ -456,6 +457,12 @@
     SUBDIR += py-ipyfastscape
     SUBDIR += py-jiwer
     SUBDIR += py-kartograph
+    SUBDIR += py-langchain
+    SUBDIR += py-langchain-core
+    SUBDIR += py-langchain-google-genai
+    SUBDIR += py-langchain-tests
+    SUBDIR += py-langchain-text-splitters
+    SUBDIR += py-langgraph-sdk
     SUBDIR += py-langsmith
     SUBDIR += py-laspy
     SUBDIR += py-lazrs
