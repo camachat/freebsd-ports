@@ -170,6 +170,7 @@
     SUBDIR += dtdparse
     SUBDIR += duncan
     SUBDIR += dwdiff
+    SUBDIR += dyff
     SUBDIR += easydiff
     SUBDIR += ebook-tools
     SUBDIR += el-aspell
@@ -270,7 +271,6 @@
     SUBDIR += hi-aspell
     SUBDIR += highlight
     SUBDIR += hil-aspell
-    SUBDIR += hq
     SUBDIR += hr-aspell
     SUBDIR += hs-lhs2tex
     SUBDIR += hs-pandoc
@@ -279,6 +279,7 @@
     SUBDIR += hsb-aspell
     SUBDIR += html
     SUBDIR += html-pretty
+    SUBDIR += html-query
     SUBDIR += html-xml-utils
     SUBDIR += html2fo
     SUBDIR += html2text

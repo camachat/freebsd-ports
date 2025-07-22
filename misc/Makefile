@@ -458,8 +458,10 @@
     SUBDIR += py-jiwer
     SUBDIR += py-kartograph
     SUBDIR += py-langchain
+    SUBDIR += py-langchain-anthropic
     SUBDIR += py-langchain-core
     SUBDIR += py-langchain-google-genai
+    SUBDIR += py-langchain-openai
     SUBDIR += py-langchain-tests
     SUBDIR += py-langchain-text-splitters
     SUBDIR += py-langgraph-sdk
@@ -551,6 +553,7 @@
     SUBDIR += py-xformers
     SUBDIR += py-xgboost
     SUBDIR += pyobd
+    SUBDIR += python-langgraph-checkpoint
     SUBDIR += pytorch
     SUBDIR += qbrew
     SUBDIR += qlas
