@@ -48,6 +48,7 @@
     SUBDIR += db
     SUBDIR += db18
     SUBDIR += db5
+    SUBDIR += dbeaver
     SUBDIR += dbf
     SUBDIR += dbh
     SUBDIR += dbixx
@@ -516,7 +517,6 @@
     SUBDIR += pear-DB_ldap
     SUBDIR += pear-DB_ldap2
     SUBDIR += pear-DoctrineCommon
-    SUBDIR += pear-DoctrineDBAL
     SUBDIR += pear-Horde_Db
     SUBDIR += pear-Horde_HashTable
     SUBDIR += pear-Horde_Imsp
@@ -659,6 +659,7 @@
     SUBDIR += postgis33
     SUBDIR += postgis34
     SUBDIR += postgis35
+    SUBDIR += postgis36
     SUBDIR += postgresql-cstore_fdw
     SUBDIR += postgresql-idn
     SUBDIR += postgresql-jdbc
