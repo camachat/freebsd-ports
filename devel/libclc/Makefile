@@ -22,13 +22,10 @@ LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 BUILD_DEPENDS=	spirv-llvm-translator-${FLAVOR}>0:devel/spirv-llvm-translator@${FLAVOR} \
 		libedit>=0:devel/libedit
 
-FLAVORS=	${15 16 17 18 19 20:L:S/^/llvm/}
+FLAVORS=	${20 19 18 17 16 15:L:S/^/llvm/}
 
 USES=		cmake compiler:c++11-lib llvm:${FLAVOR:S/llvm//},build python:build tar:xz
 USE_LDCONFIG=	${PREFIX}/${FLAVOR}/lib
-
-LLVM_RELEASE=	${DISTVERSION:C/rc.*//}
-LLVM_SUFFIX=	${LLVM_RELEASE:C/\.[0-9]\.[0-9]$//}
 
 BINARY_ALIAS=	python=${PYTHON_CMD}
 CMAKE_ARGS+=	-DLLVM_DIR:PATH="${LOCALBASE}/${FLAVOR}" \
