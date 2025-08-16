@@ -31,6 +31,7 @@
     SUBDIR += amfora
     SUBDIR += amphetadesk
     SUBDIR += analog
+    SUBDIR += angelfish
     SUBDIR += angie
     SUBDIR += angie-console-light
     SUBDIR += angie-module-auth-jwt
@@ -102,6 +103,7 @@
     SUBDIR += cgi-lib.pl
     SUBDIR += cgicc
     SUBDIR += cgiwrap
+    SUBDIR += chawan
     SUBDIR += checkbot
     SUBDIR += chisel
     SUBDIR += chpasswd

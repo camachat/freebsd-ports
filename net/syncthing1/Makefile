@@ -1,9 +1,10 @@
 PORTNAME=	syncthing
 DISTVERSIONPREFIX=	v
-DISTVERSION=	2.0.2
-PORTREVISION=	1
+DISTVERSION=	1.30.0
+PORTREVISION=	4
 CATEGORIES=	net
 MASTER_SITES=	https://github.com/${PORTNAME}/${PORTNAME}/releases/download/v${DISTVERSION}/
+PKGNAMESUFFIX=	1
 DISTNAME=	${PORTNAME}-source-${DISTVERSIONFULL}
 
 MAINTAINER=	dvl@FreeBSD.org
@@ -30,7 +31,7 @@ NO_WRKSUBDIR=	yes
 USERS=		syncthing
 GROUPS=		syncthing
 
-CONFLICTS=	syncthing1
+CONFLICTS=	syncthing
 
 .for x in ${BINS}
 PLIST_FILES+=	bin/${x}
