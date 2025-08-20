@@ -434,6 +434,7 @@
     SUBDIR += py-crudini
     SUBDIR += py-datasets
     SUBDIR += py-detecta
+    SUBDIR += py-diffusers
     SUBDIR += py-eemeter
     SUBDIR += py-einops
     SUBDIR += py-emoji
@@ -548,6 +549,7 @@
     SUBDIR += py-torchmetrics
     SUBDIR += py-torchvision
     SUBDIR += py-tqdm
+    SUBDIR += py-transformers
     SUBDIR += py-tvm
     SUBDIR += py-uhi
     SUBDIR += py-vaderSentiment
