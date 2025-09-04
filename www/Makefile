@@ -498,7 +498,6 @@
     SUBDIR += nginx-vts-exporter
     SUBDIR += nift
     SUBDIR += node
-    SUBDIR += node18
     SUBDIR += node20
     SUBDIR += node22
     SUBDIR += node24
@@ -506,7 +505,6 @@
     SUBDIR += novnc
     SUBDIR += npc
     SUBDIR += npm
-    SUBDIR += npm-node18
     SUBDIR += npm-node20
     SUBDIR += npm-node22
     SUBDIR += npm-node24
@@ -1545,6 +1543,7 @@
     SUBDIR += py-dj51-django-js-asset
     SUBDIR += py-dj51-django-mptt
     SUBDIR += py-dj51-django-multiselectfield
+    SUBDIR += py-dj51-django-netfields
     SUBDIR += py-dj51-django-prometheus
     SUBDIR += py-dj51-django-redis
     SUBDIR += py-dj51-django-rich
@@ -1861,6 +1860,7 @@
     SUBDIR += py-pecan
     SUBDIR += py-pelican
     SUBDIR += py-planet
+    SUBDIR += py-playwright
     SUBDIR += py-postorius
     SUBDIR += py-praw
     SUBDIR += py-prawcore
