@@ -485,6 +485,7 @@
     SUBDIR += commit-patch
     SUBDIR += commitizen
     SUBDIR += commoncpp
+    SUBDIR += compdbgen
     SUBDIR += compiler-rt
     SUBDIR += compiz-bcop
     SUBDIR += concurrencpp
@@ -1227,6 +1228,7 @@
     SUBDIR += libbegemot
     SUBDIR += libbfd
     SUBDIR += libbinio
+    SUBDIR += libblake3
     SUBDIR += libbpfjit
     SUBDIR += libbson
     SUBDIR += libburn

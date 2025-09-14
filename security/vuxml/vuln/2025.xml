@@ -1,3 +1,31 @@
+  <vuln vid="3aee6703-8ff6-11f0-b8da-589cfc10a551">
+    <topic>cups -- security vulnerabilities</topic>
+    <affects>
+      <package>
+	<name>cups</name>
+	<range><lt>2.4.13</lt></range>
+      </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>SO-AND-SO reports:</p>
+	<blockquote cite="https://github.com/OpenPrinting/cups/releases/tag/v2.4.13">
+	  <p>The release 2.4.13 brings two CVE fixes - fix for important CVE-2025-58060
+	  and fix for moderate CVE-2025-58364, together with several bug fixes.</p>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2025-58060</cvename>
+      <cvename>CVE-2025-58364</cvename>
+      <url>https://github.com/OpenPrinting/cups/releases/tag/v2.4.13</url>
+    </references>
+    <dates>
+      <discovery>2025-09-12</discovery>
+      <entry>2025-09-12</entry>
+    </dates>
+  </vuln>
+
   <vuln vid="f50640fa-89a4-4795-a302-47b0dea8cee5">
     <topic>chromium -- multiple security fixes</topic>
     <affects>
