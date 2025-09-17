@@ -57,6 +57,7 @@ lib/libhpmud.so.0.0.6
 libexec/cups/backend/hp
 %%FAX%%libexec/cups/backend/hpfax
 libexec/cups/filter/hpcups
+%%FAX%%libexec/cups/filter/hpcdmfax
 %%FAX%%libexec/cups/filter/hpcupsfax
 libexec/cups/filter/hpps
 libexec/cups/filter/pstotiff
@@ -506,6 +507,7 @@ share/cups/drv/hpcups.drv
 %%DATADIR%%/doctor.py
 %%DATADIR%%/fab.py
 %%FAX%%%%DATADIR%%/fax/__init__.py
+%%FAX%%%%DATADIR%%/fax/cdmfax.py
 %%FAX%%%%DATADIR%%/fax/coverpages.py
 %%FAX%%%%DATADIR%%/fax/fax.py
 %%FAX%%%%DATADIR%%/fax/faxdevice.py
@@ -633,6 +635,7 @@ share/cups/drv/hpcups.drv
 %%X11%%share/icons/hicolor/256x256/apps/hp_logo.png
 %%X11%%share/icons/hicolor/32x32/apps/hp_logo.png
 %%X11%%share/icons/hicolor/64x64/apps/hp_logo.png
+%%FAX%%share/ppd/HP/HP-Fax-CDM-hpcups.ppd.gz
 %%FAX%%share/ppd/HP/HP-Fax-hpcups.ppd.gz
 %%FAX%%share/ppd/HP/HP-Fax2-hpcups.ppd.gz
 %%FAX%%share/ppd/HP/HP-Fax3-hpcups.ppd.gz
