@@ -511,6 +511,7 @@
     SUBDIR += npm-node22
     SUBDIR += npm-node24
     SUBDIR += nyxt
+    SUBDIR += oatpp
     SUBDIR += oauth2-proxy
     SUBDIR += obhttpd
     SUBDIR += offpunk
@@ -2247,6 +2248,7 @@
     SUBDIR += rubygem-json-jwt-gitlab
     SUBDIR += rubygem-jsonb_accessor
     SUBDIR += rubygem-jwt
+    SUBDIR += rubygem-jwt2
     SUBDIR += rubygem-kamal
     SUBDIR += rubygem-kaminari
     SUBDIR += rubygem-kaminari-actionview
@@ -2330,6 +2332,7 @@
     SUBDIR += rubygem-protocol-rack
     SUBDIR += rubygem-protocol-websocket
     SUBDIR += rubygem-puma
+    SUBDIR += rubygem-puma6
     SUBDIR += rubygem-puma_worker_killer
     SUBDIR += rubygem-pusher-client
     SUBDIR += rubygem-rabbirack

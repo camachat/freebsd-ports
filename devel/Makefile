@@ -1831,6 +1831,7 @@
     SUBDIR += oniguruma
     SUBDIR += open-beagle
     SUBDIR += open62541
+    SUBDIR += openapi
     SUBDIR += openapi-tui
     SUBDIR += opencl
     SUBDIR += opencl-clang
@@ -5341,6 +5342,12 @@
     SUBDIR += py-objsize
     SUBDIR += py-oci
     SUBDIR += py-odfpy
+    SUBDIR += py-odoo-addon-openupgrade-framework16
+    SUBDIR += py-odoo-addon-openupgrade-framework17
+    SUBDIR += py-odoo-addon-openupgrade-framework18
+    SUBDIR += py-odoo-addon-openupgrade-scripts16
+    SUBDIR += py-odoo-addon-openupgrade-scripts17
+    SUBDIR += py-odoo-addon-openupgrade-scripts18
     SUBDIR += py-offtrac
     SUBDIR += py-olefile
     SUBDIR += py-omegaconf
@@ -5379,6 +5386,7 @@
     SUBDIR += py-opentelemetry-semantic-conventions
     SUBDIR += py-opentelemetry-util-http
     SUBDIR += py-opentracing
+    SUBDIR += py-openupgradelib
     SUBDIR += py-opster
     SUBDIR += py-optik
     SUBDIR += py-optree
@@ -7457,6 +7465,7 @@
     SUBDIR += rubygem-googleapis-common-protos
     SUBDIR += rubygem-googleapis-common-protos-gitlab
     SUBDIR += rubygem-googleapis-common-protos-types
+    SUBDIR += rubygem-googleapis-common-protos-types-gitlab
     SUBDIR += rubygem-graf
     SUBDIR += rubygem-grape
     SUBDIR += rubygem-grape-entity
@@ -7595,6 +7604,7 @@
     SUBDIR += rubygem-marcel
     SUBDIR += rubygem-memo_wise
     SUBDIR += rubygem-memoist
+    SUBDIR += rubygem-memoist3
     SUBDIR += rubygem-memoizable
     SUBDIR += rubygem-memoize
     SUBDIR += rubygem-memory_profiler
@@ -8428,7 +8438,6 @@
     SUBDIR += ut
     SUBDIR += utf8cpp
     SUBDIR += uthash
-    SUBDIR += util-linux
     SUBDIR += uv
     SUBDIR += uvwasi
     SUBDIR += valgrind
