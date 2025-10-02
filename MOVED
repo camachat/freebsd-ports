@@ -4785,3 +4785,11 @@ sysutils/linuxfdisk||2025-10-01|Has expired: Upstream distfile unavailable, way 
 sysutils/linrename||2025-10-01|Has expired: FreeBSD port unmaintained, use misc/mmv or rename from sysutils/util-linux instead
 security/botan2||2025-10-01|Has expired: End of life 2024-12-31 upstream, consider migrating to security/botan3
 security/openssl32||2025-10-01|Has expired: Please use security/openssl35 (LTS)
+devel/py-buildbot-react-console-view||2025-10-01|Has expired: No longer required by Buildbot 4.X
+audio/spotify-tui||2025-10-01|Has expired: dead upstream and doesn't build
+www/rubygem-rackup21||2025-10-01|Has expired: No consumers in ports tree
+audio/libopenspc|audio/libgme|2025-10-01|Has expired: Legacy library based on a very old emulator, consider using audio/libgme
+net/bosh-cli||2025-10-01|Has expired: Not updated in years, no demand for them
+net/bosh-bootloader||2025-10-01|Has expired: Not updated in years, no demand for them
+net/cf||2025-10-01|Has expired: Not updated in years, no demand for them
+net/concourse-fly||2025-10-01|Has expired: Not updated in years, no demand for them
