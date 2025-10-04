@@ -1,5 +1,5 @@
 PORTNAME=	ibus-typing-booster
-PORTVERSION=	2.27.74
+PORTVERSION=	2.28.0
 CATEGORIES=	textproc
 
 MAINTAINER=	thierry@FreeBSD.org
@@ -21,15 +21,28 @@ RUN_DEPENDS=	CLDR>0:textproc/CLDR	\
 		${PYTHON_PKGNAMEPREFIX}hunspell>0:textproc/py-hunspell@${PY_FLAVOR}	\
 		${PYTHON_PKGNAMEPREFIX}pycountry>0:textproc/py-pycountry@${PY_FLAVOR}	\
 		${PYTHON_PKGNAMEPREFIX}sqlite3>0:databases/py-sqlite3@${PY_FLAVOR}
-TEST_DEPENDS=	cs-hunspell>0:textproc/cs-hunspell	\
-		de-hunspell>0:german/hunspell		\
-		en-hunspell>0:textproc/en-hunspell	\
-		es-hunspell>0:textproc/es-hunspell	\
-		it-hunspell>0:textproc/it-hunspell	\
+##<<<<<<< HEAD
+##TEST_DEPENDS=	cs-hunspell>0:textproc/cs-hunspell	\
+##		de-hunspell>0:german/hunspell		\
+##		en-hunspell>0:textproc/en-hunspell	\
+##		es-hunspell>0:textproc/es-hunspell	\
+##		it-hunspell>0:textproc/it-hunspell	\
+##		${LOCALBASE}/share/hunspell/ko_KR.aff:korean/hunspell		\
+##		sv-hunspell>0:textproc/sv-hunspell	\
+##		ibus-m17n>0:textproc/ibus-m17n	\
+##		inscript2>0:devel/m17n-inscript2	\
+##		${PYTHON_PKGNAMEPREFIX}mock>0:devel/py-mock@${PY_FLAVOR}	\
+##		gmake>0:devel/gmake
+##=======
+TEST_DEPENDS=	m17n-db:devel/m17n-db	\
+		${LOCALBASE}/share/hunspell/cs_CZ.dic:textproc/cs-hunspell	\
+		${LOCALBASE}/share/hunspell/de_DE.dic:german/hunspell		\
+		${LOCALBASE}/share/hunspell/en_US.aff:textproc/en-hunspell	\
+		${LOCALBASE}/share/hunspell/es_ES.dic:textproc/es-hunspell	\
+		${LOCALBASE}/share/hunspell/it_IT.dic:textproc/it-hunspell	\
 		${LOCALBASE}/share/hunspell/ko_KR.aff:korean/hunspell		\
-		sv-hunspell>0:textproc/sv-hunspell	\
-		ibus-m17n>0:textproc/ibus-m17n	\
-		inscript2>0:devel/m17n-inscript2	\
+		${LOCALBASE}/share/hunspell/sv_SE.dic:textproc/sv-hunspell	\
+		${LOCALBASE}/libexec/ibus-engine-m17n:textproc/ibus-m17n	\
 		${PYTHON_PKGNAMEPREFIX}mock>0:devel/py-mock@${PY_FLAVOR}	\
 		gmake>0:devel/gmake
 
