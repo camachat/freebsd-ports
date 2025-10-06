@@ -983,6 +983,7 @@
     SUBDIR += hgsvn
     SUBDIR += highlighterkit
     SUBDIR += highway
+    SUBDIR += hivex
     SUBDIR += hoel
     SUBDIR += hotspot
     SUBDIR += hp48cc
@@ -4864,6 +4865,7 @@
     SUBDIR += py-epc
     SUBDIR += py-epdb
     SUBDIR += py-epsilon
+    SUBDIR += py-essentials
     SUBDIR += py-etcd3gw
     SUBDIR += py-etils
     SUBDIR += py-etuples
@@ -5265,6 +5267,7 @@
     SUBDIR += py-mediapy
     SUBDIR += py-medikit
     SUBDIR += py-memory-allocator
+    SUBDIR += py-memory-graph
     SUBDIR += py-memory-profiler
     SUBDIR += py-mergedeep
     SUBDIR += py-merossiot
@@ -5486,6 +5489,7 @@
     SUBDIR += py-phply
     SUBDIR += py-phpserialize
     SUBDIR += py-phx-class-registry
+    SUBDIR += py-pick
     SUBDIR += py-pid
     SUBDIR += py-pika
     SUBDIR += py-pika-pool
@@ -5910,6 +5914,7 @@
     SUBDIR += py-robotframework-seleniumlibrary
     SUBDIR += py-robotframework-stacktrace
     SUBDIR += py-robotremoteserver
+    SUBDIR += py-rodi
     SUBDIR += py-rope
     SUBDIR += py-rose
     SUBDIR += py-rpcq
