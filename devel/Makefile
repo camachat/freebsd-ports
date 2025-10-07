@@ -4451,6 +4451,7 @@
     SUBDIR += py-async_generator
     SUBDIR += py-async_timeout
     SUBDIR += py-asynctest
+    SUBDIR += py-atom
     SUBDIR += py-atomiclong
     SUBDIR += py-atpublic
     SUBDIR += py-attr
@@ -4462,6 +4463,7 @@
     SUBDIR += py-automaton
     SUBDIR += py-autopage
     SUBDIR += py-autoprop
+    SUBDIR += py-autoray
     SUBDIR += py-avocado-framework
     SUBDIR += py-avro
     SUBDIR += py-awesomeversion
@@ -4766,6 +4768,7 @@
     SUBDIR += py-cython-test-exception-raiser
     SUBDIR += py-cytoolz
     SUBDIR += py-d2to1
+    SUBDIR += py-dacite
     SUBDIR += py-daemon
     SUBDIR += py-daemon-runner
     SUBDIR += py-daemonize
