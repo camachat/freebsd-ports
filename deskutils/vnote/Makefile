@@ -1,5 +1,5 @@
 PORTNAME=	vnote
-PORTVERSION=	3.19.1
+PORTVERSION=	3.19.2
 DISTVERSIONPREFIX=	v
 CATEGORIES=	deskutils
 
@@ -23,7 +23,7 @@ USE_XORG=	ice sm x11 xcb xext
 USE_GITHUB=	yes
 GH_ACCOUNT=	${PORTNAME}x
 GH_PROJECT=	QHotkey:qhk vtextedit:vte syntax-highlighting:shl sonnet:s
-GH_TAGNAME=	8abe0b2:qhk 13c1fdf:vte 8085917:shl 4f807f8:s
+GH_TAGNAME=	d7b5250:qhk 50b1421:vte 25f6871:shl 7320206:s
 GH_SUBDIR=	libs/QHotkey:qhk libs/vtextedit:vte \
 		libs/vtextedit/libs/sonnet:s \
 		libs/vtextedit/libs/syntax-highlighting:shl
