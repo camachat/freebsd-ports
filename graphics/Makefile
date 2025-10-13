@@ -17,6 +17,7 @@
     SUBDIR += R-cran-dichromat
     SUBDIR += R-cran-dygraphs
     SUBDIR += R-cran-farver
+    SUBDIR += R-cran-ggforce
     SUBDIR += R-cran-ggplot2
     SUBDIR += R-cran-ggrepel
     SUBDIR += R-cran-gridBase
@@ -35,6 +36,7 @@
     SUBDIR += R-cran-s2
     SUBDIR += R-cran-scales
     SUBDIR += R-cran-shape
+    SUBDIR += R-cran-tweenr
     SUBDIR += R-cran-viridis
     SUBDIR += R-cran-viridisLite
     SUBDIR += R-cran-visNetwork
