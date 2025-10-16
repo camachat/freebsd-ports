@@ -432,6 +432,8 @@
     SUBDIR += ftwin
     SUBDIR += fvcool
     SUBDIR += fwup
+    SUBDIR += fwupd
+    SUBDIR += fwupd-efi
     SUBDIR += fx
     SUBDIR += g15daemon
     SUBDIR += gaffitter
