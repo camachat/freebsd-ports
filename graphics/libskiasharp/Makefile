@@ -1,7 +1,8 @@
 PORTNAME=	libskiasharp
 DISTVERSIONPREFIX=	v
-DISTVERSION=	2.88.3
-PORTREVISION=	2
+DISTVERSION=	116
+PORTREVISION=	1
+PORTREPOCH=	1
 CATEGORIES=	graphics
 MASTER_SITES=	LOCAL/bapt:libjpeg_turbo
 DISTFILES=	libjpeg_turbo-${LIBJPEG_TURBO_REV}.tar.gz:libjpeg_turbo
@@ -25,13 +26,14 @@ USES=		jpeg ninja python:build
 USE_GITHUB=	yes
 GH_ACCOUNT=	mono
 GH_PROJECT=	skia
+GH_TAGNAME=	c16e913577083761d847146db7a04b8d3b3bf755
 
-LIBJPEG_TURBO_REV=	22f1a22c99e9dde8cd3c72ead333f425c5a7aa77
+LIBJPEG_TURBO_REV=	9b894306ec3b28cea46e84c32b56773a98c483da
 
 USE_LDCONFIG=	yes
 USE_BINUTILS=	yes
 
-SOVERSION=	118.0.0
+SOVERSION=	116.0.0
 #
 # see https://github.com/libjpeg-turbo/libjpeg-turbo/issues/795#issuecomment-2484148592
 GN_ARGS=	is_official_build=true \
@@ -41,6 +43,7 @@ GN_ARGS=	is_official_build=true \
 		skia_use_sfntly=false \
 		skia_use_piex=true \
 		skia_use_harfbuzz=false \
+		skia_use_wuffs=false \
 		skia_use_system_expat=true \
 		skia_use_system_libjpeg_turbo=false \
 		skia_use_system_freetype2=true \
@@ -58,7 +61,7 @@ GN_ARGS=	is_official_build=true \
 		extra_ldflags=["-L${LOCALBASE}/lib"] \
 		linux_soname_version="${SOVERSION}"
 
-BINARY_ALIAS=	python=${PYTHON_CMD} \
+BINARY_ALIAS=	python3=${PYTHON_CMD} \
 		ar=${LOCALBASE}/bin/ar
 
 ALL_TARGET=	SkiaSharp
