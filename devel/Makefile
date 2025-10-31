@@ -408,6 +408,7 @@
     SUBDIR += cgdb
     SUBDIR += cgit
     SUBDIR += cgprof
+    SUBDIR += chai
     SUBDIR += charva
     SUBDIR += check
     SUBDIR += checkbashisms
@@ -8475,6 +8476,7 @@
     SUBDIR += ultragetopt
     SUBDIR += umbrello
     SUBDIR += umlgraph
+    SUBDIR += umpire
     SUBDIR += undead
     SUBDIR += unibilium
     SUBDIR += unit-otel
