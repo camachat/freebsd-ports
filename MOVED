@@ -1443,7 +1443,6 @@ databases/mysql55-server||2022-06-30|Has expired: Upstream support ended on Dece
 databases/mysql55-client||2022-06-30|Has expired: Upstream support ended on December 2018
 multimedia/schroedinger||2022-06-30|Has expired: Abandoned legacy video codec, upstream is dead and last release was back in 2012
 emulators/kcemu||2022-06-30|Has expired: Depends on expired multimedia/schroedinger
-multimedia/ccextractor||2022-06-30|Has expired: Depends on expired multimedia/schroedinger
 security/libgringotts||2022-06-30|Has expired: Abandonware, upstream dead and last release in 2008
 deskutils/osmo||2022-06-30|Has expired: Depends on expired security/libgringotts
 devel/itext||2022-06-30|Has expired: Outdated version and deprecated by upstream
@@ -4834,3 +4833,25 @@ devel/rubygem-multi_json114|devel/rubygem-multi_json-gitlab|2025-10-25|Use devel
 devel/pycomposefile|devel/py-pycomposefile|2025-10-27|Rename to add py- prefix. Move devel/pycomposefile to devel/py-pycomposefile
 devel/rubygem-fugit111|devel/rubygem-fugit|2025-10-27|Remove obsoleted port. Use devel/rubygem-fugit instead
 science/py-hiphive|science/py-hiPhive|2025-10-28|Spelling changed into camel case on PYPI and GH
+games/burrtools|games/burr-tools|2025-10-31|Harmonise with upstream repository name
+databases/mongodb60|databases/mongodb70|2025-11-01|Has expired: EOL starting August 2025, see https://www.mongodb.com/legal/support-policy/lifecycles, please use databases/mongodb70
+www/phpmustache||2025-11-01|Has expired: Installation mode changed from systemwide to per-application with Composer
+dns/fpdns||2025-11-01|Has expired: Upstream repository has been archived on Sep 19, 2024
+databases/py-pycql||2025-11-01|Has expired: Upstream repository has been archived on Aug 31, 2021
+devel/py-types-ujson||2025-11-01|Has expired: No longer required by devel/py-ujson ≥ 5.11
+devel/pysvn||2025-11-01|Has expired: Fails to build
+cad/impact||2025-11-01|Has expired: Does not work as intended
+emulators/citra-qt5||2025-11-01|Has expired: project has been discontinued and build fails with FFmpeg >7
+emulators/citra||2025-11-01|Has expired: project has been discontinued and build fails with FFmpeg >7
+games/renpy||2025-11-01|Has expired: Uses deprecated version of python
+security/rhonabwy||2025-11-01|Has expired: Upstream repository has been archived on Nov 11, 2024
+devel/electron35||2025-11-01|Has expired: EOLed upstream, switch to newer version
+lang/python39||2025-11-01|Has expired: Upgrade to a newer Python version. 3.9 is in maintenance status and gets security fixes only. End-of-Life: 2025-10. See https://devguide.python.org/versions/
+devel/py-pyjq|textproc/py-jq|2025-11-01|Removed: Depended on expired Python version 3.9 and does not build with newer Python
+devel/py-ctags||2025-11-01|Removed: Depended on expired Python version 3.9 and does not build with newer Python
+net-im/tdlib-purple||2025-11-01|Remove broken port
+databases/foundationdb71-client||2025-11-01|Remove broken port
+databases/foundationdb71-server||2025-11-01|Remove broken port
+databases/foundationdb73-client||2025-11-01|Remove broken port
+databases/foundationdb73-server||2025-11-01|Remove broken port
+databases/erlfdb||2025-11-01|Depends on removed port databases/foundationdb71-client
