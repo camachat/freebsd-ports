@@ -20,6 +20,12 @@ PATCHFILES+=	4a253aae7ca437201d2a31d2a11a1a5434fe41f1.patch:-p1 # https://gitlab
 PATCHFILES+=	5a9c052ba78e5d1b0020b8f8320d211d2205a958.patch:-p1 # https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/29993
 PATCHFILES+=	5d48fb19553c15bbbac498afcb7cc8710a803716.patch:-p1 # https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/31931
 PATCHFILES+=	fa9cd89a85b904615ebc11da609445b5b751e68d.patch:-p1 # https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/31533
+PATCHFILES+=	a482ec7f05d2aeac29dc696cbd17e12693ad1393.patch:-p1 # https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/13257
+PATCHFILES+=	0e7c94b2b369ac0bf4439e207bc9047f2cd44ead.patch:-p1 # https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/33981
+PATCHFILES+=	531c6696d42953cd642dea7bf70153285c7949ae.patch:-p1 # https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/13079
+PATCHFILES+=	8a453669e2bd44651cacdeac1c372d6e80cab0a7.patch:-p1 # https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/32439
+PATCHFILES+=	1db77d08e22e676bbc34e411313445868e9fd836.patch:-p1 # https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/13986
+PATCHFILES+=	14ebecd78711804bc60f56cc53632bfab9d375df.patch:-p1 # https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/11814
 
 MAINTAINER=	x11@FreeBSD.org
 
