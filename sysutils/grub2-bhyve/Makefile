@@ -31,6 +31,7 @@ GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--with-platform=emu CPP="" LEX=${LOCALBASE}/bin/flex \
 		--enable-grub-mount=no --enable-grub-mkfont=no \
 		--enable-grub-emu-sdl=no --disable-nls --disable-werror
+CFLAGS+=	-std=gnu11
 
 post-patch:
 	@${REINPLACE_CMD} -e "s/libintl\.h/I_do_not_want_libintl.h/g" ${WRKSRC}/configure
