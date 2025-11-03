@@ -15,7 +15,7 @@ WWW=		https://github.com/fcitx/fcitx5
 
 LICENSE=	LGPL21+
 
-BROKEN=		Fails to build with fmt 12+, error: no member named 'localtime' in namespace 'fmt'
+#BROKEN=		Fails to build with fmt 12+, error: no member named 'localtime' in namespace 'fmt'
 
 BUILD_DEPENDS=	iso-codes>=0:misc/iso-codes \
 		uthash>=0:devel/uthash
