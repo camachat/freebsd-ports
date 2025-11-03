@@ -1,6 +1,6 @@
 PORTNAME=	lkl
-DISTVERSION=	4.16.g20180628
-PORTREVISION=	4
+DISTVERSION=	6.6.g20250904
+PORTREVISION=	0
 CATEGORIES=	filesystems
 PKGNAMEPREFIX=	fusefs-
 
@@ -22,7 +22,7 @@ USE_BINUTILS=	yes:build
 USE_GCC=	yes:build
 USE_GITHUB=	yes
 GH_PROJECT=	linux
-GH_TAGNAME=	86dd3afb590eccc1903611bdaa8bac87757eb80d
+GH_TAGNAME=	e183e402cc9a164f145e75aa62060db8ebe81d89
 
 ONLY_FOR_ARCHS=	amd64
 ONLY_FOR_ARCHS_REASON=ld formats not available for other architectures
@@ -32,11 +32,13 @@ MAKE_JOBS_UNSAFE=yes
 MAKE_ARGS+=	V=1
 # Need ports versions of 'bc', 'ld' to build!
 MAKE_ARGS+=	PATH="${LOCALBASE}/bin:${PATH}" CC="${CC}" HOSTCC="${CC}"
+#CFLAGS+=	-Wno-incompatible-pointer-types -Wno-cast-function-type -Wno-stringop-truncation
 
-PLIST_FILES=	bin/lklfuse lib/liblkl.a
+#PLIST_FILES=	bin/lklfuse lib/liblkl.a
+PLIST_FILES=	lib/liblkl.a
 
 do-install:
-	${INSTALL_PROGRAM} ${WRKSRC}/lklfuse ${STAGEDIR}${PREFIX}/bin
+	#${INSTALL_PROGRAM} ${WRKSRC}/lklfuse ${STAGEDIR}${PREFIX}/bin
 	${INSTALL_DATA} ${WRKSRC}/liblkl.a ${STAGEDIR}${PREFIX}/lib
 
 .include <bsd.port.mk>

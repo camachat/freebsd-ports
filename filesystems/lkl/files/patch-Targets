@@ -1,9 +1,11 @@
---- Targets.orig	2018-06-12 22:43:19 UTC
+--- Targets.orig	2025-09-04 17:12:33 UTC
 +++ Targets
-@@ -10,15 +10,6 @@ LDLIBS_lib/hijack/liblkl-hijack-$(LKL_HOST_CONFIG_ANDR
- progs-$(LKL_HOST_CONFIG_FUSE) += lklfuse
- LDLIBS_lklfuse-y := -lfuse
+@@ -15,16 +15,7 @@ progs-$(LKL_HOST_CONFIG_FUSE) += lklfuse
+ LDLIBS_lib/hijack/liblkl-zpoline-$(LKL_HOST_CONFIG_POSIX) += -ldl -lc
  
+ progs-$(LKL_HOST_CONFIG_FUSE) += lklfuse
+-LDLIBS_lklfuse-y := -lfuse3
+-
 -progs-$(LKL_HOST_CONFIG_ARCHIVE) += fs2tar
 -LDLIBS_fs2tar-y := -larchive
 -LDLIBS_fs2tar-$(LKL_HOST_CONFIG_NEEDS_LARGP) += -largp
@@ -12,7 +14,7 @@
 -progs-$(LKL_HOST_CONFIG_ARCHIVE) += cptofs
 -LDLIBS_cptofs-y := -larchive
 -LDLIBS_cptofs-$(LKL_HOST_CONFIG_NEEDS_LARGP) += -largp
--
- progs-y += tests/boot
- progs-y += tests/disk
- progs-y += tests/net-test
++LDLIBS_lklfuse-y := -lfuse
+ 
+ # tools/build/Makefile.build does not support parallel builds when
+ # objects are shared between build objects so use tests-common-in.o

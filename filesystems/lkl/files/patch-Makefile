@@ -1,15 +1,13 @@
---- Makefile.orig	2018-06-12 22:43:19 UTC
+--- Makefile.orig	2025-09-04 17:12:33 UTC
 +++ Makefile
-@@ -61,10 +61,10 @@ endif
- 
- # rule to build lkl.o
- $(OUTPUT)lib/lkl.o: bin/stat
--	$(Q)$(MAKE) -C ../.. ARCH=lkl $(KOPT) $(KCONFIG)
-+	$(Q)$(MAKE) -C ../.. ARCH=lkl LDFLAGS= $(KOPT) $(KCONFIG)
+@@ -78,8 +78,8 @@ $(OUTPUT)lib/lkl.o: bin/stat $(DOT_CONFIG)
+ $(OUTPUT)lib/lkl.o: bin/stat $(DOT_CONFIG)
  # this workaround is for arm32 linker (ld.gold)
- 	$(Q)export PATH=$(srctree)/tools/lkl/bin/:${PATH} ;\
+ 	$(Q)export PATH="$(srctree)/tools/lkl/bin/:${PATH}" ;\
+-	$(MAKE) -C ../.. ARCH=lkl $(KOPT)
 -	$(MAKE) -C ../.. ARCH=lkl $(KOPT) install INSTALL_PATH=$(OUTPUT)
++	$(MAKE) -C ../.. ARCH=lkl LDFLAGS= $(KOPT)
 +	$(MAKE) -C ../.. ARCH=lkl LDFLAGS= $(KOPT) install INSTALL_PATH=$(OUTPUT)
  
- # rules to link libs
+ # rules to link hijack libs
  $(OUTPUT)%$(SOSUF): LDFLAGS += -shared
