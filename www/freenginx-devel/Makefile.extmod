@@ -30,7 +30,7 @@ BROTLI_EXTRA_PATCHES=	${PATCHDIR}/extra-patch-ngx_brotli_filter_config
 CACHE_PURGE_GH_TUPLE=	nginx-modules:ngx_cache_purge:a84b0f3:cache_purge
 CACHE_PURGE_VARS=	DSO_EXTMODS+=cache_purge
 
-ECHO_GH_TUPLE=		openresty:echo-nginx-module:4eeda3c:echo
+ECHO_GH_TUPLE=		openresty:echo-nginx-module:b0f344b:echo
 ECHO_VARS=		DSO_EXTMODS+=echo
 
 DRIZZLE_LIB_DEPENDS=	libdrizzle.so:databases/libdrizzle
@@ -197,15 +197,17 @@ LUA_LIB_DEPENDS=	libluajit-5.1.so:lang/luajit-openresty
 LUA_RUN_DEPENDS=	lua-resty-core>0:www/lua-resty-core
 LUA_CONFIGURE_ENV=	LUAJIT_INC=${LOCALBASE}/include/luajit-2.1 \
 			LUAJIT_LIB=${LOCALBASE}/lib
-LUA_GH_TUPLE=		openresty:lua-nginx-module:v0.10.28:lua
+LUA_GH_TUPLE=		openresty:lua-nginx-module:v0.10.29:lua
 LUA_VARS=		DSO_EXTMODS+=lua
+LUA_EXTRA_PATCHES=	${PATCHDIR}/extra-patch-ngx_http_lua_time.c \
+			${PATCHDIR}/extra-patch-ngx_http_lua_subrequest.c
 
 LUASTREAM_IMPLIES=	DEVEL_KIT
 LUASTREAM_LIB_DEPENDS=	libluajit-5.1.so:lang/luajit-openresty
 LUASTREAM_RUN_DEPENDS=	lua-resty-core>0:www/lua-resty-core
 LUASTREAM_CONFIGURE_ENV=LUAJIT_INC=${LOCALBASE}/include/luajit-2.1 \
 			LUAJIT_LIB=${LOCALBASE}/lib
-LUASTREAM_GH_TUPLE=	openresty:stream-lua-nginx-module:v0.0.16:luastream
+LUASTREAM_GH_TUPLE=	openresty:stream-lua-nginx-module:v0.0.17:luastream
 LUASTREAM_VARS=		DSO_EXTMODS+=luastream
 
 LINK_GH_TUPLE=		Taymindis:nginx-link-function:3.2.4:link
@@ -314,6 +316,7 @@ VOD_VARS=		DSO_EXTMODS+=vod
 
 VTS_GH_TUPLE=		vozlt:nginx-module-vts:c382342:vts
 VTS_VARS=		DSO_EXTMODS+=vts
+VTS_EXTRA_PATCHES=	${PATCHDIR}/extra-patch-ngx_http_vhost_traffic_status_module.c
 
 XSS_GH_TUPLE=		openresty:xss-nginx-module:de2d87a:xss
 XSS_VARS=		DSO_EXTMODS+=xss
