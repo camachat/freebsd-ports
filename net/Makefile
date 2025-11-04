@@ -1018,6 +1018,7 @@
     SUBDIR += pktanon
     SUBDIR += pload
     SUBDIR += plugdaemon
+    SUBDIR += pmix
     SUBDIR += poptop
     SUBDIR += portfwd
     SUBDIR += pptpclient
@@ -1027,6 +1028,7 @@
     SUBDIR += proxy-suite
     SUBDIR += proxychains
     SUBDIR += proxychains-ng
+    SUBDIR += prrte
     SUBDIR += prtunnel
     SUBDIR += ptpd2
     SUBDIR += ptunnel
