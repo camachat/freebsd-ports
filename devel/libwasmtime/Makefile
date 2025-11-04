@@ -30,7 +30,11 @@ WASMTIME_SLAVE?=	master
 CARGO_BUILD_ARGS?=	-p wasmtime-c-api
 CMAKE_SOURCE_PATH?=	${WRKSRC}/crates/c-api
 
+.if ${WASMTIME_SLAVE} == master
 .include "${.CURDIR}/Makefile.cargo"
+.else
+.include "${MASTERDIR}/Makefile.cargo"
+.endif
 
 GH_TUPLE=	WebAssembly:component-model:8021b51:component_model/tests/component-model \
 		WebAssembly:testsuite:7b59001:testsuite/tests/spec_testsuite \
