@@ -1,5 +1,5 @@
 PORTNAME=	plantuml
-DISTVERSION=	1.2025.8
+DISTVERSION=	1.2025.10
 CATEGORIES=	graphics java textproc
 MASTER_SITES=	https://github.com/${PORTNAME}/${PORTNAME}/releases/download/v${DISTVERSION}/
 EXTRACT_SUFX=	.jar
@@ -12,7 +12,7 @@ WWW=		https://plantuml.com/
 LICENSE=	GPLv3
 
 USES=		java
-JAVA_VERSION=8+
+JAVA_VERSION=	8+
 
 NO_ARCH=	yes
 NO_BUILD=	yes
