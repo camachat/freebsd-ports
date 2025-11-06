@@ -1,10 +1,9 @@
 PORTNAME=	toxcore
-DISTVERSION=	0.2.20
-PORTREVISION=	2
+DISTVERSION=	0.2.21
+PORTREVISION=	0
 PORTEPOCH=	1
+#DISTNAME=	c-${PORTNAME}
 CATEGORIES=	net-im net-p2p
-MASTER_SITES=	https://github.com/TokTok/c-${PORTNAME}/releases/download/v${DISTVERSION}/
-DISTNAME=	c-${PORTNAME}-${DISTVERSION}
 
 MAINTAINER=	ports@FreeBSD.org
 COMMENT=	ProjectTox-Core library, a decentralized and secure messenger
@@ -19,6 +18,13 @@ LIB_DEPENDS=	libopus.so:audio/opus \
 TEST_DEPENDS=	googletest>0:devel/googletest
 
 USES=		cmake:testing compiler:c++17-lang cpe pathfix pkgconfig
+
+USE_GITHUB=	yes
+GH_ACCOUNT=	TokTok
+GH_PROJECT=	c-toxcore cmp:c
+GH_TAGNAME=	v${DISTVERSION} 52bfcfa:c
+GH_SUBDIR=	third_party/cmp:c
+
 CPE_VENDOR=	toktok
 PATHFIX_CMAKELISTSTXT=	ModulePackage.cmake
 USE_LDCONFIG=	yes
