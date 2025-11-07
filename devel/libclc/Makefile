@@ -52,4 +52,3 @@ PLIST_SUB+=	NOT_${i:S/^/llvm/:tu}=""
 PLIST_SUB+=	LLVM_VERSION=${FLAVOR}
 
 .include <bsd.port.post.mk>
-
