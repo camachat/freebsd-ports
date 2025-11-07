@@ -1,5 +1,3 @@
-TIMESTAMP = 1762445911
-SHA256 (TokTok-c-toxcore-0.2.21-v0.2.21_GH0.tar.gz) = 4919f85b7ab076fb64a9d18b7e951bced2709a870a7553529948a21d472f3c0b
-SIZE (TokTok-c-toxcore-0.2.21-v0.2.21_GH0.tar.gz) = 856518
-SHA256 (TokTok-cmp-52bfcfa_GH0.tar.gz) = 233e1a6e2b09382435f1832638e8dd4127a47734a71ccc34dd9915ea33cb1d6f
-SIZE (TokTok-cmp-52bfcfa_GH0.tar.gz) = 40098
+TIMESTAMP = 1762500000
+SHA256 (c-toxcore-v0.2.21.tar.xz) = dde19a5eaa897f3b9ca6212e783a08753ad5c071deb14a73d84161853a067234
+SIZE (c-toxcore-v0.2.21.tar.xz) = 906700
