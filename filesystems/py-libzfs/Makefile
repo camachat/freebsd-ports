@@ -1,5 +1,6 @@
 PORTNAME=	libzfs
-PORTVERSION=	1.1.2024040300
+PORTVERSION=	1.1.2023020700
+PORTREVISION=	2
 CATEGORIES=	filesystems devel python
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
@@ -13,7 +14,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 USE_GITHUB=	yes
 GH_ACCOUNT=	truenas
 GH_PROJECT=	py-libzfs
-GH_TAGNAME=	50cec42
+GH_TAGNAME=	c1bd4a0
 
 HAS_CONFIGURE=	yes
 USES=		compiler:c11 python
@@ -24,9 +25,9 @@ MAKE_ENV=	freebsd_src=${SRC_BASE}
 
 .include <bsd.port.options.mk>
 
-#.if ${OPSYS} == FreeBSD && (${OSVERSION} >= 1500018 || (${OSVERSION} >= 1401000 && ${OSVERSION} < 1500000))
-#EXTRA_PATCHES+=	${FILESDIR}/extra-zpool-add.patch
-#.endif
+.if ${OPSYS} == FreeBSD && (${OSVERSION} >= 1500018 || (${OSVERSION} >= 1401000 && ${OSVERSION} < 1500000))
+EXTRA_PATCHES+=	${FILESDIR}/extra-zpool-add.patch
+.endif
 
 .if !exists(${SRC_BASE}/sys/Makefile)
 IGNORE=		requires kernel source files in ${SRC_BASE}
