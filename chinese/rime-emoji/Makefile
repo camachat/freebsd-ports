@@ -2,7 +2,7 @@ PORTNAME=	rime-emoji
 DISTVERSION=	g20250331
 CATEGORIES=	chinese textproc
 
-MAINTAINER=	khng@FreeBSD.org
+MAINTAINER=	eric@camachat.org
 COMMENT=	Rime emoji suggestions support
 WWW=		https://github.com/rime/rime-emoji
 

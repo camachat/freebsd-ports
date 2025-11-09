@@ -2,7 +2,7 @@ PORTNAME=	rime-wubi
 DISTVERSION=	g20231024
 CATEGORIES=	chinese textproc
 
-MAINTAINER=	khng300@gmail.com
+MAINTAINER=	eric@camachat.org
 COMMENT=	Rime Wubi schema support
 WWW=		https://github.com/rime/rime-wubi
 

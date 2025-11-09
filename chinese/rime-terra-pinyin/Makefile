@@ -2,7 +2,7 @@ PORTNAME=	rime-terra-pinyin
 DISTVERSION=	g20251008
 CATEGORIES=	chinese textproc
 
-MAINTAINER=	khng@FreeBSD.org
+MAINTAINER=	eric@camachat.org
 COMMENT=	Rime Terra Pinyin schema support
 WWW=		https://github.com/rime/rime-terra-pinyin
 

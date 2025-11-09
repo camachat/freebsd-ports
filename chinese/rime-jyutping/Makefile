@@ -2,7 +2,7 @@ PORTNAME=	rime-jyutping
 DISTVERSION=	g20220517
 CATEGORIES=	chinese textproc
 
-MAINTAINER=	khng300@gmail.com
+MAINTAINER=	eric@camachat.org
 COMMENT=	Rime Jyutping (old) schema support
 WWW=		https://github.com/rime/rime-jyutping
 

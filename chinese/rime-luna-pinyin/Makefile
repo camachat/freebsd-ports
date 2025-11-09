@@ -2,7 +2,7 @@ PORTNAME=	rime-luna-pinyin
 DISTVERSION=	g20250804
 CATEGORIES=	chinese textproc
 
-MAINTAINER=	khng@FreeBSD.org
+MAINTAINER=	eric@camachat.org
 COMMENT=	Rime Luna Pinyin schema support
 WWW=		https://github.com/rime/rime-luna-pinyin
 

@@ -2,7 +2,7 @@ PORTNAME=	rime-pinyin-simp
 DISTVERSION=	g20241229
 CATEGORIES=	chinese textproc
 
-MAINTAINER=	khng@FreeBSD.org
+MAINTAINER=	eric@camachat.org
 COMMENT=	Rime pinyin-simp schema support
 WWW=		https://github.com/rime/rime-pinyin-simp
 

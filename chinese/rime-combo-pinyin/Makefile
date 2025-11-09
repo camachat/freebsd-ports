@@ -2,7 +2,7 @@ PORTNAME=	rime-combo-pinyin
 DISTVERSION=	g20250926
 CATEGORIES=	chinese textproc
 
-MAINTAINER=	khng@FreeBSD.org
+MAINTAINER=	eric@camachat.org
 COMMENT=	Rime Combo Pinyin schema support
 WWW=		https://github.com/rime/rime-combo-pinyin
 

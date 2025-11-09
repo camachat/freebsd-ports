@@ -2,7 +2,7 @@ PORTNAME=	rime-prelude
 DISTVERSION=	g20250420
 CATEGORIES=	chinese textproc
 
-MAINTAINER=	khng@FreeBSD.org
+MAINTAINER=	eric@camachat.org
 COMMENT=	Essential files for building up your Rime configuration
 WWW=		https://github.com/rime/rime-prelude
 

@@ -2,7 +2,7 @@ PORTNAME=	rime-cantonese
 DISTVERSION=	g20241130
 CATEGORIES=	chinese textproc
 
-MAINTAINER=	khng@FreeBSD.org
+MAINTAINER=	eric@camachat.org
 COMMENT=	Rime Cantonese (Jyutping) schema support
 WWW=		https://github.com/rime/rime-cantonese
 

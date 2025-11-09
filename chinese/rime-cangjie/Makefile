@@ -2,7 +2,7 @@ PORTNAME=	rime-cangjie
 DISTVERSION=	g20240324
 CATEGORIES=	chinese textproc
 
-MAINTAINER=	khng300@gmail.com
+MAINTAINER=	eric@camachat.org
 COMMENT=	Rime Cangjie v5 schema support
 WWW=		https://github.com/rime/rime-cangjie
 

@@ -2,7 +2,7 @@ PORTNAME=	rime-array
 DISTVERSION=	g20240425
 CATEGORIES=	chinese textproc
 
-MAINTAINER=	khng@FreeBSD.org
+MAINTAINER=	eric@camachat.org
 COMMENT=	Rime Array input schema support
 WWW=		https://github.com/rime/rime-array
 
