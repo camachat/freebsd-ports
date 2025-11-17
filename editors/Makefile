@@ -22,6 +22,7 @@
     SUBDIR += calligraplan
     SUBDIR += chexedit
     SUBDIR += cooledit
+    SUBDIR += consult.el
     SUBDIR += cpeditor
     SUBDIR += cream
     SUBDIR += cudatext
@@ -202,6 +203,7 @@
     SUBDIR += lite
     SUBDIR += lite-xl
     SUBDIR += marker
+    SUBDIR += marginalia.el
     SUBDIR += mg
     SUBDIR += mickey
     SUBDIR += micro
@@ -224,12 +226,14 @@
     SUBDIR += omegaT
     SUBDIR += openoffice-4
     SUBDIR += openoffice-devel
+    SUBDIR += orderless.el
     SUBDIR += orbiton
     SUBDIR += ox
     SUBDIR += p5-Proc-InvokeEditor
     SUBDIR += p5-Vimana
     SUBDIR += paredit-mode.el
     SUBDIR += parinfer-rust
+    SUBDIR += perspective.el
     SUBDIR += pico-alpine
     SUBDIR += picpas
     SUBDIR += pluma
@@ -278,6 +282,7 @@
     SUBDIR += uhex
     SUBDIR += uzap
     SUBDIR += ved
+    SUBDIR += vertico.el
     SUBDIR += vigor
     SUBDIR += vile
     SUBDIR += vim
