@@ -368,8 +368,8 @@
     SUBDIR += spidermonkey102
     SUBDIR += spidermonkey115
     SUBDIR += spidermonkey128
+    SUBDIR += spidermonkey140
     SUBDIR += spidermonkey78
-    SUBDIR += spidermonkey91
     SUBDIR += squeak
     SUBDIR += squirrel
     SUBDIR += starlark-rust
