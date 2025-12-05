@@ -1,3 +1,232 @@
+  <vuln vid="f323f148-d181-11f0-841f-843a4b343614">
+    <topic>png -- Out-of-bounds read</topic>
+    <affects>
+    <package>
+	<name>png</name>
+	<range><lt>1.6.52</lt></range>
+    </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>https://github.com/pnggroup/libpng/security/advisories/GHSA-9mpm-9pxh-mg4f reports:</p>
+	<blockquote cite="https://github.com/pnggroup/libpng/security/advisories/GHSA-9mpm-9pxh-mg4f">
+	  <p>Prior to 1.6.52, an out-of-bounds read vulnerability in
+    libpng's simplified API allows reading up to 1012 bytes beyond the
+    png_sRGB_base[512] array when processing valid palette PNG images
+    with partial transparency and gamma correction.  The PNG files that
+    trigger this vulnerability are valid per the PNG specification; the
+      bug is in libpng's internal state management.</p>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2025-66293</cvename>
+      <url>https://cveawg.mitre.org/api/cve/CVE-2025-66293</url>
+    </references>
+    <dates>
+      <discovery>2025-12-03</discovery>
+      <entry>2025-12-05</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="be3167b5-d140-11f0-ad27-c01803b56cc4">
+    <topic>libvirt -- Multiple vulnerabilities</topic>
+    <affects>
+      <package>
+	<name>libvirt</name>
+	<range><lt>11.10.0</lt></range>
+      </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>The libvirt project reports:</p>
+	<blockquote cite="https://libvirt.org/news.html#v11-10-0-2025-12-01">
+		<p>See <a href="https://libvirt.org/news.html#v11-10-0-2025-12-01">
+					changelog</a> for details.</p>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2025-12748</cvename>
+      <url>https://cveawg.mitre.org/api/cve/CVE-2025-12748</url>
+      <cvename>CVE-2025-13193</cvename>
+      <url>https://cveawg.mitre.org/api/cve/CVE-2025-13193</url>
+    </references>
+    <dates>
+      <discovery>2025-11-11</discovery>
+      <entry>2025-12-04</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="6ebe4a30-d138-11f0-af8c-8447094a420f">
+    <topic>Apache httpd -- Multiple vulnerabilities</topic>
+    <affects>
+      <package>
+	<name>apache24</name>
+	<range><lt>2.4.66</lt></range>
+      </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>The Apache httpd project reports:</p>
+	<blockquote cite="https://downloads.apache.org/httpd/CHANGES_2.4.66">
+	  <p>See <a href="https://downloads.apache.org/httpd/CHANGES_2.4.66">
+	    changelog</a> or <a href="https://httpd.apache.org/security/vulnerabilities_24.html">
+	    2.4 vulnerabilities</a> for details.</p>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2025-66200</cvename>
+      <cvename>CVE-2025-65082</cvename>
+      <cvename>CVE-2025-59775</cvename>
+      <cvename>CVE-2025-58098</cvename>
+      <cvename>CVE-2025-55753</cvename>
+      <url>https://downloads.apache.org/httpd/CHANGES_2.4.66</url>
+    </references>
+    <dates>
+      <discovery>2025-12-04</discovery>
+      <entry>2025-12-04</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="245bd19f-d035-11f0-84e9-c7a56e37e3f0">
+    <topic>go -- excessive resource consumption</topic>
+    <affects>
+      <package>
+       <name>go124</name>
+       <range><lt>1.24.11</lt></range>
+      </package>
+      <package>
+       <name>go125</name>
+       <range><lt>1.25.5</lt></range>
+      </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	  <p>The Go project reports:</p>
+	  <blockquote cite="https://pkg.go.dev/vuln/GO-2025-4155">
+	   <p>Within HostnameError.Error(), when constructing an error
+	   string, there is no limit to the number of hosts that will
+	   be printed out.</p>
+	   <p>Furthermore, the error string is constructed by repeated
+	   string concatenation, leading to quadratic runtime.
+	   Therefore, a certificate provided by a malicious actor can
+	   result in excessive resource consumption.</p>
+	  </blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2025-61729</cvename>
+      <url>https://pkg.go.dev/vuln/GO-2025-4155</url>
+    </references>
+    <dates>
+      <discovery>2025-12-02</discovery>
+      <entry>2025-12-03</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="eda92945-ced4-11f0-a958-b42e991fc52e">
+    <topic>MongoDB -- Missing Authorization</topic>
+    <affects>
+    <package>
+	<name>mongodb80</name>
+	<range><lt>8.0.14</lt></range>
+    </package>
+    <package>
+	<name>mongodb70</name>
+	<range><lt>7.0.26</lt></range>
+    </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>https://jira.mongodb.org/browse/SERVER-103582 reports:</p>
+	<blockquote cite="https://jira.mongodb.org/browse/SERVER-103582">
+	  <p>A user with access to the cluster with a limited set of
+	  privilege actions may be able to terminate queries that are
+	  being executed by other users.  This may cause a denial of
+	  service by preventing a fraction of queries from
+	  successfully completing.</p>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2025-13643</cvename>
+      <url>https://cveawg.mitre.org/api/cve/CVE-2025-13643</url>
+    </references>
+    <dates>
+      <discovery>2025-11-25</discovery>
+      <entry>2025-12-01</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="ea64d2ec-ced4-11f0-a958-b42e991fc52e">
+    <topic>MongoDB -- Improper Validation of Specified Quantity in Input</topic>
+    <affects>
+    <package>
+	<name>mongodb80</name>
+	<range><lt>8.0.16</lt></range>
+    </package>
+    <package>
+	<name>mongodb70</name>
+	<range><lt>7.0.26</lt></range>
+    </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>https://jira.mongodb.org/browse/SERVER-108565 reports:</p>
+	<blockquote cite="https://jira.mongodb.org/browse/SERVER-108565">
+	  <p>Inconsistent object size validation in time series
+	  processing logic may result in later processing of oversized
+	  BSON documents leading to an assert failing and process
+	  termination.</p>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2025-13507</cvename>
+      <url>https://cveawg.mitre.org/api/cve/CVE-2025-13507</url>
+    </references>
+    <dates>
+      <discovery>2025-11-25</discovery>
+      <entry>2025-12-01</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="e72ec9c1-ced4-11f0-a958-b42e991fc52e">
+    <topic>MongoDB -- Reachable Assertion</topic>
+    <affects>
+    <package>
+	<name>mongodb80</name>
+	<range><lt>8.0.13</lt></range>
+    </package>
+    <package>
+	<name>mongodb70</name>
+	<range><lt>7.0.26</lt></range>
+    </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>https://jira.mongodb.org/browse/SERVER-101180 reports:</p>
+	<blockquote cite="https://jira.mongodb.org/browse/SERVER-101180">
+	  <p>MongoDB Server may experience an invariant failure during
+	  batched delete operations when handling documents.  The
+	  issue arises when the server mistakenly assumes the presence
+	  of multiple documents in a batch based solely on document
+	  size exceeding BSONObjMaxSize.</p>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2025-13644</cvename>
+      <url>https://cveawg.mitre.org/api/cve/CVE-2025-13644</url>
+    </references>
+    <dates>
+      <discovery>2025-11-25</discovery>
+      <entry>2025-12-01</entry>
+    </dates>
+  </vuln>
+
   <vuln vid="ba02dfb6-ce31-11f0-a327-589cfc01894a">
     <topic>wolfssl -- multiple issues</topic>
     <affects>
