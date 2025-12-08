@@ -2,8 +2,8 @@ bin/keepassxc
 bin/keepassxc-cli
 %%BROWSER%%bin/keepassxc-proxy
 %%AUTOTYPE%%lib/keepassxc/libkeepassxc-autotype-xcb.so
-share/man/man1/keepassxc-cli.1.gz
-share/man/man1/keepassxc.1.gz
+%%DOCS%%share/man/man1/keepassxc-cli.1.gz
+%%DOCS%%share/man/man1/keepassxc.1.gz
 share/applications/org.keepassxc.KeePassXC.desktop
 share/icons/hicolor/256x256/apps/keepassxc.png
 share/icons/hicolor/scalable/apps/keepassxc-locked.svg
@@ -14,9 +14,9 @@ share/icons/hicolor/scalable/apps/keepassxc-monochrome-light.svg
 share/icons/hicolor/scalable/apps/keepassxc-unlocked.svg
 share/icons/hicolor/scalable/apps/keepassxc.svg
 share/icons/hicolor/scalable/mimetypes/application-x-keepassxc.svg
-%%DATADIR%%/docs/KeePassXC_GettingStarted.html
-%%DATADIR%%/docs/KeePassXC_KeyboardShortcuts.html
-%%DATADIR%%/docs/KeePassXC_UserGuide.html
+%%DOCS%%%%DATADIR%%/docs/KeePassXC_GettingStarted.html
+%%DOCS%%%%DATADIR%%/docs/KeePassXC_KeyboardShortcuts.html
+%%DOCS%%%%DATADIR%%/docs/KeePassXC_UserGuide.html
 %%DATADIR%%/icons/application/256x256/apps/keepassxc.png
 %%DATADIR%%/translations/keepassxc_ar.qm
 %%DATADIR%%/translations/keepassxc_be.qm
