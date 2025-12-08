@@ -662,7 +662,6 @@
     SUBDIR += efl
     SUBDIR += egypt
     SUBDIR += eiffelstudio
-    SUBDIR += electron34
     SUBDIR += electron36
     SUBDIR += electron37
     SUBDIR += electron38
@@ -1232,7 +1231,6 @@
     SUBDIR += libb2
     SUBDIR += libbacktrace
     SUBDIR += libbegemot
-    SUBDIR += libbfd
     SUBDIR += libbinio
     SUBDIR += libblake3
     SUBDIR += libbpfjit
@@ -1625,6 +1623,7 @@
     SUBDIR += lua-cjson
     SUBDIR += lua-cqueues
     SUBDIR += lua-gettext
+    SUBDIR += lua-language-server
     SUBDIR += lua-lgi
     SUBDIR += lua-libevent
     SUBDIR += lua-lpeg
