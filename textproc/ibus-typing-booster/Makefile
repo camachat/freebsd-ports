@@ -21,19 +21,6 @@ RUN_DEPENDS=	CLDR>0:textproc/CLDR	\
 		${PYTHON_PKGNAMEPREFIX}hunspell>0:textproc/py-hunspell@${PY_FLAVOR}	\
 		${PYTHON_PKGNAMEPREFIX}pycountry>0:textproc/py-pycountry@${PY_FLAVOR}	\
 		${PYTHON_PKGNAMEPREFIX}sqlite3>0:databases/py-sqlite3@${PY_FLAVOR}
-##<<<<<<< HEAD
-##TEST_DEPENDS=	cs-hunspell>0:textproc/cs-hunspell	\
-##		de-hunspell>0:german/hunspell		\
-##		en-hunspell>0:textproc/en-hunspell	\
-##		es-hunspell>0:textproc/es-hunspell	\
-##		it-hunspell>0:textproc/it-hunspell	\
-##		${LOCALBASE}/share/hunspell/ko_KR.aff:korean/hunspell		\
-##		sv-hunspell>0:textproc/sv-hunspell	\
-##		ibus-m17n>0:textproc/ibus-m17n	\
-##		inscript2>0:devel/m17n-inscript2	\
-##		${PYTHON_PKGNAMEPREFIX}mock>0:devel/py-mock@${PY_FLAVOR}	\
-##		gmake>0:devel/gmake
-##=======
 TEST_DEPENDS=	m17n-db:devel/m17n-db	\
 		${LOCALBASE}/share/hunspell/cs_CZ.dic:textproc/cs-hunspell	\
 		${LOCALBASE}/share/hunspell/de_DE.dic:german/hunspell		\
