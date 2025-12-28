@@ -1,6 +1,5 @@
 PORTNAME=	webcamoid
-DISTVERSION=	9.1.1
-PORTREVISION=	2
+DISTVERSION=	9.3.0
 CATEGORIES=	multimedia
 
 MAINTAINER=	yuri@FreeBSD.org
@@ -10,8 +9,6 @@ WWW=		https://webcamoid.github.io \
 
 LICENSE=	GPLv3
 LICENSE_FILE=	${WRKSRC}/COPYING
-
-BROKEN=		Does not build with ffmpeg > 6
 
 BUILD_DEPENDS=	${LOCALBASE}/include/linux/videodev2.h:multimedia/v4l_compat
 LIB_DEPENDS=	libasound.so:audio/alsa-lib \
@@ -24,12 +21,11 @@ LIB_DEPENDS=	libasound.so:audio/alsa-lib \
 		libv4l2.so:multimedia/libv4l \
 		libvlc.so:multimedia/vlc
 
-USES=		cmake compiler:c++11-lang desktop-file-utils gl gnome gstreamer pkgconfig qt:5 sdl xorg
+USES=		cmake compiler:c++11-lang desktop-file-utils gl gnome gstreamer pkgconfig qt:6 sdl xorg
 USE_GITHUB=	yes
 USE_GNOME=	glib20
 USE_GL=		gl
-USE_QT=		concurrent core dbus declarative gui multimedia network opengl quickcontrols2 svg widgets xml \
-		buildtools:build qmake:build quickcontrols:run
+USE_QT=		base declarative multimedia svg
 USE_SDL=	sdl2
 USE_LDCONFIG=	yes
 
@@ -38,11 +34,4 @@ QMAKE_ARGS=	INSTALLQMLDIR=${QT_QMLDIR} \
 		LIBDIR=${PREFIX}/lib \
 		MANDIR=${PREFIX}/man
 
-.include <bsd.port.pre.mk>
-
-.if ${CHOSEN_COMPILER_TYPE} == gcc
-# Workaround for Bug#224137: devel/qt5-qmake: Doesn't use the right compiler in case USE_GCC is selected
-BINARY_ALIAS=	g++=${CXX}
-.endif
-
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>
