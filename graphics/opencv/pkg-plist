@@ -843,6 +843,7 @@ lib/libopencv_xphoto.so.412
 %%PYTHON%%%%PYTHON_SITELIBDIR%%/cv2/ogl/__init__.pyi
 %%PYTHON%%%%PYTHON_SITELIBDIR%%/cv2/omnidir/__init__.pyi
 %%PYTHON%%%%PYTHON_SITELIBDIR%%/cv2/optflow/__init__.pyi
+%%OGRE3D%%%%PYTHON%%%%PYTHON_SITELIBDIR%%/cv2/ovis/__init__.pyi
 %%PYTHON%%%%PYTHON_SITELIBDIR%%/cv2/parallel/__init__.pyi
 %%PYTHON%%%%PYTHON_SITELIBDIR%%/cv2/phase_unwrapping/__init__.pyi
 %%PYTHON%%%%PYTHON_SITELIBDIR%%/cv2/plot/__init__.pyi
@@ -875,8 +876,8 @@ lib/libopencv_xphoto.so.412
 %%PYTHON%%%%PYTHON_SITELIBDIR%%/cv2/ximgproc/segmentation/__init__.pyi
 %%PYTHON%%%%PYTHON_SITELIBDIR%%/cv2/xphoto/__init__.pyi
 libdata/pkgconfig/opencv4.pc
-%%JAVA%%%%JAVASHAREDIR%%/opencv4/libopencv_java4110.so
-%%JAVA%%%%JAVASHAREDIR%%/opencv4/opencv-4110.jar
+%%JAVA%%%%JAVASHAREDIR%%/opencv4/libopencv_java4120.so
+%%JAVA%%%%JAVASHAREDIR%%/opencv4/opencv-4120.jar
 %%DATADIR%%/haarcascades/haarcascade_eye.xml
 %%DATADIR%%/haarcascades/haarcascade_eye_tree_eyeglasses.xml
 %%DATADIR%%/haarcascades/haarcascade_frontalcatface.xml
