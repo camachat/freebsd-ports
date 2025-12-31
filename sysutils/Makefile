@@ -555,7 +555,6 @@
     SUBDIR += ipa
     SUBDIR += ipad_charge
     SUBDIR += ipdbtools
-    SUBDIR += ipfs-go-fs-repo-migrations
     SUBDIR += ipget
     SUBDIR += ipmi_exporter
     SUBDIR += ipmitool
@@ -740,6 +739,7 @@
     SUBDIR += mmve
     SUBDIR += modman
     SUBDIR += modules
+    SUBDIR += mods
     SUBDIR += mog
     SUBDIR += mongodb_exporter
     SUBDIR += monit
@@ -958,8 +958,6 @@
     SUBDIR += pfstat
     SUBDIR += pftables
     SUBDIR += pftop
-    SUBDIR += php81-fileinfo
-    SUBDIR += php81-posix
     SUBDIR += php82-fileinfo
     SUBDIR += php82-posix
     SUBDIR += php83-fileinfo

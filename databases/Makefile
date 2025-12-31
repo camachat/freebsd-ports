@@ -31,8 +31,8 @@
     SUBDIR += cego
     SUBDIR += cegobridge
     SUBDIR += clickhouse
+    SUBDIR += clickhouse-cpp
     SUBDIR += closql
-    SUBDIR += cockroach
     SUBDIR += couchdb3
     SUBDIR += courier-authlib-mysql
     SUBDIR += courier-authlib-pgsql
@@ -568,7 +568,6 @@
     SUBDIR += pglogical
     SUBDIR += pgmetrics
     SUBDIR += pgmodeler
-    SUBDIR += pgpool-II-42
     SUBDIR += pgpool-II-43
     SUBDIR += pgpool-II-44
     SUBDIR += pgpool-II-45
@@ -586,18 +585,6 @@
     SUBDIR += pgvector
     SUBDIR += php-tarantool
     SUBDIR += php-xapian
-    SUBDIR += php81-dba
-    SUBDIR += php81-mysqli
-    SUBDIR += php81-odbc
-    SUBDIR += php81-pdo
-    SUBDIR += php81-pdo_dblib
-    SUBDIR += php81-pdo_firebird
-    SUBDIR += php81-pdo_mysql
-    SUBDIR += php81-pdo_odbc
-    SUBDIR += php81-pdo_pgsql
-    SUBDIR += php81-pdo_sqlite
-    SUBDIR += php81-pgsql
-    SUBDIR += php81-sqlite3
     SUBDIR += php82-dba
     SUBDIR += php82-mysqli
     SUBDIR += php82-odbc

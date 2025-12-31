@@ -1,6 +1,7 @@
 PORTNAME=	wazuh
 DISTVERSION=	4.14.1
 DISTVERSIONPREFIX=	v
+PORTREVISION=	1
 CATEGORIES=	security
 MASTER_SITES=	https://packages.wazuh.com/deps/47/libraries/sources/:wazuh_sources
 PKGNAMESUFFIX=	-agent
@@ -89,6 +90,16 @@ WAZUHMOD770=	/etc/shared/default /logs /queue/alerts /queue/fim \
 		/var/run /var/upgrade /var/selinux /var/wodles /var/incoming
 
 WAZUHPREFIX=	/var/ossec
+
+.include <bsd.port.options.mk>
+
+.if ${ARCH} == powerpc64
+MAKE_ENV+=	OSSL_TARGET=BSD-ppc64
+.elif ${ARCH} == powerpc64le
+MAKE_ENV+=	OSSL_TARGET=BSD-ppc64le
+.elif ${ARCH} == riscv64
+MAKE_ENV+=	OSSL_TARGET=BSD-riscv64
+.endif
 
 .include <bsd.port.pre.mk>
 
