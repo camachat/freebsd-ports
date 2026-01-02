@@ -124,8 +124,6 @@
     SUBDIR += gnustep-base
     SUBDIR += go
     SUBDIR += go-devel
-    SUBDIR += go120
-    SUBDIR += go121
     SUBDIR += go122
     SUBDIR += go123
     SUBDIR += go124
@@ -168,6 +166,7 @@
     SUBDIR += kefir
     SUBDIR += kf5-kross
     SUBDIR += kotlin
+    SUBDIR += kotlin22
     SUBDIR += kturtle
     SUBDIR += lafontaine
     SUBDIR += lci

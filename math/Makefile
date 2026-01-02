@@ -492,6 +492,7 @@
     SUBDIR += ltl2ba
     SUBDIR += m4ri
     SUBDIR += m4rie
+    SUBDIR += manifold
     SUBDIR += mate-calc
     SUBDIR += math77
     SUBDIR += mathex
@@ -1175,6 +1176,7 @@
     SUBDIR += rubiks
     SUBDIR += rubygem-algebra
     SUBDIR += rubygem-bigdecimal
+    SUBDIR += rubygem-bigdecimal-gitlab
     SUBDIR += rubygem-cmath
     SUBDIR += rubygem-enumerable-statistics
     SUBDIR += rubygem-expression_parser
