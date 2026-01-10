@@ -1,7 +1,7 @@
 PORTNAME=	contour
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.6.1.7494
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	x11
 
 MAINTAINER=	tagattie@FreeBSD.org
@@ -48,6 +48,10 @@ EXTRA_PATCHES=	${PATCHDIR}/extra-patch-src_crispy_read__selector.h
 # FreeBSD 13 does not have tic in base, so we need one from ports
 .if ${OPSYS} == FreeBSD && ${OSREL:R} == 13
 BUILD_DEPENDS+=	tic:devel/ncurses
+.endif
+
+.if ${ARCH:Mpowerpc*}
+USES+=		compiler:gcc-c++11-lib
 .endif
 
 post-install:

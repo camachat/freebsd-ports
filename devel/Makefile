@@ -4392,6 +4392,7 @@
     SUBDIR += py-aniso8601
     SUBDIR += py-aniso86016
     SUBDIR += py-anndata
+    SUBDIR += py-annotated-doc
     SUBDIR += py-annotated-types
     SUBDIR += py-ansi
     SUBDIR += py-antlr4-python3-runtime
@@ -6225,6 +6226,7 @@
     SUBDIR += py-vsts
     SUBDIR += py-vsts-cd-manager
     SUBDIR += py-vulture
+    SUBDIR += py-wadler-lindig
     SUBDIR += py-wadllib
     SUBDIR += py-wait-for2
     SUBDIR += py-warlock
@@ -6340,7 +6342,6 @@
     SUBDIR += pycharm
     SUBDIR += pycos
     SUBDIR += pycount
-    SUBDIR += pydbus-common
     SUBDIR += pydeps
     SUBDIR += pyderasn
     SUBDIR += pyenv
