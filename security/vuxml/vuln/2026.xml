@@ -1,3 +1,114 @@
+  <vuln vid="65439aa0-f77d-11f0-9821-b0416f0c4c67">
+    <topic>wheel -- CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')</topic>
+    <affects>
+    <package>
+	<name>py310-wheel</name>
+	<name>py311-wheel</name>
+	<name>py312-wheel</name>
+	<name>py313-wheel</name>
+	<name>py313t-wheel</name>
+	<name>py314-wheel</name>
+	<range><lt>0.46.2</lt></range>
+    </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>https://github.com/pypa/wheel/security/advisories/GHSA-8rrh-rw8j-w5fx reports:</p>
+	<blockquote cite="https://github.com/pypa/wheel/security/advisories/GHSA-8rrh-rw8j-w5fx">
+	  <p>wheel is a command line tool for manipulating Python wheel files,
+as defined in PEP 427.  In versions 0.46.1 and below, the unpack
+function is vulnerable to file permission modification through
+mishandling of file permissions after extraction.  The logic blindly
+trusts the filename from the archive header for the chmod operation,
+even though the extraction process itself might have sanitized the
+path.  Attackers can craft a malicious wheel file that, when unpacked,
+changes the permissions of critical system files (e.g., /etc/passwd,
+SSH keys, config files), allowing for Privilege Escalation or
+arbitrary code execution by modifying now-writable scripts.  This
+issue has been fixed in version 0.46.2.</p>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2026-24049</cvename>
+      <url>https://cveawg.mitre.org/api/cve/CVE-2026-24049</url>
+    </references>
+    <dates>
+      <discovery>2026-01-22</discovery>
+      <entry>2026-01-22</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="f8560c1b-f772-11f0-85c5-a8a1599412c6">
+    <topic>chromium -- multiple security fixes</topic>
+    <affects>
+      <package>
+       <name>chromium</name>
+       <range><lt>144.0.7559.96</lt></range>
+      </package>
+      <package>
+       <name>ungoogled-chromium</name>
+       <range><lt>144.0.7559.96</lt></range>
+      </package>
+    </affects>
+    <description>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+       <p>Chrome Releases reports:</p>
+       <blockquote cite="https://chromereleases.googleblog.com/2026/01/stable-channel-update-for-desktop_20.html">
+	 <p>This update includes 1 security fix:</p>
+	 <ul>
+	    <li>[473851441] High CVE-2026-1220: Race in V8. Reported by @p1nky4745 on 2026-01-07</li>
+	 </ul>
+       </blockquote>
+      </body>
+    </description>
+    <references>
+      <cvename>CVE-2026-1220</cvename>
+      <url>https://chromereleases.googleblog.com/2026/01/stable-channel-update-for-desktop_20.html</url>
+    </references>
+    <dates>
+      <discovery>2026-01-20</discovery>
+      <entry>2026-01-22</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="61dc7f67-f6e5-11f0-b051-2cf05da270f3">
+    <topic>Gitlab -- vulnerabilities</topic>
+    <affects>
+<package>
+<name>gitlab-ce</name>
+<name>gitlab-ee</name>
+<range><ge>18.8.0</ge><lt>18.8.2</lt></range>
+<range><ge>18.7.0</ge><lt>18.7.2</lt></range>
+<range><ge>11.9.0</ge><lt>18.6.4</lt></range>
+</package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>Gitlab reports:</p>
+	<blockquote cite="https://about.gitlab.com/releases/2026/01/21/patch-release-gitlab-18-8-2-released/">
+	  <p>Denial of Service issue in Jira Connect integration impacts GitLab CE/EE</p>
+	  <p>Incorrect Authorization issue in Releases API impacts GitLab CE/EE</p>
+	  <p>Unchecked Return Value issue in authentication services impacts GitLab CE/EE</p>
+	  <p>Infinite Loop issue in Wiki redirects impacts GitLab CE/EE</p>
+	  <p>Denial of Service issue in API endpoint impacts GitLab CE/EE</p>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2025-13927</cvename>
+      <cvename>CVE-2025-13928</cvename>
+      <cvename>CVE-2026-0723</cvename>
+      <cvename>CVE-2025-13335</cvename>
+      <cvename>CVE-2026-1102</cvename>
+      <url>https://about.gitlab.com/releases/2026/01/21/patch-release-gitlab-18-8-2-released/</url>
+    </references>
+    <dates>
+      <discovery>2026-01-21</discovery>
+      <entry>2026-01-21</entry>
+    </dates>
+  </vuln>
+
   <vuln vid="01f34a27-f560-11f0-bbdc-10ffe07f9334">
     <topic>mail/mailpit -- multiple vulnerabilities</topic>
     <affects>
