@@ -1,7 +1,7 @@
 PKGNAMEPREFIX?=	lib
+PORTVERSION=	41.0.0
 DISTVERSIONPREFIX=	v
 PORTNAME=	${GH_PROJECT}
-PORTVERSION=	40.0.1
 CATEGORIES?=	devel
 
 MAINTAINER=	ports@FreeBSD.org
@@ -36,7 +36,7 @@ CMAKE_SOURCE_PATH?=	${WRKSRC}/crates/c-api
 .include "${MASTERDIR}/Makefile.cargo"
 .endif
 
-GH_TUPLE=	WebAssembly:component-model:48603cb:component_model/tests/component-model \
+GH_TUPLE=	WebAssembly:component-model:d336ed6:component_model/tests/component-model \
 		WebAssembly:testsuite:7b59001:testsuite/tests/spec_testsuite \
 		WebAssembly:wasi-testsuite:26ea2ff:wasi_testsuite/tests/wasi_testsuite/wasi-common \
 		WebAssembly:wasi-threads:e1893c0:wasi_threads/tests/wasi_testsuite/wasi-threads
