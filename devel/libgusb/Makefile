@@ -28,8 +28,6 @@ MESON_ARGS=		-Dumockdev=disabled \
 DOCS_BUILD_DEPENDS=	gtk-doc>0:textproc/gtk-doc \
 			${PYTHON_PKGNAMEPREFIX}gi-docgen>=0:textproc/py-gi-docgen@${PY_FLAVOR}
 DOCS_MESON_TRUE=	docs
-DOCS_BUILD_DEPENDS=	gtk-doc>0:textproc/gtk-doc \
-			${PYTHON_PKGNAMEPREFIX}gi-docgen>=0:textproc/py-gi-docgen@${PY_FLAVOR}
 
 VAPI_USES=		vala:build
 VAPI_MESON_TRUE=	vapi
