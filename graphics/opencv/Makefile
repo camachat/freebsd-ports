@@ -79,9 +79,9 @@ JAVA_USES=		java
 LTO_DESC=	Enables Link Time Optimizations
 LTO_CMAKE_BOOL=	ENABLE_THIN_LTO
 
-ONNX_DESC=	Include Microsoft ONNX Runtim support
+ONNX_DESC=		Include Microsoft ONNX Runtim support
 ONNX_CMAKE_BOOL=	WITH_ONNX
-ONNX_CMAKE_ON=	-DONNXRT_ROOT_DIR=${LOCALBASE}
+ONNX_CMAKE_ON=		-DONNXRT_ROOT_DIR=${LOCALBASE}
 OPENCL_LIB_DEPENDS=	libonnxruntime.so:misc/onnxruntime
 
 OPENCL_DESC=		Add OpenCL Support
