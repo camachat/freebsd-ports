@@ -1,6 +1,5 @@
 PORTNAME=	lkl
-DISTVERSION=	6.6.g20250904
-PORTREVISION=	0
+DISTVERSION=	6.6.g20260115
 CATEGORIES=	filesystems
 PKGNAMEPREFIX=	fusefs-
 
@@ -22,7 +21,7 @@ USE_BINUTILS=	yes:build
 USE_GCC=	yes:build
 USE_GITHUB=	yes
 GH_PROJECT=	linux
-GH_TAGNAME=	e183e402cc9a164f145e75aa62060db8ebe81d89
+GH_TAGNAME=	f6d6f7d3c9a454f40dac9c8c612cbc7761ca8ab2
 
 ONLY_FOR_ARCHS=	amd64
 ONLY_FOR_ARCHS_REASON=ld formats not available for other architectures
