@@ -11,15 +11,21 @@ LICENSE=	GPLv3
 LICENSE_FILE=	${WRKSRC}/COPYING
 
 BUILD_DEPENDS=	${LOCALBASE}/include/linux/videodev2.h:multimedia/v4l_compat
-LIB_DEPENDS=	libasound.so:audio/alsa-lib \
+LIB_DEPENDS=	libSvtAv1Enc.so:multimedia/svt-av1 \
+		libaom.so:multimedia/aom \
+		libasound.so:audio/alsa-lib \
 		libavcodec.so:multimedia/ffmpeg \
 		libjack.so:audio/jack \
+		libopus.so:audio/opus \
 		libpipewire-0.3.so:multimedia/pipewire \
 		libportaudio.so:audio/portaudio \
 		libpulse.so:audio/pulseaudio \
 		libuvc.so:multimedia/libuvc \
 		libv4l2.so:multimedia/libv4l \
-		libvlc.so:multimedia/vlc
+		libvlc.so:multimedia/vlc \
+		libvorbisenc.so:audio/libvorbis \
+		libvpx.so:multimedia/libvpx \
+		libx264.so:multimedia/libx264
 
 USES=		cmake compiler:c++11-lang desktop-file-utils gl gnome gstreamer pkgconfig qt:6 sdl xorg
 USE_GITHUB=	yes
@@ -27,9 +33,9 @@ USE_GNOME=	glib20
 USE_GL=		gl
 USE_QT=		base declarative multimedia svg
 USE_SDL=	sdl2
+USE_X11=	x11 xext xfixes xrandr
 USE_LDCONFIG=	yes
 
-MAKE_ENV=	NOOSS=1 # NOOSS is because the OSS module attempts to use kevent on OSS devices, which is broken in the base
 QMAKE_ARGS=	INSTALLQMLDIR=${QT_QMLDIR} \
 		LIBDIR=${PREFIX}/lib \
 		MANDIR=${PREFIX}/man
