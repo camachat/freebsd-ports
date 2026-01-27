@@ -10,6 +10,10 @@ WWW=		https://www.nvidia.com/object/unix.html
 USES=		metaport
 
 .include "${.CURDIR}/../../x11/nvidia-driver/Makefile.version"
+
+FLAVORS=	xorg xlibre
+FLAVOR?=	${FLAVORS:[1]}
+
 .include <bsd.port.pre.mk>
 
 .if ${OPSYS} != FreeBSD
@@ -26,7 +30,12 @@ RUN_DEPENDS+=  ${KMODDIR}/nvidia-drm.ko:graphics/nvidia-drm-61-kmod${PKGNAMESUFF
 .  endif
 .endif
 
-RUN_DEPENDS+=  nvidia-driver${PKGNAMESUFFIX}>0:x11/nvidia-driver${PKGNAMESUFFIX}
+.if ${FLAVOR} == xlibre
+PKGNAMEPREFIX=	xlibre-
+RUN_DEPENDS+=  ${PKGNAMEPREFIX}nvidia-driver${PKGNAMESUFFIX}>0:x11/nvidia-driver${PKGNAMESUFFIX}@${FLAVOR}
+.else
+RUN_DEPENDS+=  nvidia-driver${PKGNAMESUFFIX}>0:x11/nvidia-driver${PKGNAMESUFFIX}@${FLAVOR}
+.endif
 
 CONFLICTS_INSTALL=	nvidia-drm-kmod*
 
