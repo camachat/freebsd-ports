@@ -31,6 +31,35 @@
     </dates>
   </vuln>
 
+  <vuln vid="9dac4f05-fc65-11f0-96db-b42e991fc52e">
+    <topic>Firefox -- Multiple vulnerabilities</topic>
+    <affects>
+    <package>
+	<name>firefox</name>
+	<range><lt>147.0.2,2</lt></range>
+    </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>https://bugzilla.mozilla.org/show_bug.cgi?id=2007302 reports:</p>
+	<blockquote cite="https://bugzilla.mozilla.org/show_bug.cgi?id=2007302">
+	  <p>Mitigation bypass in the Privacy: Anti-Tracking component.</p>
+	  <p>Use-after-free in the Layout: Scrolling and Overflow component.</p>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2026-24868</cvename>
+      <url>https://cveawg.mitre.org/api/cve/CVE-2026-24868</url>
+      <cvename>CVE-2026-24869</cvename>
+      <url>https://cveawg.mitre.org/api/cve/CVE-2026-24869</url>
+    </references>
+    <dates>
+      <discovery>2026-01-27</discovery>
+      <entry>2026-01-28</entry>
+    </dates>
+  </vuln>
+
   <vuln vid="90071333-fbe5-11f0-a13f-bc241121aa0a">
     <topic>FreeBSD -- Jail escape by a privileged user via nullfs</topic>
     <affects>
@@ -114,6 +143,8 @@
 	    <li>Out of bounds write in PKCS12_get_friendlyname() UTF-8 conversion (CVE-2025-69419)</li>
 	    <li>Missing ASN1_TYPE validation in TS_RESP_verify_response() function (CVE-2025-69420)</li>
 	    <li>NULL Pointer Dereference in PKCS12_item_decrypt_d2i_ex function (CVE-2025-69421)</li>
+	    <li>Missing ASN1_TYPE validation in PKCS#12 parsing (CVE-2026-22795)</li>
+	    <li>ASN1_TYPE Type Confusion in the PKCS7_digest_from_attributes() function (CVE-2026-22796)</li>
 	  </ul>
 	</blockquote>
 	</body>
@@ -129,6 +160,8 @@
       <cvename>CVE-2025-69419</cvename>
       <cvename>CVE-2025-69420</cvename>
       <cvename>CVE-2025-69421</cvename>
+      <cvename>CVE-2026-22795</cvename>
+      <cvename>CVE-2026-22796</cvename>
       <url>https://openssl-library.org/news/secadv/20260127.txt</url>
       <freebsdsa>SA-26:01.openssl</freebsdsa>
     </references>
