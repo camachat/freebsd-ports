@@ -36,7 +36,6 @@
     SUBDIR += cmrtlib
     SUBDIR += cx88
     SUBDIR += dav1d
-    SUBDIR += decord
     SUBDIR += deforaos-camera
     SUBDIR += deforaos-player
     SUBDIR += dovi_tool
@@ -299,7 +298,6 @@
     SUBDIR += pwcview
     SUBDIR += py-av
     SUBDIR += py-cec
-    SUBDIR += py-decord
     SUBDIR += py-enzyme
     SUBDIR += py-gstreamer1
     SUBDIR += py-guessit
