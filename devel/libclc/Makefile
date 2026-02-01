@@ -1,8 +1,8 @@
 PORTNAME=	libclc
 DISTVERSION=	${DISTVERSION_${FLAVOR}}
 DISTVERSION_llvm21=	21.1.8
-DISTVERSION_llvm20=	20.1.2
-DISTVERSION_llvm19=	19.1.3
+DISTVERSION_llvm20=	20.1.8
+DISTVERSION_llvm19=	19.1.7
 DISTVERSION_llvm18=	18.1.8
 DISTVERSION_llvm17=	17.0.6
 DISTVERSION_llvm16=	16.0.6
@@ -36,6 +36,9 @@ DISTINFO_FILE=	${.CURDIR}/distinfo.${FLAVOR}
 NO_ARCH=	yes
 
 .include <bsd.port.pre.mk>
+
+post-patch:
+	@${REINPLACE_CMD} -e 's|"$${CMAKE_INSTALL_DATADIR}/pkgconfig"|"$${CMAKE_INSTALL_PREFIX}/libdata/pkgconfig"|g' ${WRKSRC}/CMakeLists.txt
 
 .for i in ${FLAVORS:S/llvm//}
 .if ${i} <= ${FLAVOR:S/llvm//}
