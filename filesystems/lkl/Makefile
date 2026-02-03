@@ -31,13 +31,10 @@ MAKE_JOBS_UNSAFE=yes
 MAKE_ARGS+=	V=1
 # Need ports versions of 'bc', 'ld' to build!
 MAKE_ARGS+=	PATH="${LOCALBASE}/bin:${PATH}" CC="${CC}" HOSTCC="${CC}"
-#CFLAGS+=	-Wno-incompatible-pointer-types -Wno-cast-function-type -Wno-stringop-truncation
 
-#PLIST_FILES=	bin/lklfuse lib/liblkl.a
 PLIST_FILES=	lib/liblkl.a
 
 do-install:
-	#${INSTALL_PROGRAM} ${WRKSRC}/lklfuse ${STAGEDIR}${PREFIX}/bin
 	${INSTALL_DATA} ${WRKSRC}/liblkl.a ${STAGEDIR}${PREFIX}/lib
 
 .include <bsd.port.mk>
