@@ -881,8 +881,8 @@ lib/libopencv_xphoto.so.%%SHORTVERSION%%
 %%PYTHON%%%%PYTHON_SITELIBDIR%%/cv2/ximgproc/segmentation/__init__.pyi
 %%PYTHON%%%%PYTHON_SITELIBDIR%%/cv2/xphoto/__init__.pyi
 libdata/pkgconfig/opencv4.pc
-%%JAVA%%%%JAVASHAREDIR%%/opencv4/libopencv_java4120.so
-%%JAVA%%%%JAVASHAREDIR%%/opencv4/opencv-4120.jar
+%%JAVA%%%%JAVASHAREDIR%%/opencv4/libopencv_java%%SHORTVERSION%%0.so
+%%JAVA%%%%JAVASHAREDIR%%/opencv4/opencv-%%SHORTVERSION%%0.jar
 %%DATADIR%%/haarcascades/haarcascade_eye.xml
 %%DATADIR%%/haarcascades/haarcascade_eye_tree_eyeglasses.xml
 %%DATADIR%%/haarcascades/haarcascade_frontalcatface.xml
