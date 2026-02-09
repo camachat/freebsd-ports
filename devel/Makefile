@@ -664,6 +664,7 @@
     SUBDIR += electron37
     SUBDIR += electron38
     SUBDIR += electron39
+    SUBDIR += electron40
     SUBDIR += elf
     SUBDIR += elf-dissector
     SUBDIR += elfcat
@@ -734,7 +735,6 @@
     SUBDIR += freebsd-gcc13
     SUBDIR += freebsd-gcc14
     SUBDIR += freebsd-gcc15
-    SUBDIR += freebsd-git-devtools
     SUBDIR += freebsd-nvme-shim
     SUBDIR += freebsd-sysroot
     SUBDIR += frink
@@ -838,6 +838,7 @@
     SUBDIR += gio-sharp
     SUBDIR += git
     SUBDIR += git-absorb
+    SUBDIR += freebsd-git-arc
     SUBDIR += git-branchless
     SUBDIR += git-bug
     SUBDIR += git-cinnabar
@@ -1671,6 +1672,7 @@
     SUBDIR += mergify
     SUBDIR += meson
     SUBDIR += meson-python
+    SUBDIR += mfc-candidates
     SUBDIR += microsoft-gsl
     SUBDIR += mill
     SUBDIR += mimalloc
@@ -4360,7 +4362,6 @@
     SUBDIR += py-Jinja2
     SUBDIR += py-Jinja2-doc
     SUBDIR += py-Js2Py
-    SUBDIR += py-Levenshtein
     SUBDIR += py-PYB11Generator
     SUBDIR += py-PeachPy
     SUBDIR += py-PyExecJS
@@ -5221,6 +5222,7 @@
     SUBDIR += py-lazy_imports
     SUBDIR += py-lazy_loader
     SUBDIR += py-legacy-api-wrap
+    SUBDIR += py-levenshtein
     SUBDIR += py-libcst
     SUBDIR += py-libcst03
     SUBDIR += py-libevdev

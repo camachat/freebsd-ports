@@ -1,3 +1,128 @@
+  <vuln vid="f301a241-04d3-11f1-a38c-8447094a420f">
+    <topic>Roundcube -- Multiple vulnerabilities</topic>
+    <affects>
+      <package>
+	<name>roundcube</name>
+	<range><lt>1.6.13,1</lt></range>
+      </package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>The Roundcube project reports:</p>
+	<blockquote cite="https://github.com/roundcube/roundcubemail/releases/tag/1.6.13">
+	  <p>Unspecified CSS injection vulnerability.</p>
+	  <p>Remote image blocking bypass via SVG content.</p>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <url>https://github.com/roundcube/roundcubemail/releases/tag/1.6.13</url>
+    </references>
+    <dates>
+      <discovery>2026-02-08</discovery>
+      <entry>2026-02-08</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="73ff246b-04b2-11f1-84fc-4ccc6adda413">
+    <topic>qt6-webengine -- multiple vulnerabilities</topic>
+    <affects>
+<package>
+<name>qt6-pdf</name>
+<name>qt6-webengine</name>
+<range><lt>6.10.2</lt></range>
+</package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>Qt qtwebengine-chromium repo reports:</p>
+	<blockquote cite="https://code.qt.io/cgit/qt/qtwebengine-chromium.git/log/?h=134-based">
+	  <p>Backports for 7 security bugs in Chromium:</p>
+	  <ul>
+	    <li>CVE-2025-13638: Prevent media element GC in callbacks in WebMediaPlayerMS</li>
+	    <li>CVE-2025-13639: Improve validation of SDP direction in remote description</li>
+	    <li>CVE-2025-13720: Avoid downcasting Hash and Integrity reports</li>
+	    <li>CVE-2025-14174: Metal: Don't use pixelsDepthPitch to size buffers</li>
+	    <li>CVE-2025-14765: Polyfill unary negation and abs for amd mesa frontend</li>
+	    <li>CVE-2026-0908: Use CheckedNumerics in HandleAllocator</li>
+	    <li>CVE-2026-1504: Block opaque 416 responses to non-range requests</li>
+	  </ul>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2025-13638</cvename>
+      <cvename>CVE-2025-13639</cvename>
+      <cvename>CVE-2025-13720</cvename>
+      <cvename>CVE-2025-14174</cvename>
+      <cvename>CVE-2025-14765</cvename>
+      <cvename>CVE-2026-0908</cvename>
+      <cvename>CVE-2026-1504</cvename>
+      <url>https://code.qt.io/cgit/qt/qtwebengine-chromium.git/log/?h=134-based</url>
+    </references>
+    <dates>
+      <discovery>2026-02-02</discovery>
+      <entry>2026-02-08</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="a6effa17-1fd4-4895-8471-d5c684d7807c">
+    <topic>navidrome -- multiple vulnerabilities</topic>
+    <affects>
+      <package>
+	<name>navidrome</name>
+	<range><lt>0.60.0</lt></range>
+      </package>
+    </affects>
+    <description>
+      <body xmlns="http://www.w3.org/1999/xhtml">
+	<p>An XSS vulnerability in the frontend allows a malicious attacker to inject code through the comment metadata of a song to exfiltrate user credentials.</p>
+	<p>Authenticated users can crash the Navidrome server by supplying an excessively large size parameter to /rest/getCoverArt or to a shared-image URL (/share/img/{token}). When processing such requests, the server attempts to create an extremely large resized image, causing uncontrolled memory growth. This triggers the Linux OOM killer, terminates the Navidrome process, and results in a full service outage.</p>
+      </body>
+    </description>
+    <references>
+      <cvename>CVE-2026-25578</cvename>
+      <url>https://github.com/navidrome/navidrome/security/advisories/GHSA-rh3r-8pxm-hg4w</url>
+      <cvename>CVE-2026-25579</cvename>
+      <url>https://github.com/navidrome/navidrome/security/advisories/GHSA-hrr4-3wgr-68x3</url>
+    </references>
+    <dates>
+      <discovery>2026-02-03</discovery>
+      <entry>2026-02-07</entry>
+    </dates>
+  </vuln>
+
+  <vuln vid="1a82bf18-0417-11f1-be6f-5404a68ad561">
+    <topic>traefik -- ACME TLS-ALPN fast path potential DoS</topic>
+    <affects>
+<package>
+<name>traefik</name>
+<range><lt>3.6.7</lt></range>
+</package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>The traefik project reports:</p>
+	<blockquote cite="https://github.com/traefik/traefik/security/advisories/GHSA-cwjm-3f7h-9hwq">
+	  <p>There is a potential vulnerability in Traefik ACME TLS certificates' automatic
+	  generation: the ACME TLS-ALPN fast path can allow unauthenticated clients to
+	  tie up goroutines and file descriptors indefinitely when the ACME TLS challenge
+	  is enabled.A malicious client can open many connections, send a minimal ClientHello
+	  with acme-tls/1, then stop responding, leading to denial of service of the entrypoint.
+	  </p>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2026-22045</cvename>
+      <url>https://nvd.nist.gov/vuln/detail/CVE-2026-22045</url>
+    </references>
+    <dates>
+      <discovery>2026-01-15</discovery>
+      <entry>2026-02-07</entry>
+    </dates>
+  </vuln>
+
   <vuln vid="bfe9adc8-0224-11f1-8790-c5fb948922ad">
     <topic>python -- several security vulnerabilities</topic>
     <affects>
