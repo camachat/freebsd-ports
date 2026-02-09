@@ -1,5 +1,6 @@
 PORTNAME=	libclc
 DISTVERSION=	${DISTVERSION_${FLAVOR}}
+DISTVERSION_llvm22=	22.1.0rc2
 DISTVERSION_llvm21=	21.1.8
 DISTVERSION_llvm20=	20.1.8
 DISTVERSION_llvm19=	19.1.7
@@ -10,6 +11,7 @@ DISTVERSION_llvm15=	15.0.7
 CATEGORIES=	devel
 MASTER_SITES=	https://github.com/llvm/llvm-project/releases/download/llvmorg-${DISTVERSION:S/rc/-rc/}/
 DISTNAME=	libclc-${DISTVERSION}.src
+
 PKGNAMESUFFIX=	-${FLAVOR}
 MAINTAINER=	x11@FreeBSD.org
 COMMENT=	Required library functions for OpenCL C programming language
@@ -23,7 +25,7 @@ LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 BUILD_DEPENDS=	spirv-llvm-translator-${FLAVOR}>0:devel/spirv-llvm-translator@${FLAVOR} \
 		libedit>=0:devel/libedit
 
-FLAVORS=	${21 20 19 18 17 16 15:L:S/^/llvm/}
+FLAVORS=	${22 21 20 19 18 17 16 15:L:S/^/llvm/}
 
 USES=		cmake compiler:c++11-lib llvm:${FLAVOR:S/llvm//},build python:build tar:xz
 USE_LDCONFIG=	${PREFIX}/${FLAVOR}/lib
@@ -33,25 +35,20 @@ CMAKE_ARGS+=	-DLLVM_DIR:PATH="${LOCALBASE}/${FLAVOR}" \
 		-DCMAKE_PREFIX_PATH="${LOCALBASE}/${FLAVOR}"
 CMAKE_INSTALL_PREFIX=		${PREFIX}/${FLAVOR}
 DISTINFO_FILE=	${.CURDIR}/distinfo.${FLAVOR}
+PLIST=	${.CURDIR}/pkg-plist.${FLAVOR}
 NO_ARCH=	yes
+
+.if ${FLAVOR:U} == llvm22
+DISTNAME=	llvm-project-${DISTVERSION:S/rc/-rc/}.src
+DISTFILES=	llvm-project-${DISTVERSION:S/rc/-rc/}.src${EXTRACT_SUFX}
+WRKSRC_SUBDIR=	libclc
+.endif
 
 .include <bsd.port.pre.mk>
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|"$${CMAKE_INSTALL_DATADIR}/pkgconfig"|"$${CMAKE_INSTALL_PREFIX}/libdata/pkgconfig"|g' ${WRKSRC}/CMakeLists.txt
 
-.for i in ${FLAVORS:S/llvm//}
-.if ${i} <= ${FLAVOR:S/llvm//}
-PLIST_SUB+=	${i:S/^/llvm/:tu}=""
-.else
-PLIST_SUB+=	${i:S/^/llvm/:tu}="@comment "
-.endif
-.if ${i} == ${FLAVOR:S/llvm//}
-PLIST_SUB+=	NOT_${i:S/^/llvm/:tu}="@comment "
-.else
-PLIST_SUB+=	NOT_${i:S/^/llvm/:tu}=""
-.endif
-.endfor
 PLIST_SUB+=	LLVM_VERSION=${FLAVOR}
 
 .include <bsd.port.post.mk>
