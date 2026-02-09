@@ -27,6 +27,14 @@ GH_TUPLE=	emscripten-core:emsdk:0742117:emsdk/cmake/external/emsdk \
 		google:libprotobuf-mutator:7a2ed51a6b682a83e345ff49fc4cfd7ca47550db:libprotobuf_mutator/cmake/external/libprotobuf-mutator \
 		onnx:onnx:b8baa8446686496da4cc8fda09f2b6fe65c2a02c:onnx/cmake/external/onnx
 
+OPTIONS_RADIO=	SIMD
+OPTIONS_RADIO_SIMD=	NATIVE AVX AVX2 AVX512
+
+NATIVE_CMAKE_BOOL=	onnxruntime_BUILD_FOR_NATIVE_MACHINE
+AVX_CMAKE_BOOL=	onnxruntime_USE_AVX
+AVX2_CMAKE_BOOL=	onnxruntime_USE_AVX2
+AVX512_CMAKE_BOOL=	onnxruntime_USE_AVX512
+
 CMAKE_SOURCE_PATH=	${WRKSRC}/cmake
 CMAKE_ON=	onnxruntime_BUILD_SHARED_LIB
 CMAKE_OFF=	FETCHCONTENT_FULLY_DISCONNECTED \
