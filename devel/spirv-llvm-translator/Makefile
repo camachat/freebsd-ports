@@ -1,6 +1,7 @@
 PORTNAME=	spirv-llvm-translator
 DISTVERSIONPREFIX=	v
 DISTVERSION=	${DISTVERSION_${FLAVOR}}
+DISTVERSION_llvm22=	22.1.0rc2
 DISTVERSION_llvm21=	21.1.4
 DISTVERSION_llvm20=	20.1.10
 DISTVERSION_llvm19=	19.1.15
@@ -23,7 +24,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE.TXT
 
 LIB_DEPENDS=	libLLVM-${FLAVOR:S/llvm//}.so:devel/${FLAVOR}
 
-FLAVORS=	${21 20 19 18 17 16 15 14 13 12:L:S/^/llvm/}
+FLAVORS=	${22 21 20 19 18 17 16 15 14 13 12:L:S/^/llvm/}
 CONFLICTS_BUILD=${FLAVOR}-lite
 
 USES=		cmake compiler:c++11-lib
@@ -38,6 +39,7 @@ GH_TUPLE=	KhronosGroup:SPIRV-Headers:1.5.4.raytracing.fixed-411-gaa6cef1:headers
 .else
 GH_TUPLE=	KhronosGroup:SPIRV-Headers:1.5.4.raytracing.fixed-448-g9268f30:headers/projects/SPIRV-Headers
 .endif
+
 DISTINFO_FILE=	${.CURDIR}/distinfo.${FLAVOR}
 CXXFLAGS+=	${${FLAVOR:S/llvm//} < 16 && ${COMPILER_TYPE} == clang:?-Wno-enum-constexpr-conversion:}
 CMAKE_ON=	BUILD_SHARED_LIBS LLVM_BUILD_TOOLS LLVM_TOOL_SPIRV_HEADERS_BUILD
@@ -52,6 +54,12 @@ _PLIST_FILES=	bin/llvm-spirv \
 		libdata/pkgconfig/LLVMSPIRVLib.pc
 PLIST_FILES=	${_PLIST_FILES:S,^,${FLAVOR}/,}
 SOVERSION=	${${FLAVOR:S/llvm//}<18:?${DISTVERSION:R:R}:${DISTVERSION:R}}
+
+.if ${FLAVOR:U:Mllvm22}
+GH_TAGNAME=	18066de
+DISTVERSIONPREFIX=
+SOVERSION=	22.1
+.endif
 
 post-patch:
 	@${REINPLACE_CMD} -e '/pkgconfig/s/lib/&data/' \
