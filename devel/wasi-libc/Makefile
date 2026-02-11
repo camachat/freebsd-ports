@@ -18,7 +18,7 @@ LICENSE_PERMS_LLVM2=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 
 BUILD_DEPENDS=	bash:shells/bash
 
-FLAVORS=	19 20 21 18 17
+FLAVORS=	19 20 21 22 18 17
 FLAVOR?=	${FLAVORS:[1]}
 
 USES=		gmake llvm:${FLAVOR}
@@ -38,6 +38,10 @@ MAKE_ENV=	INSTALL_DIR=${STAGEDIR}${WASI_SYSROOT} \
 		EXTRA_CFLAGS="-O2 -DNDEBUG -isystem ${FILESDIR}" \
 		AR=${LOCALBASE}/bin/llvm-ar${LLVM_VERSION} \
 		NM=${LOCALBASE}/bin/llvm-nm${LLVM_VERSION} \
+
+.if ${FLAVOR} >= 22
+MAKE_ARGS=	TARGET_TRIPLE=wasm32-wasip1
+.endif
 
 post-install:
 # NOTE: our llvm ports don't ship stdarg/stddef clang headers, so
