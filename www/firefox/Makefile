@@ -23,8 +23,8 @@ BUILD_DEPENDS=	nspr>=4.32:devel/nspr \
 		nasm:devel/nasm \
 		yasm:devel/yasm \
 		zip:archivers/zip \
-		${LOCALBASE}/share/wasi-sysroot/lib/wasm32-wasi/libc++abi.a:devel/wasi-libcxx${LLVM_VERSION} \
-		${LOCALBASE}/share/wasi-sysroot/lib/wasm32-wasi/libc.a:devel/wasi-libc@${LLVM_VERSION} \
+		wasi-libcxx${LLVM_VERSION}>0:devel/wasi-libcxx${LLVM_VERSION} \
+		wasi-libc${LLVM_VERSION}>0:devel/wasi-libc@${LLVM_VERSION} \
 		wasi-compiler-rt${LLVM_VERSION}>0:devel/wasi-compiler-rt${LLVM_VERSION}
 
 USE_GECKO=	gecko
@@ -45,10 +45,15 @@ MOZ_OPTIONS=	--enable-application=browser \
 		--with-wasi-sysroot=${LOCALBASE}/share/wasi-sysroot
 
 .include "${.CURDIR}/../../www/firefox/Makefile.options"
+.include <bsd.port.pre.mk>
 
 post-extract:
 	@${SED} -e 's|@FIREFOX_ICON@|${FIREFOX_ICON:R}|;s|@MOZILLA@|${MOZILLA}|' \
 		<${FILESDIR}/firefox.desktop.in >${WRKDIR}/${MOZILLA_EXEC_NAME}.desktop
+.if ${LLVM_VERSION} >= 22
+	@${REINPLACE_CMD} -e 's|"wasm32-wasi"|"wasm32-wasip1"|g' \
+		${WRKSRC}/build/moz.configure/toolchain.configure
+.endif
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|%%LOCALBASE%%|${LOCALBASE}|g' \
@@ -59,4 +64,4 @@ post-install:
 	${MKDIR} ${STAGEDIR}${PREFIX}/share/pixmaps
 	${LN} -sf ${FIREFOX_ICON_SRC} ${STAGEDIR}${PREFIX}/share/pixmaps/${FIREFOX_ICON}
 
-.include <bsd.port.mk>
+.include <bsd.port.post.mk>

@@ -101,6 +101,7 @@ MOZ_OPTIONS=	--with-base-browser-version=${DISTVERSION} \
 		--with-branding=browser/branding/tb-release
 
 .include "${.CURDIR}/../../www/firefox/Makefile.options"
+.include <bsd.port.pre.mk>
 
 .include <bsd.port.options.mk>
 
@@ -116,8 +117,8 @@ MOZ_OPTIONS+=	--enable-rust-simd
 .if ${ARCH} == powerpc64
 MOZ_OPTIONS+=	--without-wasm-sandboxed-libraries
 .else
-BUILD_DEPENDS+=	${LOCALBASE}/share/wasi-sysroot/lib/wasm32-wasi/libc++abi.a:devel/wasi-libcxx${LLVM_VERSION} \
-		${LOCALBASE}/share/wasi-sysroot/lib/wasm32-wasi/libc.a:devel/wasi-libc@${LLVM_VERSION} \
+BUILD_DEPENDS+=	wasi-libcxx${LLVM_VERSION}>0:devel/wasi-libcxx${LLVM_VERSION} \
+		wasi-libc${LLVM_VERSION}>0:devel/wasi-libc@${LLVM_VERSION} \
 		wasi-compiler-rt${LLVM_VERSION}>0:devel/wasi-compiler-rt${LLVM_VERSION}
 MOZILLA_PLIST_DIRS=	bin lib share/applications share/pixmaps \
 			share/tor-browser
@@ -131,6 +132,10 @@ post-patch:
 		${WRKSRC}/browser/app/nsBrowserApp.cpp
 	${MKDIR} ${WRKSRC}/tmp-manual
 	${UNZIP_NATIVE_CMD} -d ${WRKSRC}/tmp-manual ${DISTDIR}/${MANUAL}
+.if ${LLVM_VERSION} >= 22
+	@${REINPLACE_CMD} -e 's|"wasm32-wasi"|"wasm32-wasip1"|g' \
+		${WRKSRC}/build/moz.configure/toolchain.configure
+.endif
 
 pre-configure:
 	@${REINPLACE_CMD} 's|export MOZ_GOOGLE_.*||g' ${WRKSRC}/.mozconfig
@@ -180,4 +185,4 @@ post-install:
 	${INSTALL_DATA} ${DISTDIR}/${NOSCRIPT} \
 		"${STAGEDIR}${PREFIX}/lib/tor-browser/distribution/extensions/{73a6fe31-595d-460b-a920-fcc0f8843232}.xpi"
 
-.include <bsd.port.mk>
+.include <bsd.port.post.mk>
