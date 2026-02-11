@@ -29,7 +29,7 @@ BUILD_DEPENDS=	${WASI_SYSROOT}/include/stdarg.h:devel/wasi-libc@${LLVM_VERSION} 
 USES+=		llvm:${LLVM_SUFFIX}
 .endif
 
-LLVM_RELEASE=	${DISTVERSION:C/rc.*//}
+LLVM_RELEASE=	${DISTVERSION:C/-?rc.*//}
 LLVM_SUFFIX=	${LLVM_RELEASE:C/\.[0-9]\.[0-9]$//}
 DISTINFO_FILE=	${PORTSDIR}/${LLVM_PORT}/distinfo
 SSP_UNSAFE=	yes
@@ -37,8 +37,9 @@ NO_ARCH=	yes
 PLIST=		${.CURDIR}/pkg-plist
 
 WASI_SYSROOT=	${LOCALBASE}/share/wasi-sysroot
-TRIPLE=		wasm32-wasi
+TRIPLE?=		wasm32-wasi
 WITHOUT_CPU_CFLAGS=	yes
+CXXFLAGS+=	-fno-exceptions
 # try to sync with https://github.com/WebAssembly/wasi-sdk
 # wasi-sdk.cmake and cmake/wasi-sdk-sysroot.cmake
 CMAKE_INSTALL_PREFIX=	${PREFIX}/share/wasi-sysroot
