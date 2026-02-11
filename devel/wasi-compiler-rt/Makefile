@@ -28,13 +28,14 @@ BUILD_DEPENDS=	${WASI_SYSROOT}/include/stdarg.h:devel/wasi-libc@${LLVM_VERSION}
 USES+=		llvm:${LLVM_SUFFIX}
 .endif
 
-LLVM_RELEASE=	${DISTVERSION:C/rc.*//}
+LLVM_RELEASE=	${DISTVERSION:C/-?rc.*//}
 LLVM_SUFFIX=	${LLVM_RELEASE:C/\.[0-9]\.[0-9]$//}
 DISTINFO_FILE=	${PORTSDIR}/${LLVM_PORT}/distinfo
 NO_ARCH=	yes
 
 WASI_SYSROOT=	${LOCALBASE}/share/wasi-sysroot
-TRIPLE=		wasm32-wasi
+TRIPLE?=		wasm32-wasi
+COMPILER_RT_OS_DIR?=	wasi
 WITHOUT_CPU_CFLAGS=	yes
 # try to sync with https://github.com/WebAssembly/wasi-sdk
 # wasi-sdk.cmake and cmake/wasi-sdk-sysroot.cmake
@@ -68,9 +69,9 @@ CMAKE_ARGS=	-DCMAKE_SYSTEM_NAME=WASI \
 		-DCOMPILER_RT_BUILD_MEMPROF=OFF \
 		-DCOMPILER_RT_BUILD_ORC=OFF \
 		-DCOMPILER_RT_BUILD_GWP_ASAN=OFF \
-		-DCOMPILER_RT_OS_DIR=wasi
+		-DCOMPILER_RT_OS_DIR=${COMPILER_RT_OS_DIR}
 CMAKE_INSTALL_PREFIX=	${LLVM_PREFIX}/lib/clang/${LLVM_VERSION}
 
-PLIST_FILES=	${LLVM_PREFIX}/lib/clang/${LLVM_VERSION}/lib/wasi/libclang_rt.builtins-wasm32.a
+PLIST_FILES?=	${LLVM_PREFIX}/lib/clang/${LLVM_VERSION}/lib/wasi/libclang_rt.builtins-wasm32.a
 
 .include <bsd.port.mk>
