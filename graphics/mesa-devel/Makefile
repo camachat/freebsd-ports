@@ -1,11 +1,12 @@
 PORTNAME=	mesa
-DISTVERSION=	26.0-branchpoint-736
-DISTVERSIONSUFFIX=	-g124d550a943
+DISTVERSION=	26.0.0-rc3
+GL_COMMIT=	4ac24ba7e5a813349082ef87a9a23ec13bf42ea1
+#DISTVERSIONSUFFIX=	-g124d550a943
 CATEGORIES=	graphics
 PKGNAMESUFFIX=	-devel
 
-PATCH_SITES+=	${GL_SITE}/${GL_ACCOUNT}/${GL_PROJECT}/-/commit/
-PATCHFILES+=	de5cf0a44b50.patch:-p1 # https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/22246
+#PATCH_SITES+=	${GL_SITE}/${GL_ACCOUNT}/${GL_PROJECT}/-/commit/
+#PATCHFILES+=	de5cf0a44b50.patch:-p1 # https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/22246
 
 MAINTAINER=	jbeich@FreeBSD.org
 COMMENT=	Bleeding edge Mesa drivers (OpenCL, OpenGL, Vulkan)
@@ -100,7 +101,7 @@ LLVM_CONFIGURE_ENV=	LLVM_CONFIG=${LLVM_CONFIG}
 LLVM_MESON_ENABLED=	llvm
 LLVM_MESON_TRUE=	amd-use-llvm
 
-LTO_MESON_TRUE=		b_lto allow-broken-lto
+LTO_MESON_TRUE=		b_lto
 
 OPENCL_DESC=		Heterogeneous computing via OpenCL (implies LLVM)
 OPENCL_BUILD_DEPENDS=	bindgen:devel/rust-bindgen-cli \
