@@ -114,9 +114,9 @@ PORTAUDIO_LIB_DEPENDS=	libportaudio.so:audio/portaudio
 PORTAUDIO_VARS=		_MODULES_LIST+=portaudio
 PULSEAUDIO_LIB_DEPENDS=	libpulse.so:audio/pulseaudio
 PULSEAUDIO_VARS=	_MODULES_LIST+=pulse
-SDL_LIB_DEPENDS=	libglapi.so:graphics/mesa-libs
-SDL_USES=		sdl
+SDL_USES=		gl sdl
 SDL_VARS=		_MODULES_LIST+=sdl \
+			USE_GL=gbm \
 			USE_SDL=sdl2
 SNAPSHOT_LIB_DEPENDS=	libpng16.so:graphics/png
 SNAPSHOT_VARS=		_MODULES_LIST+=snapshot
