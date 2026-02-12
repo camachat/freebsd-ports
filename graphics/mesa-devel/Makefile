@@ -1,12 +1,8 @@
 PORTNAME=	mesa
-DISTVERSION=	26.0.0-rc3
-GL_COMMIT=	4ac24ba7e5a813349082ef87a9a23ec13bf42ea1
-#DISTVERSIONSUFFIX=	-g124d550a943
+DISTVERSION=	26.0.0
+DISTVERSIONPREFIX=	mesa-
 CATEGORIES=	graphics
 PKGNAMESUFFIX=	-devel
-
-#PATCH_SITES+=	${GL_SITE}/${GL_ACCOUNT}/${GL_PROJECT}/-/commit/
-#PATCHFILES+=	de5cf0a44b50.patch:-p1 # https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/22246
 
 MAINTAINER=	jbeich@FreeBSD.org
 COMMENT=	Bleeding edge Mesa drivers (OpenCL, OpenGL, Vulkan)
