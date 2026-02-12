@@ -10,7 +10,8 @@ BUILD_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}ply>0:devel/py-ply@${PY_FLAVOR}
 
 LIB_DEPENDS+=	libglapi.so:graphics/mesa-libs
 
-USES+=		llvm:lib,noexport
+# LLVM 22 needs Mesa 26.0.0+
+USES+=		llvm:max=21,lib,noexport
 
 OPTIONS_DEFINE=		ZSTD
 OPTIONS_GROUP=		GALLIUM PLATFORM VULKAN
