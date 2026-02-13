@@ -29,7 +29,7 @@ PLIST_SUB=			QTWEBENGINE_DICTIONARIES=${QTWEBENGINE_DICTIONARIES}
 do-install:
 	${INSTALL_PROGRAM} ${WRKSRC}/Dooble ${STAGEDIR}${PREFIX}/bin/${PORTNAME}
 	${MKDIR} ${STAGEDIR}${PREFIX}/share/pixmaps \
-		${STAGEDIR}${QTWEBENGINE_DICTIONARIES}
+		 ${STAGEDIR}${QTWEBENGINE_DICTIONARIES}
 	${INSTALL_DATA} ${WRKSRC}/Icons/Logo/${PORTNAME}.png ${STAGEDIR}${PREFIX}/share/pixmaps
 	${INSTALL_DATA} ${WRKSRC}/qtwebengine_dictionaries/*.bdic ${STAGEDIR}${QTWEBENGINE_DICTIONARIES}
 	${LOCALBASE}/bin/desktop-file-edit \
@@ -39,7 +39,7 @@ do-install:
 		--set-key=Exec \
 		--set-value="/usr/bin/env QTWEBENGINE_DICTIONARIES_PATH=${QTWEBENGINE_DICTIONARIES} ${PREFIX}/bin/${PORTNAME}" \
 		--set-icon=${PREFIX}/share/pixmaps/${PORTNAME}.png \
-${WRKSRC}/Distributions/${PORTNAME}.desktop
+		${WRKSRC}/Distributions/${PORTNAME}.desktop
 	${INSTALL_DATA} ${WRKSRC}/Distributions/${PORTNAME}.desktop ${STAGEDIR}${DESKTOPDIR}
 
 .include <bsd.port.mk>
