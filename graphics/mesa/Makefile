@@ -2,9 +2,8 @@ PORTNAME=	mesa
 DISTVERSION=	26.0.0
 DISTVERSIONPREFIX=	mesa-
 CATEGORIES=	graphics
-PKGNAMESUFFIX=	26
 
-MAINTAINER=	jbeich@FreeBSD.org
+MAINTAINER=	x11@FreeBSD.org
 COMMENT=	Mesa drivers (OpenCL, OpenGL, Vulkan)
 WWW=		https://www.mesa3d.org/
 
