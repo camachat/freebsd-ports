@@ -46,8 +46,6 @@ OPTIONS_EXCLUDE_i386=	LTO # anv: vkcube fails on vkCreateSwapchainKHR
 OPTIONS_EXCLUDE+=	${ARCH:Naarch64:C/.+/panfrost/}
 OPTIONS_EXCLUDE+=	${ARCH:Namd64:Ni386:Nx86_64:C/.+/crocus hasvk/}
 OPTIONS_EXCLUDE+=	${ARCH:Naarch64:Namd64:Ni386:Nx86_64:Npowerpc64*:C/.+/anv iris/}
-OPTIONS_EXCLUDE+=	${"${GL_DEFAULT:S/,/ /g:[-1]}"==${.CURDIR:T}:?COINST:}
-OPTIONS_SLAVE+=		${"${GL_DEFAULT:S/,/ /g:[-1]}"!=${.CURDIR:T}:?COINST:}
 OPTIONS_SUB=		yes
 
 # Convert options to -D<type>-drivers=<driver1,driver2,etc>
@@ -76,14 +74,6 @@ anv_IMPLIES=		OPENCL
 hasvk_DESC=		Ivy Bridge, Haswell, Broadwell
 radv_DESC=		Southern Islands and newer
 radv_BUILD_DEPENDS=	glslangValidator:graphics/glslang
-
-COINST_DESC=		Allow co-installation with another Mesa port
-COINST_MESON_ON=	-Degl-lib-suffix=${PKGNAMESUFFIX}
-COINST_RUN_DEPENDS=	mesa-dri>0:graphics/mesa-dri # ICD
-COINST_PLIST_SUB=	SUFFIX=${PKGNAMESUFFIX}
-COINST_SUB_FILES=	libmap.conf
-COINST_SUB_LIST=	SUFFIX=${PKGNAMESUFFIX}
-COINST_PLIST_SUB_OFF=	SUFFIX=
 
 DRM_DESC=		KMS console support for Vulkan (KHR_display)
 DRM_LIB_DEPENDS=	libudev.so:devel/libudev-devd \
@@ -133,20 +123,5 @@ X11_MESON_OFF=		-Dglx=disabled -Dxlib-lease=disabled
 ZSTD_DESC=		Use ZSTD for shader cache
 ZSTD_LIB_DEPENDS=	libzstd.so:archivers/zstd
 ZSTD_MESON_ENABLED=	zstd
-
-post-patch:
-# Extract (snapshot) version from the port instead of empty string
-	@${REINPLACE_CMD} '/MESA_GIT_SHA1/s/""/" (git-${DISTVERSIONSUFFIX:C/.*-g//})"/' \
-		${WRKSRC}/bin/git_sha1_gen.py
-
-post-patch-COINST-on:
-	@${MV} ${WRKSRC}/src/util/00-${PORTNAME}-defaults.conf \
-		${WRKSRC}/src/util/00-${PKGBASE}-defaults.conf
-	@${MV} ${WRKSRC}/src/util/00-radv-defaults.conf \
-		${WRKSRC}/src/util/00-radv${PKGNAMESUFFIX}-defaults.conf
-
-post-install-COINST-on:
-	@${INSTALL_DATA} ${WRKDIR}/libmap.conf \
-		${STAGEDIR}${PREFIX}/etc/libmap.d/${PKGBASE}.conf
 
 .include <bsd.port.mk>
