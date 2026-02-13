@@ -60,7 +60,7 @@ NVIDIA_IMPLIES=		DRM OPENGL X11
 .MAKEFLAGS:		WITH+=NVIDIA
 .endif
 
-OPENGL_RUN_DEPENDS=	mesa-dri>0:graphics/mesa-dri
+OPENGL_RUN_DEPENDS=	${GL_DEFAULT}>0:graphics/${GL_DEFAULT}
 OPENGL_USE=		GL=egl,glesv2
 OPENGL_VARS=		RENDERERS+=gles2
 
@@ -68,7 +68,7 @@ VULKAN_DESC=		Vulkan renderer
 VULKAN_BUILD_DEPENDS=	glslangValidator:graphics/glslang \
 			vulkan-headers>0:graphics/vulkan-headers
 VULKAN_LIB_DEPENDS=	libvulkan.so:graphics/vulkan-loader
-VULKAN_RUN_DEPENDS=	mesa-dri>0:graphics/mesa-dri
+VULKAN_RUN_DEPENDS=	${GL_DEFAULT}>0:graphics/${GL_DEFAULT}
 VULKAN_VARS=		RENDERERS+=vulkan
 
 X11_LIB_DEPENDS=	libxcb-errors.so:x11/xcb-util-errors \

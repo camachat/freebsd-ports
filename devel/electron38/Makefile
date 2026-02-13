@@ -32,7 +32,7 @@ PATCH_DEPENDS=	git:devel/git \
 BUILD_DEPENDS=	gperf:devel/gperf \
 		bindgen:devel/rust-bindgen-cli \
 		yasm:devel/yasm \
-		${LOCALBASE}/libdata/pkgconfig/dri.pc:graphics/mesa-dri \
+		${LOCALBASE}/libdata/pkgconfig/dri.pc:graphics/${GL_DEFAULT} \
 		rustc:lang/rust \
 		${LOCALBASE}/include/linux/videodev2.h:multimedia/v4l_compat \
 		node${NODEJS_VERSION}>0:www/node${NODEJS_VERSION} \
@@ -245,7 +245,7 @@ ENGFLOW_RECLIENT_CONFIGS_VER=	955335c30a752e9ef7bff375baab5e0819b6c00d
 IGNORE=		you have selected HEIMDAL_BASE but do not have Heimdal installed in base
 .endif
 
-LLVM_DEFAULT=		20
+LLVM_DEFAULT?=		20
 BUILD_DEPENDS+=		clang${LLVM_DEFAULT}:devel/llvm${LLVM_DEFAULT}
 BINARY_ALIAS+=		cpp=${LOCALBASE}/bin/clang-cpp${LLVM_DEFAULT} \
 			cc=${LOCALBASE}/bin/clang${LLVM_DEFAULT} \

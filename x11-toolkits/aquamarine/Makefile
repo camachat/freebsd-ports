@@ -22,7 +22,7 @@ LIB_DEPENDS=	libhyprutils.so:devel/hyprutils \
 		libdisplay-info.so:sysutils/libdisplay-info \
 		libseat.so:sysutils/seatd \
 		libinput.so:x11/libinput
-RUN_DEPENDS=	mesa-dri>0:graphics/mesa-dri
+RUN_DEPENDS=	${GL_DEFAULT}>0:graphics/${GL_DEFAULT}
 
 USES=		cmake:testing compiler:c++11-lib gl pathfix pkgconfig xorg
 

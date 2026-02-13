@@ -50,7 +50,7 @@ LIBLIFTOFF_LIB_DEPENDS=	libliftoff.so:graphics/libliftoff
 LIBLIFTOFF_MESON_ENABLED=	libliftoff
 LIBLIFTOFF_IMPLIES=	DRM
 
-OPENGL_RUN_DEPENDS=	mesa-dri>0:graphics/mesa-dri
+OPENGL_RUN_DEPENDS=	${GL_DEFAULT}>0:graphics/${GL_DEFAULT}
 OPENGL_USE=		GL=egl,glesv2
 OPENGL_VARS=		RENDERERS+=gles2
 
@@ -58,7 +58,7 @@ VULKAN_DESC=		Vulkan renderer
 VULKAN_BUILD_DEPENDS=	glslangValidator:graphics/glslang \
 			vulkan-headers>0:graphics/vulkan-headers
 VULKAN_LIB_DEPENDS=	libvulkan.so:graphics/vulkan-loader
-VULKAN_RUN_DEPENDS=	mesa-dri>0:graphics/mesa-dri \
+VULKAN_RUN_DEPENDS=	${GL_DEFAULT}>0:graphics/${GL_DEFAULT} \
 			vulkan-headers>0:graphics/vulkan-headers
 VULKAN_VARS=		RENDERERS+=vulkan
 

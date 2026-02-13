@@ -5,7 +5,7 @@ COMMENT=	TigerVNC Server
 WWW=		https://tigervnc.org/
 
 PATCH_DEPENDS+=	${NONEXISTENT}:x11-servers/xorg-server:patch
-BUILD_DEPENDS+=	${LOCALBASE}/include/GL/internal/dri_interface.h:graphics/mesa-dri \
+BUILD_DEPENDS+=	${LOCALBASE}/include/GL/internal/dri_interface.h:graphics/${GL_DEFAULT} \
 		${LOCALBASE}/libdata/pkgconfig/fontutil.pc:x11-fonts/font-util \
 		${LOCALBASE}/include/libxcvt/libxcvt.h:x11/libxcvt \
 		bash:shells/bash

@@ -14,7 +14,7 @@ LIB_DEPENDS=	libhamlib.so:comms/hamlib \
 		libliquid.so:comms/liquid-dsp \
 		libpulse.so:audio/pulseaudio \
 		libSoapySDR.so:misc/soapysdr
-RUN_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/dri.pc:graphics/mesa-dri \
+RUN_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/dri.pc:graphics/${GL_DEFAULT} \
 		${PYNUMPY}
 
 USES=		cmake:noninja compiler:c++11-lib gl python

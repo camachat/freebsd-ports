@@ -16,7 +16,7 @@ LIB_DEPENDS=	libudev.so:devel/libudev-devd \
 		libseat.so:sysutils/seatd \
 		libinput.so:x11/libinput \
 		libxkbcommon.so:x11/libxkbcommon
-RUN_DEPENDS=	mesa-dri>0:graphics/mesa-dri \
+RUN_DEPENDS=	${GL_DEFAULT}>0:graphics/${GL_DEFAULT} \
 		vulkan-loader>0:graphics/vulkan-loader \
 		Xwayland:x11-servers/xwayland
 

@@ -249,7 +249,7 @@ GBM_LIB_DEPENDS=	libepoll-shim.so:devel/libepoll-shim \
 			libxkbcommon.so:x11/libxkbcommon \
 			libinput.so:x11/libinput \
 			libdisplay-info.so:sysutils/libdisplay-info
-GBM_RUN_DEPENDS=	mesa-dri>0:graphics/mesa-dri
+GBM_RUN_DEPENDS=	${GL_DEFAULT}>0:graphics/${GL_DEFAULT}
 
 WAYLAND_VARS=		KODI_PLATFORM+=wayland
 WAYLAND_CATEGORIES=	wayland

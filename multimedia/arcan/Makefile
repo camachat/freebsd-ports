@@ -17,7 +17,7 @@ BUILD_DEPENDS=	evdev-proto>0:devel/evdev-proto
 LIB_DEPENDS=	libdrm.so:graphics/libdrm \
 		libfreetype.so:print/freetype2 \
 		libdisplay-info.so:sysutils/libdisplay-info
-RUN_DEPENDS=	mesa-dri>0:graphics/mesa-dri
+RUN_DEPENDS=	${GL_DEFAULT}>0:graphics/${GL_DEFAULT}
 
 USES=		cmake compiler:c11 gl iconv openal pkgconfig sqlite
 USE_LDCONFIG=	yes

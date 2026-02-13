@@ -9,7 +9,7 @@ WWW=		https://arcan-fe.com/
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-BUILD_DEPENDS=	${LOCALBASE}/include/GL/internal/dri_interface.h:graphics/mesa-dri
+BUILD_DEPENDS=	${LOCALBASE}/include/GL/internal/dri_interface.h:graphics/${GL_DEFAULT}
 LIB_DEPENDS=	libepoxy.so:graphics/libepoxy \
 		libarcan_shmif_ext.so:multimedia/arcan \
 		libxcb-util.so:x11/xcb-util \

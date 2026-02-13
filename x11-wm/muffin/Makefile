@@ -15,7 +15,7 @@ LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/COPYING
 
 BUILD_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/xkeyboard-config.pc:x11/xkeyboard-config \
-		${LOCALBASE}/include/EGL/eglmesaext.h:graphics/mesa-dri \
+		${LOCALBASE}/include/EGL/eglmesaext.h:graphics/${GL_DEFAULT} \
 		${LOCALBASE}/include/linux/input.h:devel/evdev-proto
 LIB_DEPENDS=	libgraphene-1.0.so:graphics/graphene \
 		libfribidi.so:converters/fribidi \
@@ -84,7 +84,7 @@ WACOM_MESON_TRUE=	libwacom
 
 WAYLAND_BUILD_DEPENDS=	${LOCALBASE}/include/libdrm/drm_fourcc.h:graphics/libdrm \
 			wayland-protocols>0:graphics/wayland-protocols \
-			Xwayland:x11-servers/xwayland
+			xwayland>0:x11-servers/xwayland
 WAYLAND_LIB_DEPENDS=	libwayland-server.so:graphics/wayland
 WAYLAND_MESON_TRUE=	core_tests wayland
 

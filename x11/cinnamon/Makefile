@@ -14,7 +14,7 @@ LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/COPYING
 
 BUILD_DEPENDS=	pysassc:www/py-libsass@${PY_FLAVOR} \
-		${LOCALBASE}/include/EGL/eglmesaext.h:graphics/mesa-dri
+		${LOCALBASE}/include/EGL/eglmesaext.h:graphics/${GL_DEFAULT}
 LIB_DEPENDS=	libcjs.so:lang/cjs \
 		libmuffin.so:x11-wm/muffin \
 		libcinnamon-desktop.so:x11/cinnamon-desktop \
