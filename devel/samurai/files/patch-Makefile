@@ -1,4 +1,4 @@
---- Makefile.orig	2023-07-08 14:22:22 UTC
+--- Makefile.orig	2024-02-23 18:35:01 UTC
 +++ Makefile
 @@ -1,10 +1,10 @@
  .POSIX:
@@ -9,7 +9,7 @@
  BINDIR=$(PREFIX)/bin
  MANDIR=$(PREFIX)/share/man
 -ALL_CFLAGS=$(CFLAGS) -std=c99 -Wall -Wextra -Wshadow -Wmissing-prototypes -Wpedantic -Wno-unused-parameter
-+ALL_CFLAGS=$(CFLAGS) -std=c99 -Wall -Wextra -Wshadow -Wmissing-prototypes -Wno-unused-parameter -DHAVE_GETLOADAVG
++ALL_CFLAGS=$(CFLAGS) -std=c99 -Wall -Wextra -Wshadow -Wmissing-prototypes -Wno-unused-parameter -DHAVE_GETLOADAVG -D__BSD_VISIBLE
  OBJ=\
  	build.o\
  	deps.o\
