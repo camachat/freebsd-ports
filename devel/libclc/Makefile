@@ -1,6 +1,6 @@
 PORTNAME=	libclc
 DISTVERSION=	${DISTVERSION_${FLAVOR}}
-DISTVERSION_llvm22=	22.1.0rc2
+DISTVERSION_llvm22=	22.1.0rc3
 DISTVERSION_llvm21=	21.1.8
 DISTVERSION_llvm20=	20.1.8
 DISTVERSION_llvm19=	19.1.7
@@ -38,13 +38,13 @@ DISTINFO_FILE=	${.CURDIR}/distinfo.${FLAVOR}
 PLIST=	${.CURDIR}/pkg-plist.${FLAVOR}
 NO_ARCH=	yes
 
+.include <bsd.port.pre.mk>
+
 .if ${FLAVOR:U} == llvm22
 DISTNAME=	llvm-project-${DISTVERSION:S/rc/-rc/}.src
 DISTFILES=	llvm-project-${DISTVERSION:S/rc/-rc/}.src${EXTRACT_SUFX}
 WRKSRC_SUBDIR=	libclc
 .endif
-
-.include <bsd.port.pre.mk>
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|"$${CMAKE_INSTALL_DATADIR}/pkgconfig"|"$${CMAKE_INSTALL_PREFIX}/libdata/pkgconfig"|g' ${WRKSRC}/CMakeLists.txt
