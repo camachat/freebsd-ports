@@ -204,6 +204,7 @@
     SUBDIR += flat-frog
     SUBDIR += flexget
     SUBDIR += flickcurl
+    SUBDIR += fmd-server
     SUBDIR += foreign-cdm
     SUBDIR += forgejo
     SUBDIR += forgejo-lts
@@ -501,7 +502,6 @@
     SUBDIR += nginx-naxsi
     SUBDIR += nginx-prometheus-exporter
     SUBDIR += nginx-ultimate-bad-bot-blocker
-    SUBDIR += nginx-vts-exporter
     SUBDIR += nift
     SUBDIR += node
     SUBDIR += node20

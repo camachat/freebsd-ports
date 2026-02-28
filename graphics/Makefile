@@ -374,8 +374,6 @@
     SUBDIR += imageworsener
     SUBDIR += imc
     SUBDIR += imlib2
-    SUBDIR += imlib2-jxl
-    SUBDIR += imlib2-webp
     SUBDIR += imlib2_loaders
     SUBDIR += impressive
     SUBDIR += imv
@@ -577,6 +575,7 @@
     SUBDIR += linux-rl9-vulkan
     SUBDIR += linux-rl9-wayland
     SUBDIR += lua-gd
+    SUBDIR += lua-qrencode
     SUBDIR += luminance-qt5
     SUBDIR += lunasvg
     SUBDIR += lux
