@@ -1,4 +1,6 @@
 bin/convert_hf_to_gguf.py
+bin/llama-debug-template-parser
+bin/llama-template-analysis
 %%EXAMPLES%%bin/llama-batched
 %%EXAMPLES%%bin/llama-batched-bench
 %%EXAMPLES%%bin/llama-bench
@@ -46,8 +48,8 @@ lib/cmake/llama/llama-config.cmake
 lib/cmake/llama/llama-version.cmake
 lib/libllama.so
 lib/libllama.so.0
-lib/libllama.so.0.0.8182
+lib/libllama.so.0.0.%%DISTVERSION%%
 lib/libmtmd.so
 lib/libmtmd.so.0
-lib/libmtmd.so.0.0.8182
+lib/libmtmd.so.0.0.%%DISTVERSION%%
 libdata/pkgconfig/llama.pc

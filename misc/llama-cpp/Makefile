@@ -1,6 +1,6 @@
 PORTNAME=	llama-cpp
 DISTVERSIONPREFIX=	b
-DISTVERSION=	8182
+DISTVERSION=	8233
 CATEGORIES=	misc # machine-learning
 
 MAINTAINER=	yuri@FreeBSD.org
@@ -15,13 +15,13 @@ BROKEN_i386=	compilation fails, see https://github.com/ggerganov/llama.cpp/issue
 
 LIB_DEPENDS=	libggml-base.so:misc/ggml
 
-USES=		cmake:testing compiler:c++11-lang python:run shebangfix
+USES=		cmake:testing compiler:c++17-lang llvm:build,min=22 python:run shebangfix
 USE_LDCONFIG=	yes
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	ggerganov
 GH_PROJECT=	llama.cpp
-GH_TUPLE=	nomic-ai:kompute:4565194:kompute/kompute
+GH_TUPLE=	nomic-ai:kompute:7c20efa:kompute/kompute
 
 SHEBANG_GLOB=	*.py
 
@@ -35,15 +35,11 @@ CMAKE_TESTING_ON=	LLAMA_BUILD_TESTS
 # user for llama-server, only used when EXAMPLES=ON
 USER=		nobody
 SUB_LIST=	USER=${USER}
+PLIST_SUB+=	DISTVERSION=${DISTVERSION}
 
-OPTIONS_DEFINE=		CURL EXAMPLES VULKAN
-OPTIONS_DEFAULT=	CURL VULKAN
+OPTIONS_DEFINE=		EXAMPLES VULKAN
+OPTIONS_DEFAULT=	VULKAN
 OPTIONS_SUB=		yes
-
-CURL_DESCR=		Use libcurl to download model from an URL
-CURL_CMAKE_BOOL=	LLAMA_CURL
-CURL_USES=		localbase
-CURL_LIB_DEPENDS=	libcurl.so:ftp/curl
 
 EXAMPLES_CMAKE_BOOL=	LLAMA_BUILD_EXAMPLES
 
