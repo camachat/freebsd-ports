@@ -1,5 +1,6 @@
 bin/convert_hf_to_gguf.py
 bin/llama-debug-template-parser
+bin/llama-results
 bin/llama-template-analysis
 %%EXAMPLES%%bin/llama-batched
 %%EXAMPLES%%bin/llama-batched-bench
