@@ -117,6 +117,10 @@
     SUBDIR += bchunk
     SUBDIR += beadm
     SUBDIR += beats8
+    SUBDIR += beats9
+    SUBDIR += beats91
+    SUBDIR += beats92
+    SUBDIR += beats93
     SUBDIR += bfs
     SUBDIR += bhyve-firmware
     SUBDIR += bhyve-rc
