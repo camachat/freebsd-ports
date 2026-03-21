@@ -59,6 +59,7 @@
     SUBDIR += colortail
     SUBDIR += coloursum
     SUBDIR += colwide
+    SUBDIR += comfyui
     SUBDIR += compat.el
     SUBDIR += compat10x
     SUBDIR += compat11x
@@ -445,6 +446,16 @@
     SUBDIR += py-colorbrewer
     SUBDIR += py-colored
     SUBDIR += py-colorzero
+    SUBDIR += py-comfy-aimdo
+    SUBDIR += py-comfy-kitchen
+    SUBDIR += py-comfyui-embedded-docs
+    SUBDIR += py-comfyui-frontend-package
+    SUBDIR += py-comfyui-workflow-templates
+    SUBDIR += py-comfyui-workflow-templates-core
+    SUBDIR += py-comfyui-workflow-templates-media-api
+    SUBDIR += py-comfyui-workflow-templates-media-image
+    SUBDIR += py-comfyui-workflow-templates-media-other
+    SUBDIR += py-comfyui-workflow-templates-media-video
     SUBDIR += py-cppman
     SUBDIR += py-crudini
     SUBDIR += py-csvw
@@ -581,6 +592,7 @@
     SUBDIR += py-sigopt
     SUBDIR += py-smdebug-rulesconfig
     SUBDIR += py-soapy_power
+    SUBDIR += py-spandrel
     SUBDIR += py-spdx-tools
     SUBDIR += py-spinners
     SUBDIR += py-synced-collections

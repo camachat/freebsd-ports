@@ -1,6 +1,6 @@
 PORTNAME=	tor-browser
 DISTVERSION=	16.0a1
-PORTREVISION=	4
+PORTREVISION=	5
 CATEGORIES=	www net security wayland
 TAG_BASE=	d366318349af0977ff23b492fa87e436e8672fdd
 TAG_TOR=	45b67d3be52f79e8a4b361fd04ab12f342ab0016
@@ -101,7 +101,6 @@ MOZ_OPTIONS=	--with-base-browser-version=${DISTVERSION} \
 		--with-branding=browser/branding/tb-release
 
 .include "${.CURDIR}/../../www/firefox/Makefile.options"
-.include <bsd.port.pre.mk>
 
 .include <bsd.port.options.mk>
 
@@ -117,8 +116,8 @@ MOZ_OPTIONS+=	--enable-rust-simd
 .if ${ARCH} == powerpc64
 MOZ_OPTIONS+=	--without-wasm-sandboxed-libraries
 .else
-BUILD_DEPENDS+=	wasi-libcxx${LLVM_VERSION}>0:devel/wasi-libcxx${LLVM_VERSION} \
-		wasi-libc${LLVM_VERSION}>0:devel/wasi-libc@${LLVM_VERSION} \
+BUILD_DEPENDS+=	${LOCALBASE}/share/wasi-sysroot/lib/wasm32-wasip1/libc++abi.a:devel/wasi-libcxx${LLVM_VERSION} \
+		${LOCALBASE}/share/wasi-sysroot/lib/wasm32-wasip1/libc.a:devel/wasi-libc@${LLVM_VERSION} \
 		wasi-compiler-rt${LLVM_VERSION}>0:devel/wasi-compiler-rt${LLVM_VERSION}
 MOZILLA_PLIST_DIRS=	bin lib share/applications share/pixmaps \
 			share/tor-browser
@@ -130,12 +129,12 @@ post-patch:
 		"${WRKSRC}/browser/app/profile/000-tor-browser.js"
 	@${REINPLACE_CMD} 's|%%LOCALBASE%%|${LOCALBASE}|g' \
 		${WRKSRC}/browser/app/nsBrowserApp.cpp
-	${MKDIR} ${WRKSRC}/tmp-manual
-	${UNZIP_NATIVE_CMD} -d ${WRKSRC}/tmp-manual ${DISTDIR}/${MANUAL}
-.if ${LLVM_VERSION} >= 22
-	@${REINPLACE_CMD} -e 's|"wasm32-wasi"|"wasm32-wasip1"|g' \
+.if ${ARCH} != powerpc64
+	@${REINPLACE_CMD} 's|wasm32-wasi|&p1|' \
 		${WRKSRC}/build/moz.configure/toolchain.configure
 .endif
+	${MKDIR} ${WRKSRC}/tmp-manual
+	${UNZIP_NATIVE_CMD} -d ${WRKSRC}/tmp-manual ${DISTDIR}/${MANUAL}
 
 pre-configure:
 	@${REINPLACE_CMD} 's|export MOZ_GOOGLE_.*||g' ${WRKSRC}/.mozconfig
@@ -185,4 +184,4 @@ post-install:
 	${INSTALL_DATA} ${DISTDIR}/${NOSCRIPT} \
 		"${STAGEDIR}${PREFIX}/lib/tor-browser/distribution/extensions/{73a6fe31-595d-460b-a920-fcc0f8843232}.xpi"
 
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>

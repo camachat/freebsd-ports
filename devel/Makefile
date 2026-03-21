@@ -6164,6 +6164,7 @@
     SUBDIR += py-traitlets
     SUBDIR += py-traits
     SUBDIR += py-traittypes
+    SUBDIR += py-trampoline
     SUBDIR += py-transaction
     SUBDIR += py-transitions
     SUBDIR += py-tree-format
@@ -8593,6 +8594,7 @@
     SUBDIR += wasi-compiler-rt19
     SUBDIR += wasi-compiler-rt20
     SUBDIR += wasi-compiler-rt21
+    SUBDIR += wasi-compiler-rt22
     SUBDIR += wasi-libc
     SUBDIR += wasi-libcxx
     SUBDIR += wasi-libcxx17
@@ -8600,6 +8602,7 @@
     SUBDIR += wasi-libcxx19
     SUBDIR += wasi-libcxx20
     SUBDIR += wasi-libcxx21
+    SUBDIR += wasi-libcxx22
     SUBDIR += wasm-server-runner
     SUBDIR += wasm3
     SUBDIR += wasmer

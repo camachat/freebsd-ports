@@ -1,5 +1,6 @@
 PORTNAME=	thunderbird
 DISTVERSION=	148.0.1
+PORTREVISION=	1
 CATEGORIES=	mail news net-im wayland
 MASTER_SITES=	MOZILLA/${PORTNAME}/releases/${DISTVERSION}${DISTVERSIONSUFFIX}/source \
 		MOZILLA/${PORTNAME}/candidates/${DISTVERSION}${DISTVERSIONSUFFIX}-candidates/build1/source
@@ -22,8 +23,8 @@ BUILD_DEPENDS=	nspr>=4.32:devel/nspr \
 		nasm:devel/nasm \
 		yasm:devel/yasm \
 		zip:archivers/zip \
-		wasi-libcxx${LLVM_VERSION}>0:devel/wasi-libcxx${LLVM_VERSION} \
-		wasi-libc${LLVM_VERSION}>0:devel/wasi-libc@${LLVM_VERSION} \
+		${LOCALBASE}/share/wasi-sysroot/lib/wasm32-wasip1/libc++abi.a:devel/wasi-libcxx${LLVM_VERSION} \
+		${LOCALBASE}/share/wasi-sysroot/lib/wasm32-wasip1/libc.a:devel/wasi-libc@${LLVM_VERSION} \
 		wasi-compiler-rt${LLVM_VERSION}>0:devel/wasi-compiler-rt${LLVM_VERSION}
 LIB_DEPENDS=	libjson-c.so:devel/json-c
 
@@ -52,19 +53,16 @@ SYSTEM_PREFS=	${FAKEDIR}/lib/${PORTNAME}/defaults/pref/${PORTNAME}.js
 OPTIONS_DEFAULT=CANBERRA
 
 .include "${.CURDIR}/../../www/firefox/Makefile.options"
-.include <bsd.port.pre.mk>
 
 post-extract:
 	@${SED} -e 's|@PORTNAME_ICON@|${PORTNAME_ICON:R}|;s|@MOZILLA@|${MOZILLA}|' \
 		<${FILESDIR}/thunderbird.desktop.in >${WRKDIR}/${MOZILLA_EXEC_NAME}.desktop
-.if ${LLVM_VERSION} >= 22
-	@${REINPLACE_CMD} -e 's|"wasm32-wasi"|"wasm32-wasip1"|g' \
-		${WRKSRC}/build/moz.configure/toolchain.configure
-.endif
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|%%LOCALBASE%%|${LOCALBASE}|g' \
 		${WRKSRC}/comm/mail/app/nsMailApp.cpp
+	@${REINPLACE_CMD} -e 's|wasm32-wasi|&p1|' \
+		${WRKSRC}/build/moz.configure/toolchain.configure
 
 port-pre-install:
 	${MKDIR} ${STAGEDIR}${PREFIX}/lib/${PORTNAME}/defaults
@@ -73,4 +71,4 @@ post-install:
 	${INSTALL_DATA} ${WRKDIR}/${MOZILLA_EXEC_NAME}.desktop ${STAGEDIR}${PREFIX}/share/applications
 	${LN} -sf ${PORTNAME_ICON_SRC} ${STAGEDIR}${PREFIX}/share/pixmaps/${PORTNAME_ICON}
 
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>

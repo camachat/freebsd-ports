@@ -1,5 +1,5 @@
 PORTNAME=	firefox
-DISTVERSION=	148.0.2
+DISTVERSION=	149.0
 PORTEPOCH=	2
 CATEGORIES=	www wayland
 MASTER_SITES=	MOZILLA/${PORTNAME}/releases/${DISTVERSION}${DISTVERSIONSUFFIX}/source \
@@ -11,7 +11,7 @@ COMMENT=	Web browser based on the browser portion of Mozilla
 WWW=		https://www.firefox.com/
 
 BUILD_DEPENDS=	nspr>=4.32:devel/nspr \
-		nss>=3.120.1:security/nss \
+		nss>=3.121.0:security/nss \
 		libevent>=2.1.8:devel/libevent \
 		harfbuzz>=10.1.0:print/harfbuzz \
 		graphite2>=1.3.14:graphics/graphite2 \
@@ -23,8 +23,8 @@ BUILD_DEPENDS=	nspr>=4.32:devel/nspr \
 		nasm:devel/nasm \
 		yasm:devel/yasm \
 		zip:archivers/zip \
-		wasi-libcxx${LLVM_VERSION}>0:devel/wasi-libcxx${LLVM_VERSION} \
-		wasi-libc${LLVM_VERSION}>0:devel/wasi-libc@${LLVM_VERSION} \
+		${LOCALBASE}/share/wasi-sysroot/lib/wasm32-wasip1/libc++abi.a:devel/wasi-libcxx${LLVM_VERSION} \
+		${LOCALBASE}/share/wasi-sysroot/lib/wasm32-wasip1/libc.a:devel/wasi-libc@${LLVM_VERSION} \
 		wasi-compiler-rt${LLVM_VERSION}>0:devel/wasi-compiler-rt${LLVM_VERSION}
 
 USE_GECKO=	gecko
@@ -45,23 +45,20 @@ MOZ_OPTIONS=	--enable-application=browser \
 		--with-wasi-sysroot=${LOCALBASE}/share/wasi-sysroot
 
 .include "${.CURDIR}/../../www/firefox/Makefile.options"
-.include <bsd.port.pre.mk>
 
 post-extract:
 	@${SED} -e 's|@FIREFOX_ICON@|${FIREFOX_ICON:R}|;s|@MOZILLA@|${MOZILLA}|' \
 		<${FILESDIR}/firefox.desktop.in >${WRKDIR}/${MOZILLA_EXEC_NAME}.desktop
-.if ${LLVM_VERSION} >= 22
-	@${REINPLACE_CMD} -e 's|"wasm32-wasi"|"wasm32-wasip1"|g' \
-		${WRKSRC}/build/moz.configure/toolchain.configure
-.endif
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|%%LOCALBASE%%|${LOCALBASE}|g' \
 		${WRKSRC}/browser/app/nsBrowserApp.cpp
+	@${REINPLACE_CMD} -e 's|wasm32-wasi|&p1|' \
+		${WRKSRC}/build/moz.configure/toolchain.configure
 
 post-install:
 	${INSTALL_DATA} ${WRKDIR}/${MOZILLA_EXEC_NAME}.desktop ${STAGEDIR}${PREFIX}/share/applications
 	${MKDIR} ${STAGEDIR}${PREFIX}/share/pixmaps
 	${LN} -sf ${FIREFOX_ICON_SRC} ${STAGEDIR}${PREFIX}/share/pixmaps/${FIREFOX_ICON}
 
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>

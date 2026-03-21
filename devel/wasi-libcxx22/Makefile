@@ -1,8 +1,6 @@
 # must sync with devel/llvm22
 DISTVERSION=	22.1.0
-
-TRIPLE=		wasm32-wasip1
-PLIST_SUB=	TRIPLE=${TRIPLE}
+PORTREVISION=	1
 
 MASTERDIR=	${.CURDIR}/../wasi-libcxx
 
