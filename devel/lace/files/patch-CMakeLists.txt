@@ -1,6 +1,6 @@
---- CMakeLists.txt.orig	2026-03-06 23:32:42 UTC
+--- CMakeLists.txt.orig	2026-03-24 09:36:43 UTC
 +++ CMakeLists.txt
-@@ -91,7 +91,7 @@ foreach(_target lace lace32 lace128)
+@@ -95,7 +95,7 @@ foreach(_target lace lace32 lace128)
          set(_src ${CMAKE_CURRENT_SOURCE_DIR}/src/lace128.c ${CMAKE_CURRENT_SOURCE_DIR}/src/lace128.h)
      endif()
  
@@ -9,11 +9,3 @@
      add_library(lace::${_target} ALIAS ${_target})
  
      target_compile_features(${_target} PUBLIC c_std_11)
-@@ -109,7 +109,6 @@ foreach(_target lace lace32 lace128)
-         target_compile_options(${_target} PRIVATE
-             -pipe
-             $<$<CONFIG:Debug>:-O0 -Wall -Wextra -Wpedantic>
--            $<$<BOOL:${LACE_NATIVE_OPT}>:-march=native>
-         )
-     elseif(MSVC)
-         target_compile_options(${_target} PUBLIC
