@@ -731,6 +731,7 @@
     SUBDIR += fortytwo-encore
     SUBDIR += fossil
     SUBDIR += fossology-nomos-standalone
+    SUBDIR += foundry
     SUBDIR += fp16
     SUBDIR += fpp
     SUBDIR += freebsd-gcc12
@@ -1663,6 +1664,7 @@
     SUBDIR += magit
     SUBDIR += makedepend
     SUBDIR += malloy
+    SUBDIR += manuals
     SUBDIR += marisa-trie
     SUBDIR += marl
     SUBDIR += massif-visualizer
