@@ -299,6 +299,7 @@
     SUBDIR += bazel
     SUBDIR += bazel-buildtools
     SUBDIR += bazel5
+    SUBDIR += bazel7
     SUBDIR += bbparse
     SUBDIR += bcc
     SUBDIR += bcpp
@@ -8503,6 +8504,7 @@
     SUBDIR += subversion-lts
     SUBDIR += subversive
     SUBDIR += sunpromake
+    SUBDIR += superhtml
     SUBDIR += sv
     SUBDIR += svk
     SUBDIR += svn2git
