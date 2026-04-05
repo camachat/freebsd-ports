@@ -1,0 +1,34 @@
+#!/bin/sh
+
+# $FreeBSD$
+#
+# PROVIDE: diamcp
+# REQUIRE: DAEMON
+# KEYWORD: shutdown
+
+. /etc/rc.subr
+
+name=diamcp
+rcvar=diamcp_enable
+load_rc_config $name
+
+: ${diamcp_enable:="NO"}
+: ${diamcp_user:="nobody"}
+: ${diamcp_log:="/var/log/diamcp.log"}
+: ${diamcp_pidfile:="/var/run/${name}.pid"}
+
+# daemon
+pidfile=${diamcp_pidfile}
+command=/usr/sbin/daemon
+procname="daemon"
+command_args="-f -t ${name} -P ${pidfile} -o ${diamcp_log} %%PYTHON_CMD%% -m diamcp.server"
+start_precmd="diamcp_prestart"
+
+diamcp_prestart()
+{
+    touch ${diamcp_log} ${pidfile}
+    chown ${diamcp_user} ${diamcp_log} ${pidfile} 2>/dev/null || true
+    chmod 640 ${diamcp_log}
+}
+
+run_rc_command "$1"

@@ -1,0 +1,9 @@
+etc/rc.d/diamcp
+%%PYTHON_SITELIBDIR%%/diamcp/requirements.txt
+%%PYTHON_SITELIBDIR%%/diamcp/server.py
+%%PYTHON_SITELIBDIR%%/diamcp/tools/__init__.py
+%%PYTHON_SITELIBDIR%%/diamcp/tools/base.py
+%%PYTHON_SITELIBDIR%%/diamcp/tools/builtin.py
+%%PYTHON_SITELIBDIR%%/diamcp/tools/examples/example_tools.py
+%%PYTHON_SITELIBDIR%%/diamcp/tools/examples/useful_tools.py
+%%PYTHON_SITELIBDIR%%/diamcp/tools/examples/weather_tool.py
