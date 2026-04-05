@@ -300,6 +300,8 @@
     SUBDIR += bazel-buildtools
     SUBDIR += bazel5
     SUBDIR += bazel7
+    SUBDIR += bazel8
+    SUBDIR += bazel9
     SUBDIR += bbparse
     SUBDIR += bcc
     SUBDIR += bcpp
@@ -667,6 +669,7 @@
     SUBDIR += electron38
     SUBDIR += electron39
     SUBDIR += electron40
+    SUBDIR += electron41
     SUBDIR += elf
     SUBDIR += elf-dissector
     SUBDIR += elfcat
