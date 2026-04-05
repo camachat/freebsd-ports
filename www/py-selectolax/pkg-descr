@@ -1,0 +1,13 @@
+Selectolax is a fast HTML5 parser with full CSS selector support.
+
+It is written in Cython and uses the Lexbor engine (preferred) for
+high-performance parsing. This port is built with only the Lexbor
+backend and links against the system www/lexbor library.
+
+Key features:
+- Very fast HTML5 parsing (significantly faster than BeautifulSoup + lxml)
+- Powerful CSS selectors (including :nth-child, :not(), :contains, etc.)
+- Methods like .css(), .css_first(), .text(), .attributes, etc.
+- Low memory usage and excellent performance for web scraping and HTML processing.
+
+WWW: https://github.com/rushter/selectolax
