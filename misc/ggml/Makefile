@@ -26,7 +26,8 @@ CMAKE_ON=	BUILD_SHARED_LIBS \
 		GGML_BMI2 \
 		GGML_AVX \
 		GGML_AVX2
-CMAKE_OFF=	GGML_BUILD_TESTS \
+CMAKE_OFF=	GGML_NATIVE \
+		GGML_BUILD_TESTS \
 		GGML_BUILD_EXAMPLES \
 		GGML_AVX512 \
 		GGML_AVX512_VBMI \
@@ -71,5 +72,6 @@ SUB_LIST+=		BLAS="@comment "
 .endif
 
 # tests as of 0.9.5: 100% tests passed, 0 tests failed out of 21
+# tests as of 0.9.11: 95% tests passed, 1 tests failed out of 21: test-backend-ops fails because of OOM in the 6GB Vulkan device
 
 .include <bsd.port.mk>
