@@ -1,6 +1,6 @@
 PORTNAME=	llama-cpp
 DISTVERSIONPREFIX=	b
-DISTVERSION=	8287
+DISTVERSION=	8664
 CATEGORIES=	misc # machine-learning
 
 MAINTAINER=	yuri@FreeBSD.org
@@ -19,7 +19,7 @@ USES=		cmake:testing compiler:c++17-lang llvm:build,min=22 python:run shebangfix
 USE_LDCONFIG=	yes
 
 USE_GITHUB=	yes
-GH_ACCOUNT=	ggerganov
+GH_ACCOUNT=	ggml-org
 GH_PROJECT=	llama.cpp
 GH_TUPLE=	nomic-ai:kompute:7c20efa:kompute/kompute
 

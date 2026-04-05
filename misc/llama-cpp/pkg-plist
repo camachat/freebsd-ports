@@ -43,6 +43,7 @@ bin/llama-template-analysis
 %%EXAMPLES%%bin/llama-tts
 include/llama-cpp.h
 include/llama.h
+include/mtmd-debug.h
 include/mtmd-helper.h
 include/mtmd.h
 lib/cmake/llama/llama-config.cmake
