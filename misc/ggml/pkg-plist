@@ -21,6 +21,9 @@ lib/cmake/ggml/ggml-version.cmake
 lib/libggml-base.so
 lib/libggml-base.so.0
 lib/libggml-base.so.%%DISTVERSION%%
+%%BLAS%%lib/libggml-blas.so
+%%BLAS%%lib/libggml-blas.so.0
+%%BLAS%%lib/libggml-blas.so.%%DISTVERSION%%
 lib/libggml-cpu.so
 lib/libggml-cpu.so.0
 lib/libggml-cpu.so.%%DISTVERSION%%
