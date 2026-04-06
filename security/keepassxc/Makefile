@@ -37,9 +37,10 @@ WRKSRC=		${WRKDIR}/${DISTNAME:S/-src//}
 OPTIONS_DEFINE=		AUTOTYPE BROWSER DOCS FDOSECRETS KEESHARE NETWORKING \
 			PASSKEYS SSHAGENT TEST YUBIKEY
 OPTIONS_DEFAULT=	AUTOTYPE BROWSER DOCS FDOSECRETS KEESHARE NETWORKING \
-			PASSKEYS SSHAGENT
+			PASSKEYS SSHAGENT YUBIKEY
+OPTIONS_EXCLUDE_FreeBSD_13=	YUBIKEY
+OPTIONS_EXCLUDE_FreeBSD_14=	YUBIKEY
 OPTIONS_SUB=		yes
-PASSKEYS_IMPLIES=	BROWSER
 
 AUTOTYPE_DESC=		Auto-type passwords in input fields
 BROWSER_DESC=		Browser integration with KeePassXC-Browser
@@ -47,8 +48,7 @@ DOCS_DESC=		Enable building of documentation
 FDOSECRETS_DESC=	freedesktop.org secrets service support
 KEESHARE_DESC=		Sharing integration with KeeShare
 NETWORKING_DESC=	Networking support (e.g. for downloading website icons)
-PASSKEYS_DESC=		Passkeys support for browser integration\
-			(requires BROWSER)
+PASSKEYS_DESC=		Passkeys support for browser integration (implies BROWSER)
 SSHAGENT_DESC=		SSH agent support
 YUBIKEY_DESC=		YubiKey support (broken on <= 14.x)
 
@@ -65,6 +65,7 @@ KEESHARE_CMAKE_BOOL=	WITH_XC_KEESHARE
 
 NETWORKING_CMAKE_BOOL=	WITH_XC_NETWORKING
 
+PASSKEYS_IMPLIES=	BROWSER
 PASSKEYS_CMAKE_BOOL=	WITH_XC_BROWSER_PASSKEYS
 
 SSHAGENT_CMAKE_BOOL=	WITH_XC_SSHAGENT
@@ -74,11 +75,5 @@ TEST_TEST_TARGET=	test
 
 YUBIKEY_LIB_DEPENDS=	libpcsclite.so:devel/pcsc-lite
 YUBIKEY_CMAKE_BOOL=	WITH_XC_YUBIKEY
-
-.include <bsd.port.options.mk>
-
-.if ${OSVERSION} >= 1500000
-OPTIONS_DEFAULT+=	YUBIKEY
-.endif
 
 .include <bsd.port.mk>
