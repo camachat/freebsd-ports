@@ -1,6 +1,6 @@
---- Makefile.orig	2026-04-05 23:16:59 UTC
+--- Makefile.orig	2026-04-06 21:46:01 UTC
 +++ Makefile
-@@ -2,10 +2,10 @@ OS=posix
+@@ -2,7 +2,7 @@ OS=posix
  .PHONY: all install clean
  
  OS=posix
@@ -8,8 +8,4 @@
 +PREFIX?=/usr/local
  BINDIR=$(PREFIX)/bin
  MANDIR=$(PREFIX)/share/man
--ALL_CFLAGS=$(CFLAGS) -std=c99 -Wall -Wextra -Wshadow -Wmissing-prototypes -Wpedantic -Wno-unused-parameter
-+ALL_CFLAGS=$(CFLAGS) -std=c99 -Wall -Wextra -Wshadow -Wmissing-prototypes -Wpedantic -Wno-unused-parameter -DHAVE_GETLOADAVG -D__BSD_VISIBLE
- LDLIBS=-lrt
- OBJ=\
- 	build.o\
+ ALL_CFLAGS=$(CFLAGS) -std=c99 -Wall -Wextra -Wshadow -Wmissing-prototypes -Wpedantic -Wno-unused-parameter
