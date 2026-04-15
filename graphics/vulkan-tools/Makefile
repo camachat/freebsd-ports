@@ -1,6 +1,6 @@
 PORTNAME=	vulkan-tools
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.4.336
+DISTVERSION=	1.4.348
 CATEGORIES=	graphics
 
 MAINTAINER=	atanubiswas484@gmail.com

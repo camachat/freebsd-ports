@@ -1,6 +1,6 @@
 PORTNAME=	vulkan-extension-layer
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.4.333
+DISTVERSION=	1.4.341
 CATEGORIES=	graphics
 
 MAINTAINER=	atanubiswas484@gmail.com

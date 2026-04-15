@@ -1,6 +1,6 @@
 PORTNAME=	vulkan-loader
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.4.336
+DISTVERSION=	1.4.348
 CATEGORIES=	graphics devel
 
 MAINTAINER=	atanubiswas484@gmail.com

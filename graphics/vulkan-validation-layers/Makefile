@@ -1,7 +1,6 @@
 PORTNAME=	vulkan-validation-layers
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.4.336
-PORTREVISION=	1
+DISTVERSION=	1.4.348
 CATEGORIES=	graphics
 
 MAINTAINER=	atanubiswas484@gmail.com

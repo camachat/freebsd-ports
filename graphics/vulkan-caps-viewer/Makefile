@@ -1,5 +1,5 @@
 PORTNAME=	vulkan-caps-viewer
-DISTVERSION=	4.10
+DISTVERSION=	4.11
 CATEGORIES=	graphics
 
 MAINTAINER=	atanubiswas484@gmail.com
