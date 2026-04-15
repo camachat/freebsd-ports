@@ -51,6 +51,7 @@ OPTIONS_SUB=		yes
 
 VULKAN_CMAKE_BOOL=	GGML_VULKAN
 VULKAN_BUILD_DEPENDS=	glslc:graphics/shaderc \
+			spirv-headers>0:graphics/spirv-headers \
 			vulkan-headers>0:graphics/vulkan-headers
 VULKAN_LIB_DEPENDS=	libvulkan.so:graphics/vulkan-loader
 
