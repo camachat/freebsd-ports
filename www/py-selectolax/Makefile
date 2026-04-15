@@ -12,21 +12,25 @@ LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
 BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}setuptools>=0:devel/py-setuptools@${PY_FLAVOR} \
-		${PYTHON_PKGNAMEPREFIX}wheel>=0:devel/py-wheel@${PY_FLAVOR} \
-		${PYTHON_PKGNAMEPREFIX}cython>0:lang/cython@${PY_FLAVOR}
+		${PYTHON_PKGNAMEPREFIX}cython>0:lang/cython@${PY_FLAVOR} \
+		${LOCALBASE}/bin/cmake:devel/cmake-core
 
-LIB_DEPENDS=	liblexbor.so:www/lexbor
-
-USES=		python
+USES=		gmake python
 USE_PYTHON=	autoplist distutils
+CFLAGS+=	-Wno-void-pointer-to-enum-cast
 
-# Remove bundled lexbor submodule that already in ports
-post-extract:
-	@${RM} -rf ${WRKSRC}/lexbor/lexbor
+PYDISTUTILS_CONFIGUREARGS+=	--static --lexbor --cython
+PYDISTUTILS_BUILDARGS+=	--static --lexbor --cython
+PYDISTUTILS_INSTALLARGS+=	--static --lexbor --cython
 
 # Fix license conflict in pyproject.toml and any bundled paths
 post-patch:
 	@${REINPLACE_CMD} -E 's/^[[:space:]]*license[[:space:]]*=[[:space:]]*.*/license = {file = "LICENSE"}/' ${WRKSRC}/pyproject.toml
-	@${REINPLACE_CMD} -E 's|lexbor/lexbor|${LOCALBASE}/include/lexbor|g' ${WRKSRC}/setup.py
+	@${REINPLACE_CMD} -E 's|libmodest_static.a|libmodest.a|g' ${WRKSRC}/setup.py
+pre-configure:
+	cd ${WRKSRC}/modest && cmake . -DCMAKE_POSITION_INDEPENDENT_CODE=ON && cmake --build . -j ${MAKE_JOBS_NUMBER}
+	cd ${WRKSRC}/lexbor && cmake . -DCMAKE_POSITION_INDEPENDENT_CODE=ON && cmake --build . -j ${MAKE_JOBS_NUMBER}
+	cd ${WRKSRC}/modest && cmake --install . --prefix .
+	cd ${WRKSRC}/lexbor &&cmake --install . --prefix .
 
 .include <bsd.port.mk>
