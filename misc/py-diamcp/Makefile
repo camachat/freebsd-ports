@@ -22,9 +22,9 @@ RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}mcp>=0:misc/py-mcp@${PY_FLAVOR} \
 
 USES=		python
 USE_GITHUB=	yes
-GH_ACCOUNT=	chartrambiz
+GH_ACCOUNT=	camachat
 GH_PROJECT=	diaMCP
-GH_TAGNAME=	e736513
+GH_TAGNAME=	07deb61
 
 NO_BUILD=	yes
 

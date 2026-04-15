@@ -16,6 +16,7 @@ load_rc_config $name
 : ${diamcp_user:="nobody"}
 : ${diamcp_log:="/var/log/diamcp.log"}
 : ${diamcp_pidfile:="/var/run/${name}.pid"}
+: ${diamcp_chdir:="/workspace"}
 
 # daemon
 pidfile=${diamcp_pidfile}
@@ -26,8 +27,9 @@ start_precmd="diamcp_prestart"
 
 diamcp_prestart()
 {
+    mkdir -p /workspace/tools || true
     touch ${diamcp_log} ${pidfile}
-    chown ${diamcp_user} ${diamcp_log} ${pidfile} 2>/dev/null || true
+    chown -R ${diamcp_user} /workspace ${diamcp_log} ${pidfile} 2>/dev/null || true
     chmod 640 ${diamcp_log}
 }
 
