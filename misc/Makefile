@@ -219,7 +219,6 @@
     SUBDIR += iselect
     SUBDIR += iso-codes
     SUBDIR += jargon
-    SUBDIR += jbidwatcher
     SUBDIR += jojodiff
     SUBDIR += json-tui
     SUBDIR += kbdscan
@@ -288,6 +287,7 @@
     SUBDIR += mate-user-guide
     SUBDIR += mbuffer
     SUBDIR += mc
+    SUBDIR += mcp-inspector
     SUBDIR += mcp-probe
     SUBDIR += mdp
     SUBDIR += meshoptimizer
