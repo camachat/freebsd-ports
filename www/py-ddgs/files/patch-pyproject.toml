@@ -1,0 +1,11 @@
+--- pyproject.toml.orig	2026-04-14 22:11:33 UTC
++++ pyproject.toml
+@@ -7,7 +7,7 @@ requires-python = ">=3.10"
+ description = "Dux Distributed Global Search. A metasearch library that aggregates results from diverse web search services."
+ readme = "README.md"
+ requires-python = ">=3.10"
+-license = "MIT"
++license = { file = "LICENSE.md" }
+ keywords = ["python", "search", "metasearch"]
+ authors = [
+   {name = "deedy5"}
