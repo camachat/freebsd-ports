@@ -1,5 +1,5 @@
 diff --git CMakeLists.txt CMakeLists.txt
-index 5834e544..8454eecd 100644
+index 5834e544..6b65ecd6 100644
 --- CMakeLists.txt
 +++ CMakeLists.txt
 @@ -1,4 +1,11 @@
@@ -38,6 +38,14 @@ index 5834e544..8454eecd 100644
  option(GGML_HIP_NO_VMM                      "ggml: do not try to use HIP VMM"                 ON)
  option(GGML_HIP_ROCWMMA_FATTN               "ggml: enable rocWMMA for FlashAttention"         OFF)
  option(GGML_HIP_MMQ_MFMA                    "ggml: enable MFMA MMA for CDNA in MMQ"           ON)
+@@ -243,6 +254,7 @@ option(GGML_RPC                             "ggml: use RPC"
+ option(GGML_SYCL                            "ggml: use SYCL"                                  OFF)
+ option(GGML_SYCL_F16                        "ggml: use 16 bit floats for sycl calculations"   OFF)
+ option(GGML_SYCL_GRAPH                      "ggml: enable graphs in the SYCL backend"         ON)
++option(GGML_SYCL_HOST_MEM_FALLBACK          "ggml: allow host memory fallback in SYCL reorder (requires kernel 6.8+)" ON)
+ option(GGML_SYCL_DNN                        "ggml: enable oneDNN in the SYCL backend"         ON)
+ set   (GGML_SYCL_TARGET "INTEL" CACHE STRING
+                                             "ggml: sycl target device")
 diff --git cmake/FindNCCL.cmake cmake/FindNCCL.cmake
 new file mode 100644
 index 00000000..67511e2d
@@ -2381,7 +2389,7 @@ index 00000000..1ee3eeb4
 +}
 +
 diff --git src/ggml-backend.cpp src/ggml-backend.cpp
-index 22c65699..1a555bf2 100644
+index 22c65699..d9f8aaec 100644
 --- src/ggml-backend.cpp
 +++ src/ggml-backend.cpp
 @@ -123,7 +123,7 @@ size_t ggml_backend_buffer_get_size(ggml_backend_buffer_t buffer) {
@@ -2560,7 +2568,28 @@ index 22c65699..1a555bf2 100644
      /* .cpy_tensor      = */ NULL,
      /* .clear           = */ ggml_backend_multi_buffer_clear,
      /* .reset           = */ NULL,
-@@ -1899,8 +1988,9 @@ enum ggml_status ggml_backend_tensor_alloc(ggml_backend_buffer_t buffer, struct
+@@ -941,6 +1030,8 @@ void ggml_backend_sched_split_graph(ggml_backend_sched_t sched, struct ggml_cgra
+         GGML_ABORT("%s: failed to initialize context\n", __func__);
+     }
+ 
++    graph->uid = ggml_graph_next_uid();
++
+     // pass 1: assign backends to ops with pre-allocated inputs
+     for (int i = 0; i < graph->n_leafs; i++) {
+         struct ggml_tensor * leaf = graph->leafs[i];
+@@ -1388,6 +1479,11 @@ void ggml_backend_sched_split_graph(ggml_backend_sched_t sched, struct ggml_cgra
+         assert(graph_copy->size > graph_copy->n_leafs);
+         graph_copy->leafs[graph_copy->n_leafs++] = leaf;
+     }
++
++    // set ids for all splits
++    for (int i = 0; i < sched->n_splits; ++i) {
++        sched->splits[i].graph.uid = ggml_graph_next_uid();
++    }
+ }
+ 
+ static bool ggml_backend_sched_alloc_splits(ggml_backend_sched_t sched) {
+@@ -1899,8 +1995,9 @@ enum ggml_status ggml_backend_tensor_alloc(ggml_backend_buffer_t buffer, struct
      GGML_ASSERT(tensor->data == NULL);
      GGML_ASSERT(tensor->view_src == NULL);
      GGML_ASSERT(addr >= ggml_backend_buffer_get_base(buffer));
@@ -2572,7 +2601,7 @@ index 22c65699..1a555bf2 100644
  
      tensor->buffer = buffer;
      tensor->data = addr;
-@@ -2174,6 +2264,8 @@ static const struct ggml_backend_buffer_i ggml_backend_cpu_buffer_i = {
+@@ -2174,6 +2271,8 @@ static const struct ggml_backend_buffer_i ggml_backend_cpu_buffer_i = {
      /* .memset_tensor   = */ ggml_backend_cpu_buffer_memset_tensor,
      /* .set_tensor      = */ ggml_backend_cpu_buffer_set_tensor,
      /* .get_tensor      = */ ggml_backend_cpu_buffer_get_tensor,
@@ -2581,7 +2610,7 @@ index 22c65699..1a555bf2 100644
      /* .cpy_tensor      = */ ggml_backend_cpu_buffer_cpy_tensor,
      /* .clear           = */ ggml_backend_cpu_buffer_clear,
      /* .reset           = */ NULL,
-@@ -2186,6 +2278,8 @@ static const struct ggml_backend_buffer_i ggml_backend_cpu_buffer_from_ptr_i = {
+@@ -2186,6 +2285,8 @@ static const struct ggml_backend_buffer_i ggml_backend_cpu_buffer_from_ptr_i = {
      /* .memset_tensor   = */ ggml_backend_cpu_buffer_memset_tensor,
      /* .set_tensor      = */ ggml_backend_cpu_buffer_set_tensor,
      /* .get_tensor      = */ ggml_backend_cpu_buffer_get_tensor,
@@ -2923,6 +2952,1323 @@ index d3dfd049..644c380c 100644
  #endif
  }
 -
+diff --git src/ggml-cpu/arch/riscv/quants.c src/ggml-cpu/arch/riscv/quants.c
+index d7e9ba46..d3278d64 100644
+--- src/ggml-cpu/arch/riscv/quants.c
++++ src/ggml-cpu/arch/riscv/quants.c
+@@ -15,6 +15,12 @@
+ #include <stdlib.h> // for qsort
+ #include <stdio.h>  // for GGML_ASSERT
+ 
++#ifdef _MSC_VER
++#define NOINLINE __declspec(noinline)
++#else
++#define NOINLINE __attribute__((__noinline__))
++#endif
++
+ #define GROUP_MAX_EPS 1e-15f
+ #define GROUP_MAX_EPS_IQ3_XXS 1e-8f
+ #define GROUP_MAX_EPS_IQ2_S 1e-8f
+@@ -117,7 +123,7 @@ void quantize_row_q8_K(const float * GGML_RESTRICT x, void * GGML_RESTRICT y, in
+     assert(k % QK_K == 0);
+     size_t nb = k / QK_K;
+ 
+-#if defined(__riscv_v_intrinsic)
++#if defined __riscv_v_intrinsic
+     block_q8_K * y_blocks = (block_q8_K *)y;
+     const size_t vlmax_f32m8 = __riscv_vsetvlmax_e32m8();
+ 
+@@ -2053,7 +2059,119 @@ void ggml_vec_dot_q6_K_q8_K(int n, float * GGML_RESTRICT s, size_t bs, const voi
+ }
+ 
+ #if defined __riscv_v_intrinsic
+-static void ggml_vec_dot_iq1_s_q8_K_vl256(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
++static NOINLINE void ggml_vec_dot_iq1_s_q8_K_vl128(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
++    assert(n % QK_K == 0);
++    assert(nrc == 1);
++    UNUSED(nrc);
++    UNUSED(bx);
++    UNUSED(by);
++    UNUSED(bs);
++
++    const block_iq1_s * GGML_RESTRICT x = vx;
++    const block_q8_K  * GGML_RESTRICT y = vy;
++
++    const int nb = n / QK_K;
++
++    float sumf = 0;
++    for (int i = 0; i < nb; ++i) {
++        // Load qh once for the entire superblock.
++        vuint16m1_t qh = __riscv_vle16_v_u16m1(x[i].qh, 8);
++
++        // Calculate ls.
++        vuint16m1_t temp = __riscv_vsrl_vx_u16m1(qh, 12, 8);
++        temp = __riscv_vand_vx_u16m1(temp, 7, 8);
++        vint32m2_t ls = __riscv_vreinterpret_v_u32m2_i32m2(__riscv_vwmulu_vx_u32m2(temp, 2, 8));
++        ls = __riscv_vadd_vx_i32m2(ls, 1, 8);
++
++        // Calculate delta.
++        vbool16_t mask = __riscv_vmseq_vx_u16m1_b16(__riscv_vand_vx_u16m1(qh, 0x8000, 8), 0, 8);
++        vint32m2_t delta_neg = __riscv_vmv_v_x_i32m2(-1, 8);
++        vint32m2_t delta_pos = __riscv_vmv_v_x_i32m2(1, 8);
++        vint32m2_t delta = __riscv_vmerge_vvm_i32m2(delta_neg, delta_pos, mask, 8);
++
++        // Load qs.
++        vuint8m2_t qs = __riscv_vle8_v_u8m2(x[i].qs, 32);
++
++        // Prepare the indices.
++        const uint64_t shift = 0x0009000600030000;
++        vuint16m4_t qh_shift = __riscv_vreinterpret_v_u64m4_u16m4(__riscv_vmv_v_x_u64m4(shift, 8));
++        vuint16m4_t qh_gather_index = __riscv_vreinterpret_v_i16m4_u16m4(
++            __riscv_vdiv_vx_i16m4(__riscv_vreinterpret_v_u16m4_i16m4(__riscv_vid_v_u16m4(32)), 4, 32));
++        vuint16m4_t qh_ext = __riscv_vlmul_ext_v_u16m2_u16m4(__riscv_vlmul_ext_v_u16m1_u16m2(qh));
++        vuint16m4_t qh_index = __riscv_vrgather_vv_u16m4(qh_ext, qh_gather_index, 32);
++        qh_index = __riscv_vsrl_vv_u16m4(qh_index, qh_shift, 32);
++        qh_index = __riscv_vand_vx_u16m4(qh_index, 7, 32);
++        qh_index = __riscv_vsll_vx_u16m4(qh_index, 8, 32);
++        qh_index = __riscv_vor_vv_u16m4(qh_index, __riscv_vzext_vf2_u16m4(qs, 32), 32);
++        vuint16m4_t index = __riscv_vsll_vx_u16m4(qh_index, 3, 32);
++
++        // Final lsums.
++        int32_t lsums_s[8];
++        vint32m1_t one_scalar = __riscv_vmv_v_x_i32m1(0, 1);
++
++        // Sub-blocks 1-2
++        {
++            vuint16m1_t grid_index0 = __riscv_vget_v_u16m4_u16m1(index, 0);
++            vint8m4_t grid0 = __riscv_vreinterpret_v_i64m4_i8m4(__riscv_vluxei16_v_i64m4((const int64_t*)iq1s_grid, grid_index0, 8));
++            vint8m4_t q80 = __riscv_vle8_v_i8m4(&y[i].qs[0], 64);
++            vint16m8_t lsum0 = __riscv_vwmul_vv_i16m8(grid0, q80, 128);
++            lsums_s[0] = __riscv_vmv_x_s_i32m1_i32(__riscv_vwredsum_vs_i16m4_i32m1(__riscv_vget_v_i16m8_i16m4(lsum0, 0), one_scalar, 32));
++            lsums_s[1] = __riscv_vmv_x_s_i32m1_i32(__riscv_vwredsum_vs_i16m4_i32m1(__riscv_vget_v_i16m8_i16m4(lsum0, 1), one_scalar, 32));
++        }
++        __asm__ __volatile__("" ::: "memory");
++        // Sub-blocks 3-4
++        {
++            vuint16m1_t grid_index0 = __riscv_vget_v_u16m4_u16m1(index, 1);
++            vint8m4_t grid0 = __riscv_vreinterpret_v_i64m4_i8m4(__riscv_vluxei16_v_i64m4((const int64_t*)iq1s_grid, grid_index0, 8));
++            vint8m4_t q80 = __riscv_vle8_v_i8m4(&y[i].qs[64], 64);
++            vint16m8_t lsum0 = __riscv_vwmul_vv_i16m8(grid0, q80, 128);
++            lsums_s[2] = __riscv_vmv_x_s_i32m1_i32(__riscv_vwredsum_vs_i16m4_i32m1(__riscv_vget_v_i16m8_i16m4(lsum0, 0), one_scalar, 32));
++            lsums_s[3] = __riscv_vmv_x_s_i32m1_i32(__riscv_vwredsum_vs_i16m4_i32m1(__riscv_vget_v_i16m8_i16m4(lsum0, 1), one_scalar, 32));
++        }
++        __asm__ __volatile__("" ::: "memory");
++        // Sub-blocks 5-6
++        {
++            vuint16m1_t grid_index0 = __riscv_vget_v_u16m4_u16m1(index, 2);
++            vint8m4_t grid0 = __riscv_vreinterpret_v_i64m4_i8m4(__riscv_vluxei16_v_i64m4((const int64_t*)iq1s_grid, grid_index0, 8));
++            vint8m4_t q80 = __riscv_vle8_v_i8m4(&y[i].qs[128], 64);
++            vint16m8_t lsum0 = __riscv_vwmul_vv_i16m8(grid0, q80, 128);
++            lsums_s[4] = __riscv_vmv_x_s_i32m1_i32(__riscv_vwredsum_vs_i16m4_i32m1(__riscv_vget_v_i16m8_i16m4(lsum0, 0), one_scalar, 32));
++            lsums_s[5] = __riscv_vmv_x_s_i32m1_i32(__riscv_vwredsum_vs_i16m4_i32m1(__riscv_vget_v_i16m8_i16m4(lsum0, 1), one_scalar, 32));
++        }
++        __asm__ __volatile__("" ::: "memory");
++        // Sub-blocks 7-8
++        {
++            vuint16m1_t grid_index0 = __riscv_vget_v_u16m4_u16m1(index, 3);
++            vint8m4_t grid0 = __riscv_vreinterpret_v_i64m4_i8m4(__riscv_vluxei16_v_i64m4((const int64_t*)iq1s_grid, grid_index0, 8));
++            vint8m4_t q80 = __riscv_vle8_v_i8m4(&y[i].qs[192], 64);
++            vint16m8_t lsum0 = __riscv_vwmul_vv_i16m8(grid0, q80, 128);
++            lsums_s[6] = __riscv_vmv_x_s_i32m1_i32(__riscv_vwredsum_vs_i16m4_i32m1(__riscv_vget_v_i16m8_i16m4(lsum0, 0), one_scalar, 32));
++            lsums_s[7] = __riscv_vmv_x_s_i32m1_i32(__riscv_vwredsum_vs_i16m4_i32m1(__riscv_vget_v_i16m8_i16m4(lsum0, 1), one_scalar, 32));
++        }
++        __asm__ __volatile__("" ::: "memory");
++        vint32m2_t lsums = __riscv_vle32_v_i32m2(&lsums_s[0], 8);
++
++        // Calculate the bsums.
++        vint16m2_t bsums_0 = __riscv_vle16_v_i16m2(y[i].bsums, 16);
++        const vuint32m2_t bsums_i32 = __riscv_vreinterpret_v_u16m2_u32m2(__riscv_vreinterpret_v_i16m2_u16m2(bsums_0));
++        const vint16m1_t bsums_i32_0 = __riscv_vreinterpret_v_u16m1_i16m1(__riscv_vnsrl_wx_u16m1(bsums_i32, 0, 8));
++        const vint16m1_t bsums_i32_1 = __riscv_vreinterpret_v_u16m1_i16m1(__riscv_vnsrl_wx_u16m1(bsums_i32, 16, 8));
++        const vint32m2_t bsums = __riscv_vwadd_vv_i32m2(bsums_i32_0, bsums_i32_1, 8);
++
++        // Accumulation.
++        vint32m2_t sumi_v = __riscv_vmul_vv_i32m2(ls, lsums, 8);
++        vint32m2_t sumi1_v = __riscv_vmul_vv_i32m2(__riscv_vmul_vv_i32m2(ls, delta, 8), bsums, 8);
++
++        // Update sumf.
++        int sumi = __riscv_vmv_x_s_i32m1_i32(__riscv_vredsum_vs_i32m2_i32m1(sumi_v, __riscv_vmv_v_x_i32m1(0.0f, 1), 8));
++        int sumi1 = __riscv_vmv_x_s_i32m1_i32(__riscv_vredsum_vs_i32m2_i32m1(sumi1_v, __riscv_vmv_v_x_i32m1(0.0f, 1), 8));
++        sumf += GGML_CPU_FP16_TO_FP32(x[i].d) * y[i].d * (sumi + IQ1S_DELTA * sumi1);
++    }
++
++    *s = sumf;
++}
++
++static NOINLINE void ggml_vec_dot_iq1_s_q8_K_vl256(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
+     assert(n % QK_K == 0);
+     assert(nrc == 1);
+     UNUSED(nrc);
+@@ -2153,6 +2271,9 @@ static void ggml_vec_dot_iq1_s_q8_K_vl256(int n, float * GGML_RESTRICT s, size_t
+ void ggml_vec_dot_iq1_s_q8_K(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
+ #if defined __riscv_v_intrinsic
+     switch (__riscv_vlenb() * 8) {
++        case 128:
++            ggml_vec_dot_iq1_s_q8_K_vl128(n, s, bs, vx, bx, vy, by, nrc);
++            break;
+         case 256:
+             ggml_vec_dot_iq1_s_q8_K_vl256(n, s, bs, vx, bx, vy, by, nrc);
+             break;
+@@ -2166,7 +2287,174 @@ void ggml_vec_dot_iq1_s_q8_K(int n, float * GGML_RESTRICT s, size_t bs, const vo
+ }
+ 
+ #if defined __riscv_v_intrinsic
+-static void ggml_vec_dot_iq1_m_q8_K_vl256(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
++static NOINLINE void ggml_vec_dot_iq1_m_q8_K_vl128(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
++    assert(n % QK_K == 0);
++    assert(nrc == 1);
++    UNUSED(nrc);
++    UNUSED(bx);
++    UNUSED(by);
++    UNUSED(bs);
++
++    const block_iq1_m * GGML_RESTRICT x = vx;
++    const block_q8_K  * GGML_RESTRICT y = vy;
++
++    const int nb = n / QK_K;
++
++    iq1m_scale_t scale;
++    float sumf = 0.0f;
++    for (int i = 0; i < nb; ++i) {
++        const int8_t   * q8 = y[i].qs;
++        const uint8_t  * qs = x[i].qs;
++        const uint8_t  * qh = x[i].qh;
++        const uint16_t * sc = (const uint16_t *)x[i].scales;
++
++        scale.u16 = (sc[0] >> 12) | ((sc[1] >> 8) & 0x00f0) | ((sc[2] >> 4) & 0x0f00) | (sc[3] & 0xf000);
++
++        // Accumulators.
++        vint32m4_t acc1 = __riscv_vmv_v_x_i32m4(0, 16);
++        vint32m4_t acc2 = __riscv_vmv_v_x_i32m4(0, 16);
++
++        // We process 8 16-element sub-blocks together.
++        #pragma GCC unroll 1
++        for (int ib = 0; ib < QK_K/128; ib++) {
++            // Load qh for 8 sub-blocks.
++            const vuint8mf2_t qh_8 = __riscv_vle8_v_u8mf2(qh, 8);
++            const vuint16m1_t qh_16_lo = __riscv_vzext_vf2_u16m1(qh_8, 8);
++            const vuint16m1_t qh_16_hi = __riscv_vsll_vx_u16m1(qh_16_lo, 8, 8);
++            const vuint16m2_t qhb = __riscv_vzext_vf2_u16m2(
++                __riscv_vreinterpret_v_u16m1_u8m1(__riscv_vor_vv_u16m1(qh_16_lo, qh_16_hi, 8)), 16);
++            qh += 8;
++
++            // Prepare grid indices.
++            const vuint16m2_t qsb = __riscv_vzext_vf2_u16m2(__riscv_vle8_v_u8m1(&qs[0], 16), 16);
++            const vuint16m2_t shift = __riscv_vreinterpret_v_u32m2_u16m2(__riscv_vmv_v_x_u32m2(0x00040008, 8));
++            vuint16m2_t index = __riscv_vor_vv_u16m2(qsb, __riscv_vand_vx_u16m2(__riscv_vsll_vv_u16m2(qhb, shift, 16), 0x700, 16), 16);
++            index = __riscv_vsll_vx_u16m2(index, 3, 16);
++            qs += 16;
++
++            // Prepare the deltas.
++            const vbool8_t mask = __riscv_vmsgtu_vx_u16m2_b8(
++                __riscv_vand_vv_u16m2(qhb, __riscv_vreinterpret_v_u32m2_u16m2(__riscv_vmv_v_x_u32m2(0x00800008, 8)), 16), 0, 16);
++            const vint64m8_t delta_pos = __riscv_vmv_v_x_i64m8(0x0101010101010101, 16);
++            const vint8m8_t delta = __riscv_vreinterpret_v_i64m8_i8m8(
++                __riscv_vmerge_vxm_i64m8(delta_pos, 0xffffffffffffffff, mask, 16));
++
++            // Sub-blocks 0-3
++            {
++                // Load the grid.
++                const vint8m4_t iq1b = __riscv_vreinterpret_v_i64m4_i8m4(__riscv_vreinterpret_v_u64m4_i64m4(
++                    __riscv_vluxei16_v_u64m4(iq1s_grid, __riscv_vget_v_u16m2_u16m1(index, 0), 8)));
++
++                // Calculate the lsums.
++                //
++                // Sub-block 0, 1
++                {
++                    // Load q8 for each sub-block.
++                    const vint8m2_t q8b = __riscv_vle8_v_i8m2(q8, 32);
++                    q8 += 32;
++
++                    // Calculate the lsums.
++                    const vint16m4_t lsum1 = __riscv_vwmul_vv_i16m4(__riscv_vget_v_i8m4_i8m2(iq1b, 0), q8b, 32);
++                    const vint16m4_t lsum2 = __riscv_vwmul_vv_i16m4(__riscv_vget_v_i8m8_i8m2(delta, 0), q8b, 32);
++
++                    // Prepare the scales.
++                    const int16_t ls_0 = 2*((sc[0] >> 0) & 0x7) + 1;
++                    const int16_t ls_1 = 2*((sc[0] >> 3) & 0x7) + 1;
++
++                    // Accumulate in acc0 and acc1 for each sub-block.
++                    acc1 = __riscv_vwmacc_vx_i32m4(acc1, ls_0, __riscv_vget_v_i16m4_i16m2(lsum1, 0), 16);
++                    acc1 = __riscv_vwmacc_vx_i32m4(acc1, ls_1, __riscv_vget_v_i16m4_i16m2(lsum1, 1), 16);
++                    acc2 = __riscv_vwmacc_vx_i32m4(acc2, ls_0, __riscv_vget_v_i16m4_i16m2(lsum2, 0), 16);
++                    acc2 = __riscv_vwmacc_vx_i32m4(acc2, ls_1, __riscv_vget_v_i16m4_i16m2(lsum2, 1), 16);
++                }
++                __asm__ __volatile__("" ::: "memory");
++                // Sub-block 2, 3
++                {
++                    // Load q8 for each sub-block.
++                    const vint8m2_t q8b = __riscv_vle8_v_i8m2(q8, 32);
++                    q8 += 32;
++
++                    // Calculate the lsums.
++                    const vint16m4_t lsum1 = __riscv_vwmul_vv_i16m4(__riscv_vget_v_i8m4_i8m2(iq1b, 1), q8b, 32);
++                    const vint16m4_t lsum2 = __riscv_vwmul_vv_i16m4(__riscv_vget_v_i8m8_i8m2(delta, 1), q8b, 32);
++
++                    // Prepare the scales.
++                    const int16_t ls_0 = 2*((sc[0] >> 6) & 0x7) + 1;
++                    const int16_t ls_1 = 2*((sc[0] >> 9) & 0x7) + 1;
++
++                    // Accumulate in acc0 and acc1 for each sub-block.
++                    acc1 = __riscv_vwmacc_vx_i32m4(acc1, ls_0, __riscv_vget_v_i16m4_i16m2(lsum1, 0), 16);
++                    acc1 = __riscv_vwmacc_vx_i32m4(acc1, ls_1, __riscv_vget_v_i16m4_i16m2(lsum1, 1), 16);
++                    acc2 = __riscv_vwmacc_vx_i32m4(acc2, ls_0, __riscv_vget_v_i16m4_i16m2(lsum2, 0), 16);
++                    acc2 = __riscv_vwmacc_vx_i32m4(acc2, ls_1, __riscv_vget_v_i16m4_i16m2(lsum2, 1), 16);
++                }
++                sc += 1;
++            }
++            __asm__ __volatile__("" ::: "memory");
++            // Sub-blocks 4-7
++            {
++                // Load the grid.
++                const vint8m4_t iq1b = __riscv_vreinterpret_v_i64m4_i8m4(__riscv_vreinterpret_v_u64m4_i64m4(
++                    __riscv_vluxei16_v_u64m4(iq1s_grid, __riscv_vget_v_u16m2_u16m1(index, 1), 8)));
++
++                // Calculate the lsums.
++                //
++                // Sub-block 4, 5
++                {
++                    // Load q8 for each sub-block.
++                    const vint8m2_t q8b = __riscv_vle8_v_i8m2(q8, 32);
++                    q8 += 32;
++
++                    // Calculate the lsums.
++                    const vint16m4_t lsum1 = __riscv_vwmul_vv_i16m4(__riscv_vget_v_i8m4_i8m2(iq1b, 0), q8b, 32);
++                    const vint16m4_t lsum2 = __riscv_vwmul_vv_i16m4(__riscv_vget_v_i8m8_i8m2(delta, 2), q8b, 32);
++
++                    // Prepare the scales.
++                    const int16_t ls_0 = 2*((sc[0] >> 0) & 0x7) + 1;
++                    const int16_t ls_1 = 2*((sc[0] >> 3) & 0x7) + 1;
++
++                    // Accumulate in acc0 and acc1 for each sub-block.
++                    acc1 = __riscv_vwmacc_vx_i32m4(acc1, ls_0, __riscv_vget_v_i16m4_i16m2(lsum1, 0), 16);
++                    acc1 = __riscv_vwmacc_vx_i32m4(acc1, ls_1, __riscv_vget_v_i16m4_i16m2(lsum1, 1), 16);
++                    acc2 = __riscv_vwmacc_vx_i32m4(acc2, ls_0, __riscv_vget_v_i16m4_i16m2(lsum2, 0), 16);
++                    acc2 = __riscv_vwmacc_vx_i32m4(acc2, ls_1, __riscv_vget_v_i16m4_i16m2(lsum2, 1), 16);
++                }
++                __asm__ __volatile__("" ::: "memory");
++                // Sub-block 6, 7
++                {
++                    // Load q8 for each sub-block.
++                    const vint8m2_t q8b = __riscv_vle8_v_i8m2(q8, 32);
++                    q8 += 32;
++
++                    // Calculate the lsums.
++                    const vint16m4_t lsum1 = __riscv_vwmul_vv_i16m4(__riscv_vget_v_i8m4_i8m2(iq1b, 1), q8b, 32);
++                    const vint16m4_t lsum2 = __riscv_vwmul_vv_i16m4(__riscv_vget_v_i8m8_i8m2(delta, 3), q8b, 32);
++
++                    // Prepare the scales.
++                    const int16_t ls_0 = 2*((sc[0] >> 6) & 0x7) + 1;
++                    const int16_t ls_1 = 2*((sc[0] >> 9) & 0x7) + 1;
++
++                    // Accumulate in acc0 and acc1 for each sub-block.
++                    acc1 = __riscv_vwmacc_vx_i32m4(acc1, ls_0, __riscv_vget_v_i16m4_i16m2(lsum1, 0), 16);
++                    acc1 = __riscv_vwmacc_vx_i32m4(acc1, ls_1, __riscv_vget_v_i16m4_i16m2(lsum1, 1), 16);
++                    acc2 = __riscv_vwmacc_vx_i32m4(acc2, ls_0, __riscv_vget_v_i16m4_i16m2(lsum2, 0), 16);
++                    acc2 = __riscv_vwmacc_vx_i32m4(acc2, ls_1, __riscv_vget_v_i16m4_i16m2(lsum2, 1), 16);
++                }
++                sc += 1;
++            }
++        }
++
++        // Reduce and accumulate in `sumf`.
++        vint32m1_t one = __riscv_vmv_v_x_i32m1(0, 1);
++        int sumi1 = __riscv_vmv_x_s_i32m1_i32(__riscv_vredsum_vs_i32m4_i32m1(acc1, one, 16));
++        int sumi2 = __riscv_vmv_x_s_i32m1_i32(__riscv_vredsum_vs_i32m4_i32m1(acc2, one, 16));
++        sumf += y[i].d * GGML_CPU_FP16_TO_FP32(scale.f16) * (sumi1 + IQ1M_DELTA * sumi2);
++    }
++
++    *s = sumf;
++}
++
++static NOINLINE void ggml_vec_dot_iq1_m_q8_K_vl256(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
+     assert(n % QK_K == 0);
+     assert(nrc == 1);
+     UNUSED(nrc);
+@@ -2193,9 +2481,10 @@ static void ggml_vec_dot_iq1_m_q8_K_vl256(int n, float * GGML_RESTRICT s, size_t
+         vint32m2_t acc1 = __riscv_vmv_v_x_i32m2(0, 16);
+         vint32m2_t acc2 = __riscv_vmv_v_x_i32m2(0, 16);
+ 
+-        // We process 4 sub-blocks together.
++        // We process 8 16-element sub-blocks together.
++        #pragma GCC unroll 1
+         for (int ib = 0; ib < QK_K/128; ib++) {
+-            // Load qh for 4 sub-blocks.
++            // Load qh for 8 sub-blocks.
+             const vuint8mf4_t qh_8 = __riscv_vle8_v_u8mf4(qh, 8);
+             const vuint16mf2_t qh_16_lo = __riscv_vzext_vf2_u16mf2(qh_8, 8);
+             const vuint16mf2_t qh_16_hi = __riscv_vsll_vx_u16mf2(qh_16_lo, 8, 8);
+@@ -2203,6 +2492,8 @@ static void ggml_vec_dot_iq1_m_q8_K_vl256(int n, float * GGML_RESTRICT s, size_t
+                 __riscv_vreinterpret_v_u16mf2_u8mf2(__riscv_vor_vv_u16mf2(qh_16_lo, qh_16_hi, 8)), 16);
+             qh += 8;
+ 
++            __asm__ __volatile__("" ::: "memory");
++
+             // Prepare grid indices.
+             const vuint16m1_t qsb = __riscv_vzext_vf2_u16m1(__riscv_vle8_v_u8mf2(&qs[0], 16), 16);
+             const vuint16m1_t shift = __riscv_vreinterpret_v_u32m1_u16m1(__riscv_vmv_v_x_u32m1(0x00040008, 8));
+@@ -2210,6 +2501,8 @@ static void ggml_vec_dot_iq1_m_q8_K_vl256(int n, float * GGML_RESTRICT s, size_t
+             index = __riscv_vsll_vx_u16m1(index, 3, 16);
+             qs += 16;
+ 
++            __asm__ __volatile__("" ::: "memory");
++
+             // Load the grid.
+             const vint8m4_t iq1b = __riscv_vreinterpret_v_i64m4_i8m4(__riscv_vreinterpret_v_u64m4_i64m4(
+                 __riscv_vluxei16_v_u64m4(iq1s_grid, index, 16)));
+@@ -2218,9 +2511,8 @@ static void ggml_vec_dot_iq1_m_q8_K_vl256(int n, float * GGML_RESTRICT s, size_t
+             const vbool16_t mask = __riscv_vmsgtu_vx_u16m1_b16(
+                 __riscv_vand_vv_u16m1(qhb, __riscv_vreinterpret_v_u32m1_u16m1(__riscv_vmv_v_x_u32m1(0x00800008, 8)), 16), 0, 16);
+             const vint64m4_t delta_pos = __riscv_vmv_v_x_i64m4(0x0101010101010101, 16);
+-            const vint64m4_t delta_neg = __riscv_vmv_v_x_i64m4(0xffffffffffffffff, 16);
+             const vint8m4_t delta = __riscv_vreinterpret_v_i64m4_i8m4(
+-                __riscv_vmerge_vvm_i64m4(delta_pos, delta_neg, mask, 16));
++                __riscv_vmerge_vxm_i64m4(delta_pos, 0xffffffffffffffff, mask, 16));
+ 
+             // Load q8 for sub-blocks.
+             const vint8m4_t q8b = __riscv_vle8_v_i8m4(q8, 128);
+@@ -2261,6 +2553,8 @@ static void ggml_vec_dot_iq1_m_q8_K_vl256(int n, float * GGML_RESTRICT s, size_t
+             acc1 = __riscv_vwmacc_vx_i32m2(acc1, ls_3_1, __riscv_vget_v_i16m8_i16m1(lsum1, 7), 16);
+             acc2 = __riscv_vwmacc_vx_i32m2(acc2, ls_3_0, __riscv_vget_v_i16m8_i16m1(lsum2, 6), 16);
+             acc2 = __riscv_vwmacc_vx_i32m2(acc2, ls_3_1, __riscv_vget_v_i16m8_i16m1(lsum2, 7), 16);
++
++            __asm__ __volatile__("" ::: "memory");
+         }
+ 
+         // Reduce and accumulate in `sumf`.
+@@ -2277,6 +2571,9 @@ static void ggml_vec_dot_iq1_m_q8_K_vl256(int n, float * GGML_RESTRICT s, size_t
+ void ggml_vec_dot_iq1_m_q8_K(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
+ #if defined __riscv_v_intrinsic
+     switch (__riscv_vlenb() * 8) {
++        case 128:
++            ggml_vec_dot_iq1_m_q8_K_vl128(n, s, bs, vx, bx, vy, by, nrc);
++            break;
+         case 256:
+             ggml_vec_dot_iq1_m_q8_K_vl256(n, s, bs, vx, bx, vy, by, nrc);
+             break;
+@@ -2300,8 +2597,7 @@ static const uint8_t sign_bit_masks_arr[64] = {
+     1,2,4,8,16,32,64,128, 1,2,4,8,16,32,64,128, 1,2,4,8,16,32,64,128, 1,2,4,8,16,32,64,128
+ };
+ 
+-
+-static void ggml_vec_dot_iq2_s_q8_K_vl128(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
++static NOINLINE void ggml_vec_dot_iq2_s_q8_K_vl128(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
+     assert(n % QK_K == 0);
+     UNUSED(nrc); UNUSED(bx); UNUSED(by); UNUSED(bs);
+ 
+@@ -2392,7 +2688,7 @@ static void ggml_vec_dot_iq2_s_q8_K_vl128(int n, float * GGML_RESTRICT s, size_t
+     *s = 0.125f * sumf;
+ }
+ 
+-static void ggml_vec_dot_iq2_s_q8_K_vl256(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
++static NOINLINE void ggml_vec_dot_iq2_s_q8_K_vl256(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
+     assert(n % QK_K == 0);
+     UNUSED(nrc); UNUSED(bx); UNUSED(by); UNUSED(bs);
+ 
+@@ -2513,7 +2809,7 @@ void ggml_vec_dot_iq2_s_q8_K(int n, float * GGML_RESTRICT s, size_t bs, const vo
+ #endif
+ }
+ 
+-#if defined(__riscv_v_intrinsic)
++#if defined __riscv_v_intrinsic
+ static const int8_t keven_signs_q2xs[1024] = {
+      1,  1,  1,  1,  1,  1,  1,  1, -1,  1,  1,  1,  1,  1,  1, -1,  1, -1,  1,  1,  1,  1,  1, -1, -1, -1,  1,  1,  1,  1,  1,  1,
+      1,  1, -1,  1,  1,  1,  1, -1, -1,  1, -1,  1,  1,  1,  1,  1,  1, -1, -1,  1,  1,  1,  1,  1, -1, -1, -1,  1,  1,  1,  1, -1,
+@@ -2549,7 +2845,84 @@ static const int8_t keven_signs_q2xs[1024] = {
+      1,  1, -1, -1, -1, -1, -1, -1, -1,  1, -1, -1, -1, -1, -1,  1,  1, -1, -1, -1, -1, -1, -1,  1, -1, -1, -1, -1, -1, -1, -1, -1,
+ };
+ 
+-static void ggml_vec_dot_iq2_xs_q8_K_vl256(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
++static NOINLINE void ggml_vec_dot_iq2_xs_q8_K_vl128(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
++    assert(n % QK_K == 0);
++    assert(nrc == 1);
++    UNUSED(nrc);
++    UNUSED(bx);
++    UNUSED(by);
++    UNUSED(bs);
++
++    const block_iq2_xs * GGML_RESTRICT x = vx;
++    const block_q8_K   * GGML_RESTRICT y = vy;
++
++    const int nb = n / QK_K;
++    const uint64_t * signs64 = (const uint64_t *)keven_signs_q2xs;
++    const uint64_t * grid64  = (const uint64_t *)iq2xs_grid;
++
++    float sumf = 0.0f;
++#pragma GCC unroll 1
++    for (int i = 0; i < nb; ++i) {
++        const float d = GGML_CPU_FP16_TO_FP32(x[i].d) * y[i].d;
++        const uint16_t * GGML_RESTRICT qs = x[i].qs;
++        const int8_t   * GGML_RESTRICT q8 = y[i].qs;
++        const uint8_t  * GGML_RESTRICT scales = x[i].scales;
++
++        int32_t sum_int = 0;
++
++        // Loop over 4 subblocks of 64 elements
++        for (int ib64 = 0; ib64 < QK_K / 64; ++ib64) {
++
++            // Load indices.
++            vuint16m1_t v_qs = __riscv_vle16_v_u16m1(qs, 8);
++            qs += 8;
++
++            // Prepare offsets
++            vuint16m1_t vidx_grid = __riscv_vsll_vx_u16m1(__riscv_vand_vx_u16m1(v_qs, 511, 8), 3, 8);
++            vuint16m1_t vidx_sign = __riscv_vsll_vx_u16m1(__riscv_vsrl_vx_u16m1(v_qs, 9, 8), 3, 8);
++
++            // load values and signs from the lookup tables
++            vuint64m4_t vq2_64 = __riscv_vluxei16_v_u64m4(grid64, vidx_grid, 8);
++            vuint64m4_t vs2_64 = __riscv_vluxei16_v_u64m4(signs64, vidx_sign, 8);
++            vint8m4_t q2u = __riscv_vreinterpret_v_u8m4_i8m4(__riscv_vreinterpret_v_u64m4_u8m4(vq2_64));
++            vint8m4_t q2s = __riscv_vreinterpret_v_u8m4_i8m4(__riscv_vreinterpret_v_u64m4_u8m4(vs2_64));
++            vint8m4_t q2_final = __riscv_vmul_vv_i8m4(q2u, q2s, 64);
++            asm volatile("" ::: "memory");
++            vint8m4_t q8v = __riscv_vle8_v_i8m4(q8, 64);
++            q8 += 64;
++
++            vint16m8_t prod = __riscv_vwmul_vv_i16m8(q2_final, q8v, 64);
++            asm volatile("" ::: "memory");
++            vint32m1_t zero_vec = __riscv_vmv_v_x_i32m1(0, 1);
++
++            int32_t sum0 = __riscv_vmv_x_s_i32m1_i32(__riscv_vwredsum_vs_i16m2_i32m1(
++                           __riscv_vget_v_i16m8_i16m2(prod, 0), zero_vec, 16));
++
++            int32_t sum1 = __riscv_vmv_x_s_i32m1_i32(__riscv_vwredsum_vs_i16m2_i32m1(
++                           __riscv_vget_v_i16m8_i16m2(prod, 1), zero_vec, 16));
++
++            int32_t sum2 = __riscv_vmv_x_s_i32m1_i32(__riscv_vwredsum_vs_i16m2_i32m1(
++                           __riscv_vget_v_i16m8_i16m2(prod, 2), zero_vec, 16));
++
++            int32_t sum3 = __riscv_vmv_x_s_i32m1_i32(__riscv_vwredsum_vs_i16m2_i32m1(
++                           __riscv_vget_v_i16m8_i16m2(prod, 3), zero_vec, 16));
++
++            const uint8_t scale_byte_1 = scales[0];
++            const uint8_t scale_byte_2 = scales[1];
++            scales += 2;
++
++            sum_int += sum0 * ((scale_byte_1 & 0x0F) * 2 + 1);
++            sum_int += sum1 * ((scale_byte_1 >> 4)   * 2 + 1);
++            sum_int += sum2 * ((scale_byte_2 & 0x0F) * 2 + 1);
++            sum_int += sum3 * ((scale_byte_2 >> 4)   * 2 + 1);
++        }
++
++        sumf += d * sum_int;
++    }
++    *s = 0.125f * sumf;
++}
++
++static NOINLINE void ggml_vec_dot_iq2_xs_q8_K_vl256(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
+     assert(n % QK_K == 0);
+     assert(nrc == 1);
+     UNUSED(nrc);
+@@ -2628,6 +3001,9 @@ static void ggml_vec_dot_iq2_xs_q8_K_vl256(int n, float * GGML_RESTRICT s, size_
+ void ggml_vec_dot_iq2_xs_q8_K(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
+ #if defined __riscv_v_intrinsic
+       switch (__riscv_vlenb() * 8) {
++          case 128:
++              ggml_vec_dot_iq2_xs_q8_K_vl128(n, s, bs, vx, bx, vy, by, nrc);
++              break;
+           case 256:
+               ggml_vec_dot_iq2_xs_q8_K_vl256(n, s, bs, vx, bx, vy, by, nrc);
+               break;
+@@ -2641,7 +3017,7 @@ void ggml_vec_dot_iq2_xs_q8_K(int n, float * GGML_RESTRICT s, size_t bs, const v
+ }
+ 
+ #if defined __riscv_v_intrinsic
+-static void ggml_vec_dot_iq2_xxs_q8_K_vl128(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
++static NOINLINE void ggml_vec_dot_iq2_xxs_q8_K_vl128(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
+     assert(n % QK_K == 0);
+     assert(nrc == 1);
+     UNUSED(nrc);
+@@ -2732,7 +3108,7 @@ static void ggml_vec_dot_iq2_xxs_q8_K_vl128(int n, float * GGML_RESTRICT s, size
+     *s = 0.125f * sumf;
+ }
+ 
+-static void ggml_vec_dot_iq2_xxs_q8_K_vl256(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
++static NOINLINE void ggml_vec_dot_iq2_xxs_q8_K_vl256(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
+     assert(n % QK_K == 0);
+     assert(nrc == 1);
+     UNUSED(nrc);
+@@ -2833,7 +3209,7 @@ void ggml_vec_dot_iq2_xxs_q8_K(int n, float * GGML_RESTRICT s, size_t bs, const
+         case 128:
+             ggml_vec_dot_iq2_xxs_q8_K_vl128(n, s, bs, vx, bx, vy, by, nrc);
+             break;
+-        default:
++        default: // 256 and above
+             ggml_vec_dot_iq2_xxs_q8_K_vl256(n, s, bs, vx, bx, vy, by, nrc);
+             break;
+     }
+@@ -2843,7 +3219,102 @@ void ggml_vec_dot_iq2_xxs_q8_K(int n, float * GGML_RESTRICT s, size_t bs, const
+ }
+ 
+ #if defined __riscv_v_intrinsic
+-static void ggml_vec_dot_iq3_s_q8_K_vl256(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
++static NOINLINE void ggml_vec_dot_iq3_s_q8_K_vl128(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
++    assert(n % QK_K == 0);
++    UNUSED(nrc); UNUSED(bx); UNUSED(by); UNUSED(bs);
++    const block_iq3_s * GGML_RESTRICT x = vx;
++    const block_q8_K  * GGML_RESTRICT y = vy;
++
++    const int nb = n / QK_K;
++    const uint32_t * grid32 = (const uint32_t *)iq3s_grid;
++
++    vuint8mf2_t v_id_8  = __riscv_vid_v_u8mf2(8);
++    vuint8m2_t  v_id_32 = __riscv_vid_v_u8m2(32);
++
++    // Keeping these in a tight scope to hint they're only needed for the mask computation.
++    vuint8m2_t v_sign_gather_indices, v_sign_masks;
++    {
++        vuint8m2_t v_shifts  = __riscv_vand_vx_u8m2(v_id_32, 7, 32);
++        vuint8m2_t v_one_32  = __riscv_vmv_v_x_u8m2(1, 32);
++        v_sign_gather_indices = __riscv_vsrl_vx_u8m2(v_id_32, 3, 32);
++        v_sign_masks          = __riscv_vsll_vv_u8m2(v_one_32, v_shifts, 32);
++    }
++
++    float sumf = 0.0f;
++
++    for (int i = 0; i < nb; ++i) {
++        const float d              = GGML_CPU_FP16_TO_FP32(x[i].d);
++        const float combined_scale = d * y[i].d;
++
++        const uint8_t * GGML_RESTRICT qs     = x[i].qs;
++        const uint8_t * GGML_RESTRICT qh     = x[i].qh;
++        const uint8_t * GGML_RESTRICT scales = x[i].scales;
++        const uint8_t * GGML_RESTRICT signs  = x[i].signs;
++        const int8_t  * GGML_RESTRICT q8     = y[i].qs;
++
++        float sum_block = 0.0f;
++
++        for (int ib = 0; ib < 8; ++ib) {
++
++            // Grid lookup
++            vuint8m2_t v_grid_u8;
++            {
++                vuint8mf2_t v_qs_u8 = __riscv_vle8_v_u8mf2(qs, 8);
++                qs += 8;
++
++                uint8_t     qh_val   = *qh++;
++                vuint8mf2_t v_qh_val = __riscv_vmv_v_x_u8mf2(qh_val, 8);
++                v_qh_val = __riscv_vsrl_vv_u8mf2(v_qh_val, v_id_8, 8);
++                v_qh_val = __riscv_vand_vx_u8mf2(v_qh_val, 1, 8);
++
++                vuint16m1_t v_qs_u16 = __riscv_vwcvtu_x_x_v_u16m1(v_qs_u8, 8);
++                v_qs_u16 = __riscv_vsll_vx_u16m1(v_qs_u16, 2, 8);
++
++                vuint16m1_t v_qh_u16 = __riscv_vwcvtu_x_x_v_u16m1(v_qh_val, 8);
++                v_qh_u16 = __riscv_vsll_vx_u16m1(v_qh_u16, 10, 8);
++
++                vuint16m1_t v_grid_offsets = __riscv_vor_vv_u16m1(v_qs_u16, v_qh_u16, 8);
++
++                vuint32m2_t v_grid_packed = __riscv_vluxei16_v_u32m2(grid32, v_grid_offsets, 8);
++                v_grid_u8 = __riscv_vreinterpret_v_u32m2_u8m2(v_grid_packed);
++            }
++            __asm__ volatile ("" ::: "memory");
++
++            //Sign application and dot product
++            int32_t s_val;
++            {
++                vuint8mf4_t v_signs_raw  = __riscv_vle8_v_u8mf4(signs, 4);
++                signs += 4;
++
++                vuint8m2_t v_signs_source = __riscv_vlmul_ext_v_u8mf4_u8m2(v_signs_raw);
++                vuint8m2_t v_signs_bcast  = __riscv_vrgather_vv_u8m2(v_signs_source, v_sign_gather_indices, 32);
++                vuint8m2_t v_sign_bits    = __riscv_vand_vv_u8m2(v_signs_bcast, v_sign_masks, 32);
++                vbool4_t   m_negative     = __riscv_vmsne_vx_u8m2_b4(v_sign_bits, 0, 32);
++
++                vint8m2_t v_q8        = __riscv_vle8_v_i8m2(q8, 32);
++                q8 += 32;
++
++                vint8m2_t  v_q8_signed = __riscv_vrsub_vx_i8m2_mu(m_negative, v_q8, v_q8, 0, 32);
++                vint16m4_t v_dot       = __riscv_vwmulsu_vv_i16m4(v_q8_signed, v_grid_u8, 32);
++
++                vint32m1_t v_zero = __riscv_vmv_v_x_i32m1(0, 1);
++                s_val = __riscv_vmv_x_s_i32m1_i32(
++                    __riscv_vwredsum_vs_i16m4_i32m1(v_dot, v_zero, 32));
++            }
++            __asm__ volatile ("" ::: "memory");
++            {
++                uint8_t sc_byte = scales[ib >> 1];
++                int sc_val = (ib & 1) ? (sc_byte >> 4) : (sc_byte & 0xF);
++                sc_val = sc_val * 2 + 1;
++                sum_block += (float)(s_val * sc_val);
++            }
++        }
++        sumf += sum_block * combined_scale;
++    }
++    *s = sumf;
++}
++
++static NOINLINE void ggml_vec_dot_iq3_s_q8_K_vl256(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
+     assert(n % QK_K == 0);
+     UNUSED(nrc);
+     UNUSED(bx);
+@@ -2942,6 +3413,9 @@ static void ggml_vec_dot_iq3_s_q8_K_vl256(int n, float * GGML_RESTRICT s, size_t
+ void ggml_vec_dot_iq3_s_q8_K(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
+ #if defined __riscv_v_intrinsic
+     switch (__riscv_vlenb() * 8) {
++        case 128:
++             ggml_vec_dot_iq3_s_q8_K_vl128(n, s, bs, vx, bx, vy, by, nrc);
++            break;
+         case 256:
+             ggml_vec_dot_iq3_s_q8_K_vl256(n, s, bs, vx, bx, vy, by, nrc);
+             break;
+@@ -2955,7 +3429,100 @@ void ggml_vec_dot_iq3_s_q8_K(int n, float * GGML_RESTRICT s, size_t bs, const vo
+ }
+ 
+ #if defined __riscv_v_intrinsic
+-static void ggml_vec_dot_iq3_xxs_q8_K_vl256(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
++static NOINLINE void ggml_vec_dot_iq3_xxs_q8_K_vl128(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
++    assert(n % QK_K == 0);
++    UNUSED(nrc); UNUSED(bx); UNUSED(by); UNUSED(bs);
++
++    const block_iq3_xxs * GGML_RESTRICT x = vx;
++    const block_q8_K    * GGML_RESTRICT y = vy;
++    const int nb = n / QK_K;
++
++    const uint64_t * signs64 = (const uint64_t *)keven_signs_q2xs;
++    const uint32_t * grid32  = (const uint32_t *)iq3xxs_grid;
++
++    // constants for unpacking logic
++    const uint32_t shifts_val[8] = {0, 7, 14, 21, 0, 7, 14, 21};
++    vuint32m2_t v_shifts = __riscv_vle32_v_u32m2(shifts_val, 8);
++
++    const uint32_t gather_idx_val[8] = {0, 0, 0, 0, 1, 1, 1, 1};
++    vuint32m2_t v_gather_idx = __riscv_vle32_v_u32m2(gather_idx_val, 8);
++
++    uint32_t aux32[2];
++    float sumf = 0.0f;
++
++    for (int i = 0; i < nb; ++i) {
++        const float d = GGML_CPU_FP16_TO_FP32(x[i].d) * y[i].d;
++
++        const uint8_t * GGML_RESTRICT q3_indices = x[i].qs;
++        const uint8_t * GGML_RESTRICT metadata   = x[i].qs + QK_K/4;
++        const int8_t  * GGML_RESTRICT q8         = y[i].qs;
++
++        float block_sum = 0.0f;
++
++        // Process 64 weights per loop
++        for (int ib = 0; ib < QK_K / 64; ++ib) {
++
++            // load of metadata via memcpy
++            memcpy(aux32, metadata, 2 * sizeof(uint32_t));
++            metadata += 2 * sizeof(uint32_t);
++
++            vuint8m1_t v_q3_idx_u8 = __riscv_vle8_v_u8m1(q3_indices, 16);
++            q3_indices += 16;
++
++            vuint16m2_t v_q3_idx_u16 = __riscv_vwmulu_vx_u16m2(v_q3_idx_u8, 4, 16);
++
++            vuint32m4_t v_q3_magnitudes_u32 = __riscv_vluxei16_v_u32m4(grid32, v_q3_idx_u16, 16);
++
++            vint8m4_t v_q3_magnitudes = __riscv_vreinterpret_v_u8m4_i8m4(
++                                        __riscv_vreinterpret_v_u32m4_u8m4(v_q3_magnitudes_u32));
++
++            vuint32m2_t v_aux = __riscv_vle32_v_u32m2(aux32, 2);
++
++            vuint32m2_t v_aux_expanded = __riscv_vrgather_vv_u32m2(v_aux, v_gather_idx, 8);
++
++            vuint32m2_t v_s_vals_raw = __riscv_vand_vx_u32m2(
++                                       __riscv_vsrl_vv_u32m2(v_aux_expanded, v_shifts, 8), 127, 8);
++
++            vuint16m1_t sign_indices_byte_offset = __riscv_vsll_vx_u16m1(
++                                                   __riscv_vncvt_x_x_w_u16m1(v_s_vals_raw, 8), 3, 8);
++
++            vuint64m4_t v_s_vals_u64 = __riscv_vluxei16_v_u64m4(signs64, sign_indices_byte_offset, 8);
++
++            vint8m4_t v_s_vals = __riscv_vreinterpret_v_u8m4_i8m4(
++                                 __riscv_vreinterpret_v_u64m4_u8m4(v_s_vals_u64));
++
++            vint8m4_t v_q3_signed = __riscv_vmul_vv_i8m4(v_q3_magnitudes, v_s_vals, 64);
++            asm volatile("" ::: "memory");
++            vint8m4_t v_q8 = __riscv_vle8_v_i8m4(q8, 64);
++            q8 += 64;
++
++            vint16m8_t v_dot = __riscv_vwmul_vv_i16m8(v_q8, v_q3_signed, 64);
++
++            asm volatile("" ::: "memory");
++
++            vint16m4_t v_dot_1 = __riscv_vget_v_i16m8_i16m4(v_dot, 0);
++            vint16m4_t v_dot_2 = __riscv_vget_v_i16m8_i16m4(v_dot, 1);
++
++            vint32m1_t v_zero = __riscv_vmv_v_x_i32m1(0, 1);
++
++            vint32m1_t v_sum_1 = __riscv_vwredsum_vs_i16m4_i32m1(v_dot_1, v_zero, 32);
++            vint32m1_t v_sum_2 = __riscv_vwredsum_vs_i16m4_i32m1(v_dot_2, v_zero, 32);
++
++            int32_t sum1_i = __riscv_vmv_x_s_i32m1_i32(v_sum_1);
++            int32_t sum2_i = __riscv_vmv_x_s_i32m1_i32(v_sum_2);
++
++            const float scale1_f = (float)(2 * (aux32[0] >> 28) + 1);
++            const float scale2_f = (float)(2 * (aux32[1] >> 28) + 1);
++
++            block_sum += sum1_i * scale1_f + sum2_i * scale2_f;
++        }
++
++        sumf += d * block_sum;
++    }
++    *s = 0.25f * sumf;
++}
++
++static NOINLINE void ggml_vec_dot_iq3_xxs_q8_K_vl256(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
+     assert(n % QK_K == 0);
+     assert(nrc == 1);
+     UNUSED(nrc);
+@@ -3052,6 +3619,9 @@ static void ggml_vec_dot_iq3_xxs_q8_K_vl256(int n, float * GGML_RESTRICT s, size
+ void ggml_vec_dot_iq3_xxs_q8_K(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
+ #if defined __riscv_v_intrinsic
+     switch (__riscv_vlenb() * 8) {
++        case 128:
++            ggml_vec_dot_iq3_xxs_q8_K_vl128(n, s, bs, vx, bx, vy, by, nrc);
++            break;
+         case 256:
+             ggml_vec_dot_iq3_xxs_q8_K_vl256(n, s, bs, vx, bx, vy, by, nrc);
+             break;
+@@ -3065,7 +3635,7 @@ void ggml_vec_dot_iq3_xxs_q8_K(int n, float * GGML_RESTRICT s, size_t bs, const
+ }
+ 
+ #if defined __riscv_v_intrinsic
+-static void ggml_vec_dot_iq4_nl_q8_0_vl128(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
++static NOINLINE void ggml_vec_dot_iq4_nl_q8_0_vl128(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
+     assert(nrc == 1);
+     UNUSED(nrc);
+     UNUSED(bx);
+@@ -3095,12 +3665,14 @@ static void ggml_vec_dot_iq4_nl_q8_0_vl128(int n, float * GGML_RESTRICT s, size_
+         vint8m2_t q8b2 = __riscv_vle8_v_i8m2(y[ib + 1].qs, 32);
+ 
+         // Unpack the weight blocks.
+-        vuint8m2_t iq4bits1;
+-        iq4bits1 = __riscv_vset_v_u8m1_u8m2(iq4bits1, 0, __riscv_vand_vx_u8m1(iq4_packed1, 0xf, 16));
+-        iq4bits1 = __riscv_vset_v_u8m1_u8m2(iq4bits1, 1, __riscv_vsrl_vx_u8m1(iq4_packed1, 4, 16));
+-        vuint8m2_t iq4bits2;
+-        iq4bits2 = __riscv_vset_v_u8m1_u8m2(iq4bits2, 0, __riscv_vand_vx_u8m1(iq4_packed2, 0xf, 16));
+-        iq4bits2 = __riscv_vset_v_u8m1_u8m2(iq4bits2, 1, __riscv_vsrl_vx_u8m1(iq4_packed2, 4, 16));
++        vuint8m2_t iq4bits1 = __riscv_vcreate_v_u8m1_u8m2(
++            __riscv_vand_vx_u8m1(iq4_packed1, 0xf, 16),
++            __riscv_vsrl_vx_u8m1(iq4_packed1, 4, 16)
++        );
++        vuint8m2_t iq4bits2 = __riscv_vcreate_v_u8m1_u8m2(
++            __riscv_vand_vx_u8m1(iq4_packed2, 0xf, 16),
++            __riscv_vsrl_vx_u8m1(iq4_packed2, 4, 16)
++        );
+ 
+         // Gather values from the lookup table.
+         vint8m2_t iq4b1 = __riscv_vrgather_vv_i8m2(values, iq4bits1, 32);
+@@ -3118,7 +3690,7 @@ static void ggml_vec_dot_iq4_nl_q8_0_vl128(int n, float * GGML_RESTRICT s, size_
+     *s = sumf;
+ }
+ 
+-static void ggml_vec_dot_iq4_nl_q8_0_vl256(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
++static NOINLINE void ggml_vec_dot_iq4_nl_q8_0_vl256(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
+     assert(nrc == 1);
+     UNUSED(nrc);
+     UNUSED(bx);
+@@ -3182,7 +3754,7 @@ void ggml_vec_dot_iq4_nl_q8_0(int n, float * GGML_RESTRICT s, size_t bs, const v
+         case 128:
+             ggml_vec_dot_iq4_nl_q8_0_vl128(n, s, bs, vx, bx, vy, by, nrc);
+             break;
+-        default:
++        default: // 256 and above
+             ggml_vec_dot_iq4_nl_q8_0_vl256(n, s, bs, vx, bx, vy, by, nrc);
+             break;
+     }
+@@ -3192,7 +3764,73 @@ void ggml_vec_dot_iq4_nl_q8_0(int n, float * GGML_RESTRICT s, size_t bs, const v
+ }
+ 
+ #if defined __riscv_v_intrinsic
+-static void ggml_vec_dot_iq4_xs_q8_K_vl256(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
++static NOINLINE void ggml_vec_dot_iq4_xs_q8_K_vl128(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
++    assert(nrc == 1);
++    UNUSED(nrc);
++    UNUSED(bx);
++    UNUSED(by);
++    UNUSED(bs);
++    assert(n % QK_K == 0);
++
++    const block_iq4_xs * GGML_RESTRICT x = vx;
++    const block_q8_K   * GGML_RESTRICT y = vy;
++
++    const int nb = n / QK_K;
++
++    const vint8m4_t values = __riscv_vle8_v_i8m4(kvalues_iq4nl, 16);
++    float sumf = 0;
++
++    for (int ibl = 0; ibl < nb; ++ibl) {
++        const int8_t  * q8 = y[ibl].qs;
++        const uint8_t * iq4 = x[ibl].qs;
++        uint16_t h = x[ibl].scales_h;
++
++        // We process 2 sub-blocks together.
++        int sumi1 = 0, sumi2 = 0;
++        #pragma GCC unroll 1
++        for (int ib = 0; ib < QK_K / 64; ++ib) {
++            // Load the packed weights.
++            const vuint8m2_t iq4_packed = __riscv_vle8_v_u8m2(iq4, 32);
++            iq4 += 32;
++
++            // Unpack the weight blocks.
++            const vuint8m2_t iq4bits_lo = __riscv_vand_vx_u8m2(iq4_packed, 0xf, 32);
++            const vuint8m2_t iq4bits_hi = __riscv_vsrl_vx_u8m2(iq4_packed, 4, 32);
++            const vuint8m4_t iq4bits = __riscv_vcreate_v_u8m2_u8m4(iq4bits_lo, iq4bits_hi);
++            const vuint8m4_t iq4bits_reorder = __riscv_vcreate_v_u8m1_u8m4(
++                __riscv_vmv_v_v_u8m1(__riscv_vget_v_u8m4_u8m1(iq4bits, 0), 16),
++                __riscv_vmv_v_v_u8m1(__riscv_vget_v_u8m4_u8m1(iq4bits, 2), 16),
++                __riscv_vmv_v_v_u8m1(__riscv_vget_v_u8m4_u8m1(iq4bits, 1), 16),
++                __riscv_vmv_v_v_u8m1(__riscv_vget_v_u8m4_u8m1(iq4bits, 3), 16)
++            );
++            const vint8m4_t iq4b = __riscv_vrgather_vv_i8m4(values, iq4bits_reorder, 64);
++
++            // Multiply with activations.
++            const vint8m4_t q8b = __riscv_vle8_v_i8m4(q8, 64);
++            q8 += 64;
++            const vint16m8_t prod = __riscv_vwmul_vv_i16m8(iq4b, q8b, 64);
++
++            // Reduce separately.
++            const int acc0 = __riscv_vmv_x_s_i32m1_i32(__riscv_vwredsum_vs_i16m4_i32m1(__riscv_vget_v_i16m8_i16m4(prod, 0), __riscv_vmv_v_x_i32m1(0, 1), 32));
++            const int acc1 = __riscv_vmv_x_s_i32m1_i32(__riscv_vwredsum_vs_i16m4_i32m1(__riscv_vget_v_i16m8_i16m4(prod, 1), __riscv_vmv_v_x_i32m1(0, 1), 32));
++
++            const int ls1 = ((x[ibl].scales_l[ib] & 0xf)  | ((h << 4) & 0x30)) - 32;
++            const int ls2 = ((x[ibl].scales_l[ib] >>  4)  | ((h << 2) & 0x30)) - 32;
++            h >>= 4;
++
++            sumi1 += acc0 * ls1;
++            sumi2 += acc1 * ls2;
++
++            __asm__ __volatile__("" ::: "memory");
++        }
++
++        sumf += GGML_CPU_FP16_TO_FP32(x[ibl].d) * y[ibl].d * (sumi1 + sumi2);
++    }
++
++    *s = sumf;
++}
++
++static NOINLINE void ggml_vec_dot_iq4_xs_q8_K_vl256(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
+     assert(nrc == 1);
+     UNUSED(nrc);
+     UNUSED(bx);
+@@ -3207,16 +3845,15 @@ static void ggml_vec_dot_iq4_xs_q8_K_vl256(int n, float * GGML_RESTRICT s, size_
+ 
+     const vint8m4_t values = __riscv_vle8_v_i8m4(kvalues_iq4nl, 16);
+     float sumf = 0;
+-    int acc[4];
+ 
+     // Indices for re-ordering IQ4 data.
+-    uint64_t index[16] = {
++    uint16_t index[16] = {
+         0, 1, 8, 9,
+         2, 3, 10, 11,
+         4, 5,12, 13,
+         6, 7, 14, 15,
+     };
+-    vuint64m4_t i_vec = __riscv_vle64_v_u64m4(index, 16);
++    vuint16m1_t i_vec = __riscv_vle16_v_u16m1(index, 16);
+ 
+     for (int ibl = 0; ibl < nb; ++ibl) {
+         const int8_t  * q8 = y[ibl].qs;
+@@ -3225,30 +3862,33 @@ static void ggml_vec_dot_iq4_xs_q8_K_vl256(int n, float * GGML_RESTRICT s, size_
+ 
+         int sumi1 = 0, sumi2 = 0, sumi3 = 0, sumi4 = 0;
+ 
++        #pragma GCC unroll 1
+         for (int ib = 0; ib < QK_K / 128; ++ib) {
+             // Weights and activations.
+             vuint8m2_t iq4_packed = __riscv_vle8_v_u8m2(iq4, 64);
+-            vint8m4_t q8b = __riscv_vle8_v_i8m4(q8, 128);
+             iq4 += 64;
+-            q8 += 128;
+ 
+             // Unpack the weight blocks.
+             vuint8m2_t iq4bits_lo = __riscv_vand_vx_u8m2(iq4_packed, 0xf, 64);
+             vuint8m2_t iq4bits_hi = __riscv_vsrl_vx_u8m2(iq4_packed, 4, 64);
+-            vuint8m4_t iq4bits;
+-            iq4bits = __riscv_vset_v_u8m2_u8m4(iq4bits, 0, iq4bits_lo);
+-            iq4bits = __riscv_vset_v_u8m2_u8m4(iq4bits, 1, iq4bits_hi);
+-            vuint8m4_t iq4bits_reorder = __riscv_vreinterpret_v_u64m4_u8m4(__riscv_vrgather_vv_u64m4(__riscv_vreinterpret_v_u8m4_u64m4(iq4bits), i_vec, 16));
++            vuint8m4_t iq4bits = __riscv_vcreate_v_u8m2_u8m4(iq4bits_lo, iq4bits_hi);
++            vuint8m4_t iq4bits_reorder = __riscv_vreinterpret_v_u64m4_u8m4(__riscv_vrgatherei16_vv_u64m4(__riscv_vreinterpret_v_u8m4_u64m4(iq4bits), i_vec, 16));
+             vint8m4_t iq4b = __riscv_vrgather_vv_i8m4(values, iq4bits_reorder, 128);
+ 
++            __asm__ __volatile__("" ::: "memory");
++
+             // Multiply with activations.
++            vint8m4_t q8b = __riscv_vle8_v_i8m4(q8, 128);
+             vint16m8_t prod = __riscv_vwmul_vv_i16m8(iq4b, q8b, 128);
++            q8 += 128;
++
++            __asm__ __volatile__("" ::: "memory");
+ 
+             // Reduce separately.
+-            __riscv_vse32_v_i32m1(&acc[0],__riscv_vwredsum_vs_i16m2_i32m1(__riscv_vget_v_i16m8_i16m2(prod, 0), __riscv_vmv_v_x_i32m1(0, 1), 32), 1);
+-            __riscv_vse32_v_i32m1(&acc[1],__riscv_vwredsum_vs_i16m2_i32m1(__riscv_vget_v_i16m8_i16m2(prod, 1), __riscv_vmv_v_x_i32m1(0, 1), 32), 1);
+-            __riscv_vse32_v_i32m1(&acc[2],__riscv_vwredsum_vs_i16m2_i32m1(__riscv_vget_v_i16m8_i16m2(prod, 2), __riscv_vmv_v_x_i32m1(0, 1), 32), 1);
+-            __riscv_vse32_v_i32m1(&acc[3],__riscv_vwredsum_vs_i16m2_i32m1(__riscv_vget_v_i16m8_i16m2(prod, 3), __riscv_vmv_v_x_i32m1(0, 1), 32), 1);
++            int acc0 = __riscv_vmv_x_s_i32m1_i32(__riscv_vwredsum_vs_i16m2_i32m1(__riscv_vget_v_i16m8_i16m2(prod, 0), __riscv_vmv_v_x_i32m1(0, 1), 32));
++            int acc1 = __riscv_vmv_x_s_i32m1_i32(__riscv_vwredsum_vs_i16m2_i32m1(__riscv_vget_v_i16m8_i16m2(prod, 1), __riscv_vmv_v_x_i32m1(0, 1), 32));
++            int acc2 = __riscv_vmv_x_s_i32m1_i32(__riscv_vwredsum_vs_i16m2_i32m1(__riscv_vget_v_i16m8_i16m2(prod, 2), __riscv_vmv_v_x_i32m1(0, 1), 32));
++            int acc3 = __riscv_vmv_x_s_i32m1_i32(__riscv_vwredsum_vs_i16m2_i32m1(__riscv_vget_v_i16m8_i16m2(prod, 3), __riscv_vmv_v_x_i32m1(0, 1), 32));
+ 
+             int ls1 = ((x[ibl].scales_l[ib * 2 + 0] & 0xf)  | ((h << 4) & 0x30)) - 32;
+             int ls2 = ((x[ibl].scales_l[ib * 2 + 0] >>  4)  | ((h << 2) & 0x30)) - 32;
+@@ -3256,10 +3896,12 @@ static void ggml_vec_dot_iq4_xs_q8_K_vl256(int n, float * GGML_RESTRICT s, size_
+             int ls4 = ((x[ibl].scales_l[ib * 2 + 1] >>  4)  | ((h >> 2) & 0x30)) - 32;
+             h >>= 8;
+ 
+-            sumi1 += acc[0] * ls1;
+-            sumi2 += acc[1] * ls2;
+-            sumi3 += acc[2] * ls3;
+-            sumi4 += acc[3] * ls4;
++            sumi1 += acc0 * ls1;
++            sumi2 += acc1 * ls2;
++            sumi3 += acc2 * ls3;
++            sumi4 += acc3 * ls4;
++
++            __asm__ __volatile__("" ::: "memory");
+         }
+ 
+         sumf += GGML_CPU_FP16_TO_FP32(x[ibl].d) * y[ibl].d * (sumi1 + sumi2 + sumi3 + sumi4);
+@@ -3272,6 +3914,9 @@ static void ggml_vec_dot_iq4_xs_q8_K_vl256(int n, float * GGML_RESTRICT s, size_
+ void ggml_vec_dot_iq4_xs_q8_K(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
+ #if defined __riscv_v_intrinsic
+     switch (__riscv_vlenb() * 8) {
++        case 128:
++            ggml_vec_dot_iq4_xs_q8_K_vl128(n, s, bs, vx, bx, vy, by, nrc);
++            break;
+         case 256:
+             ggml_vec_dot_iq4_xs_q8_K_vl256(n, s, bs, vx, bx, vy, by, nrc);
+             break;
+@@ -3285,7 +3930,7 @@ void ggml_vec_dot_iq4_xs_q8_K(int n, float * GGML_RESTRICT s, size_t bs, const v
+ }
+ 
+ #if defined __riscv_v_intrinsic
+-static void ggml_vec_dot_tq1_0_q8_K_vl256(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
++static NOINLINE void ggml_vec_dot_tq1_0_q8_K_vl128(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
+     assert(nrc == 1);
+     UNUSED(nrc);
+     UNUSED(bx);
+@@ -3301,8 +3946,107 @@ static void ggml_vec_dot_tq1_0_q8_K_vl256(int n, float * GGML_RESTRICT s, size_t
+     uint8_t pow[16] = {1, 1, 1, 1, 3, 3, 3, 3, 9, 9, 9, 9, 27, 27, 27, 27};
+ 
+     for (int i = 0; i < nb; i++) {
++        const uint8_t * GGML_RESTRICT tq = x[i].qs;
++        const int8_t  * GGML_RESTRICT q8 = y[i].qs;
++
+         // First loop.
+-        vint32m4_t suml1;
++        vint16m4_t suml1;
++        {
++            const int vl = 32;
++            const vuint8m2_t tqb = __riscv_vle8_v_u8m2(tq, vl);
++            tq += 32;
++
++            {
++                const vuint16m4_t tq0 = __riscv_vsrl_vx_u16m4(__riscv_vwmulu_vx_u16m4(tqb, 3, vl), 8, vl);
++                const vint16m4_t q80 = __riscv_vwcvt_x_x_v_i16m4(__riscv_vle8_v_i8m2(q8, vl), vl);
++                suml1 = __riscv_vmul_vv_i16m4(__riscv_vreinterpret_v_u16m4_i16m4(__riscv_vsub_vx_u16m4(tq0, 1, vl)), q80, vl);
++                q8 += 32;
++            }
++
++            uint8_t pow3 = 3;
++            #pragma GCC unroll 1
++            for (int t = 0; t < 4; t++) {
++                const vuint16m4_t tqn = __riscv_vsrl_vx_u16m4(__riscv_vwmulu_vx_u16m4(__riscv_vmul_vx_u8m2(tqb, pow3, vl), 3, vl), 8, vl);
++                const vint16m4_t q8n = __riscv_vwcvt_x_x_v_i16m4(__riscv_vle8_v_i8m2(q8, vl), vl);
++                suml1 = __riscv_vmacc_vv_i16m4(suml1, __riscv_vreinterpret_v_u16m4_i16m4(__riscv_vsub_vx_u16m4(tqn, 1, vl)), q8n, vl);
++                pow3 *= 3;
++                q8 += 32;
++            }
++        }
++
++        // Second loop.
++        vint16m2_t suml2;
++        {
++            const int vl = 16;
++            const vuint8m1_t tqb = __riscv_vle8_v_u8m1(tq, vl);
++
++            {
++                const vuint16m2_t tq0 = __riscv_vsrl_vx_u16m2(__riscv_vwmulu_vx_u16m2(tqb, 3, vl), 8, vl);
++                const vint16m2_t q80 = __riscv_vwcvt_x_x_v_i16m2(__riscv_vle8_v_i8m1(q8, vl), vl);
++                suml2 = __riscv_vmul_vv_i16m2(__riscv_vreinterpret_v_u16m2_i16m2(__riscv_vsub_vx_u16m2(tq0, 1, vl)), q80, vl);
++                q8 += 16;
++            }
++
++            uint8_t pow3 = 3;
++            #pragma GCC unroll 1
++            for (int t = 0; t < 4; t++) {
++                const vuint16m2_t tqn = __riscv_vsrl_vx_u16m2(__riscv_vwmulu_vx_u16m2(__riscv_vmul_vx_u8m1(tqb, pow3, vl), 3, vl), 8, vl);
++                const vint16m2_t q8n = __riscv_vwcvt_x_x_v_i16m2(__riscv_vle8_v_i8m1(q8, vl), vl);
++                suml2 = __riscv_vmacc_vv_i16m2(suml2, __riscv_vreinterpret_v_u16m2_i16m2(__riscv_vsub_vx_u16m2(tqn, 1, vl)), q8n, vl);
++                pow3 *= 3;
++                q8 += 16;
++            }
++        }
++
++        // Third loop.
++        vint16m2_t suml3;
++        {
++            const int vl = 16;
++
++            uint32_t qh;
++            memcpy(&qh, &x[i].qh[0], 4);
++            // Prevent fusion with vmv.
++            __asm__ __volatile__("" : "+r"(qh));
++            const vuint8m1_t tqb = __riscv_vreinterpret_v_u32m1_u8m1(__riscv_vmv_v_x_u32m1(qh, vl / 4));
++
++            const vuint8m1_t p = __riscv_vle8_v_u8m1(pow, vl);
++
++            const vuint16m2_t tq0 = __riscv_vsrl_vx_u16m2(__riscv_vwmulu_vx_u16m2(__riscv_vmul_vv_u8m1(tqb, p, vl), 3, vl), 8, vl);
++
++            const vint16m2_t q80 = __riscv_vwcvt_x_x_v_i16m2(__riscv_vle8_v_i8m1(q8, vl), vl);
++
++            suml3 = __riscv_vmul_vv_i16m2(__riscv_vreinterpret_v_u16m2_i16m2(__riscv_vsub_vx_u16m2(tq0, 1, vl)), q80, vl);
++        }
++
++        vint16m2_t sumb = __riscv_vadd_vv_i16m2(__riscv_vget_v_i16m4_i16m2(suml1, 0), __riscv_vget_v_i16m4_i16m2(suml1, 1), 16);
++        sumb = __riscv_vadd_vv_i16m2(sumb, suml2, 16);
++        sumb = __riscv_vadd_vv_i16m2(sumb, suml3, 16);
++
++        vint32m1_t sum = __riscv_vwredsum_vs_i16m2_i32m1(sumb, __riscv_vmv_v_x_i32m1(0, 1), 16);
++        sumf += __riscv_vmv_x_s_i32m1_i32(sum) * y[i].d * GGML_CPU_FP16_TO_FP32(x[i].d);
++    }
++
++    *s = sumf;
++}
++
++static NOINLINE void ggml_vec_dot_tq1_0_q8_K_vl256(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
++    assert(nrc == 1);
++    UNUSED(nrc);
++    UNUSED(bx);
++    UNUSED(by);
++    UNUSED(bs);
++
++    const block_tq1_0 * GGML_RESTRICT x = vx;
++    const block_q8_K  * GGML_RESTRICT y = vy;
++
++    const int nb = n / QK_K;
++
++    float sumf = 0.0f;
++    uint8_t pow[16] = {1, 1, 1, 1, 3, 3, 3, 3, 9, 9, 9, 9, 27, 27, 27, 27};
++
++    for (int i = 0; i < nb; i++) {
++        // First loop.
++        vint16m2_t suml1;
+         {
+             const int vl = 32;
+             vuint8m1_t tq = __riscv_vle8_v_u8m1(x[i].qs, vl);
+@@ -3325,13 +4069,13 @@ static void ggml_vec_dot_tq1_0_q8_K_vl256(int n, float * GGML_RESTRICT s, size_t
+             vint16m2_t sum3 = __riscv_vmul_vv_i16m2(__riscv_vreinterpret_v_u16m2_i16m2(__riscv_vsub_vx_u16m2(tq3, 1, vl)), q83, vl);
+             vint16m2_t sum4 = __riscv_vmul_vv_i16m2(__riscv_vreinterpret_v_u16m2_i16m2(__riscv_vsub_vx_u16m2(tq4, 1, vl)), q84, vl);
+ 
+-            vint32m4_t sumi0 = __riscv_vwadd_vv_i32m4(sum0, sum1, vl);
+-            vint32m4_t sumi1 = __riscv_vwadd_vv_i32m4(sum2, sum3, vl);
+-            suml1 = __riscv_vadd_vv_i32m4(__riscv_vwcvt_x_x_v_i32m4(sum4, vl), __riscv_vadd_vv_i32m4(sumi0, sumi1, vl), vl);
++            vint16m2_t sumi0 = __riscv_vadd_vv_i16m2(sum0, sum1, vl);
++            vint16m2_t sumi1 = __riscv_vadd_vv_i16m2(sum2, sum3, vl);
++            suml1 = __riscv_vadd_vv_i16m2(sum4, __riscv_vadd_vv_i16m2(sumi0, sumi1, vl), vl);
+         }
+ 
+         // Second loop.
+-        vint32m2_t suml2;
++        vint16m1_t suml2;
+         {
+             const int vl = 16;
+             vuint8mf2_t tq = __riscv_vle8_v_u8mf2(x[i].qs + 32, vl);
+@@ -3354,13 +4098,13 @@ static void ggml_vec_dot_tq1_0_q8_K_vl256(int n, float * GGML_RESTRICT s, size_t
+             vint16m1_t sum3 = __riscv_vmul_vv_i16m1(__riscv_vreinterpret_v_u16m1_i16m1(__riscv_vsub_vx_u16m1(tq3, 1, vl)), q83, vl);
+             vint16m1_t sum4 = __riscv_vmul_vv_i16m1(__riscv_vreinterpret_v_u16m1_i16m1(__riscv_vsub_vx_u16m1(tq4, 1, vl)), q84, vl);
+ 
+-            vint32m2_t sumi0 = __riscv_vwadd_vv_i32m2(sum0, sum1, vl);
+-            vint32m2_t sumi1 = __riscv_vwadd_vv_i32m2(sum2, sum3, vl);
+-            suml2 = __riscv_vadd_vv_i32m2(__riscv_vwcvt_x_x_v_i32m2(sum4, vl), __riscv_vadd_vv_i32m2(sumi0, sumi1, vl), vl);
++            vint16m1_t sumi0 = __riscv_vadd_vv_i16m1(sum0, sum1, vl);
++            vint16m1_t sumi1 = __riscv_vadd_vv_i16m1(sum2, sum3, vl);
++            suml2 = __riscv_vadd_vv_i16m1(sum4, __riscv_vadd_vv_i16m1(sumi0, sumi1, vl), vl);
+         }
+ 
+         // Third loop.
+-        vint32m2_t suml3;
++        vint16m1_t suml3;
+         {
+             const int vl = 16;
+ 
+@@ -3376,15 +4120,13 @@ static void ggml_vec_dot_tq1_0_q8_K_vl256(int n, float * GGML_RESTRICT s, size_t
+ 
+             vint16m1_t q80 = __riscv_vwcvt_x_x_v_i16m1(__riscv_vle8_v_i8mf2(y[i].qs + 240, vl), vl);
+ 
+-            vint16m1_t sum0 = __riscv_vmul_vv_i16m1(__riscv_vreinterpret_v_u16m1_i16m1(__riscv_vsub_vx_u16m1(tq0, 1, vl)), q80, vl);
+-            suml3 = __riscv_vwcvt_x_x_v_i32m2(sum0, vl);
++            suml3 = __riscv_vmul_vv_i16m1(__riscv_vreinterpret_v_u16m1_i16m1(__riscv_vsub_vx_u16m1(tq0, 1, vl)), q80, vl);
+         }
+ 
+-        vint32m2_t sumb = __riscv_vadd_vv_i32m2(__riscv_vget_v_i32m4_i32m2(suml1, 0), __riscv_vget_v_i32m4_i32m2(suml1, 1), 16);
+-        sumb = __riscv_vadd_vv_i32m2(sumb, suml2, 16);
+-        sumb = __riscv_vadd_vv_i32m2(sumb, suml3, 16);
++        vint16m1_t sumb = __riscv_vadd_vv_i16m1(__riscv_vget_v_i16m2_i16m1(suml1, 0), __riscv_vget_v_i16m2_i16m1(suml1, 1), 16);
++        sumb = __riscv_vadd_vv_i16m1(sumb, __riscv_vadd_vv_i16m1(suml2, suml3, 16), 16);
+ 
+-        vint32m1_t sum = __riscv_vredsum_vs_i32m2_i32m1(sumb, __riscv_vmv_v_x_i32m1(0, 1), 16);
++        vint32m1_t sum = __riscv_vwredsum_vs_i16m1_i32m1(sumb, __riscv_vmv_v_x_i32m1(0, 1), 16);
+         sumf += __riscv_vmv_x_s_i32m1_i32(sum) * y[i].d * GGML_CPU_FP16_TO_FP32(x[i].d);
+     }
+ 
+@@ -3395,6 +4137,9 @@ static void ggml_vec_dot_tq1_0_q8_K_vl256(int n, float * GGML_RESTRICT s, size_t
+ void ggml_vec_dot_tq1_0_q8_K(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
+ #if defined __riscv_v_intrinsic
+     switch (__riscv_vlenb() * 8) {
++        case 128:
++            ggml_vec_dot_tq1_0_q8_K_vl128(n, s, bs, vx, bx, vy, by, nrc);
++            break;
+         case 256:
+             ggml_vec_dot_tq1_0_q8_K_vl256(n, s, bs, vx, bx, vy, by, nrc);
+             break;
+@@ -3408,7 +4153,89 @@ void ggml_vec_dot_tq1_0_q8_K(int n, float * GGML_RESTRICT s, size_t bs, const vo
+ }
+ 
+ #if defined __riscv_v_intrinsic
+-static void ggml_vec_dot_tq2_0_q8_K_vl256(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
++static NOINLINE void ggml_vec_dot_tq2_0_q8_K_vl128(const int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
++    assert(n % QK_K == 0);
++    assert(nrc == 1);
++    UNUSED(nrc);
++    UNUSED(bx);
++    UNUSED(by);
++    UNUSED(bs);
++
++    const block_tq2_0 * GGML_RESTRICT x = vx;
++    const block_q8_K  * GGML_RESTRICT y = vy;
++
++    const int nb = n / QK_K;
++    float sumf = 0.0f;
++    for (int i = 0; i < nb; ++i) {
++        int32_t sumi = 0;
++
++        for (size_t j = 0; j < sizeof(x[0].qs); j += 32) {
++            const int8_t * py0 = &y[i].qs[j * 4 + 0 * 32];
++            const int8_t * py1 = &y[i].qs[j * 4 + 1 * 32];
++            const int8_t * py2 = &y[i].qs[j * 4 + 2 * 32];
++            const int8_t * py3 = &y[i].qs[j * 4 + 3 * 32];
++            const uint8_t* px  = &x[i].qs[j];
++
++            size_t vl = __riscv_vsetvl_e16m4(32);
++            vint16m4_t vacc16 = __riscv_vmv_v_x_i16m4(0, vl);
++
++            // Load Raw Packed elements
++            vl = __riscv_vsetvl_e8m2(32);
++            vuint8m2_t vx_u8 = __riscv_vle8_v_u8m2(px, vl);
++
++            // Process bits 1:0
++            {
++                // Unpack
++                vuint8m2_t t0 = __riscv_vand_vx_u8m2(vx_u8, 0x03, vl);
++                vint8m2_t vq = __riscv_vsub_vx_i8m2(__riscv_vreinterpret_v_u8m2_i8m2(t0), 1, vl);
++                vint8m2_t vy = __riscv_vle8_v_i8m2(py0, vl);
++                // Accumulate
++                vacc16 = __riscv_vwmacc_vv_i16m4(vacc16, vq, vy, vl);
++            }
++            __asm__ volatile("" ::: "memory");
++            // Process bits 3:2
++            {
++                vuint8m2_t t1 = __riscv_vsrl_vx_u8m2(vx_u8, 2, vl);
++                t1 = __riscv_vand_vx_u8m2(t1, 0x03, vl);
++                vint8m2_t vq = __riscv_vsub_vx_i8m2(__riscv_vreinterpret_v_u8m2_i8m2(t1), 1, vl);
++
++                vint8m2_t vy = __riscv_vle8_v_i8m2(py1, vl);
++                vacc16 = __riscv_vwmacc_vv_i16m4(vacc16, vq, vy, vl);
++            }
++            __asm__ volatile("" ::: "memory");
++            // Process bits 5:4
++            {
++                vuint8m2_t t2 = __riscv_vsrl_vx_u8m2(vx_u8, 4, vl);
++                t2 = __riscv_vand_vx_u8m2(t2, 0x03, vl);
++                vint8m2_t vq = __riscv_vsub_vx_i8m2(__riscv_vreinterpret_v_u8m2_i8m2(t2), 1, vl);
++
++                vint8m2_t vy = __riscv_vle8_v_i8m2(py2, vl);
++                vacc16 = __riscv_vwmacc_vv_i16m4(vacc16, vq, vy, vl);
++            }
++            __asm__ volatile("" ::: "memory");
++            // Process bits 7:6
++            {
++                vuint8m2_t t3 = __riscv_vsrl_vx_u8m2(vx_u8, 6, vl);
++                vint8m2_t vq = __riscv_vsub_vx_i8m2(__riscv_vreinterpret_v_u8m2_i8m2(t3), 1, vl);
++
++                vint8m2_t vy = __riscv_vle8_v_i8m2(py3, vl);
++                vacc16 = __riscv_vwmacc_vv_i16m4(vacc16, vq, vy, vl);
++            }
++            __asm__ volatile("" ::: "memory");
++            vl = __riscv_vsetvl_e16m4(32);
++            vint32m1_t vzero32 = __riscv_vmv_v_x_i32m1(0, 1);
++            vint32m1_t vred32 = __riscv_vwredsum_vs_i16m4_i32m1(vacc16, vzero32, vl);
++            sumi += __riscv_vmv_x_s_i32m1_i32(vred32);
++        }
++
++        const float d = y[i].d * GGML_CPU_FP16_TO_FP32(x[i].d);
++        sumf += (float)sumi * d;
++    }
++
++    *s = sumf;
++}
++
++static NOINLINE void ggml_vec_dot_tq2_0_q8_K_vl256(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
+     assert(n % QK_K == 0);
+     assert(nrc == 1);
+     UNUSED(nrc);
+@@ -3483,6 +4310,9 @@ static void ggml_vec_dot_tq2_0_q8_K_vl256(int n, float * GGML_RESTRICT s, size_t
+ void ggml_vec_dot_tq2_0_q8_K(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
+ #if defined __riscv_v_intrinsic
+     switch (__riscv_vlenb() * 8) {
++        case 128:
++            ggml_vec_dot_tq2_0_q8_K_vl128(n, s, bs, vx, bx, vy, by, nrc);
++            break;
+         case 256:
+             ggml_vec_dot_tq2_0_q8_K_vl256(n, s, bs, vx, bx, vy, by, nrc);
+             break;
+@@ -3496,7 +4326,7 @@ void ggml_vec_dot_tq2_0_q8_K(int n, float * GGML_RESTRICT s, size_t bs, const vo
+ }
+ 
+ #if defined __riscv_v_intrinsic
+-static void ggml_vec_dot_mxfp4_q8_0_vl128(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
++static NOINLINE void ggml_vec_dot_mxfp4_q8_0_vl128(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
+     assert(nrc == 1);
+     UNUSED(nrc);
+     UNUSED(bx);
+@@ -3526,12 +4356,14 @@ static void ggml_vec_dot_mxfp4_q8_0_vl128(int n, float * GGML_RESTRICT s, size_t
+         vint8m2_t q8b2 = __riscv_vle8_v_i8m2(y[ib + 1].qs, 32);
+ 
+         // Unpack the weight blocks.
+-        vuint8m2_t mxbits1;
+-        mxbits1 = __riscv_vset_v_u8m1_u8m2(mxbits1, 0, __riscv_vand_vx_u8m1(mx_packed1, 0xf, 16));
+-        mxbits1 = __riscv_vset_v_u8m1_u8m2(mxbits1, 1, __riscv_vsrl_vx_u8m1(mx_packed1, 4, 16));
+-        vuint8m2_t mxbits2;
+-        mxbits2 = __riscv_vset_v_u8m1_u8m2(mxbits2, 0, __riscv_vand_vx_u8m1(mx_packed2, 0xf, 16));
+-        mxbits2 = __riscv_vset_v_u8m1_u8m2(mxbits2, 1, __riscv_vsrl_vx_u8m1(mx_packed2, 4, 16));
++        vuint8m2_t mxbits1 = __riscv_vcreate_v_u8m1_u8m2(
++            __riscv_vand_vx_u8m1(mx_packed1, 0xf, 16),
++            __riscv_vsrl_vx_u8m1(mx_packed1, 4, 16)
++        );
++        vuint8m2_t mxbits2 = __riscv_vcreate_v_u8m1_u8m2(
++            __riscv_vand_vx_u8m1(mx_packed2, 0xf, 16),
++            __riscv_vsrl_vx_u8m1(mx_packed2, 4, 16)
++        );
+ 
+         // Gather values from the lookup table.
+         vint8m2_t mxb1 = __riscv_vrgather_vv_i8m2(values, mxbits1, 32);
+@@ -3549,7 +4381,7 @@ static void ggml_vec_dot_mxfp4_q8_0_vl128(int n, float * GGML_RESTRICT s, size_t
+     *s = sumf;
+ }
+ 
+-static void ggml_vec_dot_mxfp4_q8_0_vl256(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
++static NOINLINE void ggml_vec_dot_mxfp4_q8_0_vl256(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc) {
+     assert(nrc == 1);
+     UNUSED(nrc);
+     UNUSED(bx);
+@@ -3613,7 +4445,7 @@ void ggml_vec_dot_mxfp4_q8_0(int n, float * GGML_RESTRICT s, size_t bs, const vo
+         case 128:
+             ggml_vec_dot_mxfp4_q8_0_vl128(n, s, bs, vx, bx, vy, by, nrc);
+             break;
+-        default:
++        default: // 256 and above
+             ggml_vec_dot_mxfp4_q8_0_vl256(n, s, bs, vx, bx, vy, by, nrc);
+             break;
+     }
 diff --git src/ggml-cpu/arch/s390/quants.c src/ggml-cpu/arch/s390/quants.c
 index 34184ed8..50085757 100644
 --- src/ggml-cpu/arch/s390/quants.c
@@ -3154,6 +4500,107 @@ index 3584aaa4..d4bc87a1 100644
  void ggml_vec_dot_q4_0_q8_0_generic(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc);
  void ggml_vec_dot_q4_1_q8_1_generic(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc);
  void ggml_vec_dot_q5_0_q8_0_generic(int n, float * GGML_RESTRICT s, size_t bs, const void * GGML_RESTRICT vx, size_t bx, const void * GGML_RESTRICT vy, size_t by, int nrc);
+diff --git src/ggml-cpu/simd-gemm.h src/ggml-cpu/simd-gemm.h
+index 78d663e5..4119d04f 100644
+--- src/ggml-cpu/simd-gemm.h
++++ src/ggml-cpu/simd-gemm.h
+@@ -109,6 +109,96 @@ static void simd_gemm(
+         C += N;
+     }
+ }
++#elif defined(GGML_SIMD) && defined(__riscv_v_intrinsic)
++// RM accumulators + 1 B vector = RM + 1 <= 8  =>  RM <= 7
++// Microkernel: C[RM x vl] += A[RM x K] * B[K x N]
++template <int RM>
++static inline void rvv_simd_gemm_ukernel(
++    float       * GGML_RESTRICT C,
++    const float * GGML_RESTRICT A,
++    const float * GGML_RESTRICT B,
++    int K, int N, size_t vl)
++{
++    static_assert(RM >= 1 && RM <= 7, "RM must be 1..7 for LMUL=4");
++
++    vfloat32m4_t acc_0 = __riscv_vle32_v_f32m4(C + 0 * N, vl);
++    vfloat32m4_t acc_1, acc_2, acc_3, acc_4, acc_5, acc_6;
++    if constexpr (RM > 1) acc_1 = __riscv_vle32_v_f32m4(C + 1 * N, vl);
++    if constexpr (RM > 2) acc_2 = __riscv_vle32_v_f32m4(C + 2 * N, vl);
++    if constexpr (RM > 3) acc_3 = __riscv_vle32_v_f32m4(C + 3 * N, vl);
++    if constexpr (RM > 4) acc_4 = __riscv_vle32_v_f32m4(C + 4 * N, vl);
++    if constexpr (RM > 5) acc_5 = __riscv_vle32_v_f32m4(C + 5 * N, vl);
++    if constexpr (RM > 6) acc_6 = __riscv_vle32_v_f32m4(C + 6 * N, vl);
++
++    for (int kk = 0; kk < K; kk++) {
++        vfloat32m4_t b_0 = __riscv_vle32_v_f32m4(B + kk * N, vl);
++
++                              acc_0 = __riscv_vfmacc_vf_f32m4(acc_0, A[0 * K + kk], b_0, vl);
++        if constexpr (RM > 1) acc_1 = __riscv_vfmacc_vf_f32m4(acc_1, A[1 * K + kk], b_0, vl);
++        if constexpr (RM > 2) acc_2 = __riscv_vfmacc_vf_f32m4(acc_2, A[2 * K + kk], b_0, vl);
++        if constexpr (RM > 3) acc_3 = __riscv_vfmacc_vf_f32m4(acc_3, A[3 * K + kk], b_0, vl);
++        if constexpr (RM > 4) acc_4 = __riscv_vfmacc_vf_f32m4(acc_4, A[4 * K + kk], b_0, vl);
++        if constexpr (RM > 5) acc_5 = __riscv_vfmacc_vf_f32m4(acc_5, A[5 * K + kk], b_0, vl);
++        if constexpr (RM > 6) acc_6 = __riscv_vfmacc_vf_f32m4(acc_6, A[6 * K + kk], b_0, vl);
++    }
++
++                          __riscv_vse32_v_f32m4(C + 0 * N, acc_0, vl);
++    if constexpr (RM > 1) __riscv_vse32_v_f32m4(C + 1 * N, acc_1, vl);
++    if constexpr (RM > 2) __riscv_vse32_v_f32m4(C + 2 * N, acc_2, vl);
++    if constexpr (RM > 3) __riscv_vse32_v_f32m4(C + 3 * N, acc_3, vl);
++    if constexpr (RM > 4) __riscv_vse32_v_f32m4(C + 4 * N, acc_4, vl);
++    if constexpr (RM > 5) __riscv_vse32_v_f32m4(C + 5 * N, acc_5, vl);
++    if constexpr (RM > 6) __riscv_vse32_v_f32m4(C + 6 * N, acc_6, vl);
++}
++
++template <int RM>
++static inline void rvv_simd_gemm_dispatch_tail(
++    float       * GGML_RESTRICT C,
++    const float * GGML_RESTRICT A,
++    const float * GGML_RESTRICT B,
++    int K, int N, int KN, int remaining_rows)
++{
++    if constexpr (RM > 0) {
++        if (remaining_rows == RM) {
++            int64_t jj = 0;
++            for (; jj + KN <= N; jj += KN) {
++                rvv_simd_gemm_ukernel<RM>(C + jj, A, B + jj, K, N, KN);
++            }
++            if (jj < N) {
++                rvv_simd_gemm_ukernel<RM>(C + jj, A, B + jj, K, N, N - jj);
++            }
++        } else {
++            rvv_simd_gemm_dispatch_tail<RM - 1>(C, A, B, K, N, KN, remaining_rows);
++        }
++    }
++}
++
++static constexpr int GEMM_RM = 7;
++
++// C[M x N] += A[M x K] * B[K x N]
++static void simd_gemm(
++    float       * GGML_RESTRICT C,
++    const float * GGML_RESTRICT A,
++    const float * GGML_RESTRICT B,
++    int M, int K, int N)
++{
++    const int KN = (int)__riscv_vlenb();
++    int64_t ii = 0;
++    for (; ii + GEMM_RM <= M; ii += GEMM_RM) {
++        int64_t jj = 0;
++        for (; jj + KN <= N; jj += KN) {
++            rvv_simd_gemm_ukernel<GEMM_RM>(C + jj, A, B + jj, K, N, KN);
++        }
++        if (jj < N) {
++            rvv_simd_gemm_ukernel<GEMM_RM>(C + jj, A, B + jj, K, N, N - jj);
++        }
++        A += GEMM_RM * K;
++        C += GEMM_RM * N;
++    }
++
++    int remaining_rows = M - ii;
++    rvv_simd_gemm_dispatch_tail<GEMM_RM - 1>(C, A, B, K, N, KN, remaining_rows);
++}
+ 
+ #if defined(__GNUC__) && !defined(__clang__)
+ #pragma GCC diagnostic pop
 diff --git src/ggml-cuda/CMakeLists.txt src/ggml-cuda/CMakeLists.txt
 index 41986210..b54d4a6b 100644
 --- src/ggml-cuda/CMakeLists.txt
@@ -3337,7 +4784,7 @@ index 62bc9501..12624785 100644
  void ggml_cuda_op_fused_add(ggml_backend_cuda_context & ctx, ggml_tensor * dst, int n_fuse);
 +void ggml_cuda_op_fused_mul(ggml_backend_cuda_context & ctx, ggml_tensor * dst, int n_fuse);
 diff --git src/ggml-cuda/common.cuh src/ggml-cuda/common.cuh
-index 9affe023..2e5eaff9 100644
+index 9affe023..ddf50baf 100644
 --- src/ggml-cuda/common.cuh
 +++ src/ggml-cuda/common.cuh
 @@ -65,8 +65,9 @@
@@ -3372,7 +4819,21 @@ index 9affe023..2e5eaff9 100644
  #if !defined(GGML_USE_HIP) && !defined(GGML_CUDA_NO_VMM)
  static const char * cu_get_error_str(CUresult err) {
      const char * err_str;
-@@ -1157,19 +1163,6 @@ struct ggml_tensor_extra_gpu {
+@@ -918,6 +924,13 @@ struct ggml_cuda_type_traits<GGML_TYPE_F16> {
+     static constexpr int qr = 1;
+ };
+ 
++template<>
++struct ggml_cuda_type_traits<GGML_TYPE_Q1_0> {
++    static constexpr int qk = QK1_0;
++    static constexpr int qr = QR1_0;
++    static constexpr int qi = QI1_0;
++};
++
+ template<>
+ struct ggml_cuda_type_traits<GGML_TYPE_Q4_0> {
+     static constexpr int qk = QK4_0;
+@@ -1157,19 +1170,6 @@ struct ggml_tensor_extra_gpu {
  #define USE_CUDA_GRAPH
  #endif
  
@@ -3392,7 +4853,7 @@ index 9affe023..2e5eaff9 100644
  struct ggml_cuda_graph {
  #ifdef USE_CUDA_GRAPH
      ~ggml_cuda_graph() {
-@@ -1186,13 +1179,13 @@ struct ggml_cuda_graph {
+@@ -1186,13 +1186,15 @@ struct ggml_cuda_graph {
      std::vector<cudaGraphNode_t> nodes;
      bool disable_due_to_gpu_arch = false;
      bool warmup_complete = false;
@@ -3403,6 +4864,8 @@ index 9affe023..2e5eaff9 100644
 -    // ref: https://github.com/ggml-org/llama.cpp/pull/18583
 -    // ref: https://github.com/ggml-org/llama.cpp/pull/19165
 -    std::vector<ggml_cuda_graph_node_properties> extra;
++    uint64_t uid = 0;
++    int64_t last_used_time = 0;
 +    struct node_properties {
 +        ggml_tensor node;
 +        void *   node_src_data_ptrs[GGML_MAX_SRC];
@@ -3413,6 +4876,118 @@ index 9affe023..2e5eaff9 100644
  
      bool is_enabled() const {
          static const bool disable_cuda_graphs_due_to_env = (getenv("GGML_CUDA_DISABLE_GRAPHS") != nullptr);
+@@ -1367,12 +1369,28 @@ struct ggml_backend_cuda_context {
+     // when the computation is split across CPU/GPU (e.g., with --n-cpu-moe)
+     std::unordered_map<const void *, std::unique_ptr<ggml_cuda_graph>> cuda_graphs;
+ 
++    int64_t last_graph_eviction_sweep = 0;
++
+     ggml_cuda_graph * cuda_graph(const void * first_node_ptr) {
++        const int64_t time_now = ggml_time_us();
++
++        // sweep every 5s, evicting cuda graphs unused for >=10s
++        if (time_now - last_graph_eviction_sweep >= 5'000'000) {
++            last_graph_eviction_sweep = time_now;
++            for (auto it = cuda_graphs.begin(); it != cuda_graphs.end(); ) {
++                if (time_now - it->second->last_used_time >= 10'000'000) {
++                    it = cuda_graphs.erase(it);
++                } else {
++                    ++it;
++                }
++            }
++        }
++
+         auto it = cuda_graphs.find(first_node_ptr);
+         if (it == cuda_graphs.end()) {
+-            cuda_graphs[first_node_ptr] = std::make_unique<ggml_cuda_graph>();
+-            return cuda_graphs[first_node_ptr].get();
++            it = cuda_graphs.emplace(first_node_ptr, std::make_unique<ggml_cuda_graph>()).first;
+         }
++        it->second->last_used_time = time_now;
+         return it->second.get();
+     }
+ 
+diff --git src/ggml-cuda/convert.cu src/ggml-cuda/convert.cu
+index 79ccfe56..61630a35 100644
+--- src/ggml-cuda/convert.cu
++++ src/ggml-cuda/convert.cu
+@@ -711,6 +711,8 @@ to_bf16_cuda_t ggml_get_to_bf16_cuda(ggml_type type) {
+ 
+ to_fp16_cuda_t ggml_get_to_fp16_cuda(ggml_type type) {
+     switch (type) {
++        case GGML_TYPE_Q1_0:
++            return dequantize_block_cont_cuda<QK1_0, QR1_0, dequantize_q1_0>;
+         case GGML_TYPE_Q4_0:
+             return dequantize_row_q4_0_cuda;
+         case GGML_TYPE_Q4_1:
+@@ -767,6 +769,8 @@ to_fp16_cuda_t ggml_get_to_fp16_cuda(ggml_type type) {
+ 
+ to_fp32_cuda_t ggml_get_to_fp32_cuda(ggml_type type) {
+     switch (type) {
++        case GGML_TYPE_Q1_0:
++            return dequantize_block_cont_cuda<QK1_0, QR1_0, dequantize_q1_0>;
+         case GGML_TYPE_Q4_0:
+             return dequantize_row_q4_0_cuda;
+         case GGML_TYPE_Q4_1:
+@@ -822,6 +826,8 @@ to_fp16_nc_cuda_t ggml_get_to_fp16_nc_cuda(ggml_type type) {
+     switch (type) {
+         case GGML_TYPE_F32:
+             return convert_unary_cuda<float>;
++        case GGML_TYPE_Q1_0:
++            return dequantize_block_cuda<QK1_0, QR1_0, dequantize_q1_0>;
+         case GGML_TYPE_Q4_0:
+             return dequantize_block_cuda<QK4_0, QR4_0, dequantize_q4_0>;
+         case GGML_TYPE_Q4_1:
+@@ -843,6 +849,8 @@ to_bf16_nc_cuda_t ggml_get_to_bf16_nc_cuda(ggml_type type) {
+     switch (type) {
+         case GGML_TYPE_F32:
+             return convert_unary_cuda<float, nv_bfloat16>;
++        case GGML_TYPE_Q1_0:
++            return dequantize_block_cuda<QK1_0, QR1_0, dequantize_q1_0>;
+         case GGML_TYPE_Q4_0:
+             return dequantize_block_cuda<QK4_0, QR4_0, dequantize_q4_0>;
+         case GGML_TYPE_Q4_1:
+@@ -864,6 +872,8 @@ to_fp32_nc_cuda_t ggml_get_to_fp32_nc_cuda(ggml_type type) {
+     switch (type) {
+         case GGML_TYPE_F16:
+             return convert_unary_cuda<half, float>;
++        case GGML_TYPE_Q1_0:
++            return dequantize_block_cuda<QK1_0, QR1_0, dequantize_q1_0>;
+         case GGML_TYPE_Q4_0:
+             return dequantize_block_cuda<QK4_0, QR4_0, dequantize_q4_0>;
+         case GGML_TYPE_Q4_1:
+diff --git src/ggml-cuda/dequantize.cuh src/ggml-cuda/dequantize.cuh
+index e060fb29..9ae1342f 100644
+--- src/ggml-cuda/dequantize.cuh
++++ src/ggml-cuda/dequantize.cuh
+@@ -1,5 +1,27 @@
+ #include "common.cuh"
+ 
++static __device__ __forceinline__ void dequantize_q1_0(const void * vx, const int64_t ib, const int iqs, float2 & v){
++    const block_q1_0 * x = (const block_q1_0 *) vx;
++
++    const float d = x[ib].d;
++
++    const int bit_index_0 = iqs;
++    const int bit_index_1 = iqs + 1;
++
++    const int byte_index_0 = bit_index_0 / 8;
++    const int bit_offset_0 = bit_index_0 % 8;
++
++    const int byte_index_1 = bit_index_1 / 8;
++    const int bit_offset_1 = bit_index_1 % 8;
++
++    // Extract bits: 1 = +d, 0 = -d (branchless)
++    const int bit_0 = (x[ib].qs[byte_index_0] >> bit_offset_0) & 1;
++    const int bit_1 = (x[ib].qs[byte_index_1] >> bit_offset_1) & 1;
++
++    v.x = (2*bit_0 - 1) * d;
++    v.y = (2*bit_1 - 1) * d;
++}
++
+ static __device__ __forceinline__ void dequantize_q4_0(const void * vx, const int64_t ib, const int iqs, float2 & v){
+     const block_q4_0 * x = (const block_q4_0 *) vx;
+ 
 diff --git src/ggml-cuda/fattn-common.cuh src/ggml-cuda/fattn-common.cuh
 index c59a4db3..beeb5238 100644
 --- src/ggml-cuda/fattn-common.cuh
@@ -3705,8 +5280,23 @@ index addf9320..ea6607cd 100644
  }
  
  static void ggml_cuda_flash_attn_ext_mma_f16(ggml_backend_cuda_context & ctx, ggml_tensor * dst) {
+diff --git src/ggml-cuda/getrows.cu src/ggml-cuda/getrows.cu
+index 2fab3324..e99cba63 100644
+--- src/ggml-cuda/getrows.cu
++++ src/ggml-cuda/getrows.cu
+@@ -179,6 +179,10 @@ static void ggml_cuda_get_rows_switch_src0_type(
+             get_rows_cuda_float((const nv_bfloat16 *) src0_d, src1_d, dst_d,
+                 ne00, nb01, nb02, nb03, ne10, ne11, ne12, nb10, nb11, nb12, nb1, nb2, nb3, stream);
+             break;
++        case GGML_TYPE_Q1_0:
++            get_rows_cuda_q<QK1_0, QR1_0, dequantize_q1_0>(src0_d, src1_d, dst_d,
++                ne00, nb01, nb02, nb03, ne10, ne11, ne12, nb10, nb11, nb12, nb1, nb2, nb3, stream);
++            break;
+         case GGML_TYPE_Q4_0:
+             get_rows_cuda_q<QK4_0, QR4_0, dequantize_q4_0>(src0_d, src1_d, dst_d,
+                 ne00, nb01, nb02, nb03, ne10, ne11, ne12, nb10, nb11, nb12, nb1, nb2, nb3, stream);
 diff --git src/ggml-cuda/ggml-cuda.cu src/ggml-cuda/ggml-cuda.cu
-index 75b62129..c17db387 100644
+index 75b62129..de579d2e 100644
 --- src/ggml-cuda/ggml-cuda.cu
 +++ src/ggml-cuda/ggml-cuda.cu
 @@ -82,7 +82,6 @@
@@ -4052,10 +5642,11 @@ index 75b62129..c17db387 100644
 +static void ggml_backend_cuda_set_tensor_2d_async(ggml_backend_t backend, struct ggml_tensor * tensor, const void * data,
 +        size_t offset, size_t size, size_t n_copies, size_t stride_tensor, size_t stride_data) {
 +    ggml_backend_cuda_context * cuda_ctx = (ggml_backend_cuda_context *) backend->context;
-+    ggml_backend_buffer_t buf = tensor->view_src ? tensor->view_src->buffer : tensor->buffer;
-+
-+    GGML_ASSERT(buf->buft == ggml_backend_cuda_buffer_type(cuda_ctx->device) && "unsupported buffer type");
-+
+     ggml_backend_buffer_t buf = tensor->view_src ? tensor->view_src->buffer : tensor->buffer;
+ 
+     GGML_ASSERT(buf->buft == ggml_backend_cuda_buffer_type(cuda_ctx->device) && "unsupported buffer type");
+ 
+-    CUDA_CHECK(cudaMemcpyAsync(data, (const char *)tensor->data + offset, size, cudaMemcpyDeviceToHost, cuda_ctx->stream()));
 +    CUDA_CHECK(cudaMemcpy2DAsync(
 +        (char *) tensor->data + offset, stride_tensor, data, stride_data, size, n_copies, cudaMemcpyHostToDevice, cuda_ctx->stream()));
 +}
@@ -4063,11 +5654,10 @@ index 75b62129..c17db387 100644
 +static void ggml_backend_cuda_get_tensor_2d_async(ggml_backend_t backend, const struct ggml_tensor * tensor, void * data,
 +        size_t offset, size_t size, size_t n_copies, size_t stride_tensor, size_t stride_data) {
 +    ggml_backend_cuda_context * cuda_ctx = (ggml_backend_cuda_context *) backend->context;
-     ggml_backend_buffer_t buf = tensor->view_src ? tensor->view_src->buffer : tensor->buffer;
- 
-     GGML_ASSERT(buf->buft == ggml_backend_cuda_buffer_type(cuda_ctx->device) && "unsupported buffer type");
- 
--    CUDA_CHECK(cudaMemcpyAsync(data, (const char *)tensor->data + offset, size, cudaMemcpyDeviceToHost, cuda_ctx->stream()));
++    ggml_backend_buffer_t buf = tensor->view_src ? tensor->view_src->buffer : tensor->buffer;
++
++    GGML_ASSERT(buf->buft == ggml_backend_cuda_buffer_type(cuda_ctx->device) && "unsupported buffer type");
++
 +    CUDA_CHECK(cudaMemcpy2DAsync(
 +        data, stride_data, (const char *) tensor->data + offset, stride_tensor, size, n_copies, cudaMemcpyDeviceToHost, cuda_ctx->stream()));
  }
@@ -4185,22 +5775,26 @@ index 75b62129..c17db387 100644
  static const void * ggml_cuda_graph_get_key(ggml_cgraph * cgraph) {
      return cgraph->nodes[0];
  }
-@@ -3048,52 +3109,27 @@ static bool ggml_cuda_graph_update_required(ggml_backend_cuda_context * cuda_ctx
+@@ -3047,53 +3108,37 @@ static bool ggml_cuda_graph_update_required(ggml_backend_cuda_context * cuda_ctx
+     const void * graph_key = ggml_cuda_graph_get_key(cgraph);
      ggml_cuda_graph * graph = cuda_ctx->cuda_graph(graph_key);
  
-     // Check if the graph size has changed
+-    // Check if the graph size has changed
 -    if (graph->props.size() != (size_t)cgraph->n_nodes) {
-+    if ((int)graph->node_props.size() != cgraph->n_nodes) {
-         res = true;
+-        res = true;
 -        graph->props.resize(cgraph->n_nodes);
-+        graph->node_props.resize(cgraph->n_nodes);
++    if (cgraph->uid != 0 &&
++        cgraph->uid == graph->uid) {
++        GGML_LOG_DEBUG("CUDA Graph id %zu reused\n", cgraph->uid);
++        GGML_ASSERT((int)graph->node_props.size() == cgraph->n_nodes);
++        return false;
      }
  
 -    // Loop over nodes in GGML graph to determine if CUDA graph update is required
 -    // and store properties to allow this comparison for the next token
 -    std::unordered_set<ggml_tensor *> seen_node;
 -    std::vector<ggml_tensor *> srcs_extra;
-     for (int i = 0; i < cgraph->n_nodes; i++) {
+-    for (int i = 0; i < cgraph->n_nodes; i++) {
 -        bool props_match = true;
 -
 -        seen_node.insert(cgraph->nodes[i]);
@@ -4212,11 +5806,30 @@ index 75b62129..c17db387 100644
 -            res = true;
 -        }
 -        ggml_cuda_graph_node_set_properties(&graph->props[i], cgraph->nodes[i]);
--
++    graph->uid = cgraph->uid;
+ 
 -        for (int src_idx = 0; src_idx < GGML_MAX_SRC; ++src_idx) {
 -            ggml_tensor * src = cgraph->nodes[i]->src[src_idx];
 -            if (src && seen_node.find(src) == seen_node.end()) {
 -                srcs_extra.push_back(src);
+-            }
+-        }
+-    }
+-
+-    if (graph->extra.size() != (size_t) srcs_extra.size()) {
++    // Check if the graph size has changed
++    if ((int)graph->node_props.size() != cgraph->n_nodes) {
+         res = true;
+-        graph->extra.resize(srcs_extra.size());
++        graph->node_props.resize(cgraph->n_nodes);
+     }
+ 
+-    for (size_t i = 0; i < srcs_extra.size(); ++i) {
+-        bool props_match = true;
+-
+-        if (!res) {
+-            props_match = ggml_cuda_graph_node_properties_match(srcs_extra[i], &graph->extra[i]);
++    for (int i = 0; i < cgraph->n_nodes; i++) {
 +        ggml_cuda_graph::node_properties prop = {};
 +        memcpy(&prop.node, cgraph->nodes[i], sizeof(ggml_tensor));
 +
@@ -4225,21 +5838,8 @@ index 75b62129..c17db387 100644
 +                prop.node_src_data_ptrs[j] = cgraph->nodes[i]->src[j]->data;
 +                memcpy(prop.node_src_ne[j], cgraph->nodes[i]->src[j]->ne, sizeof(prop.node_src_ne[j]));
 +                memcpy(prop.node_src_nb[j], cgraph->nodes[i]->src[j]->nb, sizeof(prop.node_src_nb[j]));
-             }
++            }
          }
--    }
--
--    if (graph->extra.size() != (size_t) srcs_extra.size()) {
--        res = true;
--        graph->extra.resize(srcs_extra.size());
--    }
--
--    for (size_t i = 0; i < srcs_extra.size(); ++i) {
--        bool props_match = true;
--
--        if (!res) {
--            props_match = ggml_cuda_graph_node_properties_match(srcs_extra[i], &graph->extra[i]);
--        }
  
 -        if (!props_match) {
 +        if (res || memcmp(&graph->node_props[i], &prop, sizeof(prop)) != 0) {
@@ -4250,7 +5850,7 @@ index 75b62129..c17db387 100644
      }
  
      return res;
-@@ -3308,6 +3344,71 @@ static bool ggml_cuda_topk_moe_fusion(const struct ggml_cgraph * cgraph, int nod
+@@ -3308,6 +3353,71 @@ static bool ggml_cuda_topk_moe_fusion(const struct ggml_cgraph * cgraph, int nod
      return true;
  }
  
@@ -4322,7 +5922,7 @@ index 75b62129..c17db387 100644
  static bool ggml_cuda_can_fuse(const struct ggml_cgraph *                cgraph,
                                 int                                       node_idx,
                                 std::initializer_list<enum ggml_op>       ops,
-@@ -3337,7 +3438,8 @@ static bool ggml_cuda_can_fuse(const struct ggml_cgraph *                cgraph,
+@@ -3337,7 +3447,8 @@ static bool ggml_cuda_can_fuse(const struct ggml_cgraph *                cgraph,
          const ggml_tensor * glu           = cgraph->nodes[node_idx + 4];
  
          if (ggml_cuda_should_fuse_mul_mat(ffn_up, ffn_gate, glu, ffn_up_bias, ffn_gate_bias)) {
@@ -4332,7 +5932,7 @@ index 75b62129..c17db387 100644
          }
      }
  
-@@ -3348,7 +3450,8 @@ static bool ggml_cuda_can_fuse(const struct ggml_cgraph *                cgraph,
+@@ -3348,7 +3459,8 @@ static bool ggml_cuda_can_fuse(const struct ggml_cgraph *                cgraph,
          const ggml_tensor * glu      = cgraph->nodes[node_idx + 2];
  
          if (ggml_cuda_should_fuse_mul_mat(ffn_up, ffn_gate, glu)) {
@@ -4342,7 +5942,7 @@ index 75b62129..c17db387 100644
          }
      }
  
-@@ -3474,69 +3577,6 @@ static bool ggml_cuda_can_fuse(const struct ggml_cgraph *                cgraph,
+@@ -3474,69 +3586,6 @@ static bool ggml_cuda_can_fuse(const struct ggml_cgraph *                cgraph,
      return false;
  }
  
@@ -4412,7 +6012,7 @@ index 75b62129..c17db387 100644
  static void ggml_cuda_graph_evaluate_and_capture(ggml_backend_cuda_context * cuda_ctx, ggml_cgraph * cgraph, const bool use_cuda_graph, const bool cuda_graph_update_required, const void * graph_key) {
      bool graph_evaluated_or_captured = false;
  
-@@ -3734,7 +3774,7 @@ static void ggml_cuda_graph_evaluate_and_capture(ggml_backend_cuda_context * cud
+@@ -3734,7 +3783,7 @@ static void ggml_cuda_graph_evaluate_and_capture(ggml_backend_cuda_context * cud
  
                                  if (ggml_can_fuse_subgraph(cgraph, i, ops.size(), ops.data(), out_nodes, 2) &&
                                      ggml_cuda_should_use_topk_moe(node, logits, weights, ids) &&
@@ -4421,7 +6021,7 @@ index 75b62129..c17db387 100644
                                      ggml_cuda_op_topk_moe(*cuda_ctx, logits, weights, ids, clamp, scale, bias, args);
                                      i += ops.size() - 1;
                                      continue;
-@@ -3750,7 +3790,7 @@ static void ggml_cuda_graph_evaluate_and_capture(ggml_backend_cuda_context * cud
+@@ -3750,7 +3799,7 @@ static void ggml_cuda_graph_evaluate_and_capture(ggml_backend_cuda_context * cud
                                  int out_nodes[2] = { i + 1, i + 5 };
                                  if (ggml_can_fuse_subgraph(cgraph, i, ops.size(), ops.data(), out_nodes, 2) &&
                                      ggml_cuda_should_use_topk_moe(softmax, logits, weights, ids) &&
@@ -4430,7 +6030,7 @@ index 75b62129..c17db387 100644
                                      ggml_cuda_op_topk_moe(*cuda_ctx, logits, weights, ids, clamp, scale, bias, args);
                                      i += ops.size() - 1;
                                      continue;
-@@ -3768,10 +3808,10 @@ static void ggml_cuda_graph_evaluate_and_capture(ggml_backend_cuda_context * cud
+@@ -3768,10 +3817,10 @@ static void ggml_cuda_graph_evaluate_and_capture(ggml_backend_cuda_context * cud
                          continue;
                      }
  
@@ -4443,7 +6043,7 @@ index 75b62129..c17db387 100644
  
                          for (; n_fuse <= 6; ++n_fuse){
                              if (!ggml_can_fuse(cgraph, i + n_fuse, ops + n_fuse, 2)) {
-@@ -3788,13 +3828,17 @@ static void ggml_cuda_graph_evaluate_and_capture(ggml_backend_cuda_context * cud
+@@ -3788,13 +3837,17 @@ static void ggml_cuda_graph_evaluate_and_capture(ggml_backend_cuda_context * cud
                          n_fuse++;
  
                          if (n_fuse > 1) {
@@ -4466,7 +6066,7 @@ index 75b62129..c17db387 100644
                              i += n_fuse - 1;
  
                              continue;
-@@ -4435,6 +4479,8 @@ static const ggml_backend_i ggml_backend_cuda_interface = {
+@@ -4435,6 +4488,8 @@ static const ggml_backend_i ggml_backend_cuda_interface = {
      /* .free                    = */ ggml_backend_cuda_free,
      /* .set_tensor_async        = */ ggml_backend_cuda_set_tensor_async,
      /* .get_tensor_async        = */ ggml_backend_cuda_get_tensor_async,
@@ -4475,7 +6075,23 @@ index 75b62129..c17db387 100644
      /* .cpy_tensor_async        = */ ggml_backend_cuda_cpy_tensor_async,
      /* .synchronize             = */ ggml_backend_cuda_synchronize,
      /* .graph_plan_create       = */ NULL,
-@@ -5222,6 +5268,15 @@ static ggml_backend_feature * ggml_backend_cuda_get_features(ggml_backend_reg_t
+@@ -4785,6 +4840,7 @@ static bool ggml_backend_cuda_device_supports_op(ggml_backend_dev_t dev, const g
+                 switch (a->type) {
+                     case GGML_TYPE_F32:
+                     case GGML_TYPE_F16:
++                    case GGML_TYPE_Q1_0:
+                     case GGML_TYPE_Q4_0:
+                     case GGML_TYPE_Q4_1:
+                     case GGML_TYPE_Q5_0:
+@@ -4822,6 +4878,7 @@ static bool ggml_backend_cuda_device_supports_op(ggml_backend_dev_t dev, const g
+                     case GGML_TYPE_F32:
+                     case GGML_TYPE_BF16:
+                     case GGML_TYPE_I32:
++                    case GGML_TYPE_Q1_0:
+                     case GGML_TYPE_Q4_0:
+                     case GGML_TYPE_Q4_1:
+                     case GGML_TYPE_Q5_0:
+@@ -5222,6 +5279,15 @@ static ggml_backend_feature * ggml_backend_cuda_get_features(ggml_backend_reg_t
  
  static void * ggml_backend_cuda_reg_get_proc_address(ggml_backend_reg_t reg, const char * name) {
      GGML_UNUSED(reg);
@@ -4562,11 +6178,146 @@ index 5d1dadd3..c91dd2d9 100644
  
  #else
          GGML_UNUSED_VARS(D, A, B);
+diff --git src/ggml-cuda/mmq.cu src/ggml-cuda/mmq.cu
+index 27b4145a..3f01ff5b 100644
+--- src/ggml-cuda/mmq.cu
++++ src/ggml-cuda/mmq.cu
+@@ -5,6 +5,9 @@
+ 
+ static void ggml_cuda_mul_mat_q_switch_type(ggml_backend_cuda_context & ctx, const mmq_args & args, cudaStream_t stream) {
+     switch (args.type_x) {
++        case GGML_TYPE_Q1_0:
++            mul_mat_q_case<GGML_TYPE_Q1_0>(ctx, args, stream);
++            break;
+         case GGML_TYPE_Q4_0:
+             mul_mat_q_case<GGML_TYPE_Q4_0>(ctx, args, stream);
+             break;
+@@ -270,6 +273,7 @@ bool ggml_cuda_should_use_mmq(enum ggml_type type, int cc, int64_t ne11, int64_t
+     bool mmq_supported;
+ 
+     switch (type) {
++        case GGML_TYPE_Q1_0:
+         case GGML_TYPE_Q4_0:
+         case GGML_TYPE_Q4_1:
+         case GGML_TYPE_Q5_0:
 diff --git src/ggml-cuda/mmq.cuh src/ggml-cuda/mmq.cuh
-index 51e8dad4..18911141 100644
+index 51e8dad4..28b662df 100644
 --- src/ggml-cuda/mmq.cuh
 +++ src/ggml-cuda/mmq.cuh
-@@ -386,17 +386,25 @@ static __device__ __forceinline__ void vec_dot_q4_0_q8_1_dp4a(
+@@ -57,6 +57,8 @@ static_assert(sizeof(block_fp4_mmq)  == sizeof(block_q8_1_mmq),    "Unexpected b
+ 
+ static mmq_q8_1_ds_layout mmq_get_q8_1_ds_layout(const ggml_type type_x) {
+     switch (type_x) {
++        case GGML_TYPE_Q1_0:
++            return MMQ_Q8_1_DS_LAYOUT_D4;
+         case GGML_TYPE_Q4_0:
+         case GGML_TYPE_Q4_1:
+             return MMQ_Q8_1_DS_LAYOUT_DS4;
+@@ -185,6 +187,7 @@ static constexpr __device__ int get_mmq_y_device() {
+ 
+ static constexpr __host__ __device__ tile_x_sizes mmq_get_dp4a_tile_x_sizes(ggml_type type, int mmq_y) {
+     switch (type) {
++        case GGML_TYPE_Q1_0:    return MMQ_DP4A_TXS_Q8_0;
+         case GGML_TYPE_Q4_0:    return MMQ_DP4A_TXS_Q4_0;
+         case GGML_TYPE_Q4_1:    return MMQ_DP4A_TXS_Q4_1;
+         case GGML_TYPE_Q5_0:    return MMQ_DP4A_TXS_Q8_0;
+@@ -229,6 +232,7 @@ static_assert(MMQ_MMA_TILE_X_K_NVFP4 % 8 == 4, "Wrong padding.");
+ 
+ static constexpr __host__ __device__ int mmq_get_mma_tile_x_k(ggml_type type) {
+     switch (type) {
++        case GGML_TYPE_Q1_0:    return MMQ_MMA_TILE_X_K_Q8_0;
+         case GGML_TYPE_Q4_0:    return MMQ_MMA_TILE_X_K_Q8_0;
+         case GGML_TYPE_Q4_1:    return MMQ_MMA_TILE_X_K_Q8_1;
+         case GGML_TYPE_Q5_0:    return MMQ_MMA_TILE_X_K_Q8_0;
+@@ -302,6 +306,87 @@ static constexpr __device__ int mmq_get_nwarps_device() {
+ 
+ // ------------------------------------------------------------
+ 
++template <int mmq_y, bool need_check> static __device__ __forceinline__ void load_tiles_q1_0(
++    const char * __restrict__ x, int * __restrict__ x_tile, const int kbx0, const int i_max, const int stride) {
++    constexpr int nwarps = mmq_get_nwarps_device();
++    constexpr int warp_size = ggml_cuda_get_physical_warp_size();
++
++#if defined(AMD_MFMA_AVAILABLE) || defined(TURING_MMA_AVAILABLE) || defined(AMD_WMMA_AVAILABLE)
++    int   * x_qs = (int   *)  x_tile;
++    float * x_df = (float *) (x_qs + 2*MMQ_TILE_NE_K);
++#else
++    constexpr tile_x_sizes txs = mmq_get_dp4a_tile_x_sizes(GGML_TYPE_Q8_0, mmq_y);
++    int   * x_qs = (int   *)  x_tile;
++    float * x_df = (float *) (x_qs + txs.qs);
++#endif // defined(AMD_MFMA_AVAILABLE) || defined(TURING_MMA_AVAILABLE) || defined(AMD_WMMA_AVAILABLE)
++
++    constexpr int blocks_per_iter = MMQ_ITER_K / QK1_0;
++    constexpr int threads_per_row = blocks_per_iter * QI1_0;
++    constexpr int nrows = warp_size / threads_per_row;
++    constexpr int scale_entries_per_block = QK1_0 / QK8_1;
++    constexpr int scale_entries_per_row = blocks_per_iter * scale_entries_per_block;
++
++    const int txi  = threadIdx.x % threads_per_row;
++    const int kbx  = txi / QI1_0;
++    const int kqsx = txi % QI1_0;
++
++#pragma unroll
++    for (int i0 = 0; i0 < mmq_y; i0 += nrows*nwarps) {
++        int i = i0 + threadIdx.y*nrows + threadIdx.x/threads_per_row;
++
++        if (need_check) {
++            i = min(i, i_max);
++        }
++
++        const block_q1_0 * bxi = (const block_q1_0 *) x + kbx0 + i*stride + kbx;
++        const int qs_offset = 4*kqsx;
++        const int qs0 = bxi->qs[qs_offset + 0] | (bxi->qs[qs_offset + 1] << 8) |
++                        (bxi->qs[qs_offset + 2] << 16) | (bxi->qs[qs_offset + 3] << 24);
++
++        int unpacked_bytes[8];
++#pragma unroll
++        for (int j = 0; j < 8; ++j) {
++            const int shift = j * 4;
++            const int bits4 = (qs0 >> shift) & 0x0F;
++            const int b0 = (bits4 & 0x01) ? 1 : -1;
++            const int b1 = (bits4 & 0x02) ? 1 : -1;
++            const int b2 = (bits4 & 0x04) ? 1 : -1;
++            const int b3 = (bits4 & 0x08) ? 1 : -1;
++            unpacked_bytes[j] = (b0 & 0xFF) | ((b1 & 0xFF) << 8) | ((b2 & 0xFF) << 16) | ((b3 & 0xFF) << 24);
++        }
++
++        const int dst_offset = kbx*(scale_entries_per_block*QI8_0) + kqsx*QI8_0;
++#pragma unroll
++        for (int j = 0; j < 8; ++j) {
++#if defined(AMD_MFMA_AVAILABLE) || defined(TURING_MMA_AVAILABLE) || defined(AMD_WMMA_AVAILABLE)
++            x_qs[i*MMQ_MMA_TILE_X_K_Q8_0 + dst_offset + j] = unpacked_bytes[j];
++#else
++            x_qs[i*(2*MMQ_TILE_NE_K + 1) + dst_offset + j] = unpacked_bytes[j];
++#endif // defined(AMD_MFMA_AVAILABLE) || defined(TURING_MMA_AVAILABLE) || defined(AMD_WMMA_AVAILABLE)
++        }
++    }
++
++    const int ksx = threadIdx.x % scale_entries_per_row;
++    const int scale_block = ksx / scale_entries_per_block;
++
++#pragma unroll
++    for (int i0 = 0; i0 < mmq_y; i0 += nwarps) {
++        int i = i0 + threadIdx.y;
++
++        if (need_check) {
++            i = min(i, i_max);
++        }
++
++        const block_q1_0 * bxi = (const block_q1_0 *) x + kbx0 + i*stride + scale_block;
++
++#if defined(AMD_MFMA_AVAILABLE) || defined(TURING_MMA_AVAILABLE) || defined(AMD_WMMA_AVAILABLE)
++        x_df[i*MMQ_MMA_TILE_X_K_Q8_0 + ksx] = bxi->d;
++#else
++        x_df[i*(2*MMQ_TILE_NE_K/QI8_0) + i/(QI8_0/2) + ksx] = bxi->d;
++#endif // defined(AMD_MFMA_AVAILABLE) || defined(TURING_MMA_AVAILABLE) || defined(AMD_WMMA_AVAILABLE)
++    }
++}
++
+ template <int mmq_y, bool need_check> static __device__ __forceinline__ void load_tiles_q4_0(
+     const char * __restrict__ x, int * __restrict__ x_tile, const int kbx0, const int i_max, const int stride) {
+     constexpr int nwarps = mmq_get_nwarps_device();
+@@ -386,17 +471,25 @@ static __device__ __forceinline__ void vec_dot_q4_0_q8_1_dp4a(
  #pragma unroll
              for (int i0 = 0; i0 < mmq_y; i0 += warp_size) {
                  const int i = i0 + threadIdx.x;
@@ -4597,7 +6348,7 @@ index 51e8dad4..18911141 100644
                  sum[j0/nwarps*mmq_y/warp_size + i0/warp_size] += vec_dot_q4_0_q8_1_impl<VDR_Q4_0_Q8_1_MMQ>
                      (&x_qs[i*(MMQ_TILE_NE_K + 1) + k0/QR4_0], u,
                       x_df[i*(MMQ_TILE_NE_K/QI4_0) + i/QI4_0 + k0/(QR4_0*QI4_0)], y_ds[j*MMQ_TILE_Y_K + k01/QI8_1]);
-@@ -489,17 +497,25 @@ static __device__ __forceinline__ void vec_dot_q4_1_q8_1_dp4a(
+@@ -489,17 +582,25 @@ static __device__ __forceinline__ void vec_dot_q4_1_q8_1_dp4a(
  #pragma unroll
              for (int i0 = 0; i0 < mmq_y; i0 += warp_size) {
                  const int i = i0 + threadIdx.x;
@@ -4628,7 +6379,22 @@ index 51e8dad4..18911141 100644
                  sum[j0/nwarps*mmq_y/warp_size + i0/warp_size] += vec_dot_q4_1_q8_1_impl<VDR_Q4_1_Q8_1_MMQ>
                      (&x_qs[i*(MMQ_TILE_NE_K + 1) + k0/QR4_1], u,
                       x_dm[i*(MMQ_TILE_NE_K/QI4_1) + i/QI4_1 + k0/(QR4_1*QI4_1)], y_ds[j*MMQ_TILE_Y_K + k01/QI8_1]);
-@@ -3629,7 +3645,7 @@ static __global__ void mul_mat_q(
+@@ -3274,6 +3375,14 @@ static __device__ __forceinline__ void mmq_write_back_mma(
+ template <int mmq_x, int mmq_y, bool need_check, ggml_type type>
+ struct mmq_type_traits;
+ 
++template <int mmq_x, int mmq_y, bool need_check>
++struct mmq_type_traits<mmq_x, mmq_y, need_check, GGML_TYPE_Q1_0> {
++    static constexpr int              vdr          = VDR_Q1_0_Q8_1_MMQ;
++    static constexpr load_tiles_mmq_t load_tiles   = load_tiles_q1_0<mmq_y, need_check>;
++    static constexpr vec_dot_mmq_t    vec_dot_mma  = vec_dot_q8_0_q8_1_mma<mmq_x, mmq_y, MMQ_Q8_1_DS_LAYOUT_D4>;
++    static constexpr vec_dot_mmq_t    vec_dot_dp4a = vec_dot_q8_0_q8_1_dp4a<mmq_x, mmq_y>;
++};
++
+ template <int mmq_x, int mmq_y, bool need_check>
+ struct mmq_type_traits<mmq_x, mmq_y, need_check, GGML_TYPE_Q4_0> {
+     static constexpr int              vdr          = VDR_Q4_0_Q8_1_MMQ;
+@@ -3629,7 +3738,7 @@ static __global__ void mul_mat_q(
               tile_x_max_i, tile_y_max_j, 0, ncols_x/qk);
          return;
      }
@@ -4637,11 +6403,44 @@ index 51e8dad4..18911141 100644
  
      constexpr int ITER_K = get_iter_k(type);
  
-@@ -4170,3 +4186,4 @@ void ggml_cuda_op_mul_mat_q(
+@@ -4170,3 +4279,4 @@ void ggml_cuda_op_mul_mat_q(
      const int64_t src1_padded_row_size, cudaStream_t stream);
  
  bool ggml_cuda_should_use_mmq(enum ggml_type type, int cc, int64_t ne11, int64_t n_experts);
 +
+diff --git src/ggml-cuda/mmvq.cu src/ggml-cuda/mmvq.cu
+index 07b10167..8f55cace 100644
+--- src/ggml-cuda/mmvq.cu
++++ src/ggml-cuda/mmvq.cu
+@@ -9,6 +9,7 @@ typedef float (*vec_dot_q_cuda_t)(const void * __restrict__ vbq, const block_q8_
+ 
+ static constexpr __device__ vec_dot_q_cuda_t get_vec_dot_q_cuda(ggml_type type) {
+     switch (type) {
++        case GGML_TYPE_Q1_0:    return vec_dot_q1_0_q8_1;
+         case GGML_TYPE_Q4_0:    return vec_dot_q4_0_q8_1;
+         case GGML_TYPE_Q4_1:    return vec_dot_q4_1_q8_1;
+         case GGML_TYPE_Q5_0:    return vec_dot_q5_0_q8_1;
+@@ -36,6 +37,7 @@ static constexpr __device__ vec_dot_q_cuda_t get_vec_dot_q_cuda(ggml_type type)
+ 
+ static constexpr __host__ __device__ int get_vdr_mmvq(ggml_type type) {
+     switch (type) {
++        case GGML_TYPE_Q1_0:    return VDR_Q1_0_Q8_1_MMVQ;
+         case GGML_TYPE_Q4_0:    return VDR_Q4_0_Q8_1_MMVQ;
+         case GGML_TYPE_Q4_1:    return VDR_Q4_1_Q8_1_MMVQ;
+         case GGML_TYPE_Q5_0:    return VDR_Q5_0_Q8_1_MMVQ;
+@@ -886,6 +888,12 @@ static void mul_mat_vec_q_switch_type(
+         const int nsamples_x, const int nsamples_dst, const int stride_sample_x, const int stride_sample_y, const int stride_sample_dst,
+         const int ids_stride, cudaStream_t stream) {
+     switch (type_x) {
++        case GGML_TYPE_Q1_0:
++            mul_mat_vec_q_switch_ncols_dst<GGML_TYPE_Q1_0>
++                (vx, vy, ids, fusion, dst, ncols_x, nrows_x, ncols_dst, stride_row_x, stride_col_y, stride_col_dst,
++                 nchannels_x, nchannels_y, nchannels_dst, stride_channel_x, stride_channel_y, stride_channel_dst,
++                 nsamples_x, nsamples_dst, stride_sample_x, stride_sample_y, stride_sample_dst, ids_stride, stream);
++            break;
+         case GGML_TYPE_Q4_0:
+             mul_mat_vec_q_switch_ncols_dst<GGML_TYPE_Q4_0>
+                 (vx, vy, ids, fusion, dst, ncols_x, nrows_x, ncols_dst, stride_row_x, stride_col_y, stride_col_dst,
 diff --git src/ggml-cuda/ssm-conv.cu src/ggml-cuda/ssm-conv.cu
 index 69985cd3..b77cdc1c 100644
 --- src/ggml-cuda/ssm-conv.cu
@@ -4657,6 +6456,29 @@ index 69985cd3..b77cdc1c 100644
      }
  }
  
+diff --git src/ggml-cuda/template-instances/generate_cu_files.py src/ggml-cuda/template-instances/generate_cu_files.py
+index 40d51f93..841059c1 100755
+--- src/ggml-cuda/template-instances/generate_cu_files.py
++++ src/ggml-cuda/template-instances/generate_cu_files.py
+@@ -32,6 +32,7 @@ SOURCE_FATTN_MMA_START = """// This file has been autogenerated by generate_cu_f
+ SOURCE_FATTN_MMA_CASE = "DECL_FATTN_MMA_F16_CASE({head_size_kq}, {head_size_v}, {ncols1}, {ncols2});\n"
+ 
+ TYPES_MMQ = [
++    "GGML_TYPE_Q1_0",
+     "GGML_TYPE_Q4_0", "GGML_TYPE_Q4_1", "GGML_TYPE_Q5_0", "GGML_TYPE_Q5_1", "GGML_TYPE_Q8_0",
+     "GGML_TYPE_Q2_K", "GGML_TYPE_Q3_K", "GGML_TYPE_Q4_K", "GGML_TYPE_Q5_K", "GGML_TYPE_Q6_K",
+     "GGML_TYPE_IQ2_XXS", "GGML_TYPE_IQ2_XS", "GGML_TYPE_IQ2_S", "GGML_TYPE_IQ3_XXS", "GGML_TYPE_IQ3_S",
+diff --git src/ggml-cuda/template-instances/mmq-instance-q1_0.cu src/ggml-cuda/template-instances/mmq-instance-q1_0.cu
+new file mode 100644
+index 00000000..f0686b0d
+--- /dev/null
++++ src/ggml-cuda/template-instances/mmq-instance-q1_0.cu
+@@ -0,0 +1,5 @@
++// This file has been autogenerated by generate_cu_files.py, do not edit manually.
++
++#include "../mmq.cuh"
++
++DECL_MMQ_CASE(GGML_TYPE_Q1_0);
 diff --git src/ggml-cuda/top-k.cu src/ggml-cuda/top-k.cu
 index 785a1838..59ce36fb 100644
 --- src/ggml-cuda/top-k.cu
@@ -4680,6 +6502,72 @@ index 785a1838..59ce36fb 100644
  }
  
  #elif defined(GGML_CUDA_USE_CUB)  // CUB_TOP_K_AVAILABLE
+diff --git src/ggml-cuda/vecdotq.cuh src/ggml-cuda/vecdotq.cuh
+index 40b2b41e..d1741cc8 100644
+--- src/ggml-cuda/vecdotq.cuh
++++ src/ggml-cuda/vecdotq.cuh
+@@ -106,6 +106,9 @@ static __device__ __forceinline__ uint32_t unpack_ksigns(const uint8_t v) {
+ // VDR = vec dot ratio, how many contiguous integers each thread processes when the vec dot kernel is called
+ // MMVQ = mul_mat_vec_q, MMQ = mul_mat_q
+ 
++#define VDR_Q1_0_Q8_1_MMVQ 1  // Process one 32-element chunk at a time for parallelism
++#define VDR_Q1_0_Q8_1_MMQ  4  // Q1_0 has 128 bits (4 ints) per block
++
+ #define VDR_Q4_0_Q8_1_MMVQ 2
+ #define VDR_Q4_0_Q8_1_MMQ  4
+ 
+@@ -669,6 +672,51 @@ static __device__ __forceinline__ float vec_dot_q6_K_q8_1_impl_mmq(
+     return d6 * sumf_d;
+ }
+ 
++static __device__ __forceinline__ float vec_dot_q1_0_q8_1(
++    const void * __restrict__ vbq, const block_q8_1 * __restrict__ bq8_1, const int & kbx, const int & iqs) {
++
++    const block_q1_0 * bq1_0 = (const block_q1_0 *) vbq + kbx;
++
++    // Q1_0: 128 elements with ONE scale
++    // Q8_1: 32 elements per block with individual scales
++    // iqs selects which of the 4 chunks of 32 elements to process (0-3)
++
++    const float d1 = bq1_0->d;
++
++    // Process only the chunk specified by iqs
++    const block_q8_1 * bq8_1_chunk = bq8_1 + iqs;
++
++    // Load 32 bits (4 bytes) for this chunk from Q1_0
++    const int offset = iqs * 4;
++    const int v = bq1_0->qs[offset + 0] | (bq1_0->qs[offset + 1] << 8) |
++                  (bq1_0->qs[offset + 2] << 16) | (bq1_0->qs[offset + 3] << 24);
++
++    // Unpack 32 bits into 32 signed values (-1 or +1)
++    int vi_bytes[8];
++#pragma unroll
++    for (int j = 0; j < 8; ++j) {
++        const int shift = j * 4;
++        const int bits4 = (v >> shift) & 0x0F;
++        const int b0 = (bits4 & 0x01) ? 1 : -1;
++        const int b1 = (bits4 & 0x02) ? 1 : -1;
++        const int b2 = (bits4 & 0x04) ? 1 : -1;
++        const int b3 = (bits4 & 0x08) ? 1 : -1;
++        vi_bytes[j] = (b0 & 0xFF) | ((b1 & 0xFF) << 8) | ((b2 & 0xFF) << 16) | ((b3 & 0xFF) << 24);
++    }
++
++    // Compute dot product for this 32-element chunk
++    int sumi = 0;
++#pragma unroll
++    for (int j = 0; j < 8; ++j) {
++        const int u = get_int_b4(bq8_1_chunk->qs, j);
++        sumi = ggml_cuda_dp4a(vi_bytes[j], u, sumi);
++    }
++
++    // Apply Q1_0's single scale and this chunk's Q8_1 scale
++    const float d8 = __low2float(bq8_1_chunk->ds);
++    return d1 * d8 * sumi;
++}
++
+ static __device__ __forceinline__ float vec_dot_q4_0_q8_1(
+     const void * __restrict__ vbq, const block_q8_1 * __restrict__ bq8_1, const int & kbx, const int & iqs) {
+ 
 diff --git src/ggml-cuda/vendors/cuda.h src/ggml-cuda/vendors/cuda.h
 index 07bc47df..323c9801 100644
 --- src/ggml-cuda/vendors/cuda.h
@@ -7348,7 +9236,7 @@ index 8ed1456b..f6713c5c 100644
 +
  #endif /* HEX_UTILS_H */
 diff --git src/ggml-hexagon/htp/hmx-matmul-ops.c src/ggml-hexagon/htp/hmx-matmul-ops.c
-index 4ff2b36d..485ec3f1 100644
+index 4ff2b36d..dbca8220 100644
 --- src/ggml-hexagon/htp/hmx-matmul-ops.c
 +++ src/ggml-hexagon/htp/hmx-matmul-ops.c
 @@ -16,14 +16,16 @@
@@ -7387,14 +9275,14 @@ index 4ff2b36d..485ec3f1 100644
  
 -// Search for optimal (mc, nc) chunk sizes that maximize mc * nc within VTCM budget.
 +// Search for optimal (mc, nc) chunk sizes within VTCM budget.
-+//
-+// VTCM model: nc * per_n_cost + mc * per_m_cost + mc * nc * per_mn_cost + overhead
  //
 -// Cost model: total = nc * per_n_cost + mc * per_m_cost + mc * nc * per_mn_cost + overhead
 -//   per_n_cost:  bytes per nc column (weight + scratch buffers)
 -//   per_m_cost:  bytes per mc row (activation)
 -//   per_mn_cost: bytes per mc*nc element (output)
 -//   overhead:    fixed bytes (scales 256B, eye_tile 2048B, etc.)
++// VTCM model: nc * per_n_cost + mc * per_m_cost + mc * nc * per_mn_cost + overhead
++//
 +// Minimize ceil(m/mc) * m_block_cost + ceil(n/nc) * n_block_cost.
 +// All matmul paths repeat weight processing per M-block and activation loading
 +// per N-block, so discrete block counts drive total overhead.
@@ -7629,7 +9517,20 @@ index 4ff2b36d..485ec3f1 100644
      }
  
      // Drain HVX scatter write buffer: a vmem load on the same HW thread retires
-@@ -653,9 +671,13 @@ static void dequantize_x4x2_weight_chunk_to_fp16_tiles(
+@@ -630,9 +648,9 @@ static void dequantize_x4x2_weight_chunk_to_fp16_tiles(
+     assert(n_cols  % HMX_FP16_TILE_N_COLS == 0);
+     assert(k_block % HMX_FP16_TILE_N_COLS == 0);
+ 
+-    int n_col_tiles = n_cols / HMX_FP16_TILE_N_COLS;
+-    int n_k_tiles   = k_block / HMX_FP16_TILE_N_COLS;
+-    int n_tot_tiles = n_col_tiles * n_k_tiles;
++    size_t n_col_tiles = n_cols / HMX_FP16_TILE_N_COLS;
++    size_t n_k_tiles   = k_block / HMX_FP16_TILE_N_COLS;
++    size_t n_tot_tiles = n_col_tiles * n_k_tiles;
+ 
+     size_t n_tiles_per_task = hmx_ceil_div(n_tot_tiles, ctx->n_threads);
+ 
+@@ -653,49 +671,91 @@ static void dequantize_x4x2_weight_chunk_to_fp16_tiles(
  // --- End x4x2 dequantizers ---
  
  // requires external HMX lock
@@ -7640,12 +9541,14 @@ index 4ff2b36d..485ec3f1 100644
 +    __builtin_assume(n_row_tiles > 0);
 +    __builtin_assume(n_col_tiles > 0);
 +    __builtin_assume(n_dot_tiles > 0);
-+
-+    Q6_bias_mxmem2_A((void *)scales);
  
++    Q6_bias_mxmem2_A((void *)scales);
      for (int r = 0; r < n_row_tiles; ++r) {
-         for (int c = 0; c < n_col_tiles; ++c) {
-@@ -665,16 +687,55 @@ static void core_dot_chunk_fp16(__fp16 *output, const __fp16 *activation, const
+-        for (int c = 0; c < n_col_tiles; ++c) {
++        for (size_t c = 0; c < n_col_tiles; ++c) {
+             Q6_mxclracc_hf();
+ 
+             const __fp16 *row_tiles = activation + r * n_dot_tiles * HMX_FP16_TILE_N_ELMS;
              const __fp16 *col_tiles = weight + c * n_dot_tiles * HMX_FP16_TILE_N_ELMS;
  
              for (int k = 0; k < n_dot_tiles; ++k) {
@@ -7703,8 +9606,50 @@ index 4ff2b36d..485ec3f1 100644
 +
  static void transfer_output_chunk_fp16_to_fp32(float *restrict dst, const __fp16 *restrict vtcm_src, int n_rows, int n_cols, int n) {
      assert(n_cols % HMX_FP16_TILE_N_COLS == 0);
-     const int n_col_tiles = n_cols / HMX_FP16_TILE_N_COLS;
-@@ -821,7 +882,7 @@ int hmx_mat_mul_permuted_w16a32_batched(struct htp_context *ctx, const hmx_matmu
+-    const int n_col_tiles = n_cols / HMX_FP16_TILE_N_COLS;
++    const size_t tile_row_stride = (n_cols / HMX_FP16_TILE_N_COLS) * HMX_FP16_TILE_N_ELMS;
+ 
+     const HVX_Vector one = hvx_vec_splat_f16(1.0);
+ 
+-    for (int r = 0; r < n_rows; r += 2) {
+-        int r0 = r / HMX_FP16_TILE_N_ROWS;
+-        int r1 = r % HMX_FP16_TILE_N_ROWS;
++    for (size_t r = 0; r < n_rows; r += 2) {
++        const size_t r0 = r / HMX_FP16_TILE_N_ROWS;
++        const size_t r1 = (r % HMX_FP16_TILE_N_ROWS) / 2;  // index of the row pair within the tile
++        const __fp16 *row_base = vtcm_src + r0 * tile_row_stride;
++        float *output_row_base = dst + r * n;  // global memory row base for row r (and r+1)
+ 
+         #pragma unroll(4)
+-        for (int c = 0; c < n_cols; c += HMX_FP16_TILE_N_COLS) {
+-            int c0 = c / HMX_FP16_TILE_N_COLS;
+-
+-            const __fp16 *tile = vtcm_src + (r0 * n_col_tiles + c0) * HMX_FP16_TILE_N_ELMS;
+-
+-            HVX_Vector v = ((const HVX_Vector *) tile)[r1 / 2];
++        for (size_t c = 0; c < n_cols; c += HMX_FP16_TILE_N_COLS) {
++            const size_t c0 = c / HMX_FP16_TILE_N_COLS;
++            const __fp16 *tile = row_base + c0 * HMX_FP16_TILE_N_ELMS;
++            HVX_Vector v = ((const HVX_Vector *) tile)[r1];
+             HVX_VectorPair vp = Q6_Wqf32_vmpy_VhfVhf(v, one);
+ 
+-            volatile HVX_Vector *pv_out0 = (volatile HVX_Vector *) (dst + (r * n + c + 0));
+-            volatile HVX_Vector *pv_out1 = (volatile HVX_Vector *) (dst + (r * n + c + n));  // next row in global memory
++            volatile HVX_Vector *pv_out0 = (volatile HVX_Vector *) (output_row_base + c + 0);
++            volatile HVX_Vector *pv_out1 = (volatile HVX_Vector *) (output_row_base + c + n);  // next row in global memory
+ 
+             *pv_out0 = Q6_Vsf_equals_Vqf32(Q6_V_lo_W(vp));
+             if (r + 1 < n_rows) {
+@@ -733,7 +793,7 @@ static void transfer_output_chunk_threaded(struct htp_context *ctx, float *dst,
+     assert(n_cols % HMX_FP16_TILE_N_COLS == 0);
+ 
+     size_t n_tot_chunks      = n_rows;
+-    size_t n_chunks_per_task = 32;  // must be multiple of HMX_FP16_TILE_N_ROWS (32)
++    size_t n_chunks_per_task = HMX_FP16_TILE_N_ROWS;  // must be multiple of HMX_FP16_TILE_N_ROWS (32)
+ 
+     output_transfer_task_state_t state;
+     state.n_tasks           = (n_tot_chunks + n_chunks_per_task - 1) / n_chunks_per_task;
+@@ -821,7 +881,7 @@ int hmx_mat_mul_permuted_w16a32_batched(struct htp_context *ctx, const hmx_matmu
      // and each q_head is computed individually to avoid tile-major packing
      // issues.  m_chunk_n_rows is always a multiple of 32 (from
      // hmx_compute_chunks), so per-head tile arrays don't overlap.
@@ -7713,7 +9658,7 @@ index 4ff2b36d..485ec3f1 100644
      const size_t vec_dot_size = params->k * sizeof(__fp16);
  
      // When the activation has a large stride (e.g. permuted Q tensor with
-@@ -832,12 +893,13 @@ int hmx_mat_mul_permuted_w16a32_batched(struct htp_context *ctx, const hmx_matmu
+@@ -832,12 +892,13 @@ int hmx_mat_mul_permuted_w16a32_batched(struct htp_context *ctx, const hmx_matmu
      const size_t f32_scratch_per_m = use_dma_activation ? (size_t) params->k * sizeof(float) : 0;
  
      size_t m_chunk_n_rows = 0, n_chunk_n_cols = 0, vtcm_used = 0;
@@ -7732,7 +9677,74 @@ index 4ff2b36d..485ec3f1 100644
          FARF(HIGH, "%s: grouped path does not fit VTCM, falling back to legacy batched loop", __func__);
          return hmx_mat_mul_permuted_w16a32_batched_legacy(ctx, params);
      }
-@@ -998,7 +1060,7 @@ int hmx_mat_mul_permuted_w16a32(struct htp_context *ctx, float *restrict dst, co
+@@ -864,7 +925,7 @@ int hmx_mat_mul_permuted_w16a32_batched(struct htp_context *ctx, const hmx_matmu
+         return hmx_mat_mul_permuted_w16a32_batched_legacy(ctx, params);
+     }
+ 
+-    hmx_init_column_scales(vtcm_scales, Q6_V_vsplat_R(0x3c00));  // fp16: 1.0
++    hmx_init_column_scales(vtcm_scales, Q6_V_vsplat_R(0x3c00));  // scale: 1.0, bias: 0.0 in FP16
+ 
+     FARF(MEDIUM, "%s: grouped path m=%d k=%d n=%d group=%d streams=%d mc=%zu nc=%zu vtcm=%zu/%zu",
+             __func__, params->m, params->k, params->n, group_size, params->ne13,
+@@ -882,12 +943,15 @@ int hmx_mat_mul_permuted_w16a32_batched(struct htp_context *ctx, const hmx_matmu
+     const size_t fp16_row_bytes   = (size_t) params->k * sizeof(__fp16);
+     const size_t weight_row_bytes = (size_t) params->weight_stride * sizeof(__fp16);
+ 
++    HAP_compute_res_hmx_lock(ctx->vtcm_rctx);
++
+     for (int b3 = 0; b3 < params->ne13; ++b3) {
+         for (int b2_base = 0; b2_base < params->ne12; b2_base += group_size) {
+             const __fp16 *weight_group = hmx_matmul_weight_batch_ptr(params, b2_base, b3);
+ 
+             for (size_t mr = 0; mr < (size_t) params->m; mr += m_chunk_n_rows) {
+                 const size_t n_rows = hex_smin((size_t) params->m - mr, m_chunk_n_rows);
++                const size_t n_row_tiles = hmx_ceil_div((int) n_rows, HMX_FP16_TILE_N_ROWS);
+ 
+                 // Pre-load activations for all heads in the group (once per m_chunk).
+                 // When the source is strided (permuted Q), use 2D DMA to gather
+@@ -925,10 +989,9 @@ int hmx_mat_mul_permuted_w16a32_batched(struct htp_context *ctx, const hmx_matmu
+                                       fp16_row_bytes, weight_row_bytes, fp16_row_bytes, n_cols_first);
+                 }
+ 
+-                HAP_compute_res_hmx_lock(ctx->vtcm_rctx);
+-
+                 for (size_t nc = 0; nc < (size_t) params->n; nc += n_chunk_n_cols) {
+                     const size_t n_cols = hex_smin((size_t) params->n - nc, n_chunk_n_cols);
++                    const size_t n_col_tiles = hmx_ceil_div((int) n_cols, HMX_FP16_TILE_N_COLS);
+ 
+                     TIMER_START(weight_load);
+                     {
+@@ -952,11 +1015,9 @@ int hmx_mat_mul_permuted_w16a32_batched(struct htp_context *ctx, const hmx_matmu
+                     for (int g = 0; g < group_size; ++g) {
+                         TIMER_START(hmx_core);
+                         {
+-                            const __fp16 *vtcm_act_g = vtcm_activation + (size_t) g * act_head_stride;
+-                            const int n_row_tiles = hmx_ceil_div((int) n_rows, HMX_FP16_TILE_N_ROWS);
+-                            const int n_col_tiles = hmx_ceil_div((int) n_cols, HMX_FP16_TILE_N_COLS);
+-                            core_dot_chunk_fp16(vtcm_output, vtcm_act_g, vtcm_weight, vtcm_scales,
+-                                                n_row_tiles, n_col_tiles, params->k / 32);
++                            const __fp16 * vtcm_act_g = vtcm_activation + (size_t) g * act_head_stride;
++                            core_dot_chunk_fp16(vtcm_output, vtcm_act_g, vtcm_weight, vtcm_scales, n_row_tiles, n_col_tiles,
++                                                params->k / 32);
+                         }
+                         TIMER_STOP(hmx_core);
+ 
+@@ -968,12 +1029,12 @@ int hmx_mat_mul_permuted_w16a32_batched(struct htp_context *ctx, const hmx_matmu
+                         TIMER_STOP(output_store);
+                     }
+                 }
+-
+-                HAP_compute_res_hmx_unlock(ctx->vtcm_rctx);
+             }
+         }
+     }
+ 
++    HAP_compute_res_hmx_unlock(ctx->vtcm_rctx);
++
+     TIMER_STOP(total);
+ 
+ #if defined(ENABLE_PROFILE_TIMERS)
+@@ -998,7 +1059,7 @@ int hmx_mat_mul_permuted_w16a32(struct htp_context *ctx, float *restrict dst, co
      }
  
      // --- Dynamic VTCM layout ---
@@ -7741,7 +9753,7 @@ index 4ff2b36d..485ec3f1 100644
      const size_t vec_dot_size = k * sizeof(__fp16);
  
      // DMA-based activation gather for strided tensors (see batched path comment).
-@@ -1006,13 +1068,15 @@ int hmx_mat_mul_permuted_w16a32(struct htp_context *ctx, float *restrict dst, co
+@@ -1006,13 +1067,15 @@ int hmx_mat_mul_permuted_w16a32(struct htp_context *ctx, float *restrict dst, co
      const size_t f32_scratch_per_m = use_dma_activation ? (size_t) k * sizeof(float) : 0;
  
      size_t m_chunk_n_rows = 0, n_chunk_n_cols = 0, vtcm_used = 0;
@@ -7763,7 +9775,45 @@ index 4ff2b36d..485ec3f1 100644
          FARF(HIGH, "%s: VTCM too small (m=%d k=%d n=%d budget=%zu)", __func__, m, k, n, vtcm_budget);
          return -1;
      }
-@@ -1157,6 +1221,8 @@ int hmx_mat_mul_permuted_w16a32(struct htp_context *ctx, float *restrict dst, co
+@@ -1039,7 +1102,7 @@ int hmx_mat_mul_permuted_w16a32(struct htp_context *ctx, float *restrict dst, co
+         return -1;
+     }
+ 
+-    hmx_init_column_scales(vtcm_scales, Q6_V_vsplat_R(0x3c00));  // fp16: 1.0
++    hmx_init_column_scales(vtcm_scales, Q6_V_vsplat_R(0x3c00));  // scale: 1.0, bias: 0.0 in FP16
+ 
+     FARF(MEDIUM, "%s: m=%d k=%d n=%d mc=%zu nc=%zu vtcm=%zu/%zu",
+          __func__, m, k, n, m_chunk_n_rows, n_chunk_n_cols,
+@@ -1057,7 +1120,8 @@ int hmx_mat_mul_permuted_w16a32(struct htp_context *ctx, float *restrict dst, co
+ 
+     for (size_t mr = 0; mr < m; mr += m_chunk_n_rows) {
+         // transfer activation matrix chunk into VTCM
+-        size_t n_rows = hex_smin(m - mr, m_chunk_n_rows);
++        const size_t n_rows = hex_smin(m - mr, m_chunk_n_rows);
++        const size_t n_row_tiles = hmx_ceil_div(n_rows, HMX_FP16_TILE_N_ROWS);
+ 
+         TIMER_START(activation_load);
+         {
+@@ -1095,7 +1159,8 @@ int hmx_mat_mul_permuted_w16a32(struct htp_context *ctx, float *restrict dst, co
+         }
+ 
+         for (size_t nc = 0; nc < n; nc += n_chunk_n_cols) {
+-            size_t n_cols = hex_smin(n - nc, n_chunk_n_cols);
++            const size_t n_cols = hex_smin(n - nc, n_chunk_n_cols);
++            const size_t n_col_tiles = hmx_ceil_div(n_cols, HMX_FP16_TILE_N_COLS);
+ 
+             TIMER_START(weight_load);
+             {
+@@ -1120,8 +1185,6 @@ int hmx_mat_mul_permuted_w16a32(struct htp_context *ctx, float *restrict dst, co
+ 
+             TIMER_START(hmx_core);
+             {
+-                const int n_row_tiles = hmx_ceil_div(n_rows, HMX_FP16_TILE_N_ROWS);
+-                const int n_col_tiles = hmx_ceil_div(n_cols, HMX_FP16_TILE_N_COLS);
+                 core_dot_chunk_fp16(vtcm_output, vtcm_activation, vtcm_weight, vtcm_scales, n_row_tiles, n_col_tiles, k / 32);
+             }
+             TIMER_STOP(hmx_core);
+@@ -1157,6 +1220,8 @@ int hmx_mat_mul_permuted_w16a32(struct htp_context *ctx, float *restrict dst, co
  int mat_mul_qk_0_d16a32_out_stationary(struct htp_context *ctx, float *restrict out, const float *restrict x, const uint8_t *restrict w, int m,
                                         int k, int n, int w_type);
  
@@ -7772,7 +9822,7 @@ index 4ff2b36d..485ec3f1 100644
  int hmx_mat_mul_permuted_qk_0_d16a32(struct htp_context *ctx, float *restrict dst, const float *restrict activation,
                                       const uint8_t *restrict permuted_weight, int m, int k, int n,
                                       int weight_type) {
-@@ -1169,9 +1235,12 @@ int hmx_mat_mul_permuted_qk_0_d16a32(struct htp_context *ctx, float *restrict ds
+@@ -1169,9 +1234,12 @@ int hmx_mat_mul_permuted_qk_0_d16a32(struct htp_context *ctx, float *restrict ds
  
      // for large m, k (e.g. prefill FFN Down), use out-stationary version
      if (m >= 128 && k > n && n > 1024) {
@@ -7788,7 +9838,7 @@ index 4ff2b36d..485ec3f1 100644
      }
  
      size_t row_stride = get_x4x2_row_stride(weight_type, k);
-@@ -1182,7 +1251,7 @@ int hmx_mat_mul_permuted_qk_0_d16a32(struct htp_context *ctx, float *restrict ds
+@@ -1182,7 +1250,7 @@ int hmx_mat_mul_permuted_qk_0_d16a32(struct htp_context *ctx, float *restrict ds
      FARF(MEDIUM, "hmx_matmul_qk: STANDARD path m=%d k=%d n=%d type=%d", m, k, n, weight_type);
  
      // --- Dynamic VTCM layout ---
@@ -7797,7 +9847,7 @@ index 4ff2b36d..485ec3f1 100644
      const size_t vec_dot_size  = k * sizeof(__fp16);
      const bool   use_pipeline  = (m >= 128) && (k <= n);
  
-@@ -1197,9 +1266,10 @@ int hmx_mat_mul_permuted_qk_0_d16a32(struct htp_context *ctx, float *restrict ds
+@@ -1197,9 +1265,10 @@ int hmx_mat_mul_permuted_qk_0_d16a32(struct htp_context *ctx, float *restrict ds
      }
  
      size_t m_chunk_n_rows = 0, n_chunk_n_cols = 0, vtcm_used = 0;
@@ -7811,7 +9861,16 @@ index 4ff2b36d..485ec3f1 100644
          FARF(HIGH, "%s: VTCM too small (m=%d k=%d n=%d pipe=%d budget=%zu)",
               __func__, m, k, n, use_pipeline, vtcm_budget);
          return -1;
-@@ -1256,9 +1326,8 @@ int hmx_mat_mul_permuted_qk_0_d16a32(struct htp_context *ctx, float *restrict ds
+@@ -1237,7 +1306,7 @@ int hmx_mat_mul_permuted_qk_0_d16a32(struct htp_context *ctx, float *restrict ds
+         return -1;
+     }
+ 
+-    hmx_init_column_scales(vtcm_scales, Q6_V_vsplat_R(0x3c00));  // fp16: 1.0
++    hmx_init_column_scales(vtcm_scales, Q6_V_vsplat_R(0x3c00));  // scale: 1.0, bias: 0.0 in FP16
+ 
+     FARF(MEDIUM, "%s: m=%d k=%d n=%d wtype=%d pipe=%d mc=%zu nc=%zu vtcm=%zu/%zu",
+          __func__, m, k, n, weight_type, use_pipeline,
+@@ -1256,12 +1325,12 @@ int hmx_mat_mul_permuted_qk_0_d16a32(struct htp_context *ctx, float *restrict ds
           use_pipeline ? "PIPELINE" : "SEQUENTIAL", m_chunk_n_rows, n_chunk_n_cols,
           (size_t)(vtcm_ptr - (uint8_t *)ctx->vtcm_base), vtcm_budget);
  
@@ -7821,8 +9880,13 @@ index 4ff2b36d..485ec3f1 100644
 +        HAP_compute_res_hmx_lock(ctx->vtcm_rctx);
          for (size_t mr = 0; mr < m; mr += m_chunk_n_rows) {
              // transfer activation matrix chunk into VTCM
-             size_t n_rows = hex_smin(m - mr, m_chunk_n_rows);
-@@ -1273,9 +1342,6 @@ int hmx_mat_mul_permuted_qk_0_d16a32(struct htp_context *ctx, float *restrict ds
+-            size_t n_rows = hex_smin(m - mr, m_chunk_n_rows);
++            const size_t n_rows = hex_smin(m - mr, m_chunk_n_rows);
++            const size_t n_row_tiles = hmx_ceil_div(n_rows, HMX_FP16_TILE_N_ROWS);
+ 
+             TIMER_START(activation_load);
+             {
+@@ -1273,16 +1342,14 @@ int hmx_mat_mul_permuted_qk_0_d16a32(struct htp_context *ctx, float *restrict ds
              void *buf_curr = vtcm_scratch0;
              void *buf_next = vtcm_scratch1;
  
@@ -7832,7 +9896,25 @@ index 4ff2b36d..485ec3f1 100644
              {
                  const size_t n_cols_first = hex_smin(n, n_chunk_n_cols);
                  dma_queue_push(ctx->dma[0], dma_make_ptr(buf_curr, permuted_weight), row_stride, row_stride, row_stride, n_cols_first);
-@@ -1321,20 +1387,22 @@ int hmx_mat_mul_permuted_qk_0_d16a32(struct htp_context *ctx, float *restrict ds
+             }
+ 
+             for (size_t nc = 0; nc < n; nc += n_chunk_n_cols) {
+-                size_t n_cols = hex_smin(n - nc, n_chunk_n_cols);
++                const size_t n_cols = hex_smin(n - nc, n_chunk_n_cols);
++                const size_t n_col_tiles = hmx_ceil_div(n_cols, HMX_FP16_TILE_N_COLS);
+ 
+                 TIMER_START(weight_load);
+                 {
+@@ -1307,8 +1374,6 @@ int hmx_mat_mul_permuted_qk_0_d16a32(struct htp_context *ctx, float *restrict ds
+ 
+                 TIMER_START(hmx_core);
+                 {
+-                    const int n_row_tiles = hmx_ceil_div(n_rows, HMX_FP16_TILE_N_ROWS);
+-                    const int n_col_tiles = hmx_ceil_div(n_cols, HMX_FP16_TILE_N_COLS);
+                     core_dot_chunk_fp16(vtcm_output, vtcm_activation, vtcm_weight, vtcm_scales, n_row_tiles, n_col_tiles, k / 32);
+                 }
+                 TIMER_STOP(hmx_core);
+@@ -1321,20 +1386,22 @@ int hmx_mat_mul_permuted_qk_0_d16a32(struct htp_context *ctx, float *restrict ds
                  TIMER_STOP(output_store);
              }
          }
@@ -7860,7 +9942,7 @@ index 4ff2b36d..485ec3f1 100644
          for (size_t mr = 0; mr < m; mr += m_chunk_n_rows) {
              const size_t n_rows = hex_smin(m - mr, m_chunk_n_rows);
  
-@@ -1355,31 +1423,34 @@ int hmx_mat_mul_permuted_qk_0_d16a32(struct htp_context *ctx, float *restrict ds
+@@ -1355,31 +1422,34 @@ int hmx_mat_mul_permuted_qk_0_d16a32(struct htp_context *ctx, float *restrict ds
                  transfer_activation_chunk_threaded(ctx, vtcm_activation, activation_chunk, n_rows, k, k);
              }
  
@@ -7903,7 +9985,7 @@ index 4ff2b36d..485ec3f1 100644
              for (int i = 0; i < n_chunk_cnt; ++i) {
                  const size_t nc    = i * n_chunk_n_cols;
                  const size_t nc_p1 = nc + 1 * n_chunk_n_cols;
-@@ -1389,36 +1460,41 @@ int hmx_mat_mul_permuted_qk_0_d16a32(struct htp_context *ctx, float *restrict ds
+@@ -1389,36 +1459,41 @@ int hmx_mat_mul_permuted_qk_0_d16a32(struct htp_context *ctx, float *restrict ds
                  const size_t n_cols_p1 = hex_smin(n - nc_p1, n_chunk_n_cols);
                  const size_t n_cols_p2 = hex_smin(n - nc_p2, n_chunk_n_cols);
  
@@ -7956,7 +10038,7 @@ index 4ff2b36d..485ec3f1 100644
  
      TIMER_STOP(total);
  
-@@ -1437,10 +1513,13 @@ int hmx_mat_mul_permuted_qk_0_d16a32(struct htp_context *ctx, float *restrict ds
+@@ -1437,29 +1512,36 @@ int hmx_mat_mul_permuted_qk_0_d16a32(struct htp_context *ctx, float *restrict ds
  }
  
  // C += AB
@@ -7970,11 +10052,22 @@ index 4ff2b36d..485ec3f1 100644
 -    hmx_set_output_scales(col_scales);
 +    Q6_bias_mxmem2_A((void *)col_scales);
  
-     for (int i = 0; i < n_row_tiles; ++i) {
-         for (int j = 0; j < n_col_tiles; ++j) {
-@@ -1451,15 +1530,17 @@ void core_mma_chunk_fp16(__fp16 *c, const __fp16 *a, const __fp16 *b, const __fp
+-    for (int i = 0; i < n_row_tiles; ++i) {
+-        for (int j = 0; j < n_col_tiles; ++j) {
++    const size_t dot_tile_stride = n_dot_tiles * HMX_FP16_TILE_N_ELMS;
++    for (size_t i = 0; i < n_row_tiles; ++i) {
++        const __fp16 *row_base = a + i * dot_tile_stride;
++        __fp16 *res_base = c + i * n_col_tiles * HMX_FP16_TILE_N_ELMS;
++        for (size_t j = 0; j < n_col_tiles; ++j) {
+             Q6_mxclracc_hf();
  
-             __fp16 *accum_tile = c + (i * n_col_tiles + j) * HMX_FP16_TILE_N_ELMS;
+-            const __fp16 *row_tiles = a + i * n_dot_tiles * HMX_FP16_TILE_N_ELMS;
+-            const __fp16 *col_tiles = b + j * n_dot_tiles * HMX_FP16_TILE_N_ELMS;
+-
+-            __fp16 *accum_tile = c + (i * n_col_tiles + j) * HMX_FP16_TILE_N_ELMS;
++            const __fp16 *col_tiles = b + j * dot_tile_stride;
++            const __fp16 *row_tiles = row_base;
++            __fp16 *accum_tile = res_base + j * HMX_FP16_TILE_N_ELMS;
              if (!zero_init) {
 -                hmx_load_tile_pair_fp16(accum_tile, eye_tile);
 +                Q6_activation_hf_mxmem_RR((unsigned int)accum_tile, 2047);
@@ -7995,7 +10088,7 @@ index 4ff2b36d..485ec3f1 100644
          }
      }
  }
-@@ -1533,27 +1614,51 @@ void transfer_activation_chunk_threaded(struct htp_context *ctx, __fp16 *dst, co
+@@ -1533,27 +1615,51 @@ void transfer_activation_chunk_threaded(struct htp_context *ctx, __fp16 *dst, co
      worker_pool_run_func(ctx->worker_pool, transfer_activation_chunk_worker_fn, &state, ctx->n_threads);
  }
  
@@ -8016,20 +10109,20 @@ index 4ff2b36d..485ec3f1 100644
  
 -    const size_t vtcm_budget = ctx->vtcm_scratch_size;
 +    const size_t vtcm_budget = ctx->vtcm_size;
-+
-+    const size_t K_BLOCK_SIZE = 1024;
  
 -    const size_t M_BLOCK_SIZE = 512;
 -    const size_t N_BLOCK_SIZE = 512;
 -    const size_t K_BLOCK_SIZE = 512;
++    const size_t K_BLOCK_SIZE = 1024;
+ 
+-    // Compute precise buffer sizes
 +    // Fallback: if k doesn't need K-blocking, out-stationary has no advantage
 +    const size_t k_iters_check = (k + K_BLOCK_SIZE - 1) / K_BLOCK_SIZE;
 +    if (k_iters_check <= 1) {
 +        FARF(MEDIUM, "%s: K_BLK=%zu >= k=%d, fallback to standard path", __func__, K_BLOCK_SIZE, k);
 +        return FALLBACK_TO_STANDARD;
 +    }
- 
--    // Compute precise buffer sizes
++
 +    // Dynamic M,N search via hmx_compute_chunks
      const size_t sub_row_stride_alloc = get_x4x2_row_stride(weight_type, K_BLOCK_SIZE);
 +    const size_t per_m                = K_BLOCK_SIZE * sizeof(float)  // scratch1: M×K×4 (act DMA staging F32)
@@ -8059,7 +10152,7 @@ index 4ff2b36d..485ec3f1 100644
      const size_t weight_size  = hex_align_up(N_BLOCK_SIZE * K_BLOCK_SIZE * sizeof(__fp16), HMX_FP16_TILE_SIZE);
      const size_t act_size     = hex_align_up(M_BLOCK_SIZE * K_BLOCK_SIZE * sizeof(__fp16), HMX_FP16_TILE_SIZE);
      const size_t out_size     = hex_align_up(M_BLOCK_SIZE * N_BLOCK_SIZE * sizeof(__fp16), HMX_FP16_TILE_SIZE);
-@@ -1562,7 +1667,8 @@ int mat_mul_qk_0_d16a32_out_stationary(struct htp_context *ctx, float *restrict
+@@ -1562,7 +1668,8 @@ int mat_mul_qk_0_d16a32_out_stationary(struct htp_context *ctx, float *restrict
  
      const size_t total_vtcm = weight_size + act_size + out_size + scratch0_sz + scratch1_sz + HMX_FP16_TILE_SIZE + 256;
      if (total_vtcm > vtcm_budget) {
@@ -8069,7 +10162,7 @@ index 4ff2b36d..485ec3f1 100644
          return -1;
      }
  
-@@ -1576,9 +1682,8 @@ int mat_mul_qk_0_d16a32_out_stationary(struct htp_context *ctx, float *restrict
+@@ -1576,9 +1683,8 @@ int mat_mul_qk_0_d16a32_out_stationary(struct htp_context *ctx, float *restrict
      __fp16  *vtcm_scales     = (__fp16 *) vtcm_seq_alloc(&vtcm_ptr, 256);
      assert((size_t)(vtcm_ptr - (uint8_t *)ctx->vtcm_base) <= vtcm_budget);
  
@@ -8081,6 +10174,47 @@ index 4ff2b36d..485ec3f1 100644
  
      // initialize eye tile (32x32 identity matrix)
      {
+@@ -1592,7 +1698,7 @@ int mat_mul_qk_0_d16a32_out_stationary(struct htp_context *ctx, float *restrict
+             v = Q6_V_vror_VR(v, VLEN - 8);
+         }
+     }
+-    hmx_init_column_scales(vtcm_scales, Q6_V_vsplat_R(0x3c00));  // fp16: 1.0
++    hmx_init_column_scales(vtcm_scales, Q6_V_vsplat_R(0x3c00));  // scale: 1.0, bias: 0.0 in FP16
+ 
+     TIMER_DEFINE(fetch);
+     TIMER_DEFINE(act_load);
+@@ -1610,7 +1716,7 @@ int mat_mul_qk_0_d16a32_out_stationary(struct htp_context *ctx, float *restrict
+             const int n_col_tiles = hmx_ceil_div(n_blk_sz, HMX_FP16_TILE_N_COLS);
+ 
+             for (size_t kk = 0; kk < k; kk += K_BLOCK_SIZE) {
+-                size_t k_blk_sz = hex_smin(k - kk, K_BLOCK_SIZE);
++                const size_t k_blk_sz = hex_smin(k - kk, K_BLOCK_SIZE);
+ 
+                 TIMER_START(fetch);
+                 // fetch activation block into VTCM
+@@ -1626,13 +1732,13 @@ int mat_mul_qk_0_d16a32_out_stationary(struct htp_context *ctx, float *restrict
+                 }
+ 
+                 // fetch weight block into VTCM (x4x2 sub-block: quants + scales)
++                const size_t sub_row_stride = get_x4x2_row_stride(weight_type, k_blk_sz);
+                 {
+                     qweight_fetch_task_state_t s;
+ 
+                     const int blk_start = kk / QK_Q4_0x4x2;
+                     const int nb_sub = (k_blk_sz + QK_Q4_0x4x2 - 1) / QK_Q4_0x4x2;
+                     const int    full_qrow      = (weight_type == HTP_TYPE_Q8_0) ? k : (k / 2);
+-                    const size_t sub_row_stride = get_x4x2_row_stride(weight_type, k_blk_sz);
+                     const int    scale_blk_size =
+                         (weight_type == HTP_TYPE_MXFP4) ? HMX_X4X2_MXFP4_EBLK_SIZE : HMX_X4X2_DBLK_SIZE;
+ 
+@@ -1672,7 +1778,6 @@ int mat_mul_qk_0_d16a32_out_stationary(struct htp_context *ctx, float *restrict
+                     dma_queue_pop(ctx->dma[0]);
+                     // vtcm_scratch0 is used to store the qweight chunk
+                     // worker_pool_run_func already returned, so fetch is done
+-                    const size_t sub_row_stride = get_x4x2_row_stride(weight_type, k_blk_sz);
+                     dequantize_x4x2_weight_chunk_to_fp16_tiles(ctx, vtcm_weight, vtcm_scratch0,
+                                                                 n_blk_sz, k_blk_sz, sub_row_stride, weight_type);
+                 }
 diff --git src/ggml-hexagon/htp/hmx-ops.h src/ggml-hexagon/htp/hmx-ops.h
 index b36c8d12..fb95d36f 100644
 --- src/ggml-hexagon/htp/hmx-ops.h
@@ -8609,10 +10743,10 @@ index 6f1917fa..8b5e47ad 100644
 +
  #endif /* HTP_CTX_H */
 diff --git src/ggml-hexagon/htp/htp-ops.h src/ggml-hexagon/htp/htp-ops.h
-index d35decaa..fa84b674 100644
+index d35decaa..79b5ecd2 100644
 --- src/ggml-hexagon/htp/htp-ops.h
 +++ src/ggml-hexagon/htp/htp-ops.h
-@@ -1,65 +1,159 @@
+@@ -1,65 +1,161 @@
  #ifndef HTP_OPS_H
  #define HTP_OPS_H
  
@@ -8646,49 +10780,28 @@ index d35decaa..fa84b674 100644
 +    HTP_TYPE_I32    = 26,
 +    HTP_TYPE_I64    = 27,
 +    HTP_TYPE_MXFP4  = 39,
- 
--// ggml-common.h must be included prior to this header
++
 +    // types used internally for repack, dyn.quant, etc
 +    HTP_TYPE_Q4_0x4x2 = 200,
 +    HTP_TYPE_Q8_0x4x2,
 +    HTP_TYPE_MXFP4x4x2,
- 
--struct htp_spad {
--    uint8_t * data;
--    size_t    stride;
--    size_t    size;
--    size_t    size_per_thread;
++
 +    HTP_TYPE_INVALID
- };
- 
--struct htp_ops_context {
--    struct htp_context * ctx;
++};
++
 +// Constats for internal types
 +#define QK_Q4_0x4x2  256  // 4x Q4_0  blocks packed with next 4x Q4_0 blocks (size in bytes 128)
 +#define QK_Q8_0x4x2  256  // 4x Q8_0  blocks concat with next 4x Q8_0 blocks
 +#define QK_MXFP4x4x2 256  // 4x MXFP4 blocks concat with next 4x MXFP4 blocks
- 
--    enum htp_op op;
--    int32_t     op_params[HTP_MAX_OP_PARAMS / sizeof(int32_t)];
- 
--    struct htp_tensor src0;
--    struct htp_tensor src1;
--    struct htp_tensor src2;
--    struct htp_tensor src3;
--    struct htp_tensor src4;
--    struct htp_tensor dst;
++
++
 +// Mask to enable various stages of the Ops.
 +// Used for debugging and profiling.
 +enum htp_op_mask {
 +    HTP_OPMASK_QUEUE    = (1 << 0),  // Enable Queueing (ie calls into the DSP)
 +    HTP_OPMASK_COMPUTE  = (1 << 1),  // Enable Compute
 +};
- 
--    struct htp_spad src0_spad;
--    struct htp_spad src1_spad;
--    struct htp_spad src2_spad;
--    struct htp_spad src3_spad;
--    struct htp_spad dst_spad;
++
 +// Do not reorder first 4 (used as an index)
 +enum htp_op_code {
 +    HTP_OP_MUL = 0,
@@ -8722,9 +10835,7 @@ index d35decaa..fa84b674 100644
 +    HTP_OP_SSM_CONV,
 +    HTP_OP_REPEAT,
 +    HTP_OP_CUMSUM,
- 
--    worker_pool_context_t * wpool;      // worker pool
--    uint32_t                n_threads;  // num threads
++
 +    HTP_OP_INVALID
 +};
 +
@@ -8741,13 +10852,22 @@ index d35decaa..fa84b674 100644
 +#else
 +#define HTP_OP_MAX_VMEM    (3221225472u)
 +#endif
-+
+ 
+-// ggml-common.h must be included prior to this header
++#define HTP_MMAP_MAX_VMEM  (2147483648u)
+ 
+-struct htp_spad {
+-    uint8_t * data;
+-    size_t    stride;
+-    size_t    size;
+-    size_t    size_per_thread;
 +enum htp_tensor_flags {
 +    HTP_TENSOR_COMPUTE = (1U << 0), // Tensor buffer temporal compute data (not weights)
 +    HTP_TENSOR_FLUSHED = (1U << 1)  // Tensor buffer has been flushed (set by the NPU)
-+};
+ };
  
--    uint32_t flags;
+-struct htp_ops_context {
+-    struct htp_context * ctx;
 +// Tensor descriptor
 +struct htp_tensor {
 +    uint32_t data;                 // Buffer offset in the messages, and data pointer on the NPU
@@ -8757,6 +10877,59 @@ index d35decaa..fa84b674 100644
 +    uint16_t bi;                   // Buffer index
 +    uint32_t ne[HTP_OP_MAX_DIMS];  // Number of elements
 +    uint32_t nb[HTP_OP_MAX_DIMS];  // Stride in bytes (see ggml.h ggml_tensor)
++};
+ 
+-    enum htp_op op;
+-    int32_t     op_params[HTP_MAX_OP_PARAMS / sizeof(int32_t)];
++// Buffer descriptor
++struct htp_buf_desc {
++    uint64_t base;     // base address
++    uint64_t size;     // total size
++    uint32_t flags;    // buffer flags (unused)
++    uint32_t fd;       // file descriptor
++};
+ 
+-    struct htp_tensor src0;
+-    struct htp_tensor src1;
+-    struct htp_tensor src2;
+-    struct htp_tensor src3;
+-    struct htp_tensor src4;
+-    struct htp_tensor dst;
++enum htp_op_flags {
++    HTP_OPFLAGS_SKIP_COMPUTE  = (1U << 0), // Skip actual computation (used for profiling)
++};
+ 
+-    struct htp_spad src0_spad;
+-    struct htp_spad src1_spad;
+-    struct htp_spad src2_spad;
+-    struct htp_spad src3_spad;
+-    struct htp_spad dst_spad;
++// Op descriptor
++struct htp_op_desc {
++    uint32_t opcode;                    // GGML/HTP Op
++    uint32_t flags;                     // Op flags
++    int32_t  params[HTP_OP_MAX_PARAMS]; // Params for the op, e.g. epsilon of RMS norm
++    uint16_t src[HTP_OP_MAX_INPUTS];    // Input tensors indices
++    uint16_t dst;                       // Output tensor index
+ 
+-    worker_pool_context_t * wpool;      // worker pool
+-    uint32_t                n_threads;  // num threads
++    // the rest is filled in-place by the NPU
++    uint32_t prof_usecs;                // Number of usec per request
++    uint32_t prof_cycles;               // Number of cycles per request
++    uint32_t prof_pkts;                 // Number of instruction packets per request
++    uint32_t unused;
++};
+ 
+-    uint32_t flags;
++struct htp_opbatch_req {
++    uint32_t n_bufs;      // Number of buffers
++    uint32_t n_tensors;   // Number of tensors
++    uint32_t n_ops;       // Number of ops
++    uint32_t flags;       // unused
++    // struct htp_buf_desc  bufs[];    -- dspqueue buf 0
++    // struct htp_tensor    tensors[]; -- dspqueue buf 0
++    // struct htp_op_desc   ops[];     -- dspqueue buf 0
  };
  
 -int op_matmul(struct htp_ops_context * octx);
@@ -8776,43 +10949,6 @@ index d35decaa..fa84b674 100644
 -int op_argsort(struct htp_ops_context * octx);
 -int op_ssm_conv(struct htp_ops_context * octx);
 -int op_cumsum(struct htp_ops_context * octx);
-+// Buffer descriptor
-+struct htp_buf_desc {
-+    uint64_t base;     // base address
-+    uint64_t size;     // total size
-+    uint32_t flags;    // buffer flags (unused)
-+    uint32_t fd;       // file descriptor
-+};
-+
-+enum htp_op_flags {
-+    HTP_OPFLAGS_SKIP_COMPUTE  = (1U << 0), // Skip actual computation (used for profiling)
-+};
-+
-+// Op descriptor
-+struct htp_op_desc {
-+    uint32_t opcode;                    // GGML/HTP Op
-+    uint32_t flags;                     // Op flags
-+    int32_t  params[HTP_OP_MAX_PARAMS]; // Params for the op, e.g. epsilon of RMS norm
-+    uint16_t src[HTP_OP_MAX_INPUTS];    // Input tensors indices
-+    uint16_t dst;                       // Output tensor index
-+
-+    // the rest is filled in-place by the NPU
-+    uint32_t prof_usecs;                // Number of usec per request
-+    uint32_t prof_cycles;               // Number of cycles per request
-+    uint32_t prof_pkts;                 // Number of instruction packets per request
-+    uint32_t unused;
-+};
-+
-+struct htp_opbatch_req {
-+    uint32_t n_bufs;      // Number of buffers
-+    uint32_t n_tensors;   // Number of tensors
-+    uint32_t n_ops;       // Number of ops
-+    uint32_t flags;       // unused
-+    // struct htp_buf_desc  bufs[];    -- dspqueue buf 0
-+    // struct htp_tensor    tensors[]; -- dspqueue buf 0
-+    // struct htp_op_desc   ops[];     -- dspqueue buf 0
-+};
-+
 +struct htp_opbatch_rsp {
 +    uint32_t status;     // HTP_STATUS_...
 +    // struct htp_op_req ops[];     -- dspqueue buf 0
@@ -8852,7 +10988,7 @@ index db05ab40..ed6026e7 100644
  }
  
 diff --git src/ggml-hexagon/htp/main.c src/ggml-hexagon/htp/main.c
-index 6f37bf9d..d71c97ed 100644
+index 6f37bf9d..5091623a 100644
 --- src/ggml-hexagon/htp/main.c
 +++ src/ggml-hexagon/htp/main.c
 @@ -1,5 +1,7 @@
@@ -8900,14 +11036,18 @@ index 6f37bf9d..d71c97ed 100644
      *handle = (remote_handle64) ctx;
  
      // Enable FARF logs
-@@ -115,6 +115,16 @@ AEEResult htp_iface_close(remote_handle64 handle) {
+@@ -115,6 +115,20 @@ AEEResult htp_iface_close(remote_handle64 handle) {
          return AEE_EITEMBUSY;
      }
  
 +    // release the mmaps (if any)
 +    for (uint32_t i=0; i<HTP_MAX_MMAPS; i++) {
 +        if (ctx->mmap[i].size) {
++#if __HVX_ARCH__ > 73
 +            HAP_munmap2((void *) ctx->mmap[i].base, ctx->mmap[i].size);
++#else
++            HAP_munmap((void *) ctx->mmap[i].base, ctx->mmap[i].size);
++#endif
 +            ctx->mmap[i].size = 0;
 +            ctx->mmap[i].base = NULL;
 +            ctx->mmap[i].fd   = -1;
@@ -8917,7 +11057,7 @@ index 6f37bf9d..d71c97ed 100644
      free(ctx);
      return AEE_SUCCESS;
  }
-@@ -143,66 +153,93 @@ AEEResult htp_iface_disable_etm(remote_handle64 handle) {
+@@ -143,66 +157,105 @@ AEEResult htp_iface_disable_etm(remote_handle64 handle) {
      return err;
  }
  
@@ -8961,8 +11101,16 @@ index 6f37bf9d..d71c97ed 100644
 +        struct htp_mmap *m = &ctx->mmap[i];
 +        if (!m->size) {
 +            FARF(HIGH, "mmap : fd %u size %u pinned %u", fd, size, pinned);
- 
++#if __HVX_ARCH__ > 73
 +            void *va = HAP_mmap2(NULL, size, HAP_PROT_READ | HAP_PROT_WRITE, 0, fd, 0);
++#else
++            if (size > HTP_MMAP_MAX_VMEM) { // HAP_mmap has a size limit of 2GB
++                FARF(ERROR, "mmap failed : size %u exceeds 2GB limit for HAP_mmap", (uint32_t) size);
++                abort(); // can't do much else at this point
++            }
++
++            void *va = HAP_mmap(NULL, size, HAP_PROT_READ | HAP_PROT_WRITE, 0, fd, 0);
++#endif
 +            if (va == (void*)-1) {
 +                FARF(ERROR, "mmap failed : va %p fd %u size %u", va, fd, (uint32_t) size);
 +                return AEE_EFAILED;
@@ -8973,11 +11121,11 @@ index 6f37bf9d..d71c97ed 100644
 +            m->size   = size;
 +            m->pinned = pinned;
  
--    return 0;
 +            return AEE_SUCCESS;
 +        }
 +    }
-+
+ 
+-    return 0;
 +    return AEE_ENOMEMORY;
  }
  
@@ -8997,7 +11145,11 @@ index 6f37bf9d..d71c97ed 100644
 +        struct htp_mmap *m = &ctx->mmap[i];
 +        if (fd < 0 || m->fd == fd) {
 +            FARF(HIGH, "unmmap : base %p fd %u size %u", (void*) m->base, m->fd, (uint32_t) m->size);
++#if __HVX_ARCH__ > 73
 +            HAP_munmap2((void *) m->base, m->size);
++#else
++            HAP_munmap((void *) m->base, m->size);
++#endif
 +            m->size   = 0;
 +            m->base   = NULL;
 +            m->fd     = -1;
@@ -9052,7 +11204,7 @@ index 6f37bf9d..d71c97ed 100644
      return 0;
  }
  
-@@ -236,7 +273,6 @@ static int vtcm_alloc(struct htp_context * ctx) {
+@@ -236,7 +289,6 @@ static int vtcm_alloc(struct htp_context * ctx) {
      ctx->vtcm_size          = vtcm_size;
      ctx->vtcm_rctx          = rctx;
      ctx->vtcm_valid         = false;
@@ -9060,7 +11212,7 @@ index 6f37bf9d..d71c97ed 100644
      ctx->vtcm_needs_release = false;
  
      return 0;
-@@ -288,18 +324,16 @@ AEEResult htp_iface_start(remote_handle64 handle, uint32 sess_id, uint64 dsp_que
+@@ -288,18 +340,16 @@ AEEResult htp_iface_start(remote_handle64 handle, uint32 sess_id, uint64 dsp_que
      }
  
  #ifdef HTP_HAS_HMX
@@ -9087,7 +11239,7 @@ index 6f37bf9d..d71c97ed 100644
  #endif
  
      qurt_sysenv_max_hthreads_t hw_threads;
-@@ -362,13 +396,15 @@ AEEResult htp_iface_stop(remote_handle64 handle) {
+@@ -362,13 +412,15 @@ AEEResult htp_iface_stop(remote_handle64 handle) {
      for (int i = 0; i < ctx->n_threads; i++) {
          dma_queue_delete(ctx->dma[i]);
      }
@@ -9106,7 +11258,7 @@ index 6f37bf9d..d71c97ed 100644
      vtcm_free(ctx);
  
      return AEE_SUCCESS;
-@@ -397,1129 +433,320 @@ static inline void profile_stop(struct profile_data * d) {
+@@ -397,1129 +449,333 @@ static inline void profile_stop(struct profile_data * d) {
      d->pkts   = hex_get_pktcnt() - d->pkts;
  }
  
@@ -9145,7 +11297,13 @@ index 6f37bf9d..d71c97ed 100644
  
 -    return err;
 -}
--
++        case HTP_OP_MUL:
++        case HTP_OP_ADD:
++        case HTP_OP_SUB:
++        case HTP_OP_DIV:
++        case HTP_OP_ADD_ID:
++            return op_binary(octx);
+ 
 -static void proc_matmul_req(struct htp_context *     ctx,
 -                            struct htp_general_req * req,
 -                            struct dspqueue_buffer * bufs,
@@ -9183,16 +11341,6 @@ index 6f37bf9d..d71c97ed 100644
 -        rsp_status = op_matmul(&octx);
 -        vtcm_release(ctx);
 -    }
-+        case HTP_OP_MUL:
-+        case HTP_OP_ADD:
-+        case HTP_OP_SUB:
-+        case HTP_OP_DIV:
-+        case HTP_OP_ADD_ID:
-+            return op_binary(octx);
- 
--    profile_stop(&prof);
--    send_htp_rsp(ctx, req->op, rsp_status, rsp_bufs, 1, &prof);
--}
 +        case HTP_OP_RMS_NORM:
 +        case HTP_OP_SCALE:
 +        case HTP_OP_SQR:
@@ -9202,6 +11350,16 @@ index 6f37bf9d..d71c97ed 100644
 +        case HTP_OP_UNARY_NEG:
 +        case HTP_OP_UNARY_EXP:
 +            return op_unary(octx);
+ 
+-    profile_stop(&prof);
+-    send_htp_rsp(ctx, req->op, rsp_status, rsp_bufs, 1, &prof);
+-}
++        case HTP_OP_UNARY_SILU:
++        case HTP_OP_UNARY_GELU:
++        case HTP_OP_GLU_SWIGLU:
++        case HTP_OP_GLU_SWIGLU_OAI:
++        case HTP_OP_GLU_GEGLU:
++            return op_activations(octx);
  
 -static void proc_argsort_req(struct htp_context * ctx, struct htp_general_req * req, struct dspqueue_buffer * bufs) {
 -    struct dspqueue_buffer rsp_bufs[1];
@@ -9237,18 +11395,14 @@ index 6f37bf9d..d71c97ed 100644
 -        rsp_status = op_argsort(&octx);
 -        vtcm_release(ctx);
 -    }
-+        case HTP_OP_UNARY_SILU:
-+        case HTP_OP_UNARY_GELU:
-+        case HTP_OP_GLU_SWIGLU:
-+        case HTP_OP_GLU_SWIGLU_OAI:
-+        case HTP_OP_GLU_GEGLU:
-+            return op_activations(octx);
++        case HTP_OP_SOFTMAX:
++            return op_softmax(octx);
  
 -    profile_stop(&prof);
 -    send_htp_rsp(ctx, req->op, rsp_status, rsp_bufs, 1, &prof);
 -}
-+        case HTP_OP_SOFTMAX:
-+            return op_softmax(octx);
++        case HTP_OP_ROPE:
++            return op_rope(octx);
  
 -static void proc_cpy_req(struct htp_context * ctx, struct htp_general_req * req, struct dspqueue_buffer * bufs) {
 -    struct dspqueue_buffer rsp_bufs[1];
@@ -9282,14 +11436,14 @@ index 6f37bf9d..d71c97ed 100644
 -        rsp_status = op_cpy(&octx);
 -        vtcm_release(ctx);
 -    }
-+        case HTP_OP_ROPE:
-+            return op_rope(octx);
++        case HTP_OP_FLASH_ATTN_EXT:
++            return op_flash_attn_ext(octx);
  
 -    profile_stop(&prof);
 -    send_htp_rsp(ctx, req->op, rsp_status, rsp_bufs, 1, &prof);
 -}
-+        case HTP_OP_FLASH_ATTN_EXT:
-+            return op_flash_attn_ext(octx);
++        case HTP_OP_SET_ROWS:
++            return op_set_rows(octx);
  
 -static void proc_repeat_req(struct htp_context * ctx, struct htp_general_req * req, struct dspqueue_buffer * bufs) {
 -    struct dspqueue_buffer rsp_bufs[1];
@@ -9323,9 +11477,7 @@ index 6f37bf9d..d71c97ed 100644
 -    profile_stop(&prof);
 -    send_htp_rsp(ctx, req->op, rsp_status, rsp_bufs, 1, &prof);
 -}
-+        case HTP_OP_SET_ROWS:
-+            return op_set_rows(octx);
- 
+-
 -static void proc_get_rows_req(struct htp_context * ctx, struct htp_general_req * req, struct dspqueue_buffer * bufs) {
 -    struct dspqueue_buffer rsp_bufs[1];
 -
@@ -9580,13 +11732,22 @@ index 6f37bf9d..d71c97ed 100644
 -    if (vtcm_acquire(ctx) == AEE_SUCCESS) {
 -        rsp_status = op_sum_rows(&octx);
 -        vtcm_release(ctx);
--    }
--
--    profile_stop(&prof);
--    send_htp_rsp(ctx, req->op, rsp_status, rsp_bufs, 1, &prof);
--}
 +static inline bool reuse_buf(struct htp_context *ctx, uint32_t *m_reuse, struct htp_buf_desc *b) {
 +    b->base = NULL;
++
++    for (uint32_t i=0; i<HTP_MAX_MMAPS; i++) {
++        struct htp_mmap *m = ctx->mmap + i;
++        if (m->size && m->fd == b->fd) {
++            b->base   = m->base;
++            *m_reuse |= (1 << i);
++            return true;
++        }
+     }
+ 
+-    profile_stop(&prof);
+-    send_htp_rsp(ctx, req->op, rsp_status, rsp_bufs, 1, &prof);
++    return false;
+ }
  
 -static void proc_ssm_conv_req(struct htp_context * ctx, struct htp_general_req * req, struct dspqueue_buffer * bufs) {
 -    struct dspqueue_buffer rsp_bufs[HTP_MAX_PACKET_BUFFERS];
@@ -9623,18 +11784,21 @@ index 6f37bf9d..d71c97ed 100644
 -    if (vtcm_acquire(ctx) == AEE_SUCCESS) {
 -        rsp_status = op_ssm_conv(&octx);
 -        vtcm_release(ctx);
-+    for (uint32_t i=0; i<HTP_MAX_MMAPS; i++) {
-+        struct htp_mmap *m = ctx->mmap + i;
-+        if (m->size && m->fd == b->fd) {
-+            b->base   = m->base;
-+            *m_reuse |= (1 << i);
-+            return true;
-+        }
++static inline void drop_mmap(struct htp_context *ctx, struct htp_mmap *m) {
++    if (m->size && !m->pinned) {
++        FARF(HIGH, "unmap : fd %u base %p size %u pinned %u", m->fd, (void*) m->base, (uint32_t) m->size, m->pinned);
++#if __HVX_ARCH__ > 73
++        HAP_munmap2((void *) m->base, m->size);
++#else
++        HAP_munmap((void *) m->base, m->size);
++#endif
++        m->size = 0;
++        m->base = 0;
++        m->fd   = -1;
      }
- 
+-
 -    profile_stop(&prof);
 -    send_htp_rsp(ctx, req->op, rsp_status, rsp_bufs, 1, &prof);
-+    return false;
  }
  
 -static void proc_cumsum_req(struct htp_context * ctx, struct htp_general_req * req, struct dspqueue_buffer * bufs) {
@@ -9666,18 +11830,24 @@ index 6f37bf9d..d71c97ed 100644
 -    if (vtcm_acquire(ctx) == AEE_SUCCESS) {
 -        rsp_status = op_cumsum(&octx);
 -        vtcm_release(ctx);
-+static inline void drop_mmap(struct htp_context *ctx, struct htp_mmap *m) {
-+    if (m->size && !m->pinned) {
-+        FARF(HIGH, "unmap : fd %u base %p size %u pinned %u", m->fd, (void*) m->base, (uint32_t) m->size, m->pinned);
-+        HAP_munmap2((void *) m->base, m->size);
-+        m->size = 0;
-+        m->base = 0;
-+        m->fd   = -1;
-     }
--
+-    }
++static inline void mmap_buf(struct htp_context *ctx, struct htp_buf_desc *b) {
++    if (b->base) return; // already mapped
+ 
 -    profile_stop(&prof);
 -    send_htp_rsp(ctx, req->op, rsp_status, rsp_bufs, 1, &prof);
- }
+-}
++    // find unused mapping
++    for (uint32_t i=0; i < HTP_MAX_MMAPS; i++) {
++        struct htp_mmap *m = &ctx->mmap[i];
++        if (!m->size) {
++#if __HVX_ARCH__ > 73
++            void *va = HAP_mmap2(NULL, b->size, HAP_PROT_READ | HAP_PROT_WRITE, 0, b->fd, 0);
++#else
++            if (b->size > HTP_MMAP_MAX_VMEM) { // HAP_mmap has a size limit of 2GB
++                FARF(ERROR, "mmap failed : size %u exceeds 2GB limit for HAP_mmap", (uint32_t) b->size);
++                abort(); // can't do much else at this point
++            }
  
 -static void proc_activations_req(struct htp_context *     ctx,
 -                                 struct htp_general_req * req,
@@ -9717,20 +11887,19 @@ index 6f37bf9d..d71c97ed 100644
 -        octx.dst.data = (uint32_t) bufs[1].ptr;
 -    }
 -    octx.n_threads = ctx->n_threads;
-+static inline void mmap_buf(struct htp_context *ctx, struct htp_buf_desc *b) {
-+    if (b->base) return; // already mapped
- 
--    struct profile_data prof;
--    profile_start(&prof);
-+    // find unused mapping
-+    for (uint32_t i=0; i < HTP_MAX_MMAPS; i++) {
-+        struct htp_mmap *m = &ctx->mmap[i];
-+        if (!m->size) {
-+            void *va = HAP_mmap2(NULL, b->size, HAP_PROT_READ | HAP_PROT_WRITE, 0, b->fd, 0);
++            void *va = HAP_mmap(NULL, b->size, HAP_PROT_READ | HAP_PROT_WRITE, 0, b->fd, 0);
++#endif
 +            if (va == (void*)-1) {
 +                FARF(ERROR, "mmap failed : va %p fd %u size %u", va, b->fd, (uint32_t) b->size);
 +                abort(); // can't do much else at this point
 +            }
+ 
+-    struct profile_data prof;
+-    profile_start(&prof);
++            m->base   = b->base = (uint64_t) va;
++            m->fd     = b->fd;
++            m->size   = b->size;
++            m->pinned = 0;
  
 -    uint32_t rsp_status = HTP_STATUS_INTERNAL_ERR;
 -    if (vtcm_acquire(ctx) == AEE_SUCCESS) {
@@ -9738,11 +11907,6 @@ index 6f37bf9d..d71c97ed 100644
 -            rsp_status = op_softmax(&octx);
 -        } else {
 -            rsp_status = op_activations(&octx);
-+            m->base   = b->base = (uint64_t) va;
-+            m->fd     = b->fd;
-+            m->size   = b->size;
-+            m->pinned = 0;
-+
 +            FARF(HIGH, "mmap : fd %u base %p size %u pinned %u", m->fd, (void*) m->base, (uint32_t) m->size, m->pinned);
 +            return;
          }
@@ -9858,7 +12022,8 @@ index 6f37bf9d..d71c97ed 100644
 -    profile_stop(&prof);
 -    send_htp_rsp(ctx, req->op, rsp_status, rsp_bufs, 1, &prof);
 -}
--
++    FARF(HIGH, "prep-bufs : pass1 mmap-vmem %zu extra-vmem %zu n-bufs %u b-reuse %u", m_vmem, e_vmem, n_bufs, b_reuse);
+ 
 -static void proc_flash_attn_ext_req(struct htp_context *     ctx,
 -                                    struct htp_general_req * req,
 -                                    struct dspqueue_buffer * bufs,
@@ -9890,11 +12055,6 @@ index 6f37bf9d..d71c97ed 100644
 -
 -    if (octx.src3.ne[0]) {
 -        octx.src3.data = (uint32_t) bufs[last_buf++].ptr; // mask is valid
--    }
-+    FARF(HIGH, "prep-bufs : pass1 mmap-vmem %zu extra-vmem %zu n-bufs %u b-reuse %u", m_vmem, e_vmem, n_bufs, b_reuse);
- 
--    if (octx.src4.ne[0]) {
--        octx.src4.data = (uint32_t) bufs[last_buf++].ptr; // sinks is valid
 +    if ((m_vmem + e_vmem) > HTP_OP_MAX_VMEM) {
 +        // Drop unused mappings
 +        for (uint32_t i=0; i < HTP_MAX_MMAPS; i++) {
@@ -9903,6 +12063,10 @@ index 6f37bf9d..d71c97ed 100644
 +        }
      }
  
+-    if (octx.src4.ne[0]) {
+-        octx.src4.data = (uint32_t) bufs[last_buf++].ptr; // sinks is valid
+-    }
+-
 -    octx.dst.data = (uint32_t) bufs[last_buf].ptr;
 -
 -    struct profile_data prof;
@@ -9980,24 +12144,24 @@ index 6f37bf9d..d71c97ed 100644
 -        proc_matmul_req(ctx, req, bufs, n_bufs);
 -        return;
 -    }
-+    // Prep input tensors
-+    for (uint32_t i=0; i<HTP_OP_MAX_INPUTS; i++) {
-+        struct htp_tensor *src = op->src[i] == 0xffff ? NULL : tens + op->src[i];
- 
+-
 -    // M alignment: when M > 32 but not 32-aligned, we split into
 -    // HMX (first m_hmx = M & ~31 rows) + HVX (remaining m_tail rows).
 -    // When M <= 32 and not 32-aligned, fall back entirely to HVX.
 -    const int m_total = (int) req->src1.ne[1];
 -    const int m_tail  = m_total % 32;
 -    const int m_hmx   = m_total - m_tail;
-+        octx->src[i] = src;
-+        if (!src) continue;
++    // Prep input tensors
++    for (uint32_t i=0; i<HTP_OP_MAX_INPUTS; i++) {
++        struct htp_tensor *src = op->src[i] == 0xffff ? NULL : tens + op->src[i];
  
 -    if (m_hmx == 0) {
 -        proc_matmul_req(ctx, req, bufs, n_bufs);
 -        return;
 -    }
--
++        octx->src[i] = src;
++        if (!src) continue;
+ 
 -    // HMX supports F16, Q4_0, Q8_0, IQ4_NL, MXFP4 weights.
 -    // Other types fall back to HVX.
 -    {
@@ -10155,15 +12319,15 @@ index 6f37bf9d..d71c97ed 100644
 -    }
 +    FARF(HIGH, "prep-dst #%u: data %p size %u : %u:%u:%u:%u", op->dst, (void*) dst->data, dst->size,
 +        dst->ne[0], dst->ne[1], dst->ne[3], dst->ne[3]);
-+
-+    (void) execute_op(octx);
  
 -    profile_stop(&prof);
++    (void) execute_op(octx);
+ 
+-    send_htp_rsp(ctx, req->op, rsp_status, rsp_bufs, 1, &prof);
 +    // flush buffers on output
 +    hex_l2flush((void *) dst->data, dst->size);
 +    dst->flags |= HTP_TENSOR_FLUSHED;
- 
--    send_htp_rsp(ctx, req->op, rsp_status, rsp_bufs, 1, &prof);
++
 +    FARF(HIGH, "post-dst #%u: data %p size %u : %u:%u:%u:%u", op->dst, (void*) dst->data, dst->size,
 +        dst->ne[0], dst->ne[1], dst->ne[3], dst->ne[3]);
  }
@@ -11685,8 +13849,32 @@ index 291b4837..a7d4e0ea 100644
 +endif()
 +
  target_link_libraries(ggml-hip PRIVATE ggml-base hip::host roc::rocblas roc::hipblas)
+diff --git src/ggml-impl.h src/ggml-impl.h
+index 0639db36..62b76abb 100644
+--- src/ggml-impl.h
++++ src/ggml-impl.h
+@@ -30,6 +30,8 @@ extern "C" {
+ 
+ void ggml_print_backtrace(void);
+ 
++uint64_t ggml_graph_next_uid(void);
++
+ #ifndef MIN
+ #    define MIN(a, b) ((a) < (b) ? (a) : (b))
+ #endif
+@@ -338,6 +340,10 @@ struct ggml_cgraph {
+     struct ggml_hash_set visited_hash_set;
+ 
+     enum ggml_cgraph_eval_order order;
++
++    // an optional identifier that can be utilized to recognize same graphs if two non-zero values match
++    // a value of 0 means it is not set and should be ignored
++    uint64_t uid;
+ };
+ 
+ // returns a slice of cgraph with nodes [i0, i1)
 diff --git src/ggml-metal/ggml-metal-device.cpp src/ggml-metal/ggml-metal-device.cpp
-index 89539bd7..8e0836c0 100644
+index 89539bd7..07d016d2 100644
 --- src/ggml-metal/ggml-metal-device.cpp
 +++ src/ggml-metal/ggml-metal-device.cpp
 @@ -250,6 +250,7 @@ ggml_metal_pipeline_with_params ggml_metal_library_get_pipeline_unary(ggml_metal
@@ -11721,8 +13909,44 @@ index 89539bd7..8e0836c0 100644
          case GGML_TYPE_Q4_0:
              {
                  nsg = N_SG_Q4_0;
+@@ -1808,6 +1819,23 @@ ggml_metal_pipeline_with_params ggml_metal_library_get_pipeline_upscale(ggml_met
+     return res;
+ }
+ 
++ggml_metal_pipeline_with_params ggml_metal_library_get_pipeline_roll(ggml_metal_library_t lib, const ggml_tensor * op) {
++    assert(op->op == GGML_OP_ROLL);
++
++    char base[256];
++    char name[256];
++
++    snprintf(base, 256, "kernel_roll_%s", ggml_type_name(op->src[0]->type));
++    snprintf(name, 256, "%s", base);
++
++    ggml_metal_pipeline_with_params res = ggml_metal_library_get_pipeline(lib, name);
++    if (!res.pipeline) {
++        res = ggml_metal_library_compile_pipeline(lib, base, name, nullptr);
++    }
++
++    return res;
++}
++
+ ggml_metal_pipeline_with_params ggml_metal_library_get_pipeline_pad(ggml_metal_library_t lib, const ggml_tensor * op) {
+     assert(op->op == GGML_OP_PAD);
+ 
+diff --git src/ggml-metal/ggml-metal-device.h src/ggml-metal/ggml-metal-device.h
+index de43f819..b4235013 100644
+--- src/ggml-metal/ggml-metal-device.h
++++ src/ggml-metal/ggml-metal-device.h
+@@ -152,6 +152,7 @@ struct ggml_metal_pipeline_with_params ggml_metal_library_get_pipeline_conv_3d
+ struct ggml_metal_pipeline_with_params ggml_metal_library_get_pipeline_upscale           (ggml_metal_library_t lib, const struct ggml_tensor * op);
+ struct ggml_metal_pipeline_with_params ggml_metal_library_get_pipeline_pad               (ggml_metal_library_t lib, const struct ggml_tensor * op);
+ struct ggml_metal_pipeline_with_params ggml_metal_library_get_pipeline_pad_reflect_1d    (ggml_metal_library_t lib, const struct ggml_tensor * op);
++struct ggml_metal_pipeline_with_params ggml_metal_library_get_pipeline_roll              (ggml_metal_library_t lib, const struct ggml_tensor * op);
+ struct ggml_metal_pipeline_with_params ggml_metal_library_get_pipeline_arange            (ggml_metal_library_t lib, const struct ggml_tensor * op);
+ struct ggml_metal_pipeline_with_params ggml_metal_library_get_pipeline_timestep_embedding(ggml_metal_library_t lib, const struct ggml_tensor * op);
+ struct ggml_metal_pipeline_with_params ggml_metal_library_get_pipeline_opt_step_adamw    (ggml_metal_library_t lib, const struct ggml_tensor * op);
 diff --git src/ggml-metal/ggml-metal-device.m src/ggml-metal/ggml-metal-device.m
-index 17d51b11..effe666a 100644
+index 17d51b11..27cb1683 100644
 --- src/ggml-metal/ggml-metal-device.m
 +++ src/ggml-metal/ggml-metal-device.m
 @@ -1043,6 +1043,7 @@ bool ggml_metal_device_supports_op(ggml_metal_device_t dev, const struct ggml_te
@@ -11733,7 +13957,15 @@ index 17d51b11..effe666a 100644
                      return ggml_is_contiguous_rows(op->src[0]) && (op->src[0]->type == GGML_TYPE_F32 || op->src[0]->type == GGML_TYPE_F16);
                  default:
                      return false;
-@@ -1159,6 +1160,23 @@ bool ggml_metal_device_supports_op(ggml_metal_device_t dev, const struct ggml_te
+@@ -1137,6 +1138,7 @@ bool ggml_metal_device_supports_op(ggml_metal_device_t dev, const struct ggml_te
+         case GGML_OP_ARGSORT:
+         case GGML_OP_TOP_K:
+         case GGML_OP_ARANGE:
++        case GGML_OP_ROLL:
+             return true;
+         case GGML_OP_FLASH_ATTN_EXT:
+             // for new head sizes, add checks here
+@@ -1159,6 +1161,23 @@ bool ggml_metal_device_supports_op(ggml_metal_device_t dev, const struct ggml_te
              if (op->src[1]->type != op->src[2]->type) {
                  return false;
              }
@@ -11757,7 +13989,7 @@ index 17d51b11..effe666a 100644
              return has_simdgroup_mm; // TODO: over-restricted for vec-kernels
          case GGML_OP_SSM_CONV:
          case GGML_OP_SSM_SCAN:
-@@ -1184,6 +1202,7 @@ bool ggml_metal_device_supports_op(ggml_metal_device_t dev, const struct ggml_te
+@@ -1184,6 +1203,7 @@ bool ggml_metal_device_supports_op(ggml_metal_device_t dev, const struct ggml_te
                             case GGML_TYPE_F16:
                             case GGML_TYPE_BF16:
                             case GGML_TYPE_Q8_0:
@@ -11765,7 +13997,7 @@ index 17d51b11..effe666a 100644
                             case GGML_TYPE_Q4_0:
                             case GGML_TYPE_Q4_1:
                             case GGML_TYPE_Q5_0:
-@@ -1210,6 +1229,7 @@ bool ggml_metal_device_supports_op(ggml_metal_device_t dev, const struct ggml_te
+@@ -1210,6 +1230,7 @@ bool ggml_metal_device_supports_op(ggml_metal_device_t dev, const struct ggml_te
                              default:
                                  return false;
                          }
@@ -11774,7 +14006,7 @@ index 17d51b11..effe666a 100644
                      case GGML_TYPE_Q4_1:
                      case GGML_TYPE_Q5_0:
 diff --git src/ggml-metal/ggml-metal-impl.h src/ggml-metal/ggml-metal-impl.h
-index eb2253e0..e7433f2a 100644
+index eb2253e0..379a8b33 100644
 --- src/ggml-metal/ggml-metal-impl.h
 +++ src/ggml-metal/ggml-metal-impl.h
 @@ -8,6 +8,9 @@
@@ -11795,11 +14027,52 @@ index eb2253e0..e7433f2a 100644
  
  #define OP_SUM_ROWS_NUM_SUM_ROWS 10
  #define OP_SUM_ROWS_NUM_MEAN     11
+@@ -1013,6 +1017,29 @@ typedef struct {
+     int32_t  p1;
+ } ggml_metal_kargs_pad_reflect_1d;
+ 
++typedef struct {
++    int64_t  ne00;
++    int64_t  ne01;
++    int64_t  ne02;
++    int64_t  ne03;
++    uint64_t nb00;
++    uint64_t nb01;
++    uint64_t nb02;
++    uint64_t nb03;
++    int64_t  ne0;
++    int64_t  ne1;
++    int64_t  ne2;
++    int64_t  ne3;
++    uint64_t nb0;
++    uint64_t nb1;
++    uint64_t nb2;
++    uint64_t nb3;
++    int32_t  s0;
++    int32_t  s1;
++    int32_t  s2;
++    int32_t  s3;
++} ggml_metal_kargs_roll;
++
+ typedef struct {
+     uint64_t nb1;
+     int      dim;
 diff --git src/ggml-metal/ggml-metal-ops.cpp src/ggml-metal/ggml-metal-ops.cpp
-index 3cda21be..5b426be1 100644
+index 3cda21be..e1735279 100644
 --- src/ggml-metal/ggml-metal-ops.cpp
 +++ src/ggml-metal/ggml-metal-ops.cpp
-@@ -787,6 +787,13 @@ int ggml_metal_op_unary(ggml_metal_op_t ctx, int idx) {
+@@ -410,6 +410,10 @@ static int ggml_metal_op_encode_impl(ggml_metal_op_t ctx, int idx) {
+             {
+                 n_fuse = ggml_metal_op_pad_reflect_1d(ctx, idx);
+             } break;
++        case GGML_OP_ROLL:
++            {
++                n_fuse = ggml_metal_op_roll(ctx, idx);
++            } break;
+         case GGML_OP_ARANGE:
+             {
+                 n_fuse = ggml_metal_op_arange(ctx, idx);
+@@ -787,6 +791,13 @@ int ggml_metal_op_unary(ggml_metal_op_t ctx, int idx) {
          args.max = ggml_get_op_params_f32(op, 1);
      }
  
@@ -11813,7 +14086,7 @@ index 3cda21be..5b426be1 100644
      auto pipeline = ggml_metal_library_get_pipeline_unary(lib, op);
  
      if (pipeline.c4) {
-@@ -2047,6 +2054,7 @@ int ggml_metal_op_mul_mat(ggml_metal_op_t ctx, int idx) {
+@@ -2047,6 +2058,7 @@ int ggml_metal_op_mul_mat(ggml_metal_op_t ctx, int idx) {
             op->src[0]->type == GGML_TYPE_F32  || // TODO: helper function
             op->src[0]->type == GGML_TYPE_F16  ||
             op->src[0]->type == GGML_TYPE_BF16 ||
@@ -11821,6 +14094,78 @@ index 3cda21be..5b426be1 100644
             op->src[0]->type == GGML_TYPE_Q4_0 ||
             op->src[0]->type == GGML_TYPE_Q4_1 ||
             op->src[0]->type == GGML_TYPE_Q5_0 ||
+@@ -3937,6 +3949,59 @@ int ggml_metal_op_upscale(ggml_metal_op_t ctx, int idx) {
+     return 1;
+ }
+ 
++int ggml_metal_op_roll(ggml_metal_op_t ctx, int idx) {
++    ggml_tensor * op = ctx->node(idx);
++
++    ggml_metal_library_t lib = ctx->lib;
++    ggml_metal_encoder_t enc = ctx->enc;
++
++    GGML_TENSOR_LOCALS( int32_t, ne0, op->src[0], ne);
++    GGML_TENSOR_LOCALS(uint64_t, nb0, op->src[0], nb);
++    GGML_TENSOR_LOCALS( int32_t, ne,  op,         ne);
++    GGML_TENSOR_LOCALS(uint64_t, nb,  op,         nb);
++
++    const int32_t s0 = ggml_get_op_params_i32(op, 0);
++    const int32_t s1 = ggml_get_op_params_i32(op, 1);
++    const int32_t s2 = ggml_get_op_params_i32(op, 2);
++    const int32_t s3 = ggml_get_op_params_i32(op, 3);
++
++    ggml_metal_kargs_roll args = {
++        /*.ne00 =*/ ne00,
++        /*.ne01 =*/ ne01,
++        /*.ne02 =*/ ne02,
++        /*.ne03 =*/ ne03,
++        /*.nb00 =*/ nb00,
++        /*.nb01 =*/ nb01,
++        /*.nb02 =*/ nb02,
++        /*.nb03 =*/ nb03,
++        /*.ne0  =*/ ne0,
++        /*.ne1  =*/ ne1,
++        /*.ne2  =*/ ne2,
++        /*.ne3  =*/ ne3,
++        /*.nb0  =*/ nb0,
++        /*.nb1  =*/ nb1,
++        /*.nb2  =*/ nb2,
++        /*.nb3  =*/ nb3,
++        /*.s0   =*/ s0,
++        /*.s1   =*/ s1,
++        /*.s2   =*/ s2,
++        /*.s3   =*/ s3
++    };
++
++    auto pipeline = ggml_metal_library_get_pipeline_roll(lib, op);
++
++    const int nth = std::min(1024, ne0);
++
++    ggml_metal_encoder_set_pipeline(enc, pipeline);
++    ggml_metal_encoder_set_bytes   (enc, &args, sizeof(args), 0);
++    ggml_metal_encoder_set_buffer  (enc, ggml_metal_get_buffer_id(op->src[0]), 1);
++    ggml_metal_encoder_set_buffer  (enc, ggml_metal_get_buffer_id(op),         2);
++
++    ggml_metal_encoder_dispatch_threadgroups(enc, ne1, ne2, ne3, nth, 1, 1);
++
++    return 1;
++}
++
+ int ggml_metal_op_pad(ggml_metal_op_t ctx, int idx) {
+     ggml_tensor * op = ctx->node(idx);
+ 
+diff --git src/ggml-metal/ggml-metal-ops.h src/ggml-metal/ggml-metal-ops.h
+index 50e3c5c7..36c61071 100644
+--- src/ggml-metal/ggml-metal-ops.h
++++ src/ggml-metal/ggml-metal-ops.h
+@@ -81,6 +81,7 @@ int ggml_metal_op_conv_transpose_2d (ggml_metal_op_t ctx, int idx);
+ int ggml_metal_op_upscale           (ggml_metal_op_t ctx, int idx);
+ int ggml_metal_op_pad               (ggml_metal_op_t ctx, int idx);
+ int ggml_metal_op_pad_reflect_1d    (ggml_metal_op_t ctx, int idx);
++int ggml_metal_op_roll              (ggml_metal_op_t ctx, int idx);
+ int ggml_metal_op_arange            (ggml_metal_op_t ctx, int idx);
+ int ggml_metal_op_timestep_embedding(ggml_metal_op_t ctx, int idx);
+ int ggml_metal_op_argmax            (ggml_metal_op_t ctx, int idx);
 diff --git src/ggml-metal/ggml-metal.cpp src/ggml-metal/ggml-metal.cpp
 index 9382ce53..4dbf8e6f 100644
 --- src/ggml-metal/ggml-metal.cpp
@@ -11871,7 +14216,7 @@ index 9382ce53..4dbf8e6f 100644
      /* .synchronize             = */ ggml_backend_metal_synchronize,
      /* .graph_plan_create       = */ NULL,
 diff --git src/ggml-metal/ggml-metal.metal src/ggml-metal/ggml-metal.metal
-index 20742115..445a4dec 100644
+index 20742115..9f38c9d2 100644
 --- src/ggml-metal/ggml-metal.metal
 +++ src/ggml-metal/ggml-metal.metal
 @@ -118,6 +118,56 @@ void dequantize_bf16_t4(device const bfloat4 * src, short il, thread type4 & reg
@@ -12105,7 +14450,48 @@ index 20742115..445a4dec 100644
  template [[host_name("kernel_mul_mv_ext_q4_0_f32_r1_2")]]   kernel mul_mv_ext_q4_f32_t kernel_mul_mv_ext_q4_f32_disp<2, block_q4_0,   32, dequantize_q4_0_t4>;
  template [[host_name("kernel_mul_mv_ext_q4_0_f32_r1_3")]]   kernel mul_mv_ext_q4_f32_t kernel_mul_mv_ext_q4_f32_disp<3, block_q4_0,   32, dequantize_q4_0_t4>;
  template [[host_name("kernel_mul_mv_ext_q4_0_f32_r1_4")]]   kernel mul_mv_ext_q4_f32_t kernel_mul_mv_ext_q4_f32_disp<4, block_q4_0,   32, dequantize_q4_0_t4>;
-@@ -7133,6 +7322,7 @@ kernel void kernel_cpy_f32_q(
+@@ -5058,6 +5247,40 @@ kernel void kernel_upscale_bicubic_f32(
+     }
+ }
+ 
++kernel void kernel_roll_f32(
++    constant ggml_metal_kargs_roll & args,
++    device  const char * src0,
++    device        char * dst,
++    uint3 tgpig[[threadgroup_position_in_grid]],
++    uint3 tpitg[[thread_position_in_threadgroup]],
++    uint3   ntg[[threads_per_threadgroup]]) {
++
++    const int64_t i3 = tgpig.z;
++    const int64_t i2 = tgpig.y;
++    const int64_t i1 = tgpig.x;
++
++    device const float * src0_ptr = (device const float *) src0;
++    device       float * dst_ptr  = (device       float *) dst;
++
++    for (int i0 = tpitg.x; i0 < args.ne0; i0 += ntg.x) {
++        // apply shifts and wrap around
++        int64_t i00 = i0 - args.s0;
++        int64_t i01 = i1 - args.s1;
++        int64_t i02 = i2 - args.s2;
++        int64_t i03 = i3 - args.s3;
++
++        if (i00 < 0) { i00 += args.ne00; } else if (i00 >= args.ne00) { i00 -= args.ne00; }
++        if (i01 < 0) { i01 += args.ne01; } else if (i01 >= args.ne01) { i01 -= args.ne01; }
++        if (i02 < 0) { i02 += args.ne02; } else if (i02 >= args.ne02) { i02 -= args.ne02; }
++        if (i03 < 0) { i03 += args.ne03; } else if (i03 >= args.ne03) { i03 -= args.ne03; }
++
++        int64_t src_idx = i03*args.ne02*args.ne01*args.ne00 + i02*args.ne01*args.ne00 + i01*args.ne00 + i00;
++        int64_t dst_idx = i3 *args.ne2 *args.ne1 *args.ne0  + i2 *args.ne1 *args.ne0  + i1 *args.ne0  + i0;
++
++        dst_ptr[dst_idx] = src0_ptr[src_idx];
++    }
++}
++
+ kernel void kernel_pad_f32(
+     constant ggml_metal_kargs_pad & args,
+     device  const char * src0,
+@@ -7133,6 +7356,7 @@ kernel void kernel_cpy_f32_q(
  typedef decltype(kernel_cpy_f32_q<QK8_0,  block_q8_0,  quantize_q8_0>)  cpy_f_q_t;
  
  template [[host_name("kernel_cpy_f32_q8_0")]]   kernel cpy_f_q_t kernel_cpy_f32_q<QK8_0,  block_q8_0,   quantize_q8_0>;
@@ -12113,7 +14499,7 @@ index 20742115..445a4dec 100644
  template [[host_name("kernel_cpy_f32_q4_0")]]   kernel cpy_f_q_t kernel_cpy_f32_q<QK4_0,  block_q4_0,   quantize_q4_0>;
  template [[host_name("kernel_cpy_f32_q4_1")]]   kernel cpy_f_q_t kernel_cpy_f32_q<QK4_1,  block_q4_1,   quantize_q4_1>;
  template [[host_name("kernel_cpy_f32_q5_0")]]   kernel cpy_f_q_t kernel_cpy_f32_q<QK5_0,  block_q5_0,   quantize_q5_0>;
-@@ -7173,12 +7363,14 @@ kernel void kernel_cpy_q_f32(
+@@ -7173,12 +7397,14 @@ kernel void kernel_cpy_q_f32(
  
  typedef decltype(kernel_cpy_q_f32<float4x4, block_q4_0, 2, dequantize_q4_0>) cpy_q_f_t;
  
@@ -12128,7 +14514,7 @@ index 20742115..445a4dec 100644
  template [[host_name("kernel_cpy_q4_0_f16")]] kernel cpy_q_f_t kernel_cpy_q_f32<half4x4, block_q4_0, 2, dequantize_q4_0>;
  template [[host_name("kernel_cpy_q4_1_f16")]] kernel cpy_q_f_t kernel_cpy_q_f32<half4x4, block_q4_1, 2, dequantize_q4_1>;
  template [[host_name("kernel_cpy_q5_0_f16")]] kernel cpy_q_f_t kernel_cpy_q_f32<half4x4, block_q5_0, 2, dequantize_q5_0>;
-@@ -9776,6 +9968,7 @@ template [[host_name("kernel_get_rows_bf16")]] kernel get_rows_f_t kernel_get_ro
+@@ -9776,6 +10002,7 @@ template [[host_name("kernel_get_rows_bf16")]] kernel get_rows_f_t kernel_get_ro
  
  typedef decltype(kernel_get_rows_q<block_q4_0, 2, dequantize_q4_0>) get_rows_q_t;
  
@@ -12136,7 +14522,7 @@ index 20742115..445a4dec 100644
  template [[host_name("kernel_get_rows_q4_0")]]    kernel get_rows_q_t kernel_get_rows_q<block_q4_0,    2, dequantize_q4_0>;
  template [[host_name("kernel_get_rows_q4_1")]]    kernel get_rows_q_t kernel_get_rows_q<block_q4_1,    2, dequantize_q4_1>;
  template [[host_name("kernel_get_rows_q5_0")]]    kernel get_rows_q_t kernel_get_rows_q<block_q5_0,    2, dequantize_q5_0>;
-@@ -9838,6 +10031,7 @@ template [[host_name("kernel_mul_mm_f16_f32")]]     kernel mul_mm_t kernel_mul_m
+@@ -9838,6 +10065,7 @@ template [[host_name("kernel_mul_mm_f16_f32")]]     kernel mul_mm_t kernel_mul_m
  #if defined(GGML_METAL_HAS_BF16)
  template [[host_name("kernel_mul_mm_bf16_f32")]]    kernel mul_mm_t kernel_mul_mm<bfloat, bfloat4x4, simdgroup_bfloat8x8, bfloat, bfloat2x4, simdgroup_bfloat8x8, bfloat4x4,     1,     dequantize_bf16,    bfloat, bfloat4x4, float, float2x4>;
  #endif
@@ -12144,7 +14530,7 @@ index 20742115..445a4dec 100644
  template [[host_name("kernel_mul_mm_q4_0_f32")]]    kernel mul_mm_t kernel_mul_mm<half,   half4x4,   simdgroup_half8x8,   half,   half2x4,   simdgroup_half8x8,   block_q4_0,    2,     dequantize_q4_0,    float,  float4x4,  float, float2x4>;
  template [[host_name("kernel_mul_mm_q4_1_f32")]]    kernel mul_mm_t kernel_mul_mm<half,   half4x4,   simdgroup_half8x8,   half,   half2x4,   simdgroup_half8x8,   block_q4_1,    2,     dequantize_q4_1,    float,  float4x4,  float, float2x4>;
  template [[host_name("kernel_mul_mm_q5_0_f32")]]    kernel mul_mm_t kernel_mul_mm<half,   half4x4,   simdgroup_half8x8,   half,   half2x4,   simdgroup_half8x8,   block_q5_0,    2,     dequantize_q5_0,    float,  float4x4,  float, float2x4>;
-@@ -9861,6 +10055,7 @@ template [[host_name("kernel_mul_mm_iq4_xs_f32")]]  kernel mul_mm_t kernel_mul_m
+@@ -9861,6 +10089,7 @@ template [[host_name("kernel_mul_mm_iq4_xs_f32")]]  kernel mul_mm_t kernel_mul_m
  
  template [[host_name("kernel_mul_mm_f32_f16")]]     kernel mul_mm_t kernel_mul_mm<half,   half4x4,   simdgroup_half8x8,   half,   half2x4,   simdgroup_half8x8,   float4x4,      1,     dequantize_f32,     float,  float4x4,  half, half2x4>;
  template [[host_name("kernel_mul_mm_f16_f16")]]     kernel mul_mm_t kernel_mul_mm<half,   half4x4,   simdgroup_half8x8,   half,   half2x4,   simdgroup_half8x8,   half4x4,       1,     dequantize_f16,     half,   half4x4,   half, half2x4>;
@@ -12152,7 +14538,7 @@ index 20742115..445a4dec 100644
  template [[host_name("kernel_mul_mm_q4_0_f16")]]    kernel mul_mm_t kernel_mul_mm<half,   half4x4,   simdgroup_half8x8,   half,   half2x4,   simdgroup_half8x8,   block_q4_0,    2,     dequantize_q4_0,    float,  float4x4,  half, half2x4>;
  template [[host_name("kernel_mul_mm_q4_1_f16")]]    kernel mul_mm_t kernel_mul_mm<half,   half4x4,   simdgroup_half8x8,   half,   half2x4,   simdgroup_half8x8,   block_q4_1,    2,     dequantize_q4_1,    float,  float4x4,  half, half2x4>;
  template [[host_name("kernel_mul_mm_q5_0_f16")]]    kernel mul_mm_t kernel_mul_mm<half,   half4x4,   simdgroup_half8x8,   half,   half2x4,   simdgroup_half8x8,   block_q5_0,    2,     dequantize_q5_0,    float,  float4x4,  half, half2x4>;
-@@ -9893,6 +10088,7 @@ template [[host_name("kernel_mul_mm_id_f16_f32")]]     kernel mul_mm_id kernel_m
+@@ -9893,6 +10122,7 @@ template [[host_name("kernel_mul_mm_id_f16_f32")]]     kernel mul_mm_id kernel_m
  #if defined(GGML_METAL_HAS_BF16)
  template [[host_name("kernel_mul_mm_id_bf16_f32")]]    kernel mul_mm_id kernel_mul_mm_id<bfloat, bfloat4x4, simdgroup_bfloat8x8, bfloat, bfloat2x4, simdgroup_bfloat8x8, bfloat4x4,     1,     dequantize_bf16,    bfloat, bfloat4x4, float, float2x4>;
  #endif
@@ -12160,7 +14546,7 @@ index 20742115..445a4dec 100644
  template [[host_name("kernel_mul_mm_id_q4_0_f32")]]    kernel mul_mm_id kernel_mul_mm_id<half,   half4x4,   simdgroup_half8x8,   half,   half2x4,   simdgroup_half8x8,   block_q4_0,    2,     dequantize_q4_0,    float,  float4x4,  float, float2x4>;
  template [[host_name("kernel_mul_mm_id_q4_1_f32")]]    kernel mul_mm_id kernel_mul_mm_id<half,   half4x4,   simdgroup_half8x8,   half,   half2x4,   simdgroup_half8x8,   block_q4_1,    2,     dequantize_q4_1,    float,  float4x4,  float, float2x4>;
  template [[host_name("kernel_mul_mm_id_q5_0_f32")]]    kernel mul_mm_id kernel_mul_mm_id<half,   half4x4,   simdgroup_half8x8,   half,   half2x4,   simdgroup_half8x8,   block_q5_0,    2,     dequantize_q5_0,    float,  float4x4,  float, float2x4>;
-@@ -9916,6 +10112,7 @@ template [[host_name("kernel_mul_mm_id_iq4_xs_f32")]]  kernel mul_mm_id kernel_m
+@@ -9916,6 +10146,7 @@ template [[host_name("kernel_mul_mm_id_iq4_xs_f32")]]  kernel mul_mm_id kernel_m
  
  template [[host_name("kernel_mul_mm_id_f32_f16")]]     kernel mul_mm_id kernel_mul_mm_id<half,   half4x4,   simdgroup_half8x8,   half,   half2x4,   simdgroup_half8x8,   float4x4,      1,     dequantize_f32,     float,  float4x4,  half, half2x4>;
  template [[host_name("kernel_mul_mm_id_f16_f16")]]     kernel mul_mm_id kernel_mul_mm_id<half,   half4x4,   simdgroup_half8x8,   half,   half2x4,   simdgroup_half8x8,   half4x4,       1,     dequantize_f16,     half,   half4x4,   half, half2x4>;
@@ -12168,7 +14554,7 @@ index 20742115..445a4dec 100644
  template [[host_name("kernel_mul_mm_id_q4_0_f16")]]    kernel mul_mm_id kernel_mul_mm_id<half,   half4x4,   simdgroup_half8x8,   half,   half2x4,   simdgroup_half8x8,   block_q4_0,    2,     dequantize_q4_0,    float,  float4x4,  half, half2x4>;
  template [[host_name("kernel_mul_mm_id_q4_1_f16")]]    kernel mul_mm_id kernel_mul_mm_id<half,   half4x4,   simdgroup_half8x8,   half,   half2x4,   simdgroup_half8x8,   block_q4_1,    2,     dequantize_q4_1,    float,  float4x4,  half, half2x4>;
  template [[host_name("kernel_mul_mm_id_q5_0_f16")]]    kernel mul_mm_id kernel_mul_mm_id<half,   half4x4,   simdgroup_half8x8,   half,   half2x4,   simdgroup_half8x8,   block_q5_0,    2,     dequantize_q5_0,    float,  float4x4,  half, half2x4>;
-@@ -10070,6 +10267,7 @@ template [[host_name("kernel_mul_mv_id_bf16_f32_4")]]  kernel kernel_mul_mv_id_4
+@@ -10070,6 +10301,7 @@ template [[host_name("kernel_mul_mv_id_bf16_f32_4")]]  kernel kernel_mul_mv_id_4
  
  template [[host_name("kernel_mul_mv_id_q8_0_f32")]]    kernel kernel_mul_mv_id_t kernel_mul_mv_id<mmv_fn<kernel_mul_mv_q8_0_f32_impl<N_R0_Q8_0>>>;
  
@@ -12177,7 +14563,7 @@ index 20742115..445a4dec 100644
  template [[host_name("kernel_mul_mv_id_q4_1_f32")]]    kernel kernel_mul_mv_id_t kernel_mul_mv_id<mmv_fn<mul_vec_q_n_f32_impl<block_q4_1, N_R0_Q4_1>>>;
  template [[host_name("kernel_mul_mv_id_q5_0_f32")]]    kernel kernel_mul_mv_id_t kernel_mul_mv_id<mmv_fn<mul_vec_q_n_f32_impl<block_q5_0, N_R0_Q5_0>>>;
 diff --git src/ggml-opencl/CMakeLists.txt src/ggml-opencl/CMakeLists.txt
-index 540942b1..112c2afe 100644
+index 540942b1..772fc537 100644
 --- src/ggml-opencl/CMakeLists.txt
 +++ src/ggml-opencl/CMakeLists.txt
 @@ -90,6 +90,8 @@ set(GGML_OPENCL_KERNELS
@@ -12197,15 +14583,26 @@ index 540942b1..112c2afe 100644
      mul_mm_q6_k_f32_l4_lm
      mul_mm_q8_0_f32_8x4
      gemv_noshuffle_q4_1_f32
+@@ -118,6 +121,8 @@ set(GGML_OPENCL_KERNELS
+     gemm_noshuffle_q4_k_f32
+     gemv_noshuffle_q6_k_f32
+     gemm_noshuffle_q6_k_f32
++    gemv_noshuffle_q5_k_f32
++    gemm_noshuffle_q5_k_f32
+     mul
+     neg
+     norm
 diff --git src/ggml-opencl/ggml-opencl.cpp src/ggml-opencl/ggml-opencl.cpp
-index 6f3fc588..a5814023 100644
+index 6f3fc588..8bc7ae65 100644
 --- src/ggml-opencl/ggml-opencl.cpp
 +++ src/ggml-opencl/ggml-opencl.cpp
-@@ -541,12 +541,15 @@ struct ggml_backend_opencl_context {
+@@ -541,12 +541,17 @@ struct ggml_backend_opencl_context {
      cl_kernel kernel_convert_block_q4_K_noshuffle;
      cl_kernel kernel_restore_block_q4_K_noshuffle;
      cl_kernel kernel_convert_block_q4_K, kernel_restore_block_q4_K;
 +    cl_kernel kernel_convert_block_q5_K, kernel_restore_block_q5_K;
++    cl_kernel kernel_convert_block_q5_K_noshuffle;
++    cl_kernel kernel_restore_block_q5_K_noshuffle;
      cl_kernel kernel_convert_block_q6_K, kernel_restore_block_q6_K;
      cl_kernel kernel_mul_mat_q4_0_f32_1d_8x_flat, kernel_mul_mat_q4_0_f32_1d_16x_flat;
      cl_kernel kernel_mul_mv_q4_1_f32;
@@ -12217,7 +14614,7 @@ index 6f3fc588..a5814023 100644
      cl_kernel kernel_mul_mv_q6_K_f32;
      cl_kernel kernel_mul_mv_q6_K_f32_flat;
      cl_kernel kernel_mul_mv_mxfp4_f32, kernel_mul_mv_mxfp4_f32_flat;
-@@ -587,6 +590,7 @@ struct ggml_backend_opencl_context {
+@@ -587,6 +592,7 @@ struct ggml_backend_opencl_context {
      cl_kernel kernel_mul_mm_q4_1_f32_l4_lm;
      cl_kernel kernel_mul_mm_q8_0_f32_l4_lm;
      cl_kernel kernel_mul_mm_q4_k_f32_l4_lm;
@@ -12225,16 +14622,27 @@ index 6f3fc588..a5814023 100644
      cl_kernel kernel_mul_mm_q6_k_f32_l4_lm;
  
      std::vector<ProfilingInfo> profiling_info;
-@@ -938,6 +942,8 @@ static void load_cl_kernels(ggml_backend_opencl_context *backend_ctx, ggml_cl_ve
+@@ -726,6 +732,8 @@ struct ggml_backend_opencl_context {
+     cl_kernel kernel_gemm_noshuffle_q4_k_f32;
+     cl_kernel kernel_gemv_noshuffle_q6_K_f32;
+     cl_kernel kernel_gemm_noshuffle_q6_K_f32;
++    cl_kernel kernel_gemv_noshuffle_q5_k_f32;
++    cl_kernel kernel_gemm_noshuffle_q5_k_f32;
+ #endif // GGML_OPENCL_USE_ADRENO_KERNELS
+ 
+     void free() {
+@@ -938,6 +946,10 @@ static void load_cl_kernels(ggml_backend_opencl_context *backend_ctx, ggml_cl_ve
          CL_CHECK((backend_ctx->kernel_restore_block_q4_K  = clCreateKernel(backend_ctx->program_cvt, "kernel_restore_block_q4_K", &err), err));
          CL_CHECK((backend_ctx->kernel_convert_block_q4_K_noshuffle = clCreateKernel(backend_ctx->program_cvt, "kernel_convert_block_q4_K_noshuffle", &err), err));
          CL_CHECK((backend_ctx->kernel_restore_block_q4_K_noshuffle = clCreateKernel(backend_ctx->program_cvt, "kernel_restore_block_q4_K_noshuffle", &err), err));
 +        CL_CHECK((backend_ctx->kernel_convert_block_q5_K  = clCreateKernel(backend_ctx->program_cvt, "kernel_convert_block_q5_K", &err), err));
 +        CL_CHECK((backend_ctx->kernel_restore_block_q5_K  = clCreateKernel(backend_ctx->program_cvt, "kernel_restore_block_q5_K", &err), err));
++        CL_CHECK((backend_ctx->kernel_convert_block_q5_K_noshuffle = clCreateKernel(backend_ctx->program_cvt, "kernel_convert_block_q5_K_noshuffle", &err), err));
++        CL_CHECK((backend_ctx->kernel_restore_block_q5_K_noshuffle = clCreateKernel(backend_ctx->program_cvt, "kernel_restore_block_q5_K_noshuffle", &err), err));
          CL_CHECK((backend_ctx->kernel_convert_block_q6_K  = clCreateKernel(backend_ctx->program_cvt, "kernel_convert_block_q6_K", &err), err));
          CL_CHECK((backend_ctx->kernel_restore_block_q6_K  = clCreateKernel(backend_ctx->program_cvt, "kernel_restore_block_q6_K", &err), err));
          CL_CHECK((backend_ctx->kernel_convert_block_q6_K_noshuffle  = clCreateKernel(backend_ctx->program_cvt, "kernel_convert_block_q6_K_noshuffle", &err), err));
-@@ -1249,6 +1255,39 @@ static void load_cl_kernels(ggml_backend_opencl_context *backend_ctx, ggml_cl_ve
+@@ -1249,6 +1261,39 @@ static void load_cl_kernels(ggml_backend_opencl_context *backend_ctx, ggml_cl_ve
          GGML_LOG_CONT(".");
      }
  
@@ -12274,7 +14682,7 @@ index 6f3fc588..a5814023 100644
      // mul_mv_q6_k_f32
      {
  #ifdef GGML_OPENCL_EMBED_KERNELS
-@@ -1556,6 +1595,23 @@ static void load_cl_kernels(ggml_backend_opencl_context *backend_ctx, ggml_cl_ve
+@@ -1556,6 +1601,23 @@ static void load_cl_kernels(ggml_backend_opencl_context *backend_ctx, ggml_cl_ve
          GGML_LOG_CONT(".");
      }
  
@@ -12298,7 +14706,53 @@ index 6f3fc588..a5814023 100644
      // mul_mm_f16_f32_kq_kqv
      {
  #ifdef GGML_OPENCL_EMBED_KERNELS
-@@ -3530,6 +3586,58 @@ struct ggml_tensor_extra_cl_q4_K {
+@@ -2738,6 +2800,45 @@ static void load_cl_kernels(ggml_backend_opencl_context *backend_ctx, ggml_cl_ve
+         CL_CHECK((backend_ctx->kernel_gemm_noshuffle_q6_K_f32 = clCreateKernel(prog, "kernel_gemm_noshuffle_q6_K_f32", &err), err));
+         GGML_LOG_CONT(".");
+     }
++
++    // gemv_noshuffle_q5_k_f32
++    {
++        std::string CL_gemv_compile_opts = std::string("-cl-std=") + opencl_c_std +
++                                       " -cl-mad-enable ";
++        if (backend_ctx->has_vector_subgroup_broadcast) {
++            CL_gemv_compile_opts += " -DVECTOR_SUB_GROUP_BROADCAST ";
++        }
++
++#ifdef GGML_OPENCL_EMBED_KERNELS
++        const std::string kernel_src {
++            #include "gemv_noshuffle_q5_k_f32.cl.h"
++        };
++#else
++        const std::string kernel_src = read_file("gemv_noshuffle_q5_k_f32.cl");
++#endif
++
++        cl_program prog = build_program_from_source(
++            backend_ctx->context, backend_ctx->device, kernel_src.c_str(), CL_gemv_compile_opts);
++
++        CL_CHECK((backend_ctx->kernel_gemv_noshuffle_q5_k_f32 = clCreateKernel(prog, "kernel_gemv_noshuffle_q5_k_f32", &err), err));
++        CL_CHECK(clReleaseProgram(prog));
++        GGML_LOG_CONT(".");
++    }
++
++    // gemm_noshuffle_q5_k_f32
++    {
++#ifdef GGML_OPENCL_EMBED_KERNELS
++        const std::string kernel_src {
++            #include "gemm_noshuffle_q5_k_f32.cl.h"
++        };
++#else
++        const std::string kernel_src = read_file("gemm_noshuffle_q5_k_f32.cl");
++#endif
++        cl_program prog = build_program_from_source(backend_ctx->context, backend_ctx->device, kernel_src.c_str(), compile_opts);
++        CL_CHECK((backend_ctx->kernel_gemm_noshuffle_q5_k_f32 = clCreateKernel(prog, "kernel_gemm_noshuffle_q5_k_f32", &err), err));
++        CL_CHECK(clReleaseProgram(prog));
++        GGML_LOG_CONT(".");
++    }
+ #endif // GGML_OPENCL_USE_ADRENO_KERNELS
+     GGML_LOG_CONT("\n");
+ }
+@@ -3530,6 +3631,58 @@ struct ggml_tensor_extra_cl_q4_K {
      }
  };
  
@@ -12357,7 +14811,7 @@ index 6f3fc588..a5814023 100644
  struct ggml_tensor_extra_cl_q6_K {
      // Lower 4 bits of quantized weights.
      cl_mem ql = nullptr;
-@@ -3945,6 +4053,7 @@ static bool ggml_opencl_supports_op(ggml_backend_dev_t dev, const struct ggml_te
+@@ -3945,6 +4098,7 @@ static bool ggml_opencl_supports_op(ggml_backend_dev_t dev, const struct ggml_te
              } else if (op->src[0]->type == GGML_TYPE_Q4_0  || op->src[0]->type == GGML_TYPE_Q4_1 ||
                         op->src[0]->type == GGML_TYPE_MXFP4 ||
                         op->src[0]->type == GGML_TYPE_Q4_K  ||
@@ -12365,7 +14819,7 @@ index 6f3fc588..a5814023 100644
                         op->src[0]->type == GGML_TYPE_Q6_K) {
                  return op->src[1]->type == GGML_TYPE_F32 && ggml_is_contiguous(op->src[0]) && ggml_is_contiguous(op->src[1]);
              } else if (op->src[0]->type == GGML_TYPE_Q8_0) {
-@@ -4063,6 +4172,8 @@ static ggml_backend_i ggml_backend_opencl_i = {
+@@ -4063,6 +4217,8 @@ static ggml_backend_i ggml_backend_opencl_i = {
      /* .set_tensor_async        = */ NULL,  /* ggml_backend_opencl_set_tensor_async */
      /* .get_tensor_async        = */ NULL,  /* ggml_backend_opencl_get_tensor_async */
      /* .cpy_tensor_async        = */ NULL,  /* ggml_backend_opencl_cpy_tensor_async */
@@ -12374,7 +14828,7 @@ index 6f3fc588..a5814023 100644
      /* .synchronize             = */ ggml_backend_opencl_synchronize,
      /* .graph_plan_create       = */ NULL,
      /* .graph_plan_free         = */ NULL,
-@@ -4151,6 +4262,12 @@ struct ggml_backend_opencl_buffer_context {
+@@ -4151,6 +4307,12 @@ struct ggml_backend_opencl_buffer_context {
          for (ggml_tensor_extra_cl_q6_K * e : temp_tensor_extras_q6_K_in_use) {
              delete e;
          }
@@ -12387,7 +14841,7 @@ index 6f3fc588..a5814023 100644
      }
  
      ggml_tensor_extra_cl * ggml_opencl_alloc_temp_tensor_extra() {
-@@ -4243,6 +4360,21 @@ struct ggml_backend_opencl_buffer_context {
+@@ -4243,6 +4405,21 @@ struct ggml_backend_opencl_buffer_context {
          return extra;
      }
  
@@ -12409,7 +14863,7 @@ index 6f3fc588..a5814023 100644
      ggml_tensor_extra_cl_q6_K * ggml_opencl_alloc_temp_tensor_extra_q6_K() {
          ggml_tensor_extra_cl_q6_K * extra;
          if (temp_tensor_extras_q6_K.empty()) {
-@@ -4289,6 +4421,11 @@ struct ggml_backend_opencl_buffer_context {
+@@ -4289,6 +4466,11 @@ struct ggml_backend_opencl_buffer_context {
          }
          temp_tensor_extras_q4_K_in_use.clear();
  
@@ -12421,7 +14875,7 @@ index 6f3fc588..a5814023 100644
          for (ggml_tensor_extra_cl_q6_K * e : temp_tensor_extras_q6_K_in_use) {
              temp_tensor_extras_q6_K.push_back(e);
          }
-@@ -4312,6 +4449,8 @@ struct ggml_backend_opencl_buffer_context {
+@@ -4312,6 +4494,8 @@ struct ggml_backend_opencl_buffer_context {
      std::vector<ggml_tensor_extra_cl_q8_0 *> temp_tensor_extras_q8_0_in_use;
      std::vector<ggml_tensor_extra_cl_q4_K *> temp_tensor_extras_q4_K;
      std::vector<ggml_tensor_extra_cl_q4_K *> temp_tensor_extras_q4_K_in_use;
@@ -12430,24 +14884,299 @@ index 6f3fc588..a5814023 100644
      std::vector<ggml_tensor_extra_cl_q6_K *> temp_tensor_extras_q6_K;
      std::vector<ggml_tensor_extra_cl_q6_K *> temp_tensor_extras_q6_K_in_use;
  
-@@ -5150,6 +5289,97 @@ static void ggml_backend_opencl_buffer_set_tensor(ggml_backend_buffer_t buffer,
+@@ -4932,115 +5116,8 @@ static void ggml_backend_opencl_buffer_set_tensor(ggml_backend_buffer_t buffer,
+             GGML_ASSERT(tensor->ne[2] == 1);
+             GGML_ASSERT(tensor->ne[3] == 1);
+ 
+-            // Transpose weights
+-            size_t q_size_bytes = K * M / 4 * sizeof(float);
+-            cl_buffer_region region;
+-            region.origin = 0;
+-            region.size = q_size_bytes;
+-            cl_mem qT_d = clCreateSubBuffer(
+-                backend_ctx->prealloc_quant_trans.buffer,
+-                0,
+-                CL_BUFFER_CREATE_TYPE_REGION,
+-                &region,
+-                &err);
+-            CL_CHECK(err);
+-
+-            cl_mem q_d_image1D;
+-            cl_mem qT_d_image1D;
+-
+-            cl_image_format img_fmt_1d;
+-            cl_image_desc img_desc_1d;
+-
+-            img_fmt_1d = { CL_RGBA, CL_FLOAT };
+-            memset(&img_desc_1d, 0, sizeof(img_desc_1d));
+-            img_desc_1d.image_type = CL_MEM_OBJECT_IMAGE1D_BUFFER;
+-            img_desc_1d.image_width = M * K / 4 / 4;
+-            img_desc_1d.buffer = extra->q;
+-            q_d_image1D = clCreateImage(context, 0, &img_fmt_1d, &img_desc_1d, NULL, &err);
+-            CL_CHECK(err);
+-
+-            img_fmt_1d = { CL_RGBA, CL_FLOAT };
+-            memset(&img_desc_1d, 0, sizeof(img_desc_1d));
+-            img_desc_1d.image_type = CL_MEM_OBJECT_IMAGE1D_BUFFER;
+-            img_desc_1d.image_width = M * K / 4 / 4;
+-            img_desc_1d.buffer = qT_d;
+-            qT_d_image1D = clCreateImage(context, 0, &img_fmt_1d, &img_desc_1d, NULL, &err);
+-            CL_CHECK(err);
+-
+-            int height_q = M / 4;
+-            int width_q = K / 4 / 4;
+-            kernel = backend_ctx->kernel_transpose_32;
+-
+-            CL_CHECK(clSetKernelArg(kernel, 0, sizeof(cl_mem), &q_d_image1D));
+-            CL_CHECK(clSetKernelArg(kernel, 1, sizeof(cl_mem), &qT_d_image1D));
+-            CL_CHECK(clSetKernelArg(kernel, 2, sizeof(int),    &height_q));
+-            CL_CHECK(clSetKernelArg(kernel, 3, sizeof(int),    &width_q));
+-
+-            size_t local_size_q[3] = {4, 16, 1};
+-            size_t global_size_q[3] = {static_cast<size_t>(width_q), static_cast<size_t>(height_q), 1};
+-            CL_CHECK(clEnqueueNDRangeKernel(queue, kernel, 3, NULL, global_size_q, local_size_q, 0, NULL, &evt));
+-            CL_CHECK(clWaitForEvents(1, &evt));
+-
+-            // Transpose scales
+-            size_t d_size_bytes = M * (K / 32) * 2;
+-            region.origin = 0;
+-            region.size = d_size_bytes;
+-            cl_mem dT_d = clCreateSubBuffer(
+-                backend_ctx->prealloc_scales_trans.buffer,
+-                0,
+-                CL_BUFFER_CREATE_TYPE_REGION,
+-                &region,
+-                &err);
+-            CL_CHECK(err);
+-
+-            cl_mem d_d_image1D;
+-            cl_mem dT_d_image1D;
+-
+-            memset(&img_desc_1d, 0, sizeof(img_desc_1d));
+-            img_fmt_1d = { CL_R, CL_HALF_FLOAT };
+-            img_desc_1d.image_width = M * K / 32;
+-            img_desc_1d.image_type = CL_MEM_OBJECT_IMAGE1D_BUFFER;
+-            img_desc_1d.buffer = extra->d;
+-            d_d_image1D = clCreateImage(context, 0, &img_fmt_1d, &img_desc_1d, NULL, &err);
+-            CL_CHECK(err);
+-
+-            img_fmt_1d = { CL_RGBA, CL_HALF_FLOAT };
+-            memset(&img_desc_1d, 0, sizeof(img_desc_1d));
+-            img_desc_1d.image_type = CL_MEM_OBJECT_IMAGE1D_BUFFER;
+-            img_desc_1d.image_width = M * K / 32 / 4;
+-            img_desc_1d.buffer = dT_d;
+-            dT_d_image1D = clCreateImage(context, 0, &img_fmt_1d, &img_desc_1d, NULL, &err);
+-            CL_CHECK(err);
+-
+-            int height_s = M / 4;
+-            int width_s = K / 32;
+-
+-            kernel = backend_ctx->kernel_transpose_16_4x1;
+-
+-            CL_CHECK(clSetKernelArg(kernel, 0, sizeof(cl_mem), &d_d_image1D));
+-            CL_CHECK(clSetKernelArg(kernel, 1, sizeof(cl_mem), &dT_d_image1D));
+-            CL_CHECK(clSetKernelArg(kernel, 2, sizeof(int), &height_s));
+-            CL_CHECK(clSetKernelArg(kernel, 3, sizeof(int), &width_s));
+-
+-            size_t local_size_s[3] = {4, 16, 1};
+-            size_t global_size_s[3] = {static_cast<size_t>(width_s), static_cast<size_t>(height_s), 1};
+-            CL_CHECK(clEnqueueNDRangeKernel(queue, kernel, 3, NULL, global_size_s, local_size_s, 0, NULL, &evt));
+-            CL_CHECK(clWaitForEvents(1, &evt));
+-
+-            // copy transposed buffer contents to original buffers
+-            CL_CHECK(clEnqueueCopyBuffer(queue, qT_d, extra->q, 0, 0, q_size_bytes, 0, NULL, &evt));
+-            CL_CHECK(clWaitForEvents(1, &evt));
+-
+-            CL_CHECK(clEnqueueCopyBuffer(queue, dT_d, extra->d, 0, 0, d_size_bytes, 0, NULL, &evt));
+-            CL_CHECK(clWaitForEvents(1, &evt));
+-
+-            CL_CHECK(clReleaseMemObject(qT_d));
+-            CL_CHECK(clReleaseMemObject(dT_d));
+-
+-            CL_CHECK(clReleaseMemObject(q_d_image1D));
+-            CL_CHECK(clReleaseMemObject(d_d_image1D));
+-            CL_CHECK(clReleaseMemObject(qT_d_image1D));
+-            CL_CHECK(clReleaseMemObject(dT_d_image1D));
++            transpose_2d_as_32b(backend_ctx, extra->q, extra->q, size_q, K/4,  M);
++            transpose_2d_as_16b(backend_ctx, extra->d, extra->d, size_d, K/32, M);
+         } // end transpose
+ #endif // GGML_OPENCL_USE_ADRENO_KERNELS
+ 
+@@ -5150,19 +5227,20 @@ static void ggml_backend_opencl_buffer_set_tensor(ggml_backend_buffer_t buffer,
  #endif // GGML_OPENCL_USE_ADRENO_KERNELS
          return;
      }
+-    if (tensor->type == GGML_TYPE_Q6_K) {
 +    if (tensor->type == GGML_TYPE_Q5_K) {
+         ggml_tensor_extra_cl * extra_orig = (ggml_tensor_extra_cl *)tensor->extra;
+         GGML_ASSERT(extra_orig && "Tesnors in OpenCL backend should have been allocated and initialized");
+ 
+         // Allocate the new extra and create aliases from the original.
+         ggml_backend_opencl_buffer_context * ctx = (ggml_backend_opencl_buffer_context *) buffer->context;
+-        ggml_tensor_extra_cl_q6_K * extra = ctx->ggml_opencl_alloc_temp_tensor_extra_q6_K();
++        ggml_tensor_extra_cl_q5_K * extra = ctx->ggml_opencl_alloc_temp_tensor_extra_q5_K();
+ 
+-        size_t size_ql = ggml_nelements(tensor)/ggml_blck_size(tensor->type)*ggml_blck_size(tensor->type)/2;
+-        size_t size_qh = ggml_nelements(tensor)/ggml_blck_size(tensor->type)*ggml_blck_size(tensor->type)/4;
+-        size_t size_s  = ggml_nelements(tensor)/ggml_blck_size(tensor->type)*ggml_blck_size(tensor->type)/16;
++        size_t size_q  = ggml_nelements(tensor)/ggml_blck_size(tensor->type)*ggml_blck_size(tensor->type)/2;
++        size_t size_qh = ggml_nelements(tensor)/ggml_blck_size(tensor->type)*ggml_blck_size(tensor->type)/8;
++        size_t size_s  = ggml_nelements(tensor)/ggml_blck_size(tensor->type)*(3*ggml_blck_size(tensor->type)/64);
+         size_t size_d  = ggml_nelements(tensor)/ggml_blck_size(tensor->type)*sizeof(ggml_fp16_t);
+-        GGML_ASSERT(size_ql + size_qh + size_s + size_d == ggml_nbytes(tensor) &&
++        size_t size_dm = ggml_nelements(tensor)/ggml_blck_size(tensor->type)*sizeof(ggml_fp16_t);
++        GGML_ASSERT(size_q + size_qh + size_s + size_d + size_dm == ggml_nbytes(tensor) &&
+             "Incorrect tensor size");
+ 
+         cl_int err;
+@@ -5172,52 +5250,70 @@ static void ggml_backend_opencl_buffer_set_tensor(ggml_backend_buffer_t buffer,
+ 
+         cl_buffer_region region;
+ 
+-        // Subbuffer for ql
++        // Create subbuffer for d.
+         region.origin = align_to(extra_orig->offset + tensor->view_offs + offset, backend_ctx->alignment);
+-        region.size = size_ql;
+-        CL_CHECK((extra->ql = clCreateSubBuffer(extra_orig->data_device, CL_MEM_READ_WRITE, CL_BUFFER_CREATE_TYPE_REGION, &region, &err), err));
++        region.size = size_d;
++        extra->d = clCreateSubBuffer(
++            extra_orig->data_device, CL_MEM_READ_WRITE,
++            CL_BUFFER_CREATE_TYPE_REGION, &region, &err);
++        CL_CHECK(err);
+         auto previous_origin = region.origin;
+ 
+-        // Subbuffer for qh
+-        region.origin = align_to(previous_origin + size_ql, backend_ctx->alignment);
+-        region.size = size_qh;
+-        CL_CHECK((extra->qh = clCreateSubBuffer(extra_orig->data_device, CL_MEM_READ_WRITE, CL_BUFFER_CREATE_TYPE_REGION, &region, &err), err));
++        // Create subbuffer for dm.
++        region.origin = align_to(previous_origin + size_d, backend_ctx->alignment);
++        region.size = size_dm;
++        extra->dm = clCreateSubBuffer(
++            extra_orig->data_device, CL_MEM_READ_WRITE,
++            CL_BUFFER_CREATE_TYPE_REGION, &region, &err);
++        CL_CHECK(err);
+         previous_origin = region.origin;
+ 
+-        // Subbuffer for scales
+-        region.origin = align_to(previous_origin + size_qh, backend_ctx->alignment);
++        // Create subbuffer for s.
++        region.origin = align_to(previous_origin + size_dm, backend_ctx->alignment);
+         region.size = size_s;
+-        CL_CHECK((extra->s = clCreateSubBuffer(extra_orig->data_device, CL_MEM_READ_WRITE, CL_BUFFER_CREATE_TYPE_REGION, &region, &err), err));
++        extra->s = clCreateSubBuffer(
++            extra_orig->data_device, CL_MEM_READ_WRITE,
++            CL_BUFFER_CREATE_TYPE_REGION, &region, &err);
++        CL_CHECK(err);
+         previous_origin = region.origin;
+ 
+-        // Create subbuffer for d.
++        // Create subbuffer for q (lower 4 bits)
+         region.origin = align_to(previous_origin + size_s, backend_ctx->alignment);
+-        region.size = size_d;
+-        CL_CHECK((extra->d = clCreateSubBuffer(extra_orig->data_device, CL_MEM_READ_WRITE, CL_BUFFER_CREATE_TYPE_REGION, &region, &err), err));
++        region.size = size_q;
++        extra->q = clCreateSubBuffer(
++            extra_orig->data_device, CL_MEM_READ_WRITE,
++            CL_BUFFER_CREATE_TYPE_REGION, &region, &err);
++        CL_CHECK(err);
+         previous_origin = region.origin;
+ 
+-        // Flatten the weights
+-        cl_kernel kernel;
+-#ifdef GGML_OPENCL_USE_ADRENO_KERNELS
+-        kernel = backend_ctx->kernel_convert_block_q6_K;
++        // Create subbuffer for qh (upper 1 bit)
++        region.origin = align_to(previous_origin + size_q, backend_ctx->alignment);
++        region.size = size_qh;
++        CL_CHECK((extra->qh = clCreateSubBuffer(extra_orig->data_device, CL_MEM_READ_WRITE, CL_BUFFER_CREATE_TYPE_REGION, &region, &err), err));
++        CL_CHECK(err);
++
++        #ifdef GGML_OPENCL_USE_ADRENO_KERNELS
++        cl_kernel kernel = backend_ctx->kernel_convert_block_q5_K;
+         if (use_adreno_kernels(backend_ctx, tensor)) {
+-            kernel = backend_ctx->kernel_convert_block_q6_K_noshuffle;
++            kernel = backend_ctx->kernel_convert_block_q5_K_noshuffle;
+         }
+-#else
+-        kernel = backend_ctx->kernel_convert_block_q6_K;
+-#endif // GGML_OPENCL_USE_ADRENO_KERNELS
++        #else
++        cl_kernel kernel = backend_ctx->kernel_convert_block_q5_K;
++        #endif
++
++        cl_uchar mask_0F = 0x0F;
++        cl_uchar mask_F0 = 0xF0;
+ 
+-        cl_uchar mask = 0xff;
+-        cl_ulong n_blk = ggml_nelements(tensor)/ggml_blck_size(tensor->type);
+         CL_CHECK(clSetKernelArg(kernel, 0, sizeof(cl_mem),   &data_device));
+-        CL_CHECK(clSetKernelArg(kernel, 1, sizeof(cl_mem),   &extra->ql));
++        CL_CHECK(clSetKernelArg(kernel, 1, sizeof(cl_mem),   &extra->q));
+         CL_CHECK(clSetKernelArg(kernel, 2, sizeof(cl_mem),   &extra->qh));
+         CL_CHECK(clSetKernelArg(kernel, 3, sizeof(cl_mem),   &extra->s));
+         CL_CHECK(clSetKernelArg(kernel, 4, sizeof(cl_mem),   &extra->d));
+-        CL_CHECK(clSetKernelArg(kernel, 5, sizeof(cl_uchar), &mask));
+-        CL_CHECK(clSetKernelArg(kernel, 6, sizeof(cl_ulong), &n_blk));
++        CL_CHECK(clSetKernelArg(kernel, 5, sizeof(cl_mem),   &extra->dm));
++        CL_CHECK(clSetKernelArg(kernel, 6, sizeof(cl_uchar), &mask_0F));
++        CL_CHECK(clSetKernelArg(kernel, 7, sizeof(cl_uchar), &mask_F0));
+ 
+-        size_t global_work_size[] = {(size_t)CEIL_DIV(n_blk, 64)*64, 1, 1};
++        size_t global_work_size[] = {(size_t)ggml_nelements(tensor)/ggml_blck_size(tensor->type), 1, 1};
+         size_t local_work_size[] = {64, 1, 1};
+ 
+         cl_event evt;
+@@ -5225,23 +5321,122 @@ static void ggml_backend_opencl_buffer_set_tensor(ggml_backend_buffer_t buffer,
+         CL_CHECK(clWaitForEvents(1, &evt));
+         CL_CHECK(clReleaseMemObject(data_device));
+ 
+-        extra->size_ql = size_ql;
++        extra->size_q  = size_q;
+         extra->size_qh = size_qh;
+         extra->size_s  = size_s;
+         extra->size_d  = size_d;
++        extra->size_dm = size_dm;
+ 
+-        tensor->extra  = extra;
+-
++        tensor->extra = extra;
+ #ifdef GGML_OPENCL_USE_ADRENO_KERNELS
+         if (use_adreno_kernels(backend_ctx, tensor)) {
+-            cl_int M = tensor->ne[1];   // ne01
+-            cl_int K = tensor->ne[0];   // ne00
+ 
+-            // Transpose ql as ushort
+-            transpose_2d_as_16b(backend_ctx,
+-                extra->ql, extra->ql, size_ql, K/4, M);
++            int M = tensor->ne[1];
++            int K = tensor->ne[0];
+ 
+-            // Transpose qh as uchar
++            GGML_ASSERT(K % 32 == 0);
++
++            // Transpose q, d, dm as ushort, qh as uchar
++            transpose_2d_as_16b(backend_ctx, extra->q,  extra->q,  size_q,  K/4,   M);
++            transpose_2d_as_8b (backend_ctx, extra->qh, extra->qh, size_qh, K/8,   M);
++            transpose_2d_as_16b(backend_ctx, extra->d,  extra->d,  size_d,  K/256, M);
++            transpose_2d_as_16b(backend_ctx, extra->dm, extra->dm, size_dm, K/256, M);
++        }
++#endif // GGML_OPENCL_USE_ADRENO_KERNELS
++        return;
++    }
++    if (tensor->type == GGML_TYPE_Q6_K) {
 +        ggml_tensor_extra_cl * extra_orig = (ggml_tensor_extra_cl *)tensor->extra;
 +        GGML_ASSERT(extra_orig && "Tesnors in OpenCL backend should have been allocated and initialized");
 +
 +        // Allocate the new extra and create aliases from the original.
 +        ggml_backend_opencl_buffer_context * ctx = (ggml_backend_opencl_buffer_context *) buffer->context;
-+        ggml_tensor_extra_cl_q5_K * extra = ctx->ggml_opencl_alloc_temp_tensor_extra_q5_K();
++        ggml_tensor_extra_cl_q6_K * extra = ctx->ggml_opencl_alloc_temp_tensor_extra_q6_K();
 +
-+        size_t size_q  = ggml_nelements(tensor)/ggml_blck_size(tensor->type)*ggml_blck_size(tensor->type)/2;
-+        size_t size_qh = ggml_nelements(tensor)/ggml_blck_size(tensor->type)*ggml_blck_size(tensor->type)/8;
-+        size_t size_s  = ggml_nelements(tensor)/ggml_blck_size(tensor->type)*(3*ggml_blck_size(tensor->type)/64);
++        size_t size_ql = ggml_nelements(tensor)/ggml_blck_size(tensor->type)*ggml_blck_size(tensor->type)/2;
++        size_t size_qh = ggml_nelements(tensor)/ggml_blck_size(tensor->type)*ggml_blck_size(tensor->type)/4;
++        size_t size_s  = ggml_nelements(tensor)/ggml_blck_size(tensor->type)*ggml_blck_size(tensor->type)/16;
 +        size_t size_d  = ggml_nelements(tensor)/ggml_blck_size(tensor->type)*sizeof(ggml_fp16_t);
-+        size_t size_dm = ggml_nelements(tensor)/ggml_blck_size(tensor->type)*sizeof(ggml_fp16_t);
-+        GGML_ASSERT(size_q + size_qh + size_s + size_d + size_dm == ggml_nbytes(tensor) &&
++        GGML_ASSERT(size_ql + size_qh + size_s + size_d == ggml_nbytes(tensor) &&
 +            "Incorrect tensor size");
 +
 +        cl_int err;
@@ -12457,58 +15186,52 @@ index 6f3fc588..a5814023 100644
 +
 +        cl_buffer_region region;
 +
-+        // Create subbuffer for d.
++        // Subbuffer for ql
 +        region.origin = align_to(extra_orig->offset + tensor->view_offs + offset, backend_ctx->alignment);
-+        region.size = size_d;
-+        extra->d = clCreateSubBuffer(
-+            extra_orig->data_device, CL_MEM_READ_WRITE,
-+            CL_BUFFER_CREATE_TYPE_REGION, &region, &err);
-+        CL_CHECK(err);
++        region.size = size_ql;
++        CL_CHECK((extra->ql = clCreateSubBuffer(extra_orig->data_device, CL_MEM_READ_WRITE, CL_BUFFER_CREATE_TYPE_REGION, &region, &err), err));
 +        auto previous_origin = region.origin;
 +
-+        // Create subbuffer for dm.
-+        region.origin = align_to(previous_origin + size_d, backend_ctx->alignment);
-+        region.size = size_dm;
-+        extra->dm = clCreateSubBuffer(
-+            extra_orig->data_device, CL_MEM_READ_WRITE,
-+            CL_BUFFER_CREATE_TYPE_REGION, &region, &err);
-+        CL_CHECK(err);
-+        previous_origin = region.origin;
-+
-+        // Create subbuffer for s.
-+        region.origin = align_to(previous_origin + size_dm, backend_ctx->alignment);
-+        region.size = size_s;
-+        extra->s = clCreateSubBuffer(
-+            extra_orig->data_device, CL_MEM_READ_WRITE,
-+            CL_BUFFER_CREATE_TYPE_REGION, &region, &err);
-+        CL_CHECK(err);
-+        previous_origin = region.origin;
-+
-+        // Create subbuffer for q (lower 4 bits)
-+        region.origin = align_to(previous_origin + size_s, backend_ctx->alignment);
-+        region.size = size_q;
-+        extra->q = clCreateSubBuffer(
-+            extra_orig->data_device, CL_MEM_READ_WRITE,
-+            CL_BUFFER_CREATE_TYPE_REGION, &region, &err);
-+        CL_CHECK(err);
-+        previous_origin = region.origin;
-+
-+        // Create subbuffer for qh (upper 1 bit)
-+        region.origin = align_to(previous_origin + size_q, backend_ctx->alignment);
++        // Subbuffer for qh
++        region.origin = align_to(previous_origin + size_ql, backend_ctx->alignment);
 +        region.size = size_qh;
 +        CL_CHECK((extra->qh = clCreateSubBuffer(extra_orig->data_device, CL_MEM_READ_WRITE, CL_BUFFER_CREATE_TYPE_REGION, &region, &err), err));
-+        CL_CHECK(err);
++        previous_origin = region.origin;
 +
-+        cl_kernel kernel = backend_ctx->kernel_convert_block_q5_K;
++        // Subbuffer for scales
++        region.origin = align_to(previous_origin + size_qh, backend_ctx->alignment);
++        region.size = size_s;
++        CL_CHECK((extra->s = clCreateSubBuffer(extra_orig->data_device, CL_MEM_READ_WRITE, CL_BUFFER_CREATE_TYPE_REGION, &region, &err), err));
++        previous_origin = region.origin;
 +
++        // Create subbuffer for d.
++        region.origin = align_to(previous_origin + size_s, backend_ctx->alignment);
++        region.size = size_d;
++        CL_CHECK((extra->d = clCreateSubBuffer(extra_orig->data_device, CL_MEM_READ_WRITE, CL_BUFFER_CREATE_TYPE_REGION, &region, &err), err));
++        previous_origin = region.origin;
++
++        // Flatten the weights
++        cl_kernel kernel;
++#ifdef GGML_OPENCL_USE_ADRENO_KERNELS
++        kernel = backend_ctx->kernel_convert_block_q6_K;
++        if (use_adreno_kernels(backend_ctx, tensor)) {
++            kernel = backend_ctx->kernel_convert_block_q6_K_noshuffle;
++        }
++#else
++        kernel = backend_ctx->kernel_convert_block_q6_K;
++#endif // GGML_OPENCL_USE_ADRENO_KERNELS
++
++        cl_uchar mask = 0xff;
++        cl_ulong n_blk = ggml_nelements(tensor)/ggml_blck_size(tensor->type);
 +        CL_CHECK(clSetKernelArg(kernel, 0, sizeof(cl_mem),   &data_device));
-+        CL_CHECK(clSetKernelArg(kernel, 1, sizeof(cl_mem),   &extra->q));
++        CL_CHECK(clSetKernelArg(kernel, 1, sizeof(cl_mem),   &extra->ql));
 +        CL_CHECK(clSetKernelArg(kernel, 2, sizeof(cl_mem),   &extra->qh));
 +        CL_CHECK(clSetKernelArg(kernel, 3, sizeof(cl_mem),   &extra->s));
 +        CL_CHECK(clSetKernelArg(kernel, 4, sizeof(cl_mem),   &extra->d));
-+        CL_CHECK(clSetKernelArg(kernel, 5, sizeof(cl_mem),   &extra->dm));
++        CL_CHECK(clSetKernelArg(kernel, 5, sizeof(cl_uchar), &mask));
++        CL_CHECK(clSetKernelArg(kernel, 6, sizeof(cl_ulong), &n_blk));
 +
-+        size_t global_work_size[] = {(size_t)ggml_nelements(tensor)/ggml_blck_size(tensor->type), 1, 1};
++        size_t global_work_size[] = {(size_t)CEIL_DIV(n_blk, 64)*64, 1, 1};
 +        size_t local_work_size[] = {64, 1, 1};
 +
 +        cl_event evt;
@@ -12516,19 +15239,27 @@ index 6f3fc588..a5814023 100644
 +        CL_CHECK(clWaitForEvents(1, &evt));
 +        CL_CHECK(clReleaseMemObject(data_device));
 +
-+        extra->size_q  = size_q;
++        extra->size_ql = size_ql;
 +        extra->size_qh = size_qh;
 +        extra->size_s  = size_s;
 +        extra->size_d  = size_d;
-+        extra->size_dm = size_dm;
 +
-+        tensor->extra = extra;
-+        return;
-+    }
-     if (tensor->type == GGML_TYPE_Q6_K) {
-         ggml_tensor_extra_cl * extra_orig = (ggml_tensor_extra_cl *)tensor->extra;
-         GGML_ASSERT(extra_orig && "Tesnors in OpenCL backend should have been allocated and initialized");
-@@ -5656,6 +5886,35 @@ static void ggml_backend_opencl_buffer_get_tensor(ggml_backend_buffer_t buffer,
++        tensor->extra  = extra;
++
++#ifdef GGML_OPENCL_USE_ADRENO_KERNELS
++        if (use_adreno_kernels(backend_ctx, tensor)) {
++            cl_int M = tensor->ne[1];   // ne01
++            cl_int K = tensor->ne[0];   // ne00
++
++            // Transpose ql as ushort
++            transpose_2d_as_16b(backend_ctx,
++                extra->ql, extra->ql, size_ql, K/4, M);
++
++            // Transpose qh as uchar
+             transpose_2d_as_8b(backend_ctx,
+                 extra->qh, extra->qh, size_qh, K/4, M);
+ 
+@@ -5656,6 +5851,88 @@ static void ggml_backend_opencl_buffer_get_tensor(ggml_backend_buffer_t buffer,
          CL_CHECK(clReleaseMemObject(data_device));
          return;
      }
@@ -12540,6 +15271,57 @@ index 6f3fc588..a5814023 100644
 +            ggml_nbytes(tensor), NULL, &err);
 +        CL_CHECK(err);
 +
++        cl_uchar mask_0F = 0x0F;
++        cl_uchar mask_F0 = 0xF0;
++
++#ifdef GGML_OPENCL_USE_ADRENO_KERNELS
++        if (use_adreno_kernels(backend_ctx, tensor)) {
++            int M = tensor->ne[1];
++            int K = tensor->ne[0];
++
++            size_t size_q  = extra->size_q;
++            size_t size_qh = extra->size_qh;
++            size_t size_d  = extra->size_d;
++            size_t size_dm = extra->size_dm;
++
++            static ggml_cl_buffer buf_trans_q;
++            static ggml_cl_buffer buf_trans_qh;
++            static ggml_cl_buffer buf_trans_d;
++            static ggml_cl_buffer buf_trans_dm;
++
++            buf_trans_q.allocate(backend_ctx->context, size_q);
++            buf_trans_qh.allocate(backend_ctx->context, size_qh);
++            buf_trans_d.allocate(backend_ctx->context, size_d);
++            buf_trans_dm.allocate(backend_ctx->context, size_dm);
++
++            // Reverse transpose q, qh, d, dm
++            transpose_2d_as_16b(backend_ctx, extra->q,  buf_trans_q.buffer,  size_q,  M, K/4);
++            transpose_2d_as_8b (backend_ctx, extra->qh, buf_trans_qh.buffer, size_qh, M, K/8);
++            transpose_2d_as_16b(backend_ctx, extra->d,  buf_trans_d.buffer,  size_d,  M, K/256);
++            transpose_2d_as_16b(backend_ctx, extra->dm, buf_trans_dm.buffer, size_dm, M, K/256);
++
++            cl_kernel kernel = backend_ctx->kernel_restore_block_q5_K_noshuffle;
++            CL_CHECK(clSetKernelArg(kernel, 0, sizeof(cl_mem),   &buf_trans_q.buffer));
++            CL_CHECK(clSetKernelArg(kernel, 1, sizeof(cl_mem),   &buf_trans_qh.buffer));
++            CL_CHECK(clSetKernelArg(kernel, 2, sizeof(cl_mem),   &extra->s));
++            CL_CHECK(clSetKernelArg(kernel, 3, sizeof(cl_mem),   &buf_trans_d.buffer));
++            CL_CHECK(clSetKernelArg(kernel, 4, sizeof(cl_mem),   &buf_trans_dm.buffer));
++            CL_CHECK(clSetKernelArg(kernel, 5, sizeof(cl_mem),   &data_device));
++            CL_CHECK(clSetKernelArg(kernel, 6, sizeof(cl_uchar), &mask_0F));
++            CL_CHECK(clSetKernelArg(kernel, 7, sizeof(cl_uchar), &mask_F0));
++
++            size_t global_work_size[] = {(size_t)ggml_nelements(tensor)/ggml_blck_size(tensor->type), 1, 1};
++            size_t local_work_size[] = {1, 1, 1};
++
++            CL_CHECK(clEnqueueNDRangeKernel(queue, kernel, 3, NULL,
++                global_work_size, local_work_size, 0, NULL, NULL));
++            CL_CHECK(clEnqueueReadBuffer(queue, data_device, CL_TRUE, offset,
++                size, data, 0, NULL, NULL));
++            CL_CHECK(clReleaseMemObject(data_device));
++            return;
++        }
++#endif // GGML_OPENCL_USE_ADRENO_KERNELS
++
 +        cl_kernel kernel = backend_ctx->kernel_restore_block_q5_K;
 +        CL_CHECK(clSetKernelArg(kernel, 0, sizeof(cl_mem),   &extra->q));
 +        CL_CHECK(clSetKernelArg(kernel, 1, sizeof(cl_mem),   &extra->qh));
@@ -12547,6 +15329,8 @@ index 6f3fc588..a5814023 100644
 +        CL_CHECK(clSetKernelArg(kernel, 3, sizeof(cl_mem),   &extra->d));
 +        CL_CHECK(clSetKernelArg(kernel, 4, sizeof(cl_mem),   &extra->dm));
 +        CL_CHECK(clSetKernelArg(kernel, 5, sizeof(cl_mem),   &data_device));
++        CL_CHECK(clSetKernelArg(kernel, 6, sizeof(cl_uchar), &mask_0F));
++        CL_CHECK(clSetKernelArg(kernel, 7, sizeof(cl_uchar), &mask_F0));
 +
 +        size_t global_work_size[] = {(size_t)ggml_nelements(tensor)/ggml_blck_size(tensor->type), 1, 1};
 +        size_t local_work_size[] = {1, 1, 1};
@@ -12564,7 +15348,7 @@ index 6f3fc588..a5814023 100644
      if (tensor->type == GGML_TYPE_Q6_K) {
          ggml_tensor_extra_cl_q6_K * extra = (ggml_tensor_extra_cl_q6_K *)tensor->extra;
  
-@@ -5778,6 +6037,8 @@ static ggml_backend_buffer_i ggml_backend_opencl_buffer_interface = {
+@@ -5778,6 +6055,8 @@ static ggml_backend_buffer_i ggml_backend_opencl_buffer_interface = {
      /* .memset_tensor   = */ NULL,
      /* .set_tensor      = */ ggml_backend_opencl_buffer_set_tensor,
      /* .get_tensor      = */ ggml_backend_opencl_buffer_get_tensor,
@@ -12573,7 +15357,534 @@ index 6f3fc588..a5814023 100644
      /* .cpy_tensor      = */ NULL,
      /* .clear           = */ ggml_backend_opencl_buffer_clear,
      /* .reset           = */ ggml_backend_opencl_buffer_reset,
-@@ -10217,6 +10478,7 @@ static void ggml_cl_mul_mat(ggml_backend_t backend, const ggml_tensor * src0, co
+@@ -9570,19 +9849,18 @@ static void ggml_cl_mul_mat_q8_0_f32_adreno(ggml_backend_t backend, const ggml_t
+     GGML_ASSERT(dst);
+     GGML_ASSERT(dst->extra);
+ 
+-    const enum ggml_type src0t = src0->type;
+-    const enum ggml_type src1t = src1->type;
+-
+-    GGML_ASSERT(src0t == GGML_TYPE_Q8_0);
+-    GGML_ASSERT(src1t == GGML_TYPE_F32);
++    GGML_ASSERT(src0->type == GGML_TYPE_Q8_0);
++    GGML_ASSERT(src1->type == GGML_TYPE_F32);
+ 
+     ggml_backend_opencl_context *backend_ctx = (ggml_backend_opencl_context *)backend->context;
+ 
+     ggml_tensor_extra_cl * extra1 = (ggml_tensor_extra_cl *)src1->extra;
+     ggml_tensor_extra_cl * extrad = (ggml_tensor_extra_cl *)dst->extra;
+-
+     ggml_tensor_extra_cl_q8_0 * extra0_q8_0 = (ggml_tensor_extra_cl_q8_0 *)src0->extra;
+ 
++    cl_ulong offset1 = extra1->offset + src1->view_offs;
++    cl_ulong offsetd = extrad->offset + dst->view_offs;
++
+     GGML_ASSERT(src1->view_offs == 0);
+     GGML_ASSERT(dst->view_offs == 0);
+ 
+@@ -9603,148 +9881,112 @@ static void ggml_cl_mul_mat_q8_0_f32_adreno(ggml_backend_t backend, const ggml_t
+     cl_context context = backend_ctx->context;
+     cl_kernel kernel;
+ 
+-    // init CL objects
+-    cl_int              status;
+-    cl_image_format     img_fmt_1d;
+-    cl_image_desc       img_desc_1d;
++    cl_int              err;
++    cl_image_format     img_fmt;
++    cl_image_desc       img_desc;
+     cl_buffer_region    region;
+-    cl_mem              A_image1d;
+-    cl_mem              B_image1d;
+-    cl_mem              B_sub_buffer;
+-    cl_mem              S_image1d;
+-    // for B transpose
+-    cl_mem              B_image1d_trans = nullptr;
+-    cl_mem              B_d = nullptr;
+-
+-    cl_mem              D_image1d;
+-    cl_mem              D_sub_buffer;
+ 
+     int M = ne01;
+     int N = ne1;
+     int K = ne00;
+ 
+-    // create an image for A
+-    img_fmt_1d = { CL_R, CL_FLOAT};
+-    memset(&img_desc_1d, 0, sizeof(img_desc_1d));
+-    img_desc_1d.image_type = CL_MEM_OBJECT_IMAGE1D_BUFFER;
+-    img_desc_1d.image_width = M * K / 4;    // Divide by 4 for char -> float
+-    img_desc_1d.buffer = extra0_q8_0->q;
+-    A_image1d = clCreateImage(context, CL_MEM_READ_ONLY, &img_fmt_1d, &img_desc_1d, NULL, &status);
+-    CL_CHECK(status);
+-
+-    // create an image for Scale
+-    img_fmt_1d = { CL_R, CL_HALF_FLOAT};
+-    memset(&img_desc_1d, 0, sizeof(img_desc_1d));
+-    img_desc_1d.image_type = CL_MEM_OBJECT_IMAGE1D_BUFFER;
+-    img_desc_1d.image_width = M * K / 32;    // Block size is 32
+-    img_desc_1d.buffer = extra0_q8_0->d;
+-    S_image1d = clCreateImage(context, CL_MEM_READ_ONLY, &img_fmt_1d, &img_desc_1d, NULL, &status);
+-    CL_CHECK(status);
+-
+-    // create a sub_buffer for B
+-    region.origin = (extra1->offset); // + src1->view_offs);
+-    region.size = K * N * sizeof(float);
+-    B_sub_buffer = clCreateSubBuffer((extra1->data_device), 0, CL_BUFFER_CREATE_TYPE_REGION, &region, &status);
+-    CL_CHECK(status);
+-
+-    // create an image for B from sub_buffer: RGBA (OCL)
+-    img_fmt_1d = {CL_RGBA, CL_FLOAT};
+-    memset(&img_desc_1d, 0, sizeof(img_desc_1d));
+-    img_desc_1d.image_type = CL_MEM_OBJECT_IMAGE1D_BUFFER;
+-    img_desc_1d.image_width = K * N / 4;
+-    img_desc_1d.buffer = B_sub_buffer;
+-    B_image1d = clCreateImage(context, CL_MEM_READ_ONLY, &img_fmt_1d, &img_desc_1d, NULL, &status);
+-    CL_CHECK(status);
++    if (ne1 == 1) {
++        cl_mem q_img = nullptr;
++        cl_mem b_sub_buf = nullptr;
++        cl_mem b_img = nullptr;
+ 
+-    // Create subbuffer and image1d_buffer for dst
+-    region.origin = (extrad->offset); // + dst->view_offs;
+-    region.size = M * N * sizeof(float);
+-    D_sub_buffer = clCreateSubBuffer((extrad->data_device), 0, CL_BUFFER_CREATE_TYPE_REGION, &region, &status);
+-    CL_CHECK(status);
++        // image for q
++        img_fmt = { CL_R, CL_UNSIGNED_INT32};
++        memset(&img_desc, 0, sizeof(img_desc));
++        img_desc.image_type = CL_MEM_OBJECT_IMAGE1D_BUFFER;
++        img_desc.image_width = M * K / 4;
++        img_desc.buffer = extra0_q8_0->q;
++        CL_CHECK((q_img = clCreateImage(context, CL_MEM_READ_ONLY, &img_fmt, &img_desc, NULL, &err), err));
+ 
+-    img_fmt_1d = {CL_R, CL_FLOAT};
+-    memset(&img_desc_1d, 0, sizeof(img_desc_1d));
+-    img_desc_1d.image_type = CL_MEM_OBJECT_IMAGE1D_BUFFER;
+-    img_desc_1d.image_width = M * N;
+-    img_desc_1d.buffer = D_sub_buffer;
+-    D_image1d = clCreateImage(context, CL_MEM_WRITE_ONLY, &img_fmt_1d, &img_desc_1d, NULL, &status);
+-    CL_CHECK(status);
++        // create a sub_buffer for B
++        region.origin = offset1;
++        region.size = K * N * sizeof(float);
++        CL_CHECK((b_sub_buf = clCreateSubBuffer((extra1->data_device), 0, CL_BUFFER_CREATE_TYPE_REGION, &region, &err), err));
+ 
+-    size_t local_work_size[3] = {1, 1, 1};
+-    size_t global_work_size[3] = {1, 1, 1};
++        // image for activations
++        img_fmt = {CL_RGBA, CL_FLOAT};
++        memset(&img_desc, 0, sizeof(img_desc));
++        img_desc.image_type = CL_MEM_OBJECT_IMAGE1D_BUFFER;
++        img_desc.image_width = K * N / 4;
++        img_desc.buffer = b_sub_buf;
++        CL_CHECK((b_img = clCreateImage(context, CL_MEM_READ_ONLY, &img_fmt, &img_desc, NULL, &err), err));
+ 
+-    if (N == 1) {
+         kernel = backend_ctx->CL_mul_mat_vec_q8_0_f32;
+ 
+         int r2 = 1;
+         int r3 = 1;
+-        cl_uint k_arg = 0;
+ 
+-        CL_CHECK(clSetKernelArg(kernel,  k_arg++, sizeof(cl_mem),   &A_image1d));
+-        CL_CHECK(clSetKernelArg(kernel,  k_arg++, sizeof(cl_mem),   &extra0_q8_0->d));
+-        CL_CHECK(clSetKernelArg(kernel,  k_arg++, sizeof(cl_mem),   &B_image1d));
+-        CL_CHECK(clSetKernelArg(kernel,  k_arg++, sizeof(cl_ulong), &extra1->offset));
+-        CL_CHECK(clSetKernelArg(kernel,  k_arg++, sizeof(cl_mem),   &extrad->data_device));
+-        CL_CHECK(clSetKernelArg(kernel,  k_arg++, sizeof(cl_ulong), &extrad->offset));
+-        CL_CHECK(clSetKernelArg(kernel,  k_arg++, sizeof(int),      &ne00));
+-        CL_CHECK(clSetKernelArg(kernel,  k_arg++, sizeof(int),      &ne01));
+-        CL_CHECK(clSetKernelArg(kernel,  k_arg++, sizeof(int),      &ne02));
+-        CL_CHECK(clSetKernelArg(kernel,  k_arg++, sizeof(int),      &ne10));
+-        CL_CHECK(clSetKernelArg(kernel,  k_arg++, sizeof(int),      &ne12));
+-        CL_CHECK(clSetKernelArg(kernel,  k_arg++, sizeof(int),      &ne0));
+-        CL_CHECK(clSetKernelArg(kernel,  k_arg++, sizeof(int),      &ne1));
+-        CL_CHECK(clSetKernelArg(kernel,  k_arg++, sizeof(int),      &r2));
+-        CL_CHECK(clSetKernelArg(kernel,  k_arg++, sizeof(int),      &r3));
++        CL_CHECK(clSetKernelArg(kernel,  0, sizeof(cl_mem),   &q_img));
++        CL_CHECK(clSetKernelArg(kernel,  1, sizeof(cl_mem),   &extra0_q8_0->d));
++        CL_CHECK(clSetKernelArg(kernel,  2, sizeof(cl_mem),   &b_img));
++        CL_CHECK(clSetKernelArg(kernel,  3, sizeof(cl_ulong), &extra1->offset));
++        CL_CHECK(clSetKernelArg(kernel,  4, sizeof(cl_mem),   &extrad->data_device));
++        CL_CHECK(clSetKernelArg(kernel,  5, sizeof(cl_ulong), &extrad->offset));
++        CL_CHECK(clSetKernelArg(kernel,  6, sizeof(int),      &ne00));
++        CL_CHECK(clSetKernelArg(kernel,  7, sizeof(int),      &ne01));
++        CL_CHECK(clSetKernelArg(kernel,  8, sizeof(int),      &ne02));
++        CL_CHECK(clSetKernelArg(kernel,  9, sizeof(int),      &ne10));
++        CL_CHECK(clSetKernelArg(kernel, 10, sizeof(int),      &ne12));
++        CL_CHECK(clSetKernelArg(kernel, 11, sizeof(int),      &ne0));
++        CL_CHECK(clSetKernelArg(kernel, 12, sizeof(int),      &ne1));
++        CL_CHECK(clSetKernelArg(kernel, 13, sizeof(int),      &r2));
++        CL_CHECK(clSetKernelArg(kernel, 14, sizeof(int),      &r3));
+ 
+         size_t wavesize = backend_ctx->adreno_wave_size;
+-        local_work_size[0] = wavesize;
+-        local_work_size[1] = 4; // reduce factor
+-        local_work_size[2] = 1;
++        size_t local_work_size[]  = { wavesize, 4, 1 };
++        size_t global_work_size[] = { CEIL_DIV(M, wavesize)*wavesize, 4, 1 };
++
++        backend_ctx->enqueue_ndrange_kernel(kernel, 3, global_work_size, local_work_size, dst);
+ 
+-        global_work_size[0] = ((M + wavesize - 1) / wavesize) * wavesize;
+-        global_work_size[1] = 4; // reduce factor
+-        global_work_size[2] = 1;
++        CL_CHECK(clReleaseMemObject(q_img));
++        CL_CHECK(clReleaseMemObject(b_img));
++        CL_CHECK(clReleaseMemObject(b_sub_buf));
+     } else {
+-        cl_ulong offsetd = extrad->offset + dst->view_offs;
+-        int padding;
++        cl_mem b_sub_buf = nullptr;
++        cl_mem b_sub_buf_trans = nullptr;
++        cl_mem b_img = nullptr;
++        cl_mem b_img_trans = nullptr;
+ 
+-        //how many extra elements beyond multiple of 8
+-        int extra_elements = N % 8;
++        // subbuffer for activations
++        region.origin = offset1;
++        region.size = K * N * sizeof(float);
++        CL_CHECK((b_sub_buf = clCreateSubBuffer(extra1->data_device, 0, CL_BUFFER_CREATE_TYPE_REGION, &region, &err), err));
+ 
+-        //how much padding to add
+-        padding = 0;
++        // image for activations
++        img_fmt = {CL_RGBA, CL_FLOAT};
++        memset(&img_desc, 0, sizeof(img_desc));
++        img_desc.image_type = CL_MEM_OBJECT_IMAGE1D_BUFFER;
++        img_desc.image_width = K * N / 4;
++        img_desc.buffer = b_sub_buf;
++        CL_CHECK((b_img = clCreateImage(context, CL_MEM_READ_ONLY, &img_fmt, &img_desc, NULL, &err), err));
++
++        // pad N to multiple of 8
++        int extra_elements = N % 8;
++        int padding = 0;
+         if (extra_elements > 0){
+             padding = 8 - extra_elements;
+         }
+ 
+-        // Specify the starting offset (in bytes)
++        // subbuffer for transposed activations
+         region.origin = 0;
+-        // Specify the size of the sub-buffer (divide by 2 for FP16)
+         region.size = K * (N + padding) * sizeof(float)/2;
+         backend_ctx->prealloc_act_trans.allocate(context, region.size);
+-        B_d = clCreateSubBuffer(
+-            backend_ctx->prealloc_act_trans.buffer,
+-            0,
+-            CL_BUFFER_CREATE_TYPE_REGION,
+-            &region,
+-            &status);
+-        CL_CHECK(status);
++        CL_CHECK((b_sub_buf_trans = clCreateSubBuffer(backend_ctx->prealloc_act_trans.buffer, 0, CL_BUFFER_CREATE_TYPE_REGION, &region, &err), err));
+ 
+-        cl_image_format image_format_B_d_output = { CL_RGBA, CL_HALF_FLOAT }; //(CL_HALF_FLOAT for FP16)
+-        cl_image_desc image_desc_B_d_output = {
+-            CL_MEM_OBJECT_IMAGE1D_BUFFER,
+-            static_cast<size_t>(K * (N + padding)/4),
+-            0, 0, 0, 0, 0, 0, 0, { B_d }
+-        };
+-        B_image1d_trans = clCreateImage(
+-            context,
+-            0,
+-            &image_format_B_d_output,
+-            &image_desc_B_d_output,
+-            NULL,
+-            &status);
+-        CL_CHECK(status);
++        // image for transposed activations
++        img_fmt = {CL_RGBA, CL_HALF_FLOAT};
++        memset(&img_desc, 0, sizeof(img_desc));
++        img_desc.image_type = CL_MEM_OBJECT_IMAGE1D_BUFFER;
++        img_desc.image_width = K * (N + padding) / 4;
++        img_desc.buffer = b_sub_buf_trans;
++        CL_CHECK((b_img_trans = clCreateImage(context, 0, &img_fmt, &img_desc, NULL, &err), err));
+ 
++        // transpose activations
+         int height_B = N/4;
+         if (height_B == 0) {
+             height_B = 1;
+@@ -9753,58 +9995,39 @@ static void ggml_cl_mul_mat_q8_0_f32_adreno(ggml_backend_t backend, const ggml_t
+         int padded_height_B = (N + padding)/4;
+ 
+         kernel = backend_ctx->kernel_transpose_32_16;
+-        CL_CHECK(clSetKernelArg(kernel, 0, sizeof(cl_mem), &B_image1d));
+-        CL_CHECK(clSetKernelArg(kernel, 1, sizeof(cl_mem), &B_image1d_trans));
++        CL_CHECK(clSetKernelArg(kernel, 0, sizeof(cl_mem), &b_img));
++        CL_CHECK(clSetKernelArg(kernel, 1, sizeof(cl_mem), &b_img_trans));
+         CL_CHECK(clSetKernelArg(kernel, 2, sizeof(int),    &height_B));
+         CL_CHECK(clSetKernelArg(kernel, 3, sizeof(int),    &width_B));
+         CL_CHECK(clSetKernelArg(kernel, 4, sizeof(int),    &padded_height_B));
+ 
+-        size_t local_size_t[2] = { 1, 16 };
+-        size_t global_size_t[2] = {
+-            static_cast<size_t>(width_B),
+-            static_cast<size_t>(padded_height_B)
+-        };
+-
+-        backend_ctx->enqueue_ndrange_kernel(kernel, 2, global_size_t, local_size_t, dst);
++        size_t local_work_size_t[2] = { 1, 16 };
++        size_t global_work_size_t[2] = { (size_t)width_B, (size_t)padded_height_B };
++        backend_ctx->enqueue_ndrange_kernel(kernel, 2, global_work_size_t, local_work_size_t, dst);
+ 
++        // gemm
+         kernel = backend_ctx->kernel_mul_mm_q8_0_f32_8x4;
+-
+-        int N_with_padding = N + padding;
++        int padded_N = N + padding;
+ 
+         CL_CHECK(clSetKernelArg(kernel,  0, sizeof(cl_mem),   &extra0_q8_0->q));
+         CL_CHECK(clSetKernelArg(kernel,  1, sizeof(cl_mem),   &extra0_q8_0->d));
+-        CL_CHECK(clSetKernelArg(kernel,  2, sizeof(cl_mem),   &B_image1d_trans));
++        CL_CHECK(clSetKernelArg(kernel,  2, sizeof(cl_mem),   &b_img_trans));
+         CL_CHECK(clSetKernelArg(kernel,  3, sizeof(cl_mem),   &extrad->data_device));
+         CL_CHECK(clSetKernelArg(kernel,  4, sizeof(int),      &K));
+         CL_CHECK(clSetKernelArg(kernel,  5, sizeof(int),      &M));
+-        CL_CHECK(clSetKernelArg(kernel,  6, sizeof(int),      &N_with_padding));
++        CL_CHECK(clSetKernelArg(kernel,  6, sizeof(int),      &padded_N));
+         CL_CHECK(clSetKernelArg(kernel,  7, sizeof(int),      &N));
+         CL_CHECK(clSetKernelArg(kernel,  8, sizeof(cl_ulong), &offsetd));
+ 
+-        global_work_size[0] = (size_t)(N + 7) / 8;
+-        global_work_size[1] = (size_t)(M + 3) / 4;
+-        global_work_size[2] = 1;
+-
+-        local_work_size[0] = 2;
+-        local_work_size[1] = 128;
+-        local_work_size[2] = 1;
+-    }
++        size_t global_work_size[] = { (size_t)CEIL_DIV(N, 8), (size_t)CEIL_DIV(M, 4), 1 };
++        size_t local_work_size[]  = { 2, 128, 1 };
+ 
+-    // enqueue kernel with profiling
+-    backend_ctx->enqueue_ndrange_kernel(kernel, 3, global_work_size, local_work_size, dst);
++        backend_ctx->enqueue_ndrange_kernel(kernel, 3, global_work_size, local_work_size, dst);
+ 
+-    // deallocate sub buffers and images
+-    CL_CHECK(clReleaseMemObject(A_image1d));
+-    CL_CHECK(clReleaseMemObject(B_sub_buffer));
+-    CL_CHECK(clReleaseMemObject(B_image1d));
+-    CL_CHECK(clReleaseMemObject(S_image1d));
+-    CL_CHECK(clReleaseMemObject(D_sub_buffer));
+-    CL_CHECK(clReleaseMemObject(D_image1d));
+-    if (B_image1d_trans) {
+-        CL_CHECK(clReleaseMemObject(B_image1d_trans));
+-    }
+-    if (B_d) {
+-        CL_CHECK(clReleaseMemObject(B_d));
++        CL_CHECK(clReleaseMemObject(b_img_trans));
++        CL_CHECK(clReleaseMemObject(b_sub_buf_trans));
++        CL_CHECK(clReleaseMemObject(b_img));
++        CL_CHECK(clReleaseMemObject(b_sub_buf));
+     }
+ #else
+     GGML_UNUSED(backend);
+@@ -10190,6 +10413,201 @@ static void ggml_cl_mul_mat_q6_K_f32_adreno(ggml_backend_t backend, const ggml_t
+ #endif
+ }
+ 
++static void ggml_cl_mul_mat_q5_K_f32_adreno(ggml_backend_t backend, const ggml_tensor * src0, const ggml_tensor * src1, ggml_tensor * dst) {
++#ifdef GGML_OPENCL_USE_ADRENO_KERNELS
++    GGML_ASSERT(src0);
++    GGML_ASSERT(src0->extra);
++    GGML_ASSERT(src1);
++    GGML_ASSERT(src1->extra);
++    GGML_ASSERT(dst);
++    GGML_ASSERT(dst->extra);
++
++    ggml_backend_opencl_context *backend_ctx = (ggml_backend_opencl_context *)backend->context;
++
++    ggml_tensor_extra_cl * extra1 = (ggml_tensor_extra_cl *)src1->extra;
++    ggml_tensor_extra_cl * extrad = (ggml_tensor_extra_cl *)dst->extra;
++    ggml_tensor_extra_cl_q5_K * extra0_q5_k = (ggml_tensor_extra_cl_q5_K *)src0->extra;
++
++    cl_ulong offset1 = extra1->offset + src1->view_offs;
++    cl_ulong offsetd = extrad->offset + dst->view_offs;
++
++    const int ne00 = src0->ne[0];
++    const int ne01 = src0->ne[1];
++    const int ne1  = dst->ne[1];
++
++    GGML_ASSERT(ne00 % ggml_blck_size(src0->type) == 0);
++
++    cl_context context = backend_ctx->context;
++    cl_kernel kernel;
++
++    cl_int           err;
++    cl_image_format  img_fmt;
++    cl_image_desc    img_desc;
++    cl_buffer_region region;
++
++    int M = ne01;
++    int N = ne1;
++    int K = ne00;
++
++    cl_uchar mask_d6  = 0x3F;
++    cl_uchar mask_d4  = 0x0F;
++    cl_uchar mask_hi2 = 0xC0;
++
++    if (ne1 == 1) {
++        cl_mem q_img  = nullptr;
++        cl_mem qh_img = nullptr;
++        cl_mem b_sub_buf = nullptr;
++        cl_mem b_img = nullptr;
++
++        // image for q (CL_R, CL_UNSIGNED_INT32): width = M*K/2/4
++        img_fmt = {CL_R, CL_UNSIGNED_INT32};
++        memset(&img_desc, 0, sizeof(img_desc));
++        img_desc.image_type  = CL_MEM_OBJECT_IMAGE1D_BUFFER;
++        img_desc.image_width = M * K / 2 / 4;
++        img_desc.buffer      = extra0_q5_k->q;
++        CL_CHECK((q_img = clCreateImage(context, CL_MEM_READ_ONLY, &img_fmt, &img_desc, NULL, &err), err));
++
++        // image for qh (CL_R, CL_HALF_FLOAT): width = M*K/16
++        img_fmt = {CL_R, CL_HALF_FLOAT};
++        memset(&img_desc, 0, sizeof(img_desc));
++        img_desc.image_type  = CL_MEM_OBJECT_IMAGE1D_BUFFER;
++        img_desc.image_width = M * K / 16;
++        img_desc.buffer      = extra0_q5_k->qh;
++        CL_CHECK((qh_img = clCreateImage(context, CL_MEM_READ_ONLY, &img_fmt, &img_desc, NULL, &err), err));
++
++        // subbuffer for activations
++        region.origin = offset1;
++        region.size   = K * N * sizeof(float);
++        CL_CHECK((b_sub_buf = clCreateSubBuffer(extra1->data_device, 0, CL_BUFFER_CREATE_TYPE_REGION, &region, &err), err));
++
++        // image for activations (CL_RGBA, CL_FLOAT): width = K*N/4
++        img_fmt = {CL_RGBA, CL_FLOAT};
++        memset(&img_desc, 0, sizeof(img_desc));
++        img_desc.image_type  = CL_MEM_OBJECT_IMAGE1D_BUFFER;
++        img_desc.image_width = K * N / 4;
++        img_desc.buffer      = b_sub_buf;
++        CL_CHECK((b_img = clCreateImage(context, CL_MEM_READ_ONLY, &img_fmt, &img_desc, NULL, &err), err));
++
++        kernel = backend_ctx->kernel_gemv_noshuffle_q5_k_f32;
++
++        CL_CHECK(clSetKernelArg(kernel,  0, sizeof(cl_mem),   &q_img));
++        CL_CHECK(clSetKernelArg(kernel,  1, sizeof(cl_mem),   &qh_img));
++        CL_CHECK(clSetKernelArg(kernel,  2, sizeof(cl_mem),   &extra0_q5_k->d));
++        CL_CHECK(clSetKernelArg(kernel,  3, sizeof(cl_mem),   &extra0_q5_k->dm));
++        CL_CHECK(clSetKernelArg(kernel,  4, sizeof(cl_mem),   &extra0_q5_k->s));
++        CL_CHECK(clSetKernelArg(kernel,  5, sizeof(cl_mem),   &b_img));
++        CL_CHECK(clSetKernelArg(kernel,  6, sizeof(cl_mem),   &extrad->data_device));
++        CL_CHECK(clSetKernelArg(kernel,  7, sizeof(cl_ulong), &offsetd));
++        CL_CHECK(clSetKernelArg(kernel,  8, sizeof(cl_int),   &ne00));
++        CL_CHECK(clSetKernelArg(kernel,  9, sizeof(cl_int),   &ne01));
++        CL_CHECK(clSetKernelArg(kernel, 10, sizeof(cl_uchar), &mask_d6));
++        CL_CHECK(clSetKernelArg(kernel, 11, sizeof(cl_uchar), &mask_d4));
++        CL_CHECK(clSetKernelArg(kernel, 12, sizeof(cl_uchar), &mask_hi2));
++
++        size_t local_work_size[3]  = {64, 4, 1};
++        size_t global_work_size[3] = {(size_t)CEIL_DIV(ne01/2, 64)*64, 4, 1};
++
++        backend_ctx->enqueue_ndrange_kernel(kernel, 3, global_work_size, local_work_size, dst);
++
++        CL_CHECK(clReleaseMemObject(q_img));
++        CL_CHECK(clReleaseMemObject(qh_img));
++        CL_CHECK(clReleaseMemObject(b_sub_buf));
++        CL_CHECK(clReleaseMemObject(b_img));
++    } else {
++        cl_mem b_sub_buf      = nullptr;
++        cl_mem b_sub_buf_trans = nullptr;
++        cl_mem b_img          = nullptr;
++        cl_mem b_img_trans    = nullptr;
++
++        // subbuffer for activations
++        region.origin = offset1;
++        region.size   = K * N * sizeof(float);
++        CL_CHECK((b_sub_buf = clCreateSubBuffer(extra1->data_device, 0, CL_BUFFER_CREATE_TYPE_REGION, &region, &err), err));
++
++        // image for activations
++        img_fmt = {CL_RGBA, CL_FLOAT};
++        memset(&img_desc, 0, sizeof(img_desc));
++        img_desc.image_type  = CL_MEM_OBJECT_IMAGE1D_BUFFER;
++        img_desc.image_width = K * N / 4;
++        img_desc.buffer      = b_sub_buf;
++        CL_CHECK((b_img = clCreateImage(context, CL_MEM_READ_ONLY, &img_fmt, &img_desc, NULL, &err), err));
++
++        // pad N to multiple of 8
++        int extra_elements = N % 8;
++        int padding = 0;
++        if (extra_elements > 0) {
++            padding = 8 - extra_elements;
++        }
++
++        // subbuffer for transposed activations
++        region.origin = 0;
++        region.size   = K * (N + padding) * sizeof(float) / 2;
++        backend_ctx->prealloc_act_trans.allocate(context, region.size);
++        CL_CHECK((b_sub_buf_trans = clCreateSubBuffer(backend_ctx->prealloc_act_trans.buffer, 0, CL_BUFFER_CREATE_TYPE_REGION, &region, &err), err));
++
++        // image for transposed activations
++        img_fmt = {CL_RGBA, CL_HALF_FLOAT};
++        memset(&img_desc, 0, sizeof(img_desc));
++        img_desc.image_type  = CL_MEM_OBJECT_IMAGE1D_BUFFER;
++        img_desc.image_width = K * (N + padding) / 4;
++        img_desc.buffer      = b_sub_buf_trans;
++        CL_CHECK((b_img_trans = clCreateImage(context, 0, &img_fmt, &img_desc, NULL, &err), err));
++
++        // transpose activations
++        int height_B       = N / 4;
++        if (height_B == 0) height_B = 1;
++        int width_B        = K / 4;
++        int padded_height_B = (N + padding) / 4;
++
++        kernel = backend_ctx->kernel_transpose_32_16;
++        CL_CHECK(clSetKernelArg(kernel, 0, sizeof(cl_mem), &b_img));
++        CL_CHECK(clSetKernelArg(kernel, 1, sizeof(cl_mem), &b_img_trans));
++        CL_CHECK(clSetKernelArg(kernel, 2, sizeof(int),    &height_B));
++        CL_CHECK(clSetKernelArg(kernel, 3, sizeof(int),    &width_B));
++        CL_CHECK(clSetKernelArg(kernel, 4, sizeof(int),    &padded_height_B));
++
++        size_t local_work_size_t[2]  = {1, 16};
++        size_t global_work_size_t[2] = {(size_t)width_B, (size_t)padded_height_B};
++        backend_ctx->enqueue_ndrange_kernel(kernel, 2, global_work_size_t, local_work_size_t, dst);
++
++        // gemm
++        kernel = backend_ctx->kernel_gemm_noshuffle_q5_k_f32;
++        int padded_N = N + padding;
++
++        CL_CHECK(clSetKernelArg(kernel,  0, sizeof(cl_mem),   &extra0_q5_k->q));
++        CL_CHECK(clSetKernelArg(kernel,  1, sizeof(cl_mem),   &extra0_q5_k->qh));
++        CL_CHECK(clSetKernelArg(kernel,  2, sizeof(cl_mem),   &extra0_q5_k->s));
++        CL_CHECK(clSetKernelArg(kernel,  3, sizeof(cl_mem),   &extra0_q5_k->d));
++        CL_CHECK(clSetKernelArg(kernel,  4, sizeof(cl_mem),   &extra0_q5_k->dm));
++        CL_CHECK(clSetKernelArg(kernel,  5, sizeof(cl_mem),   &b_img_trans));
++        CL_CHECK(clSetKernelArg(kernel,  6, sizeof(cl_mem),   &extrad->data_device));
++        CL_CHECK(clSetKernelArg(kernel,  7, sizeof(cl_ulong), &offsetd));
++        CL_CHECK(clSetKernelArg(kernel,  8, sizeof(cl_int),   &ne01));
++        CL_CHECK(clSetKernelArg(kernel,  9, sizeof(cl_int),   &padded_N));
++        CL_CHECK(clSetKernelArg(kernel, 10, sizeof(cl_int),   &ne00));
++        CL_CHECK(clSetKernelArg(kernel, 11, sizeof(cl_int),   &ne1));
++        CL_CHECK(clSetKernelArg(kernel, 12, sizeof(cl_uchar), &mask_d6));
++        CL_CHECK(clSetKernelArg(kernel, 13, sizeof(cl_uchar), &mask_d4));
++        CL_CHECK(clSetKernelArg(kernel, 14, sizeof(cl_uchar), &mask_hi2));
++
++        size_t global_work_size[3] = {(size_t)CEIL_DIV(ne1, 8), (size_t)CEIL_DIV(ne01, 4), 1};
++        size_t local_work_size[3]  = {1, 128, 1};
++
++        backend_ctx->enqueue_ndrange_kernel(kernel, 3, global_work_size, local_work_size, dst);
++
++        CL_CHECK(clReleaseMemObject(b_sub_buf));
++        CL_CHECK(clReleaseMemObject(b_sub_buf_trans));
++        CL_CHECK(clReleaseMemObject(b_img));
++        CL_CHECK(clReleaseMemObject(b_img_trans));
++    }
++#else
++    GGML_UNUSED(backend);
++    GGML_UNUSED(src0);
++    GGML_UNUSED(src1);
++    GGML_UNUSED(dst);
++#endif
++}
++
+ static void ggml_cl_mul_mat(ggml_backend_t backend, const ggml_tensor * src0, const ggml_tensor * src1, ggml_tensor * dst) {
+     GGML_ASSERT(src0);
+     GGML_ASSERT(src0->extra);
+@@ -10217,6 +10635,7 @@ static void ggml_cl_mul_mat(ggml_backend_t backend, const ggml_tensor * src0, co
      ggml_tensor_extra_cl_mxfp4 * extra0_mxfp4 = (ggml_tensor_extra_cl_mxfp4 *)src0->extra;
      ggml_tensor_extra_cl_q8_0 * extra0_q8_0 = (ggml_tensor_extra_cl_q8_0 *)src0->extra;
      ggml_tensor_extra_cl_q4_K * extra0_q4_K = (ggml_tensor_extra_cl_q4_K *)src0->extra;
@@ -12581,7 +15892,20 @@ index 6f3fc588..a5814023 100644
      ggml_tensor_extra_cl_q6_K * extra0_q6_K = (ggml_tensor_extra_cl_q6_K *)src0->extra;
  #endif
  
-@@ -10921,6 +11183,51 @@ static void ggml_cl_mul_mat(ggml_backend_t backend, const ggml_tensor * src0, co
+@@ -10338,6 +10757,12 @@ static void ggml_cl_mul_mat(ggml_backend_t backend, const ggml_tensor * src0, co
+         return;
+     }
+ 
++    // q5_K x fp32
++    if (src0t == GGML_TYPE_Q5_K && src1t == GGML_TYPE_F32) {
++        ggml_cl_mul_mat_q5_K_f32_adreno(backend, src0, src1, dst);
++        return;
++    }
++
+     // q4_0 x fp32
+     if(src0t == GGML_TYPE_Q4_0 && src1t == GGML_TYPE_F32) {
+         // TODO: remove duplicate definitions of image description + format -- move to top
+@@ -10921,6 +11346,51 @@ static void ggml_cl_mul_mat(ggml_backend_t backend, const ggml_tensor * src0, co
                  backend_ctx->enqueue_ndrange_kernel(kernel, 3, global_work_size, local_work_size, dst);
                  return;
              }
@@ -12633,7 +15957,7 @@ index 6f3fc588..a5814023 100644
              case GGML_TYPE_Q6_K: {
                  if (ne11 < 32) {
                      break;
-@@ -11438,7 +11745,81 @@ static void ggml_cl_mul_mat(ggml_backend_t backend, const ggml_tensor * src0, co
+@@ -11438,7 +11908,81 @@ static void ggml_cl_mul_mat(ggml_backend_t backend, const ggml_tensor * src0, co
  #endif // GGML_OPENCL_SOA_Q
              break;
          }
@@ -12716,7 +16040,7 @@ index 6f3fc588..a5814023 100644
          case GGML_TYPE_Q6_K:
  #ifdef GGML_OPENCL_SOA_Q
              kernel = backend_ctx->kernel_mul_mv_q6_K_f32_flat;
-@@ -11606,7 +11987,10 @@ static void ggml_cl_mul_mat(ggml_backend_t backend, const ggml_tensor * src0, co
+@@ -11606,7 +12150,10 @@ static void ggml_cl_mul_mat(ggml_backend_t backend, const ggml_tensor * src0, co
      } else if (src0t == GGML_TYPE_Q3_K) {
          GGML_ASSERT(false && "not implemented");
      } else if (src0t == GGML_TYPE_Q5_K) {
@@ -12729,7 +16053,7 @@ index 6f3fc588..a5814023 100644
          size_t global_work_size[] = {(size_t)(ne01+ndst*nth1-1)/(ndst*nth1)*nth0, (size_t)ne11*nth1, (size_t)ne12*ne13};
          size_t local_work_size[] = {(size_t)nth0, (size_t)nth1, 1};
 diff --git src/ggml-opencl/kernels/cvt.cl src/ggml-opencl/kernels/cvt.cl
-index 81fe17fa..1bd83d29 100644
+index 81fe17fa..39af32d2 100644
 --- src/ggml-opencl/kernels/cvt.cl
 +++ src/ggml-opencl/kernels/cvt.cl
 @@ -66,6 +66,17 @@ struct block_q4_K {
@@ -12750,7 +16074,7 @@ index 81fe17fa..1bd83d29 100644
  //------------------------------------------------------------------------------
  // block_q6_K
  //------------------------------------------------------------------------------
-@@ -546,6 +557,71 @@ kernel void kernel_restore_block_q4_K_noshuffle(
+@@ -546,6 +557,161 @@ kernel void kernel_restore_block_q4_K_noshuffle(
      }
  }
  
@@ -12765,7 +16089,9 @@ index 81fe17fa..1bd83d29 100644
 +    global uchar * dst_qh,
 +    global uchar * dst_s,
 +    global half  * dst_d,
-+    global half  * dst_dm
++    global half  * dst_dm,
++    uchar mask_0F,
++    uchar mask_F0
 +) {
 +    global struct block_q5_K * b  = (global struct block_q5_K *) src0 + get_global_id(0);
 +    global uchar * q  = (global uchar *) dst_q  + QK_K/2*get_global_id(0);
@@ -12796,7 +16122,9 @@ index 81fe17fa..1bd83d29 100644
 +    global uchar * src_s,
 +    global half  * src_d,
 +    global half  * src_dm,
-+    global struct block_q5_K * dst
++    global struct block_q5_K * dst,
++    uchar mask_0F,
++    uchar mask_F0
 +) {
 +    global struct block_q5_K * b  = (global struct block_q5_K *) dst + get_global_id(0);
 +    global uchar * q  = (global uchar *) src_q  + QK_K/2*get_global_id(0);
@@ -12819,9 +16147,609 @@ index 81fe17fa..1bd83d29 100644
 +    }
 +}
 +
++kernel void kernel_convert_block_q5_K_noshuffle(
++    global struct block_q5_K * src0,
++    global uchar * dst_q,
++    global uchar * dst_qh,
++    global uchar * dst_s,
++    global half  * dst_d,
++    global half  * dst_dm,
++    uchar mask_0F,
++    uchar mask_F0
++) {
++    global struct block_q5_K * b  = (global struct block_q5_K *) src0 + get_global_id(0);
++    global uchar * q  = (global uchar *) dst_q  + QK_K/2       * get_global_id(0);
++    global uchar * qh = (global uchar *) dst_qh + QK_K/8       * get_global_id(0);
++    global uchar * s  = (global uchar *) dst_s  + K_SCALE_SIZE * get_global_id(0);
++    global half  * d  = (global half  *) dst_d  + get_global_id(0);
++    global half  * dm = (global half  *) dst_dm + get_global_id(0);
++
++    *d  = b->d;
++    *dm = b->dm;
++
++    for (int i = 0; i < QK_K / 64; ++i) {
++        for (int j = 0; j < 16; ++j) {
++            uchar x0 = b->qs[i*32 + 2*j];
++            uchar x1 = b->qs[i*32 + 2*j + 1];
++            q[i*32 + j]      = convert_uchar(x0 & mask_0F) | convert_uchar((x1 & mask_0F) << 4);
++            q[i*32 + j + 16] = convert_uchar((x0 & mask_F0) >> 4) | convert_uchar(x1 & mask_F0);
++        }
++    }
++
++    for (int l = 0; l < QK_K/8; ++l) {
++        uchar x0 = 0;
++        for (int i = 0; i < 8; ++i) {
++            x0 |= ((b->qh[(l%4)*8+i] >> (l/4)) & 0x01) << i;
++        }
++        qh[l] = x0;
++    }
++
++    for (int i = 0; i < K_SCALE_SIZE; ++i) {
++        s[i] = b->s[i];
++    }
++}
++
++kernel void kernel_restore_block_q5_K_noshuffle(
++    global uchar * src_q,
++    global uchar * src_qh,
++    global uchar * src_s,
++    global half  * src_d,
++    global half  * src_dm,
++    global struct block_q5_K * dst,
++    uchar mask_0F,
++    uchar mask_F0
++) {
++    global struct block_q5_K * b  = (global struct block_q5_K *) dst + get_global_id(0);
++    global uchar * q  = (global uchar *) src_q  + QK_K/2       * get_global_id(0);
++    global uchar * qh = (global uchar *) src_qh + QK_K/8       * get_global_id(0);
++    global uchar * s  = (global uchar *) src_s  + K_SCALE_SIZE * get_global_id(0);
++    global half  * d  = (global half  *) src_d  + get_global_id(0);
++    global half  * dm = (global half  *) src_dm + get_global_id(0);
++
++    b->d  = *d;
++    b->dm = *dm;
++
++    for (int i = 0; i < QK_K / 64; ++i) {
++        for (int j = 0; j < 16; ++j) {
++            uchar lo = q[i*32 + j];
++            uchar hi = q[i*32 + j + 16];
++            b->qs[i*32 + 2*j]     = convert_uchar((lo & mask_0F) | ((hi & mask_0F) << 4));
++            b->qs[i*32 + 2*j + 1] = convert_uchar(((lo & mask_F0) >> 4) | (hi & mask_F0));
++        }
++    }
++
++    for (int g = 0; g < 4; ++g) {
++        for (int i = 0; i < 8; ++i) {
++            uchar x0 = 0;
++            for (int k = 0; k < 8; ++k) {
++                x0 |= ((qh[4*k+g] >> i) & 0x01) << k;
++            }
++            b->qh[g*8+i] = x0;
++        }
++    }
++
++    for (int i = 0; i < K_SCALE_SIZE; ++i) {
++        b->s[i] = s[i];
++    }
++}
++
  //------------------------------------------------------------------------------
  // kernel_convert_block_q6_K
  // Convert the block_q6_K format to 3 separate arrays (AOS -> SOA).
+diff --git src/ggml-opencl/kernels/gemm_noshuffle_q5_k_f32.cl src/ggml-opencl/kernels/gemm_noshuffle_q5_k_f32.cl
+new file mode 100644
+index 00000000..058c0f7e
+--- /dev/null
++++ src/ggml-opencl/kernels/gemm_noshuffle_q5_k_f32.cl
+@@ -0,0 +1,176 @@
++#pragma OPENCL EXTENSION cl_khr_fp16 : enable
++
++#ifdef cl_qcom_reqd_sub_group_size
++#pragma OPENCL EXTENSION cl_qcom_reqd_sub_group_size : enable
++#define ADRENO_GPU 1
++#define REQD_SUBGROUP_SIZE_128 __attribute__((qcom_reqd_sub_group_size("full")))
++#endif
++#define QK_K         256
++#define K_SCALE_SIZE 12
++
++inline void get_scale_min_k4(
++    int j,
++    global const uchar * q,
++    uchar * d,
++    uchar * m,
++    uchar mask_d6,
++    uchar mask_d4,
++    uchar mask_hi2
++) {
++    if (j < 4) {
++        *d = q[j]   & mask_d6;
++        *m = q[j+4] & mask_d6;
++    } else {
++        *d = (q[j+4] & mask_d4) | ((q[j-4] & mask_hi2) >> 2);
++        *m = ((q[j+4] >> 4) & mask_d4) | ((q[j]   & mask_hi2) >> 2);
++    }
++}
++
++#ifdef ADRENO_GPU
++REQD_SUBGROUP_SIZE_128
++#endif
++kernel void kernel_gemm_noshuffle_q5_k_f32(
++    global const ushort * src0_q,
++    global const uchar  * src0_qh,
++    global const uchar  * src0_s,
++    global const half   * src0_d,
++    global const half   * src0_dm,
++    read_only image1d_buffer_t src1,
++    global float * dst,
++    ulong offsetd,
++    int m,
++    int n,
++    int k,
++    int n_no_padding,
++    uchar mask_d6,
++    uchar mask_d4,
++    uchar mask_hi2
++) {
++    dst = (global float *)((global char *)dst + offsetd);
++    int n_4 = n >> 2;
++    int gy = get_global_id(0);
++    int gx = get_global_id(1);
++    int gx_2 = gx << 2;
++
++    half8 c0 = 0, c1 = 0, c2 = 0, c3 = 0;
++    half8 B;
++    half4 dequantized_weights;
++
++    int num_blocks_K = k / QK_K;
++
++    global const ushort * weight_ptr = src0_q  + gx_2;
++    global const uchar  * qh_ptr     = src0_qh + gx_2;
++    global const half   * d_ptr      = src0_d  + gx_2;
++    global const half   * dm_ptr     = src0_dm + gx_2;
++
++    for (int i = 0; i < k; i += 32) {
++        int sb_idx  = i / QK_K;
++        int sub_idx = (i / 32) % 8;
++
++        half4 d  = vload4(0, d_ptr  + sb_idx * m);
++        half4 dm = vload4(0, dm_ptr + sb_idx * m);
++
++        global const uchar * sc0 = src0_s + (gx_2+0) * num_blocks_K * K_SCALE_SIZE + sb_idx * K_SCALE_SIZE;
++        global const uchar * sc1 = src0_s + (gx_2+1) * num_blocks_K * K_SCALE_SIZE + sb_idx * K_SCALE_SIZE;
++        global const uchar * sc2 = src0_s + (gx_2+2) * num_blocks_K * K_SCALE_SIZE + sb_idx * K_SCALE_SIZE;
++        global const uchar * sc3 = src0_s + (gx_2+3) * num_blocks_K * K_SCALE_SIZE + sb_idx * K_SCALE_SIZE;
++
++        uchar sv0, mn0, sv1, mn1, sv2, mn2, sv3, mn3;
++        get_scale_min_k4(sub_idx, sc0, &sv0, &mn0, mask_d6, mask_d4, mask_hi2);
++        get_scale_min_k4(sub_idx, sc1, &sv1, &mn1, mask_d6, mask_d4, mask_hi2);
++        get_scale_min_k4(sub_idx, sc2, &sv2, &mn2, mask_d6, mask_d4, mask_hi2);
++        get_scale_min_k4(sub_idx, sc3, &sv3, &mn3, mask_d6, mask_d4, mask_hi2);
++
++        half4 scale = convert_half4(convert_float4(d)  * convert_float4((uchar4)(sv0, sv1, sv2, sv3)));
++        half4 mval  = convert_half4(convert_float4(dm) * convert_float4((uchar4)(mn0, mn1, mn2, mn3)));
++
++        for (int l = 0; l < 32; l += 4) {
++            int ki = i + l;
++            ushort4 bits4   = vload4(0, weight_ptr + (ki/4) * m);
++            uchar4  qh_bits = vload4(0, qh_ptr     + (ki/8) * m);
++            int     qh_shift = ki % 8;
++
++            // j=0
++            B.s0123 = read_imageh(src1, gy*2   + (ki+0) * n_4);
++            B.s4567 = read_imageh(src1, gy*2+1 + (ki+0) * n_4);
++            dequantized_weights.s0 = ((bits4.s0 & 0x000F) | (((qh_bits.s0 >> (qh_shift+0)) & 1) << 4)) * scale.s0 - mval.s0;
++            dequantized_weights.s1 = ((bits4.s1 & 0x000F) | (((qh_bits.s1 >> (qh_shift+0)) & 1) << 4)) * scale.s1 - mval.s1;
++            dequantized_weights.s2 = ((bits4.s2 & 0x000F) | (((qh_bits.s2 >> (qh_shift+0)) & 1) << 4)) * scale.s2 - mval.s2;
++            dequantized_weights.s3 = ((bits4.s3 & 0x000F) | (((qh_bits.s3 >> (qh_shift+0)) & 1) << 4)) * scale.s3 - mval.s3;
++            c0 += B * dequantized_weights.s0;
++            c1 += B * dequantized_weights.s1;
++            c2 += B * dequantized_weights.s2;
++            c3 += B * dequantized_weights.s3;
++
++            // j=1
++            B.s0123 = read_imageh(src1, gy*2   + (ki+1) * n_4);
++            B.s4567 = read_imageh(src1, gy*2+1 + (ki+1) * n_4);
++            dequantized_weights.s0 = (((bits4.s0 & 0x00F0) >> 4) | (((qh_bits.s0 >> (qh_shift+1)) & 1) << 4)) * scale.s0 - mval.s0;
++            dequantized_weights.s1 = (((bits4.s1 & 0x00F0) >> 4) | (((qh_bits.s1 >> (qh_shift+1)) & 1) << 4)) * scale.s1 - mval.s1;
++            dequantized_weights.s2 = (((bits4.s2 & 0x00F0) >> 4) | (((qh_bits.s2 >> (qh_shift+1)) & 1) << 4)) * scale.s2 - mval.s2;
++            dequantized_weights.s3 = (((bits4.s3 & 0x00F0) >> 4) | (((qh_bits.s3 >> (qh_shift+1)) & 1) << 4)) * scale.s3 - mval.s3;
++            c0 += B * dequantized_weights.s0;
++            c1 += B * dequantized_weights.s1;
++            c2 += B * dequantized_weights.s2;
++            c3 += B * dequantized_weights.s3;
++
++            // j=2
++            B.s0123 = read_imageh(src1, gy*2   + (ki+2) * n_4);
++            B.s4567 = read_imageh(src1, gy*2+1 + (ki+2) * n_4);
++            dequantized_weights.s0 = (((bits4.s0 & 0x0F00) >> 8) | (((qh_bits.s0 >> (qh_shift+2)) & 1) << 4)) * scale.s0 - mval.s0;
++            dequantized_weights.s1 = (((bits4.s1 & 0x0F00) >> 8) | (((qh_bits.s1 >> (qh_shift+2)) & 1) << 4)) * scale.s1 - mval.s1;
++            dequantized_weights.s2 = (((bits4.s2 & 0x0F00) >> 8) | (((qh_bits.s2 >> (qh_shift+2)) & 1) << 4)) * scale.s2 - mval.s2;
++            dequantized_weights.s3 = (((bits4.s3 & 0x0F00) >> 8) | (((qh_bits.s3 >> (qh_shift+2)) & 1) << 4)) * scale.s3 - mval.s3;
++            c0 += B * dequantized_weights.s0;
++            c1 += B * dequantized_weights.s1;
++            c2 += B * dequantized_weights.s2;
++            c3 += B * dequantized_weights.s3;
++
++            // j=3
++            B.s0123 = read_imageh(src1, gy*2   + (ki+3) * n_4);
++            B.s4567 = read_imageh(src1, gy*2+1 + (ki+3) * n_4);
++            dequantized_weights.s0 = (((bits4.s0 & 0xF000) >> 12) | (((qh_bits.s0 >> (qh_shift+3)) & 1) << 4)) * scale.s0 - mval.s0;
++            dequantized_weights.s1 = (((bits4.s1 & 0xF000) >> 12) | (((qh_bits.s1 >> (qh_shift+3)) & 1) << 4)) * scale.s1 - mval.s1;
++            dequantized_weights.s2 = (((bits4.s2 & 0xF000) >> 12) | (((qh_bits.s2 >> (qh_shift+3)) & 1) << 4)) * scale.s2 - mval.s2;
++            dequantized_weights.s3 = (((bits4.s3 & 0xF000) >> 12) | (((qh_bits.s3 >> (qh_shift+3)) & 1) << 4)) * scale.s3 - mval.s3;
++            c0 += B * dequantized_weights.s0;
++            c1 += B * dequantized_weights.s1;
++            c2 += B * dequantized_weights.s2;
++            c3 += B * dequantized_weights.s3;
++        }
++    }
++
++    int idx = (gy<<3)*m + (gx<<2);
++
++    if (idx+3 < m*n_no_padding) {
++        vstore4((float4)(c0.s0, c1.s0, c2.s0, c3.s0), 0, dst + idx);
++        idx += m;
++    }
++    if (idx+3 < m*n_no_padding) {
++        vstore4((float4)(c0.s1, c1.s1, c2.s1, c3.s1), 0, dst + idx);
++        idx += m;
++    }
++    if (idx+3 < m*n_no_padding) {
++        vstore4((float4)(c0.s2, c1.s2, c2.s2, c3.s2), 0, dst + idx);
++        idx += m;
++    }
++    if (idx+3 < m*n_no_padding) {
++        vstore4((float4)(c0.s3, c1.s3, c2.s3, c3.s3), 0, dst + idx);
++        idx += m;
++    }
++    if (idx+3 < m*n_no_padding) {
++        vstore4((float4)(c0.s4, c1.s4, c2.s4, c3.s4), 0, dst + idx);
++        idx += m;
++    }
++    if (idx+3 < m*n_no_padding) {
++        vstore4((float4)(c0.s5, c1.s5, c2.s5, c3.s5), 0, dst + idx);
++        idx += m;
++    }
++    if (idx+3 < m*n_no_padding) {
++        vstore4((float4)(c0.s6, c1.s6, c2.s6, c3.s6), 0, dst + idx);
++        idx += m;
++    }
++    if (idx+3 < m*n_no_padding) {
++        vstore4((float4)(c0.s7, c1.s7, c2.s7, c3.s7), 0, dst + idx);
++    }
++}
+diff --git src/ggml-opencl/kernels/gemv_noshuffle_q5_k_f32.cl src/ggml-opencl/kernels/gemv_noshuffle_q5_k_f32.cl
+new file mode 100644
+index 00000000..c40db166
+--- /dev/null
++++ src/ggml-opencl/kernels/gemv_noshuffle_q5_k_f32.cl
+@@ -0,0 +1,326 @@
++#pragma OPENCL EXTENSION cl_khr_fp16 : enable
++#pragma OPENCL EXTENSION cl_khr_subgroups : enable
++
++#ifdef cl_qcom_reqd_sub_group_size
++#pragma OPENCL EXTENSION cl_qcom_reqd_sub_group_size : enable
++#define ADRENO_GPU 1
++#define REQD_SUBGROUP_SIZE_64 __attribute__((qcom_reqd_sub_group_size("half")))
++#endif
++
++#define QK_K  256
++#define NSUBGROUPS 4
++#define SUBGROUP_SIZE 64
++
++inline void get_scale_min_k4(
++    int j,
++    global const uchar * q,
++    uchar * d,
++    uchar * m,
++    uchar mask_d6,
++    uchar mask_d4,
++    uchar mask_hi2
++) {
++    if (j < 4) {
++        *d = q[j]   & mask_d6;
++        *m = q[j+4] & mask_d6;
++    } else {
++        *d = (q[j+4] & mask_d4) | ((q[j-4] & mask_hi2) >> 2);
++        *m = ((q[j+4] >> 4) & mask_d4) | ((q[j]   & mask_hi2) >> 2);
++    }
++}
++
++#define dequantizeBlockAccum_ns_sgbroadcast_1_hi(total_sums, bits4, bits1, scale, minv, y) \
++    float shared_y; \
++    shared_y = sub_group_broadcast(y.s0, 0); \
++    total_sums.s0 += (((bits4.s0 & 0x000F) | ((bits1.s0 & 0x01) << 4)) * scale.s0 - minv.s0) * shared_y; \
++    total_sums.s1 += (((bits4.s1 & 0x000F) | ((bits1.s1 & 0x01) << 4)) * scale.s1 - minv.s1) * shared_y; \
++    shared_y = sub_group_broadcast(y.s1, 0); \
++    total_sums.s0 += ((((bits4.s0 & 0x00F0) >> 4) | (((bits1.s0 >> 1) & 0x01) << 4)) * scale.s0 - minv.s0) * shared_y; \
++    total_sums.s1 += ((((bits4.s1 & 0x00F0) >> 4) | (((bits1.s1 >> 1) & 0x01) << 4)) * scale.s1 - minv.s1) * shared_y; \
++    shared_y = sub_group_broadcast(y.s2, 0); \
++    total_sums.s0 += ((((bits4.s0 & 0x0F00) >> 8) | (((bits1.s0 >> 2) & 0x01) << 4)) * scale.s0 - minv.s0) * shared_y; \
++    total_sums.s1 += ((((bits4.s1 & 0x0F00) >> 8) | (((bits1.s1 >> 2) & 0x01) << 4)) * scale.s1 - minv.s1) * shared_y; \
++    shared_y = sub_group_broadcast(y.s3, 0); \
++    total_sums.s0 += ((((bits4.s0 & 0xF000) >> 12) | (((bits1.s0 >> 3) & 0x01) << 4)) * scale.s0 - minv.s0) * shared_y; \
++    total_sums.s1 += ((((bits4.s1 & 0xF000) >> 12) | (((bits1.s1 >> 3) & 0x01) << 4)) * scale.s1 - minv.s1) * shared_y; \
++    shared_y = sub_group_broadcast(y.s4, 0); \
++    total_sums.s0 += (((bits4.s2 & 0x000F) | (((bits1.s0 >> 4) & 0x01) << 4)) * scale.s0 - minv.s0) * shared_y; \
++    total_sums.s1 += (((bits4.s3 & 0x000F) | (((bits1.s1 >> 4) & 0x01) << 4)) * scale.s1 - minv.s1) * shared_y; \
++    shared_y = sub_group_broadcast(y.s5, 0); \
++    total_sums.s0 += ((((bits4.s2 & 0x00F0) >> 4) | (((bits1.s0 >> 5) & 0x01) << 4)) * scale.s0 - minv.s0) * shared_y; \
++    total_sums.s1 += ((((bits4.s3 & 0x00F0) >> 4) | (((bits1.s1 >> 5) & 0x01) << 4)) * scale.s1 - minv.s1) * shared_y; \
++    shared_y = sub_group_broadcast(y.s6, 0); \
++    total_sums.s0 += ((((bits4.s2 & 0x0F00) >> 8) | (((bits1.s0 >> 6) & 0x01) << 4)) * scale.s0 - minv.s0) * shared_y; \
++    total_sums.s1 += ((((bits4.s3 & 0x0F00) >> 8) | (((bits1.s1 >> 6) & 0x01) << 4)) * scale.s1 - minv.s1) * shared_y; \
++    shared_y = sub_group_broadcast(y.s7, 0); \
++    total_sums.s0 += ((((bits4.s2 & 0xF000) >> 12) | (((bits1.s0 >> 7) & 0x01) << 4)) * scale.s0 - minv.s0) * shared_y; \
++    total_sums.s1 += ((((bits4.s3 & 0xF000) >> 12) | (((bits1.s1 >> 7) & 0x01) << 4)) * scale.s1 - minv.s1) * shared_y; \
++    shared_y = sub_group_broadcast(y.s0, 1); \
++    total_sums.s0 += (((bits4.s4 & 0x000F) | ((bits1.s2 & 0x01) << 4)) * scale.s0 - minv.s0) * shared_y; \
++    total_sums.s1 += (((bits4.s5 & 0x000F) | ((bits1.s3 & 0x01) << 4)) * scale.s1 - minv.s1) * shared_y; \
++    shared_y = sub_group_broadcast(y.s1, 1); \
++    total_sums.s0 += ((((bits4.s4 & 0x00F0) >> 4) | (((bits1.s2 >> 1) & 0x01) << 4)) * scale.s0 - minv.s0) * shared_y; \
++    total_sums.s1 += ((((bits4.s5 & 0x00F0) >> 4) | (((bits1.s3 >> 1) & 0x01) << 4)) * scale.s1 - minv.s1) * shared_y; \
++    shared_y = sub_group_broadcast(y.s2, 1); \
++    total_sums.s0 += ((((bits4.s4 & 0x0F00) >> 8) | (((bits1.s2 >> 2) & 0x01) << 4)) * scale.s0 - minv.s0) * shared_y; \
++    total_sums.s1 += ((((bits4.s5 & 0x0F00) >> 8) | (((bits1.s3 >> 2) & 0x01) << 4)) * scale.s1 - minv.s1) * shared_y; \
++    shared_y = sub_group_broadcast(y.s3, 1); \
++    total_sums.s0 += ((((bits4.s4 & 0xF000) >> 12) | (((bits1.s2 >> 3) & 0x01) << 4)) * scale.s0 - minv.s0) * shared_y; \
++    total_sums.s1 += ((((bits4.s5 & 0xF000) >> 12) | (((bits1.s3 >> 3) & 0x01) << 4)) * scale.s1 - minv.s1) * shared_y; \
++    shared_y = sub_group_broadcast(y.s4, 1); \
++    total_sums.s0 += (((bits4.s6 & 0x000F) | (((bits1.s2 >> 4) & 0x01) << 4)) * scale.s0 - minv.s0) * shared_y; \
++    total_sums.s1 += (((bits4.s7 & 0x000F) | (((bits1.s3 >> 4) & 0x01) << 4)) * scale.s1 - minv.s1) * shared_y; \
++    shared_y = sub_group_broadcast(y.s5, 1); \
++    total_sums.s0 += ((((bits4.s6 & 0x00F0) >> 4) | (((bits1.s2 >> 5) & 0x01) << 4)) * scale.s0 - minv.s0) * shared_y; \
++    total_sums.s1 += ((((bits4.s7 & 0x00F0) >> 4) | (((bits1.s3 >> 5) & 0x01) << 4)) * scale.s1 - minv.s1) * shared_y; \
++    shared_y = sub_group_broadcast(y.s6, 1); \
++    total_sums.s0 += ((((bits4.s6 & 0x0F00) >> 8) | (((bits1.s2 >> 6) & 0x01) << 4)) * scale.s0 - minv.s0) * shared_y; \
++    total_sums.s1 += ((((bits4.s7 & 0x0F00) >> 8) | (((bits1.s3 >> 6) & 0x01) << 4)) * scale.s1 - minv.s1) * shared_y; \
++    shared_y = sub_group_broadcast(y.s7, 1); \
++    total_sums.s0 += ((((bits4.s6 & 0xF000) >> 12) | (((bits1.s2 >> 7) & 0x01) << 4)) * scale.s0 - minv.s0) * shared_y; \
++    total_sums.s1 += ((((bits4.s7 & 0xF000) >> 12) | (((bits1.s3 >> 7) & 0x01) << 4)) * scale.s1 - minv.s1) * shared_y; \
++
++
++#define dequantizeBlockAccum_ns_sgbroadcast_1_lo(total_sums, bits4, bits1, scale, minv, y) \
++    shared_y = sub_group_broadcast(y.s0, 2); \
++    total_sums.s0 += (((bits4.s0 & 0x000F) | ((bits1.s4 & 0x01) << 4)) * scale.s0 - minv.s0) * shared_y; \
++    total_sums.s1 += (((bits4.s1 & 0x000F) | ((bits1.s5 & 0x01) << 4)) * scale.s1 - minv.s1) * shared_y; \
++    shared_y = sub_group_broadcast(y.s1, 2); \
++    total_sums.s0 += ((((bits4.s0 & 0x00F0) >> 4) | (((bits1.s4 >> 1) & 0x01) << 4)) * scale.s0 - minv.s0) * shared_y; \
++    total_sums.s1 += ((((bits4.s1 & 0x00F0) >> 4) | (((bits1.s5 >> 1) & 0x01) << 4)) * scale.s1 - minv.s1) * shared_y; \
++    shared_y = sub_group_broadcast(y.s2, 2); \
++    total_sums.s0 += ((((bits4.s0 & 0x0F00) >> 8) | (((bits1.s4 >> 2) & 0x01) << 4)) * scale.s0 - minv.s0) * shared_y; \
++    total_sums.s1 += ((((bits4.s1 & 0x0F00) >> 8) | (((bits1.s5 >> 2) & 0x01) << 4)) * scale.s1 - minv.s1) * shared_y; \
++    shared_y = sub_group_broadcast(y.s3, 2); \
++    total_sums.s0 += ((((bits4.s0 & 0xF000) >> 12) | (((bits1.s4 >> 3) & 0x01) << 4)) * scale.s0 - minv.s0) * shared_y; \
++    total_sums.s1 += ((((bits4.s1 & 0xF000) >> 12) | (((bits1.s5 >> 3) & 0x01) << 4)) * scale.s1 - minv.s1) * shared_y; \
++    shared_y = sub_group_broadcast(y.s4, 2); \
++    total_sums.s0 += (((bits4.s2 & 0x000F) | (((bits1.s4 >> 4) & 0x01) << 4)) * scale.s0 - minv.s0) * shared_y; \
++    total_sums.s1 += (((bits4.s3 & 0x000F) | (((bits1.s5 >> 4) & 0x01) << 4)) * scale.s1 - minv.s1) * shared_y; \
++    shared_y = sub_group_broadcast(y.s5, 2); \
++    total_sums.s0 += ((((bits4.s2 & 0x00F0) >> 4) | (((bits1.s4 >> 5) & 0x01) << 4)) * scale.s0 - minv.s0) * shared_y; \
++    total_sums.s1 += ((((bits4.s3 & 0x00F0) >> 4) | (((bits1.s5 >> 5) & 0x01) << 4)) * scale.s1 - minv.s1) * shared_y; \
++    shared_y = sub_group_broadcast(y.s6, 2); \
++    total_sums.s0 += ((((bits4.s2 & 0x0F00) >> 8) | (((bits1.s4 >> 6) & 0x01) << 4)) * scale.s0 - minv.s0) * shared_y; \
++    total_sums.s1 += ((((bits4.s3 & 0x0F00) >> 8) | (((bits1.s5 >> 6) & 0x01) << 4)) * scale.s1 - minv.s1) * shared_y; \
++    shared_y = sub_group_broadcast(y.s7, 2); \
++    total_sums.s0 += ((((bits4.s2 & 0xF000) >> 12) | (((bits1.s4 >> 7) & 0x01) << 4)) * scale.s0 - minv.s0) * shared_y; \
++    total_sums.s1 += ((((bits4.s3 & 0xF000) >> 12) | (((bits1.s5 >> 7) & 0x01) << 4)) * scale.s1 - minv.s1) * shared_y; \
++    shared_y = sub_group_broadcast(y.s0, 3); \
++    total_sums.s0 += (((bits4.s4 & 0x000F) | ((bits1.s6 & 0x01) << 4)) * scale.s0 - minv.s0) * shared_y; \
++    total_sums.s1 += (((bits4.s5 & 0x000F) | ((bits1.s7 & 0x01) << 4)) * scale.s1 - minv.s1) * shared_y; \
++    shared_y = sub_group_broadcast(y.s1, 3); \
++    total_sums.s0 += ((((bits4.s4 & 0x00F0) >> 4) | (((bits1.s6 >> 1) & 0x01) << 4)) * scale.s0 - minv.s0) * shared_y; \
++    total_sums.s1 += ((((bits4.s5 & 0x00F0) >> 4) | (((bits1.s7 >> 1) & 0x01) << 4)) * scale.s1 - minv.s1) * shared_y; \
++    shared_y = sub_group_broadcast(y.s2, 3); \
++    total_sums.s0 += ((((bits4.s4 & 0x0F00) >> 8) | (((bits1.s6 >> 2) & 0x01) << 4)) * scale.s0 - minv.s0) * shared_y; \
++    total_sums.s1 += ((((bits4.s5 & 0x0F00) >> 8) | (((bits1.s7 >> 2) & 0x01) << 4)) * scale.s1 - minv.s1) * shared_y; \
++    shared_y = sub_group_broadcast(y.s3, 3); \
++    total_sums.s0 += ((((bits4.s4 & 0xF000) >> 12) | (((bits1.s6 >> 3) & 0x01) << 4)) * scale.s0 - minv.s0) * shared_y; \
++    total_sums.s1 += ((((bits4.s5 & 0xF000) >> 12) | (((bits1.s7 >> 3) & 0x01) << 4)) * scale.s1 - minv.s1) * shared_y; \
++    shared_y = sub_group_broadcast(y.s4, 3); \
++    total_sums.s0 += (((bits4.s6 & 0x000F) | (((bits1.s6 >> 4) & 0x01) << 4)) * scale.s0 - minv.s0) * shared_y; \
++    total_sums.s1 += (((bits4.s7 & 0x000F) | (((bits1.s7 >> 4) & 0x01) << 4)) * scale.s1 - minv.s1) * shared_y; \
++    shared_y = sub_group_broadcast(y.s5, 3); \
++    total_sums.s0 += ((((bits4.s6 & 0x00F0) >> 4) | (((bits1.s6 >> 5) & 0x01) << 4)) * scale.s0 - minv.s0) * shared_y; \
++    total_sums.s1 += ((((bits4.s7 & 0x00F0) >> 4) | (((bits1.s7 >> 5) & 0x01) << 4)) * scale.s1 - minv.s1) * shared_y; \
++    shared_y = sub_group_broadcast(y.s6, 3); \
++    total_sums.s0 += ((((bits4.s6 & 0x0F00) >> 8) | (((bits1.s6 >> 6) & 0x01) << 4)) * scale.s0 - minv.s0) * shared_y; \
++    total_sums.s1 += ((((bits4.s7 & 0x0F00) >> 8) | (((bits1.s7 >> 6) & 0x01) << 4)) * scale.s1 - minv.s1) * shared_y; \
++    shared_y = sub_group_broadcast(y.s7, 3); \
++    total_sums.s0 += ((((bits4.s6 & 0xF000) >> 12) | (((bits1.s6 >> 7) & 0x01) << 4)) * scale.s0 - minv.s0) * shared_y; \
++    total_sums.s1 += ((((bits4.s7 & 0xF000) >> 12) | (((bits1.s7 >> 7) & 0x01) << 4)) * scale.s1 - minv.s1) * shared_y; \
++
++
++#define dequantizeBlockAccum_ns_sgbroadcast_8_hi(total_sums, bits4, bits1, scale, minv, y) \
++    float8 shared_y; \
++    shared_y = sub_group_broadcast(y, 0); \
++    total_sums.s0 += (((bits4.s0 & 0x000F)         | ((bits1.s0 & 0x01) << 4))         * scale.s0 - minv.s0) * shared_y.s0; \
++    total_sums.s0 += ((((bits4.s0 & 0x00F0) >> 4)  | (((bits1.s0 >> 1) & 0x01) << 4))  * scale.s0 - minv.s0) * shared_y.s1; \
++    total_sums.s0 += ((((bits4.s0 & 0x0F00) >> 8)  | (((bits1.s0 >> 2) & 0x01) << 4))  * scale.s0 - minv.s0) * shared_y.s2; \
++    total_sums.s0 += ((((bits4.s0 & 0xF000) >> 12) | (((bits1.s0 >> 3) & 0x01) << 4))  * scale.s0 - minv.s0) * shared_y.s3; \
++    total_sums.s0 += (((bits4.s2 & 0x000F)         | (((bits1.s0 >> 4) & 0x01) << 4))  * scale.s0 - minv.s0) * shared_y.s4; \
++    total_sums.s0 += ((((bits4.s2 & 0x00F0) >> 4)  | (((bits1.s0 >> 5) & 0x01) << 4))  * scale.s0 - minv.s0) * shared_y.s5; \
++    total_sums.s0 += ((((bits4.s2 & 0x0F00) >> 8)  | (((bits1.s0 >> 6) & 0x01) << 4))  * scale.s0 - minv.s0) * shared_y.s6; \
++    total_sums.s0 += ((((bits4.s2 & 0xF000) >> 12) | (((bits1.s0 >> 7) & 0x01) << 4))  * scale.s0 - minv.s0) * shared_y.s7; \
++    total_sums.s1 += (((bits4.s1 & 0x000F)         | ((bits1.s1 & 0x01) << 4))         * scale.s1 - minv.s1) * shared_y.s0; \
++    total_sums.s1 += ((((bits4.s1 & 0x00F0) >> 4)  | (((bits1.s1 >> 1) & 0x01) << 4))  * scale.s1 - minv.s1) * shared_y.s1; \
++    total_sums.s1 += ((((bits4.s1 & 0x0F00) >> 8)  | (((bits1.s1 >> 2) & 0x01) << 4))  * scale.s1 - minv.s1) * shared_y.s2; \
++    total_sums.s1 += ((((bits4.s1 & 0xF000) >> 12) | (((bits1.s1 >> 3) & 0x01) << 4))  * scale.s1 - minv.s1) * shared_y.s3; \
++    total_sums.s1 += (((bits4.s3 & 0x000F)         | (((bits1.s1 >> 4) & 0x01) << 4))  * scale.s1 - minv.s1) * shared_y.s4; \
++    total_sums.s1 += ((((bits4.s3 & 0x00F0) >> 4)  | (((bits1.s1 >> 5) & 0x01) << 4))  * scale.s1 - minv.s1) * shared_y.s5; \
++    total_sums.s1 += ((((bits4.s3 & 0x0F00) >> 8)  | (((bits1.s1 >> 6) & 0x01) << 4))  * scale.s1 - minv.s1) * shared_y.s6; \
++    total_sums.s1 += ((((bits4.s3 & 0xF000) >> 12) | (((bits1.s1 >> 7) & 0x01) << 4))  * scale.s1 - minv.s1) * shared_y.s7; \
++    shared_y = sub_group_broadcast(y, 1); \
++    total_sums.s0 += (((bits4.s4 & 0x000F)         | ((bits1.s2 & 0x01) << 4))         * scale.s0 - minv.s0) * shared_y.s0; \
++    total_sums.s0 += ((((bits4.s4 & 0x00F0) >> 4)  | (((bits1.s2 >> 1) & 0x01) << 4))  * scale.s0 - minv.s0) * shared_y.s1; \
++    total_sums.s0 += ((((bits4.s4 & 0x0F00) >> 8)  | (((bits1.s2 >> 2) & 0x01) << 4))  * scale.s0 - minv.s0) * shared_y.s2; \
++    total_sums.s0 += ((((bits4.s4 & 0xF000) >> 12) | (((bits1.s2 >> 3) & 0x01) << 4))  * scale.s0 - minv.s0) * shared_y.s3; \
++    total_sums.s0 += (((bits4.s6 & 0x000F)         | (((bits1.s2 >> 4) & 0x01) << 4))  * scale.s0 - minv.s0) * shared_y.s4; \
++    total_sums.s0 += ((((bits4.s6 & 0x00F0) >> 4)  | (((bits1.s2 >> 5) & 0x01) << 4))  * scale.s0 - minv.s0) * shared_y.s5; \
++    total_sums.s0 += ((((bits4.s6 & 0x0F00) >> 8)  | (((bits1.s2 >> 6) & 0x01) << 4))  * scale.s0 - minv.s0) * shared_y.s6; \
++    total_sums.s0 += ((((bits4.s6 & 0xF000) >> 12) | (((bits1.s2 >> 7) & 0x01) << 4))  * scale.s0 - minv.s0) * shared_y.s7; \
++    total_sums.s1 += (((bits4.s5 & 0x000F)         | ((bits1.s3 & 0x01) << 4))         * scale.s1 - minv.s1) * shared_y.s0; \
++    total_sums.s1 += ((((bits4.s5 & 0x00F0) >> 4)  | (((bits1.s3 >> 1) & 0x01) << 4))  * scale.s1 - minv.s1) * shared_y.s1; \
++    total_sums.s1 += ((((bits4.s5 & 0x0F00) >> 8)  | (((bits1.s3 >> 2) & 0x01) << 4))  * scale.s1 - minv.s1) * shared_y.s2; \
++    total_sums.s1 += ((((bits4.s5 & 0xF000) >> 12) | (((bits1.s3 >> 3) & 0x01) << 4))  * scale.s1 - minv.s1) * shared_y.s3; \
++    total_sums.s1 += (((bits4.s7 & 0x000F)         | (((bits1.s3 >> 4) & 0x01) << 4))  * scale.s1 - minv.s1) * shared_y.s4; \
++    total_sums.s1 += ((((bits4.s7 & 0x00F0) >> 4)  | (((bits1.s3 >> 5) & 0x01) << 4))  * scale.s1 - minv.s1) * shared_y.s5; \
++    total_sums.s1 += ((((bits4.s7 & 0x0F00) >> 8)  | (((bits1.s3 >> 6) & 0x01) << 4))  * scale.s1 - minv.s1) * shared_y.s6; \
++    total_sums.s1 += ((((bits4.s7 & 0xF000) >> 12) | (((bits1.s3 >> 7) & 0x01) << 4))  * scale.s1 - minv.s1) * shared_y.s7; \
++
++
++#define dequantizeBlockAccum_ns_sgbroadcast_8_lo(total_sums, bits4, bits1, scale, minv, y) \
++    shared_y = sub_group_broadcast(y, 2); \
++    total_sums.s0 += (((bits4.s0 & 0x000F)         | ((bits1.s4 & 0x01) << 4))         * scale.s0 - minv.s0) * shared_y.s0; \
++    total_sums.s0 += ((((bits4.s0 & 0x00F0) >> 4)  | (((bits1.s4 >> 1) & 0x01) << 4))  * scale.s0 - minv.s0) * shared_y.s1; \
++    total_sums.s0 += ((((bits4.s0 & 0x0F00) >> 8)  | (((bits1.s4 >> 2) & 0x01) << 4))  * scale.s0 - minv.s0) * shared_y.s2; \
++    total_sums.s0 += ((((bits4.s0 & 0xF000) >> 12) | (((bits1.s4 >> 3) & 0x01) << 4))  * scale.s0 - minv.s0) * shared_y.s3; \
++    total_sums.s0 += (((bits4.s2 & 0x000F)         | (((bits1.s4 >> 4) & 0x01) << 4))  * scale.s0 - minv.s0) * shared_y.s4; \
++    total_sums.s0 += ((((bits4.s2 & 0x00F0) >> 4)  | (((bits1.s4 >> 5) & 0x01) << 4))  * scale.s0 - minv.s0) * shared_y.s5; \
++    total_sums.s0 += ((((bits4.s2 & 0x0F00) >> 8)  | (((bits1.s4 >> 6) & 0x01) << 4))  * scale.s0 - minv.s0) * shared_y.s6; \
++    total_sums.s0 += ((((bits4.s2 & 0xF000) >> 12) | (((bits1.s4 >> 7) & 0x01) << 4))  * scale.s0 - minv.s0) * shared_y.s7; \
++    total_sums.s1 += (((bits4.s1 & 0x000F)         | ((bits1.s5 & 0x01) << 4))         * scale.s1 - minv.s1) * shared_y.s0; \
++    total_sums.s1 += ((((bits4.s1 & 0x00F0) >> 4)  | (((bits1.s5 >> 1) & 0x01) << 4))  * scale.s1 - minv.s1) * shared_y.s1; \
++    total_sums.s1 += ((((bits4.s1 & 0x0F00) >> 8)  | (((bits1.s5 >> 2) & 0x01) << 4))  * scale.s1 - minv.s1) * shared_y.s2; \
++    total_sums.s1 += ((((bits4.s1 & 0xF000) >> 12) | (((bits1.s5 >> 3) & 0x01) << 4))  * scale.s1 - minv.s1) * shared_y.s3; \
++    total_sums.s1 += (((bits4.s3 & 0x000F)         | (((bits1.s5 >> 4) & 0x01) << 4))  * scale.s1 - minv.s1) * shared_y.s4; \
++    total_sums.s1 += ((((bits4.s3 & 0x00F0) >> 4)  | (((bits1.s5 >> 5) & 0x01) << 4))  * scale.s1 - minv.s1) * shared_y.s5; \
++    total_sums.s1 += ((((bits4.s3 & 0x0F00) >> 8)  | (((bits1.s5 >> 6) & 0x01) << 4))  * scale.s1 - minv.s1) * shared_y.s6; \
++    total_sums.s1 += ((((bits4.s3 & 0xF000) >> 12) | (((bits1.s5 >> 7) & 0x01) << 4))  * scale.s1 - minv.s1) * shared_y.s7; \
++    shared_y = sub_group_broadcast(y, 3); \
++    total_sums.s0 += (((bits4.s4 & 0x000F)         | ((bits1.s6 & 0x01) << 4))         * scale.s0 - minv.s0) * shared_y.s0; \
++    total_sums.s0 += ((((bits4.s4 & 0x00F0) >> 4)  | (((bits1.s6 >> 1) & 0x01) << 4))  * scale.s0 - minv.s0) * shared_y.s1; \
++    total_sums.s0 += ((((bits4.s4 & 0x0F00) >> 8)  | (((bits1.s6 >> 2) & 0x01) << 4))  * scale.s0 - minv.s0) * shared_y.s2; \
++    total_sums.s0 += ((((bits4.s4 & 0xF000) >> 12) | (((bits1.s6 >> 3) & 0x01) << 4))  * scale.s0 - minv.s0) * shared_y.s3; \
++    total_sums.s0 += (((bits4.s6 & 0x000F)         | (((bits1.s6 >> 4) & 0x01) << 4))  * scale.s0 - minv.s0) * shared_y.s4; \
++    total_sums.s0 += ((((bits4.s6 & 0x00F0) >> 4)  | (((bits1.s6 >> 5) & 0x01) << 4))  * scale.s0 - minv.s0) * shared_y.s5; \
++    total_sums.s0 += ((((bits4.s6 & 0x0F00) >> 8)  | (((bits1.s6 >> 6) & 0x01) << 4))  * scale.s0 - minv.s0) * shared_y.s6; \
++    total_sums.s0 += ((((bits4.s6 & 0xF000) >> 12) | (((bits1.s6 >> 7) & 0x01) << 4))  * scale.s0 - minv.s0) * shared_y.s7; \
++    total_sums.s1 += (((bits4.s5 & 0x000F)         | ((bits1.s7 & 0x01) << 4))         * scale.s1 - minv.s1) * shared_y.s0; \
++    total_sums.s1 += ((((bits4.s5 & 0x00F0) >> 4)  | (((bits1.s7 >> 1) & 0x01) << 4))  * scale.s1 - minv.s1) * shared_y.s1; \
++    total_sums.s1 += ((((bits4.s5 & 0x0F00) >> 8)  | (((bits1.s7 >> 2) & 0x01) << 4))  * scale.s1 - minv.s1) * shared_y.s2; \
++    total_sums.s1 += ((((bits4.s5 & 0xF000) >> 12) | (((bits1.s7 >> 3) & 0x01) << 4))  * scale.s1 - minv.s1) * shared_y.s3; \
++    total_sums.s1 += (((bits4.s7 & 0x000F)         | (((bits1.s7 >> 4) & 0x01) << 4))  * scale.s1 - minv.s1) * shared_y.s4; \
++    total_sums.s1 += ((((bits4.s7 & 0x00F0) >> 4)  | (((bits1.s7 >> 5) & 0x01) << 4))  * scale.s1 - minv.s1) * shared_y.s5; \
++    total_sums.s1 += ((((bits4.s7 & 0x0F00) >> 8)  | (((bits1.s7 >> 6) & 0x01) << 4))  * scale.s1 - minv.s1) * shared_y.s6; \
++    total_sums.s1 += ((((bits4.s7 & 0xF000) >> 12) | (((bits1.s7 >> 7) & 0x01) << 4))  * scale.s1 - minv.s1) * shared_y.s7; \
++
++#ifdef ADRENO_GPU
++REQD_SUBGROUP_SIZE_64
++#endif
++kernel void kernel_gemv_noshuffle_q5_k_f32(
++        read_only  image1d_buffer_t src0_q,
++        read_only  image1d_buffer_t src0_qh,
++        global half2  * src0_d,
++        global half2  * src0_m,
++        global uchar  * src0_s,
++        read_only  image1d_buffer_t src1,
++        global float * dst,
++        ulong offsetd,
++        int ne00,
++        int ne01,
++        uchar mask_d6,
++        uchar mask_d4,
++        uchar mask_hi2)
++{
++    uint groupId = get_local_id(1);
++    uint gid     = get_global_id(0);
++    ushort slid  = get_sub_group_local_id();
++
++    uint K = ne00;
++    uint M = ne01;
++
++    uint LINE_STRIDE_A     = M / 2;
++    uint BLOCK_STRIDE_A    = NSUBGROUPS * M;
++
++    uint LINE_STRIDE_A_QH  = M / 2;
++    uint BLOCK_STRIDE_A_QH = NSUBGROUPS * M / 2;
++    uint scales_per_row    = (K / QK_K) * 12;
++
++    private uint4     regA;
++    private ushort4   regH;
++    private half2     regS;
++    private half2     regM;
++    private float8    regB;
++
++    private float2 totalSum = (float2)(0.0f);
++
++    for (uint k = groupId; k < (K / 32); k += NSUBGROUPS) {
++        uint sb = k / 8;
++        uint j  = k % 8;
++
++        half2 d   = src0_d[gid + sb * LINE_STRIDE_A];
++        half2 dm  = src0_m[gid + sb * LINE_STRIDE_A];
++
++        global const uchar * sc0 = src0_s + 2 * gid * scales_per_row + sb * 12;
++        global const uchar * sc1 = src0_s + (2 * gid + 1) * scales_per_row + sb * 12;
++
++        uchar sv0, mn0, sv1, mn1;
++        get_scale_min_k4(j, sc0, &sv0, &mn0, mask_d6, mask_d4, mask_hi2);
++        get_scale_min_k4(j, sc1, &sv1, &mn1, mask_d6, mask_d4, mask_hi2);
++
++        regS = convert_half2(convert_float2(d)  * convert_float2((uchar2)(sv0, sv1)));
++        regM = convert_half2(convert_float2(dm) * convert_float2((uchar2)(mn0, mn1)));
++
++        if (slid < 4) {
++            regB.s0123 = read_imagef(src1, (slid * 2 + k * 8));
++            regB.s4567 = read_imagef(src1, (1 + slid * 2 + k * 8));
++        }
++
++        regH.s0 = as_ushort(read_imageh(src0_qh, (gid + k * BLOCK_STRIDE_A_QH + LINE_STRIDE_A_QH * 0)).x);
++        regH.s1 = as_ushort(read_imageh(src0_qh, (gid + k * BLOCK_STRIDE_A_QH + LINE_STRIDE_A_QH * 1)).x);
++        regH.s2 = as_ushort(read_imageh(src0_qh, (gid + k * BLOCK_STRIDE_A_QH + LINE_STRIDE_A_QH * 2)).x);
++        regH.s3 = as_ushort(read_imageh(src0_qh, (gid + k * BLOCK_STRIDE_A_QH + LINE_STRIDE_A_QH * 3)).x);
++
++        regA.s0 = read_imageui(src0_q, (gid + k * BLOCK_STRIDE_A + LINE_STRIDE_A * 0)).x;
++        regA.s1 = read_imageui(src0_q, (gid + k * BLOCK_STRIDE_A + LINE_STRIDE_A * 1)).x;
++        regA.s2 = read_imageui(src0_q, (gid + k * BLOCK_STRIDE_A + LINE_STRIDE_A * 2)).x;
++        regA.s3 = read_imageui(src0_q, (gid + k * BLOCK_STRIDE_A + LINE_STRIDE_A * 3)).x;
++#ifdef VECTOR_SUB_GROUP_BROADCAST
++        dequantizeBlockAccum_ns_sgbroadcast_8_hi(totalSum, as_ushort8(regA), as_uchar8(regH), regS, regM, regB);
++#else
++        dequantizeBlockAccum_ns_sgbroadcast_1_hi(totalSum, as_ushort8(regA), as_uchar8(regH), regS, regM, regB);
++#endif // VECTOR_SUB_GROUP_BROADCAST
++
++        regA.s0 = read_imageui(src0_q, (gid + k * BLOCK_STRIDE_A + LINE_STRIDE_A * 4)).x;
++        regA.s1 = read_imageui(src0_q, (gid + k * BLOCK_STRIDE_A + LINE_STRIDE_A * 5)).x;
++        regA.s2 = read_imageui(src0_q, (gid + k * BLOCK_STRIDE_A + LINE_STRIDE_A * 6)).x;
++        regA.s3 = read_imageui(src0_q, (gid + k * BLOCK_STRIDE_A + LINE_STRIDE_A * 7)).x;
++#ifdef VECTOR_SUB_GROUP_BROADCAST
++        dequantizeBlockAccum_ns_sgbroadcast_8_lo(totalSum, as_ushort8(regA), as_uchar8(regH), regS, regM, regB);
++#else
++        dequantizeBlockAccum_ns_sgbroadcast_1_lo(totalSum, as_ushort8(regA), as_uchar8(regH), regS, regM, regB);
++#endif // VECTOR_SUB_GROUP_BROADCAST
++    }
++
++    // reduction in local memory, assumes #wave=4
++    local float2 reduceLM[SUBGROUP_SIZE * 3];
++    if (groupId == 1) {
++        reduceLM[SUBGROUP_SIZE * 0 + slid] = totalSum;
++    }
++    if (groupId == 2) {
++        reduceLM[SUBGROUP_SIZE * 1 + slid] = totalSum;
++    }
++    if (groupId == 3) {
++        reduceLM[SUBGROUP_SIZE * 2 + slid] = totalSum;
++    }
++
++    barrier(CLK_LOCAL_MEM_FENCE);
++
++    if (groupId == 0) {
++        totalSum += reduceLM[SUBGROUP_SIZE * 0 + slid];
++    }
++    if (groupId == 0) {
++        totalSum += reduceLM[SUBGROUP_SIZE * 1 + slid];
++    }
++    if (groupId == 0) {
++        totalSum += reduceLM[SUBGROUP_SIZE * 2 + slid];
++    }
++
++    // 2 outputs per fiber in wave 0
++    if (groupId == 0) {
++        dst = (global float*)((global char*)dst + offsetd);
++        vstore2(totalSum, 0, &(dst[gid * 2]));
++    }
++}
 diff --git src/ggml-opencl/kernels/mul_mm_q5_k_f32_l4_lm.cl src/ggml-opencl/kernels/mul_mm_q5_k_f32_l4_lm.cl
 new file mode 100644
 index 00000000..8e191f57
@@ -14449,11 +18377,53 @@ index 1378ba9f..017ef0af 100644
          printf("Client connection closed\n");
          fflush(stdout);
      }
+diff --git src/ggml-sycl/CMakeLists.txt src/ggml-sycl/CMakeLists.txt
+index 7b07b227..8e589fa2 100644
+--- src/ggml-sycl/CMakeLists.txt
++++ src/ggml-sycl/CMakeLists.txt
+@@ -154,6 +154,11 @@ if (GGML_SYCL_GRAPH)
+     target_compile_definitions(ggml-sycl PRIVATE GGML_SYCL_GRAPH)
+ endif()
+ 
++if (GGML_SYCL_HOST_MEM_FALLBACK)
++    message(STATUS "find GGML_SYCL_HOST_MEM_FALLBACK")
++    target_compile_definitions(ggml-sycl PRIVATE GGML_SYCL_HOST_MEM_FALLBACK)
++endif()
++
+ if (GGML_SYCL_DEVICE_ARCH)
+     target_compile_options(ggml-sycl PRIVATE -Xsycl-target-backend --offload-arch=${GGML_SYCL_DEVICE_ARCH})
+     target_link_options(ggml-sycl PRIVATE -Xsycl-target-backend --offload-arch=${GGML_SYCL_DEVICE_ARCH})
 diff --git src/ggml-sycl/convert.cpp src/ggml-sycl/convert.cpp
-index d7f60cbc..f1241942 100644
+index d7f60cbc..f3c521b4 100644
 --- src/ggml-sycl/convert.cpp
 +++ src/ggml-sycl/convert.cpp
-@@ -488,7 +488,7 @@ static void dequantize_row_nvfp4_sycl(const void * vx, dst_t * y, const int64_t
+@@ -151,6 +151,25 @@ static void dequantize_row_q4_0_sycl_reorder(const void *vx, dst_t *y, const int
+ 
+ }
+ 
++template <typename dst_t>
++static void dequantize_row_q8_0_sycl_reorder(const void *vx, dst_t *y, const int64_t k,
++                                     dpct::queue_ptr stream) {
++
++    dpct::has_capability_or_fail(stream->get_device(),
++                                    {sycl::aspect::fp16});
++
++    int constexpr WARP_K = WARP_SIZE * QK8_0;
++    const int n_warp = (k + WARP_K - 1) / WARP_K;
++    GGML_ASSERT(k % QK8_0 == 0);
++    stream->parallel_for(sycl::nd_range<3>(sycl::range<3>(1, 1, n_warp) *
++        sycl::range<3>(1, 1, WARP_SIZE),
++        sycl::range<3>(1, 1, WARP_SIZE)),
++        [=](sycl::nd_item<3> item_ct1) [[sycl::reqd_sub_group_size(WARP_SIZE)]]{
++            dequantize_block_q8_0_reorder(vx, y, k, item_ct1);
++        });
++
++}
++
+ template <typename dst_t>
+ static void dequantize_row_q4_1_sycl(const void *vx, dst_t *y, const int64_t k,
+                                      dpct::queue_ptr stream) {
+@@ -488,7 +507,7 @@ static void dequantize_row_nvfp4_sycl(const void * vx, dst_t * y, const int64_t
      const int nb = k / QK_NVFP4;
      stream->parallel_for(
          sycl::nd_range<3>(sycl::range<3>(1, 1, nb) * sycl::range<3>(1, 1, 32), sycl::range<3>(1, 1, 32)),
@@ -14462,8 +18432,36 @@ index d7f60cbc..f1241942 100644
              dequantize_block_nvfp4(vx, y, k);
          });
  }
+@@ -614,7 +633,12 @@ to_fp16_sycl_t ggml_get_to_fp16_sycl(ggml_type type, ggml_tensor * dst) {
+         case GGML_TYPE_Q5_1:
+             return dequantize_block_sycl<QK5_1, QR5_1, dequantize_q5_1>;
+         case GGML_TYPE_Q8_0:
+-            return dequantize_block_sycl<QK8_0, QR8_0, dequantize_q8_0>;
++            if (dst->src[0]->extra &&
++                ((ggml_tensor_extra_gpu *) dst->src[0]->extra)->optimized_feature.reorder) {
++                return dequantize_row_q8_0_sycl_reorder;
++            } else {
++                return dequantize_block_sycl<QK8_0, QR8_0, dequantize_q8_0>;
++            }
+         case GGML_TYPE_Q2_K:
+             return dequantize_row_q2_K_sycl;
+         case GGML_TYPE_Q3_K:
+@@ -683,7 +707,12 @@ to_fp32_sycl_t ggml_get_to_fp32_sycl(ggml_type type, ggml_tensor *dst) {
+         case GGML_TYPE_Q5_1:
+             return dequantize_block_sycl<QK5_1, QR5_1, dequantize_q5_1>;
+         case GGML_TYPE_Q8_0:
+-            return dequantize_block_sycl<QK8_0, QR8_0, dequantize_q8_0>;
++            if (dst->src[0]->extra &&
++                ((ggml_tensor_extra_gpu*)dst->src[0]->extra)->optimized_feature.reorder) {
++                return dequantize_row_q8_0_sycl_reorder;
++            } else {
++                return dequantize_block_sycl<QK8_0, QR8_0, dequantize_q8_0>;
++            }
+         case GGML_TYPE_Q2_K:
+             return dequantize_row_q2_K_sycl;
+         case GGML_TYPE_Q3_K:
 diff --git src/ggml-sycl/dequantize.hpp src/ggml-sycl/dequantize.hpp
-index 3272724f..68c3db30 100644
+index 3272724f..19fa8868 100644
 --- src/ggml-sycl/dequantize.hpp
 +++ src/ggml-sycl/dequantize.hpp
 @@ -14,6 +14,7 @@
@@ -14497,11 +18495,339 @@ index 3272724f..68c3db30 100644
  static __dpct_inline__ void dequantize_q8_0(const void *vx, const int64_t ib,
                                              const int iqs, dfloat2 &v) {
      const block_q8_0 * x = (const block_q8_0 *) vx;
+@@ -222,6 +239,34 @@ static void dequantize_block_q4_0_reorder(const void * __restrict__ vx, dst_t *
+ 
+ }
+ 
++// Dequantize Q8_0 from reorder layout: [all qs (k bytes)][all d values]
++// Each thread handles one block of QK8_0 elements.
++template<typename dst_t>
++static void dequantize_block_q8_0_reorder(const void * __restrict__ vx, dst_t * __restrict__ yy, int64_t k,
++                                  const sycl::nd_item<3> &item_ct1) {
++
++    const int64_t i = item_ct1.get_group(2);
++    const int64_t tid = item_ct1.get_local_id(2);
++    const int lane_ib = i * WARP_SIZE + tid;
++
++    if (lane_ib >= k / QK8_0) {
++        return;
++    }
++
++    dst_t * y_ptr = yy + lane_ib * QK8_0;
++
++    auto qs = (const int8_t*)vx + lane_ib * QK8_0;
++    auto s_ptr = (const sycl::half*)((const uint8_t*)vx + k) + lane_ib;
++
++    const float d = float(*s_ptr);
++
++#pragma unroll
++    for (int l = 0; l < QK8_0; ++l) {
++        y_ptr[l] = d * qs[l];
++    }
++
++}
++
+ template<typename dst_t>
+ static void dequantize_block_q4_1(const void * __restrict__ vx, dst_t * __restrict__ yy, int64_t nb32,
+                                   const sycl::nd_item<3> &item_ct1) {
 diff --git src/ggml-sycl/dmmv.cpp src/ggml-sycl/dmmv.cpp
-index 4f276011..1c8b6f37 100644
+index 4f276011..5577bf73 100644
 --- src/ggml-sycl/dmmv.cpp
 +++ src/ggml-sycl/dmmv.cpp
-@@ -972,6 +972,103 @@ static void dequantize_mul_mat_vec_q5_1_sycl(const void *vx, const dfloat *y,
+@@ -615,6 +615,162 @@ static void dequantize_mul_mat_vec_q4_k(const void *__restrict__ vx,
+     }
+ }
+ 
++static void dequantize_mul_mat_vec_q4_k_reorder(const void *__restrict__ vx,
++                                                const float *__restrict__ yy,
++                                                float *__restrict__ dst,
++                                                const int ncols, int nrows,
++                                                const sycl::nd_item<3> &item_ct1) {
++
++    const int row = item_ct1.get_group(2) * item_ct1.get_local_range(1) +
++                    item_ct1.get_local_id(1);
++    if (row > nrows) return;
++    const int num_blocks_per_row = ncols / QK_K;
++    const int ib0 = row*num_blocks_per_row;
++
++    // SOA base pointers for the reordered layout:
++    //   [qs: nb * QK_K/2] [scales: nb * K_SCALE_SIZE] [dm: nb * sizeof(half2)]
++    const int nb = nrows * num_blocks_per_row;
++    const uint8_t     * qs_base     = (const uint8_t *)vx;
++    const uint8_t     * scales_base = qs_base + (size_t)nb * (QK_K / 2);
++    const sycl::half2 * dm_base     = (const sycl::half2 *)(scales_base + (size_t)nb * K_SCALE_SIZE);
++
++#if QK_K == 256
++    const uint16_t kmask1 = 0x3f3f;
++    const uint16_t kmask2 = 0x0f0f;
++    const uint16_t kmask3 = 0xc0c0;
++
++    const int tid =
++        item_ct1.get_local_id(2) / K_QUANTS_PER_ITERATION; // 0...31 or 0...16
++    const int ix =
++        item_ct1.get_local_id(2) % K_QUANTS_PER_ITERATION; // 0 or 0,1
++
++    const int step = 8/K_QUANTS_PER_ITERATION;           // 8 or 4
++
++    const int il  = tid/step;                            // 0...3
++    const int ir  = tid - step*il;                       // 0...7 or 0...3
++    const int n   = 2 * K_QUANTS_PER_ITERATION;          // 2 or 4
++
++    const int im = il/2;  // 0 or 1. 0 computes 0,32 + 128,160, 1 computes 64,96 + 192,224
++    const int in = il%2;
++
++    const int l0 = n*(2*ir + in);
++    const int q_offset = 32*im + l0;
++    const int y_offset = 64*im + l0;
++
++    uint16_t aux[4];
++    const uint8_t * sc = (const uint8_t *)aux;
++
++#if K_QUANTS_PER_ITERATION == 2
++    uint32_t q32[4];
++    const uint8_t * q4 = (const uint8_t *)q32;
++#else
++    uint16_t q16[4];
++    const uint8_t * q4 = (const uint8_t *)q16;
++#endif
++
++    float tmp = 0; // partial sum for thread in warp
++
++    for (int i = ix; i < num_blocks_per_row; i += K_QUANTS_PER_ITERATION) {
++        const int bi = ib0 + i;
++
++        const float   * y1 = yy + i*QK_K + y_offset;
++        const float   * y2 = y1 + 128;
++
++        const sycl::half2 dm_val = dm_base[bi];
++        const float dall = dm_val[0];
++        const float dmin = dm_val[1];
++
++        const uint16_t * a = (const uint16_t *)(scales_base + bi * K_SCALE_SIZE);
++        aux[0] = a[im+0] & kmask1;
++        aux[1] = a[im+2] & kmask1;
++        aux[2] = ((a[im+4] >> 0) & kmask2) | ((a[im+0] & kmask3) >> 2);
++        aux[3] = ((a[im+4] >> 4) & kmask2) | ((a[im+2] & kmask3) >> 2);
++
++#if K_QUANTS_PER_ITERATION == 2
++        const uint32_t * q1 = (const uint32_t *)(qs_base + bi * (QK_K / 2) + q_offset);
++        const uint32_t * q2 = q1 + 16;
++
++        q32[0] = q1[0] & 0x0f0f0f0f;
++        q32[1] = q1[0] & 0xf0f0f0f0;
++        q32[2] = q2[0] & 0x0f0f0f0f;
++        q32[3] = q2[0] & 0xf0f0f0f0;
++
++        sycl::float4 s = {0.f, 0.f, 0.f, 0.f};
++        float smin = 0;
++        for (int l = 0; l < 4; ++l) {
++            s.x() += y1[l] * q4[l + 0]; s.y() += y1[l + 32] * q4[l + 4];
++            s.z() += y2[l] * q4[l + 8]; s.w() += y2[l + 32] * q4[l + 12];
++            smin += y1[l] * sc[2] + y1[l+32] * sc[3] + y2[l] * sc[6] + y2[l+32] * sc[7];
++        }
++        tmp += dall * (s.x() * sc[0] + s.y() * sc[1] * 1.f / 16.f +
++                       s.z() * sc[4] + s.w() * sc[5] * 1.f / 16.f) -
++               dmin * smin;
++#else
++        const uint16_t * q1 = (const uint16_t *)(qs_base + bi * (QK_K / 2) + q_offset);
++        const uint16_t * q2 = q1 + 32;
++
++        q16[0] = q1[0] & 0x0f0f;
++        q16[1] = q1[0] & 0xf0f0;
++        q16[2] = q2[0] & 0x0f0f;
++        q16[3] = q2[0] & 0xf0f0;
++
++        float4 s = {0.f, 0.f, 0.f, 0.f};
++        float smin = 0;
++        for (int l = 0; l < 2; ++l) {
++            s.x += y1[l] * q4[l+0]; s.y += y1[l+32] * q4[l+2];
++            s.z += y2[l] * q4[l+4]; s.w += y2[l+32] * q4[l+6];
++            smin += y1[l] * sc[2] + y1[l+32] * sc[3] + y2[l] * sc[6] + y2[l+32] * sc[7];
++        }
++        tmp += dall * (s.x * sc[0] + s.y * sc[1] * 1.f/16.f + s.z * sc[4] + s.w * sc[5] * 1.f/16.f) - dmin * smin;
++#endif
++
++    }
++#else
++    const int tid = item_ct1.get_local_id(2)/(2*K_QUANTS_PER_ITERATION);  // 0...15
++    const int ix  = item_ct1.get_local_id(2)%(2*K_QUANTS_PER_ITERATION);
++
++    const int step = tid * K_QUANTS_PER_ITERATION;
++
++    uint16_t aux16[2];
++    const uint8_t * s = (const uint8_t *)aux16;
++
++    float tmp = 0;
++
++    for (int i = ix; i < num_blocks_per_row; i += 2*K_QUANTS_PER_ITERATION) {
++        const int bi = ib0 + i;
++
++        const uint8_t * q = qs_base + bi * (QK_K / 2) + step;
++        const float   * y = yy + i*QK_K + step;
++        const uint16_t * a = (const uint16_t *)(scales_base + bi * K_SCALE_SIZE);
++        aux16[0] = a[0] & 0x0f0f;
++        aux16[1] = (a[0] >> 4) & 0x0f0f;
++        const sycl::half2 dm_val = dm_base[bi];
++        const float d = (float)dm_val[0];
++        const float m = (float)dm_val[1];
++        float sum = 0.f;
++        for (int j = 0; j < K_QUANTS_PER_ITERATION; ++j) {
++            sum += y[j+ 0] * (d * s[0] * (q[j+ 0] & 0xF) - m * s[2])
++                 + y[j+16] * (d * s[0] * (q[j+16] & 0xF) - m * s[2])
++                 + y[j+32] * (d * s[1] * (q[j+ 0] >>  4) - m * s[3])
++                 + y[j+48] * (d * s[1] * (q[j+16] >>  4) - m * s[3]);
++        }
++        tmp += sum;
++    }
++
++#endif
++
++    // sum up partial sums and write back result
++#pragma unroll
++    for (int mask = QK_WARP_SIZE / 2; mask > 0; mask >>= 1) {
++        tmp +=
++            dpct::permute_sub_group_by_xor(item_ct1.get_sub_group(), tmp, mask);
++    }
++
++    if (tid == 0) {
++        dst[row] = tmp;
++    }
++}
++
+ /*
+ DPCT1110:7: The total declared local variable size in device function
+ dequantize_mul_mat_vec_q5_k exceeds 128 bytes and may cause high register
+@@ -864,6 +1020,129 @@ static void dequantize_mul_mat_vec_q6_k(const void * __restrict__ vx, const floa
+     }
+ }
+ 
++static void dequantize_mul_mat_vec_q6_k_reorder(const void * __restrict__ vx, const float * __restrict__ yy, float * __restrict__ dst, const int ncols, int nrows,
++                                                const sycl::nd_item<3> &item_ct1) {
++
++    static_assert(16%K_QUANTS_PER_ITERATION == 0, "16 must be divisible by K_QUANTS_PER_ITERATION");
++
++    const int row = item_ct1.get_group(2) * item_ct1.get_local_range(1) +
++                    item_ct1.get_local_id(1);
++    if (row > nrows) return;
++
++    const int num_blocks_per_row = ncols / QK_K;
++    const int ib0 = row*num_blocks_per_row;
++
++    // SOA base pointers for the reordered layout:
++    //   [ql: nb * QK_K/2] [qh: nb * QK_K/4] [scales: nb * QK_K/16] [d: nb * sizeof(half)]
++    const int nb = nrows * num_blocks_per_row;
++    const uint8_t   * ql_base     = (const uint8_t *)vx;
++    const uint8_t   * qh_base     = ql_base + (size_t)nb * (QK_K / 2);
++    const int8_t    * scales_base = (const int8_t *)(qh_base + (size_t)nb * (QK_K / 4));
++    const sycl::half * d_base     = (const sycl::half *)((const uint8_t *)scales_base + (size_t)nb * (QK_K / 16));
++
++#if QK_K == 256
++
++    const int tid =
++        item_ct1.get_local_id(2) / K_QUANTS_PER_ITERATION; // 0...31 or 0...16
++    const int ix =
++        item_ct1.get_local_id(2) % K_QUANTS_PER_ITERATION; // 0 or 0, 1
++
++    const int step = 16/K_QUANTS_PER_ITERATION;          // 16 or 8
++
++    const int im = tid/step;                             // 0 or 1. 0 computes 0..., 1 computes 128...
++    const int in = tid - step*im;                        // 0...15 or 0...7
++
++#if K_QUANTS_PER_ITERATION == 1
++    const int l0 = K_QUANTS_PER_ITERATION*in;            // 0...15
++    const int is = 0;
++#else
++    const int l0 = 4 * in;                               // 0, 4, 8, ..., 28
++    const int is = in / 4;
++#endif
++    const int ql_offset = 64*im + l0;
++    const int qh_offset = 32*im + l0;
++    const int s_offset  =  8*im + is;
++    const int y_offset = 128*im + l0;
++
++    float tmp = 0; // partial sum for thread in warp
++
++    for (int i = ix; i < num_blocks_per_row; i += K_QUANTS_PER_ITERATION) {
++        const int bi = ib0 + i;
++
++        const float   * y  = yy + i * QK_K + y_offset;
++        const uint8_t * ql = ql_base + bi * (QK_K / 2) + ql_offset;
++        const uint8_t * qh = qh_base + bi * (QK_K / 4) + qh_offset;
++        const int8_t  * s  = scales_base + bi * (QK_K / 16) + s_offset;
++
++        const float d = d_base[bi];
++
++#if K_QUANTS_PER_ITERATION == 1
++        float sum = y[ 0] * s[0] * d * ((int8_t)((ql[ 0] & 0xF) | ((qh[ 0] & 0x03) << 4)) - 32)
++                  + y[16] * s[1] * d * ((int8_t)((ql[16] & 0xF) | ((qh[16] & 0x03) << 4)) - 32)
++                  + y[32] * s[2] * d * ((int8_t)((ql[32] & 0xF) | ((qh[ 0] & 0x0c) << 2)) - 32)
++                  + y[48] * s[3] * d * ((int8_t)((ql[48] & 0xF) | ((qh[16] & 0x0c) << 2)) - 32)
++                  + y[64] * s[4] * d * ((int8_t)((ql[ 0]  >> 4) | ((qh[ 0] & 0x30) >> 0)) - 32)
++                  + y[80] * s[5] * d * ((int8_t)((ql[16]  >> 4) | ((qh[16] & 0x30) >> 0)) - 32)
++                  + y[96] * s[6] * d * ((int8_t)((ql[32]  >> 4) | ((qh[ 0] & 0xc0) >> 2)) - 32)
++                  +y[112] * s[7] * d * ((int8_t)((ql[48]  >> 4) | ((qh[16] & 0xc0) >> 2)) - 32);
++        tmp += sum;
++#else
++        float sum = 0;
++        for (int l = 0; l < 4; ++l) {
++            sum += y[l+ 0] * s[0] * d * ((int8_t)((ql[l+ 0] & 0xF) | (((qh[l] >> 0) & 3) << 4)) - 32)
++                 + y[l+32] * s[2] * d * ((int8_t)((ql[l+32] & 0xF) | (((qh[l] >> 2) & 3) << 4)) - 32)
++                 + y[l+64] * s[4] * d * ((int8_t)((ql[l+ 0]  >> 4) | (((qh[l] >> 4) & 3) << 4)) - 32)
++                 + y[l+96] * s[6] * d * ((int8_t)((ql[l+32]  >> 4) | (((qh[l] >> 6) & 3) << 4)) - 32);
++        }
++        tmp += sum;
++#endif
++
++    }
++
++#else
++
++    const int tid = item_ct1.get_local_id(2)/(2*K_QUANTS_PER_ITERATION);  // 0...7
++    const int ix  = item_ct1.get_local_id(2)%(2*K_QUANTS_PER_ITERATION);  // 0...3
++
++    const int step = tid * K_QUANTS_PER_ITERATION;
++
++    float tmp = 0; // partial sum for thread in warp
++
++    for (int i = ix; i < num_blocks_per_row; i += 2*K_QUANTS_PER_ITERATION) {
++        const int bi = ib0 + i;
++
++        const float   * y  = yy + i * QK_K + step;
++        const uint8_t * ql = ql_base + bi * (QK_K / 2) + step;
++        const uint8_t * qh = qh_base + bi * (QK_K / 4) + step;
++        const int8_t  * s  = scales_base + bi * (QK_K / 16);
++
++        const float d = d_base[bi];
++
++        float sum = 0;
++        for (int j = 0; j < K_QUANTS_PER_ITERATION; ++j) {
++            sum += y[j+ 0] * s[0] * d * ((int8_t)((ql[j+ 0] & 0xF) | ((qh[j] & 0x03) << 4)) - 32)
++                 + y[j+16] * s[1] * d * ((int8_t)((ql[j+16] & 0xF) | ((qh[j] & 0x0c) << 2)) - 32)
++                 + y[j+32] * s[2] * d * ((int8_t)((ql[j+ 0] >>  4) | ((qh[j] & 0x30) >> 0)) - 32)
++                 + y[j+48] * s[3] * d * ((int8_t)((ql[j+16] >>  4) | ((qh[j] & 0xc0) >> 2)) - 32);
++        }
++        tmp += sum;
++
++    }
++
++#endif
++
++    // sum up partial sums and write back result
++#pragma unroll
++    for (int mask = QK_WARP_SIZE / 2; mask > 0; mask >>= 1) {
++        tmp +=
++            dpct::permute_sub_group_by_xor(item_ct1.get_sub_group(), tmp, mask);
++    }
++
++    if (tid == 0) {
++        dst[row] = tmp;
++    }
++}
++
+ static void dequantize_mul_mat_vec_q4_0_sycl_reorder(const void *vx, const dfloat *y,
+                                              float *dst, const int ncols,
+                                              const int nrows,
+@@ -972,6 +1251,103 @@ static void dequantize_mul_mat_vec_q5_1_sycl(const void *vx, const dfloat *y,
      }
  }
  
@@ -14605,7 +18931,46 @@ index 4f276011..1c8b6f37 100644
  static void dequantize_mul_mat_vec_q8_0_sycl(const void *vx, const dfloat *y,
                                               float *dst, const int ncols,
                                               const int nrows,
-@@ -1122,7 +1219,12 @@ void ggml_sycl_op_dequantize_mul_mat_vec(
+@@ -1070,6 +1446,38 @@ static void dequantize_mul_mat_vec_q6_K_sycl(const void *vx, const float *y,
+         });
+ }
+ 
++static void dequantize_mul_mat_vec_q4_K_sycl_reorder(const void *vx, const float *y,
++                                                     float *dst, const int ncols,
++                                                     const int nrows,
++                                                     dpct::queue_ptr stream) {
++    GGML_ASSERT(ncols % QK_K == 0);
++    const int ny = 2 / K_QUANTS_PER_ITERATION;
++    const int block_num_y = (nrows + ny - 1) / ny;
++    const sycl::range<3> block_nums(1, 1, block_num_y);
++    const sycl::range<3> block_dims(1, ny, QK_WARP_SIZE);
++    stream->parallel_for(
++        sycl::nd_range<3>(block_nums * block_dims, block_dims),
++        [=](sycl::nd_item<3> item_ct1) [[sycl::reqd_sub_group_size(QK_WARP_SIZE)]] {
++            dequantize_mul_mat_vec_q4_k_reorder(vx, y, dst, ncols, nrows, item_ct1);
++        });
++}
++
++static void dequantize_mul_mat_vec_q6_K_sycl_reorder(const void *vx, const float *y,
++                                                     float *dst, const int ncols,
++                                                     const int nrows,
++                                                     dpct::queue_ptr stream) {
++    GGML_ASSERT(ncols % QK_K == 0);
++    const int ny = 2 / K_QUANTS_PER_ITERATION;
++    const int block_num_y = (nrows + ny - 1) / ny;
++    const sycl::range<3> block_nums(1, 1, block_num_y);
++    const sycl::range<3> block_dims(1, ny, QK_WARP_SIZE);
++    stream->parallel_for(
++        sycl::nd_range<3>(block_nums * block_dims, block_dims),
++        [=](sycl::nd_item<3> item_ct1) [[sycl::reqd_sub_group_size(QK_WARP_SIZE)]] {
++            dequantize_mul_mat_vec_q6_k_reorder(vx, y, dst, ncols, nrows, item_ct1);
++        });
++}
++
+ void ggml_sycl_op_dequantize_mul_mat_vec(
+     ggml_backend_sycl_context & ctx,
+     const ggml_tensor *src0, const ggml_tensor *src1, ggml_tensor *dst,
+@@ -1122,7 +1530,12 @@ void ggml_sycl_op_dequantize_mul_mat_vec(
              dequantize_mul_mat_vec_q5_1_sycl(src0_dd_i, src1_dfloat, dst_dd_i, ne00, row_diff, stream);
              break;
          case GGML_TYPE_Q8_0:
@@ -14619,6 +18984,30 @@ index 4f276011..1c8b6f37 100644
              break;
          case GGML_TYPE_Q2_K:
              dequantize_mul_mat_vec_q2_K_sycl(src0_dd_i, src1_ddf_i, dst_dd_i, ne00, row_diff, stream);
+@@ -1133,8 +1546,7 @@ void ggml_sycl_op_dequantize_mul_mat_vec(
+         case GGML_TYPE_Q4_K:
+             if ((ggml_tensor_extra_gpu *) dst->src[0]->extra &&
+                 ((ggml_tensor_extra_gpu *) dst->src[0]->extra)->optimized_feature.reorder) {
+-                // reorder is currently not supported for dmmv
+-                GGML_ABORT("Unimplemented dequantize case case for q4_k reorder");
++                dequantize_mul_mat_vec_q4_K_sycl_reorder(src0_dd_i, src1_ddf_i, dst_dd_i, ne00, row_diff, stream);
+             } else {
+                 dequantize_mul_mat_vec_q4_K_sycl(src0_dd_i, src1_ddf_i, dst_dd_i, ne00, row_diff, stream);
+             }
+@@ -1143,7 +1555,12 @@ void ggml_sycl_op_dequantize_mul_mat_vec(
+             dequantize_mul_mat_vec_q5_K_sycl(src0_dd_i, src1_ddf_i, dst_dd_i, ne00, row_diff, stream);
+             break;
+         case GGML_TYPE_Q6_K:
+-            dequantize_mul_mat_vec_q6_K_sycl(src0_dd_i, src1_ddf_i, dst_dd_i, ne00, row_diff, stream);
++            if ((ggml_tensor_extra_gpu *) dst->src[0]->extra &&
++                ((ggml_tensor_extra_gpu *) dst->src[0]->extra)->optimized_feature.reorder) {
++                dequantize_mul_mat_vec_q6_K_sycl_reorder(src0_dd_i, src1_ddf_i, dst_dd_i, ne00, row_diff, stream);
++            } else {
++                dequantize_mul_mat_vec_q6_K_sycl(src0_dd_i, src1_ddf_i, dst_dd_i, ne00, row_diff, stream);
++            }
+             break;
+         case GGML_TYPE_F16:
+             convert_mul_mat_vec_f16_sycl(src0_dd_i, src1_dfloat, dst_dd_i, ne00, row_diff, stream);
 diff --git src/ggml-sycl/element_wise.cpp src/ggml-sycl/element_wise.cpp
 index ec024752..249e80c8 100644
 --- src/ggml-sycl/element_wise.cpp
@@ -14946,7 +19335,7 @@ index 648455c1..ebc58752 100644
                                                  q_d, k_d, v_d, g_d, b_d, s_d, dst_d, H, n_tokens, n_seqs, sq1, sq2,
                                                  sq3, sv1, sv2, sv3, sb1, sb2, sb3, neqk1_magic, rq3_magic, scale);
 diff --git src/ggml-sycl/ggml-sycl.cpp src/ggml-sycl/ggml-sycl.cpp
-index 456b1699..ea79d253 100644
+index 456b1699..c02a41ad 100644
 --- src/ggml-sycl/ggml-sycl.cpp
 +++ src/ggml-sycl/ggml-sycl.cpp
 @@ -411,11 +411,22 @@ ggml_backend_sycl_buffer_init_tensor(ggml_backend_buffer_t buffer,
@@ -15038,13 +19427,80 @@ index 456b1699..ea79d253 100644
          case GGML_TYPE_Q4_K:
          case GGML_TYPE_Q6_K:
              return true;
-@@ -3358,6 +3382,40 @@ static void reorder_qw_q4_0(uint8_t * data_device, const int ncols, const int nr
-     sycl_ext_free(stream, tmp_buf);
+@@ -3324,9 +3348,55 @@ static inline void sycl_ext_free(dpct::queue_ptr stream, void * ptr) {
+     sycl::free(ptr, *stream);
  }
  
-+static void reorder_qw_q8_0(uint8_t * data_device, const int ncols, const int nrows, size_t size, size_t offset,
+-static void reorder_qw_q4_0(uint8_t * data_device, const int ncols, const int nrows, size_t size, size_t offset,
++// RAII wrapper for temporary reorder buffers with optional host memory fallback.
++// When device allocation fails and GGML_SYCL_HOST_MEM_FALLBACK is enabled,
++// falls back to host memory so the reorder kernel can still run (over PCIe).
++// Device access to host memory requires Linux kernel 6.8+ (Ubuntu 26.04+).
++struct sycl_reorder_temp_buffer {
++    void *          ptr  = nullptr;
++    dpct::queue_ptr stream;
++
++    sycl_reorder_temp_buffer(dpct::queue_ptr stream, size_t size) : stream(stream) {
++        ptr = sycl_ext_malloc_device(stream, size);
++#ifdef GGML_SYCL_HOST_MEM_FALLBACK
++        if (!ptr) {
++            ptr = sycl::malloc_host(size, *stream);
++            if (ptr) {
++                host_fallback = true;
++                GGML_LOG_WARN("%s: device alloc of %zu bytes failed, using host memory fallback\n", __func__, size);
++            }
++        }
++#endif
++    }
++
++    ~sycl_reorder_temp_buffer() {
++        if (!ptr) {
++            return;
++        }
++        if (host_fallback) {
++            sycl::free(ptr, *stream);
++        } else {
++            sycl_ext_free(stream, ptr);
++        }
++    }
++
++    explicit operator bool() const { return ptr != nullptr; }
++
++    sycl_reorder_temp_buffer(const sycl_reorder_temp_buffer &)            = delete;
++    sycl_reorder_temp_buffer & operator=(const sycl_reorder_temp_buffer &) = delete;
++
++private:
++    bool host_fallback = false;
++};
++
++static bool reorder_qw_q4_0(uint8_t * data_device, const int ncols, const int nrows, size_t size, size_t offset,
+                             dpct::queue_ptr stream) {
+-    uint8_t * tmp_buf = static_cast<uint8_t *>(sycl_ext_malloc_device(stream, size));
++    sycl_reorder_temp_buffer tmp(stream, size);
++    if (!tmp) {
++        GGML_LOG_WARN("%s: failed to allocate %zu bytes for reorder temp buffer, skipping reorder\n", __func__, size);
++        return false;
++    }
++    uint8_t * tmp_buf = static_cast<uint8_t *>(tmp.ptr);
+ 
+     sycl::event copy_event;
+     SYCL_CHECK(CHECK_TRY_ERROR(copy_event = stream->memcpy(tmp_buf, data_device, size)));
+@@ -3355,16 +3425,60 @@ static void reorder_qw_q4_0(uint8_t * data_device, const int ncols, const int nr
+     if (!g_ggml_sycl_use_async_mem_op) {
+         reorder_event.wait_and_throw();
+     }
+-    sycl_ext_free(stream, tmp_buf);
++    return true;
++}
++
++static bool reorder_qw_q8_0(uint8_t * data_device, const int ncols, const int nrows, size_t size, size_t offset,
 +                            dpct::queue_ptr stream) {
-+    uint8_t * tmp_buf = static_cast<uint8_t *>(sycl_ext_malloc_device(stream, size));
++    sycl_reorder_temp_buffer tmp(stream, size);
++    if (!tmp) {
++        GGML_LOG_WARN("%s: failed to allocate %zu bytes for reorder temp buffer, skipping reorder\n", __func__, size);
++        return false;
++    }
++    uint8_t * tmp_buf = static_cast<uint8_t *>(tmp.ptr);
 +
 +    sycl::event copy_event;
 +    SYCL_CHECK(CHECK_TRY_ERROR(copy_event = stream->memcpy(tmp_buf, data_device, size)));
@@ -15073,23 +19529,101 @@ index 456b1699..ea79d253 100644
 +    if (!g_ggml_sycl_use_async_mem_op) {
 +        reorder_event.wait_and_throw();
 +    }
-+    sycl_ext_free(stream, tmp_buf);
-+}
-+
- static void reorder_qw_q4_k(uint8_t * data_device, size_t size, size_t offset, dpct::queue_ptr stream) {
++    return true;
+ }
+ 
+-static void reorder_qw_q4_k(uint8_t * data_device, size_t size, size_t offset, dpct::queue_ptr stream) {
++static bool reorder_qw_q4_k(uint8_t * data_device, size_t size, size_t offset, dpct::queue_ptr stream) {
      GGML_ASSERT(size % sizeof(block_q4_K) == 0);
      GGML_ASSERT(offset % sizeof(block_q4_K) == 0);
-@@ -3454,6 +3512,9 @@ static void reorder_qw(const ggml_tensor * src0, dpct::queue_ptr stream) {
+ 
+     const int nblocks = size / sizeof(block_q4_K);
+ 
+-    uint8_t * tmp_buf = static_cast<uint8_t *>(sycl_ext_malloc_device(stream, size));
++    sycl_reorder_temp_buffer tmp(stream, size);
++    if (!tmp) {
++        GGML_LOG_WARN("%s: failed to allocate %zu bytes for reorder temp buffer, skipping reorder\n", __func__, size);
++        return false;
++    }
++    uint8_t * tmp_buf = static_cast<uint8_t *>(tmp.ptr);
+ 
+     sycl::event copy_event;
+     SYCL_CHECK(CHECK_TRY_ERROR(copy_event = stream->memcpy(tmp_buf, data_device, size)));
+@@ -3393,16 +3507,21 @@ static void reorder_qw_q4_k(uint8_t * data_device, size_t size, size_t offset, d
+     if (!g_ggml_sycl_use_async_mem_op) {
+         reorder_event.wait_and_throw();
+     }
+-    sycl_ext_free(stream, tmp_buf);
++    return true;
+ }
+ 
+-static void reorder_qw_q6_k(uint8_t * data_device, size_t size, size_t offset, dpct::queue_ptr stream) {
++static bool reorder_qw_q6_k(uint8_t * data_device, size_t size, size_t offset, dpct::queue_ptr stream) {
+     GGML_ASSERT(size % sizeof(block_q6_K) == 0);
+     GGML_ASSERT(offset % sizeof(block_q6_K) == 0);
+ 
+     const int nblocks = size / sizeof(block_q6_K);
+ 
+-    uint8_t * tmp_buf = static_cast<uint8_t *>(sycl_ext_malloc_device(stream, size));
++    sycl_reorder_temp_buffer tmp(stream, size);
++    if (!tmp) {
++        GGML_LOG_WARN("%s: failed to allocate %zu bytes for reorder temp buffer, skipping reorder\n", __func__, size);
++        return false;
++    }
++    uint8_t * tmp_buf = static_cast<uint8_t *>(tmp.ptr);
+ 
+     sycl::event copy_event;
+     SYCL_CHECK(CHECK_TRY_ERROR(copy_event = stream->memcpy(tmp_buf, data_device, size)));
+@@ -3441,10 +3560,10 @@ static void reorder_qw_q6_k(uint8_t * data_device, size_t size, size_t offset, d
+     if (!g_ggml_sycl_use_async_mem_op) {
+         reorder_event.wait_and_throw();
+     }
+-    sycl_ext_free(stream, tmp_buf);
++    return true;
+ }
+ 
+-static void reorder_qw(const ggml_tensor * src0, dpct::queue_ptr stream) {
++static bool reorder_qw(const ggml_tensor * src0, dpct::queue_ptr stream) {
+     uint8_t * data_device = (uint8_t *) src0->data;
+     size_t ncols = src0->ne[0];
+     size_t nrows = src0->ne[1];
+@@ -3452,17 +3571,16 @@ static void reorder_qw(const ggml_tensor * src0, dpct::queue_ptr stream) {
+ 
+     switch (src0->type) {
          case GGML_TYPE_Q4_0:
-             reorder_qw_q4_0(data_device, ncols, nrows, size, 0, stream);
-             break;
+-            reorder_qw_q4_0(data_device, ncols, nrows, size, 0, stream);
+-            break;
++            return reorder_qw_q4_0(data_device, ncols, nrows, size, 0, stream);
 +        case GGML_TYPE_Q8_0:
-+            reorder_qw_q8_0(data_device, ncols, nrows, size, 0, stream);
-+            break;
++            return reorder_qw_q8_0(data_device, ncols, nrows, size, 0, stream);
          case GGML_TYPE_Q4_K:
-             reorder_qw_q4_k(data_device, size, 0, stream);
+-            reorder_qw_q4_k(data_device, size, 0, stream);
+-            break;
++            return reorder_qw_q4_k(data_device, size, 0, stream);
+         case GGML_TYPE_Q6_K:
+-            reorder_qw_q6_k(data_device, size, 0, stream);
+-            break;
++            return reorder_qw_q6_k(data_device, size, 0, stream);
+         default:
+             GGML_ABORT("reorder_qw() called with unsupported type");
+-            break;
++            return false;
+     }
+ }
+ 
+@@ -3502,8 +3620,9 @@ static void opt_for_reorder(ggml_backend_sycl_context * ctx, const ggml_tensor *
              break;
-@@ -4496,6 +4557,8 @@ static ggml_backend_i ggml_backend_sycl_interface = {
+     }
+ 
+-    reorder_qw(src0, ctx->stream());
+-    extra->optimized_feature.reorder = true;  // Used to decode/dequan in next steps and avoid re-reordering
++    if (reorder_qw(src0, ctx->stream())) {
++        extra->optimized_feature.reorder = true;  // Used to decode/dequan in next steps and avoid re-reordering
++    }
+ }
+ 
+ 
+@@ -4496,6 +4615,8 @@ static ggml_backend_i ggml_backend_sycl_interface = {
      /* .free                    = */ ggml_backend_sycl_free,
      /* .set_tensor_async        = */ ggml_backend_sycl_set_tensor_async,
      /* .get_tensor_async        = */ ggml_backend_sycl_get_tensor_async,
@@ -15098,7 +19632,7 @@ index 456b1699..ea79d253 100644
      /* .cpy_tensor_async        = */ NULL, // ggml_backend_sycl_cpy_tensor_async,
                                             // // TODO: update for the new
                                             // interface
-@@ -4664,12 +4727,19 @@ static bool ggml_backend_sycl_device_supports_op(ggml_backend_dev_t dev, const g
+@@ -4664,12 +4785,19 @@ static bool ggml_backend_sycl_device_supports_op(ggml_backend_dev_t dev, const g
                  struct ggml_tensor * a = op->src[0];
                  struct ggml_tensor * b = op->src[1];
  
@@ -15658,7 +20192,7 @@ index a63ee2b9..2b978556 100644
      /* .synchronize             = */ NULL,  // ggml_backend_remoting_synchronize,
      /* .graph_plan_create       = */ NULL,
 diff --git src/ggml-vulkan/ggml-vulkan.cpp src/ggml-vulkan/ggml-vulkan.cpp
-index 15ed5b2a..b2a54bd8 100644
+index 15ed5b2a..702a249d 100644
 --- src/ggml-vulkan/ggml-vulkan.cpp
 +++ src/ggml-vulkan/ggml-vulkan.cpp
 @@ -20,6 +20,13 @@ DispatchLoaderDynamic & ggml_vk_default_dispatcher();
@@ -15675,6 +20209,15 @@ index 15ed5b2a..b2a54bd8 100644
  
  #include <algorithm>
  #include <cmath>
+@@ -1387,7 +1394,7 @@ struct vk_op_im2col_push_constants {
+     uint32_t IW; uint32_t IH;
+     uint32_t OW; uint32_t OH;
+     uint32_t KW; uint32_t KH;
+-    uint32_t pelements;
++    uint32_t OH_batch;
+     uint32_t CHW;
+     int32_t s0; int32_t s1;
+     int32_t p0; int32_t p1;
 @@ -2131,6 +2138,66 @@ static void ggml_vk_create_pipeline_func(vk_device& device, vk_pipeline& pipelin
      GGML_ASSERT(wg_denoms[0] > 0 && wg_denoms[1] > 0 && wg_denoms[2] > 0); // NOLINT
  
@@ -16453,7 +20996,39 @@ index 15ed5b2a..b2a54bd8 100644
  
      return supported;
  }
-@@ -13509,6 +13644,8 @@ static ggml_backend_buffer_i ggml_backend_vk_buffer_interface = {
+@@ -9929,7 +10064,13 @@ static void ggml_vk_op_f32(ggml_backend_vk_context * ctx, vk_context& subctx, co
+ 
+             const uint32_t batch = src1->ne[is_2D ? 3 : 2];
+ 
+-            elements = { OW * KW * KH, OH, batch * IC };
++            const uint32_t CHW = IC * KH * KW;
++            // Cap X workgroups to limit concurrent IC channel reads.
++            // The shader loops over X to cover the full CHW dimension.
++            // AMD prefers a lower limit
++            const uint32_t min_cap = ctx->device->vendor_id == VK_VENDOR_ID_AMD ? 512u : 4096u;
++            const uint32_t x_elements = std::min(CHW, std::max(min_cap, OW * KH * KW));
++            elements = { x_elements, OW, OH * batch };
+             elements[1] = std::min(elements[1], ctx->device->properties.limits.maxComputeWorkGroupCount[1]);
+             elements[2] = std::min(elements[2], ctx->device->properties.limits.maxComputeWorkGroupCount[2]);
+         } break;
+@@ -11592,7 +11733,6 @@ static void ggml_vk_im2col(ggml_backend_vk_context * ctx, vk_context& subctx, co
+     const uint32_t offset_delta = src1->nb[is_2D ? 2 : 1] / 4; // nb is byte offset, src is type float32
+     const uint32_t batch_offset = src1->nb[is_2D ? 3 : 2] / 4; // nb is byte offset, src is type float32
+ 
+-    const uint32_t pelements = OW * KW * KH;
+     const uint32_t batch = src1->ne[is_2D ? 3 : 2];
+ 
+     const ggml_backend_vk_buffer_context * d_buf_ctx = (ggml_backend_vk_buffer_context *)dst->buffer->context;
+@@ -11604,7 +11744,7 @@ static void ggml_vk_im2col(ggml_backend_vk_context * ctx, vk_context& subctx, co
+         dst_addr,
+         batch_offset, offset_delta,
+         IC, IW, IH, OW, OH, KW, KH,
+-        pelements,
++        OH * batch,
+         IC * KH * KW,
+         s0, s1, p0, p1, d0, d1, batch * IC
+     });
+@@ -13509,6 +13649,8 @@ static ggml_backend_buffer_i ggml_backend_vk_buffer_interface = {
      /* .memset_tensor   = */ ggml_backend_vk_buffer_memset_tensor,
      /* .set_tensor      = */ ggml_backend_vk_buffer_set_tensor,
      /* .get_tensor      = */ ggml_backend_vk_buffer_get_tensor,
@@ -16462,7 +21037,7 @@ index 15ed5b2a..b2a54bd8 100644
      /* .cpy_tensor      = */ ggml_backend_vk_buffer_cpy_tensor,
      /* .clear           = */ ggml_backend_vk_buffer_clear,
      /* .reset           = */ NULL,
-@@ -14220,8 +14357,7 @@ static bool ggml_vk_can_fuse_rms_norm_mul_rope(ggml_backend_vk_context * ctx, co
+@@ -14220,8 +14362,7 @@ static bool ggml_vk_can_fuse_rms_norm_mul_rope(ggml_backend_vk_context * ctx, co
      }
  
      // conditions for pipeline creation
@@ -16472,7 +21047,7 @@ index 15ed5b2a..b2a54bd8 100644
          return false;
      }
  
-@@ -14967,6 +15103,8 @@ static ggml_backend_i ggml_backend_vk_interface = {
+@@ -14967,6 +15108,8 @@ static ggml_backend_i ggml_backend_vk_interface = {
      /* .free                    = */ ggml_backend_vk_free,
      /* .set_tensor_async        = */ ggml_backend_vk_set_tensor_async,
      /* .get_tensor_async        = */ ggml_backend_vk_get_tensor_async,
@@ -16481,7 +21056,7 @@ index 15ed5b2a..b2a54bd8 100644
      /* .cpy_tensor_async        = */ ggml_backend_vk_cpy_tensor_async,
      /* .synchronize             = */ ggml_backend_vk_synchronize,
      /* .graph_plan_create       = */ NULL,
-@@ -15253,6 +15391,7 @@ static bool ggml_backend_vk_device_supports_op(ggml_backend_dev_t dev, const ggm
+@@ -15253,6 +15396,7 @@ static bool ggml_backend_vk_device_supports_op(ggml_backend_dev_t dev, const ggm
                      case GGML_TYPE_F32:
                      case GGML_TYPE_F16:
                      case GGML_TYPE_BF16:
@@ -16489,7 +21064,7 @@ index 15ed5b2a..b2a54bd8 100644
                      case GGML_TYPE_Q4_0:
                      case GGML_TYPE_Q4_1:
                      case GGML_TYPE_Q5_0:
-@@ -15273,6 +15412,7 @@ static bool ggml_backend_vk_device_supports_op(ggml_backend_dev_t dev, const ggm
+@@ -15273,6 +15417,7 @@ static bool ggml_backend_vk_device_supports_op(ggml_backend_dev_t dev, const ggm
                      case GGML_TYPE_IQ4_XS:
                      case GGML_TYPE_IQ4_NL:
                      case GGML_TYPE_MXFP4:
@@ -16497,7 +21072,7 @@ index 15ed5b2a..b2a54bd8 100644
                          break;
                      default:
                          return false;
-@@ -15331,11 +15471,12 @@ static bool ggml_backend_vk_device_supports_op(ggml_backend_dev_t dev, const ggm
+@@ -15331,11 +15476,12 @@ static bool ggml_backend_vk_device_supports_op(ggml_backend_dev_t dev, const ggm
                  case GGML_TYPE_F32:
                  case GGML_TYPE_Q4_0:
                  case GGML_TYPE_Q8_0:
@@ -16512,7 +21087,7 @@ index 15ed5b2a..b2a54bd8 100644
                  // K dequants currently disabled because D dimension is rounded up to 256 and runs inefficiently
                  //case GGML_TYPE_Q2_K:
                  //case GGML_TYPE_Q3_K:
-@@ -15350,12 +15491,7 @@ static bool ggml_backend_vk_device_supports_op(ggml_backend_dev_t dev, const ggm
+@@ -15350,12 +15496,7 @@ static bool ggml_backend_vk_device_supports_op(ggml_backend_dev_t dev, const ggm
                  //case GGML_TYPE_IQ3_XXS:
                  //case GGML_TYPE_IQ3_S:
                  //case GGML_TYPE_IQ4_XS:
@@ -16526,7 +21101,7 @@ index 15ed5b2a..b2a54bd8 100644
                  default:
                      return false;
                  }
-@@ -15371,6 +15507,7 @@ static bool ggml_backend_vk_device_supports_op(ggml_backend_dev_t dev, const ggm
+@@ -15371,6 +15512,7 @@ static bool ggml_backend_vk_device_supports_op(ggml_backend_dev_t dev, const ggm
                      case GGML_TYPE_F32:
                      case GGML_TYPE_F16:
                      case GGML_TYPE_BF16:
@@ -16534,7 +21109,7 @@ index 15ed5b2a..b2a54bd8 100644
                      case GGML_TYPE_Q4_0:
                      case GGML_TYPE_Q4_1:
                      case GGML_TYPE_Q5_0:
-@@ -15391,6 +15528,7 @@ static bool ggml_backend_vk_device_supports_op(ggml_backend_dev_t dev, const ggm
+@@ -15391,6 +15533,7 @@ static bool ggml_backend_vk_device_supports_op(ggml_backend_dev_t dev, const ggm
                      case GGML_TYPE_IQ4_XS:
                      case GGML_TYPE_IQ4_NL:
                      case GGML_TYPE_MXFP4:
@@ -16542,7 +21117,7 @@ index 15ed5b2a..b2a54bd8 100644
                      case GGML_TYPE_I32:
                          return true;
                      default:
-@@ -15403,6 +15541,7 @@ static bool ggml_backend_vk_device_supports_op(ggml_backend_dev_t dev, const ggm
+@@ -15403,6 +15546,7 @@ static bool ggml_backend_vk_device_supports_op(ggml_backend_dev_t dev, const ggm
                      case GGML_TYPE_F32:
                      case GGML_TYPE_F16:
                      case GGML_TYPE_BF16:
@@ -16550,7 +21125,7 @@ index 15ed5b2a..b2a54bd8 100644
                      case GGML_TYPE_Q4_0:
                      case GGML_TYPE_Q4_1:
                      case GGML_TYPE_Q5_0:
-@@ -15426,6 +15565,7 @@ static bool ggml_backend_vk_device_supports_op(ggml_backend_dev_t dev, const ggm
+@@ -15426,6 +15570,7 @@ static bool ggml_backend_vk_device_supports_op(ggml_backend_dev_t dev, const ggm
                      case GGML_TYPE_F32:
                      case GGML_TYPE_F16:
                      case GGML_TYPE_BF16:
@@ -16558,7 +21133,7 @@ index 15ed5b2a..b2a54bd8 100644
                      case GGML_TYPE_Q4_0:
                      case GGML_TYPE_Q4_1:
                      case GGML_TYPE_Q5_0:
-@@ -15440,6 +15580,7 @@ static bool ggml_backend_vk_device_supports_op(ggml_backend_dev_t dev, const ggm
+@@ -15440,6 +15585,7 @@ static bool ggml_backend_vk_device_supports_op(ggml_backend_dev_t dev, const ggm
                  if (src1_type == GGML_TYPE_F32) {
                      switch (src0_type) {
                      case GGML_TYPE_F16:
@@ -17425,7 +22000,7 @@ index 95298922..d8fdd8f7 100644
  layout(local_size_x = 512, local_size_y = 1, local_size_z = 1) in;
  
 diff --git src/ggml-vulkan/vulkan-shaders/im2col.comp src/ggml-vulkan/vulkan-shaders/im2col.comp
-index db14f5a3..674f91e5 100644
+index db14f5a3..ba4c2103 100644
 --- src/ggml-vulkan/vulkan-shaders/im2col.comp
 +++ src/ggml-vulkan/vulkan-shaders/im2col.comp
 @@ -3,7 +3,6 @@
@@ -17436,6 +22011,134 @@ index db14f5a3..674f91e5 100644
  #include "types.glsl"
  
  layout (push_constant) uniform parameter
+@@ -14,7 +13,7 @@ layout (push_constant) uniform parameter
+     uint IW; uint IH;
+     uint OW; uint OH;
+     uint KW; uint KH;
+-    uint pelements;
++    uint OH_batch;
+     uint CHW;
+     int s0; int s1;
+     int p0; int p1;
+@@ -35,82 +34,60 @@ layout (binding = 1) writeonly buffer D {D_TYPE data_d[];};
+ layout (buffer_reference) buffer D_ptr {D_TYPE d;};
+ #endif
+ 
+-void im2col(const uint y, const uint z) {
+-    const uint gidx = gl_GlobalInvocationID.x;
++void im2col(const uint ow, const uint z_idx) {
++    const uint oh = z_idx % p.OH;
++    const uint batch_idx = z_idx / p.OH;
+ 
+-    const uint oh = y;
+-    const uint batch = z / p.IC;
+-    const uint ic = z % p.IC;
++    const uint gidx = gl_LocalInvocationID.x;
++    const uint src_batch = batch_idx * p.batch_offset;
++    const BDA_OFFSET_T dst_row = ((BDA_OFFSET_T(batch_idx) * p.OH + oh) * p.OW + ow) * p.CHW;
+ 
+-    const uint src_base = ic * p.offset_delta + batch * p.batch_offset;
+-    const BDA_OFFSET_T dst_base = ((BDA_OFFSET_T(batch) * p.OH + oh) * p.OW) * p.CHW + BDA_OFFSET_T(ic) * (p.KW * p.KH);
+-    const int oh_s1 = int(oh) * p.s1;
+-    const uint ksize = p.OW * p.KH;
++    const uint KHKW = p.KH * p.KW;
+ 
+-    const uint base_linear_idx = gidx * NUM_ITER;
++    uint wg_x = gl_WorkGroupID.x;
++    do {
++        const uint wg_offset = wg_x * 512;
+ 
+-    uint current_kx = base_linear_idx / ksize;
+-    const uint rem = base_linear_idx - (current_kx * ksize);
+-    uint current_ky = rem / p.OW;
+-    uint current_ix = rem % p.OW;
++        [[unroll]] for (uint i = 0; i < NUM_ITER; ++i) {
++            const uint chw_idx = wg_offset + gidx + i * BLOCK_SIZE;
+ 
+-    A_TYPE values[NUM_ITER];
+-    BDA_OFFSET_T offset_dst[NUM_ITER];
+-    [[unroll]] for (uint idx = 0; idx < NUM_ITER; ++idx) {
+-        values[idx] = A_TYPE(0);
+-    }
+-
+-    [[unroll]] for (uint idx = 0; idx < NUM_ITER; ++idx) {
+-
+-        const uint linear_idx = base_linear_idx + idx;
+-
+-        if (linear_idx >= p.pelements) {
+-            continue;
+-        }
+-
+-        const uint iiw = current_ix * p.s0 + current_kx * p.d0 - p.p0;
+-        const uint iih = oh_s1 + current_ky * p.d1 - p.p1;
+-
+-        offset_dst[idx] = dst_base + BDA_OFFSET_T(current_ix) * p.CHW + current_ky * p.KW + current_kx;
+-
+-        if ((iih < p.IH) && (iiw < p.IW)) {
+-            values[idx] = data_a[src_base + iih * p.IW + iiw];
+-        }
+-
+-        if (++current_ix == p.OW) {
+-            current_ix = 0;
+-            if (++current_ky == p.KH) {
+-                current_ky = 0;
+-                current_kx++;
++            if (chw_idx >= p.CHW) {
++                return;
+             }
+-        }
+-    }
+ 
+-    [[unroll]] for (uint idx = 0; idx < NUM_ITER; ++idx) {
++            const uint ic = chw_idx / KHKW;
++            const uint rem = chw_idx - ic * KHKW;
++            const uint ky = rem / p.KW;
++            const uint kx = rem - ky * p.KW;
+ 
+-        const uint linear_idx = base_linear_idx + idx;
++            const uint iiw = ow * p.s0 + kx * p.d0 - p.p0;
++            const uint iih = oh * p.s1 + ky * p.d1 - p.p1;
+ 
+-        if (linear_idx >= p.pelements) {
+-            continue;
+-        }
++            A_TYPE val = A_TYPE(0);
++            if (iih < p.IH && iiw < p.IW) {
++                val = data_a[src_batch + ic * p.offset_delta + iih * p.IW + iiw];
++            }
+ 
+ #if BDA
+-        D_ptr dst_addr = D_ptr(p.dst_addr + D_SIZE * offset_dst[idx]);
+-        dst_addr.d = D_TYPE(values[idx]);
++            D_ptr out_ptr = D_ptr(p.dst_addr + D_SIZE * (dst_row + chw_idx));
++            out_ptr.d = D_TYPE(val);
+ #else
+-        data_d[offset_dst[idx]] = D_TYPE(values[idx]);
++            data_d[dst_row + chw_idx] = D_TYPE(val);
+ #endif
+-    }
++        }
++
++        wg_x += gl_NumWorkGroups.x;
++    } while (wg_x * 512 < p.CHW);
+ }
+ 
+ void main() {
+-    uint y = gl_GlobalInvocationID.y;
+-    while (y < p.OH) {
++    uint ow = gl_GlobalInvocationID.y;
++    while (ow < p.OW) {
+         uint z = gl_GlobalInvocationID.z;
+-        while (z < p.batch_IC) {
+-            im2col(y, z);
++        while (z < p.OH_batch) {
++            im2col(ow, z);
+             z += gl_NumWorkGroups.z;
+         }
+-        y += gl_NumWorkGroups.y;
++        ow += gl_NumWorkGroups.y;
+     }
+ }
 diff --git src/ggml-vulkan/vulkan-shaders/im2col_3d.comp src/ggml-vulkan/vulkan-shaders/im2col_3d.comp
 index 4bf8b4ca..93f61fd8 100644
 --- src/ggml-vulkan/vulkan-shaders/im2col_3d.comp
@@ -18792,7 +23495,7 @@ index 8186dba3..54b9b327 100644
                          data << "}, ";
                          len  << "}, ";
 diff --git src/ggml-webgpu/ggml-webgpu-shader-lib.hpp src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
-index a194ce84..3de6258c 100644
+index a194ce84..7d9a4403 100644
 --- src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
 +++ src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
 @@ -95,6 +95,12 @@ struct ggml_webgpu_generic_shader_decisions {
@@ -18808,53 +23511,46 @@ index a194ce84..3de6258c 100644
  struct ggml_webgpu_ssm_conv_shader_decisions {
      uint32_t block_size;
      uint32_t tokens_per_wg;
-@@ -384,11 +390,12 @@ struct ggml_webgpu_flash_attn_pipeline_key {
-     bool      has_mask;
-     bool      has_sinks;
-     bool      uses_logit_softcap;
-+    bool      use_vec;
- 
-     bool operator==(const ggml_webgpu_flash_attn_pipeline_key & other) const {
-         return kv_type == other.kv_type && head_dim_qk == other.head_dim_qk && head_dim_v == other.head_dim_v &&
-                kv_direct == other.kv_direct && has_mask == other.has_mask && has_sinks == other.has_sinks &&
--               uses_logit_softcap == other.uses_logit_softcap;
-+               uses_logit_softcap == other.uses_logit_softcap && use_vec == other.use_vec;
+@@ -406,21 +412,68 @@ struct ggml_webgpu_flash_attn_pipeline_key_hash {
      }
  };
  
-@@ -402,6 +409,7 @@ struct ggml_webgpu_flash_attn_pipeline_key_hash {
-         ggml_webgpu_hash_combine(seed, key.has_mask);
-         ggml_webgpu_hash_combine(seed, key.has_sinks);
-         ggml_webgpu_hash_combine(seed, key.uses_logit_softcap);
-+        ggml_webgpu_hash_combine(seed, key.use_vec);
-         return seed;
-     }
+-struct ggml_webgpu_flash_attn_shader_lib_context {
+-    ggml_webgpu_flash_attn_pipeline_key key;
+-    uint32_t                            sg_mat_m;
+-    uint32_t                            sg_mat_n;
+-    uint32_t                            sg_mat_k;
+-    size_t                              wg_mem_limit_bytes;
+-    uint32_t                            max_subgroup_size;
++struct ggml_webgpu_flash_attn_decisions {
++    uint32_t q_tile  = 0;
++    uint32_t kv_tile = 0;
++    uint32_t wg_size = 0;
  };
-@@ -421,6 +429,121 @@ struct ggml_webgpu_flash_attn_shader_decisions {
+ 
+-struct ggml_webgpu_flash_attn_shader_decisions {
+-    uint32_t q_tile  = 0;
++struct ggml_webgpu_flash_attn_vec_decisions {
+     uint32_t kv_tile = 0;
      uint32_t wg_size = 0;
  };
  
-+inline uint32_t ggml_webgpu_flash_attn_pick_vec_ne(const ggml_webgpu_flash_attn_pipeline_key & key) {
-+    // Keep conservative defaults unless this is the f16 vec-split shape family.
-+    if (key.kv_type != GGML_TYPE_F16 || key.head_dim_qk != key.head_dim_v) {
-+        return 1u;
-+    }
++inline ggml_webgpu_flash_attn_pipeline_key ggml_webgpu_flash_attn_make_pipeline_key(
++    const ggml_webgpu_shader_lib_context & context) {
++    const bool has_mask  = context.src3 != nullptr;
++    const bool has_sinks = context.src4 != nullptr;
++    const bool kv_direct = (context.src1->type == GGML_TYPE_F16) && (context.src0->ne[0] % context.sg_mat_k == 0) &&
++                           (context.src1->ne[1] % GGML_WEBGPU_KV_SEQ_PAD == 0);
 +
-+    // Head-dim specializations used by the tuned vec f16 path.
-+    switch (key.head_dim_qk) {
-+        case 64:
-+            return 2u;
-+        case 96:
-+            return 4u;
-+        case 128:
-+            return 1u;
-+        case 192:
-+            return 2u;
-+        case 576:
-+            return 2u;
-+        default:
-+            return 1u;
-+    }
++    ggml_webgpu_flash_attn_pipeline_key key = {};
++    key.kv_type                             = context.src1->type;
++    key.head_dim_qk                         = (uint32_t) context.src0->ne[0];
++    key.head_dim_v                          = (uint32_t) context.src2->ne[0];
++    key.kv_direct                           = kv_direct;
++    key.has_mask                            = has_mask;
++    key.has_sinks                           = has_sinks;
++    key.uses_logit_softcap                  = ggml_get_op_params_f32(context.dst, 2) != 0.0f;
++    return key;
 +}
 +
 +struct ggml_webgpu_flash_attn_vec_reduce_pipeline_key {
@@ -18876,83 +23572,66 @@ index a194ce84..3de6258c 100644
 +    return lhs.head_dim_v == rhs.head_dim_v && lhs.wg_size == rhs.wg_size;
 +}
 +
-+struct ggml_webgpu_flash_attn_vec_reduce_shader_lib_context {
-+    ggml_webgpu_flash_attn_vec_reduce_pipeline_key key;
-+    uint32_t                                       max_wg_size;
-+};
-+
-+inline ggml_webgpu_processed_shader ggml_webgpu_preprocess_flash_attn_vec_reduce_shader(
-+    pre_wgsl::Preprocessor &                                     preprocessor,
-+    const char *                                                 shader_src,
-+    const ggml_webgpu_flash_attn_vec_reduce_shader_lib_context & context) {
-+    std::vector<std::string> defines;
-+    std::string              variant = "flash_attn_vec_reduce";
-+
-+    defines.push_back(std::string("HEAD_DIM_V=") + std::to_string(context.key.head_dim_v));
-+    variant += std::string("_hsv") + std::to_string(context.key.head_dim_v);
-+
-+    defines.push_back(std::string("WG_SIZE=") + std::to_string(context.max_wg_size));
-+    variant += std::string("_wg") + std::to_string(context.max_wg_size);
-+
-+    ggml_webgpu_processed_shader result;
-+    result.wgsl    = preprocessor.preprocess(shader_src, defines);
-+    result.variant = variant;
-+    return result;
-+}
-+
 +struct ggml_webgpu_flash_attn_blk_pipeline_key {
-+    uint32_t q_tile;
 +    uint32_t kv_tile;
 +
-+    bool operator==(const ggml_webgpu_flash_attn_blk_pipeline_key & other) const {
-+        return q_tile == other.q_tile && kv_tile == other.kv_tile;
-+    }
++    bool operator==(const ggml_webgpu_flash_attn_blk_pipeline_key & other) const { return kv_tile == other.kv_tile; }
 +};
 +
 +struct ggml_webgpu_flash_attn_blk_pipeline_key_hash {
 +    size_t operator()(const ggml_webgpu_flash_attn_blk_pipeline_key & key) const {
 +        size_t seed = 0;
-+        ggml_webgpu_hash_combine(seed, key.q_tile);
 +        ggml_webgpu_hash_combine(seed, key.kv_tile);
 +        return seed;
 +    }
 +};
 +
-+struct ggml_webgpu_flash_attn_blk_shader_lib_context {
-+    ggml_webgpu_flash_attn_blk_pipeline_key key;
-+    uint32_t                                max_wg_size;
-+};
-+
-+inline ggml_webgpu_processed_shader ggml_webgpu_preprocess_flash_attn_blk_shader(
-+    pre_wgsl::Preprocessor &                              preprocessor,
-+    const char *                                          shader_src,
-+    const ggml_webgpu_flash_attn_blk_shader_lib_context & context) {
-+    std::vector<std::string> defines;
-+    std::string              variant = "flash_attn_vec_blk";
-+
-+    defines.push_back(std::string("Q_TILE=") + std::to_string(context.key.q_tile));
-+    variant += std::string("_qt") + std::to_string(context.key.q_tile);
-+
-+    defines.push_back(std::string("KV_TILE=") + std::to_string(context.key.kv_tile));
-+    variant += std::string("_kvt") + std::to_string(context.key.kv_tile);
-+
-+    uint32_t wg_size = 1;
-+    while ((wg_size << 1) <= context.max_wg_size) {
-+        wg_size <<= 1;
-+    }
-+    defines.push_back(std::string("WG_SIZE=") + std::to_string(wg_size));
-+    variant += std::string("_wg") + std::to_string(wg_size);
-+
-+    ggml_webgpu_processed_shader result;
-+    result.wgsl    = preprocessor.preprocess(shader_src, defines);
-+    result.variant = variant;
-+    return result;
-+}
-+
  // This is exposed because it's necessary in supports_op
  inline size_t ggml_webgpu_flash_attn_wg_mem_bytes(uint32_t q_tile,
                                                    uint32_t kv_tile,
-@@ -535,6 +658,26 @@ struct ggml_webgpu_mul_mat_shader_decisions {
+@@ -445,6 +498,41 @@ inline size_t ggml_webgpu_flash_attn_wg_mem_bytes(uint32_t q_tile,
+     return f16_elems * GGML_WEBGPU_F16_SIZE_BYTES + f32_elems * GGML_WEBGPU_F32_SIZE_BYTES;
+ }
+ 
++inline uint32_t ggml_webgpu_flash_attn_max_kv_tile(const ggml_webgpu_shader_lib_context &      context,
++                                                   const ggml_webgpu_flash_attn_pipeline_key & key) {
++    const size_t limit_bytes  = context.wg_mem_limit_bytes;
++    const size_t q_tile       = context.sg_mat_m;
++    const size_t base_q_bytes = (key.head_dim_qk + key.head_dim_v) * q_tile * GGML_WEBGPU_F16_SIZE_BYTES +
++                                2 * q_tile * GGML_WEBGPU_F32_SIZE_BYTES;
++    size_t bytes_per_kv = 0;
++    if (!key.kv_direct) {
++        bytes_per_kv += std::max(key.head_dim_qk, key.head_dim_v);
++    }
++    if (key.has_mask) {
++        bytes_per_kv += q_tile;
++    }
++    bytes_per_kv += q_tile;
++    bytes_per_kv *= GGML_WEBGPU_F16_SIZE_BYTES;
++    const uint32_t max_kv_tile = (limit_bytes - base_q_bytes) / bytes_per_kv;
++    return (max_kv_tile / context.sg_mat_n) * context.sg_mat_n;
++}
++
++inline uint32_t ggml_webgpu_flash_attn_vec_get_kv_tile(const ggml_webgpu_shader_lib_context & context) {
++    const ggml_webgpu_flash_attn_pipeline_key key         = ggml_webgpu_flash_attn_make_pipeline_key(context);
++    const uint32_t                            min_kv_tile = ggml_webgpu_flash_attn_max_kv_tile(context, key);
++    uint32_t                                  kv_tile     = std::max(context.sg_mat_n, std::min(32u, min_kv_tile));
++    kv_tile                                               = (kv_tile / context.sg_mat_n) * context.sg_mat_n;
++
++    if (key.kv_direct) {
++        kv_tile = std::min(kv_tile, GGML_WEBGPU_KV_SEQ_PAD);
++        while (GGML_WEBGPU_KV_SEQ_PAD % kv_tile != 0) {
++            kv_tile -= context.sg_mat_n;
++        }
++    }
++
++    return kv_tile;
++}
++
+ /** Matrix Multiplication **/
+ 
+ struct ggml_webgpu_legacy_mul_mat_pipeline_key {
+@@ -535,6 +623,26 @@ struct ggml_webgpu_mul_mat_shader_decisions {
      uint32_t mul_mat_wg_size;
  };
  
@@ -18979,10 +23658,12 @@ index a194ce84..3de6258c 100644
  /** Cpy **/
  
  struct ggml_webgpu_cpy_pipeline_key {
-@@ -659,6 +802,14 @@ class ggml_webgpu_shader_lib {
+@@ -659,6 +767,16 @@ class ggml_webgpu_shader_lib {
          repeat_pipelines;           // type
      std::unordered_map<ggml_webgpu_flash_attn_pipeline_key, webgpu_pipeline, ggml_webgpu_flash_attn_pipeline_key_hash>
          flash_attn_pipelines;
++    std::unordered_map<ggml_webgpu_flash_attn_pipeline_key, webgpu_pipeline, ggml_webgpu_flash_attn_pipeline_key_hash>
++        flash_attn_vec_pipelines;
 +    std::unordered_map<ggml_webgpu_flash_attn_vec_reduce_pipeline_key,
 +                       webgpu_pipeline,
 +                       ggml_webgpu_flash_attn_vec_reduce_pipeline_key_hash>
@@ -18994,7 +23675,7 @@ index a194ce84..3de6258c 100644
      std::unordered_map<ggml_webgpu_legacy_mul_mat_pipeline_key,
                         webgpu_pipeline,
                         ggml_webgpu_legacy_mul_mat_pipeline_key_hash>
-@@ -666,7 +817,10 @@ class ggml_webgpu_shader_lib {
+@@ -666,7 +784,10 @@ class ggml_webgpu_shader_lib {
      std::unordered_map<ggml_webgpu_mul_mat_vec_pipeline_key, webgpu_pipeline, ggml_webgpu_mul_mat_vec_pipeline_key_hash>
          mul_mat_vec_pipelines;     // fast mat-vec (n==1)
      std::unordered_map<ggml_webgpu_mul_mat_pipeline_key, webgpu_pipeline, ggml_webgpu_mul_mat_pipeline_key_hash>
@@ -19006,12 +23687,64 @@ index a194ce84..3de6258c 100644
  
      std::unordered_map<ggml_webgpu_set_rows_pipeline_key, webgpu_pipeline, ggml_webgpu_set_rows_pipeline_key_hash>
          set_rows_pipelines;
-@@ -961,6 +1115,32 @@ class ggml_webgpu_shader_lib {
+@@ -695,10 +816,9 @@ class ggml_webgpu_shader_lib {
+     }
+ 
+     webgpu_pipeline get_row_norm_pipeline(const ggml_webgpu_shader_lib_context & context) {
+-        ggml_webgpu_row_norm_pipeline_key key = {
+-            .op      = context.dst->op,
+-            .inplace = context.inplace,
+-        };
++        ggml_webgpu_row_norm_pipeline_key key = {};
++        key.op                                = context.dst->op;
++        key.inplace                           = context.inplace;
+ 
+         auto it = row_norm_pipelines.find(key);
+         if (it != row_norm_pipelines.end()) {
+@@ -754,9 +874,10 @@ class ggml_webgpu_shader_lib {
+     }
+ 
+     webgpu_pipeline get_set_rows_pipeline(const ggml_webgpu_shader_lib_context & context) {
+-        ggml_webgpu_set_rows_pipeline_key key = { .dst_type = context.dst->type,
+-                                                  .vec4     = context.src0->ne[0] % 4 == 0,
+-                                                  .i64_idx  = context.src1->type == GGML_TYPE_I64 };
++        ggml_webgpu_set_rows_pipeline_key key = {};
++        key.dst_type                          = context.dst->type;
++        key.vec4                              = context.src0->ne[0] % 4 == 0;
++        key.i64_idx                           = context.src1->type == GGML_TYPE_I64;
+ 
+         auto it = set_rows_pipelines.find(key);
+         if (it != set_rows_pipelines.end()) {
+@@ -801,7 +922,9 @@ class ggml_webgpu_shader_lib {
+     }
+ 
+     webgpu_pipeline get_set_pipeline(const ggml_webgpu_shader_lib_context & context) {
+-        ggml_webgpu_set_pipeline_key key = { .type = context.dst->type, .inplace = context.inplace };
++        ggml_webgpu_set_pipeline_key key = {};
++        key.type                         = context.dst->type;
++        key.inplace                      = context.inplace;
+ 
+         auto it = set_pipelines.find(key);
+         if (it != set_pipelines.end()) {
+@@ -908,10 +1031,9 @@ class ggml_webgpu_shader_lib {
+ 
+     webgpu_pipeline get_get_rows_pipeline(const ggml_webgpu_shader_lib_context & context) {
+         const bool vectorized                 = context.src0->type == GGML_TYPE_F32 && context.dst->ne[0] % 4 == 0;
+-        ggml_webgpu_get_rows_pipeline_key key = {
+-            .src_type   = context.src0->type,
+-            .vectorized = (int) vectorized,
+-        };
++        ggml_webgpu_get_rows_pipeline_key key = {};
++        key.src_type                          = context.src0->type;
++        key.vectorized                        = (int) vectorized;
+ 
+         auto it = get_rows_pipelines.find(key);
+         if (it != get_rows_pipelines.end()) {
+@@ -961,6 +1083,31 @@ class ggml_webgpu_shader_lib {
                      std::string type_upper = type_str;
                      std::transform(type_upper.begin(), type_upper.end(), type_upper.begin(), ::toupper);
  
-+                    switch (key.src_type)
-+                    {
++                    switch (key.src_type) {
 +                        case GGML_TYPE_Q4_0:
 +                        case GGML_TYPE_Q5_0:
 +                        case GGML_TYPE_Q8_0:
@@ -19031,15 +23764,15 @@ index a194ce84..3de6258c 100644
 +                                break;
 +                            }
 +                        default:
-+                        {
-+                            defines.push_back(std::string("SRC_TYPE=") + type_str);
-+                        }
++                            {
++                                defines.push_back(std::string("SRC_TYPE=") + type_str);
++                            }
 +                    }
 +
                      defines.push_back("BYTE_HELPERS");
                      defines.push_back(type_upper + "_T");
                      defines.push_back(type_upper);
-@@ -971,7 +1151,6 @@ class ggml_webgpu_shader_lib {
+@@ -971,7 +1118,6 @@ class ggml_webgpu_shader_lib {
                      variant += "_";
                      variant += type_str;
  
@@ -19047,7 +23780,132 @@ index a194ce84..3de6258c 100644
                      defines.push_back("DST_TYPE=f32");
  
                      if ((key.src_type >= GGML_TYPE_Q4_0 && key.src_type <= GGML_TYPE_Q8_1) ||
-@@ -1439,11 +1618,35 @@ class ggml_webgpu_shader_lib {
+@@ -1002,7 +1148,8 @@ class ggml_webgpu_shader_lib {
+     }
+ 
+     webgpu_pipeline get_scale_pipeline(const ggml_webgpu_shader_lib_context & context) {
+-        ggml_webgpu_scale_pipeline_key key = { .inplace = context.inplace };
++        ggml_webgpu_scale_pipeline_key key = {};
++        key.inplace                        = context.inplace;
+ 
+         auto it = scale_pipelines.find(key);
+         if (it != scale_pipelines.end()) {
+@@ -1029,11 +1176,10 @@ class ggml_webgpu_shader_lib {
+     }
+ 
+     webgpu_pipeline get_solve_tri_pipeline(const ggml_webgpu_shader_lib_context & context) {
+-        ggml_webgpu_solve_tri_pipeline_key key = {
+-            .type = context.dst->type,
+-            .n    = (int) context.src0->ne[0],
+-            .k    = (int) context.src1->ne[0],
+-        };
++        ggml_webgpu_solve_tri_pipeline_key key = {};
++        key.type                               = context.dst->type;
++        key.n                                  = (int) context.src0->ne[0];
++        key.k                                  = (int) context.src1->ne[0];
+ 
+         auto it = solve_tri_pipelines.find(key);
+         if (it != solve_tri_pipelines.end()) {
+@@ -1071,10 +1217,9 @@ class ggml_webgpu_shader_lib {
+     }
+ 
+     webgpu_pipeline get_ssm_conv_pipeline(const ggml_webgpu_shader_lib_context & context) {
+-        ggml_webgpu_ssm_conv_pipeline_key key = {
+-            .type       = context.dst->type,
+-            .vectorized = context.src1->ne[0] == 4,
+-        };
++        ggml_webgpu_ssm_conv_pipeline_key key = {};
++        key.type                              = context.dst->type;
++        key.vectorized                        = context.src1->ne[0] == 4;
+ 
+         auto it = ssm_conv_pipelines.find(key);
+         if (it != ssm_conv_pipelines.end()) {
+@@ -1114,11 +1259,10 @@ class ggml_webgpu_shader_lib {
+     }
+ 
+     webgpu_pipeline get_gated_delta_net_pipeline(const ggml_webgpu_shader_lib_context & context) {
+-        ggml_webgpu_gated_delta_net_pipeline_key key = {
+-            .type = context.dst->type,
+-            .s_v  = (int) context.src2->ne[0],
+-            .kda  = context.src3->ne[0] == context.src2->ne[0],
+-        };
++        ggml_webgpu_gated_delta_net_pipeline_key key = {};
++        key.type                                     = context.dst->type;
++        key.s_v                                      = (int) context.src2->ne[0];
++        key.kda                                      = context.src3->ne[0] == context.src2->ne[0];
+ 
+         auto it = gated_delta_net_pipelines.find(key);
+         if (it != gated_delta_net_pipelines.end()) {
+@@ -1151,7 +1295,8 @@ class ggml_webgpu_shader_lib {
+     }
+ 
+     webgpu_pipeline get_pad_pipeline(const ggml_webgpu_shader_lib_context & context) {
+-        ggml_webgpu_pad_pipeline_key key = { .circular = ggml_get_op_params_i32(context.dst, 8) != 0 };
++        ggml_webgpu_pad_pipeline_key key = {};
++        key.circular                     = ggml_get_op_params_i32(context.dst, 8) != 0;
+ 
+         auto it = pad_pipelines.find(key);
+         if (it != pad_pipelines.end()) {
+@@ -1178,15 +1323,13 @@ class ggml_webgpu_shader_lib {
+     }
+ 
+     webgpu_pipeline get_mul_mat_vec_pipeline(const ggml_webgpu_shader_lib_context & context) {
+-        ggml_webgpu_mul_mat_vec_pipeline_key key = {
+-            .src0_type  = context.src0->type,
+-            .src1_type  = context.src1->type,
+-            // Quantized mat-vec path currently runs scalar; only allow vectorization when both inputs are float
+-            .vectorized = (context.src0->ne[0] % 4 == 0 && context.dst->ne[0] % 4 == 0 &&
+-                           (context.src0->type == GGML_TYPE_F32 || context.src0->type == GGML_TYPE_F16)) ?
+-                              1 :
+-                              0,
+-        };
++        ggml_webgpu_mul_mat_vec_pipeline_key key = {};
++        key.src0_type                            = context.src0->type;
++        key.src1_type                            = context.src1->type;
++        key.vectorized                           = (context.src0->ne[0] % 4 == 0 && context.dst->ne[0] % 4 == 0 &&
++                          (context.src0->type == GGML_TYPE_F32 || context.src0->type == GGML_TYPE_F16)) ?
++                                                       1 :
++                                                       0;
+ 
+         auto it = mul_mat_vec_pipelines.find(key);
+         if (it != mul_mat_vec_pipelines.end()) {
+@@ -1272,15 +1415,14 @@ class ggml_webgpu_shader_lib {
+     }
+ 
+     webgpu_pipeline get_mul_mat_fast_pipeline(const ggml_webgpu_shader_lib_context & context) {
+-        ggml_webgpu_mul_mat_pipeline_key key = {
+-            .src0_type  = context.src0->type,
+-            .src1_type  = context.src1->type,
+-            .vectorized = (context.src0->ne[0] % 4 == 0 && context.dst->ne[0] % 4 == 0 && context.dst->ne[1] % 4 == 0 &&
+-                           (context.src0->type == GGML_TYPE_F32 || context.src0->type == GGML_TYPE_F16)) ?
+-                              1 :
+-                              0,
+-            .use_subgroup_matrix = context.supports_subgroup_matrix
+-        };
++        ggml_webgpu_mul_mat_pipeline_key key = {};
++        key.src0_type                        = context.src0->type;
++        key.src1_type                        = context.src1->type;
++        key.vectorized = (context.src0->ne[0] % 4 == 0 && context.dst->ne[0] % 4 == 0 && context.dst->ne[1] % 4 == 0 &&
++                          (context.src0->type == GGML_TYPE_F32 || context.src0->type == GGML_TYPE_F16)) ?
++                             1 :
++                             0;
++        key.use_subgroup_matrix = context.supports_subgroup_matrix;
+ 
+         auto it = mul_mat_fast_pipelines.find(key);
+         if (it != mul_mat_fast_pipelines.end()) {
+@@ -1399,8 +1541,9 @@ class ggml_webgpu_shader_lib {
+     }
+ 
+     webgpu_pipeline get_mul_mat_legacy_pipeline(const ggml_webgpu_shader_lib_context & context) {
+-        ggml_webgpu_legacy_mul_mat_pipeline_key key = { .src0_type = context.src0->type,
+-                                                        .src1_type = context.src1->type };
++        ggml_webgpu_legacy_mul_mat_pipeline_key key = {};
++        key.src0_type                               = context.src0->type;
++        key.src1_type                               = context.src1->type;
+ 
+         auto it = mul_mat_legacy_pipelines.find(key);
+         if (it != mul_mat_legacy_pipelines.end()) {
+@@ -1439,11 +1582,34 @@ class ggml_webgpu_shader_lib {
                  break;
              default:
                  {
@@ -19056,8 +23914,7 @@ index a194ce84..3de6258c 100644
                      std::transform(type_upper.begin(), type_upper.end(), type_upper.begin(), ::toupper);
  
 -                    defines.push_back(std::string("SRC0_TYPE=") + src0_name);
-+                    switch (context.src0->type)
-+                    {
++                    switch (context.src0->type) {
 +                        case GGML_TYPE_Q4_0:
 +                        case GGML_TYPE_Q5_0:
 +                        case GGML_TYPE_Q8_0:
@@ -19077,15 +23934,15 @@ index a194ce84..3de6258c 100644
 +                                break;
 +                            }
 +                        default:
-+                        {
-+                            defines.push_back(std::string("SRC0_TYPE=") + src0_name);
-+                        }
++                            {
++                                defines.push_back(std::string("SRC0_TYPE=") + src0_name);
++                            }
 +                    }
 +
                      defines.push_back("BYTE_HELPERS");
                      defines.push_back(type_upper + "_T");
                      defines.push_back(type_upper);
-@@ -1467,6 +1670,115 @@ class ggml_webgpu_shader_lib {
+@@ -1467,16 +1633,123 @@ class ggml_webgpu_shader_lib {
          return mul_mat_legacy_pipelines[key];
      }
  
@@ -19108,10 +23965,9 @@ index a194ce84..3de6258c 100644
 +    }
 +
 +    webgpu_pipeline get_mul_mat_id_pipeline(const ggml_webgpu_shader_lib_context & context) {
-+        ggml_webgpu_mul_mat_id_pipeline_key key = {
-+            .src0_type = context.src0->type,
-+            .src1_type = context.src1->type,
-+        };
++        ggml_webgpu_mul_mat_id_pipeline_key key = {};
++        key.src0_type                           = context.src0->type;
++        key.src1_type                           = context.src1->type;
 +
 +        auto it = mul_mat_id_pipelines.find(key);
 +        if (it != mul_mat_id_pipelines.end()) {
@@ -19201,11 +24057,70 @@ index a194ce84..3de6258c 100644
      webgpu_pipeline get_unary_pipeline(const ggml_webgpu_shader_lib_context & context) {
          const bool                     is_unary = context.dst->op == GGML_OP_UNARY;
          const int                      op       = is_unary ? (int) ggml_get_unary_op(context.dst) : context.dst->op;
-@@ -1673,24 +1985,8 @@ class ggml_webgpu_shader_lib {
-         return repeat_pipelines[key];
+-        ggml_webgpu_unary_pipeline_key key      = {
+-                 .type     = context.dst->type,
+-                 .op       = op,
+-                 .is_unary = is_unary,
+-                 .inplace  = context.inplace,
+-                 .ttype    = (ggml_tri_type) ggml_get_op_params_i32(context.dst, 0),
+-        };
++        ggml_webgpu_unary_pipeline_key key      = {};
++        key.type                                = context.dst->type;
++        key.op                                  = op;
++        key.is_unary                            = is_unary;
++        key.inplace                             = context.inplace;
++        key.ttype                               = (ggml_tri_type) ggml_get_op_params_i32(context.dst, 0);
+ 
+         auto it = unary_pipelines.find(key);
+         if (it != unary_pipelines.end()) {
+@@ -1541,13 +1814,12 @@ class ggml_webgpu_shader_lib {
      }
  
--    webgpu_pipeline get_flash_attn_pipeline(const ggml_webgpu_shader_lib_context & context) {
+     webgpu_pipeline get_binary_pipeline(const ggml_webgpu_shader_lib_context & context) {
+-        ggml_webgpu_binary_pipeline_key key = {
+-            .type        = context.dst->type,
+-            .op          = context.dst->op,
+-            .inplace     = context.inplace,
+-            .overlap     = context.overlap,
+-            .src_overlap = context.src_overlap,
+-        };
++        ggml_webgpu_binary_pipeline_key key = {};
++        key.type                            = context.dst->type;
++        key.op                              = context.dst->op;
++        key.inplace                         = context.inplace;
++        key.overlap                         = context.overlap;
++        key.src_overlap                     = context.src_overlap;
+ 
+         auto it = binary_pipelines.find(key);
+         if (it != binary_pipelines.end()) {
+@@ -1596,9 +1868,8 @@ class ggml_webgpu_shader_lib {
+     }
+ 
+     webgpu_pipeline get_concat_pipeline(const ggml_webgpu_shader_lib_context & context) {
+-        ggml_webgpu_concat_pipeline_key key = {
+-            .type = context.dst->type,
+-        };
++        ggml_webgpu_concat_pipeline_key key = {};
++        key.type                            = context.dst->type;
+ 
+         auto it = concat_pipelines.find(key);
+         if (it != concat_pipelines.end()) {
+@@ -1633,9 +1904,8 @@ class ggml_webgpu_shader_lib {
+     }
+ 
+     webgpu_pipeline get_repeat_pipeline(const ggml_webgpu_shader_lib_context & context) {
+-        ggml_webgpu_repeat_pipeline_key key = {
+-            .type = context.dst->type,
+-        };
++        ggml_webgpu_repeat_pipeline_key key = {};
++        key.type                            = context.dst->type;
+ 
+         auto it = repeat_pipelines.find(key);
+         if (it != repeat_pipelines.end()) {
+@@ -1674,27 +1944,11 @@ class ggml_webgpu_shader_lib {
+     }
+ 
+     webgpu_pipeline get_flash_attn_pipeline(const ggml_webgpu_shader_lib_context & context) {
 -        const bool has_mask  = context.src3 != nullptr;
 -        const bool has_sinks = context.src4 != nullptr;
 -
@@ -19223,63 +24138,16 @@ index a194ce84..3de6258c 100644
 -        };
 -
 -        auto it = flash_attn_pipelines.find(key);
-+    webgpu_pipeline get_flash_attn_pipeline(const ggml_webgpu_flash_attn_shader_lib_context & context) {
-+        auto it = flash_attn_pipelines.find(context.key);
++        const ggml_webgpu_flash_attn_pipeline_key key = ggml_webgpu_flash_attn_make_pipeline_key(context);
++        auto                                      it  = flash_attn_pipelines.find(key);
          if (it != flash_attn_pipelines.end()) {
              return it->second;
          }
-@@ -1698,7 +1994,7 @@ class ggml_webgpu_shader_lib {
+-
          std::vector<std::string> defines;
          std::string              variant = "flash_attn";
  
--        switch (key.kv_type) {
-+        switch (context.key.kv_type) {
-             case GGML_TYPE_F32:
-                 defines.push_back("KV_F32");
-                 break;
-@@ -1714,41 +2010,51 @@ class ggml_webgpu_shader_lib {
-             default:
-                 GGML_ABORT("Unsupported KV type for flash attention shader");
-         }
--        variant += std::string("_") + ggml_type_name(key.kv_type);
-+        variant += std::string("_") + ggml_type_name(context.key.kv_type);
- 
--        if (key.has_mask) {
-+        if (context.key.has_mask) {
-             defines.push_back("MASK");
-             variant += "_mask";
-         }
--        if (key.has_sinks) {
-+        if (context.key.has_sinks) {
-             defines.push_back("SINKS");
-             variant += "_sinks";
-         }
--        if (key.uses_logit_softcap) {
-+        if (context.key.uses_logit_softcap) {
-             defines.push_back("LOGIT_SOFTCAP");
-             variant += "_lgsc";
-         }
--        if (key.kv_direct) {
-+        if (context.key.kv_direct) {
-             defines.push_back("KV_DIRECT");
-             variant += "_kvdirect";
-         }
-+        if (context.key.has_mask && context.key.use_vec) {
-+            defines.push_back("BLK");
-+            variant += "_blk";
-+        }
- 
--        defines.push_back(std::string("HEAD_DIM_QK=") + std::to_string(key.head_dim_qk));
--        variant += std::string("_hsqk") + std::to_string(key.head_dim_qk);
-+        defines.push_back(std::string("HEAD_DIM_QK=") + std::to_string(context.key.head_dim_qk));
-+        variant += std::string("_hsqk") + std::to_string(context.key.head_dim_qk);
- 
--        defines.push_back(std::string("HEAD_DIM_V=") + std::to_string(key.head_dim_v));
--        variant += std::string("_hsv") + std::to_string(key.head_dim_v);
-+        defines.push_back(std::string("HEAD_DIM_V=") + std::to_string(context.key.head_dim_v));
-+        variant += std::string("_hsv") + std::to_string(context.key.head_dim_v);
- 
-         defines.push_back(std::string("SG_MAT_M=") + std::to_string(context.sg_mat_m));
+@@ -1743,40 +1997,177 @@ class ggml_webgpu_shader_lib {
          defines.push_back(std::string("SG_MAT_N=") + std::to_string(context.sg_mat_n));
          defines.push_back(std::string("SG_MAT_K=") + std::to_string(context.sg_mat_k));
  
@@ -19288,86 +24156,273 @@ index a194ce84..3de6258c 100644
 -            std::min(ggml_webgpu_flash_attn_max_kv_tile({ key, context.sg_mat_m, context.sg_mat_n, context.sg_mat_k,
 -                                                          context.wg_mem_limit_bytes, context.max_subgroup_size }),
 -                     context.sg_mat_n * GGML_WEBGPU_FLASH_ATTN_PREFERRED_KV_SG_TILES);
--        if (key.kv_direct) {
-+        uint32_t q_tile  = context.sg_mat_m;
-+        uint32_t kv_tile = std::min(ggml_webgpu_flash_attn_max_kv_tile(context),
-+                                    context.sg_mat_n * GGML_WEBGPU_FLASH_ATTN_PREFERRED_KV_SG_TILES);
-+        if (context.key.use_vec) {
-+            q_tile  = 1;
-+            kv_tile = std::max(context.sg_mat_n, std::min(32u, ggml_webgpu_flash_attn_max_kv_tile(context)));
-+            kv_tile = (kv_tile / context.sg_mat_n) * context.sg_mat_n;
-+            const uint32_t vec_ne = ggml_webgpu_flash_attn_pick_vec_ne(context.key);
-+            defines.push_back(std::string("VEC_NE=") + std::to_string(vec_ne) + "u");
-+        }
-+        if (context.key.kv_direct) {
-+            GGML_ASSERT(kv_tile <= GGML_WEBGPU_KV_SEQ_PAD);
++        auto decisions    = std::make_shared<ggml_webgpu_flash_attn_decisions>();
++        decisions->q_tile = context.sg_mat_m;
++
++        const uint32_t min_kv_tile = ggml_webgpu_flash_attn_max_kv_tile(context, key);
++        uint32_t       kv_tile = std::min(min_kv_tile, context.sg_mat_n * GGML_WEBGPU_FLASH_ATTN_PREFERRED_KV_SG_TILES);
++
+         if (key.kv_direct) {
++            kv_tile = std::min(kv_tile, GGML_WEBGPU_KV_SEQ_PAD);
              while (GGML_WEBGPU_KV_SEQ_PAD % kv_tile != 0) {
                  kv_tile -= context.sg_mat_n;
              }
-@@ -1757,19 +2063,51 @@ class ggml_webgpu_shader_lib {
-         defines.push_back(std::string("Q_TILE=") + std::to_string(q_tile));
-         defines.push_back(std::string("KV_TILE=") + std::to_string(kv_tile));
+         }
  
+-        defines.push_back(std::string("Q_TILE=") + std::to_string(q_tile));
+-        defines.push_back(std::string("KV_TILE=") + std::to_string(kv_tile));
+-
 -        uint32_t wg_size = std::max(context.max_subgroup_size, GGML_WEBGPU_FLASH_ATTN_PREFERRED_WG_SIZE);
-+        uint32_t wg_size = 0;
-+        if (context.key.use_vec) {
-+            wg_size = std::max(1u, std::min<uint32_t>(32u, context.max_subgroup_size));
-+        } else {
-+            wg_size = std::max(context.max_subgroup_size, GGML_WEBGPU_FLASH_ATTN_PREFERRED_WG_SIZE);
-+        }
-         defines.push_back(std::string("WG_SIZE=") + std::to_string(wg_size));
- 
+-        defines.push_back(std::string("WG_SIZE=") + std::to_string(wg_size));
+-
 -        auto processed     = preprocessor.preprocess(wgsl_flash_attn, defines);
 -        auto decisions     = std::make_shared<ggml_webgpu_flash_attn_shader_decisions>();
 -        decisions->q_tile  = q_tile;
--        decisions->kv_tile = kv_tile;
+         decisions->kv_tile = kv_tile;
 -        decisions->wg_size = wg_size;
-+        const char *    shader_src = context.key.use_vec ? wgsl_flash_attn_vec_split : wgsl_flash_attn;
++        decisions->wg_size = std::max(context.max_subgroup_size, GGML_WEBGPU_FLASH_ATTN_PREFERRED_WG_SIZE);
+ 
+-        webgpu_pipeline pipeline  = ggml_webgpu_create_pipeline(device, processed, variant);
++        defines.push_back(std::string("Q_TILE=") + std::to_string(decisions->q_tile));
++        defines.push_back(std::string("KV_TILE=") + std::to_string(decisions->kv_tile));
++        defines.push_back(std::string("WG_SIZE=") + std::to_string(decisions->wg_size));
++
 +        webgpu_pipeline pipeline =
-+            ggml_webgpu_create_pipeline(device, preprocessor.preprocess(shader_src, defines), variant);
-+        auto decisions                    = std::make_shared<ggml_webgpu_flash_attn_shader_decisions>();
-+        decisions->q_tile                 = q_tile;
-+        decisions->kv_tile                = kv_tile;
-+        decisions->wg_size                = wg_size;
-+        pipeline.context                  = decisions;
-+        flash_attn_pipelines[context.key] = pipeline;
-+        return flash_attn_pipelines[context.key];
++            ggml_webgpu_create_pipeline(device, preprocessor.preprocess(wgsl_flash_attn, defines), variant);
+         pipeline.context          = decisions;
+         flash_attn_pipelines[key] = pipeline;
+         return flash_attn_pipelines[key];
+     }
+ 
++    webgpu_pipeline get_flash_attn_vec_pipeline(const ggml_webgpu_shader_lib_context & context) {
++        const ggml_webgpu_flash_attn_pipeline_key key = ggml_webgpu_flash_attn_make_pipeline_key(context);
++        auto                                      it  = flash_attn_vec_pipelines.find(key);
++        if (it != flash_attn_vec_pipelines.end()) {
++            return it->second;
++        }
++
++        std::vector<std::string> defines;
++        std::string              variant = "flash_attn_vec";
++
++        switch (key.kv_type) {
++            case GGML_TYPE_F32:
++                defines.push_back("KV_F32");
++                break;
++            case GGML_TYPE_F16:
++                defines.push_back("KV_F16");
++                break;
++            case GGML_TYPE_Q4_0:
++                defines.push_back("KV_Q4_0");
++                break;
++            case GGML_TYPE_Q8_0:
++                defines.push_back("KV_Q8_0");
++                break;
++            default:
++                GGML_ABORT("Unsupported KV type for flash attention shader");
++        }
++        variant += std::string("_") + ggml_type_name(key.kv_type);
++
++        if (key.has_mask) {
++            defines.push_back("MASK");
++            defines.push_back("BLK");
++            variant += "_mask_blk";
++        }
++        if (key.has_sinks) {
++            defines.push_back("SINKS");
++            variant += "_sinks";
++        }
++        if (key.uses_logit_softcap) {
++            defines.push_back("LOGIT_SOFTCAP");
++            variant += "_lgsc";
++        }
++        if (key.kv_direct) {
++            defines.push_back("KV_DIRECT");
++            variant += "_kvdirect";
++        }
++
++        defines.push_back(std::string("HEAD_DIM_QK=") + std::to_string(key.head_dim_qk));
++        variant += std::string("_hsqk") + std::to_string(key.head_dim_qk);
++
++        defines.push_back(std::string("HEAD_DIM_V=") + std::to_string(key.head_dim_v));
++        variant += std::string("_hsv") + std::to_string(key.head_dim_v);
++
++        defines.push_back(std::string("SG_MAT_M=") + std::to_string(context.sg_mat_m));
++        defines.push_back(std::string("SG_MAT_N=") + std::to_string(context.sg_mat_n));
++        defines.push_back(std::string("SG_MAT_K=") + std::to_string(context.sg_mat_k));
++        defines.push_back("Q_TILE=1");
++
++        auto decisions     = std::make_shared<ggml_webgpu_flash_attn_vec_decisions>();
++        decisions->kv_tile = ggml_webgpu_flash_attn_vec_get_kv_tile(context);
++        decisions->wg_size = std::max(1u, std::min<uint32_t>(32u, context.max_subgroup_size));
++        uint32_t vec_ne    = 1u;
++
++        // Keep conservative defaults unless this is the f16 vec-split shape family.
++        if (key.kv_type == GGML_TYPE_F16 && key.head_dim_qk == key.head_dim_v) {
++            switch (key.head_dim_qk) {
++                case 64:
++                case 192:
++                case 576:
++                    vec_ne = 2u;
++                    break;
++                case 96:
++                    vec_ne = 4u;
++                    break;
++                default:
++                    break;
++            }
++        }
++
++        defines.push_back(std::string("KV_TILE=") + std::to_string(decisions->kv_tile));
++        defines.push_back(std::string("WG_SIZE=") + std::to_string(decisions->wg_size));
++        defines.push_back(std::string("VEC_NE=") + std::to_string(vec_ne) + "u");
++
++        webgpu_pipeline pipeline =
++            ggml_webgpu_create_pipeline(device, preprocessor.preprocess(wgsl_flash_attn_vec_split, defines), variant);
++        pipeline.context              = decisions;
++        flash_attn_vec_pipelines[key] = pipeline;
++        return flash_attn_vec_pipelines[key];
 +    }
 +
-+    webgpu_pipeline get_flash_attn_blk_pipeline(const ggml_webgpu_flash_attn_blk_shader_lib_context & context) {
-+        auto it = flash_attn_blk_pipelines.find(context.key);
++    webgpu_pipeline get_flash_attn_blk_pipeline(const ggml_webgpu_shader_lib_context & context) {
++        ggml_webgpu_flash_attn_blk_pipeline_key key = {};
++        key.kv_tile                                 = ggml_webgpu_flash_attn_vec_get_kv_tile(context);
++        auto it                                     = flash_attn_blk_pipelines.find(key);
 +        if (it != flash_attn_blk_pipelines.end()) {
 +            return it->second;
 +        }
- 
--        webgpu_pipeline pipeline  = ggml_webgpu_create_pipeline(device, processed, variant);
--        pipeline.context          = decisions;
--        flash_attn_pipelines[key] = pipeline;
--        return flash_attn_pipelines[key];
-+        ggml_webgpu_processed_shader processed =
-+            ggml_webgpu_preprocess_flash_attn_blk_shader(preprocessor, wgsl_flash_attn_vec_blk, context);
-+        webgpu_pipeline pipeline              = ggml_webgpu_create_pipeline(device, processed.wgsl, processed.variant);
-+        flash_attn_blk_pipelines[context.key] = pipeline;
-+        return flash_attn_blk_pipelines[context.key];
++
++        std::vector<std::string> defines;
++        std::string              variant = "flash_attn_vec_blk";
++
++        defines.push_back(std::string("KV_TILE=") + std::to_string(key.kv_tile));
++        variant += std::string("_kvt") + std::to_string(key.kv_tile);
++
++        uint32_t wg_size = 1;
++        while ((wg_size << 1) <= context.max_wg_size) {
++            wg_size <<= 1;
++        }
++        defines.push_back(std::string("WG_SIZE=") + std::to_string(wg_size));
++        variant += std::string("_wg") + std::to_string(wg_size);
++
++        webgpu_pipeline pipeline =
++            ggml_webgpu_create_pipeline(device, preprocessor.preprocess(wgsl_flash_attn_vec_blk, defines), variant);
++        flash_attn_blk_pipelines[key] = pipeline;
++        return flash_attn_blk_pipelines[key];
 +    }
 +
-+    webgpu_pipeline get_flash_attn_vec_reduce_pipeline(
-+        const ggml_webgpu_flash_attn_vec_reduce_shader_lib_context & context) {
-+        auto it = flash_attn_vec_reduce_pipelines.find(context.key);
++    webgpu_pipeline get_flash_attn_vec_reduce_pipeline(const ggml_webgpu_shader_lib_context & context) {
++        ggml_webgpu_flash_attn_vec_reduce_pipeline_key key = {};
++        key.head_dim_v                                     = (uint32_t) context.src2->ne[0];
++        key.wg_size                                        = context.max_wg_size;
++        auto it                                            = flash_attn_vec_reduce_pipelines.find(key);
 +        if (it != flash_attn_vec_reduce_pipelines.end()) {
 +            return it->second;
 +        }
 +
-+        ggml_webgpu_processed_shader processed =
-+            ggml_webgpu_preprocess_flash_attn_vec_reduce_shader(preprocessor, wgsl_flash_attn_vec_reduce, context);
-+        webgpu_pipeline pipeline = ggml_webgpu_create_pipeline(device, processed.wgsl, processed.variant);
-+        flash_attn_vec_reduce_pipelines[context.key] = pipeline;
-+        return flash_attn_vec_reduce_pipelines[context.key];
++        std::vector<std::string> defines;
++        std::string              variant = "flash_attn_vec_reduce";
++
++        defines.push_back(std::string("HEAD_DIM_V=") + std::to_string(key.head_dim_v));
++        variant += std::string("_hsv") + std::to_string(key.head_dim_v);
++
++        defines.push_back(std::string("WG_SIZE=") + std::to_string(context.max_wg_size));
++        variant += std::string("_wg") + std::to_string(context.max_wg_size);
++
++        webgpu_pipeline pipeline =
++            ggml_webgpu_create_pipeline(device, preprocessor.preprocess(wgsl_flash_attn_vec_reduce, defines), variant);
++        flash_attn_vec_reduce_pipelines[key] = pipeline;
++        return flash_attn_vec_reduce_pipelines[key];
++    }
++
+     webgpu_pipeline get_cpy_pipeline(const ggml_webgpu_shader_lib_context & context) {
+-        ggml_webgpu_cpy_pipeline_key key = {
+-            .src_type = context.src0->type,
+-            .dst_type = context.dst->type,
+-        };
++        ggml_webgpu_cpy_pipeline_key key = {};
++        key.src_type                     = context.src0->type;
++        key.dst_type                     = context.dst->type;
+ 
+         auto it = cpy_pipelines.find(key);
+         if (it != cpy_pipelines.end()) {
+@@ -1828,11 +2219,10 @@ class ggml_webgpu_shader_lib {
      }
  
-     webgpu_pipeline get_cpy_pipeline(const ggml_webgpu_shader_lib_context & context) {
+     webgpu_pipeline get_glu_pipeline(const ggml_webgpu_shader_lib_context & context) {
+-        ggml_webgpu_glu_pipeline_key key = {
+-            .glu_op = ggml_get_glu_op(context.dst),
+-            .type   = context.dst->type,
+-            .split  = (context.src1 != nullptr),
+-        };
++        ggml_webgpu_glu_pipeline_key key = {};
++        key.glu_op                       = ggml_get_glu_op(context.dst);
++        key.type                         = context.dst->type;
++        key.split                        = (context.src1 != nullptr);
+ 
+         auto it = glu_pipelines.find(key);
+         if (it != glu_pipelines.end()) {
+@@ -1901,11 +2291,10 @@ class ggml_webgpu_shader_lib {
+     }
+ 
+     webgpu_pipeline get_rope_pipeline(const ggml_webgpu_shader_lib_context & context) {
+-        ggml_webgpu_rope_pipeline_key key = {
+-            .type    = context.dst->type,
+-            .inplace = context.inplace,
+-            .has_ff  = (context.src2 != nullptr),
+-        };
++        ggml_webgpu_rope_pipeline_key key = {};
++        key.type                          = context.dst->type;
++        key.inplace                       = context.inplace;
++        key.has_ff                        = (context.src2 != nullptr);
+ 
+         auto it = rope_pipelines.find(key);
+         if (it != rope_pipelines.end()) {
+@@ -1950,12 +2339,11 @@ class ggml_webgpu_shader_lib {
+     }
+ 
+     webgpu_pipeline get_soft_max_pipeline(const ggml_webgpu_shader_lib_context & context) {
+-        ggml_webgpu_soft_max_pipeline_key key = {
+-            .mask_type = context.src1 ? context.src1->type : GGML_TYPE_F32,
+-            .has_mask  = (context.src1 != nullptr),
+-            .has_sink  = (context.src2 != nullptr),
+-            .inplace   = context.inplace,
+-        };
++        ggml_webgpu_soft_max_pipeline_key key = {};
++        key.mask_type                         = context.src1 ? context.src1->type : GGML_TYPE_F32;
++        key.has_mask                          = (context.src1 != nullptr);
++        key.has_sink                          = (context.src2 != nullptr);
++        key.inplace                           = context.inplace;
+ 
+         auto it = soft_max_pipelines.find(key);
+         if (it != soft_max_pipelines.end()) {
+@@ -2021,25 +2409,6 @@ class ggml_webgpu_shader_lib {
+         pipeline_desc.layout             = nullptr;  // nullptr means auto layout
+         return { device.CreateComputePipeline(&pipeline_desc), label };
+     }
+-
+-    static uint32_t ggml_webgpu_flash_attn_max_kv_tile(const ggml_webgpu_flash_attn_shader_lib_context & context) {
+-        const size_t limit_bytes = context.wg_mem_limit_bytes;
+-        const size_t q_tile      = context.sg_mat_m;
+-        const size_t base_q_bytes =
+-            (context.key.head_dim_qk + context.key.head_dim_v) * q_tile * GGML_WEBGPU_F16_SIZE_BYTES +
+-            2 * q_tile * GGML_WEBGPU_F32_SIZE_BYTES;
+-        size_t bytes_per_kv = 0;
+-        if (!context.key.kv_direct) {
+-            bytes_per_kv += std::max(context.key.head_dim_qk, context.key.head_dim_v);
+-        }
+-        if (context.key.has_mask) {
+-            bytes_per_kv += q_tile;
+-        }
+-        bytes_per_kv += q_tile;
+-        bytes_per_kv *= GGML_WEBGPU_F16_SIZE_BYTES;
+-        const uint32_t max_kv_tile = (limit_bytes - base_q_bytes) / bytes_per_kv;
+-        return (max_kv_tile / context.sg_mat_n) * context.sg_mat_n;
+-    }
+ };
+ 
+ #endif  // GGML_WEBGPU_SHADER_LIB_HPP
 diff --git src/ggml-webgpu/ggml-webgpu.cpp src/ggml-webgpu/ggml-webgpu.cpp
-index 1aa15b05..aa3fe06d 100644
+index 1aa15b05..e7bda817 100644
 --- src/ggml-webgpu/ggml-webgpu.cpp
 +++ src/ggml-webgpu/ggml-webgpu.cpp
 @@ -16,7 +16,6 @@
@@ -19386,7 +24441,28 @@ index 1aa15b05..aa3fe06d 100644
  #include <memory>
  #include <mutex>
  #include <optional>
-@@ -81,15 +79,13 @@ static inline void compute_2d_workgroups(uint32_t total_wg, uint32_t max_per_dim
+@@ -43,6 +41,12 @@ static inline void compute_2d_workgroups(uint32_t total_wg, uint32_t max_per_dim
+     wg_x = CEIL_DIV(total_wg, wg_y);
+ }
+ 
++static inline uint32_t ggml_webgpu_u32_from_f32(float value) {
++    uint32_t bits;
++    memcpy(&bits, &value, sizeof(bits));
++    return bits;
++}
++
+ #ifdef GGML_WEBGPU_DEBUG
+ #    define WEBGPU_LOG_DEBUG(msg)  std::cout << msg << std::endl
+ #    define WEBGPU_DEBUG_BUF_ELEMS 512
+@@ -75,21 +79,19 @@ static inline void compute_2d_workgroups(uint32_t total_wg, uint32_t max_per_dim
+ #endif  // GGML_WEBGPU_CPU_PROFILE
+ 
+ #ifdef GGML_WEBGPU_GPU_PROFILE
+-#    define WEBGPU_NUM_TIMESTAMP_QUERY_BUFS       32
+-#    define WEBGPU_TIMESTAMP_QUERY_BUF_SIZE_BYTES 16  // e.g. enough for two timestamps
++#    define WEBGPU_MAX_PROFILE_QUERY_COUNT        4096u
++#    define WEBGPU_TIMESTAMP_QUERY_BUF_SIZE_BYTES (WEBGPU_MAX_PROFILE_QUERY_COUNT * sizeof(uint64_t))
+ #endif
  
  /* Constants */
  
@@ -19409,7 +24485,7 @@ index 1aa15b05..aa3fe06d 100644
  
  // For operations which process a row in parallel, this seems like a reasonable
  // default
-@@ -122,87 +118,45 @@ static void ggml_webgpu_create_buffer(wgpu::Device &    device,
+@@ -122,161 +124,59 @@ static void ggml_webgpu_create_buffer(wgpu::Device &    device,
                                        wgpu::BufferUsage usage,
                                        const char *      label);
  
@@ -19449,6 +24525,14 @@ index 1aa15b05..aa3fe06d 100644
 -            ggml_webgpu_create_buffer(device, dev_buf, buf_size, dev_buf_usage, "ggml_webgpu_dev_pool_buf");
 -            free.push_back(dev_buf);
 -        }
+-    }
+-
+-    wgpu::Buffer alloc_bufs() {
+-        std::unique_lock<std::mutex> lock(mutex);
+-        if (!free.empty()) {
+-            wgpu::Buffer buf = free.back();
+-            free.pop_back();
+-            return buf;
 +// Slot-based parameter arena for compute graph encoding. Each encoded kernel
 +// gets a unique uniform-buffer slice within the current batch, and the slot
 +// cursor is reset immediately after that batch is submitted.
@@ -19467,14 +24551,8 @@ index 1aa15b05..aa3fe06d 100644
 +
 +        ggml_webgpu_create_buffer(device, buffer, this->slot_stride * slot_count,
 +                                  wgpu::BufferUsage::CopyDst | wgpu::BufferUsage::Uniform, "ggml_webgpu_param_arena");
-     }
- 
--    wgpu::Buffer alloc_bufs() {
--        std::unique_lock<std::mutex> lock(mutex);
--        if (!free.empty()) {
--            wgpu::Buffer buf = free.back();
--            free.pop_back();
--            return buf;
++    }
++
 +    size_t alloc_slot(size_t size) {
 +        GGML_ASSERT(size <= slot_size);
 +        if (next_slot >= slot_count) {
@@ -19524,21 +24602,91 @@ index 1aa15b05..aa3fe06d 100644
 +    ~webgpu_param_arena() { this->cleanup(); }
  };
  
++struct webgpu_encoded_op {
++    uint32_t num_kernels = 0;
  #ifdef GGML_WEBGPU_GPU_PROFILE
-@@ -269,10 +223,8 @@ struct webgpu_gpu_profile_buf_pool {
- };
+-struct webgpu_gpu_profile_bufs {
+-    wgpu::Buffer   host_buf;
+-    wgpu::Buffer   dev_buf;
+-    wgpu::QuerySet query_set;
+-};
+-
+-// Holds a pool of parameter buffers for WebGPU operations
+-struct webgpu_gpu_profile_buf_pool {
+-    std::vector<webgpu_gpu_profile_bufs> free;
+-
+-    std::mutex mutex;
+-
+-    std::condition_variable cv;
+-
+-    void init(wgpu::Device      device,
+-              int               num_bufs,
+-              size_t            buf_size,
+-              wgpu::BufferUsage dev_buf_usage,
+-              wgpu::BufferUsage host_buf_usage) {
+-        for (int i = 0; i < num_bufs; i++) {
+-            wgpu::Buffer host_buf;
+-            wgpu::Buffer dev_buf;
+-            ggml_webgpu_create_buffer(device, host_buf, buf_size, host_buf_usage, "ggml_webgpu_host_profile_buf");
+-            ggml_webgpu_create_buffer(device, dev_buf, buf_size, dev_buf_usage, "ggml_webgpu_dev_profile_buf");
+-            // Create a query set for 2 timestamps
+-            wgpu::QuerySetDescriptor ts_query_set_desc = {};
+-
+-            ts_query_set_desc.type      = wgpu::QueryType::Timestamp;
+-            ts_query_set_desc.count     = 2;
+-            wgpu::QuerySet ts_query_set = device.CreateQuerySet(&ts_query_set_desc);
+-
+-            free.push_back({ host_buf, dev_buf, ts_query_set });
+-        }
+-    }
+-
+-    webgpu_gpu_profile_bufs alloc_bufs() {
+-        std::unique_lock<std::mutex> lock(mutex);
+-        cv.wait(lock, [this] { return !free.empty(); });
+-        webgpu_gpu_profile_bufs bufs = free.back();
+-        free.pop_back();
+-        return bufs;
+-    }
+-
+-    void free_bufs(std::vector<webgpu_gpu_profile_bufs> bufs) {
+-        std::lock_guard<std::mutex> lock(mutex);
+-        free.insert(free.end(), bufs.begin(), bufs.end());
+-        cv.notify_all();
+-    }
+-
+-    void cleanup() {
+-        std::lock_guard<std::mutex> lock(mutex);
+-        for (auto & bufs : free) {
+-            bufs.host_buf.Destroy();
+-            bufs.dev_buf.Destroy();
+-            bufs.query_set.Destroy();
+-        }
+-        free.clear();
+-    }
+-
+-    ~webgpu_gpu_profile_buf_pool() { this->cleanup(); }
+-};
++    std::vector<std::string> pipeline_names;
  #endif
++};
  
 -struct webgpu_command {
 -    uint32_t                  num_kernels;
 -    wgpu::CommandBuffer       commands;
 -    std::vector<wgpu::Buffer> params_bufs;
-+struct webgpu_encoded_op {
-+    uint32_t num_kernels = 0;
- #ifdef GGML_WEBGPU_GPU_PROFILE
-     webgpu_gpu_profile_bufs timestamp_query_bufs;
-     std::string             pipeline_name;
-@@ -298,6 +250,8 @@ struct webgpu_global_context_struct {
+-#ifdef GGML_WEBGPU_GPU_PROFILE
+-    webgpu_gpu_profile_bufs timestamp_query_bufs;
+-    std::string             pipeline_name;
+-#endif
++struct webgpu_dispatch_desc {
++    webgpu_pipeline                   pipeline;
++    std::vector<uint32_t>             params;
++    std::vector<wgpu::BindGroupEntry> bind_group_entries;
++    std::pair<uint32_t, uint32_t>     workgroups = { 1, 1 };
+ };
+ 
+ struct webgpu_capabilities {
+@@ -298,15 +198,17 @@ struct webgpu_global_context_struct {
      wgpu::Adapter  adapter;
      wgpu::Device   device;
      wgpu::Queue    queue;
@@ -19547,8 +24695,9 @@ index 1aa15b05..aa3fe06d 100644
  
      webgpu_capabilities  capabilities;
      // Shared buffer to move data from device to host
-@@ -305,8 +259,8 @@ struct webgpu_global_context_struct {
-     // Global mutex for pipeline and staging buffer, will be refactored to exclude pipeline caches.
+     wgpu::Buffer         get_tensor_staging_buf;
+-    // Global mutex for pipeline and staging buffer, will be refactored to exclude pipeline caches.
++    // Global mutex for get_tensor
      std::recursive_mutex mutex;
  
 -    webgpu_buf_pool                memset_buf_pool;
@@ -19558,7 +24707,16 @@ index 1aa15b05..aa3fe06d 100644
  
  #ifdef GGML_WEBGPU_CPU_PROFILE
      // Profiling: labeled CPU time in ms (total)
-@@ -332,6 +286,10 @@ struct webgpu_global_context_struct {
+@@ -318,8 +220,6 @@ struct webgpu_global_context_struct {
+ #ifdef GGML_WEBGPU_GPU_PROFILE
+     // Profiling: per-shader GPU time in ms
+     std::unordered_map<std::string, double> shader_gpu_time_ms;
+-    // Profiling: pool of timestamp query buffers (one per operation)
+-    webgpu_gpu_profile_buf_pool             timestamp_query_buf_pool;
+ #endif
+ 
+ #ifdef GGML_WEBGPU_DEBUG
+@@ -332,6 +232,10 @@ struct webgpu_global_context_struct {
              this->get_tensor_staging_buf.Destroy();
              this->get_tensor_staging_buf = nullptr;
          }
@@ -19569,7 +24727,7 @@ index 1aa15b05..aa3fe06d 100644
  #ifdef GGML_WEBGPU_DEBUG
          if (this->debug_host_buf) {
              this->debug_host_buf.Destroy();
-@@ -347,13 +305,6 @@ struct webgpu_global_context_struct {
+@@ -347,13 +251,6 @@ struct webgpu_global_context_struct {
  
  typedef std::shared_ptr<webgpu_global_context_struct> webgpu_global_context;
  
@@ -19583,22 +24741,69 @@ index 1aa15b05..aa3fe06d 100644
  // All the base objects needed to run operations on a WebGPU device
  struct webgpu_context_struct {
      // Points to global instances owned by ggml_backend_webgpu_reg_context
-@@ -361,9 +312,9 @@ struct webgpu_context_struct {
+@@ -361,11 +258,45 @@ struct webgpu_context_struct {
  
      std::unique_ptr<ggml_webgpu_shader_lib> shader_lib;
  
 -    webgpu_buf_pool param_buf_pool;
 -    wgpu::Buffer    set_rows_dev_error_buf;
 -    wgpu::Buffer    set_rows_host_error_buf;
-+    webgpu_param_arena param_arena;
-+    wgpu::Buffer       set_rows_dev_error_buf;
-+    wgpu::Buffer       set_rows_host_error_buf;
++    webgpu_param_arena       param_arena;
++    wgpu::Buffer             set_rows_dev_error_buf;
++    wgpu::Buffer             set_rows_host_error_buf;
++    wgpu::CommandEncoder     active_command_encoder;
++    wgpu::ComputePassEncoder active_compute_pass;
  
      size_t memset_bytes_per_thread;
++
++#ifdef GGML_WEBGPU_GPU_PROFILE
++    wgpu::Buffer   profile_timestamp_dev_buf;
++    wgpu::Buffer   profile_timestamp_host_buf;
++    wgpu::QuerySet profile_timestamp_query_set;
++    uint32_t       profile_timestamp_query_count = 0;
++#endif
++
++    ~webgpu_context_struct() {
++#ifdef GGML_WEBGPU_GPU_PROFILE
++        if (this->profile_timestamp_host_buf) {
++            this->profile_timestamp_host_buf.Destroy();
++            this->profile_timestamp_host_buf = nullptr;
++        }
++        if (this->profile_timestamp_dev_buf) {
++            this->profile_timestamp_dev_buf.Destroy();
++            this->profile_timestamp_dev_buf = nullptr;
++        }
++        if (this->profile_timestamp_query_set) {
++            this->profile_timestamp_query_set.Destroy();
++            this->profile_timestamp_query_set = nullptr;
++        }
++#endif
++        if (this->set_rows_host_error_buf) {
++            this->set_rows_host_error_buf.Destroy();
++            this->set_rows_host_error_buf = nullptr;
++        }
++        if (this->set_rows_dev_error_buf) {
++            this->set_rows_dev_error_buf.Destroy();
++            this->set_rows_dev_error_buf = nullptr;
++        }
++    }
  };
-@@ -448,95 +399,81 @@ static void ggml_webgpu_create_buffer(wgpu::Device &    device,
  
- /** WebGPU Actions */
+ typedef std::shared_ptr<webgpu_context_struct> webgpu_context;
+@@ -444,99 +375,143 @@ static void ggml_webgpu_create_buffer(wgpu::Device &    device,
+     buffer = device.CreateBuffer(&buffer_desc);
+ }
+ 
+-/** End WebGPU object initializations */
++static size_t ggml_webgpu_tensor_offset(const ggml_tensor * tensor) {
++    return webgpu_tensor_offset(tensor) + tensor->view_offs;
++}
+ 
+-/** WebGPU Actions */
++static wgpu::Buffer ggml_webgpu_tensor_buf(const ggml_tensor * tensor) {
++    ggml_backend_webgpu_buffer_context * ctx = (ggml_backend_webgpu_buffer_context *) tensor->buffer->context;
++    return ctx->buffer;
++}
  
 -static bool ggml_backend_webgpu_handle_wait_status(wgpu::WaitStatus status, bool allow_timeout = false) {
 -    switch (status) {
@@ -19617,22 +24822,43 @@ index 1aa15b05..aa3fe06d 100644
 -            GGML_LOG_ERROR("ggml_webgpu: WaitAny returned an unknown status\n");
 -            return false;
 -    }
--}
--
- #ifdef GGML_WEBGPU_GPU_PROFILE
++static size_t ggml_webgpu_tensor_misalignment(webgpu_context & ctx, const ggml_tensor * t) {
++    size_t offset = ggml_webgpu_tensor_offset(t);
++    return offset & (ctx->global_ctx->capabilities.limits.minStorageBufferOffsetAlignment - 1);
+ }
+ 
+-#ifdef GGML_WEBGPU_GPU_PROFILE
 -static void ggml_backend_webgpu_erase_completed_futures(std::vector<wgpu::FutureWaitInfo> & futures) {
 -    futures.erase(std::remove_if(futures.begin(), futures.end(),
 -                                 [](const wgpu::FutureWaitInfo & info) { return info.completed; }),
 -                  futures.end());
--}
--
- static void ggml_backend_webgpu_wait_profile_futures(webgpu_global_context &             ctx,
++static bool ggml_webgpu_flash_attn_use_vec(webgpu_global_context & global_ctx,
++                                           const ggml_tensor *     Q,
++                                           const ggml_tensor *     K,
++                                           const ggml_tensor *     V) {
++    const size_t   alignment = global_ctx->capabilities.limits.minStorageBufferOffsetAlignment;
++    const uint32_t k_offset_elems =
++        (uint32_t) ((ggml_webgpu_tensor_offset(K) & (alignment - 1)) / ggml_type_size(K->type));
++    const uint32_t v_offset_elems =
++        (uint32_t) ((ggml_webgpu_tensor_offset(V) & (alignment - 1)) / ggml_type_size(V->type));
++    const bool f16_vec4_aligned = (k_offset_elems % 4u == 0u) && (v_offset_elems % 4u == 0u);
++    const bool kv_vec_type_supported =
++        K->type == GGML_TYPE_F16 || K->type == GGML_TYPE_Q4_0 || K->type == GGML_TYPE_Q8_0;
++
++    return (Q->ne[1] < 20) && (Q->ne[0] % 32 == 0) && (V->ne[0] % 4 == 0) && kv_vec_type_supported &&
++           (K->type != GGML_TYPE_F16 || f16_vec4_aligned) && (V->type == K->type);
+ }
+ 
+-static void ggml_backend_webgpu_wait_profile_futures(webgpu_global_context &             ctx,
 -                                                     std::vector<wgpu::FutureWaitInfo> & futures,
 -                                                     bool                                block) {
-+                                                     std::vector<wgpu::FutureWaitInfo> & futures) {
-     if (futures.empty()) {
-         return;
-     }
+-    if (futures.empty()) {
+-        return;
+-    }
++static size_t ggml_webgpu_tensor_align_offset(webgpu_context & ctx, const ggml_tensor * t) {
++    size_t offset = ggml_webgpu_tensor_offset(t);
++    return offset & ~(ctx->global_ctx->capabilities.limits.minStorageBufferOffsetAlignment - 1);
++}
  
 -    uint64_t timeout_ms = block ? UINT64_MAX : 0;
 -    if (block) {
@@ -19647,16 +24873,11 @@ index 1aa15b05..aa3fe06d 100644
 -        if (ggml_backend_webgpu_handle_wait_status(waitStatus, true)) {
 -            ggml_backend_webgpu_erase_completed_futures(futures);
 -        }
-+    constexpr size_t max_futures_per_wait = 64;
-+
-+    while (!futures.empty()) {
-+        ctx->instance.WaitAny(std::min(max_futures_per_wait, futures.size()), futures.data(), UINT64_MAX);
-+        futures.erase(std::remove_if(futures.begin(), futures.end(),
-+                                     [](const wgpu::FutureWaitInfo & info) { return info.completed; }),
-+                      futures.end());
-     }
+-    }
++static size_t ggml_webgpu_tensor_binding_size(webgpu_context & ctx, ggml_tensor * t) {
++    return ROUNDUP_POW2(ggml_nbytes(t) + ggml_webgpu_tensor_misalignment(ctx, t), WEBGPU_STORAGE_BUF_BINDING_MULT);
  }
- #endif
+-#endif
  
 -// Wait for the queue to finish processing all submitted work
 -static void ggml_backend_webgpu_wait(webgpu_global_context &          ctx,
@@ -19664,17 +24885,13 @@ index 1aa15b05..aa3fe06d 100644
 -                                     bool                             block = true) {
 -    if (subs.empty()) {
 -        return;
-+template <typename T>
-+static void ggml_backend_webgpu_check_wait_status(wgpu::WaitStatus wait_status,
-+                                                  T                callback_status,
-+                                                  T                success_status,
-+                                                  const char *     wait_name,
-+                                                  const char *     failure_name,
-+                                                  const char *     callback_message) {
-+    if (wait_status == wgpu::WaitStatus::TimedOut) {
-+        GGML_ABORT("ggml_webgpu: %s timed out after %u ms\n", wait_name, WEBGPU_RUNTIME_WAIT_TIMEOUT_MS);
-     }
--
+-    }
++// Used to determine if two tensors are the same for in-place operations
++static bool ggml_webgpu_tensor_equal(ggml_tensor * a, ggml_tensor * b) {
++    return (ggml_webgpu_tensor_buf(a).Get() == ggml_webgpu_tensor_buf(b).Get()) &&
++           (ggml_webgpu_tensor_offset(a) == ggml_webgpu_tensor_offset(b));
++}
+ 
 -    bool blocking_wait = block || subs.size() >= WEBGPU_MAX_INFLIGHT_SUBS_PER_THREAD;
 -    while (blocking_wait) {
 -        auto waitStatus = ctx->instance.WaitAny(1, &subs[0].submit_done, WEBGPU_WAIT_ANY_TIMEOUT_MS * 1e6);
@@ -19685,17 +24902,22 @@ index 1aa15b05..aa3fe06d 100644
 -            subs.erase(subs.begin());
 -        }
 -        blocking_wait = (block && !subs.empty()) || subs.size() >= WEBGPU_MAX_INFLIGHT_SUBS_PER_THREAD;
-+    if (wait_status == wgpu::WaitStatus::Error) {
-+        GGML_ABORT("ggml_webgpu: %s failed\n", wait_name);
-     }
--
+-    }
++// Used to determine if two tensors share the same buffer and their byte ranges overlap,
++static bool ggml_webgpu_tensor_overlap(ggml_tensor * a, ggml_tensor * b) {
++    return (ggml_webgpu_tensor_buf(a).Get() == ggml_webgpu_tensor_buf(b).Get()) &&
++           ggml_webgpu_tensor_offset(a) < (ggml_webgpu_tensor_offset(b) + ggml_nbytes(b)) &&
++           ggml_webgpu_tensor_offset(b) < (ggml_webgpu_tensor_offset(a) + ggml_nbytes(a));
++}
+ 
 -    if (subs.empty()) {
 -        return;
-+    if (callback_status != success_status) {
-+        GGML_ABORT("ggml_webgpu: %s failed with status %d: %s\n", failure_name, static_cast<int>(callback_status),
-+                   callback_message);
-     }
-+}
+-    }
++struct binary_overlap_flags {
++    bool inplace;  // src0 == dst
++    bool overlap;  // src1 == dst
++    bool src_overlap;
++};
  
 -    // Poll each submit future once and remove completed submissions.
 -    for (auto sub = subs.begin(); sub != subs.end();) {
@@ -19706,26 +24928,67 @@ index 1aa15b05..aa3fe06d 100644
 -        if (success && sub->profile_futures.empty()) {
 -#else
 -        if (success) {
-+#ifdef __EMSCRIPTEN__
-+EM_JS(int, ggml_webgpu_is_ios_browser, (), {
-+    const ua = navigator.userAgent;
-+    return (ua.includes('iPhone') || ua.includes('iPad')) ? 1 : 0;
-+});
- #endif
+-#endif
 -            sub = subs.erase(sub);
 -        } else {
 -            ++sub;
 -        }
++static binary_overlap_flags ggml_webgpu_detect_binary_overlap(ggml_tensor * src0,
++                                                              ggml_tensor * src1,
++                                                              ggml_tensor * dst) {
++    binary_overlap_flags flags = {};
++    flags.inplace              = ggml_webgpu_tensor_equal(src0, dst);
++    flags.overlap              = ggml_webgpu_tensor_overlap(src1, dst);
++    flags.src_overlap          = ggml_webgpu_tensor_overlap(src0, src1);
++
++    return flags;
++}
++
++static wgpu::BindGroupEntry ggml_webgpu_make_bind_group_entry(uint32_t     binding,
++                                                              wgpu::Buffer buffer,
++                                                              uint64_t     offset,
++                                                              uint64_t     size) {
++    wgpu::BindGroupEntry entry = {};
++    entry.binding              = binding;
++    entry.buffer               = std::move(buffer);
++    entry.offset               = offset;
++    entry.size                 = size;
++    return entry;
++}
++
++static wgpu::BindGroupEntry ggml_webgpu_make_tensor_bind_group_entry(webgpu_context & ctx,
++                                                                     uint32_t         binding,
++                                                                     ggml_tensor *    tensor) {
++    return ggml_webgpu_make_bind_group_entry(binding, ggml_webgpu_tensor_buf(tensor),
++                                             ggml_webgpu_tensor_align_offset(ctx, tensor),
++                                             ggml_webgpu_tensor_binding_size(ctx, tensor));
++}
++
++/** End WebGPU object initializations */
++
++/** WebGPU Actions */
++
++template <typename T>
++static void ggml_backend_webgpu_check_wait_status(wgpu::WaitStatus wait_status,
++                                                  T                callback_status,
++                                                  T                success_status,
++                                                  const char *     wait_name,
++                                                  const char *     failure_name,
++                                                  const char *     callback_message) {
++    if (wait_status == wgpu::WaitStatus::TimedOut) {
++        GGML_ABORT("ggml_webgpu: %s timed out after %u ms\n", wait_name, WEBGPU_RUNTIME_WAIT_TIMEOUT_MS);
++    }
++    if (wait_status == wgpu::WaitStatus::Error) {
++        GGML_ABORT("ggml_webgpu: %s failed\n", wait_name);
+     }
++    if (callback_status != success_status) {
++        GGML_ABORT("ggml_webgpu: %s failed with status %d: %s\n", failure_name, static_cast<int>(callback_status),
++                   callback_message);
++    }
++}
 +
 +// TODO: these next two functions may want tuning across different platforms and workloads,
 +static uint32_t ggml_backend_webgpu_get_max_inflight_batches() {
-+#ifdef __EMSCRIPTEN__
-+    // iOS has very strict limits on the number of in-flight GPU commands,
-+    // so we need to throttle to avoid failures.
-+    if (ggml_webgpu_is_ios_browser()) {
-+        return 1;
-     }
-+#endif
 +    return UINT32_MAX;
 +}
 +
@@ -19751,7 +25014,7 @@ index 1aa15b05..aa3fe06d 100644
  }
  
  static void ggml_backend_webgpu_map_buffer(webgpu_global_context & ctx,
-@@ -544,14 +481,31 @@ static void ggml_backend_webgpu_map_buffer(webgpu_global_context & ctx,
+@@ -544,14 +519,31 @@ static void ggml_backend_webgpu_map_buffer(webgpu_global_context & ctx,
                                             wgpu::MapMode           mode,
                                             size_t                  offset,
                                             size_t                  size) {
@@ -19791,7 +25054,7 @@ index 1aa15b05..aa3fe06d 100644
  }
  
  #ifdef GGML_WEBGPU_DEBUG
-@@ -570,34 +524,10 @@ static void ggml_backend_webgpu_debug(webgpu_global_context & ctx) {
+@@ -570,147 +562,79 @@ static void ggml_backend_webgpu_debug(webgpu_global_context & ctx) {
  }
  #endif
  
@@ -19822,66 +25085,76 @@ index 1aa15b05..aa3fe06d 100644
 -        });
 -    submission.submit_done = { p_f };
 -
- #ifdef GGML_WEBGPU_GPU_PROFILE
-+static void ggml_backend_webgpu_collect_profile_futures(webgpu_global_context &                ctx,
-+                                                        const std::vector<webgpu_encoded_op> & commands,
-+                                                        std::vector<wgpu::FutureWaitInfo> &    futures) {
-     for (const auto & command : commands) {
-         auto label   = command.pipeline_name;
-         auto ts_bufs = command.timestamp_query_bufs;
-@@ -616,15 +546,15 @@ static webgpu_submission ggml_backend_webgpu_submit(webgpu_global_context &
-                 // We can't unmap in here due to WebGPU reentrancy limitations.
-                 ctx->timestamp_query_buf_pool.free_bufs({ ts_bufs });
-             });
+-#ifdef GGML_WEBGPU_GPU_PROFILE
+-    for (const auto & command : commands) {
+-        auto label   = command.pipeline_name;
+-        auto ts_bufs = command.timestamp_query_bufs;
+-
+-        wgpu::Future f = ts_bufs.host_buf.MapAsync(
+-            wgpu::MapMode::Read, 0, ts_bufs.host_buf.GetSize(), wgpu::CallbackMode::AllowSpontaneous,
+-            [ctx, ts_bufs, label](wgpu::MapAsyncStatus status, wgpu::StringView message) {
+-                if (status != wgpu::MapAsyncStatus::Success) {
+-                    GGML_LOG_ERROR("ggml_webgpu: Failed to map timestamp buffer: %s\n", std::string(message).c_str());
+-                } else {
+-                    const uint64_t * ts_data    = (const uint64_t *) ts_bufs.host_buf.GetConstMappedRange();
+-                    // WebGPU timestamps are in ns; convert to ms
+-                    double           elapsed_ms = double(ts_data[1] - ts_data[0]) * 1e-6;
+-                    ctx->shader_gpu_time_ms[label] += elapsed_ms;
+-                }
+-                // We can't unmap in here due to WebGPU reentrancy limitations.
+-                ctx->timestamp_query_buf_pool.free_bufs({ ts_bufs });
+-            });
 -        submission.profile_futures.push_back({ f });
-+        futures.push_back({ f });
-     }
+-    }
 -#endif
 -    return submission;
- }
-+#endif
- 
+-}
+-
 -static webgpu_command ggml_backend_webgpu_build_multi(
-+static webgpu_encoded_op ggml_backend_webgpu_build_multi(
-     webgpu_global_context &                                ctx,
+-    webgpu_global_context &                                ctx,
 -    webgpu_buf_pool &                                      param_buf_pool,
-+    webgpu_param_arena &                                   param_arena,
-+    wgpu::CommandEncoder &                                 encoder,
-     const std::vector<webgpu_pipeline> &                   pipelines,
-     const std::vector<std::vector<uint32_t>> &             params_list,
-     const std::vector<std::vector<wgpu::BindGroupEntry>> & bind_group_entries_list,
-@@ -633,16 +563,21 @@ static webgpu_command ggml_backend_webgpu_build_multi(
-     GGML_ASSERT(pipelines.size() == bind_group_entries_list.size());
-     GGML_ASSERT(pipelines.size() == workgroups_list.size());
- 
+-    const std::vector<webgpu_pipeline> &                   pipelines,
+-    const std::vector<std::vector<uint32_t>> &             params_list,
+-    const std::vector<std::vector<wgpu::BindGroupEntry>> & bind_group_entries_list,
+-    const std::vector<std::pair<uint32_t, uint32_t>> &     workgroups_list) {
+-    GGML_ASSERT(pipelines.size() == params_list.size());
+-    GGML_ASSERT(pipelines.size() == bind_group_entries_list.size());
+-    GGML_ASSERT(pipelines.size() == workgroups_list.size());
+-
 -    std::vector<wgpu::Buffer>    params_bufs_list;
++static webgpu_encoded_op ggml_backend_webgpu_build_multi(webgpu_context &                          ctx,
++                                                         const std::vector<webgpu_dispatch_desc> & dispatches) {
 +    webgpu_encoded_op            result = {};
      std::vector<wgpu::BindGroup> bind_groups;
 +    std::vector<size_t>          param_offsets;
-+    result.num_kernels = pipelines.size();
++    result.num_kernels = dispatches.size();
  
-     for (size_t i = 0; i < pipelines.size(); i++) {
+-    for (size_t i = 0; i < pipelines.size(); i++) {
 -        wgpu::Buffer params_bufs = param_buf_pool.alloc_bufs();
-+        const size_t param_size   = params_list[i].size() * sizeof(uint32_t);
-+        const size_t param_offset = param_arena.alloc_slot(param_size);
++    for (size_t i = 0; i < dispatches.size(); i++) {
++        const webgpu_dispatch_desc & dispatch     = dispatches[i];
++        const size_t                 param_size   = dispatch.params.size() * sizeof(uint32_t);
++        const size_t                 param_offset = ctx->param_arena.alloc_slot(param_size);
  
-         std::vector<wgpu::BindGroupEntry> entries            = bind_group_entries_list[i];
+-        std::vector<wgpu::BindGroupEntry> entries            = bind_group_entries_list[i];
++        std::vector<wgpu::BindGroupEntry> entries            = dispatch.bind_group_entries;
          uint32_t                          params_binding_num = entries.size();
 -        entries.push_back(
 -            { .binding = params_binding_num, .buffer = params_bufs, .offset = 0, .size = params_bufs.GetSize() });
-+        entries.push_back({ .binding = params_binding_num,
-+                            .buffer  = param_arena.buffer,
-+                            .offset  = param_offset,
-+                            .size    = param_arena.slot_size });
++        entries.push_back(ggml_webgpu_make_bind_group_entry(params_binding_num, ctx->param_arena.buffer, param_offset,
++                                                            ctx->param_arena.slot_size));
  
          wgpu::BindGroupDescriptor bind_group_desc;
-         bind_group_desc.layout     = pipelines[i].pipeline.GetBindGroupLayout(0);
-@@ -650,15 +585,13 @@ static webgpu_command ggml_backend_webgpu_build_multi(
+-        bind_group_desc.layout     = pipelines[i].pipeline.GetBindGroupLayout(0);
++        bind_group_desc.layout     = dispatch.pipeline.pipeline.GetBindGroupLayout(0);
+         bind_group_desc.entryCount = entries.size();
          bind_group_desc.entries    = entries.data();
-         bind_group_desc.label      = pipelines[i].name.c_str();
-         bind_groups.push_back(ctx->device.CreateBindGroup(&bind_group_desc));
+-        bind_group_desc.label      = pipelines[i].name.c_str();
+-        bind_groups.push_back(ctx->device.CreateBindGroup(&bind_group_desc));
 -
 -        params_bufs_list.push_back(params_bufs);
++        bind_group_desc.label      = dispatch.pipeline.name.c_str();
++        bind_groups.push_back(ctx->global_ctx->device.CreateBindGroup(&bind_group_desc));
 +        param_offsets.push_back(param_offset);
      }
  
@@ -19889,29 +25162,69 @@ index 1aa15b05..aa3fe06d 100644
 -    for (size_t i = 0; i < params_bufs_list.size(); i++) {
 -        ctx->queue.WriteBuffer(params_bufs_list[i], 0, params_list[i].data(), params_list[i].size() * sizeof(uint32_t));
 +    for (size_t i = 0; i < param_offsets.size(); i++) {
-+        ctx->queue.WriteBuffer(param_arena.buffer, param_offsets[i], params_list[i].data(),
-+                               params_list[i].size() * sizeof(uint32_t));
++        ctx->global_ctx->queue.WriteBuffer(ctx->param_arena.buffer, param_offsets[i], dispatches[i].params.data(),
++                                           dispatches[i].params.size() * sizeof(uint32_t));
      }
--
+ 
  #ifdef GGML_WEBGPU_GPU_PROFILE
-     webgpu_gpu_profile_bufs ts_bufs = ctx->timestamp_query_buf_pool.alloc_bufs();
-     if (ts_bufs.host_buf.GetMapState() == wgpu::BufferMapState::Mapped) {
-@@ -683,29 +616,21 @@ static webgpu_command ggml_backend_webgpu_build_multi(
- #ifdef GGML_WEBGPU_GPU_PROFILE
-     encoder.ResolveQuerySet(ts_bufs.query_set, 0, 2, ts_bufs.dev_buf, 0);
-     encoder.CopyBufferToBuffer(ts_bufs.dev_buf, 0, ts_bufs.host_buf, 0, ts_bufs.host_buf.GetSize());
+-    webgpu_gpu_profile_bufs ts_bufs = ctx->timestamp_query_buf_pool.alloc_bufs();
+-    if (ts_bufs.host_buf.GetMapState() == wgpu::BufferMapState::Mapped) {
+-        ts_bufs.host_buf.Unmap();
+-    }
++    for (size_t i = 0; i < dispatches.size(); i++) {
++        GGML_ASSERT(ctx->profile_timestamp_query_count + 2 <= WEBGPU_MAX_PROFILE_QUERY_COUNT);
++        const uint32_t query_begin = ctx->profile_timestamp_query_count++;
++        const uint32_t query_end   = ctx->profile_timestamp_query_count++;
+ 
+-    wgpu::PassTimestampWrites   ts_writes = { .querySet                  = ts_bufs.query_set,
+-                                              .beginningOfPassWriteIndex = 0,
+-                                              .endOfPassWriteIndex       = 1 };
+-    wgpu::ComputePassDescriptor pass_desc = { .timestampWrites = &ts_writes };
+-    wgpu::ComputePassEncoder    pass      = encoder.BeginComputePass(&pass_desc);
+-#else
+-    wgpu::ComputePassEncoder pass = encoder.BeginComputePass();
 -#endif
+-    for (size_t i = 0; i < pipelines.size(); i++) {
+-        pass.SetPipeline(pipelines[i].pipeline);
++        wgpu::PassTimestampWrites ts_writes   = {};
++        ts_writes.querySet                    = ctx->profile_timestamp_query_set;
++        ts_writes.beginningOfPassWriteIndex   = query_begin;
++        ts_writes.endOfPassWriteIndex         = query_end;
++        wgpu::ComputePassDescriptor pass_desc = {};
++        pass_desc.timestampWrites             = &ts_writes;
++
++        wgpu::ComputePassEncoder pass = ctx->active_command_encoder.BeginComputePass(&pass_desc);
++
++        pass.SetPipeline(dispatches[i].pipeline.pipeline);
+         pass.SetBindGroup(0, bind_groups[i]);
+-        pass.DispatchWorkgroups(workgroups_list[i].first, workgroups_list[i].second, 1);
++        pass.DispatchWorkgroups(dispatches[i].workgroups.first, dispatches[i].workgroups.second, 1);
++        pass.End();
++        result.pipeline_names.push_back(dispatches[i].pipeline.name);
++    }
++#else
++    for (size_t i = 0; i < dispatches.size(); i++) {
++        ctx->active_compute_pass.SetPipeline(dispatches[i].pipeline.pipeline);
++        ctx->active_compute_pass.SetBindGroup(0, bind_groups[i]);
++        ctx->active_compute_pass.DispatchWorkgroups(dispatches[i].workgroups.first, dispatches[i].workgroups.second, 1);
+     }
+-    pass.End();
 -
+-#ifdef GGML_WEBGPU_GPU_PROFILE
+-    encoder.ResolveQuerySet(ts_bufs.query_set, 0, 2, ts_bufs.dev_buf, 0);
+-    encoder.CopyBufferToBuffer(ts_bufs.dev_buf, 0, ts_bufs.host_buf, 0, ts_bufs.host_buf.GetSize());
+ #endif
+ 
 -    wgpu::CommandBuffer commands = encoder.Finish();
 -    webgpu_command      result   = {};
 -    result.commands              = commands;
 -    result.params_bufs           = params_bufs_list;
 -    result.num_kernels           = pipelines.size();
 -#ifdef GGML_WEBGPU_GPU_PROFILE
-     result.timestamp_query_bufs = ts_bufs;
+-    result.timestamp_query_bufs = ts_bufs;
 -    // TODO: handle multiple pipeline names
-     result.pipeline_name        = pipelines.front().name;
- #endif
+-    result.pipeline_name        = pipelines.front().name;
+-#endif
      return result;
  }
  
@@ -19923,30 +25236,47 @@ index 1aa15b05..aa3fe06d 100644
 -                                                uint32_t                          wg_x,
 -                                                uint32_t                          wg_y = 1) {
 -    return ggml_backend_webgpu_build_multi(ctx, param_buf_pool,
-+static webgpu_encoded_op ggml_backend_webgpu_build(webgpu_global_context &           ctx,
-+                                                   webgpu_param_arena &              param_arena,
-+                                                   wgpu::CommandEncoder &            encoder,
+-                                           {
+-                                               pipeline
+-    },
+-                                           { std::move(params) }, { std::move(bind_group_entries) },
+-                                           { { wg_x, wg_y } });
++static webgpu_encoded_op ggml_backend_webgpu_build(webgpu_context &                  ctx,
 +                                                   webgpu_pipeline &                 pipeline,
 +                                                   std::vector<uint32_t>             params,
 +                                                   std::vector<wgpu::BindGroupEntry> bind_group_entries,
 +                                                   uint32_t                          wg_x,
 +                                                   uint32_t                          wg_y = 1) {
-+    return ggml_backend_webgpu_build_multi(ctx, param_arena, encoder,
-                                            {
-                                                pipeline
-     },
-@@ -725,10 +650,28 @@ static void ggml_backend_webgpu_buffer_memset(webgpu_global_context & ctx,
-     size_t   bytes_per_wg = WEBGPU_MAX_WG_SIZE * ctx->capabilities.memset_bytes_per_thread;
-     uint32_t wg_x         = CEIL_DIV(size + 3, bytes_per_wg);
++    return ggml_backend_webgpu_build_multi(
++        ctx, {
++                 { pipeline, std::move(params), std::move(bind_group_entries), { wg_x, wg_y } },
++    });
+ }
  
--    webgpu_command command =
--        ggml_backend_webgpu_build(ctx, ctx->memset_buf_pool, ctx->memset_pipelines[0], params, entries, wg_x);
--    std::vector<webgpu_command>    commands = { command };
--    std::vector<webgpu_submission> sub      = { ggml_backend_webgpu_submit(ctx, commands, ctx->memset_buf_pool) };
+ static void ggml_backend_webgpu_buffer_memset(webgpu_global_context & ctx,
+@@ -718,17 +642,37 @@ static void ggml_backend_webgpu_buffer_memset(webgpu_global_context & ctx,
+                                               uint32_t                value,
+                                               size_t                  offset,
+                                               size_t                  size) {
+-    std::vector<uint32_t>             params  = { (uint32_t) offset, (uint32_t) size, value };
+-    std::vector<wgpu::BindGroupEntry> entries = {
+-        { .binding = 0, .buffer = buf, .offset = 0, .size = buf.GetSize() }
+-    };
+-    size_t   bytes_per_wg = WEBGPU_MAX_WG_SIZE * ctx->capabilities.memset_bytes_per_thread;
+-    uint32_t wg_x         = CEIL_DIV(size + 3, bytes_per_wg);
++    std::vector<uint32_t>             params       = { (uint32_t) offset, (uint32_t) size, value };
++    std::vector<wgpu::BindGroupEntry> entries      = { ggml_webgpu_make_bind_group_entry(0, buf, 0, buf.GetSize()) };
++    size_t                            bytes_per_wg = WEBGPU_MAX_WG_SIZE * ctx->capabilities.memset_bytes_per_thread;
++    uint32_t                          wg_x         = CEIL_DIV(size + 3, bytes_per_wg);
++
 +    ctx->queue.WriteBuffer(ctx->memset_params_buf, 0, params.data(), params.size() * sizeof(uint32_t));
 +
-+    entries.push_back(
-+        { .binding = 1, .buffer = ctx->memset_params_buf, .offset = 0, .size = WEBGPU_PARAMS_BUF_SIZE_BYTES });
++    wgpu::BindGroupEntry params_entry = {};
++    params_entry.binding              = 1;
++    params_entry.buffer               = ctx->memset_params_buf;
++    params_entry.offset               = 0;
++    params_entry.size                 = WEBGPU_PARAMS_BUF_SIZE_BYTES;
++    entries.push_back(params_entry);
 +
 +    wgpu::BindGroupDescriptor bind_group_desc;
 +    bind_group_desc.layout     = ctx->memset_pipeline.pipeline.GetBindGroupLayout(0);
@@ -19961,106 +25291,293 @@ index 1aa15b05..aa3fe06d 100644
 +    pass.SetBindGroup(0, bind_group);
 +    pass.DispatchWorkgroups(wg_x, 1, 1);
 +    pass.End();
-+
+ 
+-    webgpu_command command =
+-        ggml_backend_webgpu_build(ctx, ctx->memset_buf_pool, ctx->memset_pipelines[0], params, entries, wg_x);
+-    std::vector<webgpu_command>    commands = { command };
+-    std::vector<webgpu_submission> sub      = { ggml_backend_webgpu_submit(ctx, commands, ctx->memset_buf_pool) };
 +    wgpu::CommandBuffer              command  = encoder.Finish();
 +    std::vector<wgpu::CommandBuffer> commands = { command };
 +    ctx->queue.Submit(commands.size(), commands.data());
  }
  
  /** End WebGPU Actions */
-@@ -841,7 +784,10 @@ static binary_overlap_flags ggml_webgpu_detect_binary_overlap(ggml_tensor * src0
-     return flags;
+@@ -788,65 +732,11 @@ static void ggml_backend_webgpu_free(ggml_backend_t backend) {
+     delete backend;
  }
  
+-static size_t ggml_webgpu_tensor_offset(const ggml_tensor * tensor) {
+-    return webgpu_tensor_offset(tensor) + tensor->view_offs;
+-}
+-
+-static wgpu::Buffer ggml_webgpu_tensor_buf(const ggml_tensor * tensor) {
+-    ggml_backend_webgpu_buffer_context * ctx = (ggml_backend_webgpu_buffer_context *) tensor->buffer->context;
+-    return ctx->buffer;
+-}
+-
+-static size_t ggml_webgpu_tensor_misalignment(webgpu_context & ctx, const ggml_tensor * t) {
+-    size_t offset = ggml_webgpu_tensor_offset(t);
+-    return offset & (ctx->global_ctx->capabilities.limits.minStorageBufferOffsetAlignment - 1);
+-}
+-
+-static size_t ggml_webgpu_tensor_align_offset(webgpu_context & ctx, const ggml_tensor * t) {
+-    size_t offset = ggml_webgpu_tensor_offset(t);
+-    return offset & ~(ctx->global_ctx->capabilities.limits.minStorageBufferOffsetAlignment - 1);
+-}
+-
+-static size_t ggml_webgpu_tensor_binding_size(webgpu_context & ctx, ggml_tensor * t) {
+-    return ROUNDUP_POW2(ggml_nbytes(t) + ggml_webgpu_tensor_misalignment(ctx, t), WEBGPU_STORAGE_BUF_BINDING_MULT);
+-}
+-
+-// Used to determine if two tensors are the same for in-place operations
+-static bool ggml_webgpu_tensor_equal(ggml_tensor * a, ggml_tensor * b) {
+-    return (ggml_webgpu_tensor_buf(a).Get() == ggml_webgpu_tensor_buf(b).Get()) &&
+-           (ggml_webgpu_tensor_offset(a) == ggml_webgpu_tensor_offset(b));
+-}
+-
+-// Used to determine if two tensors share the same buffer and their byte ranges overlap,
+-static bool ggml_webgpu_tensor_overlap(ggml_tensor * a, ggml_tensor * b) {
+-    return (ggml_webgpu_tensor_buf(a).Get() == ggml_webgpu_tensor_buf(b).Get()) &&
+-           ggml_webgpu_tensor_offset(a) < (ggml_webgpu_tensor_offset(b) + ggml_nbytes(b)) &&
+-           ggml_webgpu_tensor_offset(b) < (ggml_webgpu_tensor_offset(a) + ggml_nbytes(a));
+-}
+-
+-struct binary_overlap_flags {
+-    bool inplace;  // src0 == dst
+-    bool overlap;  // src1 == dst
+-    bool src_overlap;
+-};
+-
+-static binary_overlap_flags ggml_webgpu_detect_binary_overlap(ggml_tensor * src0,
+-                                                              ggml_tensor * src1,
+-                                                              ggml_tensor * dst) {
+-    binary_overlap_flags flags = {};
+-    flags.inplace              = ggml_webgpu_tensor_equal(src0, dst);
+-    flags.overlap              = ggml_webgpu_tensor_overlap(src1, dst);
+-    flags.src_overlap          = ggml_webgpu_tensor_overlap(src0, src1);
+-
+-    return flags;
+-}
+-
 -static webgpu_command ggml_webgpu_cpy(webgpu_context & ctx, ggml_tensor * src, ggml_tensor * dst) {
-+static webgpu_encoded_op ggml_webgpu_cpy(webgpu_context &       ctx,
-+                                         wgpu::CommandEncoder & encoder,
-+                                         ggml_tensor *          src,
-+                                         ggml_tensor *          dst) {
-     ggml_webgpu_shader_lib_context shader_lib_ctx = {
-         .src0        = src,
-         .dst         = dst,
-@@ -879,10 +825,14 @@ static webgpu_command ggml_webgpu_cpy(webgpu_context & ctx, ggml_tensor * src, g
+-    ggml_webgpu_shader_lib_context shader_lib_ctx = {
+-        .src0        = src,
+-        .dst         = dst,
+-        .max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup,
+-    };
++static webgpu_encoded_op ggml_webgpu_cpy(webgpu_context & ctx, ggml_tensor * src, ggml_tensor * dst) {
++    ggml_webgpu_shader_lib_context shader_lib_ctx = {};
++    shader_lib_ctx.src0                           = src;
++    shader_lib_ctx.dst                            = dst;
++    shader_lib_ctx.max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup;
+ 
+     webgpu_pipeline pipeline = ctx->shader_lib->get_cpy_pipeline(shader_lib_ctx);
+ 
+@@ -868,30 +758,26 @@ static webgpu_command ggml_webgpu_cpy(webgpu_context & ctx, ggml_tensor * src, g
+     };
+ 
+     std::vector<wgpu::BindGroupEntry> entries = {
+-        { .binding = 0,
+-         .buffer  = ggml_webgpu_tensor_buf(src),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, src),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, src) },
+-        { .binding = 1,
+-         .buffer  = ggml_webgpu_tensor_buf(dst),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, dst),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, dst) }
++        ggml_webgpu_make_tensor_bind_group_entry(ctx, 0, src),
++        ggml_webgpu_make_tensor_bind_group_entry(ctx, 1, dst),
      };
  
      uint32_t wg_x = CEIL_DIV(ne, decisions->wg_size);
 -    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_buf_pool, pipeline, params, entries, wg_x);
-+    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_arena, encoder, pipeline, params, entries, wg_x);
++    return ggml_backend_webgpu_build(ctx, pipeline, params, entries, wg_x);
  }
  
 -static webgpu_command ggml_webgpu_set(webgpu_context & ctx, ggml_tensor * src0, ggml_tensor * src1, ggml_tensor * dst) {
-+static webgpu_encoded_op ggml_webgpu_set(webgpu_context &       ctx,
-+                                         wgpu::CommandEncoder & encoder,
-+                                         ggml_tensor *          src0,
-+                                         ggml_tensor *          src1,
-+                                         ggml_tensor *          dst) {
++static webgpu_encoded_op ggml_webgpu_set(webgpu_context & ctx,
++                                         ggml_tensor *    src0,
++                                         ggml_tensor *    src1,
++                                         ggml_tensor *    dst) {
      const bool inplace = ggml_webgpu_tensor_equal(src0, dst);
  
-     ggml_webgpu_shader_lib_context shader_lib_ctx = {
-@@ -941,10 +891,13 @@ static webgpu_command ggml_webgpu_set(webgpu_context & ctx, ggml_tensor * src0,
-                         .size    = ggml_webgpu_tensor_binding_size(ctx, dst) });
+-    ggml_webgpu_shader_lib_context shader_lib_ctx = {
+-        .src0        = src0,
+-        .src1        = src1,
+-        .dst         = dst,
+-        .max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup,
+-        .inplace     = inplace,
+-    };
++    ggml_webgpu_shader_lib_context shader_lib_ctx = {};
++    shader_lib_ctx.src0                           = src0;
++    shader_lib_ctx.src1                           = src1;
++    shader_lib_ctx.dst                            = dst;
++    shader_lib_ctx.max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup;
++    shader_lib_ctx.inplace     = inplace;
+ 
+     webgpu_pipeline pipeline = ctx->shader_lib->get_set_pipeline(shader_lib_ctx);
+ 
+@@ -925,29 +811,21 @@ static webgpu_command ggml_webgpu_set(webgpu_context & ctx, ggml_tensor * src0,
+     std::vector<wgpu::BindGroupEntry> entries;
+     uint32_t                          binding_index = 0;
+     if (!inplace) {
+-        entries.push_back({ .binding = 0,
+-                            .buffer  = ggml_webgpu_tensor_buf(src0),
+-                            .offset  = ggml_webgpu_tensor_align_offset(ctx, src0),
+-                            .size    = ggml_webgpu_tensor_binding_size(ctx, src0) });
++        entries.push_back(ggml_webgpu_make_tensor_bind_group_entry(ctx, 0, src0));
+         binding_index++;
+     }
+-    entries.push_back({ .binding = binding_index,
+-                        .buffer  = ggml_webgpu_tensor_buf(src1),
+-                        .offset  = ggml_webgpu_tensor_align_offset(ctx, src1),
+-                        .size    = ggml_webgpu_tensor_binding_size(ctx, src1) });
+-    entries.push_back({ .binding = binding_index + 1,
+-                        .buffer  = ggml_webgpu_tensor_buf(dst),
+-                        .offset  = ggml_webgpu_tensor_align_offset(ctx, dst),
+-                        .size    = ggml_webgpu_tensor_binding_size(ctx, dst) });
++    entries.push_back(ggml_webgpu_make_tensor_bind_group_entry(ctx, binding_index, src1));
++    entries.push_back(ggml_webgpu_make_tensor_bind_group_entry(ctx, binding_index + 1, dst));
  
      uint32_t wg_x = CEIL_DIV(ne, decisions->wg_size);
 -    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_buf_pool, pipeline, params, entries, wg_x);
-+    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_arena, encoder, pipeline, params, entries, wg_x);
++    return ggml_backend_webgpu_build(ctx, pipeline, params, entries, wg_x);
  }
  
 -static webgpu_command ggml_webgpu_pad(webgpu_context & ctx, ggml_tensor * src, ggml_tensor * dst) {
-+static webgpu_encoded_op ggml_webgpu_pad(webgpu_context &       ctx,
-+                                         wgpu::CommandEncoder & encoder,
-+                                         ggml_tensor *          src,
-+                                         ggml_tensor *          dst) {
-     ggml_webgpu_shader_lib_context shader_lib_ctx = {
-         .src0 = src, .dst = dst, .max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup
+-    ggml_webgpu_shader_lib_context shader_lib_ctx = {
+-        .src0 = src, .dst = dst, .max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup
+-    };
++static webgpu_encoded_op ggml_webgpu_pad(webgpu_context & ctx, ggml_tensor * src, ggml_tensor * dst) {
++    ggml_webgpu_shader_lib_context shader_lib_ctx = {};
++    shader_lib_ctx.src0                           = src;
++    shader_lib_ctx.dst                            = dst;
++    shader_lib_ctx.max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup;
+ 
+     webgpu_pipeline pipeline = ctx->shader_lib->get_pad_pipeline(shader_lib_ctx);
+ 
+@@ -985,31 +863,24 @@ static webgpu_command ggml_webgpu_pad(webgpu_context & ctx, ggml_tensor * src, g
      };
-@@ -996,13 +949,14 @@ static webgpu_command ggml_webgpu_pad(webgpu_context & ctx, ggml_tensor * src, g
+ 
+     std::vector<wgpu::BindGroupEntry> entries = {
+-        { .binding = 0,
+-         .buffer  = ggml_webgpu_tensor_buf(src),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, src),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, src) },
+-        { .binding = 1,
+-         .buffer  = ggml_webgpu_tensor_buf(dst),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, dst),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, dst) }
++        ggml_webgpu_make_tensor_bind_group_entry(ctx, 0, src),
++        ggml_webgpu_make_tensor_bind_group_entry(ctx, 1, dst),
      };
  
      uint32_t wg_x = CEIL_DIV(ne, decisions->wg_size);
 -    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_buf_pool, pipeline, params, entries, wg_x);
-+    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_arena, encoder, pipeline, params, entries, wg_x);
++    return ggml_backend_webgpu_build(ctx, pipeline, params, entries, wg_x);
  }
  
 -static webgpu_command ggml_webgpu_solve_tri(webgpu_context & ctx,
 -                                            ggml_tensor *    src0,
 -                                            ggml_tensor *    src1,
 -                                            ggml_tensor *    dst) {
-+static webgpu_encoded_op ggml_webgpu_solve_tri(webgpu_context &       ctx,
-+                                               wgpu::CommandEncoder & encoder,
-+                                               ggml_tensor *          src0,
-+                                               ggml_tensor *          src1,
-+                                               ggml_tensor *          dst) {
-     ggml_webgpu_shader_lib_context shader_lib_ctx = {
-         .src0               = src0,
-         .src1               = src1,
-@@ -1057,13 +1011,14 @@ static webgpu_command ggml_webgpu_solve_tri(webgpu_context & ctx,
+-    ggml_webgpu_shader_lib_context shader_lib_ctx = {
+-        .src0               = src0,
+-        .src1               = src1,
+-        .dst                = dst,
+-        .max_wg_size        = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup,
+-        .wg_mem_limit_bytes = ctx->global_ctx->capabilities.limits.maxComputeWorkgroupStorageSize,
+-    };
++static webgpu_encoded_op ggml_webgpu_solve_tri(webgpu_context & ctx,
++                                               ggml_tensor *    src0,
++                                               ggml_tensor *    src1,
++                                               ggml_tensor *    dst) {
++    ggml_webgpu_shader_lib_context shader_lib_ctx = {};
++    shader_lib_ctx.src0                           = src0;
++    shader_lib_ctx.src1                           = src1;
++    shader_lib_ctx.dst                            = dst;
++    shader_lib_ctx.max_wg_size        = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup;
++    shader_lib_ctx.wg_mem_limit_bytes = ctx->global_ctx->capabilities.limits.maxComputeWorkgroupStorageSize;
+ 
+     webgpu_pipeline pipeline = ctx->shader_lib->get_solve_tri_pipeline(shader_lib_ctx);
+ 
+@@ -1041,35 +912,25 @@ static webgpu_command ggml_webgpu_solve_tri(webgpu_context & ctx,
+     };
+ 
+     std::vector<wgpu::BindGroupEntry> entries = {
+-        { .binding = 0,
+-         .buffer  = ggml_webgpu_tensor_buf(src0),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, src0),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, src0) },
+-        { .binding = 1,
+-         .buffer  = ggml_webgpu_tensor_buf(src1),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, src1),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, src1) },
+-        { .binding = 2,
+-         .buffer  = ggml_webgpu_tensor_buf(dst),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, dst),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, dst)  }
++        ggml_webgpu_make_tensor_bind_group_entry(ctx, 0, src0),
++        ggml_webgpu_make_tensor_bind_group_entry(ctx, 1, src1),
++        ggml_webgpu_make_tensor_bind_group_entry(ctx, 2, dst),
+     };
  
      const uint32_t wg_x = CEIL_DIV((uint32_t) src1->ne[0], decisions->wg_size);
      const uint32_t wg_y = (uint32_t) (dst->ne[2] * dst->ne[3]);
 -    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_buf_pool, pipeline, params, entries, wg_x, wg_y);
-+    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_arena, encoder, pipeline, params, entries, wg_x, wg_y);
- }
- 
+-}
+-
 -static webgpu_command ggml_webgpu_ssm_conv(webgpu_context & ctx,
 -                                           ggml_tensor *    src0,
 -                                           ggml_tensor *    src1,
 -                                           ggml_tensor *    dst) {
-+static webgpu_encoded_op ggml_webgpu_ssm_conv(webgpu_context &       ctx,
-+                                              wgpu::CommandEncoder & encoder,
-+                                              ggml_tensor *          src0,
-+                                              ggml_tensor *          src1,
-+                                              ggml_tensor *          dst) {
-     ggml_webgpu_shader_lib_context shader_lib_ctx = {
-         .src0        = src0,
-         .src1        = src1,
-@@ -1113,17 +1068,18 @@ static webgpu_command ggml_webgpu_ssm_conv(webgpu_context & ctx,
+-    ggml_webgpu_shader_lib_context shader_lib_ctx = {
+-        .src0        = src0,
+-        .src1        = src1,
+-        .dst         = dst,
+-        .max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup,
+-    };
++    return ggml_backend_webgpu_build(ctx, pipeline, params, entries, wg_x, wg_y);
++}
++
++static webgpu_encoded_op ggml_webgpu_ssm_conv(webgpu_context & ctx,
++                                              ggml_tensor *    src0,
++                                              ggml_tensor *    src1,
++                                              ggml_tensor *    dst) {
++    ggml_webgpu_shader_lib_context shader_lib_ctx = {};
++    shader_lib_ctx.src0                           = src0;
++    shader_lib_ctx.src1                           = src1;
++    shader_lib_ctx.dst                            = dst;
++    shader_lib_ctx.max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup;
+ 
+     webgpu_pipeline pipeline  = ctx->shader_lib->get_ssm_conv_pipeline(shader_lib_ctx);
+     auto *          decisions = static_cast<ggml_webgpu_ssm_conv_shader_decisions *>(pipeline.context.get());
+@@ -1097,42 +958,32 @@ static webgpu_command ggml_webgpu_ssm_conv(webgpu_context & ctx,
+     };
+ 
+     std::vector<wgpu::BindGroupEntry> entries = {
+-        { .binding = 0,
+-         .buffer  = ggml_webgpu_tensor_buf(src0),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, src0),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, src0) },
+-        { .binding = 1,
+-         .buffer  = ggml_webgpu_tensor_buf(src1),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, src1),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, src1) },
+-        { .binding = 2,
+-         .buffer  = ggml_webgpu_tensor_buf(dst),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, dst),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, dst)  }
++        ggml_webgpu_make_tensor_bind_group_entry(ctx, 0, src0),
++        ggml_webgpu_make_tensor_bind_group_entry(ctx, 1, src1),
++        ggml_webgpu_make_tensor_bind_group_entry(ctx, 2, dst),
+     };
  
      const uint32_t wg_x = CEIL_DIV((uint32_t) src0->ne[1], decisions->block_size);
      const uint32_t wg_y = token_tiles * (uint32_t) dst->ne[2];
 -    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_buf_pool, pipeline, params, entries, wg_x, wg_y);
-+    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_arena, encoder, pipeline, params, entries, wg_x, wg_y);
- }
- 
+-}
+-
 -static webgpu_command ggml_webgpu_gated_delta_net(webgpu_context & ctx,
 -                                                  ggml_tensor *    src0,
 -                                                  ggml_tensor *    src1,
@@ -20069,48 +25586,148 @@ index 1aa15b05..aa3fe06d 100644
 -                                                  ggml_tensor *    src4,
 -                                                  ggml_tensor *    src5,
 -                                                  ggml_tensor *    dst) {
-+static webgpu_encoded_op ggml_webgpu_gated_delta_net(webgpu_context &       ctx,
-+                                                     wgpu::CommandEncoder & encoder,
-+                                                     ggml_tensor *          src0,
-+                                                     ggml_tensor *          src1,
-+                                                     ggml_tensor *          src2,
-+                                                     ggml_tensor *          src3,
-+                                                     ggml_tensor *          src4,
-+                                                     ggml_tensor *          src5,
-+                                                     ggml_tensor *          dst) {
-     ggml_webgpu_shader_lib_context shader_lib_ctx = {
-         .src0        = src0,
-         .src1        = src1,
-@@ -1198,13 +1154,14 @@ static webgpu_command ggml_webgpu_gated_delta_net(webgpu_context & ctx,
-          .size    = ggml_webgpu_tensor_binding_size(ctx, dst)  }
+-    ggml_webgpu_shader_lib_context shader_lib_ctx = {
+-        .src0        = src0,
+-        .src1        = src1,
+-        .src2        = src2,
+-        .src3        = src3,
+-        .src4        = src4,
+-        .dst         = dst,
+-        .max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup,
+-    };
++    return ggml_backend_webgpu_build(ctx, pipeline, params, entries, wg_x, wg_y);
++}
++
++static webgpu_encoded_op ggml_webgpu_gated_delta_net(webgpu_context & ctx,
++                                                     ggml_tensor *    src0,
++                                                     ggml_tensor *    src1,
++                                                     ggml_tensor *    src2,
++                                                     ggml_tensor *    src3,
++                                                     ggml_tensor *    src4,
++                                                     ggml_tensor *    src5,
++                                                     ggml_tensor *    dst) {
++    ggml_webgpu_shader_lib_context shader_lib_ctx = {};
++    shader_lib_ctx.src0                           = src0;
++    shader_lib_ctx.src1                           = src1;
++    shader_lib_ctx.src2                           = src2;
++    shader_lib_ctx.src3                           = src3;
++    shader_lib_ctx.src4                           = src4;
++    shader_lib_ctx.dst                            = dst;
++    shader_lib_ctx.max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup;
+ 
+     webgpu_pipeline pipeline = ctx->shader_lib->get_gated_delta_net_pipeline(shader_lib_ctx);
+ 
+@@ -1168,55 +1019,30 @@ static webgpu_command ggml_webgpu_gated_delta_net(webgpu_context & ctx,
+     };
+ 
+     std::vector<wgpu::BindGroupEntry> entries = {
+-        { .binding = 0,
+-         .buffer  = ggml_webgpu_tensor_buf(src0),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, src0),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, src0) },
+-        { .binding = 1,
+-         .buffer  = ggml_webgpu_tensor_buf(src1),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, src1),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, src1) },
+-        { .binding = 2,
+-         .buffer  = ggml_webgpu_tensor_buf(src2),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, src2),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, src2) },
+-        { .binding = 3,
+-         .buffer  = ggml_webgpu_tensor_buf(src3),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, src3),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, src3) },
+-        { .binding = 4,
+-         .buffer  = ggml_webgpu_tensor_buf(src4),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, src4),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, src4) },
+-        { .binding = 5,
+-         .buffer  = ggml_webgpu_tensor_buf(src5),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, src5),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, src5) },
+-        { .binding = 6,
+-         .buffer  = ggml_webgpu_tensor_buf(dst),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, dst),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, dst)  }
++        ggml_webgpu_make_tensor_bind_group_entry(ctx, 0, src0), ggml_webgpu_make_tensor_bind_group_entry(ctx, 1, src1),
++        ggml_webgpu_make_tensor_bind_group_entry(ctx, 2, src2), ggml_webgpu_make_tensor_bind_group_entry(ctx, 3, src3),
++        ggml_webgpu_make_tensor_bind_group_entry(ctx, 4, src4), ggml_webgpu_make_tensor_bind_group_entry(ctx, 5, src5),
++        ggml_webgpu_make_tensor_bind_group_entry(ctx, 6, dst),
      };
  
 -    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_buf_pool, pipeline, params, entries, h, n_seqs);
-+    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_arena, encoder, pipeline, params, entries, h, n_seqs);
++    return ggml_backend_webgpu_build(ctx, pipeline, params, entries, h, n_seqs);
  }
  
 -static std::optional<webgpu_command> ggml_webgpu_set_rows(webgpu_context & ctx,
 -                                                          ggml_tensor *    src,
 -                                                          ggml_tensor *    idx,
 -                                                          ggml_tensor *    dst) {
-+static std::optional<webgpu_encoded_op> ggml_webgpu_set_rows(webgpu_context &       ctx,
-+                                                             wgpu::CommandEncoder & encoder,
-+                                                             ggml_tensor *          src,
-+                                                             ggml_tensor *          idx,
-+                                                             ggml_tensor *          dst) {
++static std::optional<webgpu_encoded_op> ggml_webgpu_set_rows(webgpu_context & ctx,
++                                                             ggml_tensor *    src,
++                                                             ggml_tensor *    idx,
++                                                             ggml_tensor *    dst) {
      // For set rows specifically, we need to check if src and idx are empty
      // tensors.
      if (ggml_is_empty(src) || ggml_is_empty(idx)) {
-@@ -1267,7 +1224,7 @@ static std::optional<webgpu_command> ggml_webgpu_set_rows(webgpu_context & ctx,
+         return std::nullopt;
+     }
+ 
+-    ggml_webgpu_shader_lib_context shader_lib_ctx = {
+-        .src0        = src,
+-        .src1        = idx,
+-        .dst         = dst,
+-        .max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup
+-    };
++    ggml_webgpu_shader_lib_context shader_lib_ctx = {};
++    shader_lib_ctx.src0                           = src;
++    shader_lib_ctx.src1                           = idx;
++    shader_lib_ctx.dst                            = dst;
++    shader_lib_ctx.max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup;
+ 
+     webgpu_pipeline pipeline = ctx->shader_lib->get_set_rows_pipeline(shader_lib_ctx);
+ 
+@@ -1239,25 +1065,14 @@ static std::optional<webgpu_command> ggml_webgpu_set_rows(webgpu_context & ctx,
+     };
+ 
+     std::vector<wgpu::BindGroupEntry> entries = {
+-        { .binding = 0,
+-         .buffer  = ggml_webgpu_tensor_buf(src),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, src),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, src) },
+-        { .binding = 1,
+-         .buffer  = ggml_webgpu_tensor_buf(idx),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, idx),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, idx) },
+-        { .binding = 2,
+-         .buffer  = ggml_webgpu_tensor_buf(dst),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, dst),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, dst) }
++        ggml_webgpu_make_tensor_bind_group_entry(ctx, 0, src),
++        ggml_webgpu_make_tensor_bind_group_entry(ctx, 1, idx),
++        ggml_webgpu_make_tensor_bind_group_entry(ctx, 2, dst),
+     };
+ 
+     if (decisions->i64_idx) {
+-        entries.push_back({ .binding = 3,
+-                            .buffer  = ctx->set_rows_dev_error_buf,
+-                            .offset  = 0,
+-                            .size    = ctx->set_rows_dev_error_buf.GetSize() });
++        entries.push_back(ggml_webgpu_make_bind_group_entry(3, ctx->set_rows_dev_error_buf, 0,
++                                                            ctx->set_rows_dev_error_buf.GetSize()));
+     }
+ 
+     uint32_t threads;
+@@ -1267,7 +1082,7 @@ static std::optional<webgpu_command> ggml_webgpu_set_rows(webgpu_context & ctx,
          threads = src->ne[0] * src->ne[1] * src->ne[2] * src->ne[3];
      }
      uint32_t wg_x = CEIL_DIV(threads, decisions->wg_size);
 -    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_buf_pool, pipeline, params, entries, wg_x, 1);
-+    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_arena, encoder, pipeline, params, entries, wg_x, 1);
++    return ggml_backend_webgpu_build(ctx, pipeline, params, entries, wg_x, 1);
  }
  
  // Workgroup size is a common constant
-@@ -1278,10 +1235,11 @@ static std::vector<wgpu::ConstantEntry> ggml_webgpu_wg_size_entry(uint32_t wg_si
+@@ -1278,18 +1093,17 @@ static std::vector<wgpu::ConstantEntry> ggml_webgpu_wg_size_entry(uint32_t wg_si
      return constants;
  }
  
@@ -20118,63 +25735,142 @@ index 1aa15b05..aa3fe06d 100644
 -                                           ggml_tensor *    src,
 -                                           ggml_tensor *    idx,
 -                                           ggml_tensor *    dst) {
-+static webgpu_encoded_op ggml_webgpu_get_rows(webgpu_context &       ctx,
-+                                              wgpu::CommandEncoder & encoder,
-+                                              ggml_tensor *          src,
-+                                              ggml_tensor *          idx,
-+                                              ggml_tensor *          dst) {
++static webgpu_encoded_op ggml_webgpu_get_rows(webgpu_context & ctx,
++                                              ggml_tensor *    src,
++                                              ggml_tensor *    idx,
++                                              ggml_tensor *    dst) {
      const bool float_parallel = src->type == GGML_TYPE_F32 || src->type == GGML_TYPE_F16 || src->type == GGML_TYPE_I32;
  
-     ggml_webgpu_shader_lib_context shader_lib_ctx = {
-@@ -1333,13 +1291,14 @@ static webgpu_command ggml_webgpu_get_rows(webgpu_context & ctx,
+-    ggml_webgpu_shader_lib_context shader_lib_ctx = {
+-        .src0        = src,
+-        .src1        = nullptr,
+-        .dst         = dst,
+-        .max_wg_size = WEBGPU_MAX_WG_SIZE,
+-    };
++    ggml_webgpu_shader_lib_context shader_lib_ctx = {};
++    shader_lib_ctx.src0                           = src;
++    shader_lib_ctx.src1                           = nullptr;
++    shader_lib_ctx.dst                            = dst;
++    shader_lib_ctx.max_wg_size                    = WEBGPU_MAX_WG_SIZE;
+ 
+     webgpu_pipeline pipeline  = ctx->shader_lib->get_get_rows_pipeline(shader_lib_ctx);
+     auto *          decisions = static_cast<ggml_webgpu_generic_shader_decisions *>(pipeline.context.get());
+@@ -1313,33 +1127,22 @@ static webgpu_command ggml_webgpu_get_rows(webgpu_context & ctx,
+                                      (uint32_t) (idx->ne[1]),
+                                      (uint32_t) (idx->ne[2]) };
+ 
+-    std::vector<wgpu::BindGroupEntry> entries = {
+-        { .binding = 0,
+-         .buffer  = ggml_webgpu_tensor_buf(src),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, src),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, src) },
+-        { .binding = 1,
+-         .buffer  = ggml_webgpu_tensor_buf(idx),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, idx),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, idx) },
+-        { .binding = 2,
+-         .buffer  = ggml_webgpu_tensor_buf(dst),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, dst),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, dst) }
+-    };
++    std::vector<wgpu::BindGroupEntry> entries = { ggml_webgpu_make_tensor_bind_group_entry(ctx, 0, src),
++                                                  ggml_webgpu_make_tensor_bind_group_entry(ctx, 1, idx),
++                                                  ggml_webgpu_make_tensor_bind_group_entry(ctx, 2, dst) };
+ 
+     uint32_t blocks_per_row = (uint32_t) (dst->ne[0] / (src->type == GGML_TYPE_F32 && dst->ne[0] % 4 == 0 ? 4 : 1));
+     uint32_t total_rows     = (uint32_t) (dst->ne[1] * dst->ne[2] * dst->ne[3]);
      uint32_t total_threads  = float_parallel ? blocks_per_row * total_rows : total_rows;
      uint32_t wg_x           = CEIL_DIV(total_threads, decisions->wg_size);
  
 -    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_buf_pool, pipeline, params, entries, wg_x);
-+    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_arena, encoder, pipeline, params, entries, wg_x);
++    return ggml_backend_webgpu_build(ctx, pipeline, params, entries, wg_x);
  }
  
 -static webgpu_command ggml_webgpu_mul_mat(webgpu_context & ctx,
 -                                          ggml_tensor *    src0,
 -                                          ggml_tensor *    src1,
 -                                          ggml_tensor *    dst) {
-+static webgpu_encoded_op ggml_webgpu_mul_mat(webgpu_context &       ctx,
-+                                             wgpu::CommandEncoder & encoder,
-+                                             ggml_tensor *          src0,
-+                                             ggml_tensor *          src1,
-+                                             ggml_tensor *          dst) {
++static webgpu_encoded_op ggml_webgpu_mul_mat(webgpu_context & ctx,
++                                             ggml_tensor *    src0,
++                                             ggml_tensor *    src1,
++                                             ggml_tensor *    dst) {
      // Determine if this is a mat-vec operation
      bool is_vec = (dst->ne[1] == 1);
  
-@@ -1478,17 +1437,175 @@ static webgpu_command ggml_webgpu_mul_mat(webgpu_context & ctx,
+@@ -1378,17 +1181,16 @@ static webgpu_command ggml_webgpu_mul_mat(webgpu_context & ctx,
+             break;
+     }
+ 
+-    ggml_webgpu_shader_lib_context shader_lib_ctx = {
+-        .src0                     = src0,
+-        .src1                     = src1,
+-        .dst                      = dst,
+-        .max_wg_size              = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup,
+-        .supports_subgroup_matrix = ctx->global_ctx->capabilities.supports_subgroup_matrix,
+-        .sg_mat_m                 = ctx->global_ctx->capabilities.sg_mat_m,
+-        .sg_mat_n                 = ctx->global_ctx->capabilities.sg_mat_n,
+-        .sg_mat_k                 = ctx->global_ctx->capabilities.sg_mat_k,
+-        .max_subgroup_size        = ctx->global_ctx->capabilities.max_subgroup_size,
+-    };
++    ggml_webgpu_shader_lib_context shader_lib_ctx = {};
++    shader_lib_ctx.src0                           = src0;
++    shader_lib_ctx.src1                           = src1;
++    shader_lib_ctx.dst                            = dst;
++    shader_lib_ctx.max_wg_size              = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup;
++    shader_lib_ctx.supports_subgroup_matrix = ctx->global_ctx->capabilities.supports_subgroup_matrix;
++    shader_lib_ctx.sg_mat_m                 = ctx->global_ctx->capabilities.sg_mat_m;
++    shader_lib_ctx.sg_mat_n                 = ctx->global_ctx->capabilities.sg_mat_n;
++    shader_lib_ctx.sg_mat_k                 = ctx->global_ctx->capabilities.sg_mat_k;
++    shader_lib_ctx.max_subgroup_size        = ctx->global_ctx->capabilities.max_subgroup_size;
+ 
+     // Get or create pipeline
+     webgpu_pipeline pipeline;
+@@ -1423,18 +1225,9 @@ static webgpu_command ggml_webgpu_mul_mat(webgpu_context & ctx,
+ 
+     // Build bind group entries
+     std::vector<wgpu::BindGroupEntry> entries = {
+-        { .binding = 0,
+-         .buffer  = ggml_webgpu_tensor_buf(src0),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, src0),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, src0) },
+-        { .binding = 1,
+-         .buffer  = ggml_webgpu_tensor_buf(src1),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, src1),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, src1) },
+-        { .binding = 2,
+-         .buffer  = ggml_webgpu_tensor_buf(dst),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, dst),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, dst)  },
++        ggml_webgpu_make_tensor_bind_group_entry(ctx, 0, src0),
++        ggml_webgpu_make_tensor_bind_group_entry(ctx, 1, src1),
++        ggml_webgpu_make_tensor_bind_group_entry(ctx, 2, dst),
+     };
+ 
+     // Calculate workgroup dimensions
+@@ -1478,22 +1271,149 @@ static webgpu_command ggml_webgpu_mul_mat(webgpu_context & ctx,
          compute_2d_workgroups(total_wg, max_wg_per_dim, wg_x, wg_y);
      }
  
 -    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_buf_pool, pipeline, params, entries, wg_x, wg_y);
-+    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_arena, encoder, pipeline, params, entries, wg_x, wg_y);
++    return ggml_backend_webgpu_build(ctx, pipeline, params, entries, wg_x, wg_y);
 +}
 +
-+static webgpu_encoded_op ggml_webgpu_mul_mat_id(webgpu_context &       ctx,
-+                                                wgpu::CommandEncoder & encoder,
-+                                                ggml_tensor *          src0,
-+                                                ggml_tensor *          src1,
-+                                                ggml_tensor *          src2,
-+                                                ggml_tensor *          dst) {
-+    ggml_webgpu_shader_lib_context shader_lib_ctx = {
-+        .src0        = src0,
-+        .src1        = src1,
-+        .src2        = src2,
-+        .dst         = dst,
-+        .max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup,
-+    };
++static webgpu_encoded_op ggml_webgpu_mul_mat_id(webgpu_context & ctx,
++                                                ggml_tensor *    src0,
++                                                ggml_tensor *    src1,
++                                                ggml_tensor *    src2,
++                                                ggml_tensor *    dst) {
++    ggml_webgpu_shader_lib_context shader_lib_ctx = {};
++    shader_lib_ctx.src0                           = src0;
++    shader_lib_ctx.src1                           = src1;
++    shader_lib_ctx.src2                           = src2;
++    shader_lib_ctx.dst                            = dst;
++    shader_lib_ctx.max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup;
 +
 +    // Get or create pipeline
 +    webgpu_pipeline gather_pipeline, main_pipeline;
 +
-+    std::vector<webgpu_pipeline>                   pipelines;
-+    std::vector<std::vector<uint32_t>>             params_list;
-+    std::vector<std::vector<wgpu::BindGroupEntry>> entries_list;
-+    std::vector<std::pair<uint32_t, uint32_t>>     workgroups_list;
++    std::vector<webgpu_dispatch_desc> dispatches;
 +
 +    gather_pipeline = ctx->shader_lib->get_mul_mat_id_gather_pipeline(shader_lib_ctx);
 +    main_pipeline   = ctx->shader_lib->get_mul_mat_id_pipeline(shader_lib_ctx);
@@ -20210,22 +25906,14 @@ index 1aa15b05..aa3fe06d 100644
 +
 +    // bind group entries for mul_mat_id_gather.wgsl
 +    std::vector<wgpu::BindGroupEntry> gather_entries = {
-+        { .binding = 0,
-+         .buffer  = ggml_webgpu_tensor_buf(src2),
-+         .offset  = ggml_webgpu_tensor_align_offset(ctx, src2),
-+         .size    = ggml_webgpu_tensor_binding_size(ctx, src2) },
-+        { .binding = 1,
-+         .buffer  = ggml_webgpu_tensor_buf(dst),
-+         .offset  = gathered_expert_used_align_offset,
-+         .size    = gathered_binding_size },
-+        { .binding = 2,
-+         .buffer  = ggml_webgpu_tensor_buf(dst),
-+         .offset  = gathered_tokens_align_offset,
-+         .size    = gathered_binding_size },
-+        { .binding = 3,
-+         .buffer  = ggml_webgpu_tensor_buf(dst),
-+         .offset  = gathered_count_ids_align_offset,
-+         .size    = gathered_count_ids_binding_size },
++        ggml_webgpu_make_bind_group_entry(0, ggml_webgpu_tensor_buf(src2), ggml_webgpu_tensor_align_offset(ctx, src2),
++                                          ggml_webgpu_tensor_binding_size(ctx, src2)),
++        ggml_webgpu_make_bind_group_entry(1, ggml_webgpu_tensor_buf(dst), gathered_expert_used_align_offset,
++                                          gathered_binding_size),
++        ggml_webgpu_make_bind_group_entry(2, ggml_webgpu_tensor_buf(dst), gathered_tokens_align_offset,
++                                          gathered_binding_size),
++        ggml_webgpu_make_bind_group_entry(3, ggml_webgpu_tensor_buf(dst), gathered_count_ids_align_offset,
++                                          gathered_count_ids_binding_size),
 +    };
 +
 +    const uint32_t max_wg_per_dim = ctx->global_ctx->capabilities.limits.maxComputeWorkgroupsPerDimension;
@@ -20234,10 +25922,9 @@ index 1aa15b05..aa3fe06d 100644
 +    const uint32_t gather_wg_x     = std::min(gather_total_wg, max_wg_per_dim);
 +    const uint32_t gather_wg_y     = CEIL_DIV(gather_total_wg, gather_wg_x);
 +
-+    pipelines.push_back(gather_pipeline);
-+    params_list.push_back(std::move(gather_params));
-+    entries_list.push_back(std::move(gather_entries));
-+    workgroups_list.push_back({ gather_wg_x, gather_wg_y });
++    dispatches.push_back({
++        gather_pipeline, std::move(gather_params), std::move(gather_entries), { gather_wg_x, gather_wg_y }
++    });
 +
 +    // params for mul_mat_id.wgsl
 +    std::vector<uint32_t> main_params = {
@@ -20258,30 +25945,18 @@ index 1aa15b05..aa3fe06d 100644
 +
 +    // bind group entries for mul_mat_id.wgsl
 +    std::vector<wgpu::BindGroupEntry> main_entries = {
-+        { .binding = 0,
-+         .buffer  = ggml_webgpu_tensor_buf(src0),
-+         .offset  = ggml_webgpu_tensor_align_offset(ctx, src0),
-+         .size    = ggml_webgpu_tensor_binding_size(ctx, src0) },
-+        { .binding = 1,
-+         .buffer  = ggml_webgpu_tensor_buf(src1),
-+         .offset  = ggml_webgpu_tensor_align_offset(ctx, src1),
-+         .size    = ggml_webgpu_tensor_binding_size(ctx, src1) },
-+        { .binding = 2,
-+         .buffer  = ggml_webgpu_tensor_buf(dst),
-+         .offset  = ggml_webgpu_tensor_align_offset(ctx, dst),
-+         .size    = ggml_webgpu_tensor_binding_size(ctx, dst) },
-+        { .binding = 3,
-+         .buffer  = ggml_webgpu_tensor_buf(dst),
-+         .offset  = gathered_expert_used_align_offset,
-+         .size    = gathered_binding_size },
-+        { .binding = 4,
-+         .buffer  = ggml_webgpu_tensor_buf(dst),
-+         .offset  = gathered_tokens_align_offset,
-+         .size    = gathered_binding_size },
-+        { .binding = 5,
-+         .buffer  = ggml_webgpu_tensor_buf(dst),
-+         .offset  = gathered_count_ids_align_offset,
-+         .size    = gathered_count_ids_binding_size },
++        ggml_webgpu_make_bind_group_entry(0, ggml_webgpu_tensor_buf(src0), ggml_webgpu_tensor_align_offset(ctx, src0),
++                                          ggml_webgpu_tensor_binding_size(ctx, src0)),
++        ggml_webgpu_make_bind_group_entry(1, ggml_webgpu_tensor_buf(src1), ggml_webgpu_tensor_align_offset(ctx, src1),
++                                          ggml_webgpu_tensor_binding_size(ctx, src1)),
++        ggml_webgpu_make_bind_group_entry(2, ggml_webgpu_tensor_buf(dst), ggml_webgpu_tensor_align_offset(ctx, dst),
++                                          ggml_webgpu_tensor_binding_size(ctx, dst)),
++        ggml_webgpu_make_bind_group_entry(3, ggml_webgpu_tensor_buf(dst), gathered_expert_used_align_offset,
++                                          gathered_binding_size),
++        ggml_webgpu_make_bind_group_entry(4, ggml_webgpu_tensor_buf(dst), gathered_tokens_align_offset,
++                                          gathered_binding_size),
++        ggml_webgpu_make_bind_group_entry(5, ggml_webgpu_tensor_buf(dst), gathered_count_ids_align_offset,
++                                          gathered_count_ids_binding_size),
 +    };
 +
 +    // Calculate workgroup dimensions
@@ -20302,13 +25977,11 @@ index 1aa15b05..aa3fe06d 100644
 +
 +    compute_2d_workgroups(total_wg, max_wg_per_dim, wg_x, wg_y);
 +
-+    pipelines.push_back(main_pipeline);
-+    params_list.push_back(std::move(main_params));
-+    entries_list.push_back(std::move(main_entries));
-+    workgroups_list.push_back({ wg_x, wg_y });
++    dispatches.push_back({
++        main_pipeline, std::move(main_params), std::move(main_entries), { wg_x, wg_y }
++    });
 +
-+    return ggml_backend_webgpu_build_multi(ctx->global_ctx, ctx->param_arena, encoder, pipelines, params_list,
-+                                           entries_list, workgroups_list);
++    return ggml_backend_webgpu_build_multi(ctx, dispatches);
  }
  
  #ifndef __EMSCRIPTEN__
@@ -20319,21 +25992,78 @@ index 1aa15b05..aa3fe06d 100644
 -                                             ggml_tensor *    mask,
 -                                             ggml_tensor *    sinks,
 -                                             ggml_tensor *    dst) {
-+static webgpu_encoded_op ggml_webgpu_flash_attn(webgpu_context &       ctx,
-+                                                wgpu::CommandEncoder & encoder,
-+                                                ggml_tensor *          Q,
-+                                                ggml_tensor *          K,
-+                                                ggml_tensor *          V,
-+                                                ggml_tensor *          mask,
-+                                                ggml_tensor *          sinks,
-+                                                ggml_tensor *          dst) {
-     float scale = *(float *) dst->op_params;
-     float max_bias;
-     memcpy(&max_bias, (float *) dst->op_params + 1, sizeof(float));
-@@ -1565,32 +1682,255 @@ static webgpu_command ggml_webgpu_flash_attn(webgpu_context & ctx,
-                         .offset  = ggml_webgpu_tensor_align_offset(ctx, dst),
-                         .size    = ggml_webgpu_tensor_binding_size(ctx, dst) });
+-    float scale = *(float *) dst->op_params;
+-    float max_bias;
+-    memcpy(&max_bias, (float *) dst->op_params + 1, sizeof(float));
+-    float logit_softcap;
+-    memcpy(&logit_softcap, (float *) dst->op_params + 2, sizeof(float));
++static webgpu_encoded_op ggml_webgpu_flash_attn(webgpu_context & ctx,
++                                                ggml_tensor *    Q,
++                                                ggml_tensor *    K,
++                                                ggml_tensor *    V,
++                                                ggml_tensor *    mask,
++                                                ggml_tensor *    sinks,
++                                                ggml_tensor *    dst) {
++    float scale         = ggml_get_op_params_f32(dst, 0);
++    float max_bias      = ggml_get_op_params_f32(dst, 1);
++    float logit_softcap = ggml_get_op_params_f32(dst, 2);
+     if (logit_softcap != 0.0f) {
+         scale /= logit_softcap;
+     }
+@@ -1525,82 +1445,229 @@ static webgpu_command ggml_webgpu_flash_attn(webgpu_context & ctx,
+         (uint32_t) (V->nb[3] / ggml_type_size(V->type)),  // stride (elements/blocks) of V in dimension 3
+         has_mask ? (uint32_t) (mask->nb[3] / ggml_type_size(mask->type)) : 0,  // stride of mask dim 3
+         (uint32_t) (Q->ne[2] / K->ne[2]),  // repeat factor for K/V in dim 2 (MHA/MQA/GQA)
+-        *(uint32_t *) &scale,              // scale (possibly adjusted for logit softcap)
+-        *(uint32_t *) &max_bias,
+-        *(uint32_t *) &logit_softcap,
+-        *(uint32_t *) &n_head_log2,
+-        *(uint32_t *) &m0,
+-        *(uint32_t *) &m1
++        ggml_webgpu_u32_from_f32(scale),   // scale (possibly adjusted for logit softcap)
++        ggml_webgpu_u32_from_f32(max_bias),
++        ggml_webgpu_u32_from_f32(logit_softcap),
++        ggml_webgpu_u32_from_f32(n_head_log2),
++        ggml_webgpu_u32_from_f32(m0),
++        ggml_webgpu_u32_from_f32(m1)
  
+     };
+     std::vector<wgpu::BindGroupEntry> entries = {
+-        { .binding = 0,
+-         .buffer  = ggml_webgpu_tensor_buf(Q),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, Q),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, Q) },
+-        { .binding = 1,
+-         .buffer  = ggml_webgpu_tensor_buf(K),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, K),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, K) },
+-        { .binding = 2,
+-         .buffer  = ggml_webgpu_tensor_buf(V),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, V),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, V) }
++        ggml_webgpu_make_tensor_bind_group_entry(ctx, 0, Q),
++        ggml_webgpu_make_tensor_bind_group_entry(ctx, 1, K),
++        ggml_webgpu_make_tensor_bind_group_entry(ctx, 2, V),
+     };
+     uint32_t binding_index = 3;
+     if (has_mask) {
+-        entries.push_back({ .binding = binding_index++,
+-                            .buffer  = ggml_webgpu_tensor_buf(mask),
+-                            .offset  = ggml_webgpu_tensor_align_offset(ctx, mask),
+-                            .size    = ggml_webgpu_tensor_binding_size(ctx, mask) });
++        entries.push_back(ggml_webgpu_make_tensor_bind_group_entry(ctx, binding_index++, mask));
+     }
+     if (has_sinks) {
+-        entries.push_back({ .binding = binding_index++,
+-                            .buffer  = ggml_webgpu_tensor_buf(sinks),
+-                            .offset  = ggml_webgpu_tensor_align_offset(ctx, sinks),
+-                            .size    = ggml_webgpu_tensor_binding_size(ctx, sinks) });
+-    }
+-    entries.push_back({ .binding = binding_index++,
+-                        .buffer  = ggml_webgpu_tensor_buf(dst),
+-                        .offset  = ggml_webgpu_tensor_align_offset(ctx, dst),
+-                        .size    = ggml_webgpu_tensor_binding_size(ctx, dst) });
+-
 -    ggml_webgpu_shader_lib_context shader_lib_ctx = {
 -        .src0               = Q,
 -        .src1               = K,
@@ -20343,48 +26073,40 @@ index 1aa15b05..aa3fe06d 100644
 -        .dst                = dst,
 -        .max_wg_size        = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup,
 -        .wg_mem_limit_bytes = ctx->global_ctx->capabilities.limits.maxComputeWorkgroupStorageSize,
-+    const uint32_t k_offset_elems   = (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, K) / ggml_type_size(K->type));
-+    const uint32_t v_offset_elems   = (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, V) / ggml_type_size(V->type));
-+    const bool     f16_vec4_aligned = (k_offset_elems % 4u == 0u) && (v_offset_elems % 4u == 0u);
+-        .sg_mat_m           = ctx->global_ctx->capabilities.sg_mat_m,
+-        .sg_mat_n           = ctx->global_ctx->capabilities.sg_mat_n,
+-        .sg_mat_k           = ctx->global_ctx->capabilities.sg_mat_k,
+-        .max_subgroup_size  = ctx->global_ctx->capabilities.max_subgroup_size,
+-    };
++        entries.push_back(ggml_webgpu_make_tensor_bind_group_entry(ctx, binding_index++, sinks));
++    }
++    entries.push_back(ggml_webgpu_make_tensor_bind_group_entry(ctx, binding_index++, dst));
 +
-+    const bool kv_direct = (K->type == GGML_TYPE_F16) && f16_vec4_aligned &&
-+                           (Q->ne[0] % ctx->global_ctx->capabilities.sg_mat_k == 0) &&
-+                           (K->ne[1] % GGML_WEBGPU_KV_SEQ_PAD == 0);
++    ggml_webgpu_shader_lib_context shader_lib_ctx = {};
++    shader_lib_ctx.src0                           = Q;
++    shader_lib_ctx.src1                           = K;
++    shader_lib_ctx.src2                           = V;
++    shader_lib_ctx.src3                           = mask;
++    shader_lib_ctx.src4                           = sinks;
++    shader_lib_ctx.dst                            = dst;
++    shader_lib_ctx.max_wg_size        = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup;
++    shader_lib_ctx.wg_mem_limit_bytes = ctx->global_ctx->capabilities.limits.maxComputeWorkgroupStorageSize;
++    shader_lib_ctx.sg_mat_m           = ctx->global_ctx->capabilities.sg_mat_m;
++    shader_lib_ctx.sg_mat_n           = ctx->global_ctx->capabilities.sg_mat_n;
++    shader_lib_ctx.sg_mat_k           = ctx->global_ctx->capabilities.sg_mat_k;
++    shader_lib_ctx.max_subgroup_size  = ctx->global_ctx->capabilities.max_subgroup_size;
++    const bool      use_vec           = ggml_webgpu_flash_attn_use_vec(ctx->global_ctx, Q, K, V);
++    webgpu_pipeline pipeline          = use_vec ? ctx->shader_lib->get_flash_attn_vec_pipeline(shader_lib_ctx) :
++                                                  ctx->shader_lib->get_flash_attn_pipeline(shader_lib_ctx);
 +
-+    const bool kv_vec_type_supported =
-+        K->type == GGML_TYPE_F16 || K->type == GGML_TYPE_Q4_0 || K->type == GGML_TYPE_Q8_0;
-+    const bool use_vec = (Q->ne[1] < 20) && (Q->ne[0] % 32 == 0) && (V->ne[0] % 4 == 0) && kv_vec_type_supported &&
-+                         (K->type != GGML_TYPE_F16 || f16_vec4_aligned) && (V->type == K->type);
-+    const uint32_t vec_nwg_cap = std::max(1u, std::min<uint32_t>(32u, ctx->global_ctx->capabilities.max_subgroup_size));
-+    const bool     use_blk     = use_vec && has_mask;
++    if (!use_vec) {
++        auto *   decisions   = static_cast<ggml_webgpu_flash_attn_decisions *>(pipeline.context.get());
++        uint32_t wg_per_head = CEIL_DIV(Q->ne[1], decisions->q_tile);
++        uint32_t wg_x        = wg_per_head * Q->ne[2] * Q->ne[3];  // wg per head * number of heads * number of batches
++        return ggml_backend_webgpu_build(ctx, pipeline, params, entries, wg_x);
++    }
 +
-+    ggml_webgpu_flash_attn_pipeline_key key = {
-+        .kv_type            = K->type,
-+        .head_dim_qk        = (uint32_t) Q->ne[0],
-+        .head_dim_v         = (uint32_t) V->ne[0],
-+        .kv_direct          = kv_direct,
-+        .has_mask           = static_cast<bool>(has_mask),
-+        .has_sinks          = static_cast<bool>(has_sinks),
-+        .uses_logit_softcap = logit_softcap != 0.0f,
-+        .use_vec            = use_vec,
-+    };
-+
-+    ggml_webgpu_flash_attn_shader_lib_context shader_lib_ctx = {
-+        .key                = key,
-         .sg_mat_m           = ctx->global_ctx->capabilities.sg_mat_m,
-         .sg_mat_n           = ctx->global_ctx->capabilities.sg_mat_n,
-         .sg_mat_k           = ctx->global_ctx->capabilities.sg_mat_k,
-+        .wg_mem_limit_bytes = ctx->global_ctx->capabilities.limits.maxComputeWorkgroupStorageSize,
-         .max_subgroup_size  = ctx->global_ctx->capabilities.max_subgroup_size,
-     };
--
-     webgpu_pipeline pipeline = ctx->shader_lib->get_flash_attn_pipeline(shader_lib_ctx);
- 
-     auto * decisions = static_cast<ggml_webgpu_flash_attn_shader_decisions *>(pipeline.context.get());
- 
-     uint32_t wg_per_head = CEIL_DIV(Q->ne[1], decisions->q_tile);
-     uint32_t wg_x        = wg_per_head * Q->ne[2] * Q->ne[3];  // wg per head * number of heads * number of batches
--    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_buf_pool, pipeline, params, entries, wg_x);
++    auto * decisions = static_cast<ggml_webgpu_flash_attn_vec_decisions *>(pipeline.context.get());
 +
 +    wgpu::Buffer blk_buf         = {};
 +    uint64_t     blk_size_bytes  = 0;
@@ -20392,551 +26114,1036 @@ index 1aa15b05..aa3fe06d 100644
 +    uint32_t     blk_nblk1       = 0;
 +    uint32_t     blk_batch_count = 0;
 +
-+    if (use_vec) {
-+        uint32_t       nwg     = 1u;
-+        const uint64_t kv_span = (uint64_t) std::max(1u, decisions->kv_tile);
-+        while ((2u * nwg * kv_span) < (uint64_t) K->ne[1] && nwg < vec_nwg_cap) {
-+            nwg <<= 1;
-+        }
-+        nwg = std::min(nwg, vec_nwg_cap);
-+        GGML_ASSERT(nwg <= ctx->global_ctx->capabilities.max_subgroup_size);
-+        const uint64_t nrows          = (uint64_t) Q->ne[1] * Q->ne[2] * Q->ne[3];
-+        const bool     use_vec_reduce = nwg > 1u;
-+        GGML_ASSERT(nrows <= UINT32_MAX);
++    const uint32_t vec_nwg_cap = std::max(1u, std::min<uint32_t>(32u, ctx->global_ctx->capabilities.max_subgroup_size));
++    uint32_t       nwg         = 1u;
++    const uint64_t kv_span     = (uint64_t) std::max(1u, decisions->kv_tile);
++    while ((2u * nwg * kv_span) < (uint64_t) K->ne[1] && nwg < vec_nwg_cap) {
++        nwg <<= 1;
++    }
++    nwg                           = std::min(nwg, vec_nwg_cap);
++    const uint64_t nrows          = (uint64_t) Q->ne[1] * Q->ne[2] * Q->ne[3];
++    const bool     use_vec_reduce = nwg > 1u;
++    GGML_ASSERT(nrows <= UINT32_MAX);
 +
-+        uint64_t     tmp_stats_base  = 0;
-+        uint64_t     tmp_size_bytes  = 0;
-+        wgpu::Buffer tmp_buf         = {};
-+        uint64_t     tmp_bind_offset = 0;
-+        uint64_t     tmp_bind_size   = 0;
-+        const size_t align_bytes     = ctx->global_ctx->capabilities.limits.minStorageBufferOffsetAlignment;
-+        const size_t dst_offset      = ggml_webgpu_tensor_offset(dst);
-+        size_t       scratch_offset  = ROUNDUP_POW2(dst_offset + ggml_nbytes(dst), align_bytes);
++    uint64_t     tmp_stats_base  = 0;
++    uint64_t     tmp_size_bytes  = 0;
++    wgpu::Buffer tmp_buf         = {};
++    uint64_t     tmp_bind_offset = 0;
++    uint64_t     tmp_bind_size   = 0;
++    const size_t align_bytes     = ctx->global_ctx->capabilities.limits.minStorageBufferOffsetAlignment;
++    const size_t dst_offset      = ggml_webgpu_tensor_offset(dst);
++    size_t       scratch_offset  = ROUNDUP_POW2(dst_offset + ggml_nbytes(dst), align_bytes);
 +
-+        if (use_vec_reduce) {
-+            const uint64_t tmp_data_elems  = nrows * (uint64_t) V->ne[0] * nwg;
-+            const uint64_t tmp_stats_elems = nrows * 2u * nwg;
-+            tmp_stats_base                 = tmp_data_elems;
-+            tmp_size_bytes =
-+                ROUNDUP_POW2((tmp_data_elems + tmp_stats_elems) * sizeof(float), WEBGPU_STORAGE_BUF_BINDING_MULT);
-+            GGML_ASSERT(tmp_stats_base <= UINT32_MAX);
-+            tmp_buf         = ggml_webgpu_tensor_buf(dst);
-+            tmp_bind_offset = scratch_offset;
-+            tmp_bind_size   = tmp_size_bytes;
-+            scratch_offset  = ROUNDUP_POW2(scratch_offset + tmp_size_bytes, align_bytes);
-+        } else {
-+            // nwg==1 writes final dst directly in vec-split; keep tmp binding valid without extra allocation.
-+            tmp_buf         = ggml_webgpu_tensor_buf(dst);
-+            tmp_bind_offset = ggml_webgpu_tensor_align_offset(ctx, dst);
-+            tmp_bind_size   = ggml_webgpu_tensor_binding_size(ctx, dst);
-+        }
-+
-+        webgpu_pipeline                   blk_pipeline;
-+        std::vector<uint32_t>             blk_params;
-+        std::vector<wgpu::BindGroupEntry> blk_entries;
-+        if (use_blk) {
-+            GGML_ASSERT(has_mask);
-+
-+            blk_nblk0                   = CEIL_DIV((uint32_t) K->ne[1], decisions->kv_tile);
-+            blk_nblk1                   = CEIL_DIV((uint32_t) Q->ne[1], decisions->q_tile);
-+            blk_buf                     = ggml_webgpu_tensor_buf(dst);
-+            const uint32_t stride_mask3 = (uint32_t) (mask->nb[3] / ggml_type_size(mask->type));
-+            blk_batch_count             = stride_mask3 > 0 ? (uint32_t) Q->ne[3] : 1u;
-+            const uint64_t blk_elems    = (uint64_t) blk_nblk0 * blk_nblk1 * blk_batch_count;
-+            blk_size_bytes              = ROUNDUP_POW2(blk_elems * sizeof(uint32_t), WEBGPU_STORAGE_BUF_BINDING_MULT);
-+            ggml_webgpu_flash_attn_blk_shader_lib_context blk_shader_ctx = {
-+                .key =
-+                    {
-+                        .q_tile  = decisions->q_tile,
-+                        .kv_tile = decisions->kv_tile,
-+                    },
-+                .max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup,
-+            };
-+            blk_pipeline = ctx->shader_lib->get_flash_attn_blk_pipeline(blk_shader_ctx);
-+
-+            blk_params = {
-+                (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, mask) / ggml_type_size(mask->type)),  // offset_mask
-+                (uint32_t) Q->ne[1],                                                                   // seq_len_q
-+                (uint32_t) K->ne[1],                                                                   // seq_len_kv
-+                stride_mask3,                                                                          // stride_mask3
-+                blk_nblk0,                                                                             // nblk0
-+                blk_nblk1,                                                                             // nblk1
-+            };
-+            blk_entries = {
-+                { .binding = 0,
-+                 .buffer  = ggml_webgpu_tensor_buf(mask),
-+                 .offset  = ggml_webgpu_tensor_align_offset(ctx, mask),
-+                 .size    = ggml_webgpu_tensor_binding_size(ctx, mask) },
-+                { .binding = 1, .buffer = blk_buf, .offset = scratch_offset, .size = blk_size_bytes },
-+            };
-+            scratch_offset = ROUNDUP_POW2(scratch_offset + blk_size_bytes, align_bytes);
-+        }
-+
-+        std::vector<uint32_t> split_params = params;
-+        if (use_blk) {
-+            split_params.push_back(0u);                     // blk_base
-+            split_params.push_back(blk_nblk0);              // blk_nblk0
-+            split_params.push_back(blk_nblk1);              // blk_nblk1
-+        }
-+        split_params.push_back(0u);                         // tmp_data_base
-+        split_params.push_back((uint32_t) tmp_stats_base);  // tmp_stats_base
-+        split_params.push_back(nwg);                        // nwg
-+
-+        std::vector<wgpu::BindGroupEntry> split_entries = {
-+            { .binding = 0,
-+             .buffer  = ggml_webgpu_tensor_buf(Q),
-+             .offset  = ggml_webgpu_tensor_align_offset(ctx, Q),
-+             .size    = ggml_webgpu_tensor_binding_size(ctx, Q) },
-+            { .binding = 1,
-+             .buffer  = ggml_webgpu_tensor_buf(K),
-+             .offset  = ggml_webgpu_tensor_align_offset(ctx, K),
-+             .size    = ggml_webgpu_tensor_binding_size(ctx, K) },
-+            { .binding = 2,
-+             .buffer  = ggml_webgpu_tensor_buf(V),
-+             .offset  = ggml_webgpu_tensor_align_offset(ctx, V),
-+             .size    = ggml_webgpu_tensor_binding_size(ctx, V) },
-+        };
-+        uint32_t split_binding_index = 3;
-+        if (has_mask) {
-+            split_entries.push_back({ .binding = split_binding_index++,
-+                                      .buffer  = ggml_webgpu_tensor_buf(mask),
-+                                      .offset  = ggml_webgpu_tensor_align_offset(ctx, mask),
-+                                      .size    = ggml_webgpu_tensor_binding_size(ctx, mask) });
-+        }
-+        if (has_sinks) {
-+            split_entries.push_back({ .binding = split_binding_index++,
-+                                      .buffer  = ggml_webgpu_tensor_buf(sinks),
-+                                      .offset  = ggml_webgpu_tensor_align_offset(ctx, sinks),
-+                                      .size    = ggml_webgpu_tensor_binding_size(ctx, sinks) });
-+        }
-+        if (use_blk) {
-+            split_entries.push_back({ .binding = split_binding_index++,
-+                                      .buffer  = blk_buf,
-+                                      .offset  = blk_entries[1].offset,
-+                                      .size    = blk_size_bytes });
-+        }
-+        split_entries.push_back(
-+            { .binding = split_binding_index++, .buffer = tmp_buf, .offset = tmp_bind_offset, .size = tmp_bind_size });
-+        split_entries.push_back({ .binding = split_binding_index++,
-+                                  .buffer  = ggml_webgpu_tensor_buf(dst),
-+                                  .offset  = ggml_webgpu_tensor_align_offset(ctx, dst),
-+                                  .size    = ggml_webgpu_tensor_binding_size(ctx, dst) });
-+
-+        webgpu_pipeline                   reduce_pipeline;
-+        std::vector<uint32_t>             reduce_params;
-+        std::vector<wgpu::BindGroupEntry> reduce_entries;
-+        if (use_vec_reduce) {
-+            const uint32_t reduce_wg_size = std::max(
-+                32u,
-+                std::min<uint32_t>(nwg * 32u, ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup));
-+            ggml_webgpu_flash_attn_vec_reduce_shader_lib_context reduce_shader_ctx = {
-+                .key =
-+                    {
-+                        .head_dim_v = (uint32_t) V->ne[0],
-+                        .wg_size    = reduce_wg_size,
-+                    },
-+                .max_wg_size = reduce_wg_size,
-+            };
-+            reduce_pipeline = ctx->shader_lib->get_flash_attn_vec_reduce_pipeline(reduce_shader_ctx);
-+
-+            reduce_params = {
-+                (uint32_t) nrows,                                                                    // nrows
-+                (uint32_t) Q->ne[1],                                                                 // seq_len_q
-+                (uint32_t) Q->ne[2],                                                                 // n_heads
-+                (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, dst) / ggml_type_size(dst->type)),  // offset_dst
-+                nwg,                                                                                 // nwg
-+                0u,                                                                                  // tmp_data_base
-+                (uint32_t) tmp_stats_base,                                                           // tmp_stats_base
-+            };
-+
-+            reduce_entries = {
-+                { .binding = 0, .buffer = tmp_buf, .offset = tmp_bind_offset, .size = tmp_size_bytes },
-+                { .binding = 1,
-+                 .buffer  = ggml_webgpu_tensor_buf(dst),
-+                 .offset  = ggml_webgpu_tensor_align_offset(ctx, dst),
-+                 .size    = ggml_webgpu_tensor_binding_size(ctx, dst) },
-+            };
-+        }
-+
-+        const uint64_t split_wg_total = (uint64_t) wg_x * nwg;
-+        GGML_ASSERT(split_wg_total <= UINT32_MAX);
-+        std::vector<webgpu_pipeline>                   pipelines;
-+        std::vector<std::vector<uint32_t>>             params_list;
-+        std::vector<std::vector<wgpu::BindGroupEntry>> entries_list;
-+        std::vector<std::pair<uint32_t, uint32_t>>     workgroups_list;
-+
-+        if (use_blk) {
-+            pipelines.push_back(blk_pipeline);
-+            params_list.push_back(std::move(blk_params));
-+            entries_list.push_back(std::move(blk_entries));
-+            workgroups_list.push_back({ blk_nblk0, blk_nblk1 * blk_batch_count });
-+        }
-+        pipelines.push_back(pipeline);
-+        params_list.push_back(std::move(split_params));
-+        entries_list.push_back(std::move(split_entries));
-+        workgroups_list.push_back({ (uint32_t) split_wg_total, 1u });
-+        if (use_vec_reduce) {
-+            pipelines.push_back(reduce_pipeline);
-+            params_list.push_back(std::move(reduce_params));
-+            entries_list.push_back(std::move(reduce_entries));
-+            workgroups_list.push_back({ (uint32_t) nrows, 1u });
-+        }
-+
-+        return ggml_backend_webgpu_build_multi(ctx->global_ctx, ctx->param_arena, encoder, pipelines, params_list,
-+                                               entries_list, workgroups_list);
++    if (use_vec_reduce) {
++        const uint64_t tmp_data_elems  = nrows * (uint64_t) V->ne[0] * nwg;
++        const uint64_t tmp_stats_elems = nrows * 2u * nwg;
++        tmp_stats_base                 = tmp_data_elems;
++        tmp_size_bytes =
++            ROUNDUP_POW2((tmp_data_elems + tmp_stats_elems) * sizeof(float), WEBGPU_STORAGE_BUF_BINDING_MULT);
++        GGML_ASSERT(tmp_stats_base <= UINT32_MAX);
++        tmp_buf         = ggml_webgpu_tensor_buf(dst);
++        tmp_bind_offset = scratch_offset;
++        tmp_bind_size   = tmp_size_bytes;
++        scratch_offset  = ROUNDUP_POW2(scratch_offset + tmp_size_bytes, align_bytes);
++    } else {
++        // nwg==1 writes final dst directly in vec-split; keep tmp binding valid without extra allocation.
++        tmp_buf         = ggml_webgpu_tensor_buf(dst);
++        tmp_bind_offset = ggml_webgpu_tensor_align_offset(ctx, dst);
++        tmp_bind_size   = ggml_webgpu_tensor_binding_size(ctx, dst);
 +    }
 +
-+    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_arena, encoder, pipeline, params, entries, wg_x);
++    webgpu_pipeline                   blk_pipeline;
++    std::vector<uint32_t>             blk_params;
++    std::vector<wgpu::BindGroupEntry> blk_entries;
++    if (has_mask) {
++        blk_nblk0                   = CEIL_DIV((uint32_t) K->ne[1], decisions->kv_tile);
++        blk_nblk1                   = (uint32_t) Q->ne[1];
++        blk_buf                     = ggml_webgpu_tensor_buf(dst);
++        const uint32_t stride_mask3 = (uint32_t) (mask->nb[3] / ggml_type_size(mask->type));
++        blk_batch_count             = stride_mask3 > 0 ? (uint32_t) Q->ne[3] : 1u;
++        const uint64_t blk_elems    = (uint64_t) blk_nblk0 * blk_nblk1 * blk_batch_count;
++        blk_size_bytes              = ROUNDUP_POW2(blk_elems * sizeof(uint32_t), WEBGPU_STORAGE_BUF_BINDING_MULT);
++        const ggml_webgpu_shader_lib_context blk_shader_ctx = shader_lib_ctx;
++        blk_pipeline = ctx->shader_lib->get_flash_attn_blk_pipeline(blk_shader_ctx);
++
++        blk_params = {
++            (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, mask) / ggml_type_size(mask->type)),  // offset_mask
++            (uint32_t) Q->ne[1],                                                                   // seq_len_q
++            (uint32_t) K->ne[1],                                                                   // seq_len_kv
++            stride_mask3,                                                                          // stride_mask3
++            blk_nblk0,                                                                             // nblk0
++            blk_nblk1,                                                                             // nblk1
++        };
++        blk_entries = {
++            ggml_webgpu_make_bind_group_entry(0, ggml_webgpu_tensor_buf(mask),
++                                              ggml_webgpu_tensor_align_offset(ctx, mask),
++                                              ggml_webgpu_tensor_binding_size(ctx, mask)),
++            ggml_webgpu_make_bind_group_entry(1, blk_buf, scratch_offset, blk_size_bytes),
++        };
++        scratch_offset = ROUNDUP_POW2(scratch_offset + blk_size_bytes, align_bytes);
++    }
++
++    std::vector<uint32_t> split_params = params;
++    if (has_mask) {
++        split_params.push_back(0u);                     // blk_base
++        split_params.push_back(blk_nblk0);              // blk_nblk0
++        split_params.push_back(blk_nblk1);              // blk_nblk1
++    }
++    split_params.push_back(0u);                         // tmp_data_base
++    split_params.push_back((uint32_t) tmp_stats_base);  // tmp_stats_base
++    split_params.push_back(nwg);                        // nwg
++
++    std::vector<wgpu::BindGroupEntry> split_entries = {
++        ggml_webgpu_make_bind_group_entry(0, ggml_webgpu_tensor_buf(Q), ggml_webgpu_tensor_align_offset(ctx, Q),
++                                          ggml_webgpu_tensor_binding_size(ctx, Q)),
++        ggml_webgpu_make_bind_group_entry(1, ggml_webgpu_tensor_buf(K), ggml_webgpu_tensor_align_offset(ctx, K),
++                                          ggml_webgpu_tensor_binding_size(ctx, K)),
++        ggml_webgpu_make_bind_group_entry(2, ggml_webgpu_tensor_buf(V), ggml_webgpu_tensor_align_offset(ctx, V),
++                                          ggml_webgpu_tensor_binding_size(ctx, V)),
++    };
++    uint32_t split_binding_index = 3;
++    if (has_mask) {
++        split_entries.push_back(ggml_webgpu_make_bind_group_entry(split_binding_index++, ggml_webgpu_tensor_buf(mask),
++                                                                  ggml_webgpu_tensor_align_offset(ctx, mask),
++                                                                  ggml_webgpu_tensor_binding_size(ctx, mask)));
++    }
++    if (has_sinks) {
++        split_entries.push_back(ggml_webgpu_make_bind_group_entry(split_binding_index++, ggml_webgpu_tensor_buf(sinks),
++                                                                  ggml_webgpu_tensor_align_offset(ctx, sinks),
++                                                                  ggml_webgpu_tensor_binding_size(ctx, sinks)));
++    }
++    if (has_mask) {
++        split_entries.push_back(
++            ggml_webgpu_make_bind_group_entry(split_binding_index++, blk_buf, blk_entries[1].offset, blk_size_bytes));
++    }
++    split_entries.push_back(
++        ggml_webgpu_make_bind_group_entry(split_binding_index++, tmp_buf, tmp_bind_offset, tmp_bind_size));
++    split_entries.push_back(ggml_webgpu_make_bind_group_entry(split_binding_index++, ggml_webgpu_tensor_buf(dst),
++                                                              ggml_webgpu_tensor_align_offset(ctx, dst),
++                                                              ggml_webgpu_tensor_binding_size(ctx, dst)));
++
++    webgpu_pipeline                   reduce_pipeline;
++    std::vector<uint32_t>             reduce_params;
++    std::vector<wgpu::BindGroupEntry> reduce_entries;
++    if (use_vec_reduce) {
++        const uint32_t reduce_wg_size = std::max(
++            32u, std::min<uint32_t>(nwg * 32u, ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup));
++        ggml_webgpu_shader_lib_context reduce_shader_ctx = shader_lib_ctx;
++        reduce_shader_ctx.max_wg_size                    = reduce_wg_size;
++        reduce_pipeline = ctx->shader_lib->get_flash_attn_vec_reduce_pipeline(reduce_shader_ctx);
++
++        reduce_params = {
++            (uint32_t) nrows,                                                                    // nrows
++            (uint32_t) Q->ne[1],                                                                 // seq_len_q
++            (uint32_t) Q->ne[2],                                                                 // n_heads
++            (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, dst) / ggml_type_size(dst->type)),  // offset_dst
++            nwg,                                                                                 // nwg
++            0u,                                                                                  // tmp_data_base
++            (uint32_t) tmp_stats_base,                                                           // tmp_stats_base
++        };
++
++        reduce_entries = {
++            ggml_webgpu_make_bind_group_entry(0, tmp_buf, tmp_bind_offset, tmp_size_bytes),
++            ggml_webgpu_make_bind_group_entry(1, ggml_webgpu_tensor_buf(dst), ggml_webgpu_tensor_align_offset(ctx, dst),
++                                              ggml_webgpu_tensor_binding_size(ctx, dst)),
++        };
++    }
+ 
+-    webgpu_pipeline pipeline = ctx->shader_lib->get_flash_attn_pipeline(shader_lib_ctx);
++    uint32_t       wg_x           = Q->ne[1] * Q->ne[2] * Q->ne[3];
++    const uint64_t split_wg_total = (uint64_t) wg_x * nwg;
++    GGML_ASSERT(split_wg_total <= UINT32_MAX);
+ 
+-    auto * decisions = static_cast<ggml_webgpu_flash_attn_shader_decisions *>(pipeline.context.get());
++    std::vector<webgpu_dispatch_desc> dispatches;
++
++    if (has_mask) {
++        dispatches.push_back({
++            blk_pipeline, std::move(blk_params), std::move(blk_entries), { blk_nblk0, blk_nblk1 * blk_batch_count }
++        });
++    }
++    dispatches.push_back({
++        pipeline, std::move(split_params), std::move(split_entries), { (uint32_t) split_wg_total, 1u }
++    });
++    if (use_vec_reduce) {
++        dispatches.push_back({
++            reduce_pipeline, std::move(reduce_params), std::move(reduce_entries), { (uint32_t) nrows, 1u }
++        });
++    }
+ 
+-    uint32_t wg_per_head = CEIL_DIV(Q->ne[1], decisions->q_tile);
+-    uint32_t wg_x        = wg_per_head * Q->ne[2] * Q->ne[3];  // wg per head * number of heads * number of batches
+-    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_buf_pool, pipeline, params, entries, wg_x);
++    return ggml_backend_webgpu_build_multi(ctx, dispatches);
  }
 -#endif
 +#endif  // __EMSCRIPTEN__
  
 -static webgpu_command ggml_webgpu_unary_op(webgpu_context & ctx, ggml_tensor * src, ggml_tensor * dst) {
-+static webgpu_encoded_op ggml_webgpu_unary_op(webgpu_context &       ctx,
-+                                              wgpu::CommandEncoder & encoder,
-+                                              ggml_tensor *          src,
-+                                              ggml_tensor *          dst) {
++static webgpu_encoded_op ggml_webgpu_unary_op(webgpu_context & ctx, ggml_tensor * src, ggml_tensor * dst) {
      bool is_unary = dst->op == GGML_OP_UNARY;
      bool inplace  = ggml_webgpu_tensor_equal(src, dst) || (dst->op == GGML_OP_FILL);
  
-@@ -1665,13 +2005,14 @@ static webgpu_command ggml_webgpu_unary_op(webgpu_context & ctx, ggml_tensor * s
+-    ggml_webgpu_shader_lib_context shader_lib_ctx = {
+-        .src0        = src,
+-        .src1        = nullptr,
+-        .dst         = dst,
+-        .max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup,
+-        .inplace     = inplace,
+-    };
++    ggml_webgpu_shader_lib_context shader_lib_ctx = {};
++    shader_lib_ctx.src0                           = src;
++    shader_lib_ctx.src1                           = nullptr;
++    shader_lib_ctx.dst                            = dst;
++    shader_lib_ctx.max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup;
++    shader_lib_ctx.inplace     = inplace;
+ 
+     webgpu_pipeline pipeline = ctx->shader_lib->get_unary_pipeline(shader_lib_ctx);
+ 
+@@ -1631,10 +1698,10 @@ static webgpu_command ggml_webgpu_unary_op(webgpu_context & ctx, ggml_tensor * s
+                     float alpha_p = ggml_get_op_params_f32(dst, 2);
+                     float beta    = ggml_get_op_params_f32(dst, 3);
+                     float eps     = ggml_get_op_params_f32(dst, 4);
+-                    params.push_back(*reinterpret_cast<const uint32_t *>(&alpha_n));
+-                    params.push_back(*reinterpret_cast<const uint32_t *>(&alpha_p));
+-                    params.push_back(*reinterpret_cast<const uint32_t *>(&beta));
+-                    params.push_back(*reinterpret_cast<const uint32_t *>(&eps));
++                    params.push_back(ggml_webgpu_u32_from_f32(alpha_n));
++                    params.push_back(ggml_webgpu_u32_from_f32(alpha_p));
++                    params.push_back(ggml_webgpu_u32_from_f32(beta));
++                    params.push_back(ggml_webgpu_u32_from_f32(eps));
+                     break;
+                 }
+             default:
+@@ -1643,46 +1710,39 @@ static webgpu_command ggml_webgpu_unary_op(webgpu_context & ctx, ggml_tensor * s
+     } else if (dst->op == GGML_OP_CLAMP) {
+         float clamp_min = ggml_get_op_params_f32(dst, 0);
+         float clamp_max = ggml_get_op_params_f32(dst, 1);
+-        params.push_back(*reinterpret_cast<const uint32_t *>(&clamp_min));
+-        params.push_back(*reinterpret_cast<const uint32_t *>(&clamp_max));
++        params.push_back(ggml_webgpu_u32_from_f32(clamp_min));
++        params.push_back(ggml_webgpu_u32_from_f32(clamp_max));
+     } else if (dst->op == GGML_OP_FILL) {
+         float fill_val = ggml_get_op_params_f32(dst, 0);
+-        params.push_back(*reinterpret_cast<const uint32_t *>(&fill_val));
++        params.push_back(ggml_webgpu_u32_from_f32(fill_val));
+         effective_src = dst;  // fill simply fills dst
+     }
+ 
+     std::vector<wgpu::BindGroupEntry> entries = {
+-        { .binding = 0,
+-         .buffer  = ggml_webgpu_tensor_buf(effective_src),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, effective_src),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, effective_src) },
++        ggml_webgpu_make_tensor_bind_group_entry(ctx, 0, effective_src),
+     };
+     if (!inplace) {
+-        entries.push_back({ .binding = 1,
+-                            .buffer  = ggml_webgpu_tensor_buf(dst),
+-                            .offset  = ggml_webgpu_tensor_align_offset(ctx, dst),
+-                            .size    = ggml_webgpu_tensor_binding_size(ctx, dst) });
++        entries.push_back(ggml_webgpu_make_tensor_bind_group_entry(ctx, 1, dst));
      }
  
      uint32_t wg_x = CEIL_DIV(ne, decisions->wg_size);
 -    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_buf_pool, pipeline, params, entries, wg_x);
-+    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_arena, encoder, pipeline, params, entries, wg_x);
++    return ggml_backend_webgpu_build(ctx, pipeline, params, entries, wg_x);
  }
  
 -static webgpu_command ggml_webgpu_binary_op(webgpu_context & ctx,
 -                                            ggml_tensor *    src0,
 -                                            ggml_tensor *    src1,
 -                                            ggml_tensor *    dst) {
-+static webgpu_encoded_op ggml_webgpu_binary_op(webgpu_context &       ctx,
-+                                               wgpu::CommandEncoder & encoder,
-+                                               ggml_tensor *          src0,
-+                                               ggml_tensor *          src1,
-+                                               ggml_tensor *          dst) {
++static webgpu_encoded_op ggml_webgpu_binary_op(webgpu_context & ctx,
++                                               ggml_tensor *    src0,
++                                               ggml_tensor *    src1,
++                                               ggml_tensor *    dst) {
      binary_overlap_flags flags = ggml_webgpu_detect_binary_overlap(src0, src1, dst);
  
-     ggml_webgpu_shader_lib_context shader_lib_ctx = {
-@@ -1767,13 +2108,14 @@ static webgpu_command ggml_webgpu_binary_op(webgpu_context & ctx,
+-    ggml_webgpu_shader_lib_context shader_lib_ctx = {
+-        .src0        = src0,
+-        .src1        = src1,
+-        .dst         = dst,
+-        .max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup,
+-        .inplace     = flags.inplace,
+-        .overlap     = flags.overlap,
+-        .src_overlap = flags.src_overlap,
+-    };
++    ggml_webgpu_shader_lib_context shader_lib_ctx = {};
++    shader_lib_ctx.src0                           = src0;
++    shader_lib_ctx.src1                           = src1;
++    shader_lib_ctx.dst                            = dst;
++    shader_lib_ctx.max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup;
++    shader_lib_ctx.inplace     = flags.inplace;
++    shader_lib_ctx.overlap     = flags.overlap;
++    shader_lib_ctx.src_overlap = flags.src_overlap;
+ 
+     webgpu_pipeline pipeline = ctx->shader_lib->get_binary_pipeline(shader_lib_ctx);
+ 
+@@ -1731,49 +1791,29 @@ static webgpu_command ggml_webgpu_binary_op(webgpu_context & ctx,
+         size_t merged_offset = std::min(src0_webgpu_tensor_align_offset, src1_webgpu_tensor_align_offset);
+         size_t merged_end    = std::max(src0_webgpu_tensor_align_offset + ggml_webgpu_tensor_binding_size(ctx, src0),
+                                         src1_webgpu_tensor_align_offset + ggml_webgpu_tensor_binding_size(ctx, src1));
+-        entries.push_back({
+-            .binding = 0,
+-            .buffer  = ggml_webgpu_tensor_buf(src0),
+-            .offset  = merged_offset,
+-            .size    = merged_end - merged_offset,
+-        });
+-        entries.push_back({
+-            .binding = 1,
+-            .buffer  = ggml_webgpu_tensor_buf(dst),
+-            .offset  = ggml_webgpu_tensor_align_offset(ctx, dst),
+-            .size    = ggml_webgpu_tensor_binding_size(ctx, dst),
+-        });
++        entries.push_back(ggml_webgpu_make_bind_group_entry(0, ggml_webgpu_tensor_buf(src0), merged_offset,
++                                                            merged_end - merged_offset));
++        entries.push_back(ggml_webgpu_make_tensor_bind_group_entry(ctx, 1, dst));
+     } else {
+-        entries.push_back({
+-            .binding = 0,
+-            .buffer  = ggml_webgpu_tensor_buf(src0),
+-            .offset  = src0_webgpu_tensor_align_offset,
+-            .size    = ggml_webgpu_tensor_binding_size(ctx, src0),
+-        });
+-        entries.push_back({
+-            .binding = 1,
+-            .buffer  = ggml_webgpu_tensor_buf(src1),
+-            .offset  = src1_webgpu_tensor_align_offset,
+-            .size    = ggml_webgpu_tensor_binding_size(ctx, src1),
+-        });
++        entries.push_back(ggml_webgpu_make_bind_group_entry(0, ggml_webgpu_tensor_buf(src0),
++                                                            src0_webgpu_tensor_align_offset,
++                                                            ggml_webgpu_tensor_binding_size(ctx, src0)));
++        entries.push_back(ggml_webgpu_make_bind_group_entry(1, ggml_webgpu_tensor_buf(src1),
++                                                            src1_webgpu_tensor_align_offset,
++                                                            ggml_webgpu_tensor_binding_size(ctx, src1)));
+         if (!flags.inplace && !flags.overlap) {
+-            entries.push_back({
+-                .binding = 2,
+-                .buffer  = ggml_webgpu_tensor_buf(dst),
+-                .offset  = ggml_webgpu_tensor_align_offset(ctx, dst),
+-                .size    = ggml_webgpu_tensor_binding_size(ctx, dst),
+-            });
++            entries.push_back(ggml_webgpu_make_tensor_bind_group_entry(ctx, 2, dst));
+         }
      }
  
      uint32_t wg_x = CEIL_DIV(ne, decisions->wg_size);
 -    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_buf_pool, pipeline, params, entries, wg_x);
-+    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_arena, encoder, pipeline, params, entries, wg_x);
++    return ggml_backend_webgpu_build(ctx, pipeline, params, entries, wg_x);
  }
  
 -static webgpu_command ggml_webgpu_concat(webgpu_context & ctx,
 -                                         ggml_tensor *    src0,
 -                                         ggml_tensor *    src1,
 -                                         ggml_tensor *    dst) {
-+static webgpu_encoded_op ggml_webgpu_concat(webgpu_context &       ctx,
-+                                            wgpu::CommandEncoder & encoder,
-+                                            ggml_tensor *          src0,
-+                                            ggml_tensor *          src1,
-+                                            ggml_tensor *          dst) {
++static webgpu_encoded_op ggml_webgpu_concat(webgpu_context & ctx,
++                                            ggml_tensor *    src0,
++                                            ggml_tensor *    src1,
++                                            ggml_tensor *    dst) {
      uint32_t ne  = (uint32_t) ggml_nelements(dst);
      uint32_t dim = (uint32_t) dst->op_params[0];
  
-@@ -1823,10 +2165,13 @@ static webgpu_command ggml_webgpu_concat(webgpu_context & ctx,
+@@ -1799,34 +1839,24 @@ static webgpu_command ggml_webgpu_concat(webgpu_context & ctx,
+     };
+ 
+     std::vector<wgpu::BindGroupEntry> entries = {
+-        { .binding = 0,
+-         .buffer  = ggml_webgpu_tensor_buf(src0),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, src0),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, src0) },
+-        { .binding = 1,
+-         .buffer  = ggml_webgpu_tensor_buf(src1),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, src1),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, src1) },
+-        { .binding = 2,
+-         .buffer  = ggml_webgpu_tensor_buf(dst),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, dst),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, dst)  }
++        ggml_webgpu_make_tensor_bind_group_entry(ctx, 0, src0),
++        ggml_webgpu_make_tensor_bind_group_entry(ctx, 1, src1),
++        ggml_webgpu_make_tensor_bind_group_entry(ctx, 2, dst),
+     };
+ 
+-    ggml_webgpu_shader_lib_context shader_lib_ctx = {
+-        .src0        = src0,
+-        .src1        = src1,
+-        .dst         = dst,
+-        .max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup,
+-    };
++    ggml_webgpu_shader_lib_context shader_lib_ctx = {};
++    shader_lib_ctx.src0                           = src0;
++    shader_lib_ctx.src1                           = src1;
++    shader_lib_ctx.dst                            = dst;
++    shader_lib_ctx.max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup;
+ 
      webgpu_pipeline pipeline  = ctx->shader_lib->get_concat_pipeline(shader_lib_ctx);
      auto *          decisions = static_cast<ggml_webgpu_generic_shader_decisions *>(pipeline.context.get());
      uint32_t        wg_x      = CEIL_DIV(ne, decisions->wg_size);
 -    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_buf_pool, pipeline, params, entries, wg_x);
-+    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_arena, encoder, pipeline, params, entries, wg_x);
++    return ggml_backend_webgpu_build(ctx, pipeline, params, entries, wg_x);
  }
  
 -static webgpu_command ggml_webgpu_repeat(webgpu_context & ctx, ggml_tensor * src0, ggml_tensor * dst) {
-+static webgpu_encoded_op ggml_webgpu_repeat(webgpu_context &       ctx,
-+                                            wgpu::CommandEncoder & encoder,
-+                                            ggml_tensor *          src0,
-+                                            ggml_tensor *          dst) {
++static webgpu_encoded_op ggml_webgpu_repeat(webgpu_context & ctx, ggml_tensor * src0, ggml_tensor * dst) {
      uint32_t ne = (uint32_t) ggml_nelements(dst);
  
      std::vector<uint32_t> params = { ne,
-@@ -1865,10 +2210,13 @@ static webgpu_command ggml_webgpu_repeat(webgpu_context & ctx, ggml_tensor * src
+@@ -1846,29 +1876,22 @@ static webgpu_command ggml_webgpu_repeat(webgpu_context & ctx, ggml_tensor * src
+                                      (uint32_t) (dst->ne[2]) };
+ 
+     std::vector<wgpu::BindGroupEntry> entries = {
+-        { .binding = 0,
+-         .buffer  = ggml_webgpu_tensor_buf(src0),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, src0),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, src0) },
+-        { .binding = 1,
+-         .buffer  = ggml_webgpu_tensor_buf(dst),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, dst),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, dst)  }
++        ggml_webgpu_make_tensor_bind_group_entry(ctx, 0, src0),
++        ggml_webgpu_make_tensor_bind_group_entry(ctx, 1, dst),
+     };
+ 
+-    ggml_webgpu_shader_lib_context shader_lib_ctx = {
+-        .src0        = src0,
+-        .dst         = dst,
+-        .max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup,
+-    };
++    ggml_webgpu_shader_lib_context shader_lib_ctx = {};
++    shader_lib_ctx.src0                           = src0;
++    shader_lib_ctx.dst                            = dst;
++    shader_lib_ctx.max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup;
+ 
      webgpu_pipeline pipeline  = ctx->shader_lib->get_repeat_pipeline(shader_lib_ctx);
      auto *          decisions = static_cast<ggml_webgpu_generic_shader_decisions *>(pipeline.context.get());
      uint32_t        wg_x      = CEIL_DIV(ne, decisions->wg_size);
 -    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_buf_pool, pipeline, params, entries, wg_x);
-+    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_arena, encoder, pipeline, params, entries, wg_x);
++    return ggml_backend_webgpu_build(ctx, pipeline, params, entries, wg_x);
  }
  
 -static webgpu_command ggml_webgpu_row_norm(webgpu_context & ctx, ggml_tensor * src, ggml_tensor * dst) {
-+static webgpu_encoded_op ggml_webgpu_row_norm(webgpu_context &       ctx,
-+                                              wgpu::CommandEncoder & encoder,
-+                                              ggml_tensor *          src,
-+                                              ggml_tensor *          dst) {
++static webgpu_encoded_op ggml_webgpu_row_norm(webgpu_context & ctx, ggml_tensor * src, ggml_tensor * dst) {
      bool inplace = ggml_webgpu_tensor_equal(src, dst);
  
      std::vector<uint32_t> params = {
-@@ -1908,14 +2256,16 @@ static webgpu_command ggml_webgpu_row_norm(webgpu_context & ctx, ggml_tensor * s
+@@ -1884,46 +1907,36 @@ static webgpu_command ggml_webgpu_row_norm(webgpu_context & ctx, ggml_tensor * s
+         (uint32_t) src->ne[1],
+         (uint32_t) src->ne[2],
+         (uint32_t) src->ne[3],
+-        *(uint32_t *) dst->op_params  // epsilon, treated as f32 in the shader
++        ggml_webgpu_u32_from_f32(ggml_get_op_params_f32(dst, 0))  // epsilon, treated as f32 in the shader
      };
+ 
+-    std::vector<wgpu::BindGroupEntry> entries = {
+-        { .binding = 0,
+-         .buffer  = ggml_webgpu_tensor_buf(src),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, src),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, src) }
+-    };
++    std::vector<wgpu::BindGroupEntry> entries = { ggml_webgpu_make_tensor_bind_group_entry(ctx, 0, src) };
+     if (!inplace) {
+-        entries.push_back({ .binding = 1,
+-                            .buffer  = ggml_webgpu_tensor_buf(dst),
+-                            .offset  = ggml_webgpu_tensor_align_offset(ctx, dst),
+-                            .size    = ggml_webgpu_tensor_binding_size(ctx, dst) });
++        entries.push_back(ggml_webgpu_make_tensor_bind_group_entry(ctx, 1, dst));
+     }
+ 
+-    ggml_webgpu_shader_lib_context shader_lib_ctx = {
+-        .src0        = src,
+-        .dst         = dst,
+-        .max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup,
+-        .inplace     = inplace,
+-    };
++    ggml_webgpu_shader_lib_context shader_lib_ctx = {};
++    shader_lib_ctx.src0                           = src;
++    shader_lib_ctx.dst                            = dst;
++    shader_lib_ctx.max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup;
++    shader_lib_ctx.inplace     = inplace;
  
      webgpu_pipeline pipeline = ctx->shader_lib->get_row_norm_pipeline(shader_lib_ctx);
 -    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_buf_pool, pipeline, params, entries, ggml_nrows(src));
-+    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_arena, encoder, pipeline, params, entries,
-+                                     ggml_nrows(src));
- }
- 
+-}
+-
 -static webgpu_command ggml_webgpu_rope(webgpu_context & ctx,
 -                                       ggml_tensor *    src0,
 -                                       ggml_tensor *    src1,
 -                                       ggml_tensor *    src2,
 -                                       ggml_tensor *    dst) {
-+static webgpu_encoded_op ggml_webgpu_rope(webgpu_context &       ctx,
-+                                          wgpu::CommandEncoder & encoder,
-+                                          ggml_tensor *          src0,
-+                                          ggml_tensor *          src1,
-+                                          ggml_tensor *          src2,
-+                                          ggml_tensor *          dst) {
-     ggml_webgpu_shader_lib_context shader_lib_ctx = {
-         .src0        = src0,
-         .src1        = src1,
-@@ -2012,10 +2362,14 @@ static webgpu_command ggml_webgpu_rope(webgpu_context & ctx,
+-    ggml_webgpu_shader_lib_context shader_lib_ctx = {
+-        .src0        = src0,
+-        .src1        = src1,
+-        .src2        = src2,
+-        .dst         = dst,
+-        .max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup,
+-        .inplace     = ggml_webgpu_tensor_equal(src0, dst),
+-    };
++    return ggml_backend_webgpu_build(ctx, pipeline, params, entries, ggml_nrows(src));
++}
++
++static webgpu_encoded_op ggml_webgpu_rope(webgpu_context & ctx,
++                                          ggml_tensor *    src0,
++                                          ggml_tensor *    src1,
++                                          ggml_tensor *    src2,
++                                          ggml_tensor *    dst) {
++    ggml_webgpu_shader_lib_context shader_lib_ctx = {};
++    shader_lib_ctx.src0                           = src0;
++    shader_lib_ctx.src1                           = src1;
++    shader_lib_ctx.src2                           = src2;
++    shader_lib_ctx.dst                            = dst;
++    shader_lib_ctx.max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup;
++    shader_lib_ctx.inplace     = ggml_webgpu_tensor_equal(src0, dst);
+ 
+     webgpu_pipeline pipeline = ctx->shader_lib->get_rope_pipeline(shader_lib_ctx);
+ 
+@@ -1974,54 +1987,42 @@ static webgpu_command ggml_webgpu_rope(webgpu_context & ctx,
+         (uint32_t) src0->ne[2],
+         (uint32_t) n_dims,
+         (uint32_t) mode,
+-        *(uint32_t *) &theta_scale,
+-        *(uint32_t *) &attn_factor,
+-        *(uint32_t *) &freq_scale,
+-        *(uint32_t *) &ext_factor,
+-        *(uint32_t *) &corr_dims[0],
+-        *(uint32_t *) &corr_dims[1],
++        ggml_webgpu_u32_from_f32(theta_scale),
++        ggml_webgpu_u32_from_f32(attn_factor),
++        ggml_webgpu_u32_from_f32(freq_scale),
++        ggml_webgpu_u32_from_f32(ext_factor),
++        ggml_webgpu_u32_from_f32(corr_dims[0]),
++        ggml_webgpu_u32_from_f32(corr_dims[1]),
+         (uint32_t) sections[0],
+         (uint32_t) sections[1],
+         (uint32_t) sections[2],
+         (uint32_t) sections[3]
+     };
+ 
+-    std::vector<wgpu::BindGroupEntry> entries = {
+-        { .binding = 0,
+-         .buffer  = ggml_webgpu_tensor_buf(src0),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, src0),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, src0) },
+-        { .binding = 1,
+-         .buffer  = ggml_webgpu_tensor_buf(src1),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, src1),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, src1) }
+-    };
+-    uint32_t dst_binding = 2;
++    std::vector<wgpu::BindGroupEntry> entries     = { ggml_webgpu_make_tensor_bind_group_entry(ctx, 0, src0),
++                                                      ggml_webgpu_make_tensor_bind_group_entry(ctx, 1, src1) };
++    uint32_t                          dst_binding = 2;
+     if (has_freq_factor) {
+         dst_binding = 3;
+-        entries.push_back({ .binding = 2,
+-                            .buffer  = ggml_webgpu_tensor_buf(src2),
+-                            .offset  = ggml_webgpu_tensor_align_offset(ctx, src2),
+-                            .size    = ggml_webgpu_tensor_binding_size(ctx, src2) });
++        entries.push_back(ggml_webgpu_make_tensor_bind_group_entry(ctx, 2, src2));
+     }
+     if (!inplace) {
+-        entries.push_back({ .binding = dst_binding,
+-                            .buffer  = ggml_webgpu_tensor_buf(dst),
+-                            .offset  = ggml_webgpu_tensor_align_offset(ctx, dst),
+-                            .size    = ggml_webgpu_tensor_binding_size(ctx, dst) });
++        entries.push_back(ggml_webgpu_make_tensor_bind_group_entry(ctx, dst_binding, dst));
      }
  
      uint32_t wg_x = CEIL_DIV(ggml_nelements(dst), decisions->wg_size);
 -    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_buf_pool, pipeline, params, entries, wg_x);
-+    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_arena, encoder, pipeline, params, entries, wg_x);
++    return ggml_backend_webgpu_build(ctx, pipeline, params, entries, wg_x);
  }
  
 -static webgpu_command ggml_webgpu_glu(webgpu_context & ctx, ggml_tensor * src0, ggml_tensor * src1, ggml_tensor * dst) {
-+static webgpu_encoded_op ggml_webgpu_glu(webgpu_context &       ctx,
-+                                         wgpu::CommandEncoder & encoder,
-+                                         ggml_tensor *          src0,
-+                                         ggml_tensor *          src1,
-+                                         ggml_tensor *          dst) {
-     ggml_webgpu_shader_lib_context shader_lib_ctx = {
-         .src0        = src0,
-         .src1        = src1,
-@@ -2074,10 +2428,13 @@ static webgpu_command ggml_webgpu_glu(webgpu_context & ctx, ggml_tensor * src0,
-                         .size    = ggml_webgpu_tensor_binding_size(ctx, dst) });
+-    ggml_webgpu_shader_lib_context shader_lib_ctx = {
+-        .src0        = src0,
+-        .src1        = src1,
+-        .dst         = dst,
+-        .max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup,
+-    };
++static webgpu_encoded_op ggml_webgpu_glu(webgpu_context & ctx,
++                                         ggml_tensor *    src0,
++                                         ggml_tensor *    src1,
++                                         ggml_tensor *    dst) {
++    ggml_webgpu_shader_lib_context shader_lib_ctx = {};
++    shader_lib_ctx.src0                           = src0;
++    shader_lib_ctx.src1                           = src1;
++    shader_lib_ctx.dst                            = dst;
++    shader_lib_ctx.max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup;
+ 
+     webgpu_pipeline pipeline = ctx->shader_lib->get_glu_pipeline(shader_lib_ctx);
+ 
+@@ -2049,44 +2050,34 @@ static webgpu_command ggml_webgpu_glu(webgpu_context & ctx, ggml_tensor * src0,
+         (uint32_t) dst->ne[0],
+         (uint32_t) dst->ne[1],
+         (uint32_t) dst->ne[2],
+-        (uint32_t) ((int32_t *) dst->op_params)[1],  // swapped
+-        *(uint32_t *) &dst->op_params[2],            // alpha, for swiglu_oai
+-        *(uint32_t *) &dst->op_params[3],            // limit, for swiglu_oai
++        (uint32_t) ((int32_t *) dst->op_params)[1],                // swapped
++        ggml_webgpu_u32_from_f32(ggml_get_op_params_f32(dst, 2)),  // alpha, for swiglu_oai
++        ggml_webgpu_u32_from_f32(ggml_get_op_params_f32(dst, 3)),  // limit, for swiglu_oai
+     };
+ 
+     std::vector<wgpu::BindGroupEntry> entries = {
+-        { .binding = 0,
+-         .buffer  = ggml_webgpu_tensor_buf(src0),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, src0),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, src0) },
++        ggml_webgpu_make_tensor_bind_group_entry(ctx, 0, src0),
+     };
+     uint32_t dst_binding = 1;
+     if (split) {
+         dst_binding = 2;
+-        entries.push_back({ .binding = 1,
+-                            .buffer  = ggml_webgpu_tensor_buf(src1),
+-                            .offset  = ggml_webgpu_tensor_align_offset(ctx, src1),
+-                            .size    = ggml_webgpu_tensor_binding_size(ctx, src1) });
++        entries.push_back(ggml_webgpu_make_tensor_bind_group_entry(ctx, 1, src1));
+     }
+-    entries.push_back({ .binding = dst_binding,
+-                        .buffer  = ggml_webgpu_tensor_buf(dst),
+-                        .offset  = ggml_webgpu_tensor_align_offset(ctx, dst),
+-                        .size    = ggml_webgpu_tensor_binding_size(ctx, dst) });
++    entries.push_back(ggml_webgpu_make_tensor_bind_group_entry(ctx, dst_binding, dst));
  
      uint32_t wg_x = CEIL_DIV(ggml_nelements(dst), decisions->wg_size);
 -    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_buf_pool, pipeline, params, entries, wg_x);
-+    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_arena, encoder, pipeline, params, entries, wg_x);
++    return ggml_backend_webgpu_build(ctx, pipeline, params, entries, wg_x);
  }
  
 -static webgpu_command ggml_webgpu_scale(webgpu_context & ctx, ggml_tensor * src, ggml_tensor * dst) {
-+static webgpu_encoded_op ggml_webgpu_scale(webgpu_context &       ctx,
-+                                           wgpu::CommandEncoder & encoder,
-+                                           ggml_tensor *          src,
-+                                           ggml_tensor *          dst) {
++static webgpu_encoded_op ggml_webgpu_scale(webgpu_context & ctx, ggml_tensor * src, ggml_tensor * dst) {
      bool inplace = ggml_webgpu_tensor_equal(src, dst);
  
-     ggml_webgpu_shader_lib_context shader_lib_ctx = {
-@@ -2125,14 +2482,15 @@ static webgpu_command ggml_webgpu_scale(webgpu_context & ctx, ggml_tensor * src,
+-    ggml_webgpu_shader_lib_context shader_lib_ctx = {
+-        .src0        = src,
+-        .src1        = nullptr,
+-        .dst         = dst,
+-        .max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup,
+-        .inplace     = inplace,
+-    };
++    ggml_webgpu_shader_lib_context shader_lib_ctx = {};
++    shader_lib_ctx.src0                           = src;
++    shader_lib_ctx.src1                           = nullptr;
++    shader_lib_ctx.dst                            = dst;
++    shader_lib_ctx.max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup;
++    shader_lib_ctx.inplace     = inplace;
+ 
+     webgpu_pipeline pipeline  = ctx->shader_lib->get_scale_pipeline(shader_lib_ctx);
+     auto *          decisions = static_cast<ggml_webgpu_generic_shader_decisions *>(pipeline.context.get());
+@@ -2105,53 +2096,43 @@ static webgpu_command ggml_webgpu_scale(webgpu_context & ctx, ggml_tensor * src,
+         (uint32_t) src->ne[0],
+         (uint32_t) src->ne[1],
+         (uint32_t) src->ne[2],
+-        *(uint32_t *) dst->op_params,     // scale
+-        *(uint32_t *) &dst->op_params[1]  // bias
++        ggml_webgpu_u32_from_f32(ggml_get_op_params_f32(dst, 0)),  // scale
++        ggml_webgpu_u32_from_f32(ggml_get_op_params_f32(dst, 1))   // bias
+     };
+ 
+     // bindgroups unchanged
+-    std::vector<wgpu::BindGroupEntry> entries = {
+-        { .binding = 0,
+-         .buffer  = ggml_webgpu_tensor_buf(src),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, src),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, src) }
+-    };
++    std::vector<wgpu::BindGroupEntry> entries = { ggml_webgpu_make_tensor_bind_group_entry(ctx, 0, src) };
+ 
+     if (!inplace) {
+-        entries.push_back({ .binding = 1,
+-                            .buffer  = ggml_webgpu_tensor_buf(dst),
+-                            .offset  = ggml_webgpu_tensor_align_offset(ctx, dst),
+-                            .size    = ggml_webgpu_tensor_binding_size(ctx, dst) });
++        entries.push_back(ggml_webgpu_make_tensor_bind_group_entry(ctx, 1, dst));
      }
  
      uint32_t wg_x = CEIL_DIV(ggml_nelements(dst), decisions->wg_size);
 -    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_buf_pool, pipeline, params, entries, wg_x);
-+    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_arena, encoder, pipeline, params, entries, wg_x);
- }
- 
+-}
+-
 -static webgpu_command ggml_webgpu_soft_max(webgpu_context & ctx,
 -                                           ggml_tensor *    src0,
 -                                           ggml_tensor *    src1,
 -                                           ggml_tensor *    src2,
 -                                           ggml_tensor *    dst) {
-+static webgpu_encoded_op ggml_webgpu_soft_max(webgpu_context &       ctx,
-+                                              wgpu::CommandEncoder & encoder,
-+                                              ggml_tensor *          src0,
-+                                              ggml_tensor *          src1,
-+                                              ggml_tensor *          src2,
-+                                              ggml_tensor *          dst) {
-     ggml_webgpu_shader_lib_context shader_lib_ctx = {
-         .src0        = src0,
-         .src1        = src1,
-@@ -2208,10 +2566,14 @@ static webgpu_command ggml_webgpu_soft_max(webgpu_context & ctx,
-                             .size    = ggml_webgpu_tensor_binding_size(ctx, dst) });
+-    ggml_webgpu_shader_lib_context shader_lib_ctx = {
+-        .src0        = src0,
+-        .src1        = src1,
+-        .src2        = src2,
+-        .dst         = dst,
+-        .max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup,
+-        .inplace     = ggml_webgpu_tensor_equal(src0, dst),
+-    };
++    return ggml_backend_webgpu_build(ctx, pipeline, params, entries, wg_x);
++}
++
++static webgpu_encoded_op ggml_webgpu_soft_max(webgpu_context & ctx,
++                                              ggml_tensor *    src0,
++                                              ggml_tensor *    src1,
++                                              ggml_tensor *    src2,
++                                              ggml_tensor *    dst) {
++    ggml_webgpu_shader_lib_context shader_lib_ctx = {};
++    shader_lib_ctx.src0                           = src0;
++    shader_lib_ctx.src1                           = src1;
++    shader_lib_ctx.src2                           = src2;
++    shader_lib_ctx.dst                            = dst;
++    shader_lib_ctx.max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup;
++    shader_lib_ctx.inplace     = ggml_webgpu_tensor_equal(src0, dst);
+ 
+     webgpu_pipeline pipeline = ctx->shader_lib->get_soft_max_pipeline(shader_lib_ctx);
+ 
+-    const int inplace  = ggml_webgpu_tensor_equal(src0, dst);
+-    const int has_mask = (src1 != nullptr);
+-    const int has_sink = (src2 != nullptr);
+-    float     max_bias;
+-    memcpy(&max_bias, (float *) dst->op_params + 1, sizeof(float));
+-    float n_head_log2 = float(1u << (uint32_t) floor(log2(src0->ne[2])));
+-    float m0          = powf(2.0f, -(max_bias) / n_head_log2);
+-    float m1          = powf(2.0f, -(max_bias / 2.0f) / n_head_log2);
++    const int inplace     = ggml_webgpu_tensor_equal(src0, dst);
++    const int has_mask    = (src1 != nullptr);
++    const int has_sink    = (src2 != nullptr);
++    float     max_bias    = ggml_get_op_params_f32(dst, 1);
++    float     n_head_log2 = float(1u << (uint32_t) floor(log2(src0->ne[2])));
++    float     m0          = powf(2.0f, -(max_bias) / n_head_log2);
++    float     m1          = powf(2.0f, -(max_bias / 2.0f) / n_head_log2);
+ 
+     std::vector<uint32_t> params = {
+         (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, src0) / ggml_type_size(src0->type)),
+@@ -2173,79 +2154,61 @@ static webgpu_command ggml_webgpu_soft_max(webgpu_context & ctx,
+         (uint32_t) src0->ne[2],
+         has_mask ? (uint32_t) src1->ne[2] : 0,
+         has_mask ? (uint32_t) src1->ne[3] : 0,
+-        *(uint32_t *) dst->op_params,  // scale
+-        *(uint32_t *) &max_bias,
+-        *(uint32_t *) &n_head_log2,
+-        *(uint32_t *) &m0,
+-        *(uint32_t *) &m1
++        ggml_webgpu_u32_from_f32(ggml_get_op_params_f32(dst, 0)),  // scale
++        ggml_webgpu_u32_from_f32(max_bias),
++        ggml_webgpu_u32_from_f32(n_head_log2),
++        ggml_webgpu_u32_from_f32(m0),
++        ggml_webgpu_u32_from_f32(m1)
+     };
+ 
+-    std::vector<wgpu::BindGroupEntry> entries = {
+-        { .binding = 0,
+-         .buffer  = ggml_webgpu_tensor_buf(src0),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, src0),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, src0) }
+-    };
+-    uint32_t binding_num = 1;
++    std::vector<wgpu::BindGroupEntry> entries     = { ggml_webgpu_make_bind_group_entry(
++        0, ggml_webgpu_tensor_buf(src0), ggml_webgpu_tensor_align_offset(ctx, src0),
++        ggml_webgpu_tensor_binding_size(ctx, src0)) };
++    uint32_t                          binding_num = 1;
+     if (has_mask) {
+-        entries.push_back({ .binding = binding_num,
+-                            .buffer  = ggml_webgpu_tensor_buf(src1),
+-                            .offset  = ggml_webgpu_tensor_align_offset(ctx, src1),
+-                            .size    = ggml_webgpu_tensor_binding_size(ctx, src1) });
++        entries.push_back(ggml_webgpu_make_bind_group_entry(binding_num, ggml_webgpu_tensor_buf(src1),
++                                                            ggml_webgpu_tensor_align_offset(ctx, src1),
++                                                            ggml_webgpu_tensor_binding_size(ctx, src1)));
+         binding_num++;
+     }
+     if (has_sink) {
+-        entries.push_back({ .binding = binding_num,
+-                            .buffer  = ggml_webgpu_tensor_buf(src2),
+-                            .offset  = ggml_webgpu_tensor_align_offset(ctx, src2),
+-                            .size    = ggml_webgpu_tensor_binding_size(ctx, src2) });
++        entries.push_back(ggml_webgpu_make_tensor_bind_group_entry(ctx, binding_num, src2));
+         binding_num++;
+     }
+     if (!inplace) {
+-        entries.push_back({ .binding = binding_num,
+-                            .buffer  = ggml_webgpu_tensor_buf(dst),
+-                            .offset  = ggml_webgpu_tensor_align_offset(ctx, dst),
+-                            .size    = ggml_webgpu_tensor_binding_size(ctx, dst) });
++        entries.push_back(ggml_webgpu_make_tensor_bind_group_entry(ctx, binding_num, dst));
      }
  
 -    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_buf_pool, pipeline, params, entries, ggml_nrows(dst));
-+    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_arena, encoder, pipeline, params, entries,
-+                                     ggml_nrows(dst));
++    return ggml_backend_webgpu_build(ctx, pipeline, params, entries, ggml_nrows(dst));
  }
  
 -static webgpu_command ggml_webgpu_argmax(webgpu_context & ctx, ggml_tensor * src, ggml_tensor * dst) {
-+static webgpu_encoded_op ggml_webgpu_argmax(webgpu_context &       ctx,
-+                                            wgpu::CommandEncoder & encoder,
-+                                            ggml_tensor *          src,
-+                                            ggml_tensor *          dst) {
++static webgpu_encoded_op ggml_webgpu_argmax(webgpu_context & ctx, ggml_tensor * src, ggml_tensor * dst) {
      std::vector<uint32_t> params = { (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, src) / ggml_type_size(src->type)),
                                       (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, dst) / ggml_type_size(dst->type)),
                                       (uint32_t) src->ne[0] };
-@@ -2233,10 +2595,13 @@ static webgpu_command ggml_webgpu_argmax(webgpu_context & ctx, ggml_tensor * src
+ 
+-    std::vector<wgpu::BindGroupEntry> entries = {
+-        { .binding = 0,
+-         .buffer  = ggml_webgpu_tensor_buf(src),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, src),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, src) },
+-        { .binding = 1,
+-         .buffer  = ggml_webgpu_tensor_buf(dst),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, dst),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, dst) }
+-    };
++    std::vector<wgpu::BindGroupEntry> entries = { ggml_webgpu_make_tensor_bind_group_entry(ctx, 0, src),
++                                                  ggml_webgpu_make_tensor_bind_group_entry(ctx, 1, dst) };
+ 
+-    ggml_webgpu_shader_lib_context shader_lib_ctx = {
+-        .src0 = src, .dst = dst, .max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup
+-    };
++    ggml_webgpu_shader_lib_context shader_lib_ctx = {};
++    shader_lib_ctx.src0                           = src;
++    shader_lib_ctx.dst                            = dst;
++    shader_lib_ctx.max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup;
  
      webgpu_pipeline pipeline = ctx->shader_lib->get_argmax_pipeline(shader_lib_ctx);
      uint32_t        wg_x     = ggml_nelements(dst);
 -    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_buf_pool, pipeline, params, entries, wg_x);
-+    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_arena, encoder, pipeline, params, entries, wg_x);
++    return ggml_backend_webgpu_build(ctx, pipeline, params, entries, wg_x);
  }
  
 -static webgpu_command ggml_webgpu_argsort(webgpu_context & ctx, ggml_tensor * src, ggml_tensor * dst) {
-+static webgpu_encoded_op ggml_webgpu_argsort(webgpu_context &       ctx,
-+                                             wgpu::CommandEncoder & encoder,
-+                                             ggml_tensor *          src,
-+                                             ggml_tensor *          dst) {
++static webgpu_encoded_op ggml_webgpu_argsort(webgpu_context & ctx, ggml_tensor * src, ggml_tensor * dst) {
      bool is_top_k = dst->op == GGML_OP_TOP_K;
  
-     ggml_webgpu_shader_lib_context shader_lib_ctx = {
-@@ -2327,7 +2692,7 @@ static webgpu_command ggml_webgpu_argsort(webgpu_context & ctx, ggml_tensor * sr
-     workgroups_list.push_back({ wg_x_init, wg_y_init });
+-    ggml_webgpu_shader_lib_context shader_lib_ctx = {
+-        .src0               = src,
+-        .src1               = nullptr,
+-        .dst                = dst,
+-        .max_wg_size        = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup,
+-        .wg_mem_limit_bytes = ctx->global_ctx->capabilities.limits.maxComputeWorkgroupStorageSize,
+-    };
++    ggml_webgpu_shader_lib_context shader_lib_ctx = {};
++    shader_lib_ctx.src0                           = src;
++    shader_lib_ctx.src1                           = nullptr;
++    shader_lib_ctx.dst                            = dst;
++    shader_lib_ctx.max_wg_size        = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup;
++    shader_lib_ctx.wg_mem_limit_bytes = ctx->global_ctx->capabilities.limits.maxComputeWorkgroupStorageSize;
+ 
+     webgpu_pipeline argsort_pipeline = ctx->shader_lib->get_argsort_pipeline(shader_lib_ctx);
+     auto * argsort_decisions = static_cast<ggml_webgpu_generic_shader_decisions *>(argsort_pipeline.context.get());
+@@ -2294,10 +2257,7 @@ static webgpu_command ggml_webgpu_argsort(webgpu_context & ctx, ggml_tensor * sr
+     const uint32_t stride_idx2 = out_ne0 * (uint32_t) dst->ne[1];
+     const uint32_t stride_idx3 = stride_idx2 * (uint32_t) dst->ne[2];
+ 
+-    std::vector<webgpu_pipeline>                   pipelines;
+-    std::vector<std::vector<uint32_t>>             params_list;
+-    std::vector<std::vector<wgpu::BindGroupEntry>> entries_list;
+-    std::vector<std::pair<uint32_t, uint32_t>>     workgroups_list;
++    std::vector<webgpu_dispatch_desc> dispatches;
+ 
+     const uint32_t init_offset       = start_in_tmp ? offset_tmp : offset_dst;
+     const size_t   init_align_offset = start_in_tmp ? tmp_offset : ggml_webgpu_tensor_align_offset(ctx, dst);
+@@ -2314,21 +2274,16 @@ static webgpu_command ggml_webgpu_argsort(webgpu_context & ctx, ggml_tensor * sr
+     const uint32_t                    wg_x_init = std::min(total_wg_init, max_wg);
+     const uint32_t                    wg_y_init = CEIL_DIV(total_wg_init, wg_x_init);
+     std::vector<wgpu::BindGroupEntry> init_entries = {
+-        { .binding = 0,
+-         .buffer  = ggml_webgpu_tensor_buf(src),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, src),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, src) },
+-        { .binding = 1, .buffer = ggml_webgpu_tensor_buf(dst), .offset = init_align_offset, .size = init_binding_size }
++        ggml_webgpu_make_tensor_bind_group_entry(ctx, 0, src),
++        ggml_webgpu_make_bind_group_entry(1, ggml_webgpu_tensor_buf(dst), init_align_offset, init_binding_size)
+     };
+ 
+-    pipelines.push_back(argsort_pipeline);
+-    params_list.push_back(std::move(init_params));
+-    entries_list.push_back(std::move(init_entries));
+-    workgroups_list.push_back({ wg_x_init, wg_y_init });
++    dispatches.push_back({
++        argsort_pipeline, std::move(init_params), std::move(init_entries), { wg_x_init, wg_y_init }
++    });
  
      if (merge_passes == 0) {
 -        return ggml_backend_webgpu_build_multi(ctx->global_ctx, ctx->param_buf_pool, pipelines, params_list,
-+        return ggml_backend_webgpu_build_multi(ctx->global_ctx, ctx->param_arena, encoder, pipelines, params_list,
-                                                entries_list, workgroups_list);
+-                                               entries_list, workgroups_list);
++        return ggml_backend_webgpu_build_multi(ctx, dispatches);
      }
  
-@@ -2389,11 +2754,14 @@ static webgpu_command ggml_webgpu_argsort(webgpu_context & ctx, ggml_tensor * sr
+     bool     in_is_tmp = start_in_tmp;
+@@ -2369,59 +2324,45 @@ static webgpu_command ggml_webgpu_argsort(webgpu_context & ctx, ggml_tensor * sr
+                                                nrows };
+ 
+         std::vector<wgpu::BindGroupEntry> merge_entries = {
+-            { .binding = 0,
+-             .buffer  = ggml_webgpu_tensor_buf(src),
+-             .offset  = ggml_webgpu_tensor_align_offset(ctx, src),
+-             .size    = ggml_webgpu_tensor_binding_size(ctx, src) },
+-            { .binding = 1, .buffer = ggml_webgpu_tensor_buf(dst), .offset = align_in, .size = size_in },
+-            { .binding = 2, .buffer = ggml_webgpu_tensor_buf(dst), .offset = align_out, .size = size_out }
++            ggml_webgpu_make_tensor_bind_group_entry(ctx, 0, src),
++            ggml_webgpu_make_bind_group_entry(1, ggml_webgpu_tensor_buf(dst), align_in, size_in),
++            ggml_webgpu_make_bind_group_entry(2, ggml_webgpu_tensor_buf(dst), align_out, size_out)
+         };
+ 
+         const uint32_t total_wg_merge = nm * nrows;
+         const uint32_t wg_x_merge     = std::min(total_wg_merge, max_wg);
+         const uint32_t wg_y_merge     = CEIL_DIV(total_wg_merge, wg_x_merge);
+-        workgroups_list.push_back({ wg_x_merge, wg_y_merge });
+-        pipelines.push_back(argsort_merge_pipeline);
+-        params_list.push_back(std::move(merge_params));
+-        entries_list.push_back(std::move(merge_entries));
++        dispatches.push_back({
++            argsort_merge_pipeline, std::move(merge_params), std::move(merge_entries), { wg_x_merge, wg_y_merge }
++        });
+ 
+         len <<= 1;
          in_is_tmp = !in_is_tmp;
      }
  
 -    return ggml_backend_webgpu_build_multi(ctx->global_ctx, ctx->param_buf_pool, pipelines, params_list, entries_list,
 -                                           workgroups_list);
-+    return ggml_backend_webgpu_build_multi(ctx->global_ctx, ctx->param_arena, encoder, pipelines, params_list,
-+                                           entries_list, workgroups_list);
++    return ggml_backend_webgpu_build_multi(ctx, dispatches);
  }
  
 -static webgpu_command ggml_webgpu_cumsum(webgpu_context & ctx, ggml_tensor * src, ggml_tensor * dst) {
-+static webgpu_encoded_op ggml_webgpu_cumsum(webgpu_context &       ctx,
-+                                            wgpu::CommandEncoder & encoder,
-+                                            ggml_tensor *          src,
-+                                            ggml_tensor *          dst) {
++static webgpu_encoded_op ggml_webgpu_cumsum(webgpu_context & ctx, ggml_tensor * src, ggml_tensor * dst) {
      std::vector<uint32_t> params = { (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, src) / ggml_type_size(src->type)),
                                       (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, dst) / ggml_type_size(dst->type)),
                                       (uint32_t) src->ne[0] };
-@@ -2418,10 +2786,13 @@ static webgpu_command ggml_webgpu_cumsum(webgpu_context & ctx, ggml_tensor * src
+ 
+-    std::vector<wgpu::BindGroupEntry> entries = {
+-        { .binding = 0,
+-         .buffer  = ggml_webgpu_tensor_buf(src),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, src),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, src) },
+-        { .binding = 1,
+-         .buffer  = ggml_webgpu_tensor_buf(dst),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, dst),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, dst) }
+-    };
++    std::vector<wgpu::BindGroupEntry> entries = { ggml_webgpu_make_tensor_bind_group_entry(ctx, 0, src),
++                                                  ggml_webgpu_make_tensor_bind_group_entry(ctx, 1, dst) };
+ 
+-    ggml_webgpu_shader_lib_context shader_lib_ctx = {
+-        .src0        = src,
+-        .src1        = nullptr,
+-        .dst         = dst,
+-        .max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup,
+-    };
++    ggml_webgpu_shader_lib_context shader_lib_ctx = {};
++    shader_lib_ctx.src0                           = src;
++    shader_lib_ctx.src1                           = nullptr;
++    shader_lib_ctx.dst                            = dst;
++    shader_lib_ctx.max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup;
  
      webgpu_pipeline pipeline = ctx->shader_lib->get_cumsum_pipeline(shader_lib_ctx);
      uint32_t        wg_x     = ggml_nrows(dst);
 -    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_buf_pool, pipeline, params, entries, wg_x);
-+    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_arena, encoder, pipeline, params, entries, wg_x);
++    return ggml_backend_webgpu_build(ctx, pipeline, params, entries, wg_x);
  }
  
 -static webgpu_command ggml_webgpu_sum_rows(webgpu_context & ctx, ggml_tensor * src, ggml_tensor * dst) {
-+static webgpu_encoded_op ggml_webgpu_sum_rows(webgpu_context &       ctx,
-+                                              wgpu::CommandEncoder & encoder,
-+                                              ggml_tensor *          src,
-+                                              ggml_tensor *          dst) {
++static webgpu_encoded_op ggml_webgpu_sum_rows(webgpu_context & ctx, ggml_tensor * src, ggml_tensor * dst) {
      bool                  total_sum = dst->op == GGML_OP_SUM;
      std::vector<uint32_t> params = { (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, src) / ggml_type_size(src->type)),
                                       (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, dst) / ggml_type_size(dst->type)),
-@@ -2450,11 +2821,13 @@ static webgpu_command ggml_webgpu_sum_rows(webgpu_context & ctx, ggml_tensor * s
+@@ -2432,29 +2373,22 @@ static webgpu_command ggml_webgpu_sum_rows(webgpu_context & ctx, ggml_tensor * s
+                                      total_sum ? 1 : (uint32_t) src->ne[1],
+                                      total_sum ? 1 : (uint32_t) src->ne[2] };
+ 
+-    std::vector<wgpu::BindGroupEntry> entries = {
+-        { .binding = 0,
+-         .buffer  = ggml_webgpu_tensor_buf(src),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, src),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, src) },
+-        { .binding = 1,
+-         .buffer  = ggml_webgpu_tensor_buf(dst),
+-         .offset  = ggml_webgpu_tensor_align_offset(ctx, dst),
+-         .size    = ggml_webgpu_tensor_binding_size(ctx, dst) }
+-    };
++    std::vector<wgpu::BindGroupEntry> entries = { ggml_webgpu_make_tensor_bind_group_entry(ctx, 0, src),
++                                                  ggml_webgpu_make_tensor_bind_group_entry(ctx, 1, dst) };
+ 
+-    ggml_webgpu_shader_lib_context shader_lib_ctx = {
+-        .src0 = src, .dst = dst, .max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup
+-    };
++    ggml_webgpu_shader_lib_context shader_lib_ctx = {};
++    shader_lib_ctx.src0                           = src;
++    shader_lib_ctx.dst                            = dst;
++    shader_lib_ctx.max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup;
+ 
      webgpu_pipeline pipeline = ctx->shader_lib->get_sum_rows_pipeline(shader_lib_ctx);
  
      uint32_t wg_x = total_sum ? 1 : ggml_nrows(dst);
 -    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_buf_pool, pipeline, params, entries, wg_x);
-+    return ggml_backend_webgpu_build(ctx->global_ctx, ctx->param_arena, encoder, pipeline, params, entries, wg_x);
++    return ggml_backend_webgpu_build(ctx, pipeline, params, entries, wg_x);
  }
  
  // Returns the encoded command, or std::nullopt if the operation is a no-op
 -static std::optional<webgpu_command> ggml_webgpu_encode_node(webgpu_context ctx, ggml_tensor * node) {
-+static std::optional<webgpu_encoded_op> ggml_webgpu_encode_node(webgpu_context         ctx,
-+                                                                wgpu::CommandEncoder & encoder,
-+                                                                ggml_tensor *          node) {
++static std::optional<webgpu_encoded_op> ggml_webgpu_encode_node(webgpu_context ctx, ggml_tensor * node) {
      if (ggml_is_empty(node)) {
          return std::nullopt;
      }
-@@ -2477,18 +2850,20 @@ static std::optional<webgpu_command> ggml_webgpu_encode_node(webgpu_context ctx,
-             return std::nullopt;
-         case GGML_OP_CPY:
-         case GGML_OP_CONT:
--            return ggml_webgpu_cpy(ctx, src0, node);
-+            return ggml_webgpu_cpy(ctx, encoder, src0, node);
-         case GGML_OP_SET:
--            return ggml_webgpu_set(ctx, src0, src1, node);
-+            return ggml_webgpu_set(ctx, encoder, src0, src1, node);
-         case GGML_OP_SET_ROWS:
--            return ggml_webgpu_set_rows(ctx, src0, src1, node);
-+            return ggml_webgpu_set_rows(ctx, encoder, src0, src1, node);
-         case GGML_OP_GET_ROWS:
--            return ggml_webgpu_get_rows(ctx, src0, src1, node);
-+            return ggml_webgpu_get_rows(ctx, encoder, src0, src1, node);
+@@ -2486,6 +2420,8 @@ static std::optional<webgpu_command> ggml_webgpu_encode_node(webgpu_context ctx,
+             return ggml_webgpu_get_rows(ctx, src0, src1, node);
          case GGML_OP_MUL_MAT:
--            return ggml_webgpu_mul_mat(ctx, src0, src1, node);
-+            return ggml_webgpu_mul_mat(ctx, encoder, src0, src1, node);
+             return ggml_webgpu_mul_mat(ctx, src0, src1, node);
 +        case GGML_OP_MUL_MAT_ID:
-+            return ggml_webgpu_mul_mat_id(ctx, encoder, src0, src1, src2, node);
++            return ggml_webgpu_mul_mat_id(ctx, src0, src1, src2, node);
          case GGML_OP_FLASH_ATTN_EXT:
  #ifndef __EMSCRIPTEN__
--            return ggml_webgpu_flash_attn(ctx, src0, src1, src2, node->src[3], node->src[4], node);
-+            return ggml_webgpu_flash_attn(ctx, encoder, src0, src1, src2, node->src[3], node->src[4], node);
- #else
-             return std::nullopt;
- #endif
-@@ -2496,22 +2871,22 @@ static std::optional<webgpu_command> ggml_webgpu_encode_node(webgpu_context ctx,
-         case GGML_OP_SUB:
-         case GGML_OP_MUL:
-         case GGML_OP_DIV:
--            return ggml_webgpu_binary_op(ctx, src0, src1, node);
-+            return ggml_webgpu_binary_op(ctx, encoder, src0, src1, node);
-         case GGML_OP_CONCAT:
--            return ggml_webgpu_concat(ctx, src0, src1, node);
-+            return ggml_webgpu_concat(ctx, encoder, src0, src1, node);
-         case GGML_OP_REPEAT:
--            return ggml_webgpu_repeat(ctx, src0, node);
-+            return ggml_webgpu_repeat(ctx, encoder, src0, node);
-         case GGML_OP_RMS_NORM:
-         case GGML_OP_L2_NORM:
--            return ggml_webgpu_row_norm(ctx, src0, node);
-+            return ggml_webgpu_row_norm(ctx, encoder, src0, node);
-         case GGML_OP_ROPE:
--            return ggml_webgpu_rope(ctx, src0, src1, src2, node);
-+            return ggml_webgpu_rope(ctx, encoder, src0, src1, src2, node);
-         case GGML_OP_GLU:
--            return ggml_webgpu_glu(ctx, src0, src1, node);
-+            return ggml_webgpu_glu(ctx, encoder, src0, src1, node);
-         case GGML_OP_SCALE:
--            return ggml_webgpu_scale(ctx, src0, node);
-+            return ggml_webgpu_scale(ctx, encoder, src0, node);
-         case GGML_OP_SOFT_MAX:
--            return ggml_webgpu_soft_max(ctx, src0, src1, src2, node);
-+            return ggml_webgpu_soft_max(ctx, encoder, src0, src1, src2, node);
-         case GGML_OP_UNARY:
-         case GGML_OP_CLAMP:
-         case GGML_OP_FILL:
-@@ -2522,26 +2897,27 @@ static std::optional<webgpu_command> ggml_webgpu_encode_node(webgpu_context ctx,
-         case GGML_OP_COS:
-         case GGML_OP_DIAG:
-         case GGML_OP_TRI:
--            return ggml_webgpu_unary_op(ctx, src0, node);
-+            return ggml_webgpu_unary_op(ctx, encoder, src0, node);
-         case GGML_OP_SOLVE_TRI:
--            return ggml_webgpu_solve_tri(ctx, src0, src1, node);
-+            return ggml_webgpu_solve_tri(ctx, encoder, src0, src1, node);
-         case GGML_OP_SSM_CONV:
--            return ggml_webgpu_ssm_conv(ctx, src0, src1, node);
-+            return ggml_webgpu_ssm_conv(ctx, encoder, src0, src1, node);
-         case GGML_OP_GATED_DELTA_NET:
--            return ggml_webgpu_gated_delta_net(ctx, src0, src1, src2, node->src[3], node->src[4], node->src[5], node);
-+            return ggml_webgpu_gated_delta_net(ctx, encoder, src0, src1, src2, node->src[3], node->src[4], node->src[5],
-+                                               node);
-         case GGML_OP_PAD:
--            return ggml_webgpu_pad(ctx, src0, node);
-+            return ggml_webgpu_pad(ctx, encoder, src0, node);
-         case GGML_OP_ARGMAX:
--            return ggml_webgpu_argmax(ctx, src0, node);
-+            return ggml_webgpu_argmax(ctx, encoder, src0, node);
-         case GGML_OP_ARGSORT:
-         case GGML_OP_TOP_K:
-             // we reuse the same argsort implementation for top_k
--            return ggml_webgpu_argsort(ctx, src0, node);
-+            return ggml_webgpu_argsort(ctx, encoder, src0, node);
-         case GGML_OP_CUMSUM:
--            return ggml_webgpu_cumsum(ctx, src0, node);
-+            return ggml_webgpu_cumsum(ctx, encoder, src0, node);
-         case GGML_OP_SUM:
-         case GGML_OP_SUM_ROWS:
--            return ggml_webgpu_sum_rows(ctx, src0, node);
-+            return ggml_webgpu_sum_rows(ctx, encoder, src0, node);
-         default:
-             return std::nullopt;
+             return ggml_webgpu_flash_attn(ctx, src0, src1, src2, node->src[3], node->src[4], node);
+@@ -2547,6 +2483,55 @@ static std::optional<webgpu_command> ggml_webgpu_encode_node(webgpu_context ctx,
      }
-@@ -2555,31 +2931,43 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
+ }
+ 
++#ifdef GGML_WEBGPU_GPU_PROFILE
++static void ggml_backend_webgpu_collect_profile_results(webgpu_context &                 ctx,
++                                                        const std::vector<std::string> & pipeline_names,
++                                                        uint32_t &                       num_inflight_batches) {
++    if (pipeline_names.empty()) {
++        return;
++    }
++
++    wgpu::CommandEncoder encoder = ctx->global_ctx->device.CreateCommandEncoder();
++    encoder.ResolveQuerySet(ctx->profile_timestamp_query_set, 0, ctx->profile_timestamp_query_count,
++                            ctx->profile_timestamp_dev_buf, 0);
++    encoder.CopyBufferToBuffer(ctx->profile_timestamp_dev_buf, 0, ctx->profile_timestamp_host_buf, 0,
++                               ctx->profile_timestamp_query_count * sizeof(uint64_t));
++
++    wgpu::CommandBuffer profile_commands = encoder.Finish();
++    ggml_backend_webgpu_submit_commands(ctx, profile_commands, num_inflight_batches);
++
++    const size_t mapped_size = ctx->profile_timestamp_query_count * sizeof(uint64_t);
++    GGML_ASSERT(ctx->profile_timestamp_query_count == 2 * pipeline_names.size());
++
++    ggml_backend_webgpu_map_buffer(ctx->global_ctx, ctx->profile_timestamp_host_buf, wgpu::MapMode::Read, 0,
++                                   mapped_size);
++    const uint64_t * ts_data = (const uint64_t *) ctx->profile_timestamp_host_buf.GetConstMappedRange(0, mapped_size);
++
++    for (size_t i = 0; i < pipeline_names.size(); ++i) {
++        // WebGPU timestamps are in ns; convert to ms.
++        const double elapsed_ms = double(ts_data[2 * i + 1] - ts_data[2 * i]) * 1e-6;
++        ctx->global_ctx->shader_gpu_time_ms[pipeline_names[i]] += elapsed_ms;
++    }
++
++    ctx->profile_timestamp_host_buf.Unmap();
++}
++#endif
++
++static void ggml_backend_webgpu_check_set_rows(webgpu_context & ctx, uint32_t & num_inflight_batches) {
++    wgpu::CommandEncoder encoder = ctx->global_ctx->device.CreateCommandEncoder();
++    encoder.CopyBufferToBuffer(ctx->set_rows_dev_error_buf, 0, ctx->set_rows_host_error_buf, 0,
++                               ctx->set_rows_host_error_buf.GetSize());
++    wgpu::CommandBuffer commands = encoder.Finish();
++    ggml_backend_webgpu_submit_commands(ctx, commands, num_inflight_batches);
++    ggml_backend_webgpu_map_buffer(ctx->global_ctx, ctx->set_rows_host_error_buf, wgpu::MapMode::Read, 0,
++                                   ctx->set_rows_host_error_buf.GetSize());
++    const uint32_t * error_data = (const uint32_t *) ctx->set_rows_host_error_buf.GetConstMappedRange();
++    if (*error_data) {
++        GGML_ABORT("ggml_webgpu: SET_ROWS index > 2^32, unsupported.");
++    }
++    ctx->set_rows_host_error_buf.Unmap();
++}
++
+ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, struct ggml_cgraph * cgraph) {
+     WEBGPU_LOG_DEBUG("ggml_backend_webgpu_graph_compute(" << cgraph->n_nodes << " nodes)");
+ 
+@@ -2555,10 +2540,23 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
  
      WEBGPU_CPU_PROFILE_TOTAL_START(graph_compute);
  
@@ -20945,22 +27152,33 @@ index 1aa15b05..aa3fe06d 100644
 -    uint32_t                       num_batched_kernels = 0;
 -    bool                           contains_set_rows   = false;
 +    std::vector<webgpu_encoded_op> commands;
++
++    uint32_t num_batched_kernels  = 0;
++    uint32_t num_inflight_batches = 0;
++    bool     contains_set_rows    = false;
++    bool     batch_compute_passes = true;
++
 +#ifdef GGML_WEBGPU_GPU_PROFILE
-+    std::vector<wgpu::FutureWaitInfo> profile_futures;
++    ctx->profile_timestamp_query_count = 0;
++    batch_compute_passes               = false;
++    std::vector<std::string> profile_pipeline_names;
 +#endif
-+    uint32_t             num_batched_kernels  = 0;
-+    uint32_t             num_inflight_batches = 0;
-+    bool                 contains_set_rows    = false;
-+    wgpu::CommandEncoder batch_encoder        = ctx->global_ctx->device.CreateCommandEncoder();
++
++    ctx->active_command_encoder = ctx->global_ctx->device.CreateCommandEncoder();
++    if (batch_compute_passes) {
++        ctx->active_compute_pass = ctx->active_command_encoder.BeginComputePass();
++    }
  
      for (int i = 0; i < cgraph->n_nodes; i++) {
          if (cgraph->nodes[i]->op == GGML_OP_SET_ROWS) {
-             contains_set_rows = true;
-         }
--        if (auto cmd = ggml_webgpu_encode_node(ctx, cgraph->nodes[i])) {
-+        if (auto cmd = ggml_webgpu_encode_node(ctx, batch_encoder, cgraph->nodes[i])) {
+@@ -2567,39 +2565,53 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
+         if (auto cmd = ggml_webgpu_encode_node(ctx, cgraph->nodes[i])) {
              commands.push_back(*cmd);
              num_batched_kernels += cmd.value().num_kernels;
++#ifdef GGML_WEBGPU_GPU_PROFILE
++            profile_pipeline_names.insert(profile_pipeline_names.end(), cmd->pipeline_names.begin(),
++                                          cmd->pipeline_names.end());
++#endif
          }
  
 -        if (num_batched_kernels >= WEBGPU_COMMAND_SUBMIT_BATCH_SIZE) {
@@ -20970,54 +27188,66 @@ index 1aa15b05..aa3fe06d 100644
 -            ctx->global_ctx->instance.ProcessEvents();
 -            ggml_backend_webgpu_wait(ctx->global_ctx, subs, false);
 +        if (num_batched_kernels >= ctx->global_ctx->command_submit_batch_size) {
++            if (ctx->active_compute_pass) {
++                ctx->active_compute_pass.End();
++            }
 +            num_batched_kernels                = 0;
-+            wgpu::CommandBuffer batch_commands = batch_encoder.Finish();
++            wgpu::CommandBuffer batch_commands = ctx->active_command_encoder.Finish();
 +            ggml_backend_webgpu_submit_commands(ctx, batch_commands, num_inflight_batches);
-+#ifdef GGML_WEBGPU_GPU_PROFILE
-+            ggml_backend_webgpu_collect_profile_futures(ctx->global_ctx, commands, profile_futures);
-+#endif
++
++            // reset state for next batch
++            ctx->active_command_encoder = ctx->global_ctx->device.CreateCommandEncoder();
++            if (batch_compute_passes) {
++                ctx->active_compute_pass = ctx->active_command_encoder.BeginComputePass();
++            }
 +            ctx->param_arena.reset();
              commands.clear();
-+            batch_encoder = ctx->global_ctx->device.CreateCommandEncoder();
          }
      }
-     if (!commands.empty()) {
+-    if (!commands.empty()) {
 -        subs.push_back(ggml_backend_webgpu_submit(ctx->global_ctx, commands, ctx->param_buf_pool));
-+        wgpu::CommandBuffer batch_commands = batch_encoder.Finish();
++
++    if (ctx->active_compute_pass) {
++        ctx->active_compute_pass.End();
++        ctx->active_compute_pass = nullptr;
++    }
++
++    if (num_batched_kernels > 0) {
++        wgpu::CommandBuffer batch_commands = ctx->active_command_encoder.Finish();
 +        ggml_backend_webgpu_submit_commands(ctx, batch_commands, num_inflight_batches);
-+#ifdef GGML_WEBGPU_GPU_PROFILE
-+        ggml_backend_webgpu_collect_profile_futures(ctx->global_ctx, commands, profile_futures);
-+#endif
 +        ctx->param_arena.reset();
          commands.clear();
      }
++    ctx->active_command_encoder = nullptr;
++
++#ifdef GGML_WEBGPU_GPU_PROFILE
++    ggml_backend_webgpu_collect_profile_results(ctx, profile_pipeline_names, num_inflight_batches);
++#endif
  
-@@ -2589,7 +2977,12 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
-         encoder.CopyBufferToBuffer(ctx->set_rows_dev_error_buf, 0, ctx->set_rows_host_error_buf, 0,
-                                    ctx->set_rows_host_error_buf.GetSize());
-         wgpu::CommandBuffer set_rows_commands = encoder.Finish();
+-    // If there are SET_ROWS operations in this graph, copy the error buffers to the host for checking.
+     if (contains_set_rows) {
+-        wgpu::CommandEncoder encoder = ctx->global_ctx->device.CreateCommandEncoder();
+-        encoder.CopyBufferToBuffer(ctx->set_rows_dev_error_buf, 0, ctx->set_rows_host_error_buf, 0,
+-                                   ctx->set_rows_host_error_buf.GetSize());
+-        wgpu::CommandBuffer set_rows_commands = encoder.Finish();
 -        ctx->global_ctx->queue.Submit(1, &set_rows_commands);
-+        ggml_backend_webgpu_submit_commands(ctx, set_rows_commands, num_inflight_batches);
-+    }
-+
-+    ggml_backend_webgpu_wait_queue(ctx->global_ctx);
-+
-+    if (contains_set_rows) {
-         ggml_backend_webgpu_map_buffer(ctx->global_ctx, ctx->set_rows_host_error_buf, wgpu::MapMode::Read, 0,
-                                        ctx->set_rows_host_error_buf.GetSize());
-         const uint32_t * error_data = (const uint32_t *) ctx->set_rows_host_error_buf.GetConstMappedRange();
-@@ -2599,7 +2992,9 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
-         ctx->set_rows_host_error_buf.Unmap();
+-        ggml_backend_webgpu_map_buffer(ctx->global_ctx, ctx->set_rows_host_error_buf, wgpu::MapMode::Read, 0,
+-                                       ctx->set_rows_host_error_buf.GetSize());
+-        const uint32_t * error_data = (const uint32_t *) ctx->set_rows_host_error_buf.GetConstMappedRange();
+-        if (*error_data) {
+-            GGML_ABORT("ggml_webgpu: SET_ROWS index > 2^32, unsupported.");
+-        }
+-        ctx->set_rows_host_error_buf.Unmap();
++        ggml_backend_webgpu_check_set_rows(ctx, num_inflight_batches);
      }
  
 -    ggml_backend_webgpu_wait(ctx->global_ctx, subs);
-+#ifdef GGML_WEBGPU_GPU_PROFILE
-+    ggml_backend_webgpu_wait_profile_futures(ctx->global_ctx, profile_futures);
-+#endif
++    ggml_backend_webgpu_wait_queue(ctx->global_ctx);
++
      WEBGPU_CPU_PROFILE_TOTAL_END(graph_compute, ctx->global_ctx);
      return GGML_STATUS_SUCCESS;
  }
-@@ -2609,6 +3004,8 @@ static ggml_backend_i ggml_backend_webgpu_i = {
+@@ -2609,6 +2621,8 @@ static ggml_backend_i ggml_backend_webgpu_i = {
      /* .free                    = */ ggml_backend_webgpu_free,
      /* .set_tensor_async        = */ NULL,
      /* .get_tensor_async        = */ NULL,
@@ -21026,7 +27256,7 @@ index 1aa15b05..aa3fe06d 100644
      /* .cpy_tensor_async        = */ NULL,
      /* .synchronize             = */ NULL,
      /* .graph_plan_create       = */ NULL,
-@@ -2766,6 +3163,8 @@ static ggml_backend_buffer_i ggml_backend_webgpu_buffer_interface = {
+@@ -2766,6 +2780,8 @@ static ggml_backend_buffer_i ggml_backend_webgpu_buffer_interface = {
      /* .memset_tensor   = */ ggml_backend_webgpu_buffer_memset_tensor,
      /* .set_tensor      = */ ggml_backend_webgpu_buffer_set_tensor,
      /* .get_tensor      = */ ggml_backend_webgpu_buffer_get_tensor,
@@ -21035,7 +27265,7 @@ index 1aa15b05..aa3fe06d 100644
      /* .cpy_tensor      = */ NULL,  // TODO: optional, implement this
      /* .clear           = */ ggml_backend_webgpu_buffer_clear,
      /* .reset           = */ NULL,  // TODO: optional, think it coordinates with
-@@ -2834,6 +3233,97 @@ static size_t ggml_backend_webgpu_buffer_type_get_alloc_size(ggml_backend_buffer
+@@ -2834,6 +2850,81 @@ static size_t ggml_backend_webgpu_buffer_type_get_alloc_size(ggml_backend_buffer
                  }
              }
              break;
@@ -21047,40 +27277,24 @@ index 1aa15b05..aa3fe06d 100644
 +                const ggml_tensor * mask  = tensor->src[3];
 +                const ggml_tensor * sinks = tensor->src[4];
 +                if (Q && K && V) {
-+                    GGML_UNUSED(sinks);
-+                    const bool kv_direct = (K->type == GGML_TYPE_F16) &&
-+                                           (Q->ne[0] % ctx->webgpu_global_ctx->capabilities.sg_mat_k == 0) &&
-+                                           (K->ne[1] % GGML_WEBGPU_KV_SEQ_PAD == 0);
-+                    const bool kv_vec_type_supported =
-+                        K->type == GGML_TYPE_F16 || K->type == GGML_TYPE_Q4_0 || K->type == GGML_TYPE_Q8_0;
-+                    const bool use_vec = (Q->ne[1] < 20) && (Q->ne[0] % 32 == 0) && (V->ne[0] % 4 == 0) &&
-+                                         kv_vec_type_supported && (V->type == K->type);
-+                    if (use_vec) {
-+                        const uint32_t sg_mat_m = ctx->webgpu_global_ctx->capabilities.sg_mat_m;
-+                        const uint32_t sg_mat_n = ctx->webgpu_global_ctx->capabilities.sg_mat_n;
-+                        const size_t   limit_bytes =
-+                            ctx->webgpu_global_ctx->capabilities.limits.maxComputeWorkgroupStorageSize;
-+                        const size_t q_tile       = sg_mat_m;
-+                        const size_t base_q_bytes = (Q->ne[0] + V->ne[0]) * q_tile * GGML_WEBGPU_F16_SIZE_BYTES +
-+                                                    2 * q_tile * GGML_WEBGPU_F32_SIZE_BYTES;
-+                        size_t bytes_per_kv = 0;
-+                        if (!kv_direct) {
-+                            bytes_per_kv += std::max(Q->ne[0], V->ne[0]);
-+                        }
-+                        if (mask != nullptr) {
-+                            bytes_per_kv += q_tile;
-+                        }
-+                        bytes_per_kv += q_tile;
-+                        bytes_per_kv *= GGML_WEBGPU_F16_SIZE_BYTES;
-+                        uint32_t kv_tile = ((limit_bytes - base_q_bytes) / bytes_per_kv / sg_mat_n) * sg_mat_n;
-+                        kv_tile          = std::max(sg_mat_n, std::min(32u, kv_tile));
-+                        kv_tile          = (kv_tile / sg_mat_n) * sg_mat_n;
-+                        if (kv_direct) {
-+                            GGML_ASSERT(kv_tile <= GGML_WEBGPU_KV_SEQ_PAD);
-+                            while (GGML_WEBGPU_KV_SEQ_PAD % kv_tile != 0) {
-+                                kv_tile -= sg_mat_n;
-+                            }
-+                        }
++                    ggml_webgpu_shader_lib_context shader_lib_ctx = {};
++                    shader_lib_ctx.src0                           = const_cast<ggml_tensor *>(Q);
++                    shader_lib_ctx.src1                           = const_cast<ggml_tensor *>(K);
++                    shader_lib_ctx.src2                           = const_cast<ggml_tensor *>(V);
++                    shader_lib_ctx.src3                           = const_cast<ggml_tensor *>(mask);
++                    shader_lib_ctx.src4                           = const_cast<ggml_tensor *>(sinks);
++                    shader_lib_ctx.dst                            = const_cast<ggml_tensor *>(tensor);
++                    shader_lib_ctx.max_wg_size =
++                        ctx->webgpu_global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup;
++                    shader_lib_ctx.wg_mem_limit_bytes =
++                        ctx->webgpu_global_ctx->capabilities.limits.maxComputeWorkgroupStorageSize;
++                    shader_lib_ctx.sg_mat_m          = ctx->webgpu_global_ctx->capabilities.sg_mat_m;
++                    shader_lib_ctx.sg_mat_n          = ctx->webgpu_global_ctx->capabilities.sg_mat_n;
++                    shader_lib_ctx.sg_mat_k          = ctx->webgpu_global_ctx->capabilities.sg_mat_k;
++                    shader_lib_ctx.max_subgroup_size = ctx->webgpu_global_ctx->capabilities.max_subgroup_size;
++
++                    if (ggml_webgpu_flash_attn_use_vec(ctx->webgpu_global_ctx, Q, K, V)) {
++                        const uint32_t kv_tile = ggml_webgpu_flash_attn_vec_get_kv_tile(shader_lib_ctx);
 +
 +                        const uint32_t vec_nwg_cap = std::max(
 +                            1u, std::min<uint32_t>(32u, ctx->webgpu_global_ctx->capabilities.max_subgroup_size));
@@ -21133,7 +27347,19 @@ index 1aa15b05..aa3fe06d 100644
          default:
              break;
      }
-@@ -2900,11 +3390,11 @@ static void ggml_webgpu_init_memset_pipeline(webgpu_global_context & ctx) {
+@@ -2889,8 +2980,9 @@ static void ggml_backend_webgpu_device_get_props(ggml_backend_dev_t dev, struct
+ }
+ 
+ static ggml_guid_t ggml_backend_webgpu_guid(void) {
+-    static const char * guid_str = "__ggml_webgpu :)";
+-    return reinterpret_cast<ggml_guid_t>((void *) guid_str);
++    static ggml_guid guid = { 0x67, 0xc7, 0xa4, 0xb1, 0x78, 0x74, 0x4f, 0x51,
++                              0x9d, 0x65, 0x44, 0x6d, 0xe4, 0x1b, 0x82, 0x9a };
++    return &guid;
+ }
+ 
+ static void ggml_webgpu_init_memset_pipeline(webgpu_global_context & ctx) {
+@@ -2900,11 +2992,11 @@ static void ggml_webgpu_init_memset_pipeline(webgpu_global_context & ctx) {
      ctx->capabilities.memset_bytes_per_thread =
          CEIL_DIV(ctx->capabilities.limits.maxStorageBufferBindingSize, max_threads);
      std::vector<wgpu::ConstantEntry> constants(2);
@@ -21150,7 +27376,7 @@ index 1aa15b05..aa3fe06d 100644
  }
  
  static bool create_webgpu_device(ggml_backend_webgpu_reg_context * ctx) {
-@@ -2942,19 +3432,23 @@ static bool create_webgpu_device(ggml_backend_webgpu_reg_context * ctx) {
+@@ -2942,19 +3034,23 @@ static bool create_webgpu_device(ggml_backend_webgpu_reg_context * ctx) {
      }
  #endif
      ctx->webgpu_global_ctx->adapter.GetInfo(&info);
@@ -21177,7 +27403,7 @@ index 1aa15b05..aa3fe06d 100644
                  config.resultComponentType == wgpu::SubgroupMatrixComponentType::F16) {
                  ctx->webgpu_global_ctx->capabilities.sg_mat_m = config.M;
                  ctx->webgpu_global_ctx->capabilities.sg_mat_n = config.N;
-@@ -3036,9 +3530,9 @@ static bool create_webgpu_device(ggml_backend_webgpu_reg_context * ctx) {
+@@ -3036,19 +3132,11 @@ static bool create_webgpu_device(ggml_backend_webgpu_reg_context * ctx) {
      GGML_ASSERT(ctx->webgpu_global_ctx->device != nullptr);
  
      ggml_webgpu_init_memset_pipeline(ctx->webgpu_global_ctx);
@@ -21189,8 +27415,18 @@ index 1aa15b05..aa3fe06d 100644
 +                              "memset_params_buf");
      ctx->webgpu_global_ctx->queue = ctx->webgpu_global_ctx->device.GetQueue();
  
- #ifdef GGML_WEBGPU_GPU_PROFILE
-@@ -3062,9 +3556,10 @@ static webgpu_context initialize_webgpu_context(ggml_backend_dev_t dev) {
+-#ifdef GGML_WEBGPU_GPU_PROFILE
+-    // Initialize buffer pool for timestamp queries, used for profiling
+-    ctx->webgpu_global_ctx->timestamp_query_buf_pool.init(
+-        ctx->webgpu_global_ctx->device, WEBGPU_NUM_TIMESTAMP_QUERY_BUFS, WEBGPU_TIMESTAMP_QUERY_BUF_SIZE_BYTES,
+-        wgpu::BufferUsage::QueryResolve | wgpu::BufferUsage::CopySrc,
+-        wgpu::BufferUsage::MapRead | wgpu::BufferUsage::CopyDst);
+-#endif
+-
+     GGML_LOG_INFO(
+         "ggml_webgpu: adapter_info: vendor_id: %u | vendor: %s | architecture: %s | device_id: %u | name: %s | "
+         "device_desc: %s\n",
+@@ -3062,9 +3150,10 @@ static webgpu_context initialize_webgpu_context(ggml_backend_dev_t dev) {
      webgpu_context                       webgpu_ctx = std::make_shared<webgpu_context_struct>();
      webgpu_ctx->global_ctx                          = dev_ctx->webgpu_global_ctx;
      webgpu_ctx->shader_lib = std::make_unique<ggml_webgpu_shader_lib>(dev_ctx->webgpu_global_ctx->device);
@@ -21204,7 +27440,27 @@ index 1aa15b05..aa3fe06d 100644
      ggml_webgpu_create_buffer(webgpu_ctx->global_ctx->device, webgpu_ctx->set_rows_dev_error_buf,
                                WEBGPU_SET_ROWS_ERROR_BUF_SIZE_BYTES,
                                wgpu::BufferUsage::Storage | wgpu::BufferUsage::CopySrc, "set_rows_dev_error_buf");
-@@ -3256,12 +3751,46 @@ static bool ggml_backend_webgpu_device_supports_op(ggml_backend_dev_t dev, const
+@@ -3072,6 +3161,19 @@ static webgpu_context initialize_webgpu_context(ggml_backend_dev_t dev) {
+                               WEBGPU_SET_ROWS_ERROR_BUF_SIZE_BYTES,
+                               wgpu::BufferUsage::CopyDst | wgpu::BufferUsage::MapRead, "set_rows_host_error_buf");
+ 
++#ifdef GGML_WEBGPU_GPU_PROFILE
++    ggml_webgpu_create_buffer(
++        webgpu_ctx->global_ctx->device, webgpu_ctx->profile_timestamp_dev_buf, WEBGPU_TIMESTAMP_QUERY_BUF_SIZE_BYTES,
++        wgpu::BufferUsage::QueryResolve | wgpu::BufferUsage::CopySrc, "profile_timestamp_dev_buf");
++    ggml_webgpu_create_buffer(webgpu_ctx->global_ctx->device, webgpu_ctx->profile_timestamp_host_buf,
++                              WEBGPU_TIMESTAMP_QUERY_BUF_SIZE_BYTES,
++                              wgpu::BufferUsage::CopyDst | wgpu::BufferUsage::MapRead, "profile_timestamp_host_buf");
++    wgpu::QuerySetDescriptor query_set_desc = {};
++    query_set_desc.type                     = wgpu::QueryType::Timestamp;
++    query_set_desc.count                    = WEBGPU_MAX_PROFILE_QUERY_COUNT;
++    webgpu_ctx->profile_timestamp_query_set = webgpu_ctx->global_ctx->device.CreateQuerySet(&query_set_desc);
++#endif
++
+ #ifdef GGML_WEBGPU_DEBUG
+     // Initialize debug buffers
+     ggml_webgpu_create_buffer(webgpu_ctx->global_ctx->device, webgpu_ctx->global_ctx->debug_host_buf,
+@@ -3256,12 +3358,46 @@ static bool ggml_backend_webgpu_device_supports_op(ggml_backend_dev_t dev, const
                  }
                  break;
              }
@@ -21251,32 +27507,45 @@ index 1aa15b05..aa3fe06d 100644
                  // Head dimensions must fit in workgroup memory with minimum tile sizes
                  size_t     limit_bytes = ctx->webgpu_global_ctx->capabilities.limits.maxComputeWorkgroupStorageSize;
                  const bool has_mask    = op->src[3] != nullptr;
-@@ -3506,8 +4035,21 @@ ggml_backend_reg_t ggml_backend_webgpu_reg() {
+@@ -3505,9 +3641,25 @@ static const struct ggml_backend_reg_i ggml_backend_webgpu_reg_i = {
+ ggml_backend_reg_t ggml_backend_webgpu_reg() {
      WEBGPU_LOG_DEBUG("ggml_backend_webgpu_reg()");
  
-     static ggml_backend_webgpu_reg_context ctx;
-+    static ggml_backend_reg                reg = {
+-    static ggml_backend_webgpu_reg_context ctx;
+-    ctx.name         = GGML_WEBGPU_NAME;
+-    ctx.device_count = 1;
++    // Intentionally leak the global registry context to avoid crashing inside
++    // Dawn/Vulkan static teardown during process exit.
++    static ggml_backend_webgpu_reg_context * ctx = new ggml_backend_webgpu_reg_context();
++
++    static ggml_backend_reg reg = {
 +        /* .api_version = */ GGML_BACKEND_API_VERSION,
 +        /* .iface       = */ ggml_backend_webgpu_reg_i,
-+        /* .context     = */ &ctx,
++        /* .context     = */ ctx,
 +    };
 +
-     ctx.name         = GGML_WEBGPU_NAME;
--    ctx.device_count = 1;
-+    ctx.device_count = 0;
++    ctx->name         = GGML_WEBGPU_NAME;
++    ctx->device_count = 0;
 +
 +    // Keep one Dawn/WebGPU instance alive for the lifetime of the static backend
 +    // registry. Recreating it on repeated registry lookups can invalidate
 +    // adapter/device references that are still held by the backend/device layer.
-+    if (ctx.webgpu_global_ctx != nullptr && ctx.webgpu_global_ctx->instance != nullptr) {
++    if (ctx->webgpu_global_ctx != nullptr && ctx->webgpu_global_ctx->instance != nullptr) {
 +        return &reg;
 +    }
  
      wgpu::InstanceDescriptor               instance_descriptor{};
      std::vector<wgpu::InstanceFeatureName> instance_features = { wgpu::InstanceFeatureName::TimedWaitAny };
-@@ -3526,19 +4068,28 @@ ggml_backend_reg_t ggml_backend_webgpu_reg() {
-     ctx.webgpu_global_ctx           = webgpu_global_context(new webgpu_global_context_struct());
-     ctx.webgpu_global_ctx->instance = std::move(inst);
+@@ -3522,23 +3674,33 @@ ggml_backend_reg_t ggml_backend_webgpu_reg() {
+     instance_descriptor.nextInChain        = &instanceTogglesDesc;
+ #endif
+ 
+-    wgpu::Instance inst             = wgpu::CreateInstance(&instance_descriptor);
+-    ctx.webgpu_global_ctx           = webgpu_global_context(new webgpu_global_context_struct());
+-    ctx.webgpu_global_ctx->instance = std::move(inst);
++    wgpu::Instance inst              = wgpu::CreateInstance(&instance_descriptor);
++    ctx->webgpu_global_ctx           = webgpu_global_context(new webgpu_global_context_struct());
++    ctx->webgpu_global_ctx->instance = std::move(inst);
  
 -#ifdef __EMSCRIPTEN__
 -    if (ctx.webgpu_global_ctx->instance == nullptr) {
@@ -21284,11 +27553,12 @@ index 1aa15b05..aa3fe06d 100644
 -        return nullptr;
 +    // Probe for adapter support
 +    wgpu::Adapter adapter;
-+    if (ctx.webgpu_global_ctx->instance != nullptr) {
++    if (ctx->webgpu_global_ctx->instance != nullptr) {
 +        wgpu::RequestAdapterOptions options = {};
 +
-+        ctx.webgpu_global_ctx->instance.WaitAny(
-+            ctx.webgpu_global_ctx->instance.RequestAdapter(
++        // probe for adapter support
++        ctx->webgpu_global_ctx->instance.WaitAny(
++            ctx->webgpu_global_ctx->instance.RequestAdapter(
 +                &options, wgpu::CallbackMode::AllowSpontaneous,
 +                [&adapter](wgpu::RequestAdapterStatus status, wgpu::Adapter _adapter, const char * message) {
 +                    if (status != wgpu::RequestAdapterStatus::Success) {
@@ -21301,7 +27571,7 @@ index 1aa15b05..aa3fe06d 100644
 +    }
 +
 +    if (adapter != nullptr) {
-+        ctx.device_count = 1;
++        ctx->device_count = 1;
      }
 -#endif
 -    GGML_ASSERT(ctx.webgpu_global_ctx->instance != nullptr);
@@ -21315,51 +27585,70 @@ index 1aa15b05..aa3fe06d 100644
  }
  
 diff --git src/ggml-webgpu/wgsl-shaders/common_decls.tmpl src/ggml-webgpu/wgsl-shaders/common_decls.tmpl
-index feb0bca3..0d3501c3 100644
+index feb0bca3..62fe72ee 100644
 --- src/ggml-webgpu/wgsl-shaders/common_decls.tmpl
 +++ src/ggml-webgpu/wgsl-shaders/common_decls.tmpl
-@@ -9,36 +9,44 @@ fn get_byte_i32(value: u32, index: u32) -> i32 {
+@@ -9,35 +9,66 @@ fn get_byte_i32(value: u32, index: u32) -> i32 {
  #endif
  
  #ifdef U32_DEQUANT_HELPERS
 -fn load_src0_u16_at(byte_offset: u32) -> u32 {
--    let word = src0[byte_offset / 4u];
++#ifdef DECLARE_BYTE_LOADERS_SRC
++fn load_u16_at_src(byte_offset: u32) -> u32 {
++    let word = src[byte_offset / 4u];
++    let shift = (byte_offset & 0x2u) * 8u;
++    return (word >> shift) & 0xFFFFu;
++}
++
++fn load_u32_at_src(byte_offset: u32) -> u32 {
++    let word_idx = byte_offset / 4u;
++    let shift = (byte_offset & 0x3u) * 8u;
++    let lo = src[word_idx];
++    let hi = src[word_idx + 1u];
++    let shifted = (lo >> shift) | (hi << (32u - shift));
++    return select(shifted, lo, shift == 0u);
++}
++
++fn load_f16_at_src(byte_offset: u32) -> f16 {
++    let packed = unpack2x16float(load_u16_at_src(byte_offset));
++    return f16(packed[0]);
++}
++
++fn load_f16_as_f32_at_src(byte_offset: u32) -> f32 {
++    let word = src[byte_offset / 4u];
++    let shift = (byte_offset & 0x2u) * 8u;
++    let d_bits = (word >> shift) & 0xFFFFu;
++    return unpack2x16float(d_bits)[0];
++}
++#endif
++
++#ifdef DECLARE_BYTE_LOADERS_SRC0
++fn load_u16_at_src0(byte_offset: u32) -> u32 {
+     let word = src0[byte_offset / 4u];
 -    let shift = (byte_offset & 2u) * 8u;
--    return (word >> shift) & 0xFFFFu;
-+fn load_u16_at(
-+        buf: ptr<storage, array<u32>, read_write>,
-+        byte_offset: u32) -> u32 {
-+    let word = buf[byte_offset / 4];
-+    let shift = (byte_offset & 0x2) * 8;
-+    return (word >> shift) & 0xFFFF;
++    let shift = (byte_offset & 0x2u) * 8u;
+     return (word >> shift) & 0xFFFFu;
  }
  
 -fn load_src0_u32_at(byte_offset: u32) -> u32 {
--    let word_idx = byte_offset / 4u;
++fn load_u32_at_src0(byte_offset: u32) -> u32 {
+     let word_idx = byte_offset / 4u;
 -    let shift = (byte_offset & 3u) * 8u;
--    let lo = src0[word_idx];
++    let shift = (byte_offset & 0x3u) * 8u;
+     let lo = src0[word_idx];
 -    if (shift == 0u) {
 -        return lo;
 -    }
--    let hi = src0[word_idx + 1u];
+     let hi = src0[word_idx + 1u];
 -    return (lo >> shift) | (hi << (32u - shift));
-+fn load_u32_at(
-+        buf: ptr<storage, array<u32>, read_write>,
-+        byte_offset: u32) -> u32 {
-+    let word_idx = byte_offset / 4;
-+    let shift = (byte_offset & 0x3) * 8;
-+    let lo = buf[word_idx];
-+    let hi = buf[word_idx + 1];
-+    let shifted = (lo >> shift) | (hi << (32 - shift));
-+    return select(shifted, lo, shift == 0);
++    let shifted = (lo >> shift) | (hi << (32u - shift));
++    return select(shifted, lo, shift == 0u);
  }
  
 -fn load_src0_f16_at(byte_offset: u32) -> f16 {
 -    let packed = unpack2x16float(load_src0_u16_at(byte_offset));
-+fn load_f16_at(
-+        buf: ptr<storage, array<u32>, read_write>,
-+        byte_offset: u32) -> f16 {
-+    let packed = unpack2x16float(load_u16_at(buf, byte_offset));
++fn load_f16_at_src0(byte_offset: u32) -> f16 {
++    let packed = unpack2x16float(load_u16_at_src0(byte_offset));
      return f16(packed[0]);
  }
 -#endif
@@ -21369,22 +27658,20 @@ index feb0bca3..0d3501c3 100644
 -    d: f16,
 -    qs: array<f16, 8>
 -};
-+fn load_f16_as_f32_at(
-+        buf: ptr<storage, array<u32>, read_write>,
-+        byte_offset: u32) -> f32 {
-+    let word = buf[byte_offset / 4];
-+    let shift = (byte_offset & 0x2) * 8;
-+    let d_bits = (word >> shift) & 0xFFFF;
++fn load_f16_as_f32_at_src0(byte_offset: u32) -> f32 {
++    let word = src0[byte_offset / 4u];
++    let shift = (byte_offset & 0x2u) * 8u;
++    let d_bits = (word >> shift) & 0xFFFFu;
 +    return unpack2x16float(d_bits)[0];
 +}
  #endif
++#endif
++
++
  
-+
-+
  #ifdef Q4_1_T
  struct q4_1 {
-     d: f16,
-@@ -47,13 +55,6 @@ struct q4_1 {
+@@ -47,13 +78,6 @@ struct q4_1 {
  };
  #endif
  
@@ -21398,7 +27685,7 @@ index feb0bca3..0d3501c3 100644
  
  #ifdef Q5_1_T
  struct q5_1 {
-@@ -64,12 +65,6 @@ struct q5_1 {
+@@ -64,12 +88,6 @@ struct q5_1 {
  };
  #endif
  
@@ -21411,7 +27698,7 @@ index feb0bca3..0d3501c3 100644
  
  #ifdef Q8_1_T
  struct q8_1 {
-@@ -88,14 +83,6 @@ struct q2_K {
+@@ -88,14 +106,6 @@ struct q2_K {
  };
  #endif
  
@@ -21426,7 +27713,7 @@ index feb0bca3..0d3501c3 100644
  
  #if defined(Q4_K_SCALE_MIN) || defined(Q5_K_SCALE_MIN)
  fn get_scale_min(is: u32, scales: array<u32, 3>) -> vec2<f32> {
-@@ -132,64 +119,6 @@ struct q5_K {
+@@ -132,64 +142,6 @@ struct q5_K {
  };
  #endif
  
@@ -21491,7 +27778,7 @@ index feb0bca3..0d3501c3 100644
  #ifdef IQ1_M_T
  struct iq1_m {
      qs: array<u32, 8>,
-@@ -198,17 +127,9 @@ struct iq1_m {
+@@ -198,17 +150,9 @@ struct iq1_m {
  };
  #endif
  
@@ -21613,14 +27900,13 @@ index 8b76cecb..aa2d2e54 100644
                        false,
 diff --git src/ggml-webgpu/wgsl-shaders/flash_attn_vec_blk.wgsl src/ggml-webgpu/wgsl-shaders/flash_attn_vec_blk.wgsl
 new file mode 100644
-index 00000000..82d072be
+index 00000000..61107c6a
 --- /dev/null
 +++ src/ggml-webgpu/wgsl-shaders/flash_attn_vec_blk.wgsl
-@@ -0,0 +1,105 @@
+@@ -0,0 +1,101 @@
 +diagnostic(off, subgroup_uniformity);
 +enable f16;
 +
-+#define Q_TILE 1
 +#define KV_TILE 32
 +#define WG_SIZE 32
 +
@@ -21630,7 +27916,7 @@ index 00000000..82d072be
 +    seq_len_kv: u32,
 +    stride_mask3: u32,
 +    // Number of KV blocks and Q blocks per batch.
-+    // nblk0 = ceil(seq_len_kv / KV_TILE), nblk1 = ceil(seq_len_q / Q_TILE).
++    // nblk0 = ceil(seq_len_kv / KV_TILE), nblk1 = seq_len_q.
 +    nblk0: u32,
 +    nblk1: u32,
 +};
@@ -21659,7 +27945,7 @@ index 00000000..82d072be
 +        return;
 +    }
 +
-+    let q_start = q_blk * Q_TILE;
++    let q_start = q_blk;
 +    let k_start = kv_blk * KV_TILE;
 +
 +    let mask_batch = select(0u, batch_idx, params.stride_mask3 > 0u);
@@ -21673,11 +27959,8 @@ index 00000000..82d072be
 +    var local_max = -MASK_MAX;
 +    var local_any = 0u;
 +
-+    for (var q_rel = 0u; q_rel < Q_TILE; q_rel += 1u) {
-+        let q_row = q_start + q_rel;
-+        if (q_row >= params.seq_len_q) {
-+            continue;
-+        }
++    let q_row = q_start;
++    if (q_row < params.seq_len_q) {
 +        let row_base = mask_batch_base + q_row * params.seq_len_kv;
 +        for (var k_rel = local_id.x; k_rel < KV_TILE; k_rel += WG_SIZE) {
 +            let k_col = k_start + k_rel;
@@ -22542,10 +28825,19 @@ index 00000000..a5257587
 +    }
 +}
 diff --git src/ggml-webgpu/wgsl-shaders/get_rows.wgsl src/ggml-webgpu/wgsl-shaders/get_rows.wgsl
-index d9eb6a35..3c8b84c9 100644
+index d9eb6a35..1415798f 100644
 --- src/ggml-webgpu/wgsl-shaders/get_rows.wgsl
 +++ src/ggml-webgpu/wgsl-shaders/get_rows.wgsl
-@@ -27,17 +27,18 @@ fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
+@@ -1,6 +1,8 @@
+ enable f16;
++#define DECLARE_BYTE_LOADERS_SRC
+ #include "common_decls.tmpl"
+ 
++
+ #ifdef F32_VEC
+ fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
+     dst[(dst_base / 4) + offset] = src[(src_base / 4) + offset];
+@@ -27,17 +29,18 @@ fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
  
  #ifdef Q4_0
  fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
@@ -22554,10 +28846,10 @@ index d9eb6a35..3c8b84c9 100644
 -    for (var j: u32 = 0; j < 4; j++) {
 -        let q_packed = bitcast<u32>(vec2(block_q4_0.qs[2 * j], block_q4_0.qs[2 * j + 1]));
 +    let block_byte_base = (src_base + offset) * 18; // Block stride: 18 bytes
-+    let d = load_f16_as_f32_at(&src, block_byte_base);
++    let d = load_f16_as_f32_at_src(block_byte_base);
 +    for (var j: u32 = 0u; j < 4; j++) {
 +        let q_byte_offset = block_byte_base + 2 + j * 4;
-+        let q_packed = load_u32_at(&src, q_byte_offset);
++        let q_packed = load_u32_at_src(q_byte_offset);
          for (var k: u32 = 0; k < 4; k++) {
              let q_byte = get_byte(q_packed, k);
 -            let q_hi = (f32((q_byte >> 4) & 0xF) - 8.0f) * d;
@@ -22571,7 +28863,7 @@ index d9eb6a35..3c8b84c9 100644
          }
      }
  }
-@@ -64,17 +65,22 @@ fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
+@@ -64,17 +67,22 @@ fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
  
  #ifdef Q5_0
  fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
@@ -22579,12 +28871,12 @@ index d9eb6a35..3c8b84c9 100644
 -    let d = f32(block_q5_0.d);
 -    let qh_packed = bitcast<u32>(vec2(block_q5_0.qh[0], block_q5_0.qh[1]));
 +    let block_byte_base = (src_base + offset) * 22; // Block stride: 22 bytes
-+    let d = load_f16_as_f32_at(&src, block_byte_base);
-+    let qh_packed = load_u32_at(&src, block_byte_base + 2);
++    let d = load_f16_as_f32_at_src(block_byte_base);
++    let qh_packed = load_u32_at_src(block_byte_base + 2);
      for (var j: u32 = 0; j < 4; j++) {
 -        let q_packed = bitcast<u32>(vec2(block_q5_0.qs[2 * j], block_q5_0.qs[2 * j + 1]));
 +        let q_byte_offset = block_byte_base + 6 + j * 4;
-+        let q_packed = load_u32_at(&src, q_byte_offset);
++        let q_packed = load_u32_at_src(q_byte_offset);
 +
          for (var k: u32 = 0; k < 4; k++) {
              let q_byte = get_byte(q_packed, k);
@@ -22598,7 +28890,7 @@ index d9eb6a35..3c8b84c9 100644
              let dst_offset = dst_base + offset * 32 + j * 4 + k;
              dst[dst_offset] = q_lo;
              dst[dst_offset + 16] = q_hi;
-@@ -106,14 +112,15 @@ fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
+@@ -106,14 +114,15 @@ fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
  
  #ifdef Q8_0
  fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
@@ -22608,10 +28900,10 @@ index d9eb6a35..3c8b84c9 100644
 -        let q_packed = bitcast<u32>(vec2(block_q8_0.qs[2 * j], block_q8_0.qs[2 * j + 1]));
 -        for (var k: u32 = 0; k < 4; k++) {
 +    let block_byte_base = (src_base + offset) * 34; // Block stride: 34 bytes
-+    let d = load_f16_as_f32_at(&src, block_byte_base);
++    let d = load_f16_as_f32_at_src(block_byte_base);
 +    for (var j: u32 = 0u; j < 8u; j++) {
 +        let q_byte_offset = block_byte_base + 2u + j * 4u;
-+        let q_packed = load_u32_at(&src, q_byte_offset);
++        let q_packed = load_u32_at_src(q_byte_offset);
 +        for (var k: u32 = 0u; k < 4u; k++) {
              let q_byte = get_byte_i32(q_packed, k);
              let q_val = f32(q_byte) * d;
@@ -22620,19 +28912,19 @@ index d9eb6a35..3c8b84c9 100644
              dst[dst_offset] = q_val;
          }
      }
-@@ -152,36 +159,42 @@ fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
+@@ -152,36 +161,42 @@ fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
  
  #ifdef Q3_K
  fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
 -    let block = src[src_base + offset];
 -    let d = f32(block.d);
 +    let block_byte_base = (src_base + offset) * 110; // Block stride: 110 bytes
++
++    // Bytes 108-109: f16 scale 'd'
++    let d = load_f16_as_f32_at_src(block_byte_base + 108);
  
 -    // extract 6-bit scales, which consist of 4-bits from first 8 bytes of scale,
 -    // and 2-bits from the last 4 bytes
-+    // Bytes 108-109: f16 scale 'd'
-+    let d = load_f16_as_f32_at(&src, block_byte_base + 108);
-+
 +    // Bytes 96-107: 12 bytes of scales (3 u32s)
      let kmask1: u32 = 0x03030303;
      let kmask2: u32 = 0x0f0f0f0f;
@@ -22641,9 +28933,9 @@ index d9eb6a35..3c8b84c9 100644
 -    for (var i: u32 = 0; i < 4; i++) {
 -        scale_vals[i] = bitcast<u32>(vec2(block.scales[2 * i], block.scales[2 * i + 1]));
 -    }
-+    scale_vals[0] = load_u32_at(&src, block_byte_base + 96);
-+    scale_vals[1] = load_u32_at(&src, block_byte_base + 100);
-+    scale_vals[2] = load_u32_at(&src, block_byte_base + 104);
++    scale_vals[0] = load_u32_at_src(block_byte_base + 96);
++    scale_vals[1] = load_u32_at_src(block_byte_base + 100);
++    scale_vals[2] = load_u32_at_src(block_byte_base + 104);
 +
      var tmp: u32 = scale_vals[2];
      scale_vals[2] = ((scale_vals[0] >> 4) & kmask2) | (((tmp >> 4) & kmask1) << 4);
@@ -22656,7 +28948,7 @@ index d9eb6a35..3c8b84c9 100644
      var hmask_vals: array<u32, 8>;
      for (var i: u32 = 0; i < 8; i++) {
 -        hmask_vals[i] = bitcast<u32>(vec2(block.hmask[2 * i], block.hmask[2 * i + 1]));
-+        hmask_vals[i] = load_u32_at(&src, block_byte_base + i * 4);
++        hmask_vals[i] = load_u32_at_src(block_byte_base + i * 4);
      }
 +
 +    // Bytes 32-95: 64 bytes of qs (16 u32s)
@@ -22664,7 +28956,7 @@ index d9eb6a35..3c8b84c9 100644
 -    for (var i: u32 = 0; i < 16; i++) {
 -        qs_vals[i] = bitcast<u32>(vec2(block.qs[2 * i], block.qs[2 * i + 1]));
 +    for (var i: u32 = 0u; i < 16; i++) {
-+        qs_vals[i] = load_u32_at(&src, block_byte_base + 32 + i * 4);
++        qs_vals[i] = load_u32_at_src(block_byte_base + 32 + i * 4);
      }
  
      var dst_i = dst_base + offset * 256;
@@ -22674,7 +28966,7 @@ index d9eb6a35..3c8b84c9 100644
      // 2 halves of the block (128 elements each)
      for (var q_b_idx: u32 = 0; q_b_idx < 64; q_b_idx += 32) {
          // 4 groups (each group has 2 blocks of 16 elements)
-@@ -191,11 +204,13 @@ fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
+@@ -191,11 +206,13 @@ fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
                  let sc = get_byte(scale_vals[is / 4], is % 4);
                  is++;
                  let dl = d * (f32(sc) - 32.0);
@@ -22689,23 +28981,23 @@ index d9eb6a35..3c8b84c9 100644
                      let hm = select(4.0, 0.0, (hmask_byte & m) != 0);
                      let qs_val = (q_byte >> shift) & 3;
                      dst[dst_i] = (f32(qs_val) - hm) * dl;
-@@ -268,21 +283,27 @@ fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
+@@ -268,21 +285,27 @@ fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
  #ifdef Q6_K
  // 16 blocks of 16 elements each
  fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
 -    let block = src[src_base + offset];
 -    let d = f32(block.d);
 +    let block_byte_base = (src_base + offset) * 210; // Block stride: 210 bytes
++
++    // Bytes 208-209: f16 scale 'd'
++    let d = load_f16_as_f32_at_src(block_byte_base + 208);
  
 -    // convert arrays of f16 -> u32
-+    // Bytes 208-209: f16 scale 'd'
-+    let d = load_f16_as_f32_at(&src, block_byte_base + 208);
-+
 +    // Bytes 0-127: 128 bytes of ql (32 u32s)
      var ql_vals: array<u32, 32>;
      for (var i: u32 = 0; i < 32; i++) {
 -        ql_vals[i] = bitcast<u32>(vec2(block.ql[2 * i], block.ql[2 * i + 1]));
-+        ql_vals[i] = load_u32_at(&src, block_byte_base + i * 4);
++        ql_vals[i] = load_u32_at_src(block_byte_base + i * 4);
      }
 +
 +    // Bytes 128-191: 64 bytes of qh (16 u32s)
@@ -22713,37 +29005,37 @@ index d9eb6a35..3c8b84c9 100644
 -    for (var i: u32 = 0; i < 16; i++) {
 -        qh_vals[i] = bitcast<u32>(vec2(block.qh[2 * i], block.qh[2 * i + 1]));
 +    for (var i: u32 = 0; i < 16u; i++) {
-+        qh_vals[i] = load_u32_at(&src, block_byte_base + 128 + i * 4u);
++        qh_vals[i] = load_u32_at_src(block_byte_base + 128 + i * 4u);
      }
 +
 +    // Bytes 192-207: 16 bytes of scales (4 u32s)
      var scale_vals: array<u32, 4>;
      for (var i: u32 = 0; i < 4; i++) {
 -        scale_vals[i] = bitcast<u32>(vec2(block.scales[2 * i], block.scales[2 * i + 1]));
-+        scale_vals[i] = load_u32_at(&src, block_byte_base + 192 + i * 4);
++        scale_vals[i] = load_u32_at_src(block_byte_base + 192 + i * 4);
      }
  
      var dst_i = dst_base + offset * 256;
-@@ -323,12 +344,14 @@ fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
+@@ -323,12 +346,14 @@ fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
  
  #ifdef IQ2_XXS
  fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
 -    let block = src[src_base + offset];
 -    let d = f32(block.d);
 +    let block_byte_base = (src_base + offset) * 66; // Block stride: 66 bytes
-+    let d = load_f16_as_f32_at(&src, block_byte_base);
++    let d = load_f16_as_f32_at_src(block_byte_base);
      var dst_i = dst_base + offset * 256;
      for (var ib: u32 = 0; ib < 32; ib += 4) {
 -        let aux0 = bitcast<u32>(vec2(block.qs[ib], block.qs[ib + 1]));
 -        let aux1 = bitcast<u32>(vec2(block.qs[ib + 2], block.qs[ib + 3]));
 +        let aux0_offset = block_byte_base + 2 + ib * 2;
 +        let aux1_offset = block_byte_base + 2 + (ib + 2) * 2;
-+        let aux0 = load_u32_at(&src, aux0_offset);
-+        let aux1 = load_u32_at(&src, aux1_offset);
++        let aux0 = load_u32_at_src(aux0_offset);
++        let aux1 = load_u32_at_src(aux1_offset);
          let db = d * (0.5 + f32(aux1 >> 28)) * 0.25;
          for (var l: u32 = 0; l < 4; l++) {
              let ig = get_byte(aux0, l) * 8;
-@@ -345,15 +368,19 @@ fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
+@@ -345,15 +370,19 @@ fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
  }
  #endif
  
@@ -22754,43 +29046,43 @@ index d9eb6a35..3c8b84c9 100644
 -    let block = src[src_base + offset];
 -    let d = f32(block.d);
 +    let block_byte_base = (src_base + offset) * 74; // Block stride: 74 bytes
-+    let d = load_f16_as_f32_at(&src, block_byte_base);
++    let d = load_f16_as_f32_at_src(block_byte_base);
      var dst_i = dst_base + offset * 256;
 +
      var scale_vals = array<u32, 2>(
 -        bitcast<u32>(vec2(block.scales[0], block.scales[1])),
 -        bitcast<u32>(vec2(block.scales[2], block.scales[3]))
-+        load_u32_at(&src, block_byte_base + 66),
-+        load_u32_at(&src, block_byte_base + 70)
++        load_u32_at_src(block_byte_base + 66),
++        load_u32_at_src(block_byte_base + 70)
      );
 +
      for (var ib: u32 = 0; ib < 32; ib += 4) {
          let s = get_byte(scale_vals[ib / 16], (ib % 16) / 4);
          let db = array<f32, 2>(
-@@ -361,7 +388,8 @@ fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
+@@ -361,7 +390,8 @@ fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
              d * (0.5 + f32(s >> 4)) * 0.25
          );
          for (var l: u32 = 0; l < 4; l++) {
 -            let qs_val = bitcast<u32>(vec2(block.qs[ib + l], 0.0));
 +            let qs_offset = block_byte_base + 2 + (ib + l) * 2;
-+            let qs_val = load_u32_at(&src, qs_offset) & 0xFFFF;
++            let qs_val = load_u32_at_src(qs_offset) & 0xFFFF;
              let ig = (qs_val & 511) * 8;
              let is = qs_val >> 9;
              let signs = get_byte(ksigns_iq2xs[is / 4], is % 4);
-@@ -379,21 +407,23 @@ fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
+@@ -379,21 +409,23 @@ fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
  
  #ifdef IQ2_S
  fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
 -    let block = src[src_base + offset];
 -    let d = f32(block.d);
 +    let block_byte_base = (src_base + offset) * 82; // Block stride: 82 bytes
-+    let d = load_f16_as_f32_at(&src, block_byte_base);
++    let d = load_f16_as_f32_at_src(block_byte_base);
      var dst_i = dst_base + offset * 256;
 +
      var qs_vals : array<u32, 16>;
      for (var i: u32 = 0; i < 16; i++) {
 -        qs_vals[i] = bitcast<u32>(vec2(block.qs[i * 2], block.qs[i * 2 + 1]));
-+        qs_vals[i] = load_u32_at(&src, block_byte_base + 2 + i * 4);
++        qs_vals[i] = load_u32_at_src(block_byte_base + 2 + i * 4);
      }
 -    var qh_vals = array<u32, 2>(
 -        bitcast<u32>(vec2(block.qh[0], block.qh[1])),
@@ -22802,113 +29094,113 @@ index d9eb6a35..3c8b84c9 100644
 -    );
 +
 +    var qh_vals: array<u32, 2>;
-+    qh_vals[0] = load_u32_at(&src, block_byte_base + 66);
-+    qh_vals[1] = load_u32_at(&src, block_byte_base + 70);
++    qh_vals[0] = load_u32_at_src(block_byte_base + 66);
++    qh_vals[1] = load_u32_at_src(block_byte_base + 70);
 +
 +    var scale_vals: array<u32, 2>;
-+    scale_vals[0] = load_u32_at(&src, block_byte_base + 74);
-+    scale_vals[1] = load_u32_at(&src, block_byte_base + 78);
++    scale_vals[0] = load_u32_at_src(block_byte_base + 74);
++    scale_vals[1] = load_u32_at_src(block_byte_base + 78);
 +
      for (var ib: u32 = 0; ib < 8; ib ++) {
          let s = get_byte(scale_vals[ib / 4], ib % 4);
          let db = array<f32, 2>(
-@@ -419,16 +449,17 @@ fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
+@@ -419,16 +451,17 @@ fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
  
  #ifdef IQ3_XXS
  fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
 -    let block = src[src_base + offset];
 -    let d = f32(block.d);
 +    let block_byte_base = (src_base + offset) * 98; // Block stride: 98 bytes
-+    let d = load_f16_as_f32_at(&src, block_byte_base);
++    let d = load_f16_as_f32_at_src(block_byte_base);
      var dst_i = dst_base + offset * 256;
      for (var ib: u32 = 0; ib < 16; ib += 2) {
 -        let sc_sign = bitcast<u32>(vec2(block.qs[ib + 32], block.qs[ib + 33]));
 +        let sc_sign_offset = block_byte_base + 2 + (ib + 32) * 2;
-+        let sc_sign = load_u32_at(&src, sc_sign_offset);
++        let sc_sign = load_u32_at_src(sc_sign_offset);
          let db = d * (0.5 + f32(sc_sign >> 28)) * 0.5;
          for (var l: u32 = 0; l < 4; l++) {
              let is = (sc_sign >> (7 * l)) & 127;
              let signs = get_byte(ksigns_iq2xs[is / 4], is % 4);
 -            let ig_val = bitcast<u32>(vec2(block.qs[ib * 2 + l], 0.0));
-+            let ig_val = load_u32_at(&src, block_byte_base + 2 + (ib * 2 + l) * 2) & 0xFFFF;
++            let ig_val = load_u32_at_src(block_byte_base + 2 + (ib * 2 + l) * 2) & 0xFFFF;
              let ig1 = get_byte(ig_val, 0);
              let ig2 = get_byte(ig_val, 1);
              for (var j: u32 = 0; j < 4; j++) {
-@@ -448,18 +479,22 @@ fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
+@@ -448,18 +481,22 @@ fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
  
  #ifdef IQ3_S
  fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
 -    let block = src[src_base + offset];
 -    let d = f32(block.d);
 +    let block_byte_base = (src_base + offset) * 110; // Block stride: 110 bytes
-+    let d = load_f16_as_f32_at(&src, block_byte_base);
++    let d = load_f16_as_f32_at_src(block_byte_base);
      var dst_i = dst_base + offset * 256;
 +
      var qh_vals = array<u32, 2>(
 -        bitcast<u32>(vec2(block.qh[0], block.qh[1])),
 -        bitcast<u32>(vec2(block.qh[2], block.qh[3]))
-+        load_u32_at(&src, block_byte_base + 66),
-+        load_u32_at(&src, block_byte_base + 70)
++        load_u32_at_src(block_byte_base + 66),
++        load_u32_at_src(block_byte_base + 70)
      );
 +
      var sign_vals: array<u32, 8>;
      for (var i: u32 = 0; i < 8; i++) {
 -        sign_vals[i] = bitcast<u32>(vec2(block.signs[i * 2], block.signs[i * 2 + 1]));
-+        sign_vals[i] = load_u32_at(&src, block_byte_base + 74 + i * 4);
++        sign_vals[i] = load_u32_at_src(block_byte_base + 74 + i * 4);
      }
 -    var scale_vals = bitcast<u32>(vec2(block.scales[0], block.scales[1]));
 +
-+    var scale_vals = load_u32_at(&src, block_byte_base + 106);
++    var scale_vals = load_u32_at_src(block_byte_base + 106);
 +
      for (var ib: u32 = 0; ib < 4; ib++) {
          let s = get_byte(scale_vals, ib);
          let db = array<f32, 2>(
-@@ -472,7 +507,7 @@ fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
+@@ -472,7 +509,7 @@ fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
              let sign_w = sign_vals[ib * 2 + k];
              for (var l: u32 = 0; l < 4; l++) {
                  let signs = get_byte(sign_w, l);
 -                let ig_val = bitcast<u32>(vec2(block.qs[ib * 8 + k * 4 + l], 0.0));
-+                let ig_val = load_u32_at(&src, block_byte_base + 2 + (ib * 8 + k * 4 + l) * 2) & 0xFFFF;
++                let ig_val = load_u32_at_src(block_byte_base + 2 + (ib * 8 + k * 4 + l) * 2) & 0xFFFF;
                  let ig1 = get_byte(ig_val, 0) | ((qh_byte << ((8 - (2 * l)))) & 256);
                  let ig2 = get_byte(ig_val, 1) | ((qh_byte << ((7 - (2 * l)))) & 256);
                  for (var j: u32 = 0; j < 4; j++) {
-@@ -493,14 +528,14 @@ fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
+@@ -493,14 +530,14 @@ fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
  
  #ifdef IQ1_S
  fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
 -    let block = src[src_base + offset];
 -    let d = f32(block.d);
 +    let block_byte_base = (src_base + offset) * 50; // Block stride: 50 bytes
-+    let d = load_f16_as_f32_at(&src, block_byte_base);
++    let d = load_f16_as_f32_at_src(block_byte_base);
      var dst_i = dst_base + offset * 256;
      for (var ib: u32 = 0; ib < 8; ib++) {
 -        let qh = bitcast<u32>(vec2(block.qh[ib], 0.0));
 -        let dl = d * (2 * f32((qh >> 12) & 7) + 1);
-+        let qh = load_u32_at(&src, block_byte_base + 34 + ib * 2) & 0xFFFF;
++        let qh = load_u32_at_src(block_byte_base + 34 + ib * 2) & 0xFFFF;
 +        let dl = d * (2.0 * f32((qh >> 12) & 7) + 1.0);
          let delta = select(IQ1_DELTA, -IQ1_DELTA, (qh & 0x8000) != 0);
 -        let qs_w = bitcast<u32>(vec2(block.qs[ib * 2], block.qs[ib * 2 + 1]));
-+        let qs_w = load_u32_at(&src, block_byte_base + 2 + ib * 4);
++        let qs_w = load_u32_at_src(block_byte_base + 2 + ib * 4);
          for (var l: u32 = 0; l < 4; l++) {
              let ig = (get_byte(qs_w, l) | (((qh >> (3 * l)) & 7) << 8)) * 8;
              for (var j: u32 = 0; j < 8; j++) {
-@@ -560,12 +595,12 @@ fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
+@@ -560,12 +597,12 @@ fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
  
  #ifdef IQ4_NL
  fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
 -    let block = src[src_base + offset];
 -    let d = f32(block.d);
 +    let block_byte_base = (src_base + offset) * 18; // Block stride: 18 bytes
-+    let d = load_f16_as_f32_at(&src, block_byte_base);
++    let d = load_f16_as_f32_at_src(block_byte_base);
      var dst_i = dst_base + offset * 32;
      var qs: array<u32, 4>;
      for (var i: u32 = 0; i < 4; i++) {
 -        qs[i] = bitcast<u32>(vec2(block.qs[i * 2], block.qs[i * 2 + 1]));
-+        qs[i] = load_u32_at(&src, block_byte_base + 2 + i * 4);
++        qs[i] = load_u32_at_src(block_byte_base + 2 + i * 4);
      }
      for (var j: u32 = 0; j < 16; j++) {
          let qsb = get_byte(qs[j / 4], j % 4);
-@@ -579,8 +614,8 @@ fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
+@@ -579,8 +616,8 @@ fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
  #ifdef IQ4_XS
  fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
      let block = src[src_base + offset];
@@ -22920,62 +29212,72 @@ index d9eb6a35..3c8b84c9 100644
      for (var ib: u32 = 0; ib < 8; ib++) {
          let ls = ((get_byte(block.scales_l, ib / 2) >> (4 * (ib % 2))) & 0xF) | (((scales_h >> (2 * ib)) & 3) << 4);
 diff --git src/ggml-webgpu/wgsl-shaders/mul_mat.wgsl src/ggml-webgpu/wgsl-shaders/mul_mat.wgsl
-index 5b9f5b36..fdabaf09 100644
+index 5b9f5b36..fcbefdeb 100644
 --- src/ggml-webgpu/wgsl-shaders/mul_mat.wgsl
 +++ src/ggml-webgpu/wgsl-shaders/mul_mat.wgsl
-@@ -20,11 +20,12 @@ fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
+@@ -1,7 +1,9 @@
+ enable f16;
+ 
++#define DECLARE_BYTE_LOADERS_SRC0
+ #include "common_decls.tmpl"
+ 
++
+ #ifdef FLOAT
+ const BLOCK_SIZE = 1u;
+ 
+@@ -20,11 +22,12 @@ fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
  
  #ifdef Q4_0
  fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
 -    let block_q4_0 = src0[src0_idx_base + offset];
 -    let d = f32(block_q4_0.d);
 +    let block_byte_base = (src0_idx_base + offset) * 18; // Block stride: 18 bytes
-+    let d = load_f16_as_f32_at(&src0, block_byte_base);
++    let d = load_f16_as_f32_at_src0(block_byte_base);
      var sum: f32 = 0.0;
      for (var j: u32 = 0; j < 4; j++) {
 -        let q_packed = bitcast<u32>(vec2(block_q4_0.qs[2 * j], block_q4_0.qs[2 * j + 1]));
 +        let q_byte_offset = block_byte_base + 2 + j * 4;
-+        let q_packed = load_u32_at(&src0, q_byte_offset);
++        let q_packed = load_u32_at_src0(q_byte_offset);
          for (var k: u32 = 0; k < 4; k++) {
              let q_byte = get_byte(q_packed, k);
              let q_hi = (f32((q_byte >> 4) & 0xF) - 8.0f) * d;
-@@ -61,12 +62,13 @@ fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
+@@ -61,12 +64,13 @@ fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
  
  #ifdef Q5_0
  fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
 -    let block_q5_0 = src0[src0_idx_base + offset];
 -    let d = f32(block_q5_0.d);
 +    let block_byte_base = (src0_idx_base + offset) * 22; // Block stride: 22 bytes
-+    let d = load_f16_as_f32_at(&src0, block_byte_base);
++    let d = load_f16_as_f32_at_src0(block_byte_base);
      var sum: f32 = 0.0;
 -    let qh_packed = bitcast<u32>(vec2(block_q5_0.qh[0], block_q5_0.qh[1]));
-+    let qh_packed = load_u32_at(&src0, block_byte_base + 2);
++    let qh_packed = load_u32_at_src0(block_byte_base + 2);
      for (var j: u32 = 0; j < 4; j++) {
 -        let q_packed = bitcast<u32>(vec2(block_q5_0.qs[2 * j], block_q5_0.qs[2 * j + 1]));
 +        let q_byte_offset = block_byte_base + 6 + j * 4;
-+        let q_packed = load_u32_at(&src0, q_byte_offset);
++        let q_packed = load_u32_at_src0(q_byte_offset);
          for (var k: u32 = 0; k < 4; k++) {
              let q_byte = get_byte(q_packed, k);
              let qh_hi = (qh_packed >> (j * 4 + k + 12)) & 0x10;
-@@ -107,12 +109,13 @@ fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
+@@ -107,12 +111,13 @@ fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
  
  #ifdef Q8_0
  fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
 -    let block_q8_0 = src0[src0_idx_base + offset];
 -    let d = f32(block_q8_0.d);
 +    let block_byte_base = (src0_idx_base + offset) * 34; // Block stride: 34 bytes
-+    let d = load_f16_as_f32_at(&src0, block_byte_base);
++    let d = load_f16_as_f32_at_src0(block_byte_base);
      var sum: f32 = 0.0;
      for (var j: u32 = 0; j < 8; j++) {
 -        let q_packed = bitcast<u32>(vec2(block_q8_0.qs[2 * j], block_q8_0.qs[2 * j + 1]));
 -        for (var k: u32 = 0; k < 4; k++) {
 +        let q_byte_offset = block_byte_base + 2 + j * 4;
-+        let q_packed = load_u32_at(&src0, q_byte_offset);
++        let q_packed = load_u32_at_src0(q_byte_offset);
 +        for (var k: u32 = 0u; k < 4u; k++) {
              let q_byte = get_byte_i32(q_packed, k);
              let q_val = f32(q_byte) * d;
              let src1_offset = src1_idx_base + offset * 32 + j * 4 + k;
-@@ -178,31 +181,37 @@ fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
+@@ -178,31 +183,37 @@ fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
  #ifdef Q3_K
  // 16 blocks of 16 elements each
  fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
@@ -22984,7 +29286,7 @@ index 5b9f5b36..fdabaf09 100644
 +    let block_byte_base = (src0_idx_base + offset) * 110; // Block stride: 110 bytes
 +
 +    // Bytes 108-109: f16 scale 'd'
-+    let d = load_f16_as_f32_at(&src0, block_byte_base + 108);
++    let d = load_f16_as_f32_at_src0(block_byte_base + 108);
  
      // extract 6-bit scales, which consist of 4-bits from first 8 bytes of scale,
      // and 2-bits from the last 4 bytes
@@ -22995,9 +29297,9 @@ index 5b9f5b36..fdabaf09 100644
 -    for (var i: u32 = 0; i < 4; i++) {
 -        scale_vals[i] = bitcast<u32>(vec2(block.scales[2 * i], block.scales[2 * i + 1]));
 -    }
-+    scale_vals[0] = load_u32_at(&src0, block_byte_base + 96);
-+    scale_vals[1] = load_u32_at(&src0, block_byte_base + 100);
-+    scale_vals[2] = load_u32_at(&src0, block_byte_base + 104);
++    scale_vals[0] = load_u32_at_src0(block_byte_base + 96);
++    scale_vals[1] = load_u32_at_src0(block_byte_base + 100);
++    scale_vals[2] = load_u32_at_src0(block_byte_base + 104);
 +
      var tmp: u32 = scale_vals[2];
      scale_vals[2] = ((scale_vals[0] >> 4) & kmask2) | (((tmp >> 4) & kmask1) << 4);
@@ -23010,7 +29312,7 @@ index 5b9f5b36..fdabaf09 100644
      var hmask_vals: array<u32, 8>;
      for (var i: u32 = 0; i < 8; i++) {
 -        hmask_vals[i] = bitcast<u32>(vec2(block.hmask[2 * i], block.hmask[2 * i + 1]));
-+        hmask_vals[i] = load_u32_at(&src0, block_byte_base + i * 4);
++        hmask_vals[i] = load_u32_at_src0(block_byte_base + i * 4);
      }
 +
 +    // Bytes 32-95: 64 bytes of qs (16 u32s)
@@ -23018,52 +29320,52 @@ index 5b9f5b36..fdabaf09 100644
 -    for (var i: u32 = 0; i < 16; i++) {
 -        qs_vals[i] = bitcast<u32>(vec2(block.qs[2 * i], block.qs[2 * i + 1]));
 +    for (var i: u32 = 0u; i < 16; i++) {
-+        qs_vals[i] = load_u32_at(&src0, block_byte_base + 32 + i * 4);
++        qs_vals[i] = load_u32_at_src0(block_byte_base + 32 + i * 4);
      }
  
      var sum = 0.0;
-@@ -301,21 +310,27 @@ fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
+@@ -301,21 +312,27 @@ fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
  #ifdef Q6_K
  // 16 blocks of 16 elements each
  fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
 -    let block = src0[src0_idx_base + offset];
 -    let d = f32(block.d);
 +    let block_byte_base = (src0_idx_base + offset) * 210; // Block stride: 210 bytes
++
++    // Bytes 208-209: f16 scale 'd'
++    let d = load_f16_as_f32_at_src0(block_byte_base + 208);
  
 -    // convert arrays of f16 -> u32
-+    // Bytes 208-209: f16 scale 'd'
-+    let d = load_f16_as_f32_at(&src0, block_byte_base + 208);
-+
 +    // Bytes 0-127: 128 bytes of ql (32 u32s)
      var ql_vals: array<u32, 32>;
      for (var i: u32 = 0; i < 32; i++) {
 -        ql_vals[i] = bitcast<u32>(vec2(block.ql[2 * i], block.ql[2 * i + 1]));
-+        ql_vals[i] = load_u32_at(&src0, block_byte_base + i * 4);
++        ql_vals[i] = load_u32_at_src0(block_byte_base + i * 4);
      }
 +
 +    // Bytes 128-191: 64 bytes of qh (16 u32s)
      var qh_vals: array<u32, 16>;
      for (var i: u32 = 0; i < 16; i++) {
 -        qh_vals[i] = bitcast<u32>(vec2(block.qh[2 * i], block.qh[2 * i + 1]));
-+        qh_vals[i] = load_u32_at(&src0, block_byte_base + 128 + i * 4);
++        qh_vals[i] = load_u32_at_src0(block_byte_base + 128 + i * 4);
      }
 +
 +    // Bytes 192-207: 16 bytes of scales (4 u32s)
      var scale_vals: array<u32, 4>;
      for (var i: u32 = 0; i < 4; i++) {
 -        scale_vals[i] = bitcast<u32>(vec2(block.scales[2 * i], block.scales[2 * i + 1]));
-+        scale_vals[i] = load_u32_at(&src0, block_byte_base + 192 + i * 4);
++        scale_vals[i] = load_u32_at_src0(block_byte_base + 192 + i * 4);
      }
  
      var sum = 0.0;
-@@ -358,13 +373,15 @@ fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
+@@ -358,13 +375,15 @@ fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
  
  #ifdef IQ2_XXS
  fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
 -    let block = src0[src0_idx_base + offset];
 -    let d = f32(block.d);
 +    let block_byte_base = (src0_idx_base + offset) * 66; // Block stride: 66 bytes
-+    let d = load_f16_as_f32_at(&src0, block_byte_base);
++    let d = load_f16_as_f32_at_src0(block_byte_base);
      var src1_i = src1_idx_base + offset * 256;
      var sum = 0.0;
      for (var ib: u32 = 0; ib < 32; ib += 4) {
@@ -23071,55 +29373,55 @@ index 5b9f5b36..fdabaf09 100644
 -        let aux1 = bitcast<u32>(vec2(block.qs[ib + 2], block.qs[ib + 3]));
 +        let aux0_offset = block_byte_base + 2 + ib * 2;
 +        let aux1_offset = block_byte_base + 2 + (ib + 2) * 2;
-+        let aux0 = load_u32_at(&src0, aux0_offset);
-+        let aux1 = load_u32_at(&src0, aux1_offset);
++        let aux0 = load_u32_at_src0(aux0_offset);
++        let aux1 = load_u32_at_src0(aux1_offset);
          let db = d * (0.5 + f32(aux1 >> 28)) * 0.25;
          for (var l: u32 = 0; l < 4; l++) {
              let ig = get_byte(aux0, l) * 8;
-@@ -384,13 +401,15 @@ fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
+@@ -384,13 +403,15 @@ fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
  
  #ifdef IQ2_XS
  fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
 -    let block = src0[src0_idx_base + offset];
 -    let d = f32(block.d);
 +    let block_byte_base = (src0_idx_base + offset) * 74; // Block stride: 74 bytes
-+    let d = load_f16_as_f32_at(&src0, block_byte_base);
++    let d = load_f16_as_f32_at_src0(block_byte_base);
      var src1_i = src1_idx_base + offset * 256;
 +
      var scale_vals = array<u32, 2>(
 -        bitcast<u32>(vec2(block.scales[0], block.scales[1])),
 -        bitcast<u32>(vec2(block.scales[2], block.scales[3]))
-+        load_u32_at(&src0, block_byte_base + 66),
-+        load_u32_at(&src0, block_byte_base + 70)
++        load_u32_at_src0(block_byte_base + 66),
++        load_u32_at_src0(block_byte_base + 70)
      );
 +
      var sum = 0.0;
      for (var ib: u32 = 0; ib < 32; ib += 4) {
          let s = get_byte(scale_vals[ib / 16], (ib % 16) / 4);
-@@ -399,7 +418,8 @@ fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
+@@ -399,7 +420,8 @@ fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
              d * (0.5 + f32(s >> 4)) * 0.25
          );
          for (var l: u32 = 0; l < 4; l++) {
 -            let qs_val = bitcast<u32>(vec2(block.qs[ib + l], 0.0));
 +            let qs_offset = block_byte_base + 2 + (ib + l) * 2;
-+            let qs_val = load_u32_at(&src0, qs_offset) & 0xFFFF;
++            let qs_val = load_u32_at_src0(qs_offset) & 0xFFFF;
              let ig = (qs_val & 511) * 8;
              let is = qs_val >> 9;
              let signs = get_byte(ksigns_iq2xs[is / 4], is % 4);
-@@ -418,21 +438,23 @@ fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
+@@ -418,21 +440,23 @@ fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
  
  #ifdef IQ2_S
  fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
 -    let block = src0[src0_idx_base + offset];
 -    let d = f32(block.d);
 +    let block_byte_base = (src0_idx_base + offset) * 82; // Block stride: 82 bytes
-+    let d = load_f16_as_f32_at(&src0, block_byte_base);
++    let d = load_f16_as_f32_at_src0(block_byte_base);
      var src1_i = src1_idx_base + offset * 256;
 +
      var qs_vals : array<u32, 16>;
      for (var i: u32 = 0; i < 16; i++) {
 -        qs_vals[i] = bitcast<u32>(vec2(block.qs[i * 2], block.qs[i * 2 + 1]));
-+        qs_vals[i] = load_u32_at(&src0, block_byte_base + 2 + i * 4);
++        qs_vals[i] = load_u32_at_src0(block_byte_base + 2 + i * 4);
      }
 -    var qh_vals = array<u32, 2>(
 -        bitcast<u32>(vec2(block.qh[0], block.qh[1])),
@@ -23131,116 +29433,116 @@ index 5b9f5b36..fdabaf09 100644
 -    );
 +
 +    var qh_vals: array<u32, 2>;
-+    qh_vals[0] = load_u32_at(&src0, block_byte_base + 66);
-+    qh_vals[1] = load_u32_at(&src0, block_byte_base + 70);
++    qh_vals[0] = load_u32_at_src0(block_byte_base + 66);
++    qh_vals[1] = load_u32_at_src0(block_byte_base + 70);
 +
 +    var scale_vals: array<u32, 2>;
-+    scale_vals[0] = load_u32_at(&src0, block_byte_base + 74);
-+    scale_vals[1] = load_u32_at(&src0, block_byte_base + 78);
++    scale_vals[0] = load_u32_at_src0(block_byte_base + 74);
++    scale_vals[1] = load_u32_at_src0(block_byte_base + 78);
 +
      var sum = 0.0;
      for (var ib: u32 = 0; ib < 8; ib ++) {
          let s = get_byte(scale_vals[ib / 4], ib % 4);
-@@ -460,17 +482,18 @@ fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
+@@ -460,17 +484,18 @@ fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
  
  #ifdef IQ3_XXS
  fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
 -    let block = src0[src0_idx_base + offset];
 -    let d = f32(block.d);
 +    let block_byte_base = (src0_idx_base + offset) * 98; // Block stride: 98 bytes
-+    let d = load_f16_as_f32_at(&src0, block_byte_base);
++    let d = load_f16_as_f32_at_src0(block_byte_base);
      var src1_i = src1_idx_base + offset * 256;
      var sum = 0.0;
      for (var ib: u32 = 0; ib < 16; ib += 2) {
 -        let sc_sign = bitcast<u32>(vec2(block.qs[ib + 32], block.qs[ib + 33]));
 +        let sc_sign_offset = block_byte_base + 2 + (ib + 32) * 2;
-+        let sc_sign = load_u32_at(&src0, sc_sign_offset);
++        let sc_sign = load_u32_at_src0(sc_sign_offset);
          let db = d * (0.5 + f32(sc_sign >> 28)) * 0.5;
          for (var l: u32 = 0; l < 4; l++) {
              let is = (sc_sign >> (7 * l)) & 127;
              let signs = get_byte(ksigns_iq2xs[is / 4], is % 4);
 -            let ig_val = bitcast<u32>(vec2(block.qs[ib * 2 + l], 0.0));
-+            let ig_val = load_u32_at(&src0, block_byte_base + 2 + (ib * 2 + l) * 2) & 0xFFFF;
++            let ig_val = load_u32_at_src0(block_byte_base + 2 + (ib * 2 + l) * 2) & 0xFFFF;
              let ig1 = get_byte(ig_val, 0);
              let ig2 = get_byte(ig_val, 1);
              for (var j: u32 = 0; j < 4; j++) {
-@@ -491,18 +514,22 @@ fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
+@@ -491,18 +516,22 @@ fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
  
  #ifdef IQ3_S
  fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
 -    let block = src0[src0_idx_base + offset];
 -    let d = f32(block.d);
 +    let block_byte_base = (src0_idx_base + offset) * 110; // Block stride: 110 bytes
-+    let d = load_f16_as_f32_at(&src0, block_byte_base);
++    let d = load_f16_as_f32_at_src0(block_byte_base);
      var src1_i = src1_idx_base + offset * 256;
 +
      var qh_vals = array<u32, 2>(
 -        bitcast<u32>(vec2(block.qh[0], block.qh[1])),
 -        bitcast<u32>(vec2(block.qh[2], block.qh[3]))
-+        load_u32_at(&src0, block_byte_base + 66),
-+        load_u32_at(&src0, block_byte_base + 70)
++        load_u32_at_src0(block_byte_base + 66),
++        load_u32_at_src0(block_byte_base + 70)
      );
 +
      var sign_vals: array<u32, 8>;
      for (var i: u32 = 0; i < 8; i++) {
 -        sign_vals[i] = bitcast<u32>(vec2(block.signs[i * 2], block.signs[i * 2 + 1]));
-+        sign_vals[i] = load_u32_at(&src0, block_byte_base + 74 + i * 4);
++        sign_vals[i] = load_u32_at_src0(block_byte_base + 74 + i * 4);
      }
 -    var scale_vals = bitcast<u32>(vec2(block.scales[0], block.scales[1]));
 +
-+    var scale_vals = load_u32_at(&src0, block_byte_base + 106);
++    var scale_vals = load_u32_at_src0(block_byte_base + 106);
 +
      var sum = 0.0;
      for (var ib: u32 = 0; ib < 4; ib++) {
          let s = get_byte(scale_vals, ib);
-@@ -516,7 +543,7 @@ fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
+@@ -516,7 +545,7 @@ fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
              let sign_w = sign_vals[ib * 2 + k];
              for (var l: u32 = 0; l < 4; l++) {
                  let signs = get_byte(sign_w, l);
 -                let ig_val = bitcast<u32>(vec2(block.qs[ib * 8 + k * 4 + l], 0.0));
-+                let ig_val = load_u32_at(&src0, block_byte_base + 2 + (ib * 8 + k * 4 + l) * 2) & 0xFFFF;
++                let ig_val = load_u32_at_src0(block_byte_base + 2 + (ib * 8 + k * 4 + l) * 2) & 0xFFFF;
                  let ig1 = get_byte(ig_val, 0) | ((qh_byte << ((8 - (2 * l)))) & 256);
                  let ig2 = get_byte(ig_val, 1) | ((qh_byte << ((7 - (2 * l)))) & 256);
                  for (var j: u32 = 0; j < 4; j++) {
-@@ -538,15 +565,15 @@ fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
+@@ -538,15 +567,15 @@ fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
  
  #ifdef IQ1_S
  fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
 -    let block = src0[src0_idx_base + offset];
 -    let d = f32(block.d);
 +    let block_byte_base = (src0_idx_base + offset) * 50; // Block stride: 50 bytes
-+    let d = load_f16_as_f32_at(&src0, block_byte_base);
++    let d = load_f16_as_f32_at_src0(block_byte_base);
      var src1_i = src1_idx_base + offset * 256;
      var sum = 0.0;
      for (var ib: u32 = 0; ib < 8; ib++) {
 -        let qh = bitcast<u32>(vec2(block.qh[ib], 0.0));
 -        let dl = d * (2 * f32((qh >> 12) & 7) + 1);
-+        let qh = load_u32_at(&src0, block_byte_base + 34 + ib * 2) & 0xFFFF;
++        let qh = load_u32_at_src0(block_byte_base + 34 + ib * 2) & 0xFFFF;
 +        let dl = d * (2.0 * f32((qh >> 12) & 7) + 1.0);
          let delta = select(IQ1_DELTA, -IQ1_DELTA, (qh & 0x8000) != 0);
 -        let qs_w = bitcast<u32>(vec2(block.qs[ib * 2], block.qs[ib * 2 + 1]));
-+        let qs_w = load_u32_at(&src0, block_byte_base + 2 + ib * 4);
++        let qs_w = load_u32_at_src0(block_byte_base + 2 + ib * 4);
          for (var l: u32 = 0; l < 4; l++) {
              let ig = (get_byte(qs_w, l) | (((qh >> (3 * l)) & 7) << 8)) * 8;
              for (var j: u32 = 0; j < 8; j++) {
-@@ -610,13 +637,13 @@ fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
+@@ -610,13 +639,13 @@ fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
  
  #ifdef IQ4_NL
  fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
 -    let block = src0[src0_idx_base + offset];
 -    let d = f32(block.d);
 +    let block_byte_base = (src0_idx_base + offset) * 18; // Block stride: 18 bytes
-+    let d = load_f16_as_f32_at(&src0, block_byte_base);
++    let d = load_f16_as_f32_at_src0(block_byte_base);
      var src1_i = src1_idx_base + offset * 32;
      var sum = 0.0;
      var qs: array<u32, 4>;
      for (var i: u32 = 0; i < 4; i++) {
 -        qs[i] = bitcast<u32>(vec2(block.qs[i * 2], block.qs[i * 2 + 1]));
-+        qs[i] = load_u32_at(&src0, block_byte_base + 2 + i * 4);
++        qs[i] = load_u32_at_src0(block_byte_base + 2 + i * 4);
      }
      for (var j: u32 = 0; j < 16; j++) {
          let qsb = get_byte(qs[j / 4], j % 4);
-@@ -631,8 +658,8 @@ fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
+@@ -631,8 +660,8 @@ fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
  #ifdef IQ4_XS
  fn multiply_add(src0_idx_base: u32, src1_idx_base: u32, offset: u32) -> f32 {
      let block = src0[src0_idx_base + offset];
@@ -23252,7 +29554,7 @@ index 5b9f5b36..fdabaf09 100644
      var sum = 0.0;
      for (var ib: u32 = 0; ib < 8; ib++) {
 diff --git src/ggml-webgpu/wgsl-shaders/mul_mat_decls.tmpl src/ggml-webgpu/wgsl-shaders/mul_mat_decls.tmpl
-index eb228537..56a76a6e 100644
+index eb228537..5a323818 100644
 --- src/ggml-webgpu/wgsl-shaders/mul_mat_decls.tmpl
 +++ src/ggml-webgpu/wgsl-shaders/mul_mat_decls.tmpl
 @@ -42,6 +42,7 @@ fn init_shmem_src0(thread_id: u32, batch_offset: u32, offset_m: u32, k_outer: u3
@@ -23276,12 +29578,12 @@ index eb228537..56a76a6e 100644
              let src0_idx = batch_offset + global_m * params.stride_01 + global_k;
              let block_byte_base = src0_idx * BLOCK_SIZE_BYTES;
 -            let d = load_src0_f16_at(block_byte_base);
-+            let d = load_f16_at(&src0, block_byte_base);
++            let d = load_f16_at_src0(block_byte_base);
  
              for (var j = 0u; j < F16_PER_THREAD; j += 2) {
                  let q_byte_offset = block_byte_base + 2u + 2u * (block_offset + j);
 -                let q_packed = load_src0_u32_at(q_byte_offset);
-+                let q_packed = load_u32_at(&src0, q_byte_offset);
++                let q_packed = load_u32_at_src0(q_byte_offset);
                  for (var k = 0u; k < 4u; k++) {
                      let q_byte = get_byte(q_packed, k);
                      let q_hi = (f16((q_byte >> 4) & 0xF) - 8.0) * d;
@@ -23291,13 +29593,13 @@ index eb228537..56a76a6e 100644
              let block_byte_base = src0_idx * BLOCK_SIZE_BYTES;
 -            let d = load_src0_f16_at(block_byte_base);
 -            let m = load_src0_f16_at(block_byte_base + 2u);
-+            let d = load_f16_at(&src0, block_byte_base);
-+            let m = load_f16_at(&src0, block_byte_base + 2u);
++            let d = load_f16_at_src0(block_byte_base);
++            let m = load_f16_at_src0(block_byte_base + 2u);
  
              for (var j = 0u; j < F16_PER_THREAD; j += 2) {
                  let q_byte_offset = block_byte_base + 4u + 2u * (block_offset + j);
 -                let q_packed = load_src0_u32_at(q_byte_offset);
-+                let q_packed = load_u32_at(&src0, q_byte_offset);
++                let q_packed = load_u32_at_src0(q_byte_offset);
                  for (var k = 0u; k < 4u; k++) {
                      let q_byte = get_byte(q_packed, k);
                      let q_lo = f16(q_byte & 0xF) * d + m;
@@ -23307,13 +29609,13 @@ index eb228537..56a76a6e 100644
  
 -            let d  = load_src0_f16_at(block_byte_base);
 -            let qh_packed = load_src0_u32_at(block_byte_base + 2u);
-+            let d  = load_f16_at(&src0, block_byte_base);
-+            let qh_packed = load_u32_at(&src0, block_byte_base + 2u);
++            let d  = load_f16_at_src0(block_byte_base);
++            let qh_packed = load_u32_at_src0(block_byte_base + 2u);
  
              for (var j = 0u; j < 2; j++) {
                  let q_byte_offset = block_byte_base + 6u + 2u * (block_offset + j * 2u);
 -                let q_packed = load_src0_u32_at(q_byte_offset);
-+                let q_packed = load_u32_at(&src0, q_byte_offset);
++                let q_packed = load_u32_at_src0(q_byte_offset);
  
                  let j_adjusted = j + (block_offset / 2u);
  
@@ -23324,15 +29626,15 @@ index eb228537..56a76a6e 100644
 -            let d  = load_src0_f16_at(block_byte_base);
 -            let m = load_src0_f16_at(block_byte_base + 2u);
 -            let qh_packed = load_src0_u32_at(block_byte_base + 4u);
-+            let d  = load_f16_at(&src0, block_byte_base);
-+            let m = load_f16_at(&src0, block_byte_base + 2u);
-+            let qh_packed = load_u32_at(&src0, block_byte_base + 4u);
++            let d  = load_f16_at_src0(block_byte_base);
++            let m = load_f16_at_src0(block_byte_base + 2u);
++            let qh_packed = load_u32_at_src0(block_byte_base + 4u);
  
              for (var j = 0u; j < 2; j++) {
  
                  let q_byte_offset = block_byte_base + 8u + 2u * (block_offset + j * 2u);
 -                let q_packed = load_src0_u32_at(q_byte_offset);
-+                let q_packed = load_u32_at(&src0, q_byte_offset);
++                let q_packed = load_u32_at_src0(q_byte_offset);
  
                  let j_adjusted = j + (block_offset / 2u);
  
@@ -23341,12 +29643,12 @@ index eb228537..56a76a6e 100644
              let src0_idx = batch_offset + global_m * params.stride_01 + global_k;
              let block_byte_base = src0_idx * BLOCK_SIZE_BYTES;
 -            let d = load_src0_f16_at(block_byte_base);
-+            let d = load_f16_at(&src0, block_byte_base);
++            let d = load_f16_at_src0(block_byte_base);
  
              for (var j = 0u; j < F16_PER_THREAD; j+=2) {
                  let q_byte_offset = block_byte_base + 2u + 2u * (block_offset + j);
 -                let q_packed = load_src0_u32_at(q_byte_offset);
-+                let q_packed = load_u32_at(&src0, q_byte_offset);
++                let q_packed = load_u32_at_src0(q_byte_offset);
                  for (var k = 0u; k < 4u; k++) {
                      let q_byte = get_byte_i32(q_packed, k);
  
@@ -23356,13 +29658,13 @@ index eb228537..56a76a6e 100644
              let block_byte_base = src0_idx * BLOCK_SIZE_BYTES;
 -            let d = load_src0_f16_at(block_byte_base);
 -            let m = load_src0_f16_at(block_byte_base + 2u);
-+            let d = load_f16_at(&src0, block_byte_base);
-+            let m = load_f16_at(&src0, block_byte_base + 2u);
++            let d = load_f16_at_src0(block_byte_base);
++            let m = load_f16_at_src0(block_byte_base + 2u);
  
              for (var j = 0u; j < F16_PER_THREAD; j+=2) {
                  let q_byte_offset = block_byte_base + 4u + 2u * (block_offset + j);
 -                let q_packed = load_src0_u32_at(q_byte_offset);
-+                let q_packed = load_u32_at(&src0, q_byte_offset);
++                let q_packed = load_u32_at_src0(q_byte_offset);
                  for (var k = 0u; k < 4u; k++) {
                      let q_byte = get_byte_i32(q_packed, k);
  
@@ -23372,8 +29674,8 @@ index eb228537..56a76a6e 100644
  
 -        let d = load_src0_f16_at(block_byte_base + 80u);
 -        let dmin = load_src0_f16_at(block_byte_base + 82u);
-+        let d = load_f16_at(&src0, block_byte_base + 80u);
-+        let dmin = load_f16_at(&src0, block_byte_base + 82u);
++        let d = load_f16_at_src0(block_byte_base + 80u);
++        let dmin = load_f16_at_src0(block_byte_base + 82u);
  
          // Decode the element at position k_in_block
          let block_of_32 = k_in_block / 32u;
@@ -23382,7 +29684,7 @@ index eb228537..56a76a6e 100644
          let is = k_in_block / 16u;
  
 -        let sc_packed = load_src0_u32_at(block_byte_base + 4u * (is / 4u));
-+        let sc_packed = load_u32_at(&src0, block_byte_base + 4u * (is / 4u));
++        let sc_packed = load_u32_at_src0(block_byte_base + 4u * (is / 4u));
          let sc = get_byte(sc_packed, is % 4u);
  
          let dl = d * f16(sc & 0xFu);
@@ -23390,7 +29692,7 @@ index eb228537..56a76a6e 100644
  
          let q_idx = q_b_idx + k + l;
 -        let q_packed = load_src0_u32_at(block_byte_base + 16u + 4u * (q_idx / 4u));
-+        let q_packed = load_u32_at(&src0, block_byte_base + 16u + 4u * (q_idx / 4u));
++        let q_packed = load_u32_at_src0(block_byte_base + 16u + 4u * (q_idx / 4u));
          let q_byte = get_byte(q_packed, q_idx % 4u);
          let qs_val = (q_byte >> shift) & 3u;
  
@@ -23399,7 +29701,7 @@ index eb228537..56a76a6e 100644
          let block_byte_base = src0_idx * BLOCK_SIZE_BYTES;
  
 -        let d = load_src0_f16_at(block_byte_base + 108u);
-+        let d = load_f16_at(&src0, block_byte_base + 108u);
++        let d = load_f16_at_src0(block_byte_base + 108u);
  
          // Load and unpack scales
          let kmask1: u32 = 0x03030303u;
@@ -23408,7 +29710,7 @@ index eb228537..56a76a6e 100644
          var scale_vals: array<u32, 4>;
          for (var i: u32 = 0u; i < 4u; i++) {
 -            scale_vals[i] = load_src0_u32_at(block_byte_base + 96u + 4u * i);
-+            scale_vals[i] = load_u32_at(&src0, block_byte_base + 96u + 4u * i);
++            scale_vals[i] = load_u32_at_src0(block_byte_base + 96u + 4u * i);
          }
  
          var tmp: u32 = scale_vals[2];
@@ -23417,13 +29719,13 @@ index eb228537..56a76a6e 100644
          var hmask_vals: array<u32, 8>;
          for (var i: u32 = 0u; i < 8u; i++) {
 -            hmask_vals[i] = load_src0_u32_at(block_byte_base + 4u * i);
-+            hmask_vals[i] = load_u32_at(&src0, block_byte_base + 4u * i);
++            hmask_vals[i] = load_u32_at_src0(block_byte_base + 4u * i);
          }
  
          var qs_vals: array<u32, 16>;
          for (var i: u32 = 0u; i < 16u; i++) {
 -            qs_vals[i] = load_src0_u32_at(block_byte_base + 32u + 4u * i);
-+            qs_vals[i] = load_u32_at(&src0, block_byte_base + 32u + 4u * i);
++            qs_vals[i] = load_u32_at_src0(block_byte_base + 32u + 4u * i);
          }
  
          let half = k_in_block / 128u;           // 0 or 1
@@ -23439,8 +29741,8 @@ index eb228537..56a76a6e 100644
 -        for (var i: u32 = 0u; i < 3u; i++) {
 -            scale_vals[i] = load_src0_u32_at(block_byte_base + 4u + 4u * i);
 -        }
-+        let d = load_f16_at(&src0, block_byte_base);
-+        let dmin = load_f16_at(&src0, block_byte_base + 2u);
++        let d = load_f16_at_src0(block_byte_base);
++        let dmin = load_f16_at_src0(block_byte_base + 2u);
  
          // Map k_in_block to loop structure:
          // Outer loop over 64-element groups (alternating q_b_idx)
@@ -23453,17 +29755,17 @@ index eb228537..56a76a6e 100644
          if (is < 4u) {
 -            let sc_byte = get_byte(scale_vals[is / 4u], is % 4u);
 -            let min_byte = get_byte(scale_vals[(is + 4u) / 4u], is % 4u);
-+            let sc_byte = get_byte(load_u32_at(&src0, scale_base), is % 4u);
-+            let min_byte = get_byte(load_u32_at(&src0, scale_base + 4), is % 4u);
++            let sc_byte = get_byte(load_u32_at_src0(scale_base), is % 4u);
++            let min_byte = get_byte(load_u32_at_src0(scale_base + 4), is % 4u);
              sc = sc_byte & 63u;
              mn = min_byte & 63u;
          } else {
 -            let sc_min_lo = get_byte(scale_vals[(is + 4u) / 4u], (is + 4u) % 4u);
 -            let sc_hi = get_byte(scale_vals[(is - 4u) / 4u], (is - 4u) % 4u);
 -            let min_hi = get_byte(scale_vals[is / 4u], is % 4u);
-+            let sc_min_lo = get_byte(load_u32_at(&src0, scale_base + 8), (is + 4u) % 4u);
-+            let sc_hi = get_byte(load_u32_at(&src0, scale_base), (is - 4u) % 4u);
-+            let min_hi = get_byte(load_u32_at(&src0, scale_base + 4), is % 4u);
++            let sc_min_lo = get_byte(load_u32_at_src0(scale_base + 8), (is + 4u) % 4u);
++            let sc_hi = get_byte(load_u32_at_src0(scale_base), (is - 4u) % 4u);
++            let min_hi = get_byte(load_u32_at_src0(scale_base + 4), is % 4u);
  
              sc = (sc_min_lo & 0xFu) | ((sc_hi >> 6u) << 4u);
              mn = (sc_min_lo >> 4u) | ((min_hi >> 6u) << 4u);
@@ -23472,7 +29774,7 @@ index eb228537..56a76a6e 100644
  
          let q_idx = q_b_idx + l;
 -        let q_packed = load_src0_u32_at(block_byte_base + 16u + 4u * (q_idx / 4u));
-+        let q_packed = load_u32_at(&src0, block_byte_base + 16u + 4u * (q_idx / 4u));
++        let q_packed = load_u32_at_src0(block_byte_base + 16u + 4u * (q_idx / 4u));
  
          let q_byte = get_byte(q_packed, q_idx % 4u);
          let qs_val = (q_byte >> shift) & 0xFu;
@@ -23482,8 +29784,8 @@ index eb228537..56a76a6e 100644
  
 -        let d = load_src0_f16_at(block_byte_base);
 -        let dmin = load_src0_f16_at(block_byte_base + 2u);
-+        let d = load_f16_at(&src0, block_byte_base);
-+        let dmin = load_f16_at(&src0, block_byte_base + 2u);
++        let d = load_f16_at_src0(block_byte_base);
++        let dmin = load_f16_at_src0(block_byte_base + 2u);
  
 -        // Load packed scales
 -        var scale_vals: array<u32, 3>;
@@ -23502,17 +29804,17 @@ index eb228537..56a76a6e 100644
          if (is < 4u) {
 -            let sc_byte = get_byte(scale_vals[is / 4u], is % 4u);
 -            let min_byte = get_byte(scale_vals[(is + 4u) / 4u], is % 4u);
-+            let sc_byte = get_byte(load_u32_at(&src0, scale_base), is % 4u);
-+            let min_byte = get_byte(load_u32_at(&src0, scale_base + 4), is % 4u);
++            let sc_byte = get_byte(load_u32_at_src0(scale_base), is % 4u);
++            let min_byte = get_byte(load_u32_at_src0(scale_base + 4), is % 4u);
              sc = sc_byte & 63u;
              mn = min_byte & 63u;
          } else {
 -            let sc_min_lo = get_byte(scale_vals[(is + 4u) / 4u], (is + 4u) % 4u);
 -            let sc_hi = get_byte(scale_vals[(is - 4u) / 4u], (is - 4u) % 4u);
 -            let min_hi = get_byte(scale_vals[is / 4u], is % 4u);
-+            let sc_min_lo = get_byte(load_u32_at(&src0, scale_base + 8), (is + 4u) % 4u);
-+            let sc_hi = get_byte(load_u32_at(&src0, scale_base), (is - 4u) % 4u);
-+            let min_hi = get_byte(load_u32_at(&src0, scale_base + 4), is % 4u);
++            let sc_min_lo = get_byte(load_u32_at_src0(scale_base + 8), (is + 4u) % 4u);
++            let sc_hi = get_byte(load_u32_at_src0(scale_base), (is - 4u) % 4u);
++            let min_hi = get_byte(load_u32_at_src0(scale_base + 4), is % 4u);
  
              sc = (sc_min_lo & 0xFu) | ((sc_hi >> 6u) << 4u);
              mn = (sc_min_lo >> 4u) | ((min_hi >> 6u) << 4u);
@@ -23521,12 +29823,12 @@ index eb228537..56a76a6e 100644
  
          let q_idx = q_b_idx + l;
 -        let q_packed = load_src0_u32_at(block_byte_base + 48u + 4u * (q_idx / 4u));
-+        let q_packed = load_u32_at(&src0, block_byte_base + 48u + 4u * (q_idx / 4u));
++        let q_packed = load_u32_at_src0(block_byte_base + 48u + 4u * (q_idx / 4u));
  
          let q_byte = get_byte(q_packed, q_idx % 4u);
  
 -        let qh_packed = load_src0_u32_at(block_byte_base + 16u + 4u * (l / 4u));
-+        let qh_packed = load_u32_at(&src0, block_byte_base + 16u + 4u * (l / 4u));
++        let qh_packed = load_u32_at_src0(block_byte_base + 16u + 4u * (l / 4u));
  
          let qh_byte = get_byte(qh_packed, l % 4u);
  
@@ -23535,19 +29837,19 @@ index eb228537..56a76a6e 100644
          // Load only ql13 word needed
          let ql13_flat = ql_b_idx + l;
 -        let ql13 = load_src0_u32_at(block_byte_base + ql13_flat);
-+        let ql13 = load_u32_at(&src0, block_byte_base + ql13_flat);
++        let ql13 = load_u32_at_src0(block_byte_base + ql13_flat);
          let ql13_b = get_byte(ql13, 0u);
  
          // Load only ql24 word needed
          let ql24_flat = ql_b_idx + l + 32u;
 -        let ql24 = load_src0_u32_at(block_byte_base + ql24_flat);
-+        let ql24 = load_u32_at(&src0, block_byte_base + ql24_flat);
++        let ql24 = load_u32_at_src0(block_byte_base + ql24_flat);
          let ql24_b = get_byte(ql24, 0u);
  
          // Load only qh word needed
          let qh_flat = qh_b_idx + l;
 -        let qh = load_src0_u32_at(block_byte_base + 128u + qh_flat);
-+        let qh = load_u32_at(&src0, block_byte_base + 128u + qh_flat);
++        let qh = load_u32_at_src0(block_byte_base + 128u + qh_flat);
          let qh_b = get_byte(qh, 0u);
  
          let q1 = f16((ql13_b & 0xFu) | ((qh_b & 3u) << 4u)) - f16(32.0);
@@ -23556,23 +29858,25 @@ index eb228537..56a76a6e 100644
          let is = l / 16u;
          let sc_idx = sc_b_idx + is + quarter * 2u;
 -        let sc = load_src0_u32_at(block_byte_base + 192u + sc_idx);
-+        let sc = load_u32_at(&src0, block_byte_base + 192u + sc_idx);
++        let sc = load_u32_at_src0(block_byte_base + 192u + sc_idx);
          let sc_val = get_byte_i32(sc, 0u);
  
 -        let d = load_src0_f16_at(block_byte_base + 208u);
-+        let d = load_f16_at(&src0, block_byte_base + 208u);
++        let d = load_f16_at_src0(block_byte_base + 208u);
  
          var q_val: f16;
          if (quarter == 0u) {
 diff --git src/ggml-webgpu/wgsl-shaders/mul_mat_id.wgsl src/ggml-webgpu/wgsl-shaders/mul_mat_id.wgsl
 new file mode 100644
-index 00000000..5f763a64
+index 00000000..91039ff2
 --- /dev/null
 +++ src/ggml-webgpu/wgsl-shaders/mul_mat_id.wgsl
-@@ -0,0 +1,193 @@
+@@ -0,0 +1,195 @@
 +enable f16;
 +
++#define DECLARE_BYTE_LOADERS_SRC0
 +#include "common_decls.tmpl"
++
 +#include "mul_mat_decls.tmpl"
 +
 +#ifdef VEC
@@ -23825,10 +30129,15 @@ index 00000000..d79d5f3f
 +    }
 +}
 diff --git src/ggml-webgpu/wgsl-shaders/mul_mat_reg_tile.wgsl src/ggml-webgpu/wgsl-shaders/mul_mat_reg_tile.wgsl
-index b1da421a..ee37e6d2 100644
+index b1da421a..98bbdeb8 100644
 --- src/ggml-webgpu/wgsl-shaders/mul_mat_reg_tile.wgsl
 +++ src/ggml-webgpu/wgsl-shaders/mul_mat_reg_tile.wgsl
-@@ -4,14 +4,14 @@ enable f16;
+@@ -1,17 +1,19 @@
+ enable f16;
+ 
++#define DECLARE_BYTE_LOADERS_SRC0
+ #include "common_decls.tmpl"
++
  #include "mul_mat_decls.tmpl"
  
  #ifdef VEC
@@ -23847,7 +30156,7 @@ index b1da421a..ee37e6d2 100644
  }
  #endif
  
-@@ -98,7 +98,7 @@ fn main(@builtin(workgroup_id) wg_id: vec3<u32>,
+@@ -98,7 +100,7 @@ fn main(@builtin(workgroup_id) wg_id: vec3<u32>,
      let offset_m = wg_m * WORKGROUP_SIZE_M * TILE_M;
      let offset_n = wg_n * WORKGROUP_SIZE_N * TILE_N;
  
@@ -23856,7 +30165,7 @@ index b1da421a..ee37e6d2 100644
  
      for (var k_outer = 0u; k_outer < params.k; k_outer += TILE_K) {
  
-@@ -122,7 +122,7 @@ fn main(@builtin(workgroup_id) wg_id: vec3<u32>,
+@@ -122,7 +124,7 @@ fn main(@builtin(workgroup_id) wg_id: vec3<u32>,
                  let src1_idx = src1_n * TILE_K + k_inner;
                  let src1_val = shmem[TILE_SRC0_SHMEM + src1_idx];
                  for (var tm = 0u; tm < TILE_M; tm++) {
@@ -23866,11 +30175,16 @@ index b1da421a..ee37e6d2 100644
              }
          }
 diff --git src/ggml-webgpu/wgsl-shaders/mul_mat_subgroup_matrix.wgsl src/ggml-webgpu/wgsl-shaders/mul_mat_subgroup_matrix.wgsl
-index 9f9ef279..4151ce43 100644
+index 9f9ef279..d86a72ce 100644
 --- src/ggml-webgpu/wgsl-shaders/mul_mat_subgroup_matrix.wgsl
 +++ src/ggml-webgpu/wgsl-shaders/mul_mat_subgroup_matrix.wgsl
-@@ -6,6 +6,9 @@ enable chromium_experimental_subgroup_matrix;
+@@ -3,9 +3,14 @@ enable f16;
+ enable subgroups;
+ enable chromium_experimental_subgroup_matrix;
+ 
++#define DECLARE_BYTE_LOADERS_SRC0
  #include "common_decls.tmpl"
++
  #include "mul_mat_decls.tmpl"
  
 +// TODO: this shader path does not work with some models like qwen2.5 on Metal devices, f16 accumulation causes NaNs.
@@ -23879,124 +30193,139 @@ index 9f9ef279..4151ce43 100644
  #ifdef VEC
  fn store_dst(shmem_idx: u32, dst_idx: u32) {
      dst[dst_idx] = vec4<f32>(
+@@ -193,4 +198,3 @@ fn main(@builtin(workgroup_id) wg_id: vec3<u32>,
+         }
+     }
+ }
+-
 diff --git src/ggml-webgpu/wgsl-shaders/mul_mat_vec.wgsl src/ggml-webgpu/wgsl-shaders/mul_mat_vec.wgsl
-index 6525f23b..6f6bcaf7 100644
+index 6525f23b..9f7b3e32 100644
 --- src/ggml-webgpu/wgsl-shaders/mul_mat_vec.wgsl
 +++ src/ggml-webgpu/wgsl-shaders/mul_mat_vec.wgsl
-@@ -65,10 +65,10 @@ fn mul_acc(tig:u32, tile_size: u32, idx_base: u32, k_outer: u32) -> f32 {
+@@ -1,7 +1,9 @@
+ enable f16;
+ 
++#define DECLARE_BYTE_LOADERS_SRC0
+ #include "common_decls.tmpl"
+ 
++
+ #ifdef VEC
+ 
+ #define VEC_SIZE 4
+@@ -65,10 +67,10 @@ fn mul_acc(tig:u32, tile_size: u32, idx_base: u32, k_outer: u32) -> f32 {
          let block_byte_base = (idx_base + k_outer / BLOCK_SIZE + blck_idx) * BLOCK_SIZE_BYTES;
          // each f16 contains offsets [block_offset, block_offset + 1] and [block_offset + 16, block_offset + 17]
          let shmem_idx = blck_idx * BLOCK_SIZE + block_offset * 2u;
 -        let d = f32(load_src0_f16_at(block_byte_base));
-+        let d = f32(load_f16_at(&src0, block_byte_base));
++        let d = f32(load_f16_at_src0(block_byte_base));
          for (var j = 0u; j < F16_PER_THREAD; j += 2) {
              let q_byte_offset = block_byte_base + 2u + 2u * (block_offset + j);
 -            let q_packed = load_src0_u32_at(q_byte_offset);
-+            let q_packed = load_u32_at(&src0, q_byte_offset);
++            let q_packed = load_u32_at_src0(q_byte_offset);
              for (var k: u32 = 0; k < 4; k++) {
                  let q_byte = get_byte(q_packed, k);
                  let q_hi = (f32((q_byte >> 4) & 0xF) - 8.0) * d;
-@@ -98,11 +98,11 @@ fn mul_acc(tig:u32, tile_size: u32, idx_base: u32, k_outer: u32) -> f32 {
+@@ -98,11 +100,11 @@ fn mul_acc(tig:u32, tile_size: u32, idx_base: u32, k_outer: u32) -> f32 {
          let block_byte_base = (idx_base + k_outer / BLOCK_SIZE + blck_idx) * BLOCK_SIZE_BYTES;
          // each f16 contains offsets [block_offset, block_offset + 1] and [block_offset + 16, block_offset + 17]
          let shmem_idx = blck_idx * BLOCK_SIZE + block_offset * 2u;
 -        let d = f32(load_src0_f16_at(block_byte_base));
 -        let m = f32(load_src0_f16_at(block_byte_base + 2u));
-+        let d = f32(load_f16_at(&src0, block_byte_base));
-+        let m = f32(load_f16_at(&src0, block_byte_base + 2u));
++        let d = f32(load_f16_at_src0(block_byte_base));
++        let m = f32(load_f16_at_src0(block_byte_base + 2u));
          for (var j = 0u; j < F16_PER_THREAD; j += 2) {
              let q_byte_offset = block_byte_base + 4u + 2u * (block_offset + j);
 -            let q_packed = load_src0_u32_at(q_byte_offset);
-+            let q_packed = load_u32_at(&src0, q_byte_offset);
++            let q_packed = load_u32_at_src0(q_byte_offset);
              for (var k: u32 = 0; k < 4; k++) {
                  let q_byte = get_byte(q_packed, k);
                  let q_hi = f32((q_byte >> 4) & 0xF) * d + m;
-@@ -132,12 +132,12 @@ fn mul_acc(tig:u32, tile_size: u32, idx_base: u32, k_outer: u32) -> f32 {
+@@ -132,12 +134,12 @@ fn mul_acc(tig:u32, tile_size: u32, idx_base: u32, k_outer: u32) -> f32 {
          let block_byte_base = (idx_base + k_outer / BLOCK_SIZE + blck_idx) * BLOCK_SIZE_BYTES;
          // each f16 contains offsets [block_offset, block_offset + 1] and [block_offset + 16, block_offset + 17]
          let shmem_idx = blck_idx * BLOCK_SIZE + block_offset * 2u;
 -        let d = f32(load_src0_f16_at(block_byte_base));
 -        let qh_packed = load_src0_u32_at(block_byte_base + 2u);
-+        let d = f32(load_f16_at(&src0, block_byte_base));
-+        let qh_packed = load_u32_at(&src0, block_byte_base + 2u);
++        let d = f32(load_f16_at_src0(block_byte_base));
++        let qh_packed = load_u32_at_src0(block_byte_base + 2u);
  
          for (var j = 0u; j < 2; j++) {
              let q_byte_offset = block_byte_base + 6u + 2u * (block_offset + j * 2u);
 -            let q_packed = load_src0_u32_at(q_byte_offset);
-+            let q_packed = load_u32_at(&src0, q_byte_offset);
++            let q_packed = load_u32_at_src0(q_byte_offset);
  
              let j_adjusted = j + (block_offset / 2u);
  
-@@ -176,13 +176,13 @@ fn mul_acc(tig:u32, tile_size: u32, idx_base: u32, k_outer: u32) -> f32 {
+@@ -176,13 +178,13 @@ fn mul_acc(tig:u32, tile_size: u32, idx_base: u32, k_outer: u32) -> f32 {
          let block_byte_base = (idx_base + k_outer / BLOCK_SIZE + blck_idx) * BLOCK_SIZE_BYTES;
          // each f16 contains offsets [block_offset, block_offset + 1] and [block_offset + 16, block_offset + 17]
          let shmem_idx = blck_idx * BLOCK_SIZE + block_offset * 2u;
 -        let d = f32(load_src0_f16_at(block_byte_base));
 -        let m = load_src0_f16_at(block_byte_base + 2u);
 -        let qh_packed = load_src0_u32_at(block_byte_base + 4u);
-+        let d = f32(load_f16_at(&src0, block_byte_base));
-+        let m = load_f16_at(&src0, block_byte_base + 2u);
-+        let qh_packed = load_u32_at(&src0, block_byte_base + 4u);
++        let d = f32(load_f16_at_src0(block_byte_base));
++        let m = load_f16_at_src0(block_byte_base + 2u);
++        let qh_packed = load_u32_at_src0(block_byte_base + 4u);
  
          for (var j = 0u; j < 2; j++) {
              let q_byte_offset = block_byte_base + 8u + 2u * (block_offset + j * 2u);
 -            let q_packed = load_src0_u32_at(q_byte_offset);
-+            let q_packed = load_u32_at(&src0, q_byte_offset);
++            let q_packed = load_u32_at_src0(q_byte_offset);
  
              let j_adjusted = j + (block_offset / 2u);
  
-@@ -221,11 +221,11 @@ fn mul_acc(tig:u32, tile_size: u32, idx_base: u32, k_outer: u32) -> f32 {
+@@ -221,11 +223,11 @@ fn mul_acc(tig:u32, tile_size: u32, idx_base: u32, k_outer: u32) -> f32 {
          let block_byte_base = (idx_base + k_outer / BLOCK_SIZE + blck_idx) * BLOCK_SIZE_BYTES;
          // each f16 contains offsets [block_offset, block_offset + 1] and [block_offset + 16, block_offset + 17]
          let shmem_idx = blck_idx * BLOCK_SIZE + block_offset * 2u;
 -        let d = f32(load_src0_f16_at(block_byte_base));
-+        let d = f32(load_f16_at(&src0, block_byte_base));
++        let d = f32(load_f16_at_src0(block_byte_base));
  
          for (var j = 0u; j < F16_PER_THREAD; j += 2) {
              let q_byte_offset = block_byte_base + 2u + 2u * (block_offset + j);
 -            let q_packed = load_src0_u32_at(q_byte_offset);
-+            let q_packed = load_u32_at(&src0, q_byte_offset);
++            let q_packed = load_u32_at_src0(q_byte_offset);
              for (var k: u32 = 0; k < 4; k++) {
                  let q_byte = get_byte_i32(q_packed, k);
                  let q_val = f32(q_byte) * d;
-@@ -254,12 +254,12 @@ fn mul_acc(tig:u32, tile_size: u32, idx_base: u32, k_outer: u32) -> f32 {
+@@ -254,12 +256,12 @@ fn mul_acc(tig:u32, tile_size: u32, idx_base: u32, k_outer: u32) -> f32 {
          let block_byte_base = (idx_base + k_outer / BLOCK_SIZE + blck_idx) * BLOCK_SIZE_BYTES;
          // each f16 contains offsets [block_offset, block_offset + 1] and [block_offset + 16, block_offset + 17]
          let shmem_idx = blck_idx * BLOCK_SIZE + block_offset * 2u;
 -        let d = f32(load_src0_f16_at(block_byte_base));
 -        let m = load_src0_f16_at(block_byte_base + 2u);
-+        let d = f32(load_f16_at(&src0, block_byte_base));
-+        let m = load_f16_at(&src0, block_byte_base + 2u);
++        let d = f32(load_f16_at_src0(block_byte_base));
++        let m = load_f16_at_src0(block_byte_base + 2u);
  
          for (var j = 0u; j < F16_PER_THREAD; j += 2) {
              let q_byte_offset = block_byte_base + 4u + 2u * (block_offset + j);
 -            let q_packed = load_src0_u32_at(q_byte_offset);
-+            let q_packed = load_u32_at(&src0, q_byte_offset);
++            let q_packed = load_u32_at_src0(q_byte_offset);
              for (var k: u32 = 0; k < 4; k++) {
                  let q_byte = get_byte_i32(q_packed, k);
                  let q_val = f32(q_byte) * d + f32(m);
-@@ -309,13 +309,13 @@ fn mul_acc(tig: u32, tile_size: u32, idx_base: u32, k_outer: u32) -> f32 {
+@@ -309,13 +311,13 @@ fn mul_acc(tig: u32, tile_size: u32, idx_base: u32, k_outer: u32) -> f32 {
      for (var i = ix; i < nb; i += 2u) {
          let bbase = (idx_base + k_block_start + i) * BLOCK_SIZE_BYTES;
  
 -        let d = f32(load_src0_f16_at(bbase + 208u));
-+        let d = f32(load_f16_at(&src0, bbase + 208u));
++        let d = f32(load_f16_at_src0(bbase + 208u));
  
 -        let ql1_u32  = load_src0_u32_at(bbase + q_offset_l);
 -        let ql2_u32  = load_src0_u32_at(bbase + q_offset_l + 32u);
 -        let qh_u32   = load_src0_u32_at(bbase + 128u + q_offset_h);
 -        let sc_u32_0 = load_src0_u32_at(bbase + sc_base_byte);
 -        let sc_u32_1 = load_src0_u32_at(bbase + sc_base_byte + 4u);
-+        let ql1_u32  = load_u32_at(&src0, bbase + q_offset_l);
-+        let ql2_u32  = load_u32_at(&src0, bbase + q_offset_l + 32u);
-+        let qh_u32   = load_u32_at(&src0, bbase + 128u + q_offset_h);
-+        let sc_u32_0 = load_u32_at(&src0, bbase + sc_base_byte);
-+        let sc_u32_1 = load_u32_at(&src0, bbase + sc_base_byte + 4u);
++        let ql1_u32  = load_u32_at_src0(bbase + q_offset_l);
++        let ql2_u32  = load_u32_at_src0(bbase + q_offset_l + 32u);
++        let qh_u32   = load_u32_at_src0(bbase + 128u + q_offset_h);
++        let sc_u32_0 = load_u32_at_src0(bbase + sc_base_byte);
++        let sc_u32_1 = load_u32_at_src0(bbase + sc_base_byte + 4u);
  
          let sc0 = sbyte_of(sc_u32_0, sc_byte_pos);
          let sc2 = sbyte_of(sc_u32_0, sc_byte_pos + 2u);
 diff --git src/ggml-webgpu/wgsl-shaders/unary.wgsl src/ggml-webgpu/wgsl-shaders/unary.wgsl
-index 21beb9bb..8c334817 100644
+index 21beb9bb..b8f1bca1 100644
 --- src/ggml-webgpu/wgsl-shaders/unary.wgsl
 +++ src/ggml-webgpu/wgsl-shaders/unary.wgsl
 @@ -107,7 +107,8 @@ fn main(@builtin(global_invocation_id) gid: vec3<u32>) {
@@ -24009,7 +30338,27 @@ index 21beb9bb..8c334817 100644
  #endif
  #ifdef LOG
      let res = TYPE(log(f32(src[params.offset_src + src_idx])));
-@@ -161,7 +162,8 @@ fn main(@builtin(global_invocation_id) gid: vec3<u32>) {
+@@ -146,22 +147,20 @@ fn main(@builtin(global_invocation_id) gid: vec3<u32>) {
+                                -9.010913, 9.010913)));
+ #endif
+ #ifdef XIELU
++    let val = f32(src[params.offset_src + src_idx]);
+     let res =
+-        select(((exp(min(src[params.offset_src + src_idx], TYPE(params.eps))) - 1.0) -
+-                src[params.offset_src + src_idx]) *
+-                   TYPE(params.alpha_n) +
+-               TYPE(params.beta) * src[params.offset_src + src_idx],
+-               TYPE(params.alpha_p) * src[params.offset_src + src_idx] *
+-                   src[params.offset_src + src_idx] +
+-                   TYPE(params.beta) * src[params.offset_src + src_idx],
+-               src[params.offset_src + src_idx] > 0.0);
++        TYPE(select(
++            ((exp(min(val, params.eps)) - 1.0) - val) * params.alpha_n + params.beta * val,
++            params.alpha_p * val * val + params.beta * val,
++            val > 0.0));
+ #endif
+ #ifdef SOFTPLUS
+     let src_f32 = f32(src[params.offset_src + src_idx]);
      let res = TYPE(select(log(1.0 + exp(src_f32)), src_f32, src_f32 > 20.0));
  #endif
  #ifdef EXPM1
@@ -24019,7 +30368,7 @@ index 21beb9bb..8c334817 100644
  #endif
  #ifdef FLOOR
      let res = floor(src[params.offset_src + src_idx]);
-@@ -181,7 +183,7 @@ fn main(@builtin(global_invocation_id) gid: vec3<u32>) {
+@@ -181,7 +180,7 @@ fn main(@builtin(global_invocation_id) gid: vec3<u32>) {
      let res = src[params.offset_src + src_idx] * src[params.offset_src + src_idx];
  #endif
  #ifdef SQRT
@@ -24312,10 +30661,27 @@ index c8760304..fc1df4db 100644
                  case GGML_TYPE_F32:
                  case GGML_TYPE_BF16:
 diff --git src/ggml.c src/ggml.c
-index e9b6720c..0142498d 100644
+index e9b6720c..eda041f4 100644
 --- src/ggml.c
 +++ src/ggml.c
-@@ -651,6 +651,14 @@ static const struct ggml_type_traits type_traits[GGML_TYPE_COUNT] = {
+@@ -53,6 +53,16 @@
+ 
+ #define UNUSED GGML_UNUSED
+ 
++uint64_t ggml_graph_next_uid(void) {
++#ifdef _MSC_VER
++    static volatile long long counter = 1;
++    return (uint64_t) _InterlockedIncrement64(&counter) - 1;
++#else
++    static uint64_t counter = 1;
++    return __atomic_fetch_add(&counter, 1, __ATOMIC_RELAXED);
++#endif
++}
++
+ // Needed for ggml_fp32_to_bf16_row()
+ #if defined(__AVX512BF16__)
+ #if defined(_MSC_VER)
+@@ -651,6 +661,14 @@ static const struct ggml_type_traits type_traits[GGML_TYPE_COUNT] = {
          .to_float                 = (ggml_to_float_t) ggml_fp16_to_fp32_row,
          .from_float_ref           = (ggml_from_float_t) ggml_fp32_to_fp16_row,
      },
@@ -24330,7 +30696,7 @@ index e9b6720c..0142498d 100644
      [GGML_TYPE_Q4_0] = {
          .type_name                = "q4_0",
          .blck_size                = QK4_0,
-@@ -1384,6 +1392,7 @@ enum ggml_type ggml_ftype_to_ggml_type(enum ggml_ftype ftype) {
+@@ -1384,6 +1402,7 @@ enum ggml_type ggml_ftype_to_ggml_type(enum ggml_ftype ftype) {
          case GGML_FTYPE_MOSTLY_BF16:          wtype = GGML_TYPE_BF16;  break;
          case GGML_FTYPE_MOSTLY_Q4_0:          wtype = GGML_TYPE_Q4_0;  break;
          case GGML_FTYPE_MOSTLY_Q4_1:          wtype = GGML_TYPE_Q4_1;  break;
@@ -24338,7 +30704,23 @@ index e9b6720c..0142498d 100644
          case GGML_FTYPE_MOSTLY_Q5_0:          wtype = GGML_TYPE_Q5_0;  break;
          case GGML_FTYPE_MOSTLY_Q5_1:          wtype = GGML_TYPE_Q5_1;  break;
          case GGML_FTYPE_MOSTLY_Q8_0:          wtype = GGML_TYPE_Q8_0;  break;
-@@ -7652,6 +7661,7 @@ size_t ggml_quantize_chunk(
+@@ -7089,6 +7108,7 @@ struct ggml_cgraph * ggml_new_graph_custom(struct ggml_context * ctx, size_t siz
+         /*.use_counts   =*/ use_counts_ptr,
+         /*.hash_table   =*/ { hash_size, hash_used, hash_keys_ptr },
+         /*.order        =*/ GGML_CGRAPH_EVAL_ORDER_LEFT_TO_RIGHT,
++        /*.uid          =*/ 0,
+     };
+ 
+     ggml_hash_set_reset(&cgraph->visited_hash_set);
+@@ -7116,6 +7136,7 @@ struct ggml_cgraph ggml_graph_view(struct ggml_cgraph * cgraph0, int i0, int i1)
+         /*.use_counts       =*/ cgraph0->use_counts,
+         /*.visited_hash_set =*/ cgraph0->visited_hash_set,
+         /*.order            =*/ cgraph0->order,
++        /*.uid              =*/ 0
+     };
+ 
+     return cgraph;
+@@ -7652,6 +7673,7 @@ size_t ggml_quantize_chunk(
      size_t result = 0;
  
      switch (type) {
