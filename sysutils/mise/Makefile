@@ -1,6 +1,6 @@
 PORTNAME=	mise
 DISTVERSIONPREFIX=	v
-DISTVERSION=	2026.4.14
+DISTVERSION=	2026.4.17
 CATEGORIES=	sysutils
 
 MAINTAINER=	yuri@FreeBSD.org
@@ -71,8 +71,8 @@ CARGO_CRATES=	addr2line-0.25.1 \
 		aws-config-1.8.13 \
 		aws-credential-types-1.2.11 \
 		aws-lc-fips-sys-0.13.14 \
-		aws-lc-rs-1.16.2 \
-		aws-lc-sys-0.39.1 \
+		aws-lc-rs-1.16.3 \
+		aws-lc-sys-0.40.0 \
 		aws-runtime-1.6.0 \
 		aws-sdk-s3-1.119.0 \
 		aws-sdk-sts-1.97.0 \
@@ -148,13 +148,13 @@ CARGO_CRATES=	addr2line-0.25.1 \
 		ci_info-0.14.15 \
 		cipher-0.4.4 \
 		clang-sys-1.8.1 \
-		clap-4.6.0 \
+		clap-4.6.1 \
 		clap-sort-1.0.3 \
 		clap_builder-4.6.0 \
-		clap_derive-4.6.0 \
+		clap_derive-4.6.1 \
 		clap_lex-1.1.0 \
 		clru-0.6.3 \
-		clx-1.3.0 \
+		clx-2.0.0 \
 		cmake-0.1.58 \
 		coalesced_map-0.1.2 \
 		color-eyre-0.6.5 \
@@ -171,7 +171,6 @@ CARGO_CRATES=	addr2line-0.25.1 \
 		configparser-3.1.0 \
 		confique-0.4.0 \
 		confique-macro-0.0.13 \
-		console-0.15.11 \
 		console-0.16.3 \
 		const-oid-0.9.6 \
 		const-oid-0.10.2 \
@@ -181,7 +180,9 @@ CARGO_CRATES=	addr2line-0.25.1 \
 		constant_time_eq-0.4.2 \
 		contracts-0.6.7 \
 		convert_case-0.10.0 \
+		cookie-0.18.1 \
 		cookie-factory-0.3.3 \
+		cookie_store-0.22.1 \
 		core-foundation-0.9.4 \
 		core-foundation-0.10.1 \
 		core-foundation-sys-0.8.7 \
@@ -202,19 +203,16 @@ CARGO_CRATES=	addr2line-0.25.1 \
 		crypto-common-0.1.7 \
 		crypto-common-0.2.1 \
 		crypto_secretbox-0.1.1 \
-		ctor-0.9.1 \
+		ctor-0.10.0 \
 		ctor-proc-macro-0.0.12 \
 		ctr-0.9.2 \
 		curve25519-dalek-4.1.3 \
 		curve25519-dalek-derive-0.1.1 \
 		darling-0.20.11 \
-		darling-0.21.3 \
 		darling-0.23.0 \
 		darling_core-0.20.11 \
-		darling_core-0.21.3 \
 		darling_core-0.23.0 \
 		darling_macro-0.20.11 \
-		darling_macro-0.21.3 \
 		darling_macro-0.23.0 \
 		dashmap-5.5.3 \
 		dashmap-6.1.0 \
@@ -223,7 +221,7 @@ CARGO_CRATES=	addr2line-0.25.1 \
 		deadpool-runtime-0.1.4 \
 		decoded-char-0.1.1 \
 		deflate64-0.1.12 \
-		demand-1.8.2 \
+		demand-2.0.0 \
 		der-0.7.10 \
 		der-parser-10.0.0 \
 		der_derive-0.7.3 \
@@ -244,9 +242,8 @@ CARGO_CRATES=	addr2line-0.25.1 \
 		displaydoc-0.2.5 \
 		document-features-0.2.12 \
 		dotenvy-0.15.7 \
-		dtor-0.6.0 \
+		dtor-0.7.0 \
 		dtor-proc-macro-0.0.12 \
-		duct-0.13.7 \
 		duct-1.1.1 \
 		dunce-1.0.5 \
 		dyn-clone-1.0.20 \
@@ -263,7 +260,6 @@ CARGO_CRATES=	addr2line-0.25.1 \
 		enumflags2-0.7.12 \
 		enumflags2_derive-0.7.12 \
 		env_filter-1.0.1 \
-		env_home-0.1.0 \
 		env_logger-0.11.10 \
 		envmnt-0.10.4 \
 		equivalent-1.0.2 \
@@ -446,7 +442,7 @@ CARGO_CRATES=	addr2line-0.25.1 \
 		indenter-0.3.4 \
 		indexmap-1.9.3 \
 		indexmap-2.14.0 \
-		indicatif-0.17.11 \
+		indicatif-0.18.4 \
 		indoc-2.0.7 \
 		inout-0.1.4 \
 		insta-1.47.2 \
@@ -502,7 +498,7 @@ CARGO_CRATES=	addr2line-0.25.1 \
 		libloading-0.9.0 \
 		libm-0.2.16 \
 		libredox-0.1.16 \
-		link-section-0.0.12 \
+		link-section-0.2.0 \
 		linux-raw-sys-0.4.15 \
 		linux-raw-sys-0.12.1 \
 		litemap-0.8.2 \
@@ -596,7 +592,7 @@ CARGO_CRATES=	addr2line-0.25.1 \
 		parking_lot_core-0.9.12 \
 		parse-zoneinfo-0.3.1 \
 		password-hash-0.5.0 \
-		paste-1.0.15 \
+		pastey-0.2.1 \
 		path-absolutize-3.1.1 \
 		path-dedot-3.1.1 \
 		path_resolver-0.2.7 \
@@ -703,8 +699,8 @@ CARGO_CRATES=	addr2line-0.25.1 \
 		retry-policies-0.5.1 \
 		rfc6979-0.4.0 \
 		ring-0.17.14 \
-		rmcp-0.3.2 \
-		rmcp-macros-0.3.2 \
+		rmcp-1.5.0 \
+		rmcp-macros-1.5.0 \
 		rmp-0.8.15 \
 		rmp-serde-1.3.1 \
 		roff-1.1.1 \
@@ -753,7 +749,7 @@ CARGO_CRATES=	addr2line-0.25.1 \
 		self-replace-1.5.0 \
 		self_cell-0.10.3 \
 		self_cell-1.2.2 \
-		self_update-0.42.0 \
+		self_update-0.44.0 \
 		semver-1.0.28 \
 		serde-1.0.228 \
 		serde-untagged-0.1.9 \
@@ -814,6 +810,7 @@ CARGO_CRATES=	addr2line-0.25.1 \
 		snap-1.1.1 \
 		socket2-0.5.10 \
 		socket2-0.6.3 \
+		socks-0.3.4 \
 		spin-0.9.8 \
 		spki-0.7.3 \
 		stable_deref_trait-1.2.1 \
@@ -863,7 +860,7 @@ CARGO_CRATES=	addr2line-0.25.1 \
 		tinyvec_macros-0.1.1 \
 		tls_codec-0.4.2 \
 		tls_codec_derive-0.4.2 \
-		tokio-1.52.0 \
+		tokio-1.52.1 \
 		tokio-macros-2.7.0 \
 		tokio-native-tls-0.3.1 \
 		tokio-retry-0.3.1 \
@@ -872,9 +869,9 @@ CARGO_CRATES=	addr2line-0.25.1 \
 		tokio-stream-0.1.18 \
 		tokio-util-0.7.18 \
 		toml-0.5.11 \
-		toml-0.9.12+spec-1.1.0 \
-		toml_datetime-0.7.5+spec-1.1.0 \
-		toml_edit-0.24.1+spec-1.1.0 \
+		toml-1.1.2+spec-1.1.0 \
+		toml_datetime-1.1.1+spec-1.1.0 \
+		toml_edit-0.25.11+spec-1.1.0 \
 		toml_parser-1.1.2+spec-1.1.0 \
 		toml_writer-1.1.1+spec-1.1.0 \
 		tough-0.21.0 \
@@ -909,14 +906,18 @@ CARGO_CRATES=	addr2line-0.25.1 \
 		unicode-width-0.1.14 \
 		unicode-width-0.2.2 \
 		unicode-xid-0.2.6 \
+		unit-prefix-0.5.2 \
 		universal-hash-0.5.1 \
 		unsafe-libyaml-0.2.11 \
 		untrusted-0.7.1 \
 		untrusted-0.9.0 \
+		ureq-3.3.0 \
+		ureq-proto-0.6.0 \
 		url-2.5.8 \
 		urlencoding-2.1.3 \
 		usage-lib-3.2.0 \
 		utf8-decode-1.0.1 \
+		utf8-zero-0.8.1 \
 		utf8_iter-1.0.4 \
 		utf8parse-0.2.2 \
 		uuid-1.23.0 \
@@ -924,7 +925,6 @@ CARGO_CRATES=	addr2line-0.25.1 \
 		value-trait-0.12.1 \
 		vcpkg-0.2.15 \
 		version_check-0.9.5 \
-		versions-6.3.2 \
 		versions-7.0.0 \
 		vsimd-0.8.0 \
 		vte-0.14.1 \
@@ -949,7 +949,6 @@ CARGO_CRATES=	addr2line-0.25.1 \
 		webbrowser-1.2.0 \
 		webpki-root-certs-1.0.6 \
 		webpki-roots-1.0.6 \
-		which-7.0.3 \
 		which-8.0.2 \
 		widestring-1.2.1 \
 		winapi-0.3.9 \
@@ -1020,7 +1019,6 @@ CARGO_CRATES=	addr2line-0.25.1 \
 		winnow-0.6.24 \
 		winnow-0.7.15 \
 		winnow-1.0.1 \
-		winsafe-0.0.19 \
 		winver-1.0.0 \
 		wiremock-0.6.5 \
 		wit-bindgen-0.51.0 \
@@ -1050,11 +1048,12 @@ CARGO_CRATES=	addr2line-0.25.1 \
 		zerotrie-0.2.4 \
 		zerovec-0.11.6 \
 		zerovec-derive-0.11.3 \
-		zip-2.4.2 \
 		zip-3.0.0 \
 		zip-4.6.1 \
+		zip-6.0.0 \
 		zip-8.5.1 \
 		zipsign-api-0.1.5 \
+		zipsign-api-0.2.1 \
 		zlib-rs-0.6.3 \
 		zmij-1.0.21 \
 		zopfli-0.8.3 \

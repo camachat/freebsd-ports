@@ -123,6 +123,7 @@
     SUBDIR += bhyve-firmware
     SUBDIR += bhyve-rc
     SUBDIR += bhyvemgr
+    SUBDIR += bin
     SUBDIR += biosfont
     SUBDIR += bkpupsd
     SUBDIR += bksh
@@ -1414,6 +1415,7 @@
     SUBDIR += tarsnap-gui
     SUBDIR += tarsnap-periodic
     SUBDIR += tartarus
+    SUBDIR += taws
     SUBDIR += tbku
     SUBDIR += tclsyslog
     SUBDIR += tcplist

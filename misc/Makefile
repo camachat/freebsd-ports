@@ -52,6 +52,7 @@
     SUBDIR += claude-code
     SUBDIR += clex
     SUBDIR += clifm
+    SUBDIR += clawhub
     SUBDIR += cloc
     SUBDIR += clpbar
     SUBDIR += code2prompt
@@ -189,6 +190,7 @@
     SUBDIR += gobuster
     SUBDIR += gollama
     SUBDIR += gone
+    SUBDIR += goplaces
     SUBDIR += gplink
     SUBDIR += gpsim
     SUBDIR += granulate

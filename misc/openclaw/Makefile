@@ -1,5 +1,5 @@
 PORTNAME=	openclaw
-DISTVERSION=	2026.4.14
+DISTVERSION=	2026.4.15
 CATEGORIES=	misc # machine-learning
 PKGNAMESUFFIX=	-ai-gateway
 DISTFILES=	${PORTNAME}-${DISTVERSION}${EXTRACT_SUFX}
@@ -20,6 +20,7 @@ BUILD_DEPENDS=	npm:www/npm \
 RUN_DEPENDS=	vips>=8.17.2:graphics/vips
 
 USES=		nodejs:run pkgconfig python:build
+USE_RC_SUBR=	${PORTNAME}
 
 PACKAGE_NAME=	openclaw
 
