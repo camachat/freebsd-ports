@@ -1,20 +1,14 @@
 diff --git CMakeLists.txt CMakeLists.txt
-index 5834e544..6b65ecd6 100644
+index 5834e544..a0eb9204 100644
 --- CMakeLists.txt
 +++ CMakeLists.txt
-@@ -1,4 +1,11 @@
+@@ -1,4 +1,5 @@
  cmake_minimum_required(VERSION 3.14...3.28) # for add_link_options and implicit target directories.
 +
-+# ref: https://cmake.org/cmake/help/latest/policy/CMP0194.html
-+# MSVC is not a valid assembler for the ASM language.
-+# Set to NEW to avoid a warning on CMake 4.1+ with MSVC.
-+if (POLICY CMP0194)
-+    cmake_policy(SET CMP0194 NEW)
-+endif()
  project("ggml" C CXX ASM)
  
  ### GGML Version
-@@ -7,6 +14,8 @@ set(GGML_VERSION_MINOR 9)
+@@ -7,6 +8,8 @@ set(GGML_VERSION_MINOR 9)
  set(GGML_VERSION_PATCH 11)
  set(GGML_VERSION_BASE "${GGML_VERSION_MAJOR}.${GGML_VERSION_MINOR}.${GGML_VERSION_PATCH}")
  
@@ -23,7 +17,7 @@ index 5834e544..6b65ecd6 100644
  find_program(GIT_EXE NAMES git git.exe NO_CMAKE_FIND_ROOT_PATH)
  if(GIT_EXE)
      # Get current git commit hash
-@@ -204,12 +213,14 @@ option(GGML_CUDA_NO_VMM                     "ggml: do not try to use CUDA VMM"
+@@ -204,12 +207,14 @@ option(GGML_CUDA_NO_VMM                     "ggml: do not try to use CUDA VMM"
  option(GGML_CUDA_FA                         "ggml: compile ggml FlashAttention CUDA kernels"  ON)
  option(GGML_CUDA_FA_ALL_QUANTS              "ggml: compile all quants for FlashAttention"     OFF)
  option(GGML_CUDA_GRAPHS                     "ggml: use CUDA graphs (llama.cpp only)"          ${GGML_CUDA_GRAPHS_DEFAULT})
@@ -38,7 +32,7 @@ index 5834e544..6b65ecd6 100644
  option(GGML_HIP_NO_VMM                      "ggml: do not try to use HIP VMM"                 ON)
  option(GGML_HIP_ROCWMMA_FATTN               "ggml: enable rocWMMA for FlashAttention"         OFF)
  option(GGML_HIP_MMQ_MFMA                    "ggml: enable MFMA MMA for CDNA in MMQ"           ON)
-@@ -243,6 +254,7 @@ option(GGML_RPC                             "ggml: use RPC"
+@@ -243,6 +248,7 @@ option(GGML_RPC                             "ggml: use RPC"
  option(GGML_SYCL                            "ggml: use SYCL"                                  OFF)
  option(GGML_SYCL_F16                        "ggml: use 16 bit floats for sycl calculations"   OFF)
  option(GGML_SYCL_GRAPH                      "ggml: enable graphs in the SYCL backend"         ON)
@@ -443,10 +437,10 @@ index 59190b7c..9c56ec30 100644
          // (optional) complete all pending operations (required if the backend supports async operations)
 diff --git src/ggml-backend-meta.cpp src/ggml-backend-meta.cpp
 new file mode 100644
-index 00000000..1ee3eeb4
+index 00000000..39651adc
 --- /dev/null
 +++ src/ggml-backend-meta.cpp
-@@ -0,0 +1,1941 @@
+@@ -0,0 +1,1992 @@
 +#include "ggml.h"
 +#include "ggml-impl.h"
 +#include "ggml-backend.h"
@@ -1719,7 +1713,45 @@ index 00000000..1ee3eeb4
 +    GGML_ASSERT(ggml_is_contiguous(tensor));
 +
 +    const ggml_backend_meta_split_state split_state = ggml_backend_meta_get_split_state(tensor, /*assume_sync =*/ false);
-+    GGML_ASSERT(split_state.n_segments == 1);
++
++    if (split_state.n_segments != 1) {
++        GGML_ASSERT(split_state.axis >= 0 && split_state.axis < GGML_MAX_DIMS);
++        GGML_ASSERT(offset == 0);
++        GGML_ASSERT(size == ggml_nbytes(tensor));
++        GGML_ASSERT(tensor->ne[3] == 1);
++        size_t offset_data = 0;
++        std::vector<size_t> simple_offsets(n_bufs, 0);
++        if (split_state.axis == GGML_BACKEND_SPLIT_AXIS_0) {
++            GGML_ASSERT(tensor->ne[2] == 1);
++            const int64_t blck_size = ggml_blck_size(tensor->type);
++            for (size_t s = 0; s < split_state.n_segments; s++) {
++                for (size_t j = 0; j < n_bufs; j++) {
++                    const ggml_tensor * simple_tensor = ggml_backend_meta_buffer_simple_tensor(tensor, j);
++                    GGML_ASSERT(split_state.ne[s*n_bufs + j] % blck_size == 0);
++                    const size_t nbytes = split_state.ne[s*n_bufs + j]/blck_size * tensor->nb[0];
++                    ggml_backend_tensor_get_2d(simple_tensor, (char *) data + offset_data, simple_offsets[j], nbytes,
++                        tensor->ne[1], simple_tensor->nb[1], tensor->nb[1]);
++                    offset_data       += nbytes;
++                    simple_offsets[j] += nbytes;
++                }
++            }
++            GGML_ASSERT(offset_data*tensor->ne[1] == size);
++            return;
++        }
++        GGML_ASSERT(split_state.axis == GGML_BACKEND_SPLIT_AXIS_1);
++        for (size_t s = 0; s < split_state.n_segments; s++) {
++            for (size_t j = 0; j < n_bufs; j++) {
++                const ggml_tensor * simple_tensor = ggml_backend_meta_buffer_simple_tensor(tensor, j);
++                const size_t nbytes = split_state.ne[s*n_bufs + j] * tensor->nb[1];
++                ggml_backend_tensor_get_2d(simple_tensor, (char *) data + offset_data, simple_offsets[j], nbytes,
++                    tensor->ne[2], simple_tensor->nb[2], tensor->nb[2]);
++                offset_data       += nbytes;
++                simple_offsets[j] += nbytes;
++            }
++        }
++        GGML_ASSERT(offset_data*tensor->ne[2] == size);
++        return;
++    }
 +
 +    switch (split_state.axis) {
 +        case GGML_BACKEND_SPLIT_AXIS_0:
@@ -1867,6 +1899,8 @@ index 00000000..1ee3eeb4
 +    int                         max_nnodes    = 0;
 +    size_t                      max_tmp_size  = 0;
 +    size_t                      max_subgraphs = 0;
++    size_t                      n_subgraphs   = 0;
++    uint64_t                    uid           = 0;
 +
 +    void *                               comm_ctx       = nullptr;
 +    ggml_backend_comm_allreduce_tensor_t comm_allreduce = nullptr;
@@ -2027,6 +2061,9 @@ index 00000000..1ee3eeb4
 +    const size_t n_backends = ggml_backend_meta_n_backends(backend);
 +    ggml_backend_meta_context * backend_ctx = (ggml_backend_meta_context *) backend->context;
 +
++    // If the previous cgraph had a defined UID it can be used to skip rebuilding the subgraphs per simple backend.
++    const bool needs_rebuild = (cgraph->uid == 0) || (cgraph->uid != backend_ctx->uid);
++
 +    bool max_nnodes_raised = false;
 +    if (cgraph->n_nodes > backend_ctx->max_nnodes) {
 +        for (size_t j = 0; j < n_backends; j++) {
@@ -2036,173 +2073,181 @@ index 00000000..1ee3eeb4
 +        }
 +        backend_ctx->max_nnodes = cgraph->n_nodes;
 +        max_nnodes_raised = true;
++        assert(needs_rebuild);
 +    }
-+    for (size_t j = 0; j < n_backends; j++) {
-+        auto & bcj = backend_ctx->backend_configs[j];
 +
-+        for (int i = 0; i < cgraph->n_nodes; i++) {
-+            ggml_tensor * node = cgraph->nodes[i];
-+            if (node->view_src != nullptr && node->view_src->op == GGML_OP_NONE && ggml_backend_buffer_is_host(node->view_src->buffer)) {
-+                // FIXME s_copy_main is on the CPU and its view seems to be incorrectly added to the graph nodes.
-+                // For regular usage this doesn't matter since it's a noop but trying to call ggml_backend_meta_buffer_simple_tensor results in a crash.
-+                bcj.nodes[i] = node;
-+                continue;
++    if (needs_rebuild) {
++        size_t n_subgraphs  = 0;
++        size_t max_tmp_size = 0;
++
++        for (size_t j = 0; j < n_backends; j++) {
++            auto & bcj = backend_ctx->backend_configs[j];
++
++            for (int i = 0; i < cgraph->n_nodes; i++) {
++                ggml_tensor * node = cgraph->nodes[i];
++                if (node->view_src != nullptr && node->view_src->op == GGML_OP_NONE && ggml_backend_buffer_is_host(node->view_src->buffer)) {
++                    // FIXME s_copy_main is on the CPU and its view seems to be incorrectly added to the graph nodes.
++                    // For regular usage this doesn't matter since it's a noop but trying to call ggml_backend_meta_buffer_simple_tensor results in a crash.
++                    bcj.nodes[i] = node;
++                    continue;
++                }
++                bcj.nodes[i] = ggml_backend_meta_buffer_simple_tensor(node, j);
++                GGML_ASSERT(bcj.nodes[i]);
 +            }
-+            bcj.nodes[i] = ggml_backend_meta_buffer_simple_tensor(node, j);
-+            GGML_ASSERT(bcj.nodes[i]);
 +        }
-+    }
 +
-+    size_t n_subgraphs  = 0;
-+    size_t max_tmp_size = 0;
-+    {
-+        // For MoE models it may make sense to delay the AllReduce in order to reduce I/O:
-+        auto get_i_delayed = [&](const int i) -> int {
-+            int id = i; // i_delayed
-+            int idr = i; // i_delayed return, last safe return value
++        {
++            // For MoE models it may make sense to delay the AllReduce in order to reduce I/O:
++            auto get_i_delayed = [&](const int i) -> int {
++                int id = i; // i_delayed
++                int idr = i; // i_delayed return, last safe return value
 +
-+            ggml_tensor * node = cgraph->nodes[id];
-+            int32_t n_used = ggml_node_get_use_count(cgraph, id);
-+            if (id + 1 >= cgraph->n_nodes) {
-+                return idr;
-+            }
-+            {
-+                ggml_tensor * next = cgraph->nodes[id+1];
-+                if (next->op == GGML_OP_ADD_ID && next->src[0] == node &&
-+                        ggml_backend_meta_get_split_state(next->src[1], false).axis == GGML_BACKEND_SPLIT_AXIS_PARTIAL &&
-+                        ggml_backend_meta_get_split_state(next->src[2], false).axis == GGML_BACKEND_SPLIT_AXIS_MIRRORED) {
-+                    node = next;
++                ggml_tensor * node = cgraph->nodes[id];
++                int32_t n_used = ggml_node_get_use_count(cgraph, id);
++                if (id + 1 >= cgraph->n_nodes) {
++                    return idr;
++                }
++                {
++                    ggml_tensor * next = cgraph->nodes[id+1];
++                    if (next->op == GGML_OP_ADD_ID && next->src[0] == node &&
++                            ggml_backend_meta_get_split_state(next->src[1], false).axis == GGML_BACKEND_SPLIT_AXIS_PARTIAL &&
++                            ggml_backend_meta_get_split_state(next->src[2], false).axis == GGML_BACKEND_SPLIT_AXIS_MIRRORED) {
++                        node = next;
++                        id++;
++                        idr = id;
++                        n_used = ggml_node_get_use_count(cgraph, id);
++                    }
++                }
++                if (id + 1 >= cgraph->n_nodes) {
++                    return idr;
++                }
++                {
++                    ggml_tensor * next = cgraph->nodes[id+1];
++                    if (next->op == GGML_OP_MUL && next->src[0] == node &&
++                            ggml_backend_meta_get_split_state(next->src[1], false).axis == GGML_BACKEND_SPLIT_AXIS_MIRRORED) {
++                        node = next;
++                        id++;
++                        idr = id;
++                        n_used = ggml_node_get_use_count(cgraph, id);
++                    }
++                }
++
++                if (n_used != node->ne[1] || id + 2*n_used-1 >= cgraph->n_nodes) {
++                    return idr;
++                }
++                for (int32_t k = 0; k < n_used; k++) {
++                    ggml_tensor * next = cgraph->nodes[id+1];
++                    if (next->op != GGML_OP_VIEW || next->view_src != node || next->view_offs != k*node->nb[1] ||
++                            next->ne[0] != node->ne[0] || next->ne[1] != node->ne[2] || next->nb[1] != node->nb[2] ||
++                            ggml_node_get_use_count(cgraph, id+1) != 1) {
++                        return idr;
++                    }
 +                    id++;
-+                    idr = id;
-+                    n_used = ggml_node_get_use_count(cgraph, id);
 +                }
-+            }
-+            if (id + 1 >= cgraph->n_nodes) {
-+                return idr;
-+            }
-+            {
-+                ggml_tensor * next = cgraph->nodes[id+1];
-+                if (next->op == GGML_OP_MUL && next->src[0] == node &&
-+                        ggml_backend_meta_get_split_state(next->src[1], false).axis == GGML_BACKEND_SPLIT_AXIS_MIRRORED) {
-+                    node = next;
++                {
++                    ggml_tensor * next = cgraph->nodes[id+1];
++                    if (next->op != GGML_OP_ADD || next->src[0] != cgraph->nodes[id - (n_used-1)] ||
++                            next->src[1] != cgraph->nodes[id - (n_used-2)] || ggml_node_get_use_count(cgraph, id+1) != 1) {
++                        return idr;
++                    }
 +                    id++;
-+                    idr = id;
-+                    n_used = ggml_node_get_use_count(cgraph, id);
 +                }
-+            }
-+
-+            if (n_used != node->ne[1] || id + 2*n_used-1 >= cgraph->n_nodes) {
++                for (int32_t k = 0; k < n_used - 2; k++) {
++                    ggml_tensor * next = cgraph->nodes[id+1];
++                    if (next->op != GGML_OP_ADD || next->src[0] != cgraph->nodes[id] ||
++                            next->src[1] != cgraph->nodes[id - (n_used-2)] || ggml_node_get_use_count(cgraph, id+1) != 1) {
++                        return idr;
++                    }
++                    id++;
++                }
++                idr = id;
 +                return idr;
-+            }
-+            for (int32_t k = 0; k < n_used; k++) {
-+                ggml_tensor * next = cgraph->nodes[id+1];
-+                if (next->op != GGML_OP_VIEW || next->view_src != node || next->view_offs != k*node->nb[1] ||
-+                        next->ne[0] != node->ne[0] || next->ne[1] != node->ne[2] || next->nb[1] != node->nb[2] ||
-+                        ggml_node_get_use_count(cgraph, id+1) != 1) {
-+                    return idr;
-+                }
-+                id++;
-+            }
-+            {
-+                ggml_tensor * next = cgraph->nodes[id+1];
-+                if (next->op != GGML_OP_ADD || next->src[0] != cgraph->nodes[id - (n_used-1)] ||
-+                        next->src[1] != cgraph->nodes[id - (n_used-2)] || ggml_node_get_use_count(cgraph, id+1) != 1) {
-+                    return idr;
-+                }
-+                id++;
-+            }
-+            for (int32_t k = 0; k < n_used - 2; k++) {
-+                ggml_tensor * next = cgraph->nodes[id+1];
-+                if (next->op != GGML_OP_ADD || next->src[0] != cgraph->nodes[id] ||
-+                        next->src[1] != cgraph->nodes[id - (n_used-2)] || ggml_node_get_use_count(cgraph, id+1) != 1) {
-+                    return idr;
-+                }
-+                id++;
-+            }
-+            idr = id;
-+            return idr;
-+        };
++            };
 +
-+        int i_start = 0;
-+        for (int i = 0; i < cgraph->n_nodes; i++) {
-+            ggml_tensor * node = cgraph->nodes[i];
-+            if (node->view_src != nullptr && node->view_src->op == GGML_OP_NONE && ggml_backend_buffer_is_host(node->view_src->buffer)) {
-+                continue;
-+            }
-+            const ggml_backend_meta_split_state split_state = ggml_backend_meta_get_split_state(node, /*assume_sync =*/ false);
-+            if (split_state.axis == GGML_BACKEND_SPLIT_AXIS_PARTIAL) {
-+                max_tmp_size = std::max(max_tmp_size, ggml_nbytes(node));
-+            }
-+            const bool new_subgraph = i + 1 == cgraph->n_nodes || split_state.axis == GGML_BACKEND_SPLIT_AXIS_PARTIAL;
-+            if (!new_subgraph) {
-+                continue;
-+            }
++            int i_start = 0;
++            for (int i = 0; i < cgraph->n_nodes; i++) {
++                ggml_tensor * node = cgraph->nodes[i];
++                if (node->view_src != nullptr && node->view_src->op == GGML_OP_NONE && ggml_backend_buffer_is_host(node->view_src->buffer)) {
++                    continue;
++                }
++                const ggml_backend_meta_split_state split_state = ggml_backend_meta_get_split_state(node, /*assume_sync =*/ false);
++                if (split_state.axis == GGML_BACKEND_SPLIT_AXIS_PARTIAL) {
++                    max_tmp_size = std::max(max_tmp_size, ggml_nbytes(node));
++                }
++                const bool new_subgraph = i + 1 == cgraph->n_nodes || split_state.axis == GGML_BACKEND_SPLIT_AXIS_PARTIAL;
++                if (!new_subgraph) {
++                    continue;
++                }
 +
-+            i = get_i_delayed(i);
++                i = get_i_delayed(i);
 +
++                for (size_t j = 0; j < n_backends; j++) {
++                    auto & bcj = backend_ctx->backend_configs[j];
++                    bcj.cgraphs[n_subgraphs].offset = i_start;
++                }
++                n_subgraphs++;
++                i_start = i + 1;
++            }
++            GGML_ASSERT(i_start == cgraph->n_nodes);
++        }
++
++        backend_ctx->uid         = cgraph->uid;
++        backend_ctx->n_subgraphs = n_subgraphs;
++
++        if (max_tmp_size > backend_ctx->max_tmp_size) {
 +            for (size_t j = 0; j < n_backends; j++) {
 +                auto & bcj = backend_ctx->backend_configs[j];
-+                bcj.cgraphs[n_subgraphs].offset = i_start;
++                bcj.buf.reset(ggml_backend_alloc_buffer(bcj.backend, max_tmp_size));
 +            }
-+            n_subgraphs++;
-+            i_start = i + 1;
++            backend_ctx->max_tmp_size = max_tmp_size;
 +        }
-+        GGML_ASSERT(i_start == cgraph->n_nodes);
-+    }
 +
-+    if (max_tmp_size > backend_ctx->max_tmp_size) {
-+        for (size_t j = 0; j < n_backends; j++) {
-+            auto & bcj = backend_ctx->backend_configs[j];
-+            bcj.buf.reset(ggml_backend_alloc_buffer(bcj.backend, max_tmp_size));
-+        }
-+        backend_ctx->max_tmp_size = max_tmp_size;
-+    }
-+
-+
-+    if (max_nnodes_raised || n_subgraphs > backend_ctx->max_subgraphs) {
-+        backend_ctx->max_subgraphs = std::max(backend_ctx->max_subgraphs, n_subgraphs);
-+        const size_t n_reduce_steps = backend_ctx->n_reduce_steps();
-+        const size_t n_nodes_per_device = 2 * n_reduce_steps; // tmp + ADD per step
-+        const size_t n_cgraphs_per_device = n_reduce_steps;    // 1 ADD graph per step
-+        const size_t mem_per_device_graphs_main = backend_ctx->max_subgraphs*ggml_graph_overhead_custom(backend_ctx->max_nnodes, cgraph->grads);
-+        const size_t mem_per_device_graphs_aux = n_cgraphs_per_device*backend_ctx->max_subgraphs*ggml_graph_overhead_custom(1, cgraph->grads);
-+        const size_t mem_per_device_nodes_aux = n_nodes_per_device*backend_ctx->max_subgraphs*ggml_tensor_overhead();
-+        ggml_init_params params = {
-+            /*.mem_size   =*/ n_backends * (mem_per_device_graphs_main + mem_per_device_graphs_aux + mem_per_device_nodes_aux),
-+            /*.mem_buffer =*/ nullptr,
-+            /*.no_alloc   =*/ true,
-+        };
-+        backend_ctx->ctx.reset(ggml_init(params));
-+        for (size_t j = 0; j < n_backends; j++) {
-+            auto & bcj = backend_ctx->backend_configs[j];
-+            for (size_t i = 0; i < n_subgraphs; i++) {
-+                bcj.cgraphs[i].cgraph_main = ggml_new_graph_custom(backend_ctx->ctx.get(), cgraph->n_nodes, /*grads =*/ false);
++        if (max_nnodes_raised || n_subgraphs > backend_ctx->max_subgraphs) {
++            backend_ctx->max_subgraphs = std::max(backend_ctx->max_subgraphs, n_subgraphs);
++            const size_t n_reduce_steps = backend_ctx->n_reduce_steps();
++            const size_t n_nodes_per_device = 2 * n_reduce_steps; // tmp + ADD per step
++            const size_t n_cgraphs_per_device = n_reduce_steps;    // 1 ADD graph per step
++            const size_t mem_per_device_graphs_main = backend_ctx->max_subgraphs*ggml_graph_overhead_custom(backend_ctx->max_nnodes, cgraph->grads);
++            const size_t mem_per_device_graphs_aux = n_cgraphs_per_device*backend_ctx->max_subgraphs*ggml_graph_overhead_custom(1, cgraph->grads);
++            const size_t mem_per_device_nodes_aux = n_nodes_per_device*backend_ctx->max_subgraphs*ggml_tensor_overhead();
++            ggml_init_params params = {
++                /*.mem_size   =*/ n_backends * (mem_per_device_graphs_main + mem_per_device_graphs_aux + mem_per_device_nodes_aux),
++                /*.mem_buffer =*/ nullptr,
++                /*.no_alloc   =*/ true,
++            };
++            backend_ctx->ctx.reset(ggml_init(params));
++            for (size_t j = 0; j < n_backends; j++) {
++                auto & bcj = backend_ctx->backend_configs[j];
++                for (size_t i = 0; i < n_subgraphs; i++) {
++                    bcj.cgraphs[i].cgraph_main = ggml_new_graph_custom(backend_ctx->ctx.get(), cgraph->n_nodes, /*grads =*/ false);
++                }
++            }
++            backend_ctx->cgraphs_aux.resize(n_backends*n_cgraphs_per_device*backend_ctx->max_subgraphs);
++            for (size_t k = 0; k < backend_ctx->cgraphs_aux.size(); k++) {
++                backend_ctx->cgraphs_aux[k] = ggml_new_graph_custom(backend_ctx->ctx.get(), 1, cgraph->grads);
++            }
++            backend_ctx->nodes_aux.resize(n_backends*n_nodes_per_device*backend_ctx->max_subgraphs);
++            for (size_t k = 0; k < backend_ctx->nodes_aux.size(); k++) {
++                backend_ctx->nodes_aux[k] = ggml_new_tensor_1d(backend_ctx->ctx.get(), GGML_TYPE_F32, 1);
 +            }
 +        }
-+        backend_ctx->cgraphs_aux.resize(n_backends*n_cgraphs_per_device*backend_ctx->max_subgraphs);
-+        for (size_t k = 0; k < backend_ctx->cgraphs_aux.size(); k++) {
-+            backend_ctx->cgraphs_aux[k] = ggml_new_graph_custom(backend_ctx->ctx.get(), 1, cgraph->grads);
-+        }
-+        backend_ctx->nodes_aux.resize(n_backends*n_nodes_per_device*backend_ctx->max_subgraphs);
-+        for (size_t k = 0; k < backend_ctx->nodes_aux.size(); k++) {
-+            backend_ctx->nodes_aux[k] = ggml_new_tensor_1d(backend_ctx->ctx.get(), GGML_TYPE_F32, 1);
-+        }
-+    }
 +
-+    for (size_t j = 0; j < n_backends; j++) {
-+        auto & bcj = backend_ctx->backend_configs[j];
-+        for (size_t i_graph = 0; i_graph < n_subgraphs; i_graph++) {
-+            ggml_cgraph * cgraph_ij = bcj.cgraphs[i_graph].cgraph_main;
-+            const size_t i_node_start = bcj.cgraphs[i_graph].offset;
-+            const size_t i_node_stop = i_graph + 1 < n_subgraphs ? bcj.cgraphs[i_graph + 1].offset : cgraph->n_nodes;
-+            cgraph_ij->n_nodes = i_node_stop - i_node_start;
-+            ggml_hash_set_reset(&cgraph_ij->visited_hash_set);
-+            for (size_t i_node = i_node_start; i_node < i_node_stop; i_node++) {
-+                ggml_tensor * node_ij = bcj.nodes[i_node];
-+                cgraph_ij->nodes[i_node - i_node_start] = node_ij;
-+                const size_t hash_pos_orig = ggml_hash_find(&cgraph->visited_hash_set, cgraph->nodes[i_node]);
-+                const size_t hash_pos_ij = ggml_hash_insert(&cgraph_ij->visited_hash_set, node_ij);
-+                cgraph_ij->use_counts[hash_pos_ij] = cgraph->use_counts[hash_pos_orig];
++        for (size_t j = 0; j < n_backends; j++) {
++            auto & bcj = backend_ctx->backend_configs[j];
++            for (size_t i_graph = 0; i_graph < n_subgraphs; i_graph++) {
++                ggml_cgraph * cgraph_ij = bcj.cgraphs[i_graph].cgraph_main;
++                const size_t i_node_start = bcj.cgraphs[i_graph].offset;
++                const size_t i_node_stop = i_graph + 1 < n_subgraphs ? bcj.cgraphs[i_graph + 1].offset : cgraph->n_nodes;
++                cgraph_ij->n_nodes = i_node_stop - i_node_start;
++                ggml_hash_set_reset(&cgraph_ij->visited_hash_set);
++                for (size_t i_node = i_node_start; i_node < i_node_stop; i_node++) {
++                    ggml_tensor * node_ij = bcj.nodes[i_node];
++                    cgraph_ij->nodes[i_node - i_node_start] = node_ij;
++                    const size_t hash_pos_orig = ggml_hash_find(&cgraph->visited_hash_set, cgraph->nodes[i_node]);
++                    const size_t hash_pos_ij = ggml_hash_insert(&cgraph_ij->visited_hash_set, node_ij);
++                    cgraph_ij->use_counts[hash_pos_ij] = cgraph->use_counts[hash_pos_orig];
++                }
++                cgraph_ij->uid = ggml_graph_next_uid();
 +            }
 +        }
 +    }
@@ -2309,7 +2354,7 @@ index 00000000..1ee3eeb4
 +    };
 +
 +
-+    for (size_t i = 0; i < n_subgraphs; i++) {
++    for (size_t i = 0; i < backend_ctx->n_subgraphs; i++) {
 +        for (size_t j = 0; j < n_backends; j++) {
 +            auto & bcj = backend_ctx->backend_configs[j];
 +            const ggml_status status = ggml_backend_graph_compute_async(bcj.backend, bcj.cgraphs[i].cgraph_main);
@@ -2318,7 +2363,7 @@ index 00000000..1ee3eeb4
 +            }
 +        }
 +
-+        if (n_backends > 1 && i < n_subgraphs - 1) {
++        if (n_backends > 1 && i < backend_ctx->n_subgraphs - 1) {
 +            bool backend_allreduce_success = false;
 +            if (backend_ctx->comm_ctx) {
 +                std::vector<ggml_tensor *> nodes;
@@ -4784,7 +4829,7 @@ index 62bc9501..12624785 100644
  void ggml_cuda_op_fused_add(ggml_backend_cuda_context & ctx, ggml_tensor * dst, int n_fuse);
 +void ggml_cuda_op_fused_mul(ggml_backend_cuda_context & ctx, ggml_tensor * dst, int n_fuse);
 diff --git src/ggml-cuda/common.cuh src/ggml-cuda/common.cuh
-index 9affe023..ddf50baf 100644
+index 9affe023..3aec1742 100644
 --- src/ggml-cuda/common.cuh
 +++ src/ggml-cuda/common.cuh
 @@ -65,8 +65,9 @@
@@ -4819,7 +4864,18 @@ index 9affe023..ddf50baf 100644
  #if !defined(GGML_USE_HIP) && !defined(GGML_CUDA_NO_VMM)
  static const char * cu_get_error_str(CUresult err) {
      const char * err_str;
-@@ -918,6 +924,13 @@ struct ggml_cuda_type_traits<GGML_TYPE_F16> {
+@@ -263,10 +269,6 @@ static const char * cu_get_error_str(CUresult err) {
+ #define FLASH_ATTN_AVAILABLE
+ #endif // !defined(GGML_CUDA_NO_FA) && !(defined(GGML_USE_MUSA) && __MUSA_ARCH__ < 220)
+ 
+-#if defined(TURING_MMA_AVAILABLE)
+-#define LDMATRIX_TRANS_AVAILABLE
+-#endif // defined(TURING_MMA_AVAILABLE)
+-
+ static bool fp16_available(const int cc) {
+     return ggml_cuda_highest_compiled_arch(cc) >= GGML_CUDA_CC_PASCAL ||
+         (GGML_CUDA_CC_IS_MTHREADS(cc) && cc >= GGML_CUDA_CC_PH1);
+@@ -918,6 +920,13 @@ struct ggml_cuda_type_traits<GGML_TYPE_F16> {
      static constexpr int qr = 1;
  };
  
@@ -4833,7 +4889,7 @@ index 9affe023..ddf50baf 100644
  template<>
  struct ggml_cuda_type_traits<GGML_TYPE_Q4_0> {
      static constexpr int qk = QK4_0;
-@@ -1157,19 +1170,6 @@ struct ggml_tensor_extra_gpu {
+@@ -1157,19 +1166,6 @@ struct ggml_tensor_extra_gpu {
  #define USE_CUDA_GRAPH
  #endif
  
@@ -4853,7 +4909,7 @@ index 9affe023..ddf50baf 100644
  struct ggml_cuda_graph {
  #ifdef USE_CUDA_GRAPH
      ~ggml_cuda_graph() {
-@@ -1186,13 +1186,15 @@ struct ggml_cuda_graph {
+@@ -1186,13 +1182,15 @@ struct ggml_cuda_graph {
      std::vector<cudaGraphNode_t> nodes;
      bool disable_due_to_gpu_arch = false;
      bool warmup_complete = false;
@@ -4876,7 +4932,7 @@ index 9affe023..ddf50baf 100644
  
      bool is_enabled() const {
          static const bool disable_cuda_graphs_due_to_env = (getenv("GGML_CUDA_DISABLE_GRAPHS") != nullptr);
-@@ -1367,12 +1369,28 @@ struct ggml_backend_cuda_context {
+@@ -1367,12 +1365,28 @@ struct ggml_backend_cuda_context {
      // when the computation is split across CPU/GPU (e.g., with --n-cpu-moe)
      std::unordered_map<const void *, std::unique_ptr<ggml_cuda_graph>> cuda_graphs;
  
@@ -5231,6 +5287,110 @@ index c59a4db3..beeb5238 100644
          }
      } else if (parallel_blocks > 1) {
          const dim3 block_dim_combine(DV, 1, 1);
+diff --git src/ggml-cuda/fattn-mma-f16.cuh src/ggml-cuda/fattn-mma-f16.cuh
+index b613ae61..e185449d 100644
+--- src/ggml-cuda/fattn-mma-f16.cuh
++++ src/ggml-cuda/fattn-mma-f16.cuh
+@@ -305,12 +305,13 @@ static __device__ __forceinline__ void flash_attn_ext_f16_load_tile(
+         const half2 * const __restrict__ KV, half2 * const __restrict__ tile_KV, const int D2, const int stride_KV, const int i_sup) {
+     constexpr int warp_size = ggml_cuda_get_physical_warp_size();
+     // K/V data is loaded with decreasing granularity for D for better memory bandwidth.
+-    // The minimum granularity with cp.async is 16 bytes, with synchronous data loading it's 4 bytes.
++    // The minimum granularity is 16 bytes.
++    constexpr int h2_per_chunk = 16/sizeof(half2);
++    const int chunks_per_row = D2 / h2_per_chunk;
+     if constexpr (use_cp_async) {
++        static_assert(warp_size == 32, "bad warp_size");
+         static_assert(!oob_check, "OOB check not compatible with cp_async");
+         constexpr int preload = 64;
+-        constexpr int h2_per_chunk = 16/sizeof(half2);
+-        const int chunks_per_row = D2 / h2_per_chunk;
+ 
+         const unsigned int tile_KV_32 = ggml_cuda_cvta_generic_to_shared(tile_KV);
+ 
+@@ -348,11 +349,11 @@ static __device__ __forceinline__ void flash_attn_ext_f16_load_tile(
+         // 6: max  1*16= 16 bytes,   8 half
+         ggml_cuda_unroll<6>{}(load);
+     } else {
+-        // TODO use ggml_cuda_memcpy_1
++        const half2 zero[4] = {{0.0f, 0.0f}, {0.0f, 0.0f}, {0.0f, 0.0f}, {0.0f, 0.0f}};
+         auto load = [&] __device__ (const int n) {
+-            const int stride_k = warp_size >> n;
+-            const int k0_start = stride_k == warp_size ? 0 : D2 - D2 % (2*stride_k);
+-            const int k0_stop  =                             D2 - D2 % (1*stride_k);
++            const int stride_k = 32 >> n;
++            const int k0_start = stride_k == 32 ? 0 : chunks_per_row - chunks_per_row % (2*stride_k);
++            const int k0_stop  =                      chunks_per_row - chunks_per_row % (1*stride_k);
+             const int stride_i = warp_size / stride_k;
+ 
+             if (k0_start == k0_stop) {
+@@ -371,15 +372,18 @@ static __device__ __forceinline__ void flash_attn_ext_f16_load_tile(
+                 for (int k0 = k0_start; k0 < k0_stop; k0 += stride_k) {
+                     const int k = k0 + (stride_k == warp_size ? threadIdx.x : threadIdx.x % stride_k);
+ 
+-                    tile_KV[i*stride_tile + k] = !oob_check || i < i_sup ? KV[i*stride_KV + k] : make_half2(0.0f, 0.0f);
++                    ggml_cuda_memcpy_1<16>(tile_KV + i*stride_tile + k*4,
++                        !oob_check || i < i_sup ? KV + i*stride_KV + k*h2_per_chunk : zero);
+                 }
+             }
+         };
+-        // 1: max 32* 4=128 bytes,  64 half
+-        // 2: max 16* 4= 64 bytes,  32 half
+-        // 3: max  8* 4= 32 bytes,  16 half
+-        // 4: max  4* 4= 16 bytes,   8 half
+-        ggml_cuda_unroll<4>{}(load);
++        // 1: max 32*16=512 bytes, 256 half
++        // 2: max 16*16=256 bytes, 128 half
++        // 3: max  8*16=128 bytes,  64 half
++        // 4: max  4*16= 64 bytes,  32 half
++        // 5: max  2*16= 32 bytes,  16 half
++        // 6: max  1*16= 16 bytes,   8 half
++        ggml_cuda_unroll<6>{}(load);
+     }
+ }
+ 
+@@ -862,11 +866,6 @@ static __device__ __forceinline__ void flash_attn_ext_f16_iter(
+     }
+ 
+ 
+-#if defined(AMD_WMMA_AVAILABLE) && !defined(LDMATRIX_TRANS_AVAILABLE)
+-    T_A_VKQ A_identity;
+-    make_identity_mat(A_identity);
+-#endif // defined(AMD_WMMA_AVAILABLE) && !defined(LDMATRIX_TRANS_AVAILABLE)
+-
+     // Calculate VKQ tile, need to use logical rather than physical elements for i0 due to transposition of V:
+ #pragma unroll
+     for (int i0_start = 0; i0_start < DV; i0_start += 2*nbatch_V2) {
+@@ -897,29 +896,7 @@ static __device__ __forceinline__ void flash_attn_ext_f16_iter(
+                 const int k0 = k00 + (threadIdx.y % np)*T_A_VKQ::J;
+ 
+                 T_A_VKQ A; // Transposed in SRAM but not in registers, gets transposed on load.
+-#if defined(LDMATRIX_TRANS_AVAILABLE)
+                 load_ldmatrix_trans(A, tile_V_i + 2*k0*stride_tile_V + (i_VKQ_0 - i0_start)/2, stride_tile_V);
+-#elif defined(AMD_MFMA_AVAILABLE)
+-                // MFMA A register layout: A_mat[i=lane%16][k=4*(lane/16)+reg].
+-                // Normal load gives A_mat[seq][dv] but we need A_mat[dv][seq] = V^T.
+-                // Load with transposed addressing: 4 strided half loads.
+-                {
+-                    const half2 * xs0 = tile_V_i + 2*k0*stride_tile_V + (i_VKQ_0 - i0_start)/2;
+-                    const half * xs0_h = (const half *) xs0;
+-                    const int stride_h = stride_tile_V * 2; // stride in half units
+-                    half * A_h = (half *) A.x;
+-#pragma unroll
+-                    for (int l = 0; l < 4; ++l) {
+-                        A_h[l] = xs0_h[(4*(threadIdx.x / 16) + l) * stride_h + threadIdx.x % 16];
+-                    }
+-                }
+-#else
+-                // TODO: Try to transpose tile_V when loading gmem to smem.
+-                // Use mma to transpose T_A_VKQ for RDNA.
+-                T_A_VKQ A_trans;
+-                load_ldmatrix(A_trans, tile_V_i + 2*k0*stride_tile_V + (i_VKQ_0 - i0_start)/2, stride_tile_V);
+-                mma(A, A_trans, A_identity);
+-#endif // defined(LDMATRIX_TRANS_AVAILABLE)
+                 if constexpr (T_B_KQ::I == 8) {
+                     mma(VKQ_C[i_VKQ_0/i0_stride], A, B[k00/(np*T_A_VKQ::J)]);
+                 } else {
 diff --git src/ggml-cuda/fattn.cu src/ggml-cuda/fattn.cu
 index addf9320..ea6607cd 100644
 --- src/ggml-cuda/fattn.cu
@@ -6108,10 +6268,258 @@ index 75b62129..de579d2e 100644
          return (void *)ggml_backend_cuda_split_buffer_type;
      }
 diff --git src/ggml-cuda/mma.cuh src/ggml-cuda/mma.cuh
-index 5d1dadd3..c91dd2d9 100644
+index 5d1dadd3..b0f67463 100644
 --- src/ggml-cuda/mma.cuh
 +++ src/ggml-cuda/mma.cuh
-@@ -1025,7 +1025,8 @@ namespace ggml_cuda_mma {
+@@ -86,17 +86,12 @@ namespace ggml_cuda_mma {
+     //   - (I_MAJOR, I_MAJOR_MIRRORED) -> I_MAJOR
+     //   - (I_MAJOR, J_MAJOR_MIRRORED) -> I_MAJOR
+ 
+-    static constexpr bool is_i_major(const data_layout dl) {
+-        return dl == DATA_LAYOUT_I_MAJOR ||
+-               dl == DATA_LAYOUT_I_MAJOR_MIRRORED;
+-    }
+-
+     static constexpr __device__ data_layout get_input_data_layout() {
+-#if defined(RDNA3) || __CUDA_ARCH__ == GGML_CUDA_CC_VOLTA
++#if defined(RDNA3) || defined(VOLTA_MMA_AVAILABLE)
+         return DATA_LAYOUT_I_MAJOR_MIRRORED;
+ #else
+         return DATA_LAYOUT_I_MAJOR;
+-#endif // defined(RDNA3) || __CUDA_ARCH__ == GGML_CUDA_CC_VOLTA
++#endif // defined(RDNA3) || defined(VOLTA_MMA_AVAILABLE)
+     }
+ 
+     template <int I_, int J_, typename T, data_layout ds_=DATA_LAYOUT_I_MAJOR>
+@@ -113,7 +108,6 @@ namespace ggml_cuda_mma {
+         T x[ne] = {0};
+ 
+         static constexpr __device__ bool supported() {
+-            if (I == 64 && J ==  2) return true;
+             if (I == 16 && J ==  8) return true;
+             if (I == 32 && J ==  4) return true;
+             if (I == 16 && J == 16) return true;
+@@ -122,7 +116,7 @@ namespace ggml_cuda_mma {
+         }
+ 
+         static __device__ __forceinline__ int get_i(const int l) {
+-            if constexpr (I == 64 && J == 2) { // Special tile size to load <16, 4> as <16, 8>
++            if constexpr (I == 16 && J == 4) {
+                 return threadIdx.x % 16;
+             } else if constexpr (I == 16 && J == 8) {
+                 return threadIdx.x % 16;
+@@ -139,8 +133,8 @@ namespace ggml_cuda_mma {
+         }
+ 
+         static __device__ __forceinline__ int get_j(const int l) {
+-            if constexpr (I == 64 && J == 2) { // Special tile size to load <16, 4> as <16, 8>
+-                return (2 * ((threadIdx.x / 16) % 2) + l);
++            if constexpr (I == 16 && J == 4) {
++                return threadIdx.x / 16;
+             } else if constexpr (I == 16 && J == 8) {
+                 return 2 * (threadIdx.x / 16) + l;
+             } else if constexpr (I == 32 && J == 4) {
+@@ -154,7 +148,7 @@ namespace ggml_cuda_mma {
+                 return -1;
+             }
+         }
+-#elif __CUDA_ARCH__ == GGML_CUDA_CC_VOLTA
++#elif defined(VOLTA_MMA_AVAILABLE)
+         static constexpr int ne = I * J / 32;
+         T x[ne] = {0};
+ 
+@@ -283,7 +277,7 @@ namespace ggml_cuda_mma {
+         static constexpr int         J  = J_;
+         static constexpr data_layout dl = DATA_LAYOUT_I_MAJOR;
+ 
+-#if __CUDA_ARCH__ == GGML_CUDA_CC_VOLTA
++#if defined(VOLTA_MMA_AVAILABLE)
+         static constexpr int ne = I * J / WARP_SIZE;
+         half2 x[ne] = {{0.0f, 0.0f}};
+ 
+@@ -407,7 +401,7 @@ namespace ggml_cuda_mma {
+                 return -1;
+             }
+         }
+-#endif // __CUDA_ARCH__ == GGML_CUDA_CC_VOLTA
++#endif // defined(VOLTA_MMA_AVAILABLE)
+     };
+ 
+     template <int I_, int J_>
+@@ -701,57 +695,12 @@ namespace ggml_cuda_mma {
+     }
+ #endif // defined(TURING_MMA_AVAILABLE)
+ 
+-    static __device__ __forceinline__ void make_identity_mat(tile<16, 8, half2> & t) {
+-#if defined(RDNA4)
+-        const int row = t.get_i(0);
+-        const int left_right = t.get_j(0) / 4;
+-        const int up_down = row / 8;
+-        const int idx = row % 8;
+-        reinterpret_cast<half*>(t.x)[idx] = left_right == up_down ? 1.0f : 0.0f;
+-#else
+-        GGML_UNUSED_VARS(t);
+-        NO_DEVICE_CODE;
+-#endif // defined(RDNA4)
+-    }
+-
+     template <int I, int J, typename T, data_layout dl>
+     static __device__ __forceinline__ void load_generic(tile<I, J, T, dl> & t, const T * __restrict__ xs0, const int stride) {
+-#if defined(AMD_MFMA_AVAILABLE)
+-        if constexpr (I == 64 && J == 2) { // Special tile size to load <16, 4> as <16, 8>
+-#pragma unroll
+-            for (int l = 0; l < t.ne; ++l) {
+-                t.x[l] = xs0[t.get_i(l)*stride + t.get_j(l)];
+-            }
+-        } else {
+-            ggml_cuda_memcpy_1<sizeof(t.x)>(t.x, xs0 + t.get_i(0) * stride + t.get_j(0));
+-        }
+-#elif defined(AMD_WMMA_AVAILABLE)
+-        // All wmma layout has contiguous data when i-major.
+-        if constexpr (is_i_major(dl)) {
+-            // the data must be aligned to 16 bytes when bigger than ggml_cuda_get_max_cpy_bytes()
+-            constexpr int aligned_copy_bytes = ggml_cuda_get_max_cpy_bytes();
+-            if constexpr (sizeof(t.x) > aligned_copy_bytes) {
+-                static_assert(sizeof(t.x) % aligned_copy_bytes == 0, "bad type size");
+-                constexpr int aligned_copy_count = sizeof(t.x)/aligned_copy_bytes;
+-#pragma unroll
+-                for (int i = 0; i < aligned_copy_count; ++i) {
+-                    ggml_cuda_memcpy_1<aligned_copy_bytes>(t.x + t.ne/aligned_copy_count*i, xs0 + t.get_i(0) * stride + t.get_j(t.ne/aligned_copy_count*i));
+-                }
+-            } else {
+-                ggml_cuda_memcpy_1<sizeof(t.x)>(t.x, xs0 + t.get_i(0) * stride + t.get_j(0));
+-            }
+-        } else {
+-#pragma unroll
+-            for (int l = 0; l < t.ne; ++l) {
+-                t.x[l] = xs0[t.get_i(l)*stride + t.get_j(l)];
+-            }
+-        }
+-#else
+ #pragma unroll
+         for (int l = 0; l < t.ne; ++l) {
+             t.x[l] = xs0[t.get_i(l)*stride + t.get_j(l)];
+         }
+-#endif // defined(AMD_MFMA_AVAILABLE)
+     }
+ 
+     template <typename T>
+@@ -764,26 +713,37 @@ namespace ggml_cuda_mma {
+             : "=r"(xi[0]), "=r"(xi[1])
+             : "l"(xs));
+ #else
+-        load_generic(t, xs0, stride);
++        GGML_UNUSED_VARS(t, xs0, stride);
++        NO_DEVICE_CODE;
+ #endif // TURING_MMA_AVAILABLE
+     }
+ 
+-    template <typename T>
++    template <typename T, data_layout dl>
+     static __device__ __forceinline__ void load_ldmatrix(
+-            tile<16, 4, T> & t, const T * __restrict__ xs0, const int stride) {
++            tile<16, 4, T, dl> & t, const T * __restrict__ xs0, const int stride) {
+ #ifdef TURING_MMA_AVAILABLE
+         int * xi = (int *) t.x;
+         const int * xs = (const int *) xs0 + (threadIdx.x % t.I) * stride;
+         asm volatile("ldmatrix.sync.aligned.m8n8.x2.b16 {%0, %1}, [%2];"
+             : "=r"(xi[0]), "=r"(xi[1])
+             : "l"(xs));
++#elif defined(AMD_WMMA_AVAILABLE)
++#ifdef RDNA3
++        static_assert(dl == DATA_LAYOUT_I_MAJOR_MIRRORED, "bad data layout");
++        static_assert(sizeof(t.x) == 16, "bad ne");
++        ggml_cuda_memcpy_1<8>(t.x + 0, xs0 + t.get_i(0)*stride + 0);
++        ggml_cuda_memcpy_1<8>(t.x + 2, xs0 + t.get_i(0)*stride + 2);
++#else
++        static_assert(dl == DATA_LAYOUT_I_MAJOR, "bad data layout");
++        static_assert(sizeof(t.x) == 8, "bad ne");
++        ggml_cuda_memcpy_1<8>(t.x, xs0 + t.get_i(0)*stride + t.get_j(0));
++#endif // RDNA3
++#elif defined(AMD_MFMA_AVAILABLE)
++        static_assert(sizeof(t.x) == 4, "bad ne");
++        ggml_cuda_memcpy_1<4>(t.x, xs0 + t.get_i(0)*stride + t.get_j(0));
+ #else
+-#if __CUDA_ARCH__ == GGML_CUDA_CC_VOLTA
+         GGML_UNUSED_VARS(t, xs0, stride);
+         NO_DEVICE_CODE;
+-#else
+-        load_generic(t, xs0, stride);
+-#endif // __CUDA_ARCH__ == GGML_CUDA_CC_VOLTA
+ #endif // TURING_MMA_AVAILABLE
+     }
+ 
+@@ -796,19 +756,26 @@ namespace ggml_cuda_mma {
+         asm volatile("ldmatrix.sync.aligned.m8n8.x4.b16 {%0, %1, %2, %3}, [%4];"
+             : "=r"(xi[0]), "=r"(xi[1]), "=r"(xi[2]), "=r"(xi[3])
+             : "l"(xs));
+-#else
+-#if __CUDA_ARCH__ == GGML_CUDA_CC_VOLTA
+-#if 1
+-        // TODO: more generic handling
+-        static_assert(sizeof(T) == 4, "bad type size");
++#elif defined(VOLTA_MMA_AVAILABLE)
+         ggml_cuda_memcpy_1<4*sizeof(T)>(t.x + 0, xs0 + t.get_i(0)*stride + 0);
+         ggml_cuda_memcpy_1<4*sizeof(T)>(t.x + 4, xs0 + t.get_i(4)*stride + 4);
++#elif defined(AMD_WMMA_AVAILABLE)
++#ifdef RDNA3
++        static_assert(dl == DATA_LAYOUT_I_MAJOR_MIRRORED, "bad data layout");
++        static_assert(sizeof(t.x) == 32, "bad ne");
++        ggml_cuda_memcpy_1<16>(t.x + 0, xs0 + t.get_i(0)*stride + 0);
++        ggml_cuda_memcpy_1<16>(t.x + 4, xs0 + t.get_i(0)*stride + 4);
+ #else
+-        load_generic(t, xs0, stride);
+-#endif // 1
++        static_assert(dl == DATA_LAYOUT_I_MAJOR, "bad data layout");
++        static_assert(sizeof(t.x) == 16, "bad ne");
++        ggml_cuda_memcpy_1<16>(t.x, xs0 + t.get_i(0)*stride + t.get_j(0));
++#endif // RDNA3
++#elif defined(AMD_MFMA_AVAILABLE)
++        static_assert(sizeof(t.x) == 8, "bad ne");
++        ggml_cuda_memcpy_1<8>(t.x, xs0 + t.get_i(0)*stride + t.get_j(0));
+ #else
+-        load_generic(t, xs0, stride);
+-#endif // __CUDA_ARCH__ == GGML_CUDA_CC_VOLTA
++        GGML_UNUSED_VARS(t, xs0, stride);
++        NO_DEVICE_CODE;
+ #endif // TURING_MMA_AVAILABLE
+     }
+ 
+@@ -827,23 +794,30 @@ namespace ggml_cuda_mma {
+ 
+     static __device__ __forceinline__ void load_ldmatrix(
+             tile<32, 4, half2> & t, const half2 * __restrict__ xs0, const int stride) {
+-#if __CUDA_ARCH__ == GGML_CUDA_CC_VOLTA
++#if defined(VOLTA_MMA_AVAILABLE)
+         ggml_cuda_memcpy_1<4*sizeof(half2)>(t.x, xs0 + t.get_i(0)*stride);
+ #else
+         GGML_UNUSED_VARS(t, xs0, stride);
+         NO_DEVICE_CODE;
+-#endif // __CUDA_ARCH__ == GGML_CUDA_CC_VOLTA
++#endif // defined(VOLTA_MMA_AVAILABLE)
+     }
+ 
+     template <typename T>
+     static __device__ __forceinline__ void load_ldmatrix_trans(
+             tile<16, 8, T> & t, const T * __restrict__ xs0, const int stride) {
+ #ifdef TURING_MMA_AVAILABLE
+-        int * xi = (int * ) t.x;
++        int * xi = (int *) t.x;
+         const int * xs = (const int *) xs0 + (threadIdx.x % t.I) * stride + (threadIdx.x / t.I) * (t.J / 2);
+         asm volatile("ldmatrix.sync.aligned.m8n8.x4.trans.b16 {%0, %1, %2, %3}, [%4];"
+             : "=r"(xi[0]), "=r"(xi[2]), "=r"(xi[1]), "=r"(xi[3])
+             : "l"(xs));
++#elif defined(AMD_MFMA_AVAILABLE) || defined(AMD_WMMA_AVAILABLE)
++        half * xh = (half *) t.x;
++#pragma unroll
++        for (int l = 0; l < t.ne; ++l) {
++            xh[2*l + 0] = ((const half *) xs0)[(2*t.get_j(l) + 0)*(2*stride) + t.get_i(l)];
++            xh[2*l + 1] = ((const half *) xs0)[(2*t.get_j(l) + 1)*(2*stride) + t.get_i(l)];
++        }
+ #else
+         GGML_UNUSED_VARS(t, xs0, stride);
+         NO_DEVICE_CODE;
+@@ -1025,7 +999,8 @@ namespace ggml_cuda_mma {
          const floatx2_t& a_frag = reinterpret_cast<const floatx2_t&>(A.x[0]);
          const floatx2_t& b_frag = reinterpret_cast<const floatx2_t&>(B.x[0]);
          acc_frag = __builtin_amdgcn_mfma_f32_16x16x8_xf32(a_frag, b_frag, acc_frag, 0, 0, 0);
@@ -6121,7 +6529,7 @@ index 5d1dadd3..c91dd2d9 100644
  #pragma unroll
          for (int i = 0; i < 2; ++i) {
              acc_frag = __builtin_amdgcn_mfma_f32_16x16x4f32(A.x[i], B.x[i], acc_frag, 0, 0, 0);
-@@ -1187,7 +1188,7 @@ namespace ggml_cuda_mma {
+@@ -1187,7 +1162,7 @@ namespace ggml_cuda_mma {
  #elif defined(AMD_MFMA_AVAILABLE)
          using floatx4_t = __attribute__((ext_vector_type(4))) float;
          floatx4_t& acc_frag = reinterpret_cast<floatx4_t&>(D.x[0]);
@@ -6130,54 +6538,199 @@ index 5d1dadd3..c91dd2d9 100644
          using bf16x4_t = __attribute__((ext_vector_type(4))) __bf16;
          const bf16x4_t& a_frag = reinterpret_cast<const bf16x4_t&>(A.x[0]);
          const bf16x4_t& b_frag = reinterpret_cast<const bf16x4_t&>(B.x[0]);
-@@ -1216,12 +1217,12 @@ namespace ggml_cuda_mma {
+@@ -1216,74 +1191,28 @@ namespace ggml_cuda_mma {
  #if defined(AMD_MFMA_AVAILABLE)
          using int32x4_t = __attribute__((__vector_size__(4 * sizeof(int)))) int;
          int32x4_t * acc = (int32x4_t *) D.x;
 -#if defined(CDNA3)
-+#if defined(CDNA4) || defined(CDNA3)
-         acc[0] = __builtin_amdgcn_mfma_i32_16x16x32_i8(((int64_t *) A.x)[0],
-                                                        ((int64_t *) B.x)[0],
-                                                        acc[0],
-                                                        0, 0, 0);
+-        acc[0] = __builtin_amdgcn_mfma_i32_16x16x32_i8(((int64_t *) A.x)[0],
+-                                                       ((int64_t *) B.x)[0],
+-                                                       acc[0],
+-                                                       0, 0, 0);
 -#elif defined(CDNA2) || defined(CDNA)
-+#elif defined(CDNA2) || defined(CDNA1)
-         acc[0] = __builtin_amdgcn_mfma_i32_16x16x16i8(A.x[0],
-                                                       B.x[0],
-                                                       acc[0],
-@@ -1230,7 +1231,7 @@ namespace ggml_cuda_mma {
-                                                       B.x[1],
-                                                       acc[0],
-                                                       0, 0, 0);
+-        acc[0] = __builtin_amdgcn_mfma_i32_16x16x16i8(A.x[0],
+-                                                      B.x[0],
+-                                                      acc[0],
+-                                                      0, 0, 0);
+-        acc[0] = __builtin_amdgcn_mfma_i32_16x16x16i8(A.x[1],
+-                                                      B.x[1],
+-                                                      acc[0],
+-                                                      0, 0, 0);
 -#endif // defined(CDNA3)
+-
++#if defined(CDNA4) || defined(CDNA3)
++        acc[0] = __builtin_amdgcn_mfma_i32_16x16x32_i8(((int64_t *) A.x)[0], ((int64_t *) B.x)[0], acc[0], 0, 0, 0);
++#elif defined(CDNA2) || defined(CDNA1)
++        acc[0] = __builtin_amdgcn_mfma_i32_16x16x16i8(A.x[0], B.x[0], acc[0], 0, 0, 0);
++        acc[0] = __builtin_amdgcn_mfma_i32_16x16x16i8(A.x[1], B.x[1], acc[0], 0, 0, 0);
 +#endif // defined(CDNA4) || defined(CDNA3)
- 
  #elif defined(AMD_WMMA_AVAILABLE)
- 
-@@ -1295,12 +1296,12 @@ namespace ggml_cuda_mma {
+-
+         using int32x8_t = __attribute__((__vector_size__(8 * sizeof(int)))) int;
+         int32x8_t * acc = (int32x8_t *) D.x;
+-
+ #if defined(RDNA4)
+         using int32x2_t = __attribute__((__vector_size__(2 * sizeof(int)))) int;
+         int32x2_t * a_vec = (int32x2_t *) A.x;
+         int32x2_t * b_vec = (int32x2_t *) B.x;
+-
+-        acc[0] = __builtin_amdgcn_wmma_i32_16x16x16_iu8_w32_gfx12(
+-            true,
+-            a_vec[0],
+-            true,
+-            b_vec[0],
+-            acc[0],
+-            true
+-        );
+-
+-        acc[0] = __builtin_amdgcn_wmma_i32_16x16x16_iu8_w32_gfx12(
+-            true,
+-            a_vec[1],
+-            true,
+-            b_vec[1],
+-            acc[0],
+-            true
+-        );
+-
++        acc[0] = __builtin_amdgcn_wmma_i32_16x16x16_iu8_w32_gfx12(true, a_vec[0], true, b_vec[0], acc[0], true);
++        acc[0] = __builtin_amdgcn_wmma_i32_16x16x16_iu8_w32_gfx12(true, a_vec[1], true, b_vec[1], acc[0], true);
+ #elif defined(RDNA3)
+         using int32x4_t = __attribute__((__vector_size__(4 * sizeof(int)))) int;
+         int32x4_t * a_vec = (int32x4_t *) A.x;
+         int32x4_t * b_vec = (int32x4_t *) B.x;
+-
+-        acc[0] = __builtin_amdgcn_wmma_i32_16x16x16_iu8_w32(
+-            true,
+-            a_vec[0],
+-            true,
+-            b_vec[0],
+-            acc[0],
+-            true
+-        );
+-
+-        acc[0] = __builtin_amdgcn_wmma_i32_16x16x16_iu8_w32(
+-            true,
+-            a_vec[1],
+-            true,
+-            b_vec[1],
+-            acc[0],
+-            true
+-        );
++        acc[0] = __builtin_amdgcn_wmma_i32_16x16x16_iu8_w32(true, a_vec[0], true, b_vec[0], acc[0], true);
++        acc[0] = __builtin_amdgcn_wmma_i32_16x16x16_iu8_w32(true, a_vec[1], true, b_vec[1], acc[0], true);
+ #endif // RDNA4
+-
+ #else
+         GGML_UNUSED_VARS(D, A, B);
+         NO_DEVICE_CODE;
+@@ -1295,21 +1224,12 @@ namespace ggml_cuda_mma {
  #if defined(AMD_MFMA_AVAILABLE)
          using int32x16_t = __attribute__((__vector_size__(16 * sizeof(int)))) int;
          int32x16_t * acc = (int32x16_t *) D.x;
 -#if defined(CDNA3)
-+#if defined(CDNA4) || defined(CDNA3)
-         acc[0] = __builtin_amdgcn_mfma_i32_32x32x16_i8(((int64_t *) A.x)[0],
-                                                        ((int64_t *) B.x)[0],
-                                                        acc[0],
-                                                        0, 0, 0);
+-        acc[0] = __builtin_amdgcn_mfma_i32_32x32x16_i8(((int64_t *) A.x)[0],
+-                                                       ((int64_t *) B.x)[0],
+-                                                       acc[0],
+-                                                       0, 0, 0);
 -#elif defined(CDNA2) || defined(CDNA)
-+#elif defined(CDNA2) || defined(CDNA1)
-         acc[0] = __builtin_amdgcn_mfma_i32_32x32x8i8(A.x[0],
-                                                      B.x[0],
-                                                      acc[0],
-@@ -1309,7 +1310,7 @@ namespace ggml_cuda_mma {
-                                                      B.x[1],
-                                                      acc[0],
-                                                      0, 0, 0);
+-        acc[0] = __builtin_amdgcn_mfma_i32_32x32x8i8(A.x[0],
+-                                                     B.x[0],
+-                                                     acc[0],
+-                                                     0, 0, 0);
+-        acc[0] = __builtin_amdgcn_mfma_i32_32x32x8i8(A.x[1],
+-                                                     B.x[1],
+-                                                     acc[0],
+-                                                     0, 0, 0);
 -#endif // defined(CDNA3)
++#if defined(CDNA4) || defined(CDNA3)
++        acc[0] = __builtin_amdgcn_mfma_i32_32x32x16_i8(((int64_t *) A.x)[0], ((int64_t *) B.x)[0], acc[0], 0, 0, 0);
++#elif defined(CDNA2) || defined(CDNA1)
++        acc[0] = __builtin_amdgcn_mfma_i32_32x32x8i8(A.x[0], B.x[0], acc[0], 0, 0, 0);
++        acc[0] = __builtin_amdgcn_mfma_i32_32x32x8i8(A.x[1], B.x[1], acc[0], 0, 0, 0);
 +#endif // defined(CDNA4) || defined(CDNA3)
  
  #else
          GGML_UNUSED_VARS(D, A, B);
+@@ -1328,7 +1248,7 @@ namespace ggml_cuda_mma {
+ 
+     static __device__ __forceinline__ void mma(
+             tile<32, 8, float> & D, const tile<32, 4, half2> & A, const tile<8, 4, half2, DATA_LAYOUT_I_MAJOR_MIRRORED> & B) {
+-#if __CUDA_ARCH__ == GGML_CUDA_CC_VOLTA
++#if defined(VOLTA_MMA_AVAILABLE)
+         const int * Axi = (const int *) A.x;
+         const int * Bxi = (const int *) B.x;
+         int       * Dxi = (int       *) D.x;
+@@ -1343,12 +1263,12 @@ namespace ggml_cuda_mma {
+ #else
+         GGML_UNUSED_VARS(D, A, B);
+         NO_DEVICE_CODE;
+-#endif // __CUDA_ARCH__ >= GGML_CUDA_CC_VOLTA
++#endif // defined(VOLTA_MMA_AVAILABLE)
+     }
+ 
+     static __device__ __forceinline__ void mma(
+             tile<32, 4, half2> & D, const tile<32, 4, half2> & A, const tile<8, 4, half2, DATA_LAYOUT_J_MAJOR_MIRRORED> & B) {
+-#if __CUDA_ARCH__ == GGML_CUDA_CC_VOLTA
++#if defined(VOLTA_MMA_AVAILABLE)
+         const int * Axi = (const int *) A.x;
+         const int * Bxi = (const int *) B.x;
+         int       * Dxi = (int       *) D.x;
+@@ -1363,41 +1283,35 @@ namespace ggml_cuda_mma {
+ #else
+         GGML_UNUSED_VARS(D, A, B);
+         NO_DEVICE_CODE;
+-#endif // __CUDA_ARCH__ >= GGML_CUDA_CC_VOLTA
++#endif // defined(VOLTA_MMA_AVAILABLE)
+     }
+ 
+     template <data_layout dl_d, data_layout dl_ab>
+     static __device__ __forceinline__ void mma(
+             tile<16, 16, int, dl_d> & D, const tile<16, 4, int, dl_ab> & A, const tile<16, 4, int, dl_ab> & B) {
+-#if defined(AMD_WMMA_AVAILABLE)
++#if defined(AMD_MFMA_AVAILABLE)
++        using int32x4_t = __attribute__((__vector_size__(4 * sizeof(int)))) int;
++        int32x4_t * acc = (int32x4_t *) D.x;
++#if defined(CDNA4) || defined(CDNA3)
++        const int64_t xA = uint32_t(A.x[0]);
++        const int64_t xB = uint32_t(B.x[0]);
++        acc[0] = __builtin_amdgcn_mfma_i32_16x16x32_i8(xA, xB, acc[0], 0, 0, 0);
++#elif defined(CDNA2) || defined(CDNA1)
++        acc[0] = __builtin_amdgcn_mfma_i32_16x16x16i8(A.x[0], B.x[0], acc[0], 0, 0, 0);
++#endif // defined(CDNA4) || defined(CDNA3)
++#elif defined(AMD_WMMA_AVAILABLE)
+         using int32x8_t = __attribute__((__vector_size__(8 * sizeof(int)))) int;
+         int32x8_t * acc = (int32x8_t *) D.x;
+ #if defined(RDNA4)
+         using int32x2_t = __attribute__((__vector_size__(2 * sizeof(int)))) int;
+         int32x2_t * a_vec = (int32x2_t *) A.x;
+         int32x2_t * b_vec = (int32x2_t *) B.x;
+-
+-        acc[0] = __builtin_amdgcn_wmma_i32_16x16x16_iu8_w32_gfx12(
+-            true,
+-            a_vec[0],
+-            true,
+-            b_vec[0],
+-            acc[0],
+-            false
+-        );
++        acc[0] = __builtin_amdgcn_wmma_i32_16x16x16_iu8_w32_gfx12(true, a_vec[0], true, b_vec[0], acc[0], false);
+ #elif defined(RDNA3)
+         using int32x4_t = __attribute__((__vector_size__(4 * sizeof(int)))) int;
+         int32x4_t * a_vec = (int32x4_t *) A.x;
+         int32x4_t * b_vec = (int32x4_t *) B.x;
+-
+-        acc[0] = __builtin_amdgcn_wmma_i32_16x16x16_iu8_w32(
+-            true,
+-            a_vec[0],
+-            true,
+-            b_vec[0],
+-            acc[0],
+-            false
+-        );
++        acc[0] = __builtin_amdgcn_wmma_i32_16x16x16_iu8_w32(true, a_vec[0], true, b_vec[0], acc[0], false);
+ #endif // RDNA4
+ #else
+         GGML_UNUSED(D);
 diff --git src/ggml-cuda/mmq.cu src/ggml-cuda/mmq.cu
 index 27b4145a..3f01ff5b 100644
 --- src/ggml-cuda/mmq.cu
@@ -6201,7 +6754,7 @@ index 27b4145a..3f01ff5b 100644
          case GGML_TYPE_Q4_1:
          case GGML_TYPE_Q5_0:
 diff --git src/ggml-cuda/mmq.cuh src/ggml-cuda/mmq.cuh
-index 51e8dad4..28b662df 100644
+index 51e8dad4..b1a319de 100644
 --- src/ggml-cuda/mmq.cuh
 +++ src/ggml-cuda/mmq.cuh
 @@ -57,6 +57,8 @@ static_assert(sizeof(block_fp4_mmq)  == sizeof(block_q8_1_mmq),    "Unexpected b
@@ -6213,6 +6766,27 @@ index 51e8dad4..28b662df 100644
          case GGML_TYPE_Q4_0:
          case GGML_TYPE_Q4_1:
              return MMQ_Q8_1_DS_LAYOUT_DS4;
+@@ -102,7 +104,7 @@ struct tile_x_sizes {
+ };
+ 
+ static int get_mmq_x_max_host(const int cc) {
+-    return (amd_mfma_available(cc) || turing_mma_available(cc) || amd_wmma_available(cc)) ? 128 :
++    return (turing_mma_available(cc) || amd_wmma_available(cc)) ? 128 :
+         GGML_CUDA_CC_IS_NVIDIA(cc) && ggml_cuda_highest_compiled_arch(cc) >= GGML_CUDA_CC_VOLTA ?
+ #ifdef GGML_CUDA_FORCE_MMQ
+             128                     : 64;
+@@ -112,9 +114,9 @@ static int get_mmq_x_max_host(const int cc) {
+ }
+ 
+ static constexpr __device__ int get_mmq_x_max_device() {
+-#if defined(AMD_MFMA_AVAILABLE) || defined(TURING_MMA_AVAILABLE) || defined(AMD_WMMA_AVAILABLE)
++#if defined(TURING_MMA_AVAILABLE) || defined(AMD_WMMA_AVAILABLE)
+     return 128;
+-#else // defined(AMD_MFMA_AVAILABLE) || defined(TURING_MMA_AVAILABLE)
++#else // defined(TURING_MMA_AVAILABLE) || defined(AMD_WMMA_AVAILABLE)
+ 
+ #if defined(GGML_USE_HIP)
+     return 64;
 @@ -185,6 +187,7 @@ static constexpr __device__ int get_mmq_y_device() {
  
  static constexpr __host__ __device__ tile_x_sizes mmq_get_dp4a_tile_x_sizes(ggml_type type, int mmq_y) {
@@ -6379,7 +6953,283 @@ index 51e8dad4..28b662df 100644
                  sum[j0/nwarps*mmq_y/warp_size + i0/warp_size] += vec_dot_q4_1_q8_1_impl<VDR_Q4_1_Q8_1_MMQ>
                      (&x_qs[i*(MMQ_TILE_NE_K + 1) + k0/QR4_1], u,
                       x_dm[i*(MMQ_TILE_NE_K/QI4_1) + i/QI4_1 + k0/(QR4_1*QI4_1)], y_ds[j*MMQ_TILE_Y_K + k01/QI8_1]);
-@@ -3274,6 +3375,14 @@ static __device__ __forceinline__ void mmq_write_back_mma(
+@@ -953,13 +1054,13 @@ static __device__ __forceinline__ void vec_dot_q8_0_q8_1_mma(
+         tile_A A[ntx];
+ #pragma unroll
+         for (int n = 0; n < ntx; ++n) {
+-            load_generic(A[n], x_qs + (i0 + n*tile_A::I)*MMQ_MMA_TILE_X_K_Q8_0 + k0, MMQ_MMA_TILE_X_K_Q8_0);
++            load_ldmatrix(A[n], x_qs + (i0 + n*tile_A::I)*MMQ_MMA_TILE_X_K_Q8_0 + k0, MMQ_MMA_TILE_X_K_Q8_0);
+         }
+ 
+ #pragma unroll
+         for (int j0 = 0; j0 < mmq_x; j0 += ntx*tile_C::J) {
+             tile_B B;
+-            load_generic(B, y_qs + j0*MMQ_TILE_Y_K + k01, MMQ_TILE_Y_K);
++            load_ldmatrix(B, y_qs + j0*MMQ_TILE_Y_K + k01, MMQ_TILE_Y_K);
+ 
+             float dB;
+             const int j = j0 + tile_C::get_j(0);
+@@ -1194,13 +1295,13 @@ static __device__ __forceinline__ void vec_dot_q8_1_q8_1_mma(
+         tile_A A[ntx];
+ #pragma unroll
+         for (int n = 0; n < ntx; ++n) {
+-            load_generic(A[n], x_qs + (i0 + n*tile_A::I)*MMQ_MMA_TILE_X_K_Q8_1 + k0, MMQ_MMA_TILE_X_K_Q8_1);
++            load_ldmatrix(A[n], x_qs + (i0 + n*tile_A::I)*MMQ_MMA_TILE_X_K_Q8_1 + k0, MMQ_MMA_TILE_X_K_Q8_1);
+         }
+ 
+ #pragma unroll
+         for (int j0 = 0; j0 < mmq_x; j0 += ntx*tile_C::J) {
+             tile_B B;
+-            load_generic(B, y_qs + j0*MMQ_TILE_Y_K + k01, MMQ_TILE_Y_K);
++            load_ldmatrix(B, y_qs + j0*MMQ_TILE_Y_K + k01, MMQ_TILE_Y_K);
+ 
+             const int j = j0 + tile_C::get_j(0);
+             const float2 dsB = __half22float2(y_dm[j*MMQ_TILE_Y_K + k01/QI8_1]);
+@@ -1334,57 +1435,7 @@ static __device__ __forceinline__ void vec_dot_q8_0_16_q8_1_dp4a(
+ template <int mmq_x, int mmq_y>
+ static __device__ __forceinline__ void vec_dot_q8_0_16_q8_1_mma(
+     const int * __restrict__ x, const int * __restrict__ y, float * __restrict__ sum, const int k00) {
+-#if defined(AMD_MFMA_AVAILABLE)
+-    constexpr data_layout input_layout = get_input_data_layout();
+-    typedef tile<16,  8, int, input_layout>        tile_A;
+-    typedef tile<16,  8, int, input_layout>        tile_B;
+-    typedef tile<16, 16, int, DATA_LAYOUT_J_MAJOR> tile_C;
+-    typedef tile<64,  2, int, input_layout>        tile_load;
+-
+-    constexpr int granularity = mmq_get_granularity_device(mmq_x);
+-    constexpr int rows_per_warp = granularity;
+-    constexpr int ntx = rows_per_warp/tile_C::I; // Number of x minitiles per warp.
+-
+-    y += (threadIdx.y % ntx) * (tile_C::J*MMQ_TILE_Y_K);
+-
+-    const int   * x_qs = (const int   *) x;
+-    const float * x_df = (const float *) x_qs + MMQ_TILE_NE_K*2;
+-    const int   * y_qs = (const int   *) y + 4;
+-    const float * y_df = (const float *) y;
+-
+-    const int i0 = (threadIdx.y / ntx) * rows_per_warp;
+-
+-    for (int k01 = 0; k01 < MMQ_TILE_NE_K; k01 += 4) {
+-        const int k0 = k00 + k01;
+-
+-        tile_A A[ntx];
+-#pragma unroll
+-        for (int n = 0; n < ntx; ++n) {
+-            load_generic(((tile_load *) A)[n], x_qs + (i0 + n*tile_A::I)*MMQ_MMA_TILE_X_K_Q3_K + k0, MMQ_MMA_TILE_X_K_Q3_K);
+-        }
+-
+-#pragma unroll
+-        for (int j0 = 0; j0 < mmq_x; j0 += ntx*tile_C::J) {
+-            tile_B B[1];
+-            load_generic(((tile_load *) B)[0], y_qs + j0*MMQ_TILE_Y_K + k01, MMQ_TILE_Y_K);
+-
+-            const int j = j0 + tile_C::get_j(0);
+-            const float dB = y_df[j*MMQ_TILE_Y_K + k01/QI8_1] / 2;
+-
+-#pragma unroll
+-            for (int n = 0; n < ntx; ++n) {
+-                tile_C C;
+-                mma(C, A[n], B[0]);
+-
+-#pragma unroll
+-                for (int l = 0; l < tile_C::ne; ++l) {
+-                    const int i = i0 + n*tile_C::I + tile_C::get_i(l);
+-                    sum[(j0/tile_C::J + n)*tile_C::ne + l] += C.x[l] * x_df[i*MMQ_MMA_TILE_X_K_Q3_K + k0/4] * dB;
+-                }
+-            }
+-        }
+-    }
+-#elif defined(AMD_WMMA_AVAILABLE) //wmma instructions can handle 16x4 tiles, does not require loading 64x2 tiles
++#if defined(AMD_MFMA_AVAILABLE) || defined(AMD_WMMA_AVAILABLE)
+     constexpr data_layout input_layout = get_input_data_layout();
+     typedef tile<16,  4, int, input_layout>        tile_A;
+     typedef tile<16,  4, int, input_layout>        tile_B;
+@@ -1409,13 +1460,13 @@ static __device__ __forceinline__ void vec_dot_q8_0_16_q8_1_mma(
+         tile_A A[ntx];
+ #pragma unroll
+         for (int n = 0; n < ntx; ++n) {
+-            load_generic(A[n], x_qs + (i0 + n*tile_A::I)*MMQ_MMA_TILE_X_K_Q3_K + k0, MMQ_MMA_TILE_X_K_Q3_K);
++            load_ldmatrix(A[n], x_qs + (i0 + n*tile_A::I)*MMQ_MMA_TILE_X_K_Q3_K + k0, MMQ_MMA_TILE_X_K_Q3_K);
+         }
+ 
+ #pragma unroll
+         for (int j0 = 0; j0 < mmq_x; j0 += ntx*tile_C::J) {
+             tile_B B;
+-            load_generic(B, y_qs + j0*MMQ_TILE_Y_K + k01, MMQ_TILE_Y_K);
++            load_ldmatrix(B, y_qs + j0*MMQ_TILE_Y_K + k01, MMQ_TILE_Y_K);
+ 
+             const int j = j0 + tile_C::get_j(0);
+             const float dB = y_df[j*MMQ_TILE_Y_K + k01/QI8_1];
+@@ -1641,74 +1692,7 @@ static __device__ __forceinline__ void vec_dot_q2_K_q8_1_dp4a(
+ template <int mmq_x, int mmq_y>
+ static __device__ __forceinline__ void vec_dot_q2_K_q8_1_mma(
+     const int * __restrict__ x, const int * __restrict__ y, float * __restrict__ sum, const int k00) {
+-#if defined(AMD_MFMA_AVAILABLE)
+-    constexpr data_layout input_layout = get_input_data_layout();
+-    typedef tile<16,  8, int, input_layout>        tile_A;
+-    typedef tile<16,  8, int, input_layout>        tile_B;
+-    typedef tile<16, 16, int, DATA_LAYOUT_J_MAJOR> tile_C;
+-    typedef tile<64,  2, int, input_layout>        tile_load;
+-
+-    constexpr int granularity = mmq_get_granularity_device(mmq_x);
+-    constexpr int rows_per_warp = granularity;
+-    constexpr int ntx = rows_per_warp/tile_C::I; // Number of x minitiles per warp.
+-
+-    y += (threadIdx.y % ntx) * (tile_C::J*MMQ_TILE_Y_K);
+-
+-    const int   * x_qs = (const int   *) x;
+-    const half2 * x_dm = (const half2 *) x_qs + MMQ_TILE_NE_K*2;
+-    const int   * y_qs = (const int   *) y + 4;
+-    const half2 * y_ds = (const half2 *) y;
+-
+-    const int i0 = (threadIdx.y / ntx) * rows_per_warp;
+-
+-    for (int k01 = 0; k01 < MMQ_TILE_NE_K; k01 += 4) {
+-        const int k0 = k00 + k01;
+-
+-        tile_A A[ntx];
+-#pragma unroll
+-        for (int n = 0; n < ntx; ++n) {
+-            load_generic(((tile_load *) A)[n], x_qs + (i0 + n*tile_A::I)*MMQ_MMA_TILE_X_K_Q2_K + k0, MMQ_MMA_TILE_X_K_Q2_K);
+-        }
+-
+-#pragma unroll
+-        for (int j0 = 0; j0 < mmq_x; j0 += ntx*tile_C::J) {
+-            tile_B B[1];
+-            load_generic(((tile_load *) B)[0], y_qs + j0*MMQ_TILE_Y_K + k01, MMQ_TILE_Y_K);
+-
+-            const int j = j0 + tile_C::get_j(0);
+-            const float dB = (k01 < MMQ_TILE_NE_K/2) ? __half22float2(y_ds[j*MMQ_TILE_Y_K]).x/2 : __half22float2(y_ds[j*MMQ_TILE_Y_K]).y/2;
+-            const float sB = (k01 >= MMQ_TILE_NE_K * 3/4) ? 0
+-                                              : (((k01/4)%2) ? __half22float2(y_ds[j*MMQ_TILE_Y_K + (1 + k01/QI8_1)]).y
+-                                                             : __half22float2(y_ds[j*MMQ_TILE_Y_K + (1 + k01/QI8_1)]).x);
+-
+-            tile_C Cm;
+-            if (k01 >= MMQ_TILE_NE_K * 3/4) {
+-                tile_A A1;
+-                A1.x[0] = 0x01010101;
+-                A1.x[1] = 0x01010101;
+-                mma(Cm, A1, B[0]);
+-            }
+-
+-#pragma unroll
+-            for (int n = 0; n < ntx; ++n) {
+-                tile_C Cd;
+-                mma(Cd, A[n], B[0]);
+-
+-#pragma unroll
+-                for (int l = 0; l < tile_C::ne; ++l) {
+-                    const int i = i0 + n*tile_C::I + tile_C::get_i(l);
+-                    const float2 dm = __half22float2(x_dm[i*MMQ_MMA_TILE_X_K_Q2_K + k0/4]);
+-                    float tmp = Cd.x[l]*dm.x;
+-                    if (k01 >= MMQ_TILE_NE_K * 3/4) {
+-                        tmp -= Cm.x[l]*dm.y;
+-                    }
+-                    sum[(j0/tile_C::J + n)*tile_C::ne + l] += tmp*dB;
+-                    sum[(j0/tile_C::J + n)*tile_C::ne + l] -= dm.y*sB;
+-                }
+-            }
+-        }
+-    }
+-#elif defined(AMD_WMMA_AVAILABLE) //wmma instructions can handle 16x4 tiles, does not require loading 64x2 tiles
++#if defined(AMD_MFMA_AVAILABLE) || defined(AMD_WMMA_AVAILABLE)
+     constexpr data_layout input_layout = get_input_data_layout();
+     typedef tile<16,  4, int, input_layout>        tile_A;
+     typedef tile<16,  4, int, input_layout>        tile_B;
+@@ -1733,13 +1717,13 @@ static __device__ __forceinline__ void vec_dot_q2_K_q8_1_mma(
+         tile_A A[ntx];
+ #pragma unroll
+         for (int n = 0; n < ntx; ++n) {
+-            load_generic(A[n], x_qs + (i0 + n*tile_A::I)*MMQ_MMA_TILE_X_K_Q2_K + k0, MMQ_MMA_TILE_X_K_Q2_K);
++            load_ldmatrix(A[n], x_qs + (i0 + n*tile_A::I)*MMQ_MMA_TILE_X_K_Q2_K + k0, MMQ_MMA_TILE_X_K_Q2_K);
+         }
+ 
+ #pragma unroll
+         for (int j0 = 0; j0 < mmq_x; j0 += ntx*tile_C::J) {
+             tile_B B;
+-            load_generic(B, y_qs + j0*MMQ_TILE_Y_K + k01, MMQ_TILE_Y_K);
++            load_ldmatrix(B, y_qs + j0*MMQ_TILE_Y_K + k01, MMQ_TILE_Y_K);
+ 
+             const int j = j0 + tile_C::get_j(0);
+             const float dB = (k01 < MMQ_TILE_NE_K/2) ? __half22float2(y_ds[j*MMQ_TILE_Y_K]).x : __half22float2(y_ds[j*MMQ_TILE_Y_K]).y;
+@@ -2472,59 +2456,7 @@ static __device__ __forceinline__ void vec_dot_q6_K_q8_1_dp4a(
+ template <int mmq_x, int mmq_y>
+ static __device__ __forceinline__ void vec_dot_q6_K_q8_1_mma(
+     const int * __restrict__ x, const int * __restrict__ y, float * __restrict__ sum, const int k00) {
+-#if defined(AMD_MFMA_AVAILABLE)
+-    constexpr data_layout input_layout = get_input_data_layout();
+-    typedef tile<16,  8, int, input_layout>        tile_A;
+-    typedef tile<16,  8, int, input_layout>        tile_B;
+-    typedef tile<16, 16, int, DATA_LAYOUT_J_MAJOR> tile_C;
+-    typedef tile<64,  2, int, input_layout>        tile_load;
+-
+-    constexpr int granularity = mmq_get_granularity_device(mmq_x);
+-    constexpr int rows_per_warp = granularity;
+-    constexpr int ntx = rows_per_warp/tile_C::I; // Number of x minitiles per warp.
+-
+-    y += (threadIdx.y % ntx) * (tile_C::J*MMQ_TILE_Y_K);
+-
+-    const int   * x_qs = (const int   *) x;
+-    const float * x_df = (const float *) x_qs + MMQ_TILE_NE_K*2;
+-    const int   * x_sc = (const int   *) x_df + MMQ_TILE_NE_K/QI6_K;
+-    const int   * y_qs = (const int   *) y + 4;
+-    const float * y_df = (const float *) y;
+-
+-    const int i0 = (threadIdx.y / ntx) * rows_per_warp;
+-
+-    for (int k01 = 0; k01 < MMQ_TILE_NE_K; k01 += 4) {
+-        const int k0 = k00 + k01;
+-
+-        tile_A A[ntx];
+-#pragma unroll
+-        for (int n = 0; n < ntx; ++n) {
+-            load_generic(((tile_load *) A)[n], x_qs + (i0 + n*tile_A::I)*MMQ_MMA_TILE_X_K_Q6_K + k0, MMQ_MMA_TILE_X_K_Q6_K);
+-        }
+-
+-#pragma unroll
+-        for (int j0 = 0; j0 < mmq_x; j0 += ntx*tile_C::J) {
+-            tile_B B[1];
+-            load_generic(((tile_load *) B)[0], y_qs + j0*MMQ_TILE_Y_K + k01, MMQ_TILE_Y_K);
+-
+-            const int j = j0 + tile_C::get_j(0);
+-            const float dB = y_df[j*MMQ_TILE_Y_K + k01/QI8_1] / 2;
+-
+-#pragma unroll
+-            for (int n = 0; n < ntx; ++n) {
+-                tile_C C;
+-                mma(C, A[n], B[0]);
+-
+-#pragma unroll
+-                for (int l = 0; l < tile_C::ne; ++l) {
+-                    const int i = i0 + n*tile_C::I + tile_C::get_i(l);
+-                    const int8_t * sc = (const int8_t *) (x_sc + i*MMQ_MMA_TILE_X_K_Q6_K + k00/16);
+-                    sum[(j0/tile_C::J + n)*tile_C::ne + l] += C.x[l] * sc[k01/4] * x_df[i*MMQ_MMA_TILE_X_K_Q6_K] * dB;
+-                }
+-            }
+-        }
+-    }
+-#elif defined(AMD_WMMA_AVAILABLE) //wmma instructions can handle 16x4 tiles, does not require loading 64x2 tiles
++#if defined(AMD_MFMA_AVAILABLE) || defined(AMD_WMMA_AVAILABLE)
+     constexpr data_layout input_layout = get_input_data_layout();
+     typedef tile<16,  4, int, input_layout>        tile_A;
+     typedef tile<16,  4, int, input_layout>        tile_B;
+@@ -2550,13 +2482,13 @@ static __device__ __forceinline__ void vec_dot_q6_K_q8_1_mma(
+         tile_A A[ntx];
+ #pragma unroll
+         for (int n = 0; n < ntx; ++n) {
+-            load_generic(A[n], x_qs + (i0 + n*tile_A::I)*MMQ_MMA_TILE_X_K_Q6_K + k0, MMQ_MMA_TILE_X_K_Q6_K);
++            load_ldmatrix(A[n], x_qs + (i0 + n*tile_A::I)*MMQ_MMA_TILE_X_K_Q6_K + k0, MMQ_MMA_TILE_X_K_Q6_K);
+         }
+ 
+ #pragma unroll
+         for (int j0 = 0; j0 < mmq_x; j0 += ntx*tile_C::J) {
+             tile_B B;
+-            load_generic(B, y_qs + j0*MMQ_TILE_Y_K + k01, MMQ_TILE_Y_K);
++            load_ldmatrix(B, y_qs + j0*MMQ_TILE_Y_K + k01, MMQ_TILE_Y_K);
+ 
+             const int j = j0 + tile_C::get_j(0);
+             const float dB = y_df[j*MMQ_TILE_Y_K + k01/QI8_1];
+@@ -3274,6 +3206,14 @@ static __device__ __forceinline__ void mmq_write_back_mma(
  template <int mmq_x, int mmq_y, bool need_check, ggml_type type>
  struct mmq_type_traits;
  
@@ -6394,7 +7244,7 @@ index 51e8dad4..28b662df 100644
  template <int mmq_x, int mmq_y, bool need_check>
  struct mmq_type_traits<mmq_x, mmq_y, need_check, GGML_TYPE_Q4_0> {
      static constexpr int              vdr          = VDR_Q4_0_Q8_1_MMQ;
-@@ -3629,7 +3738,7 @@ static __global__ void mul_mat_q(
+@@ -3629,7 +3569,7 @@ static __global__ void mul_mat_q(
               tile_x_max_i, tile_y_max_j, 0, ncols_x/qk);
          return;
      }
@@ -6403,7 +7253,7 @@ index 51e8dad4..28b662df 100644
  
      constexpr int ITER_K = get_iter_k(type);
  
-@@ -4170,3 +4279,4 @@ void ggml_cuda_op_mul_mat_q(
+@@ -4170,3 +4110,4 @@ void ggml_cuda_op_mul_mat_q(
      const int64_t src1_padded_row_size, cudaStream_t stream);
  
  bool ggml_cuda_should_use_mmq(enum ggml_type type, int cc, int64_t ne11, int64_t n_experts);
@@ -6584,7 +7434,7 @@ index 07bc47df..323c9801 100644
  #include <cuda_fp8.h>
  #define FP8_AVAILABLE
 diff --git src/ggml-cuda/vendors/hip.h src/ggml-cuda/vendors/hip.h
-index 9d9ba1ee..898fec31 100644
+index 9d9ba1ee..52c38908 100644
 --- src/ggml-cuda/vendors/hip.h
 +++ src/ggml-cuda/vendors/hip.h
 @@ -10,6 +10,11 @@
@@ -6599,15 +7449,7 @@ index 9d9ba1ee..898fec31 100644
  #define CUBLAS_GEMM_DEFAULT HIPBLAS_GEMM_DEFAULT
  #define CUBLAS_GEMM_DEFAULT_TENSOR_OP HIPBLAS_GEMM_DEFAULT
  #define CUBLAS_OP_N HIPBLAS_OP_N
-@@ -28,6 +33,7 @@
- #define CU_MEM_LOCATION_TYPE_DEVICE hipMemLocationTypeDevice
- #define CU_MEM_ACCESS_FLAGS_PROT_READWRITE hipMemAccessFlagsProtReadWrite
- #define CU_CHECK(fn) {hipError_t err = fn; if(err != hipSuccess) { GGML_ABORT("HipVMM Failure: %s\n", hipGetErrorString(err)); }}
-+#define NCCL_CHECK(fn) {ncclResult_t err = fn; if(err != ncclSuccess) { GGML_ABORT("RCCL Failure RCCL returned: %i\n", err); }}
- #define __shfl_sync(mask, var, laneMask, width) __shfl(var, laneMask, width)
- #define __shfl_up_sync(mask, var, laneMask, width) __shfl_up(var, laneMask, width)
- #define __shfl_xor_sync(mask, var, laneMask, width) __shfl_xor(var, laneMask, width)
-@@ -183,6 +189,10 @@
+@@ -183,6 +188,10 @@
  #define GCN
  #endif // defined(GCN5) || defined(GCN4)
  
@@ -6618,7 +7460,7 @@ index 9d9ba1ee..898fec31 100644
  #if defined(__gfx942__)
  #define CDNA3
  #endif // defined(__gfx942__)
-@@ -195,9 +205,9 @@
+@@ -195,9 +204,9 @@
  #define CDNA1
  #endif // defined(__gfx908__)
  
@@ -17520,10 +18362,16 @@ index 00604f75..d56c86da 100644
  GGML_API size_t quantize_q4_1(const float * GGML_RESTRICT src, void * GGML_RESTRICT dst, int64_t nrows, int64_t n_per_row, const float * imatrix);
  GGML_API size_t quantize_q5_0(const float * GGML_RESTRICT src, void * GGML_RESTRICT dst, int64_t nrows, int64_t n_per_row, const float * imatrix);
 diff --git src/ggml-rpc/CMakeLists.txt src/ggml-rpc/CMakeLists.txt
-index f5acb8ec..8671ce5c 100644
+index f5acb8ec..40e11fea 100644
 --- src/ggml-rpc/CMakeLists.txt
 +++ src/ggml-rpc/CMakeLists.txt
-@@ -7,3 +7,26 @@ ggml_add_backend_library(ggml-rpc
+@@ -2,8 +2,32 @@ message(STATUS "Using RPC backend")
+ 
+ ggml_add_backend_library(ggml-rpc
+                          ggml-rpc.cpp
++                         transport.cpp
+                         )
+ 
  if (WIN32)
      target_link_libraries(ggml-rpc PRIVATE ws2_32)
  endif()
@@ -17551,12 +18399,14 @@ index f5acb8ec..8671ce5c 100644
 +    message(STATUS "  RDMA transport disabled")
 +endif()
 diff --git src/ggml-rpc/ggml-rpc.cpp src/ggml-rpc/ggml-rpc.cpp
-index 1378ba9f..017ef0af 100644
+index 1378ba9f..2ded7397 100644
 --- src/ggml-rpc/ggml-rpc.cpp
 +++ src/ggml-rpc/ggml-rpc.cpp
-@@ -3,7 +3,9 @@
+@@ -2,30 +2,17 @@
+ #include "ggml-impl.h"
  #include "ggml-backend-impl.h"
  #include "ggml-cpp.h"
++#include "transport.h"
  
 +#include <array>
  #include <cinttypes>
@@ -17564,10 +18414,792 @@ index 1378ba9f..017ef0af 100644
  #include <string>
  #include <vector>
  #include <memory>
-@@ -31,6 +33,14 @@
+ #include <mutex>
+ #include <unordered_map>
+ #include <unordered_set>
+-#ifdef _WIN32
+-#  define WIN32_LEAN_AND_MEAN
+-#  ifndef NOMINMAX
+-#     define NOMINMAX
+-#  endif
+-#  include <windows.h>
+-#  include <winsock2.h>
+-#else
+-#  include <arpa/inet.h>
+-#  include <sys/socket.h>
+-#  include <sys/types.h>
+-#  include <netinet/in.h>
+-#  include <netinet/tcp.h>
+-#  include <netdb.h>
+-#  include <unistd.h>
+-#endif
+ #include <cstring>
+ #include <fstream>
  #include <filesystem>
- #include <algorithm>
+@@ -39,29 +26,6 @@ static const char * RPC_DEBUG = std::getenv("GGML_RPC_DEBUG");
  
+ namespace fs = std::filesystem;
+ 
+-static constexpr size_t MAX_CHUNK_SIZE = 1024ull * 1024ull * 1024ull; // 1 GiB
+-
+-#ifdef _WIN32
+-typedef SOCKET sockfd_t;
+-using ssize_t = __int64;
+-#else
+-typedef int sockfd_t;
+-#endif
+-
+-// cross-platform socket
+-struct socket_t {
+-    sockfd_t fd;
+-    socket_t(sockfd_t fd) : fd(fd) {}
+-    ~socket_t() {
+-        LOG_DBG("[%s] closing socket %d\n", __func__, this->fd);
+-#ifdef _WIN32
+-        closesocket(this->fd);
+-#else
+-        close(this->fd);
+-#endif
+-    }
+-};
+-
+ // macro for nicer error messages on server crash
+ #define RPC_STATUS_ASSERT(x) if (!(x)) GGML_ABORT("Remote RPC server crashed or returned malformed response")
+ 
+@@ -115,10 +79,16 @@ static_assert(RPC_CMD_HELLO == 14, "RPC_CMD_HELLO must be always 14");
+ // Try RPC_CMD_SET_TENSOR_HASH first when data size is larger than this threshold
+ const size_t HASH_THRESHOLD = 10 * 1024 * 1024;
+ 
++struct rpc_msg_hello_req {
++    uint8_t conn_caps[RPC_CONN_CAPS_SIZE];
++};
++
+ struct rpc_msg_hello_rsp {
+     uint8_t major;
+     uint8_t minor;
+     uint8_t patch;
++    uint8_t padding;
++    uint8_t conn_caps[RPC_CONN_CAPS_SIZE];
+ };
+ 
+ struct rpc_msg_device_count_rsp {
+@@ -288,153 +258,27 @@ static uint64_t fnv_hash(const uint8_t * data, size_t len) {
+     return hash;
+ }
+ 
+-static std::shared_ptr<socket_t> make_socket(sockfd_t fd) {
+-#ifdef _WIN32
+-    if (fd == INVALID_SOCKET) {
+-        return nullptr;
+-    }
+-#else
+-    if (fd < 0) {
+-        return nullptr;
+-    }
+-#endif
+-    return std::make_shared<socket_t>(fd);
+-}
+-
+-static bool set_no_delay(sockfd_t sockfd) {
+-    int flag = 1;
+-    // set TCP_NODELAY to disable Nagle's algorithm
+-    int ret = setsockopt(sockfd, IPPROTO_TCP, TCP_NODELAY, (char *)&flag, sizeof(int));
+-    return ret == 0;
+-}
+-
+-static bool set_reuse_addr(sockfd_t sockfd) {
+-    int flag = 1;
+-    int ret = setsockopt(sockfd, SOL_SOCKET, SO_REUSEADDR, (char *)&flag, sizeof(int));
+-    return ret == 0;
+-}
+-
+-static std::shared_ptr<socket_t> socket_connect(const char * host, int port) {
+-    struct sockaddr_in addr;
+-    auto sockfd = socket(AF_INET, SOCK_STREAM, 0);
+-    auto sock_ptr = make_socket(sockfd);
+-    if (sock_ptr == nullptr) {
+-        return nullptr;
+-    }
+-    if (!set_no_delay(sockfd)) {
+-        GGML_LOG_ERROR("Failed to set TCP_NODELAY\n");
+-        return nullptr;
+-    }
+-    addr.sin_family = AF_INET;
+-    addr.sin_port = htons(port);
+-    struct hostent * server = gethostbyname(host);
+-    if (server == NULL) {
+-        GGML_LOG_ERROR("Cannot resolve host '%s'\n", host);
+-        return nullptr;
+-    }
+-    memcpy(&addr.sin_addr.s_addr, server->h_addr, server->h_length);
+-    if (connect(sock_ptr->fd, (struct sockaddr *)&addr, sizeof(addr)) < 0) {
+-        return nullptr;
+-    }
+-    return sock_ptr;
+-}
+-
+-static std::shared_ptr<socket_t> socket_accept(sockfd_t srv_sockfd) {
+-    auto client_socket_fd = accept(srv_sockfd, NULL, NULL);
+-    auto client_socket = make_socket(client_socket_fd);
+-    if (client_socket == nullptr) {
+-        return nullptr;
+-    }
+-    if (!set_no_delay(client_socket_fd)) {
+-        GGML_LOG_ERROR("Failed to set TCP_NODELAY\n");
+-        return nullptr;
+-    }
+-    return client_socket;
+-}
+-
+-static std::shared_ptr<socket_t> create_server_socket(const char * host, int port) {
+-    auto sockfd = socket(AF_INET, SOCK_STREAM, 0);
+-    auto sock = make_socket(sockfd);
+-    if (sock == nullptr) {
+-        return nullptr;
+-    }
+-    if (!set_reuse_addr(sockfd)) {
+-        GGML_LOG_ERROR("Failed to set SO_REUSEADDR\n");
+-        return nullptr;
+-    }
+-    if (inet_addr(host) == INADDR_NONE) {
+-        GGML_LOG_ERROR("Invalid host address: %s\n", host);
+-        return nullptr;
+-    }
+-    struct sockaddr_in serv_addr;
+-    serv_addr.sin_family = AF_INET;
+-    serv_addr.sin_addr.s_addr = inet_addr(host);
+-    serv_addr.sin_port = htons(port);
+-
+-    if (bind(sockfd, (struct sockaddr *) &serv_addr, sizeof(serv_addr)) < 0) {
+-        return nullptr;
+-    }
+-    if (listen(sockfd, 1) < 0) {
+-        return nullptr;
+-    }
+-    return sock;
+-}
+-
+-static bool send_data(sockfd_t sockfd, const void * data, size_t size) {
+-    size_t bytes_sent = 0;
+-    while (bytes_sent < size) {
+-        size_t size_to_send = std::min(size - bytes_sent, MAX_CHUNK_SIZE);
+-        ssize_t n = send(sockfd, (const char *)data + bytes_sent, size_to_send, 0);
+-        if (n < 0) {
+-            GGML_LOG_ERROR("send failed (bytes_sent=%zu, size_to_send=%zu)\n",
+-                           bytes_sent, size_to_send);
+-            return false;
+-        }
+-        bytes_sent += (size_t)n;
+-    }
+-    return true;
+-}
+-
+-static bool recv_data(sockfd_t sockfd, void * data, size_t size) {
+-    size_t bytes_recv = 0;
+-    while (bytes_recv < size) {
+-        size_t size_to_recv = std::min(size - bytes_recv, MAX_CHUNK_SIZE);
+-        ssize_t n = recv(sockfd, (char *)data + bytes_recv, size_to_recv, 0);
+-        if (n < 0) {
+-            GGML_LOG_ERROR("recv failed (bytes_recv=%zu, size_to_recv=%zu)\n",
+-                           bytes_recv, size_to_recv);
+-            return false;
+-        }
+-        if (n == 0) {
+-            LOG_DBG("recv returned 0 (peer closed?)\n");
+-            return false;
+-        }
+-        bytes_recv += (size_t)n;
+-    }
+-    return true;
+-}
+-
+-static bool send_msg(sockfd_t sockfd, const void * msg, size_t msg_size) {
+-    if (!send_data(sockfd, &msg_size, sizeof(msg_size))) {
++static bool send_msg(socket_ptr sock, const void * msg, size_t msg_size) {
++    if (!sock->send_data(&msg_size, sizeof(msg_size))) {
+         return false;
+     }
+-    return send_data(sockfd, msg, msg_size);
++    return sock->send_data(msg, msg_size);
+ }
+ 
+-static bool recv_msg(sockfd_t sockfd, void * msg, size_t msg_size) {
++static bool recv_msg(socket_ptr sock, void * msg, size_t msg_size) {
+     uint64_t size;
+-    if (!recv_data(sockfd, &size, sizeof(size))) {
++    if (!sock->recv_data(&size, sizeof(size))) {
+         return false;
+     }
+     if (size != msg_size) {
+         return false;
+     }
+-    return recv_data(sockfd, msg, msg_size);
++    return sock->recv_data(msg, msg_size);
+ }
+ 
+-static bool recv_msg(sockfd_t sockfd, std::vector<uint8_t> & input) {
++static bool recv_msg(socket_ptr sock, std::vector<uint8_t> & input) {
+     uint64_t size;
+-    if (!recv_data(sockfd, &size, sizeof(size))) {
++    if (!sock->recv_data(&size, sizeof(size))) {
+         return false;
+     }
+     try {
+@@ -443,7 +287,7 @@ static bool recv_msg(sockfd_t sockfd, std::vector<uint8_t> & input) {
+         GGML_LOG_ERROR("Failed to allocate input buffer of size %" PRIu64 "\n", size);
+         return false;
+     }
+-    return recv_data(sockfd, input.data(), size);
++    return sock->recv_data(input.data(), size);
+ }
+ 
+ static bool parse_endpoint(const std::string & endpoint, std::string & host, int & port) {
+@@ -452,21 +296,25 @@ static bool parse_endpoint(const std::string & endpoint, std::string & host, int
+         return false;
+     }
+     host = endpoint.substr(0, pos);
+-    port = std::stoi(endpoint.substr(pos + 1));
++    try {
++        port = std::stoi(endpoint.substr(pos + 1));
++    } catch (...) {
++        return false;
++    }
+     return true;
+ }
+ 
+ // RPC request : | rpc_cmd (1 byte) | request_size (8 bytes) | request_data (request_size bytes) |
+ // No response
+-static bool send_rpc_cmd(const std::shared_ptr<socket_t> & sock, enum rpc_cmd cmd, const void * input, size_t input_size) {
++static bool send_rpc_cmd(socket_ptr sock, enum rpc_cmd cmd, const void * input, size_t input_size) {
+     uint8_t cmd_byte = cmd;
+-    if (!send_data(sock->fd, &cmd_byte, sizeof(cmd_byte))) {
++    if (!sock->send_data(&cmd_byte, sizeof(cmd_byte))) {
+         return false;
+     }
+-    if (!send_data(sock->fd, &input_size, sizeof(input_size))) {
++    if (!sock->send_data(&input_size, sizeof(input_size))) {
+         return false;
+     }
+-    if (!send_data(sock->fd, input, input_size)) {
++    if (!sock->send_data(input, input_size)) {
+         return false;
+     }
+     return true;
+@@ -474,20 +322,18 @@ static bool send_rpc_cmd(const std::shared_ptr<socket_t> & sock, enum rpc_cmd cm
+ 
+ // RPC request : | rpc_cmd (1 byte) | request_size (8 bytes) | request_data (request_size bytes) |
+ // RPC response: | response_size (8 bytes) | response_data (response_size bytes) |
+-static bool send_rpc_cmd(const std::shared_ptr<socket_t> & sock, enum rpc_cmd cmd, const void * input, size_t input_size, void * output, size_t output_size) {
++static bool send_rpc_cmd(socket_ptr sock, enum rpc_cmd cmd, const void * input, size_t input_size, void * output, size_t output_size) {
+     if (!send_rpc_cmd(sock, cmd, input, input_size)) {
+         return false;
+     }
+-    // TODO: currently the output_size is always known, do we need support for commands with variable output size?
+-    // even if we do, we can skip sending output_size from the server for commands with known output size
+     uint64_t out_size;
+-    if (!recv_data(sock->fd, &out_size, sizeof(out_size))) {
++    if (!sock->recv_data(&out_size, sizeof(out_size))) {
+         return false;
+     }
+     if (out_size != output_size) {
+         return false;
+     }
+-    if (!recv_data(sock->fd, output, output_size)) {
++    if (!sock->recv_data(output, output_size)) {
+         return false;
+     }
+     return true;
+@@ -495,17 +341,25 @@ static bool send_rpc_cmd(const std::shared_ptr<socket_t> & sock, enum rpc_cmd cm
+ 
+ // RPC client-side implementation
+ 
+-static bool check_server_version(const std::shared_ptr<socket_t> & sock) {
+-    rpc_msg_hello_rsp response;
+-    bool status = send_rpc_cmd(sock, RPC_CMD_HELLO, nullptr, 0, &response, sizeof(response));
++// Performs HELLO handshake with transport auto-negotiation.
++// Advertises local capabilities via conn_caps; if the server responds with
++// matching capabilities, the socket is upgraded transparently.
++static bool negotiate_hello(const std::shared_ptr<socket_t> & sock) {
++    rpc_msg_hello_req request = {};
++    rpc_msg_hello_rsp response = {};
++
++    sock->get_caps(request.conn_caps);
++
++    bool status = send_rpc_cmd(sock, RPC_CMD_HELLO, &request, sizeof(request), &response, sizeof(response));
+     RPC_STATUS_ASSERT(status);
++
+     if (response.major != RPC_PROTO_MAJOR_VERSION || response.minor > RPC_PROTO_MINOR_VERSION) {
+-        GGML_LOG_ERROR("RPC server version mismatch: %d.%d.%d\n", response.major, response.minor, response.patch);
++        GGML_LOG_ERROR("RPC server version mismatch: %d.%d.%d\n",
++                       response.major, response.minor, response.patch);
+         return false;
+     }
+-    if (response.minor != RPC_PROTO_MINOR_VERSION || response.patch != RPC_PROTO_PATCH_VERSION) {
+-        GGML_LOG_INFO("WARNING: RPC server version mismatch: %d.%d.%d\n", response.major, response.minor, response.patch);
+-    }
++
++    sock->update_caps(response.conn_caps);
+     return true;
+ }
+ 
+@@ -513,7 +367,6 @@ static std::shared_ptr<socket_t> get_socket(const std::string & endpoint) {
+     static std::mutex mutex;
+     std::lock_guard<std::mutex> lock(mutex);
+     static std::unordered_map<std::string, std::weak_ptr<socket_t>> sockets;
+-    static bool initialized = false;
+ 
+     auto it = sockets.find(endpoint);
+     if (it != sockets.end()) {
+@@ -527,26 +380,18 @@ static std::shared_ptr<socket_t> get_socket(const std::string & endpoint) {
+         GGML_LOG_ERROR("Failed to parse endpoint: %s\n", endpoint.c_str());
+         return nullptr;
+     }
+-#ifdef _WIN32
+-    if (!initialized) {
+-        WSADATA wsaData;
+-        int res = WSAStartup(MAKEWORD(2, 2), &wsaData);
+-        if (res != 0) {
+-            return nullptr;
+-        }
+-        initialized = true;
++
++    if (!rpc_transport_init()) {
++        return nullptr;
+     }
+-#else
+-    GGML_UNUSED(initialized);
+-#endif
+-    auto sock = socket_connect(host.c_str(), port);
++    auto sock = socket_t::connect(host.c_str(), port);
+     if (sock == nullptr) {
+         return nullptr;
+     }
+-    if (!check_server_version(sock)) {
++    if (!negotiate_hello(sock)) {
+         return nullptr;
+     }
+-    LOG_DBG("[%s] connected to %s, sockfd=%d\n", __func__, endpoint.c_str(), sock->fd);
++    LOG_DBG("[%s] connected to %s\n", __func__, endpoint.c_str());
+     sockets[endpoint] = sock;
+     return sock;
+ }
+@@ -706,6 +551,8 @@ static ggml_backend_buffer_i ggml_backend_rpc_buffer_interface = {
+     /* .memset_tensor   = */ NULL,
+     /* .set_tensor      = */ ggml_backend_rpc_buffer_set_tensor,
+     /* .get_tensor      = */ ggml_backend_rpc_buffer_get_tensor,
++    /* .set_tensor_2d   = */ NULL,
++    /* .get_tensor_2d   = */ NULL,
+     /* .cpy_tensor      = */ ggml_backend_rpc_buffer_cpy_tensor,
+     /* .clear           = */ ggml_backend_rpc_buffer_clear,
+     /* .reset           = */ NULL,
+@@ -894,6 +741,8 @@ static ggml_backend_i ggml_backend_rpc_interface = {
+     /* .set_tensor_async        = */ NULL,
+     /* .get_tensor_async        = */ NULL,
+     /* .cpy_tensor_async        = */ NULL,
++    /* .get_tensor_2d_async     = */ NULL,
++    /* .set_tensor_2d_async     = */ NULL,
+     /* .synchronize             = */ ggml_backend_rpc_synchronize,
+     /* .graph_plan_create       = */ NULL,
+     /* .graph_plan_free         = */ NULL,
+@@ -1009,8 +858,8 @@ public:
+     bool get_device_memory(const rpc_msg_get_device_memory_req & request, rpc_msg_get_device_memory_rsp & response);
+ 
+     struct stored_graph {
+-        ggml_context_ptr ctx_ptr;
+-        ggml_cgraph *    graph;
++        std::vector<uint8_t>   buffer;
++        ggml_cgraph          * graph;
+     };
+ 
+ private:
+@@ -1518,10 +1367,12 @@ bool rpc_server::graph_compute(const std::vector<uint8_t> & input) {
+     LOG_DBG("[%s] device: %u, n_nodes: %u, n_tensors: %u\n", __func__, device, n_nodes, n_tensors);
+ 
+     size_t buf_size = ggml_tensor_overhead()*(n_nodes + n_tensors) + ggml_graph_overhead_custom(n_nodes, false);
+-
++    if (stored_graphs[device].buffer.size() < buf_size) {
++        stored_graphs[device].buffer.resize(buf_size);
++    }
+     struct ggml_init_params params = {
+         /*.mem_size   =*/ buf_size,
+-        /*.mem_buffer =*/ NULL,
++        /*.mem_buffer =*/ stored_graphs[device].buffer.data(),
+         /*.no_alloc   =*/ true,
+     };
+     ggml_context_ptr ctx_ptr { ggml_init(params) };
+@@ -1551,7 +1402,6 @@ bool rpc_server::graph_compute(const std::vector<uint8_t> & input) {
+     }
+     ggml_status status = ggml_backend_graph_compute(backends[device], graph);
+     GGML_ASSERT(status == GGML_STATUS_SUCCESS && "Unsuccessful graph computations are not supported with RPC");
+-    stored_graphs[device].ctx_ptr.swap(ctx_ptr);
+     stored_graphs[device].graph = graph;
+     return true;
+ }
+@@ -1592,27 +1442,46 @@ rpc_server::~rpc_server() {
+ }
+ 
+ static void rpc_serve_client(const std::vector<ggml_backend_t> & backends, const char * cache_dir,
+-                             sockfd_t sockfd) {
++                             socket_ptr sock) {
+     rpc_server server(backends, cache_dir);
+     uint8_t cmd;
+-    if (!recv_data(sockfd, &cmd, 1)) {
++    if (!sock->recv_data(&cmd, 1)) {
+         return;
+     }
+-    // the first command sent by the client must be HELLO
+     if (cmd != RPC_CMD_HELLO) {
+         GGML_LOG_ERROR("Expected HELLO command, update client\n");
+         return;
+     }
+-    if (!recv_msg(sockfd, nullptr, 0)) {
++
++    // Read input_size and validate protocol version
++    uint64_t hello_input_size;
++    if (!sock->recv_data(&hello_input_size, sizeof(hello_input_size))) {
++        return;
++    }
++
++    if (hello_input_size != sizeof(rpc_msg_hello_req)) {
++        GGML_LOG_ERROR("HELLO request size mismatch (%zu vs %zu) — client needs upgrade to protocol v%d.x\n",
++                       (size_t)hello_input_size, sizeof(rpc_msg_hello_req), RPC_PROTO_MAJOR_VERSION);
++        return;
++    }
++
++    rpc_msg_hello_req req = {};
++    if (!sock->recv_data(&req, sizeof(req))) {
+         return;
+     }
+-    rpc_msg_hello_rsp response;
+-    server.hello(response);
+-    if (!send_msg(sockfd, &response, sizeof(response))) {
++
++    rpc_msg_hello_rsp rsp = {};
++    server.hello(rsp);
++    // Advertise server transport capabilities based on client's caps
++    sock->get_caps(rsp.conn_caps);
++    if (!send_msg(sock, &rsp, sizeof(rsp))) {
+         return;
+     }
++
++    // Activate transport upgrade using client's caps
++    sock->update_caps(req.conn_caps);
+     while (true) {
+-        if (!recv_data(sockfd, &cmd, 1)) {
++        if (!sock->recv_data(&cmd, 1)) {
+             break;
+         }
+         if (cmd >= RPC_CMD_COUNT) {
+@@ -1626,115 +1495,115 @@ static void rpc_serve_client(const std::vector<ggml_backend_t> & backends, const
+                 return;
+             }
+             case RPC_CMD_DEVICE_COUNT: {
+-                if (!recv_msg(sockfd, nullptr, 0)) {
++                if (!recv_msg(sock, nullptr, 0)) {
+                     return;
+                 }
+                 rpc_msg_device_count_rsp response;
+                 response.device_count = backends.size();
+-                if (!send_msg(sockfd, &response, sizeof(response))) {
++                if (!send_msg(sock, &response, sizeof(response))) {
+                     return;
+                 }
+                 break;
+             }
+             case RPC_CMD_ALLOC_BUFFER: {
+                 rpc_msg_alloc_buffer_req request;
+-                if (!recv_msg(sockfd, &request, sizeof(request))) {
++                if (!recv_msg(sock, &request, sizeof(request))) {
+                     return;
+                 }
+                 rpc_msg_alloc_buffer_rsp response;
+                 if (!server.alloc_buffer(request, response)) {
+                     return;
+                 }
+-                if (!send_msg(sockfd, &response, sizeof(response))) {
++                if (!send_msg(sock, &response, sizeof(response))) {
+                     return;
+                 }
+                 break;
+             }
+             case RPC_CMD_GET_ALLOC_SIZE: {
+                 rpc_msg_get_alloc_size_req request;
+-                if (!recv_msg(sockfd, &request, sizeof(request))) {
++                if (!recv_msg(sock, &request, sizeof(request))) {
+                     return;
+                 }
+                 rpc_msg_get_alloc_size_rsp response;
+                 if (!server.get_alloc_size(request, response)) {
+                     return;
+                 }
+-                if (!send_msg(sockfd, &response, sizeof(response))) {
++                if (!send_msg(sock, &response, sizeof(response))) {
+                     return;
+                 }
+                 break;
+             }
+             case RPC_CMD_GET_ALIGNMENT: {
+                 rpc_msg_get_alignment_req request;
+-                if (!recv_msg(sockfd, &request, sizeof(request))) {
++                if (!recv_msg(sock, &request, sizeof(request))) {
+                     return;
+                 }
+                 rpc_msg_get_alignment_rsp response;
+                 if (!server.get_alignment(request, response)) {
+                     return;
+                 }
+-                if (!send_msg(sockfd, &response, sizeof(response))) {
++                if (!send_msg(sock, &response, sizeof(response))) {
+                     return;
+                 }
+                 break;
+             }
+             case RPC_CMD_GET_MAX_SIZE: {
+                 rpc_msg_get_max_size_req request;
+-                if (!recv_msg(sockfd, &request, sizeof(request))) {
++                if (!recv_msg(sock, &request, sizeof(request))) {
+                     return;
+                 }
+                 rpc_msg_get_max_size_rsp response;
+                 if (!server.get_max_size(request, response)) {
+                     return;
+                 }
+-                if (!send_msg(sockfd, &response, sizeof(response))) {
++                if (!send_msg(sock, &response, sizeof(response))) {
+                     return;
+                 }
+                 break;
+             }
+             case RPC_CMD_BUFFER_GET_BASE: {
+                 rpc_msg_buffer_get_base_req request;
+-                if (!recv_msg(sockfd, &request, sizeof(request))) {
++                if (!recv_msg(sock, &request, sizeof(request))) {
+                     return;
+                 }
+                 rpc_msg_buffer_get_base_rsp response;
+                 if (!server.buffer_get_base(request, response)) {
+                     return;
+                 }
+-                if (!send_msg(sockfd, &response, sizeof(response))) {
++                if (!send_msg(sock, &response, sizeof(response))) {
+                     return;
+                 }
+                 break;
+             }
+             case RPC_CMD_FREE_BUFFER: {
+                 rpc_msg_free_buffer_req request;
+-                if (!recv_msg(sockfd, &request, sizeof(request))) {
++                if (!recv_msg(sock, &request, sizeof(request))) {
+                     return;
+                 }
+                 if (!server.free_buffer(request)) {
+                     return;
+                 }
+-                if (!send_msg(sockfd, nullptr, 0)) {
++                if (!send_msg(sock, nullptr, 0)) {
+                     return;
+                 }
+                 break;
+             }
+             case RPC_CMD_BUFFER_CLEAR: {
+                 rpc_msg_buffer_clear_req request;
+-                if (!recv_msg(sockfd, &request, sizeof(request))) {
++                if (!recv_msg(sock, &request, sizeof(request))) {
+                     return;
+                 }
+                 if (!server.buffer_clear(request)) {
+                     return;
+                 }
+-                if (!send_msg(sockfd, nullptr, 0)) {
++                if (!send_msg(sock, nullptr, 0)) {
+                     return;
+                 }
+                 break;
+             }
+             case RPC_CMD_SET_TENSOR: {
+                 std::vector<uint8_t> input;
+-                if (!recv_msg(sockfd, input)) {
++                if (!recv_msg(sock, input)) {
+                     return;
+                 }
+                 if (!server.set_tensor(input)) {
+@@ -1744,62 +1613,62 @@ static void rpc_serve_client(const std::vector<ggml_backend_t> & backends, const
+             }
+             case RPC_CMD_SET_TENSOR_HASH: {
+                 rpc_msg_set_tensor_hash_req request;
+-                if (!recv_msg(sockfd, &request, sizeof(request))) {
++                if (!recv_msg(sock, &request, sizeof(request))) {
+                     return;
+                 }
+                 rpc_msg_set_tensor_hash_rsp response;
+                 if (!server.set_tensor_hash(request, response)) {
+                     return;
+                 }
+-                if (!send_msg(sockfd, &response, sizeof(response))) {
++                if (!send_msg(sock, &response, sizeof(response))) {
+                     return;
+                 }
+                 break;
+             }
+             case RPC_CMD_INIT_TENSOR: {
+                 rpc_msg_init_tensor_req request;
+-                if (!recv_msg(sockfd, &request,sizeof(request))) {
++                if (!recv_msg(sock, &request,sizeof(request))) {
+                     return;
+                 }
+                 if (!server.init_tensor(request)) {
+                     return;
+                 }
+-                if (!send_msg(sockfd, nullptr, 0)) {
++                if (!send_msg(sock, nullptr, 0)) {
+                     return;
+                 }
+                 break;
+             }
+             case RPC_CMD_GET_TENSOR: {
+                 rpc_msg_get_tensor_req request;
+-                if (!recv_msg(sockfd, &request, sizeof(request))) {
++                if (!recv_msg(sock, &request, sizeof(request))) {
+                     return;
+                 }
+                 std::vector<uint8_t> response;
+                 if (!server.get_tensor(request, response)) {
+                     return;
+                 }
+-                if (!send_msg(sockfd, response.data(), response.size())) {
++                if (!send_msg(sock, response.data(), response.size())) {
+                     return;
+                 }
+                 break;
+             }
+             case RPC_CMD_COPY_TENSOR: {
+                 rpc_msg_copy_tensor_req request;
+-                if (!recv_msg(sockfd, &request, sizeof(request))) {
++                if (!recv_msg(sock, &request, sizeof(request))) {
+                     return;
+                 }
+                 rpc_msg_copy_tensor_rsp response;
+                 if (!server.copy_tensor(request, response)) {
+                     return;
+                 }
+-                if (!send_msg(sockfd, &response, sizeof(response))) {
++                if (!send_msg(sock, &response, sizeof(response))) {
+                     return;
+                 }
+                 break;
+             }
+             case RPC_CMD_GRAPH_COMPUTE: {
+                 std::vector<uint8_t> input;
+-                if (!recv_msg(sockfd, input)) {
++                if (!recv_msg(sock, input)) {
+                     return;
+                 }
+                 if (!server.graph_compute(input)) {
+@@ -1809,7 +1678,7 @@ static void rpc_serve_client(const std::vector<ggml_backend_t> & backends, const
+             }
+             case RPC_CMD_GRAPH_RECOMPUTE: {
+                 rpc_msg_graph_recompute_req request;
+-                if (!recv_msg(sockfd, &request, sizeof(request))) {
++                if (!recv_msg(sock, &request, sizeof(request))) {
+                     return;
+                 }
+                 if (!server.graph_recompute(request)) {
+@@ -1819,14 +1688,14 @@ static void rpc_serve_client(const std::vector<ggml_backend_t> & backends, const
+             }
+             case RPC_CMD_GET_DEVICE_MEMORY: {
+                 rpc_msg_get_device_memory_req request;
+-                if (!recv_msg(sockfd, &request, sizeof(request))) {
++                if (!recv_msg(sock, &request, sizeof(request))) {
+                     return;
+                 }
+                 rpc_msg_get_device_memory_rsp response;
+                 if (!server.get_device_memory(request, response)) {
+                     return;
+                 }
+-                if (!send_msg(sockfd, &response, sizeof(response))) {
++                if (!send_msg(sock, &response, sizeof(response))) {
+                     return;
+                 }
+                 break;
+@@ -1879,36 +1748,34 @@ void ggml_backend_rpc_start_server(const char * endpoint, const char * cache_dir
+     if (!parse_endpoint(endpoint, host, port)) {
+         return;
+     }
+-#ifdef _WIN32
+-    {
+-        WSADATA wsaData;
+-        int res = WSAStartup(MAKEWORD(2, 2), &wsaData);
+-        if (res != 0) {
+-            fprintf(stderr, "WSAStartup failed: %d\n", res);
+-            return;
+-        }
++
++#ifdef GGML_RPC_RDMA
++    printf("  transport      : TCP (RDMA auto-negotiate enabled)\n");
++#else
++    printf("  transport      : TCP\n");
++#endif // GGML_RPC_RDMA
++    if (!rpc_transport_init()) {
++        fprintf(stderr, "Failed to initialize RPC transport\n");
++        return;
+     }
+-#endif
+-    auto server_socket = create_server_socket(host.c_str(), port);
++    auto server_socket = socket_t::create_server(host.c_str(), port);
+     if (server_socket == nullptr) {
+         fprintf(stderr, "Failed to create server socket\n");
+         return;
+     }
+     while (true) {
+-        auto client_socket = socket_accept(server_socket->fd);
++        auto client_socket = server_socket->accept();
+         if (client_socket == nullptr) {
+             fprintf(stderr, "Failed to accept client connection\n");
+             return;
+         }
+         printf("Accepted client connection\n");
+         fflush(stdout);
+-        rpc_serve_client(backends, cache_dir, client_socket->fd);
++        rpc_serve_client(backends, cache_dir, client_socket);
+         printf("Client connection closed\n");
+         fflush(stdout);
+     }
+-#ifdef _WIN32
+-    WSACleanup();
+-#endif
++    rpc_transport_shutdown();
+     for (auto backend : backends) {
+         ggml_backend_free(backend);
+     }
+diff --git src/ggml-rpc/transport.cpp src/ggml-rpc/transport.cpp
+new file mode 100644
+index 00000000..a7281524
+--- /dev/null
++++ src/ggml-rpc/transport.cpp
+@@ -0,0 +1,683 @@
++#include "transport.h"
++#include "ggml-impl.h"
++
++#ifdef _WIN32
++#  define WIN32_LEAN_AND_MEAN
++#  ifndef NOMINMAX
++#     define NOMINMAX
++#  endif
++#  include <windows.h>
++#  include <winsock2.h>
++#else
++#  include <arpa/inet.h>
++#  include <sys/socket.h>
++#  include <sys/types.h>
++#  include <netinet/in.h>
++#  include <netinet/tcp.h>
++#  include <netdb.h>
++#  include <unistd.h>
++#endif
++#include <cstdlib>
++#include <mutex>
++#include <optional>
++
 +#ifdef GGML_RPC_RDMA
 +#  include <infiniband/verbs.h>
 +#  include <time.h>
@@ -17576,13 +19208,17 @@ index 1378ba9f..017ef0af 100644
 +#  endif
 +#endif // GGML_RPC_RDMA
 +
- static const char * RPC_DEBUG = std::getenv("GGML_RPC_DEBUG");
- 
- #define LOG_DBG(...) \
-@@ -49,17 +59,116 @@ typedef int sockfd_t;
- #endif
- 
- // cross-platform socket
++#ifdef _WIN32
++typedef SOCKET sockfd_t;
++using ssize_t = __int64;
++#else
++typedef int sockfd_t;
++#endif
++
++static const char * RPC_DEBUG = std::getenv("GGML_RPC_DEBUG");
++
++#define LOG_DBG(...) \
++    do { if (RPC_DEBUG) GGML_LOG_DEBUG(__VA_ARGS__); } while (0)
 +
 +#ifdef GGML_RPC_RDMA
 +static constexpr size_t RDMA_CHUNK    = 256 * 1024;   // 256 KiB per send/recv (fits default 8 MiB memlock)
@@ -17645,100 +19281,56 @@ index 1378ba9f..017ef0af 100644
 +    int      gid_idx = 0;
 +    enum ibv_mtu path_mtu = IBV_MTU_1024;
 +};
-+#endif // GGML_RPC_RDMA
 +
-+// conn_caps size for transport-agnostic capability exchange
-+static constexpr size_t RPC_CONN_CAPS_SIZE = 24;
-+
-+// conn_caps RDMA layout helper
-+#ifdef GGML_RPC_RDMA
 +struct rdma_caps {
 +    uint32_t qpn;
 +    uint32_t psn;
 +    uint8_t  gid[RDMA_GID_SIZE];
 +};
++
 +static_assert(sizeof(rdma_caps) == RPC_CONN_CAPS_SIZE, "rdma_caps must match conn_caps size");
++
 +#endif // GGML_RPC_RDMA
 +
-+// Forward declarations for transport function pointers
-+struct socket_t;
-+static bool tcp_send_impl(socket_t * sock, const void * data, size_t size);
-+static bool tcp_recv_impl(socket_t * sock, void * data, size_t size);
++struct socket_t::impl {
++    impl(sockfd_t fd) : use_rdma(false), fd(fd) {}
++    ~impl();
++    bool send_data(const void * data, size_t size);
++    bool recv_data(void * data, size_t size);
++    void get_caps(uint8_t * local_caps);
++    void update_caps(const uint8_t * remote_caps);
 +
- struct socket_t {
-     sockfd_t fd;
-+    bool (*fn_send)(socket_t *, const void *, size_t) = tcp_send_impl;
-+    bool (*fn_recv)(socket_t *, void *, size_t)       = tcp_recv_impl;
 +#ifdef GGML_RPC_RDMA
++    bool tcp_peer_closed();
++    std::optional<rdma_gid_t> rdma_build_target_gid();
++    bool rdma_probe();
++    bool rdma_activate(uint32_t remote_qpn, uint32_t remote_psn, const uint8_t * remote_gid);
++    bool rdma_poll(struct ibv_cq * cq, struct ibv_wc * wc);
++    bool rdma_send(const void * data, size_t size);
++    bool rdma_recv(void * data, size_t size);
++
 +    std::unique_ptr<rdma_conn> rdma;
 +    rdma_local_info            rdma_local = {};
 +#endif // GGML_RPC_RDMA
-     socket_t(sockfd_t fd) : fd(fd) {}
-     ~socket_t() {
-+#ifdef GGML_RPC_RDMA
-+        rdma.reset();
-+#endif // GGML_RPC_RDMA
-         LOG_DBG("[%s] closing socket %d\n", __func__, this->fd);
- #ifdef _WIN32
--        closesocket(this->fd);
-+        if (fd != INVALID_SOCKET) closesocket(this->fd);
- #else
--        close(this->fd);
-+        if (fd >= 0) close(this->fd);
- #endif
-     }
-+
-+    // Advertise local transport capabilities into conn_caps.
-+    // May probe RDMA and store the probe on this socket for update_caps.
-+    void get_caps(uint8_t * caps);
-+
-+    // Activate transport upgrade based on remote conn_caps using the probe
-+    // previously stored by get_caps.
-+    void update_caps(const uint8_t * remote_caps);
- };
- 
- // macro for nicer error messages on server crash
-@@ -115,10 +224,16 @@ static_assert(RPC_CMD_HELLO == 14, "RPC_CMD_HELLO must be always 14");
- // Try RPC_CMD_SET_TENSOR_HASH first when data size is larger than this threshold
- const size_t HASH_THRESHOLD = 10 * 1024 * 1024;
- 
-+struct rpc_msg_hello_req {
-+    uint8_t conn_caps[RPC_CONN_CAPS_SIZE];
++    bool     use_rdma;
++    sockfd_t fd;
 +};
 +
- struct rpc_msg_hello_rsp {
-     uint8_t major;
-     uint8_t minor;
-     uint8_t patch;
-+    uint8_t padding;
-+    uint8_t conn_caps[RPC_CONN_CAPS_SIZE];
- };
- 
- struct rpc_msg_device_count_rsp {
-@@ -414,27 +529,414 @@ static bool recv_data(sockfd_t sockfd, void * data, size_t size) {
-     return true;
- }
- 
--static bool send_msg(sockfd_t sockfd, const void * msg, size_t msg_size) {
--    if (!send_data(sockfd, &msg_size, sizeof(msg_size))) {
-+// TCP transport implementations (for function-pointer dispatch)
-+
-+static bool tcp_send_impl(socket_t * sock, const void * data, size_t size) {
-+    return send_data(sock->fd, data, size);
++socket_t::impl::~impl() {
++#ifdef GGML_RPC_RDMA
++    rdma.reset();
++#endif // GGML_RPC_RDMA
++    LOG_DBG("[%s] closing socket %d\n", __func__, this->fd);
++#ifdef _WIN32
++    if (fd != INVALID_SOCKET) closesocket(this->fd);
++#else
++    if (fd >= 0) close(this->fd);
++#endif
 +}
-+
-+static bool tcp_recv_impl(socket_t * sock, void * data, size_t size) {
-+    return recv_data(sock->fd, data, size);
-+}
-+
-+// RDMA transport (performance-optimized, auto-negotiated)
 +
 +#ifdef GGML_RPC_RDMA
 +
-+static bool rdma_send_impl(socket_t * sock, const void * data, size_t size);
-+static bool rdma_recv_impl(socket_t * sock, void * data, size_t size);
-+
-+static inline bool tcp_peer_closed(int fd) {
++bool socket_t::impl::tcp_peer_closed() {
 +    if (fd < 0) return false;
 +#ifndef _WIN32
 +    struct pollfd pfd = { fd, POLLIN | POLLRDHUP, 0 };
@@ -17749,87 +19341,6 @@ index 1378ba9f..017ef0af 100644
 +#endif
 +}
 +
-+static inline bool rdma_poll(struct ibv_cq * cq, struct ibv_wc * wc, int tcp_fd) {
-+    for (uint64_t s = 0; ; s++) {
-+        int n = ibv_poll_cq(cq, 1, wc);
-+        if (n > 0) {
-+            if (wc->status != IBV_WC_SUCCESS) {
-+                GGML_LOG_ERROR("RDMA CQ wc error: status=%d (%s) vendor_err=0x%x\n",
-+                    wc->status, ibv_wc_status_str(wc->status), wc->vendor_err);
-+            }
-+            return wc->status == IBV_WC_SUCCESS;
-+        }
-+        if (n < 0) return false;
-+        if ((s & 0xFFFFF) == 0 && s > 0) {
-+            if (tcp_peer_closed(tcp_fd)) {
-+                return false;
-+            }
-+        }
-+    }
-+}
-+
-+static bool rdma_send(rdma_conn * c, const void * data, size_t size, int tcp_fd) {
-+    const uint8_t * src = (const uint8_t *)data;
-+    size_t rem = size;
-+    while (rem > 0) {
-+        size_t chunk = std::min(rem, RDMA_CHUNK);
-+
-+        struct ibv_sge sge = {};
-+        struct ibv_send_wr wr = {}, * bad = nullptr;
-+        wr.opcode  = IBV_WR_SEND;
-+        wr.sg_list = &sge;
-+        wr.num_sge = 1;
-+
-+        if (chunk <= c->max_inline) {
-+            sge.addr   = (uintptr_t)src;
-+            sge.length = chunk;
-+            wr.send_flags = IBV_SEND_SIGNALED | IBV_SEND_INLINE;
-+        } else {
-+            memcpy(c->tx_buf, src, chunk);
-+            sge.addr   = (uintptr_t)c->tx_buf;
-+            sge.length = chunk;
-+            sge.lkey   = c->tx_mr->lkey;
-+            wr.send_flags = IBV_SEND_SIGNALED;
-+        }
-+
-+        if (ibv_post_send(c->qp, &wr, &bad) != 0) return false;
-+        struct ibv_wc wc;
-+        if (!rdma_poll(c->scq, &wc, tcp_fd)) return false;
-+
-+        src += chunk;
-+        rem -= chunk;
-+    }
-+    return true;
-+}
-+
-+
-+static bool rdma_recv(rdma_conn * c, void * data, size_t size, int tcp_fd) {
-+    uint8_t * dst = (uint8_t *)data;
-+    size_t rem = size;
-+    while (rem > 0) {
-+        struct ibv_wc wc;
-+        if (!rdma_poll(c->rcq, &wc, tcp_fd)) return false;
-+
-+        int slot = (int)wc.wr_id;
-+        size_t got = wc.byte_len;
-+        memcpy(dst, c->rx_slot(slot), got);
-+
-+        if (!c->post_rx(slot)) return false;
-+
-+        dst += got;
-+        rem -= got;
-+    }
-+    return true;
-+}
-+
-+static bool rdma_send_impl(socket_t * sock, const void * data, size_t size) {
-+    return rdma_send(sock->rdma.get(), data, size, sock->fd);
-+}
-+
-+static bool rdma_recv_impl(socket_t * sock, void * data, size_t size) {
-+    return rdma_recv(sock->rdma.get(), data, size, sock->fd);
-+}
-+
 +// Build a RoCE GID-shaped 16-byte target from a TCP socket's local address.
 +// Used to match the socket's local IP against the kernel's GID table so that
 +// a single memcmp handles IPv4, IPv4-mapped IPv6, and native IPv6 uniformly:
@@ -17837,10 +19348,10 @@ index 1378ba9f..017ef0af 100644
 +//   AF_INET6 (IPv4-mapped) -> ::ffff:a.b.c.d  (already in GID shape)
 +//   AF_INET6 (native v6)   -> the 16-byte IPv6 address as-is
 +// Returns std::nullopt on unsupported family or getsockname failure.
-+static std::optional<rdma_gid_t> rdma_build_target_gid(sockfd_t tcp_fd) {
++std::optional<rdma_gid_t> socket_t::impl::rdma_build_target_gid() {
 +    sockaddr_storage addr = {};
 +    socklen_t addr_len = sizeof(addr);
-+    if (getsockname(tcp_fd, reinterpret_cast<sockaddr *>(&addr), &addr_len) != 0) {
++    if (getsockname(fd, reinterpret_cast<sockaddr *>(&addr), &addr_len) != 0) {
 +        return std::nullopt;
 +    }
 +    rdma_gid_t target = {};
@@ -17859,19 +19370,19 @@ index 1378ba9f..017ef0af 100644
 +    return std::nullopt;
 +}
 +
-+static rdma_conn * rdma_probe(sockfd_t tcp_fd, rdma_local_info * out) {
++bool socket_t::impl::rdma_probe() {
 +    const char * dev_env = std::getenv("GGML_RDMA_DEV");
 +    const char * gid_env = std::getenv("GGML_RDMA_GID");
 +
-+    auto target_gid = rdma_build_target_gid(tcp_fd);
++    auto target_gid = rdma_build_target_gid();
 +    if (!target_gid) {
-+        return nullptr;
++        return false;
 +    }
 +
 +    const uint8_t ib_port = 1;
 +    int num_devs = 0;
 +    ibv_device ** devs = ibv_get_device_list(&num_devs);
-+    if (!devs || num_devs == 0) return nullptr;
++    if (!devs || num_devs == 0) return false;
 +
 +    ibv_context * ibctx = nullptr;
 +    const char * matched_dev = nullptr;
@@ -17926,32 +19437,30 @@ index 1378ba9f..017ef0af 100644
 +            gid_idx = found_gid;
 +            gid_version = found_version;
 +            matched_dev = dn;
-+            out->path_mtu = pa.active_mtu;
++            rdma_local.path_mtu = pa.active_mtu;
 +            break;
 +        }
 +        ibv_close_device(ctx);
 +    }
 +    ibv_free_device_list(devs);
-+    if (!ibctx) return nullptr;
++    if (!ibctx) return false;
 +
-+    out->ib_port = ib_port;
-+    out->gid_idx = gid_idx;
++    rdma_local.ib_port = ib_port;
++    rdma_local.gid_idx = gid_idx;
 +
-+    // unique_ptr owns ibctx and every subsequent resource via ~rdma_conn(),
-+    // so each failure path is a plain `return nullptr;`.
-+    auto c = std::make_unique<rdma_conn>();
-+    c->ctx = ibctx;
++    rdma = std::make_unique<rdma_conn>();
++    rdma->ctx = ibctx;
 +
-+    c->pd = ibv_alloc_pd(ibctx);
-+    if (!c->pd) return nullptr;
++    rdma->pd = ibv_alloc_pd(ibctx);
++    if (!rdma->pd) return false;
 +
-+    c->scq = ibv_create_cq(ibctx, 16, nullptr, nullptr, 0);
-+    c->rcq = ibv_create_cq(ibctx, RDMA_RX_DEPTH + 4, nullptr, nullptr, 0);
-+    if (!c->scq || !c->rcq) return nullptr;
++    rdma->scq = ibv_create_cq(ibctx, 16, nullptr, nullptr, 0);
++    rdma->rcq = ibv_create_cq(ibctx, RDMA_RX_DEPTH + 4, nullptr, nullptr, 0);
++    if (!rdma->scq || !rdma->rcq) return false;
 +
 +    ibv_qp_init_attr qia = {};
-+    qia.send_cq = c->scq;
-+    qia.recv_cq = c->rcq;
++    qia.send_cq = rdma->scq;
++    qia.recv_cq = rdma->rcq;
 +    qia.qp_type = IBV_QPT_RC;
 +    qia.cap.max_send_wr     = 4;
 +    qia.cap.max_recv_wr     = RDMA_RX_DEPTH + 4;
@@ -17959,25 +19468,25 @@ index 1378ba9f..017ef0af 100644
 +    qia.cap.max_recv_sge    = 1;
 +    qia.cap.max_inline_data = 256;
 +
-+    c->qp = ibv_create_qp(c->pd, &qia);
-+    if (!c->qp) return nullptr;
-+    c->max_inline = qia.cap.max_inline_data;
++    rdma->qp = ibv_create_qp(rdma->pd, &qia);
++    if (!rdma->qp) return false;
++    rdma->max_inline = qia.cap.max_inline_data;
 +
-+    c->tx_buf = aligned_alloc(4096, RDMA_CHUNK);
-+    c->rx_buf = aligned_alloc(4096, static_cast<size_t>(RDMA_RX_DEPTH) * RDMA_CHUNK);
-+    if (!c->tx_buf || !c->rx_buf) return nullptr;
++    rdma->tx_buf = aligned_alloc(4096, RDMA_CHUNK);
++    rdma->rx_buf = aligned_alloc(4096, static_cast<size_t>(RDMA_RX_DEPTH) * RDMA_CHUNK);
++    if (!rdma->tx_buf || !rdma->rx_buf) return false;
 +
-+    c->tx_mr = ibv_reg_mr(c->pd, c->tx_buf, RDMA_CHUNK, IBV_ACCESS_LOCAL_WRITE);
-+    c->rx_mr = ibv_reg_mr(c->pd, c->rx_buf, static_cast<size_t>(RDMA_RX_DEPTH) * RDMA_CHUNK,
++    rdma->tx_mr = ibv_reg_mr(rdma->pd, rdma->tx_buf, RDMA_CHUNK, IBV_ACCESS_LOCAL_WRITE);
++    rdma->rx_mr = ibv_reg_mr(rdma->pd, rdma->rx_buf, static_cast<size_t>(RDMA_RX_DEPTH) * RDMA_CHUNK,
 +                           IBV_ACCESS_LOCAL_WRITE | IBV_ACCESS_REMOTE_WRITE);
-+    if (!c->tx_mr || !c->rx_mr) return nullptr;
++    if (!rdma->tx_mr || !rdma->rx_mr) return false;
 +
 +    ibv_gid local_gid;
-+    if (ibv_query_gid(ibctx, ib_port, gid_idx, &local_gid) != 0) return nullptr;
++    if (ibv_query_gid(ibctx, ib_port, gid_idx, &local_gid) != 0) return false;
 +
-+    out->qpn = c->qp->qp_num;
-+    out->psn = c->qp->qp_num & 0xffffff;
-+    memcpy(out->gid, &local_gid, RDMA_GID_SIZE);
++    rdma_local.qpn = rdma->qp->qp_num;
++    rdma_local.psn = rdma->qp->qp_num & 0xffffff;
++    memcpy(&rdma_local.gid, &local_gid, RDMA_GID_SIZE);
 +
 +    const char * ver_str = "";
 +    if (gid_version == IBV_GID_TYPE_ROCE_V2) {
@@ -17986,36 +19495,35 @@ index 1378ba9f..017ef0af 100644
 +        ver_str = " RoCEv1";
 +    }
 +    GGML_LOG_INFO("RDMA probed: dev=%s gid=%d%s qpn=%u inline=%u\n",
-+                  matched_dev, gid_idx, ver_str, out->qpn, c->max_inline);
-+    return c.release();
++                  matched_dev, gid_idx, ver_str, rdma_local.qpn, rdma->max_inline);
++    return true;
 +}
 +
 +// Phase 2: Given remote QPN/PSN/GID, transition QP: RESET->INIT->pre-post->RTR->RTS.
 +// On success, the connection is live and ready for rdma_send/rdma_recv.
-+static bool rdma_activate(rdma_conn * c, const rdma_local_info * local,
-+                          uint32_t remote_qpn, uint32_t remote_psn, const uint8_t * remote_gid) {
++bool socket_t::impl::rdma_activate(uint32_t remote_qpn, uint32_t remote_psn, const uint8_t * remote_gid) {
 +    // RESET -> INIT
 +    {
 +        struct ibv_qp_attr a = {};
 +        a.qp_state        = IBV_QPS_INIT;
-+        a.port_num        = local->ib_port;
++        a.port_num        = rdma_local.ib_port;
 +        a.pkey_index      = 0;
 +        a.qp_access_flags = IBV_ACCESS_REMOTE_WRITE | IBV_ACCESS_REMOTE_READ | IBV_ACCESS_LOCAL_WRITE;
-+        if (ibv_modify_qp(c->qp, &a,
++        if (ibv_modify_qp(rdma->qp, &a,
 +                IBV_QP_STATE | IBV_QP_PKEY_INDEX | IBV_QP_PORT | IBV_QP_ACCESS_FLAGS) != 0) {
 +            return false;
 +        }
 +    }
 +
 +    for (int i = 0; i < RDMA_RX_DEPTH; i++) {
-+        if (!c->post_rx(i)) return false;
++        if (!rdma->post_rx(i)) return false;
 +    }
 +
 +    // INIT -> RTR
 +    {
 +        struct ibv_qp_attr a = {};
 +        a.qp_state           = IBV_QPS_RTR;
-+        a.path_mtu           = local->path_mtu;
++        a.path_mtu           = rdma_local.path_mtu;
 +        a.dest_qp_num        = remote_qpn;
 +        a.rq_psn             = remote_psn;
 +        a.max_dest_rd_atomic = 1;
@@ -18023,10 +19531,10 @@ index 1378ba9f..017ef0af 100644
 +        a.ah_attr.is_global  = 1;
 +        memcpy(&a.ah_attr.grh.dgid, remote_gid, RDMA_GID_SIZE);
 +        a.ah_attr.grh.hop_limit  = 1;
-+        a.ah_attr.grh.sgid_index = local->gid_idx;
++        a.ah_attr.grh.sgid_index = rdma_local.gid_idx;
 +        a.ah_attr.dlid       = 0;
-+        a.ah_attr.port_num   = local->ib_port;
-+        if (ibv_modify_qp(c->qp, &a,
++        a.ah_attr.port_num   = rdma_local.ib_port;
++        if (ibv_modify_qp(rdma->qp, &a,
 +                IBV_QP_STATE | IBV_QP_AV | IBV_QP_PATH_MTU | IBV_QP_DEST_QPN |
 +                IBV_QP_RQ_PSN | IBV_QP_MAX_DEST_RD_ATOMIC | IBV_QP_MIN_RNR_TIMER) != 0) {
 +            return false;
@@ -18040,9 +19548,9 @@ index 1378ba9f..017ef0af 100644
 +        a.timeout      = 14;
 +        a.retry_cnt    = 7;
 +        a.rnr_retry    = 7;
-+        a.sq_psn       = local->psn;
++        a.sq_psn       = rdma_local.psn;
 +        a.max_rd_atomic = 1;
-+        if (ibv_modify_qp(c->qp, &a,
++        if (ibv_modify_qp(rdma->qp, &a,
 +                IBV_QP_STATE | IBV_QP_TIMEOUT | IBV_QP_RETRY_CNT | IBV_QP_RNR_RETRY |
 +                IBV_QP_SQ_PSN | IBV_QP_MAX_QP_RD_ATOMIC) != 0) {
 +            return false;
@@ -18050,32 +19558,147 @@ index 1378ba9f..017ef0af 100644
 +    }
 +
 +    GGML_LOG_INFO("RDMA activated: qpn=%u->%u mtu=%d rx_depth=%d\n",
-+                  local->qpn, remote_qpn, 128 << local->path_mtu, RDMA_RX_DEPTH);
++                  rdma_local.qpn, remote_qpn, 128 << rdma_local.path_mtu, RDMA_RX_DEPTH);
++    return true;
++}
++
++bool socket_t::impl::rdma_poll(struct ibv_cq * cq, struct ibv_wc * wc) {
++    for (uint64_t s = 0; ; s++) {
++        int n = ibv_poll_cq(cq, 1, wc);
++        if (n > 0) {
++            if (wc->status != IBV_WC_SUCCESS) {
++                GGML_LOG_ERROR("RDMA CQ wc error: status=%d (%s) vendor_err=0x%x\n",
++                    wc->status, ibv_wc_status_str(wc->status), wc->vendor_err);
++            }
++            return wc->status == IBV_WC_SUCCESS;
++        }
++        if (n < 0) return false;
++        if ((s & 0xFFFFF) == 0 && s > 0) {
++            if (tcp_peer_closed()) {
++                return false;
++            }
++        }
++    }
++}
++
++bool socket_t::impl::rdma_send(const void * data, size_t size) {
++    rdma_conn * c = rdma.get();
++    const uint8_t * src = (const uint8_t *)data;
++    size_t rem = size;
++    while (rem > 0) {
++        size_t chunk = std::min(rem, RDMA_CHUNK);
++
++        struct ibv_sge sge = {};
++        struct ibv_send_wr wr = {}, * bad = nullptr;
++        wr.opcode  = IBV_WR_SEND;
++        wr.sg_list = &sge;
++        wr.num_sge = 1;
++
++        if (chunk <= c->max_inline) {
++            sge.addr   = (uintptr_t)src;
++            sge.length = chunk;
++            wr.send_flags = IBV_SEND_SIGNALED | IBV_SEND_INLINE;
++        } else {
++            memcpy(c->tx_buf, src, chunk);
++            sge.addr   = (uintptr_t)c->tx_buf;
++            sge.length = chunk;
++            sge.lkey   = c->tx_mr->lkey;
++            wr.send_flags = IBV_SEND_SIGNALED;
++        }
++
++        if (ibv_post_send(c->qp, &wr, &bad) != 0) return false;
++        struct ibv_wc wc;
++        if (!rdma_poll(c->scq, &wc)) return false;
++
++        src += chunk;
++        rem -= chunk;
++    }
++    return true;
++}
++
++bool socket_t::impl::rdma_recv(void * data, size_t size) {
++    rdma_conn * c = rdma.get();
++    uint8_t * dst = (uint8_t *)data;
++    size_t rem = size;
++    while (rem > 0) {
++        struct ibv_wc wc;
++        if (!rdma_poll(c->rcq, &wc)) return false;
++
++        int slot = (int)wc.wr_id;
++        size_t got = wc.byte_len;
++        memcpy(dst, c->rx_slot(slot), got);
++
++        if (!c->post_rx(slot)) return false;
++
++        dst += got;
++        rem -= got;
++    }
 +    return true;
 +}
 +
 +#endif // GGML_RPC_RDMA
 +
-+// ---------------------------------------------------------------------------
-+// socket_t transport capability methods
-+// ---------------------------------------------------------------------------
++bool socket_t::impl::send_data(const void * data, size_t size) {
++#ifdef GGML_RPC_RDMA
++    if (use_rdma) {
++        return rdma_send(data, size);
++    }
++#endif
++    size_t bytes_sent = 0;
++    while (bytes_sent < size) {
++        size_t size_to_send = std::min(size - bytes_sent, MAX_CHUNK_SIZE);
++        ssize_t n = send(fd, (const char *)data + bytes_sent, size_to_send, 0);
++        if (n < 0) {
++            GGML_LOG_ERROR("send failed (bytes_sent=%zu, size_to_send=%zu)\n",
++                           bytes_sent, size_to_send);
++            return false;
++        }
++        bytes_sent += (size_t)n;
++    }
++    return true;
++}
 +
-+void socket_t::get_caps(uint8_t * caps) {
-+    memset(caps, 0, RPC_CONN_CAPS_SIZE);
++bool socket_t::impl::recv_data(void * data, size_t size) {
++#ifdef GGML_RPC_RDMA
++    if (use_rdma) {
++        return rdma_recv(data, size);
++    }
++#endif
++    size_t bytes_recv = 0;
++    while (bytes_recv < size) {
++        size_t size_to_recv = std::min(size - bytes_recv, MAX_CHUNK_SIZE);
++        ssize_t n = recv(fd, (char *)data + bytes_recv, size_to_recv, 0);
++        if (n < 0) {
++            GGML_LOG_ERROR("recv failed (bytes_recv=%zu, size_to_recv=%zu)\n",
++                           bytes_recv, size_to_recv);
++            return false;
++        }
++        if (n == 0) {
++            LOG_DBG("recv returned 0 (peer closed?)\n");
++            return false;
++        }
++        bytes_recv += (size_t)n;
++    }
++    return true;
++}
++
++void socket_t::impl::get_caps(uint8_t * local_caps) {
++    memset(local_caps, 0, RPC_CONN_CAPS_SIZE);
 +#ifdef GGML_RPC_RDMA
 +    rdma_local = {};
-+    rdma.reset(rdma_probe(fd, &rdma_local));
-+    if (rdma) {
++    if (rdma_probe()) {
 +        rdma_caps rc = {};
 +        rc.qpn = rdma_local.qpn;
 +        rc.psn = rdma_local.psn;
 +        memcpy(rc.gid, rdma_local.gid, RDMA_GID_SIZE);
-+        memcpy(caps, &rc, sizeof(rc));
++        memcpy(local_caps, &rc, sizeof(rc));
++    } else {
++        rdma.reset();
 +    }
 +#endif // GGML_RPC_RDMA
 +}
 +
-+void socket_t::update_caps(const uint8_t * remote_caps) {
++void socket_t::impl::update_caps(const uint8_t * remote_caps) {
 +#ifdef GGML_RPC_RDMA
 +    if (!rdma) {
 +        return;
@@ -18086,9 +19709,8 @@ index 1378ba9f..017ef0af 100644
 +        rdma.reset();
 +        return;
 +    }
-+    if (rdma_activate(rdma.get(), &rdma_local, rc.qpn, rc.psn, rc.gid)) {
-+        fn_send = rdma_send_impl;
-+        fn_recv = rdma_recv_impl;
++    if (rdma_activate(rc.qpn, rc.psn, rc.gid)) {
++        use_rdma = true;
 +    } else {
 +        GGML_LOG_ERROR("RDMA activate failed, staying on TCP\n");
 +        rdma.reset();
@@ -18098,285 +19720,186 @@ index 1378ba9f..017ef0af 100644
 +#endif // GGML_RPC_RDMA
 +}
 +
-+// unified transport dispatch (via function pointers)
 +
-+static bool send_data(socket_t * sock, const void * data, size_t size) {
-+    return sock->fn_send(sock, data, size);
++/////////////////////////////////////////////////////////////////////////////
++
++socket_t::socket_t(std::unique_ptr<impl> p) : pimpl(std::move(p)) {}
++
++socket_t::~socket_t() = default;
++
++bool socket_t::send_data(const void * data, size_t size) {
++    return pimpl->send_data(data, size);
 +}
 +
-+static bool recv_data(socket_t * sock, void * data, size_t size) {
-+    return sock->fn_recv(sock, data, size);
++bool socket_t::recv_data(void * data, size_t size) {
++    return pimpl->recv_data(data, size);
 +}
 +
-+static bool send_msg(socket_t * sock, const void * msg, size_t msg_size) {
-+    if (!send_data(sock, &msg_size, sizeof(msg_size))) {
-         return false;
-     }
--    return send_data(sockfd, msg, msg_size);
-+    return send_data(sock, msg, msg_size);
- }
- 
--static bool recv_msg(sockfd_t sockfd, void * msg, size_t msg_size) {
-+static bool recv_msg(socket_t * sock, void * msg, size_t msg_size) {
-     uint64_t size;
--    if (!recv_data(sockfd, &size, sizeof(size))) {
-+    if (!recv_data(sock, &size, sizeof(size))) {
-         return false;
-     }
-     if (size != msg_size) {
-         return false;
-     }
--    return recv_data(sockfd, msg, msg_size);
-+    return recv_data(sock, msg, msg_size);
- }
- 
--static bool recv_msg(sockfd_t sockfd, std::vector<uint8_t> & input) {
-+static bool recv_msg(socket_t * sock, std::vector<uint8_t> & input) {
-     uint64_t size;
--    if (!recv_data(sockfd, &size, sizeof(size))) {
-+    if (!recv_data(sock, &size, sizeof(size))) {
-         return false;
-     }
-     try {
-@@ -443,7 +945,7 @@ static bool recv_msg(sockfd_t sockfd, std::vector<uint8_t> & input) {
-         GGML_LOG_ERROR("Failed to allocate input buffer of size %" PRIu64 "\n", size);
-         return false;
-     }
--    return recv_data(sockfd, input.data(), size);
-+    return recv_data(sock, input.data(), size);
- }
- 
- static bool parse_endpoint(const std::string & endpoint, std::string & host, int & port) {
-@@ -452,7 +954,11 @@ static bool parse_endpoint(const std::string & endpoint, std::string & host, int
-         return false;
-     }
-     host = endpoint.substr(0, pos);
--    port = std::stoi(endpoint.substr(pos + 1));
-+    try {
-+        port = std::stoi(endpoint.substr(pos + 1));
-+    } catch (...) {
++void socket_t::get_caps(uint8_t * local_caps) {
++    return pimpl->get_caps(local_caps);
++}
++
++void socket_t::update_caps(const uint8_t * remote_caps) {
++    return pimpl->update_caps(remote_caps);
++}
++
++static bool is_valid_fd(sockfd_t sockfd) {
++#ifdef _WIN32
++    return sockfd != INVALID_SOCKET;
++#else
++    return sockfd >= 0;
++#endif
++}
++
++static bool set_no_delay(sockfd_t sockfd) {
++    int flag = 1;
++    // set TCP_NODELAY to disable Nagle's algorithm
++    int ret = setsockopt(sockfd, IPPROTO_TCP, TCP_NODELAY, (char *)&flag, sizeof(int));
++    return ret == 0;
++}
++
++static bool set_reuse_addr(sockfd_t sockfd) {
++    int flag = 1;
++    int ret = setsockopt(sockfd, SOL_SOCKET, SO_REUSEADDR, (char *)&flag, sizeof(int));
++    return ret == 0;
++}
++
++socket_ptr socket_t::accept() {
++    auto client_socket_fd = ::accept(pimpl->fd, NULL, NULL);
++    if (!is_valid_fd(client_socket_fd)) {
++        return nullptr;
++    }
++    if (!set_no_delay(client_socket_fd)) {
++        GGML_LOG_ERROR("Failed to set TCP_NODELAY\n");
++        return nullptr;
++    }
++    return socket_ptr(new socket_t(std::make_unique<impl>(client_socket_fd)));
++}
++
++socket_ptr socket_t::create_server(const char * host, int port) {
++    auto sockfd = socket(AF_INET, SOCK_STREAM, 0);
++    if (!is_valid_fd(sockfd)) {
++        return nullptr;
++    }
++    if (!set_reuse_addr(sockfd)) {
++        GGML_LOG_ERROR("Failed to set SO_REUSEADDR\n");
++        return nullptr;
++    }
++    if (inet_addr(host) == INADDR_NONE) {
++        GGML_LOG_ERROR("Invalid host address: %s\n", host);
++        return nullptr;
++    }
++    struct sockaddr_in serv_addr;
++    serv_addr.sin_family = AF_INET;
++    serv_addr.sin_addr.s_addr = inet_addr(host);
++    serv_addr.sin_port = htons(port);
++
++    if (bind(sockfd, (struct sockaddr *) &serv_addr, sizeof(serv_addr)) < 0) {
++        return nullptr;
++    }
++    if (listen(sockfd, 1) < 0) {
++        return nullptr;
++    }
++    return socket_ptr(new socket_t(std::make_unique<impl>(sockfd)));
++}
++
++socket_ptr socket_t::connect(const char * host, int port) {
++    auto sockfd = socket(AF_INET, SOCK_STREAM, 0);
++    if (!is_valid_fd(sockfd)) {
++        return nullptr;
++    }
++    if (!set_no_delay(sockfd)) {
++        GGML_LOG_ERROR("Failed to set TCP_NODELAY\n");
++        return nullptr;
++    }
++    struct sockaddr_in addr;
++    addr.sin_family = AF_INET;
++    addr.sin_port = htons(port);
++    struct hostent * server = gethostbyname(host);
++    if (server == NULL) {
++        GGML_LOG_ERROR("Cannot resolve host '%s'\n", host);
++        return nullptr;
++    }
++    memcpy(&addr.sin_addr.s_addr, server->h_addr, server->h_length);
++    if (::connect(sockfd, (struct sockaddr *)&addr, sizeof(addr)) < 0) {
++        return nullptr;
++    }
++    return socket_ptr(new socket_t(std::make_unique<impl>(sockfd)));
++}
++
++#ifdef _WIN32
++static std::mutex g_rpc_transport_mu;
++static bool g_rpc_transport_wsa_started = false;
++#endif
++
++bool rpc_transport_init() {
++#ifdef _WIN32
++    std::lock_guard<std::mutex> lock(g_rpc_transport_mu);
++    if (g_rpc_transport_wsa_started) {
++        return true;
++    }
++    WSADATA wsaData;
++    int res = WSAStartup(MAKEWORD(2, 2), &wsaData);
++    if (res != 0) {
 +        return false;
 +    }
-     return true;
- }
- 
-@@ -460,13 +966,13 @@ static bool parse_endpoint(const std::string & endpoint, std::string & host, int
- // No response
- static bool send_rpc_cmd(const std::shared_ptr<socket_t> & sock, enum rpc_cmd cmd, const void * input, size_t input_size) {
-     uint8_t cmd_byte = cmd;
--    if (!send_data(sock->fd, &cmd_byte, sizeof(cmd_byte))) {
-+    if (!send_data(sock.get(), &cmd_byte, sizeof(cmd_byte))) {
-         return false;
-     }
--    if (!send_data(sock->fd, &input_size, sizeof(input_size))) {
-+    if (!send_data(sock.get(), &input_size, sizeof(input_size))) {
-         return false;
-     }
--    if (!send_data(sock->fd, input, input_size)) {
-+    if (!send_data(sock.get(), input, input_size)) {
-         return false;
-     }
-     return true;
-@@ -478,16 +984,14 @@ static bool send_rpc_cmd(const std::shared_ptr<socket_t> & sock, enum rpc_cmd cm
-     if (!send_rpc_cmd(sock, cmd, input, input_size)) {
-         return false;
-     }
--    // TODO: currently the output_size is always known, do we need support for commands with variable output size?
--    // even if we do, we can skip sending output_size from the server for commands with known output size
-     uint64_t out_size;
--    if (!recv_data(sock->fd, &out_size, sizeof(out_size))) {
-+    if (!recv_data(sock.get(), &out_size, sizeof(out_size))) {
-         return false;
-     }
-     if (out_size != output_size) {
-         return false;
-     }
--    if (!recv_data(sock->fd, output, output_size)) {
-+    if (!recv_data(sock.get(), output, output_size)) {
-         return false;
-     }
-     return true;
-@@ -495,17 +999,25 @@ static bool send_rpc_cmd(const std::shared_ptr<socket_t> & sock, enum rpc_cmd cm
- 
- // RPC client-side implementation
- 
--static bool check_server_version(const std::shared_ptr<socket_t> & sock) {
--    rpc_msg_hello_rsp response;
--    bool status = send_rpc_cmd(sock, RPC_CMD_HELLO, nullptr, 0, &response, sizeof(response));
-+// Performs HELLO handshake with transport auto-negotiation.
-+// Advertises local capabilities via conn_caps; if the server responds with
-+// matching capabilities, the socket is upgraded transparently.
-+static bool negotiate_hello(const std::shared_ptr<socket_t> & sock) {
-+    rpc_msg_hello_req request = {};
-+    rpc_msg_hello_rsp response = {};
-+
-+    sock->get_caps(request.conn_caps);
-+
-+    bool status = send_rpc_cmd(sock, RPC_CMD_HELLO, &request, sizeof(request), &response, sizeof(response));
-     RPC_STATUS_ASSERT(status);
-+
-     if (response.major != RPC_PROTO_MAJOR_VERSION || response.minor > RPC_PROTO_MINOR_VERSION) {
--        GGML_LOG_ERROR("RPC server version mismatch: %d.%d.%d\n", response.major, response.minor, response.patch);
-+        GGML_LOG_ERROR("RPC server version mismatch: %d.%d.%d\n",
-+                       response.major, response.minor, response.patch);
-         return false;
-     }
--    if (response.minor != RPC_PROTO_MINOR_VERSION || response.patch != RPC_PROTO_PATCH_VERSION) {
--        GGML_LOG_INFO("WARNING: RPC server version mismatch: %d.%d.%d\n", response.major, response.minor, response.patch);
--    }
-+
-+    sock->update_caps(response.conn_caps);
-     return true;
- }
- 
-@@ -527,6 +1039,7 @@ static std::shared_ptr<socket_t> get_socket(const std::string & endpoint) {
-         GGML_LOG_ERROR("Failed to parse endpoint: %s\n", endpoint.c_str());
-         return nullptr;
-     }
-+
- #ifdef _WIN32
-     if (!initialized) {
-         WSADATA wsaData;
-@@ -543,10 +1056,10 @@ static std::shared_ptr<socket_t> get_socket(const std::string & endpoint) {
-     if (sock == nullptr) {
-         return nullptr;
-     }
--    if (!check_server_version(sock)) {
-+    if (!negotiate_hello(sock)) {
-         return nullptr;
-     }
--    LOG_DBG("[%s] connected to %s, sockfd=%d\n", __func__, endpoint.c_str(), sock->fd);
-+    LOG_DBG("[%s] connected to %s\n", __func__, endpoint.c_str());
-     sockets[endpoint] = sock;
-     return sock;
- }
-@@ -706,6 +1219,8 @@ static ggml_backend_buffer_i ggml_backend_rpc_buffer_interface = {
-     /* .memset_tensor   = */ NULL,
-     /* .set_tensor      = */ ggml_backend_rpc_buffer_set_tensor,
-     /* .get_tensor      = */ ggml_backend_rpc_buffer_get_tensor,
-+    /* .set_tensor_2d   = */ NULL,
-+    /* .get_tensor_2d   = */ NULL,
-     /* .cpy_tensor      = */ ggml_backend_rpc_buffer_cpy_tensor,
-     /* .clear           = */ ggml_backend_rpc_buffer_clear,
-     /* .reset           = */ NULL,
-@@ -894,6 +1409,8 @@ static ggml_backend_i ggml_backend_rpc_interface = {
-     /* .set_tensor_async        = */ NULL,
-     /* .get_tensor_async        = */ NULL,
-     /* .cpy_tensor_async        = */ NULL,
-+    /* .get_tensor_2d_async     = */ NULL,
-+    /* .set_tensor_2d_async     = */ NULL,
-     /* .synchronize             = */ ggml_backend_rpc_synchronize,
-     /* .graph_plan_create       = */ NULL,
-     /* .graph_plan_free         = */ NULL,
-@@ -1009,8 +1526,8 @@ public:
-     bool get_device_memory(const rpc_msg_get_device_memory_req & request, rpc_msg_get_device_memory_rsp & response);
- 
-     struct stored_graph {
--        ggml_context_ptr ctx_ptr;
--        ggml_cgraph *    graph;
-+        std::vector<uint8_t>   buffer;
-+        ggml_cgraph          * graph;
-     };
- 
- private:
-@@ -1518,10 +2035,12 @@ bool rpc_server::graph_compute(const std::vector<uint8_t> & input) {
-     LOG_DBG("[%s] device: %u, n_nodes: %u, n_tensors: %u\n", __func__, device, n_nodes, n_tensors);
- 
-     size_t buf_size = ggml_tensor_overhead()*(n_nodes + n_tensors) + ggml_graph_overhead_custom(n_nodes, false);
--
-+    if (stored_graphs[device].buffer.size() < buf_size) {
-+        stored_graphs[device].buffer.resize(buf_size);
-+    }
-     struct ggml_init_params params = {
-         /*.mem_size   =*/ buf_size,
--        /*.mem_buffer =*/ NULL,
-+        /*.mem_buffer =*/ stored_graphs[device].buffer.data(),
-         /*.no_alloc   =*/ true,
-     };
-     ggml_context_ptr ctx_ptr { ggml_init(params) };
-@@ -1551,7 +2070,6 @@ bool rpc_server::graph_compute(const std::vector<uint8_t> & input) {
-     }
-     ggml_status status = ggml_backend_graph_compute(backends[device], graph);
-     GGML_ASSERT(status == GGML_STATUS_SUCCESS && "Unsuccessful graph computations are not supported with RPC");
--    stored_graphs[device].ctx_ptr.swap(ctx_ptr);
-     stored_graphs[device].graph = graph;
-     return true;
- }
-@@ -1592,25 +2110,46 @@ rpc_server::~rpc_server() {
- }
- 
- static void rpc_serve_client(const std::vector<ggml_backend_t> & backends, const char * cache_dir,
--                             sockfd_t sockfd) {
-+                             socket_t * sockfd) {
-     rpc_server server(backends, cache_dir);
-     uint8_t cmd;
-     if (!recv_data(sockfd, &cmd, 1)) {
-         return;
-     }
--    // the first command sent by the client must be HELLO
-     if (cmd != RPC_CMD_HELLO) {
-         GGML_LOG_ERROR("Expected HELLO command, update client\n");
-         return;
-     }
--    if (!recv_msg(sockfd, nullptr, 0)) {
-+
-+    // Read input_size and validate protocol version
-+    uint64_t hello_input_size;
-+    if (!recv_data(sockfd, &hello_input_size, sizeof(hello_input_size))) {
-         return;
-     }
--    rpc_msg_hello_rsp response;
--    server.hello(response);
--    if (!send_msg(sockfd, &response, sizeof(response))) {
-+
-+    if (hello_input_size != sizeof(rpc_msg_hello_req)) {
-+        GGML_LOG_ERROR("HELLO request size mismatch (%zu vs %zu) — client needs upgrade to protocol v%d.x\n",
-+                       (size_t)hello_input_size, sizeof(rpc_msg_hello_req), RPC_PROTO_MAJOR_VERSION);
-+        return;
-+    }
-+
-+    rpc_msg_hello_req req = {};
-+    if (!recv_data(sockfd, &req, sizeof(req))) {
-         return;
-     }
-+
-+    rpc_msg_hello_rsp rsp = {};
-+    server.hello(rsp);
-+
-+    // Advertise server transport capabilities based on client's caps
-+    sockfd->get_caps(rsp.conn_caps);
-+
-+    if (!send_msg(sockfd, &rsp, sizeof(rsp))) {
-+        return;
-+    }
-+
-+    // Activate transport upgrade using client's caps
-+    sockfd->update_caps(req.conn_caps);
-     while (true) {
-         if (!recv_data(sockfd, &cmd, 1)) {
-             break;
-@@ -1879,6 +2418,12 @@ void ggml_backend_rpc_start_server(const char * endpoint, const char * cache_dir
-     if (!parse_endpoint(endpoint, host, port)) {
-         return;
-     }
-+
-+#ifdef GGML_RPC_RDMA
-+    printf("  transport      : TCP (RDMA auto-negotiate enabled)\n");
++    g_rpc_transport_wsa_started = true;
++    return true;
 +#else
-+    printf("  transport      : TCP\n");
-+#endif // GGML_RPC_RDMA
- #ifdef _WIN32
-     {
-         WSADATA wsaData;
-@@ -1902,7 +2447,7 @@ void ggml_backend_rpc_start_server(const char * endpoint, const char * cache_dir
-         }
-         printf("Accepted client connection\n");
-         fflush(stdout);
--        rpc_serve_client(backends, cache_dir, client_socket->fd);
-+        rpc_serve_client(backends, cache_dir, client_socket.get());
-         printf("Client connection closed\n");
-         fflush(stdout);
-     }
++    return true;
++#endif
++}
++
++void rpc_transport_shutdown() {
++#ifdef _WIN32
++    std::lock_guard<std::mutex> lock(g_rpc_transport_mu);
++    if (!g_rpc_transport_wsa_started) {
++        return;
++    }
++    WSACleanup();
++    g_rpc_transport_wsa_started = false;
++#endif
++}
+diff --git src/ggml-rpc/transport.h src/ggml-rpc/transport.h
+new file mode 100644
+index 00000000..73b85cc5
+--- /dev/null
++++ src/ggml-rpc/transport.h
+@@ -0,0 +1,34 @@
++#pragma once
++
++#include <cstddef>
++#include <cstdint>
++#include <memory>
++
++struct socket_t;
++typedef std::shared_ptr<socket_t> socket_ptr;
++
++static constexpr size_t MAX_CHUNK_SIZE = 1024ull * 1024ull * 1024ull; // 1 GiB
++static constexpr size_t RPC_CONN_CAPS_SIZE = 24;
++
++struct socket_t {
++    ~socket_t();
++
++    bool send_data(const void * data, size_t size);
++    bool recv_data(void * data, size_t size);
++
++    socket_ptr accept();
++
++    void get_caps(uint8_t * local_caps);
++    void update_caps(const uint8_t * remote_caps);
++
++    static socket_ptr create_server(const char * host, int port);
++    static socket_ptr connect(const char * host, int port);
++
++private:
++    struct impl;
++    explicit socket_t(std::unique_ptr<impl> p);
++    std::unique_ptr<impl> pimpl;
++};
++
++bool rpc_transport_init();
++void rpc_transport_shutdown();
 diff --git src/ggml-sycl/CMakeLists.txt src/ggml-sycl/CMakeLists.txt
 index 7b07b227..8e589fa2 100644
 --- src/ggml-sycl/CMakeLists.txt
