@@ -1,3 +1,505 @@
+diff --git src/ggml-hexagon/ggml-hexagon.cpp src/ggml-hexagon/ggml-hexagon.cpp
+index 3d68b800..cdd9fcf5 100644
+--- src/ggml-hexagon/ggml-hexagon.cpp
++++ src/ggml-hexagon/ggml-hexagon.cpp
+@@ -2596,6 +2596,29 @@ static bool ggml_hexagon_supported_cumsum(const struct ggml_hexagon_session * se
+     return true;
+ }
+ 
++static bool ggml_hexagon_supported_diag(const struct ggml_hexagon_session * sess, const struct ggml_tensor * op) {
++    const struct ggml_tensor * src0 = op->src[0];
++    const struct ggml_tensor * dst  = op;
++
++    // diag only supports F32 currently
++    if (src0->type != GGML_TYPE_F32 || dst->type != GGML_TYPE_F32) {
++        return false;
++    }
++
++    // Input must have ne[1] == 1 (vector input)
++    if (src0->ne[1] != 1) {
++        return false;
++    }
++
++    // Output must be square in first two dimensions
++    if (dst->ne[0] != dst->ne[1] || dst->ne[0] != src0->ne[0]) {
++        return false;
++    }
++
++    GGML_UNUSED(sess);
++    return true;
++}
++
+ static const char * ggml_backend_hexagon_name(ggml_backend_t backend) {
+     auto sess = static_cast<ggml_hexagon_session *>(backend->context);
+     return sess->c_name();
+@@ -2632,6 +2655,8 @@ static htp_op_code op_remap_to_htp(const ggml_tensor * t) {
+         case GGML_OP_ROPE:           return HTP_OP_ROPE;
+         case GGML_OP_REPEAT:         return HTP_OP_REPEAT;
+         case GGML_OP_CUMSUM:         return HTP_OP_CUMSUM;
++        case GGML_OP_FILL:           return HTP_OP_FILL;
++        case GGML_OP_DIAG:           return HTP_OP_DIAG;
+ 
+         case GGML_OP_UNARY:
+             switch (ggml_get_unary_op(t)) {
+@@ -3029,6 +3054,17 @@ static bool ggml_hexagon_supported_repeat(const struct ggml_hexagon_session * se
+     return true;
+ }
+ 
++static bool ggml_hexagon_supported_fill(const struct ggml_hexagon_session * sess, const struct ggml_tensor * op) {
++    const struct ggml_tensor * dst = op;
++
++    if (dst->type != GGML_TYPE_F32 && dst->type != GGML_TYPE_F16) {
++        return false;
++    }
++
++    GGML_UNUSED(sess);
++    return true;
++}
++
+ static bool ggml_backend_hexagon_device_supports_op(ggml_backend_dev_t dev, const struct ggml_tensor * op) {
+     auto sess = static_cast<ggml_hexagon_session *>(dev->context);
+ 
+@@ -3159,6 +3195,14 @@ static bool ggml_backend_hexagon_device_supports_op(ggml_backend_dev_t dev, cons
+             supp = ggml_hexagon_supported_cumsum(sess, op);
+             break;
+ 
++        case GGML_OP_FILL:
++            supp = ggml_hexagon_supported_fill(sess, op);
++            break;
++
++        case GGML_OP_DIAG:
++            supp = ggml_hexagon_supported_diag(sess, op);
++            break;
++
+         default:
+             break;
+     }
+diff --git src/ggml-hexagon/htp/CMakeLists.txt src/ggml-hexagon/htp/CMakeLists.txt
+index 9ca75945..b1ae60a9 100644
+--- src/ggml-hexagon/htp/CMakeLists.txt
++++ src/ggml-hexagon/htp/CMakeLists.txt
+@@ -34,6 +34,8 @@ add_library(${HTP_LIB} SHARED
+     argsort-ops.c
+     ssm-conv.c
+     cumsum-ops.c
++    fill-ops.c
++    diag-ops.c
+ )
+ 
+ target_compile_definitions(${HTP_LIB} PRIVATE
+diff --git src/ggml-hexagon/htp/diag-ops.c src/ggml-hexagon/htp/diag-ops.c
+new file mode 100644
+index 00000000..9b3194d9
+--- /dev/null
++++ src/ggml-hexagon/htp/diag-ops.c
+@@ -0,0 +1,216 @@
++#pragma clang diagnostic ignored "-Wunused-but-set-variable"
++
++#include <HAP_farf.h>
++#include <HAP_perf.h>
++
++#define GGML_COMMON_DECL_C
++#include "ggml-common.h"
++#include "htp-ctx.h"
++#include "htp-ops.h"
++#include "hvx-types.h"
++#include "hex-utils.h"
++#include "hvx-copy.h"
++#include "hex-dma.h"
++
++#define htp_diag_tensors_preamble                           \
++    const struct htp_tensor * restrict src0 = octx->src[0]; \
++    const struct htp_tensor * restrict dst  = octx->dst;    \
++                                                     \
++    const uint32_t ne02 = src0->ne[2];               \
++                                                     \
++    const uint32_t ne0 = dst->ne[0];                 \
++    const uint32_t ne1 = dst->ne[1];                 \
++                                                     \
++    const uint32_t nb02 = src0->nb[2];               \
++    const uint32_t nb03 = src0->nb[3];               \
++                                                     \
++    const uint32_t nb1 = dst->nb[1];                 \
++    const uint32_t nb2 = dst->nb[2];                 \
++    const uint32_t nb3 = dst->nb[3];
++
++struct htp_diag_context {
++    struct htp_ops_context * octx;
++    size_t          src_batch_size;
++    size_t          dst_row_size;
++    size_t          src_batch_size_aligned;
++    size_t          dst_row_size_aligned;
++    uint32_t        batches_per_thread;
++    uint32_t        total_batches;
++};
++
++#define htp_diag_preamble                                              \
++    struct htp_diag_context * dctx = (struct htp_diag_context *) data; \
++    struct htp_ops_context *  octx = dctx->octx;                       \
++    htp_diag_tensors_preamble;
++
++static inline void hvx_diag_row_f32(const float * restrict src, float * restrict dst,
++                                    uint32_t row_idx, uint32_t n) {
++    hvx_splat_f32_a((uint8_t *) dst, 0.0f, n);
++    dst[row_idx] = src[row_idx];
++}
++
++// ---------------------------------------------------------------------------
++// Per thread worker: DMA src fetch, compute in VTCM, DMA dst writeback
++// ---------------------------------------------------------------------------
++
++static void diag_thread_f32_dma(unsigned int nth, unsigned int ith, void * data) {
++    htp_diag_preamble;
++    dma_queue * dma_queue = octx->ctx->dma[ith];
++
++    uint64_t t1, t2;
++    t1 = HAP_perf_get_qtimer_count();
++
++    const uint32_t ib0 = dctx->batches_per_thread * ith;
++    const uint32_t ib1 = MIN(ib0 + dctx->batches_per_thread, dctx->total_batches);
++
++    if (ib0 >= ib1) {
++        return;
++    }
++
++    const size_t src_batch_size         = dctx->src_batch_size;
++    const size_t dst_row_size           = dctx->dst_row_size;
++    const size_t src_batch_size_aligned = dctx->src_batch_size_aligned;
++    const size_t dst_row_size_aligned   = dctx->dst_row_size_aligned;
++
++    const uint8_t * src_data = (const uint8_t *) src0->data;
++    uint8_t *       dst_data = (uint8_t *) dst->data;
++
++    // 1 src buffer + 1 dst row buffer per thread in VTCM
++    uint8_t * src_spad = octx->src0_spad.data + (ith * src_batch_size_aligned);
++    uint8_t * dst_spad = octx->dst_spad.data  + (ith * dst_row_size_aligned);
++
++    for (uint32_t ib = ib0; ib < ib1; ib++) {
++        const uint32_t i3 = ib / ne02;
++        const uint32_t i2 = ib % ne02;
++
++        const uint8_t * src_batch = src_data + i3 * nb03 + i2 * nb02;
++
++        // Fetch source vector into VTCM
++        dma_queue_push_ddr_to_vtcm(dma_queue,
++                                   dma_make_ptr(src_spad, src_batch),
++                                   src_batch_size_aligned, src_batch_size, 1);
++        dma_queue_flush(dma_queue);
++
++        const float * src_spad_f32 = (const float *) src_spad;
++        float       * dst_spad_f32 = (float *) dst_spad;
++
++        for (uint32_t i1 = 0; i1 < ne1; i1++) {
++            // Compute row in VTCM
++            hvx_diag_row_f32(src_spad_f32, dst_spad_f32, i1, ne0);
++
++            // Write completed row back to DDR
++            uint8_t * dst_row = dst_data + i3 * nb3 + i2 * nb2 + i1 * nb1;
++            dma_queue_push_vtcm_to_ddr(dma_queue,
++                                       dma_make_ptr(dst_row, dst_spad),
++                                       dst_row_size, dst_row_size_aligned, 1);
++            dma_queue_flush(dma_queue);
++        }
++    }
++
++    t2 = HAP_perf_get_qtimer_count();
++
++    FARF(HIGH, "diag-f32-dma %d/%d: %ux%ux%ux%u (%u:%u) -> %ux%ux%ux%u usec %u\n",
++         ith, nth, src0->ne[0], src0->ne[1], src0->ne[2], src0->ne[3], ib0, ib1,
++         dst->ne[0], dst->ne[1], dst->ne[2], dst->ne[3],
++         (unsigned) HAP_perf_qtimer_count_to_us(t2 - t1));
++}
++
++// ---------------------------------------------------------------------------
++// Per thread worker: Direct HVX (no DMA)
++// ---------------------------------------------------------------------------
++
++static void diag_thread_f32(unsigned int nth, unsigned int ith, void * data) {
++    htp_diag_preamble;
++
++    uint64_t t1, t2;
++    t1 = HAP_perf_get_qtimer_count();
++
++    const uint8_t * src_data = (const uint8_t *) src0->data;
++    uint8_t *       dst_data = (uint8_t *) dst->data;
++
++    const uint32_t ib0 = dctx->batches_per_thread * ith;
++    const uint32_t ib1 = MIN(ib0 + dctx->batches_per_thread, dctx->total_batches);
++
++    for (uint32_t ib = ib0; ib < ib1; ib++) {
++        const uint32_t i3 = ib / ne02;
++        const uint32_t i2 = ib % ne02;
++
++        const float * restrict src_batch = (const float *)(src_data + i3 * nb03 + i2 * nb02);
++
++        for (uint32_t i1 = 0; i1 < ne1; i1++) {
++            float * restrict dst_row = (float *)(dst_data + i3 * nb3 + i2 * nb2 + i1 * nb1);
++            hvx_diag_row_f32(src_batch, dst_row, i1, ne0);
++        }
++    }
++
++    t2 = HAP_perf_get_qtimer_count();
++
++    FARF(HIGH, "diag-f32 %d/%d: %ux%ux%ux%u (%u:%u) -> %ux%ux%ux%u usec %u\n",
++         ith, nth, src0->ne[0], src0->ne[1], src0->ne[2], src0->ne[3], ib0, ib1,
++         dst->ne[0], dst->ne[1], dst->ne[2], dst->ne[3],
++         (unsigned) HAP_perf_qtimer_count_to_us(t2 - t1));
++}
++
++int op_diag_f32(struct htp_ops_context * octx) {
++    const struct htp_tensor * src0 = octx->src[0];
++    const struct htp_tensor * dst  = octx->dst;
++
++    if (octx->flags & HTP_OPFLAGS_SKIP_COMPUTE) {
++        return HTP_STATUS_OK;
++    }
++
++    const uint32_t total_batches = src0->ne[2] * src0->ne[3];
++    const uint32_t n_threads     = MIN(octx->n_threads, total_batches);
++
++    const size_t src_batch_size         = src0->ne[0] * sizeof(float);
++    const size_t dst_row_size           = dst->ne[0] * sizeof(float);
++    const size_t src_batch_size_aligned = hex_round_up(src_batch_size, VLEN);
++    const size_t dst_row_size_aligned   = hex_round_up(dst_row_size, VLEN);
++
++    // 1 src buffer + 1 dst row buffer per thread
++    const size_t spad_per_thread = src_batch_size_aligned + dst_row_size_aligned;
++
++    octx->src0_spad.size_per_thread = src_batch_size_aligned;
++    octx->dst_spad.size_per_thread  = dst_row_size_aligned;
++
++    octx->src0_spad.size = n_threads * octx->src0_spad.size_per_thread;
++    octx->dst_spad.size  = n_threads * octx->dst_spad.size_per_thread;
++
++    octx->src0_spad.data = octx->ctx->vtcm_base;                        octx->src0_spad.src = NULL;
++    octx->dst_spad.data  = octx->src0_spad.data + octx->src0_spad.size; octx->dst_spad.src  = NULL;
++
++    struct htp_diag_context dctx = {
++        .octx                   = octx,
++        .src_batch_size         = src_batch_size,
++        .dst_row_size           = dst_row_size,
++        .src_batch_size_aligned = src_batch_size_aligned,
++        .dst_row_size_aligned   = dst_row_size_aligned,
++        .batches_per_thread     = (total_batches + n_threads - 1) / n_threads,
++        .total_batches          = total_batches,
++    };
++
++    if (octx->ctx->vtcm_size < spad_per_thread * n_threads) {
++        worker_pool_run_func(octx->ctx->worker_pool, diag_thread_f32, &dctx, n_threads);
++    } else {
++        worker_pool_run_func(octx->ctx->worker_pool, diag_thread_f32_dma, &dctx, n_threads);
++    }
++
++    return HTP_STATUS_OK;
++}
++
++int op_diag(struct htp_ops_context * octx) {
++    const struct htp_tensor * dst = octx->dst;
++
++    int err = HTP_STATUS_OK;
++
++    switch (dst->type) {
++        case HTP_TYPE_F32:
++            err = op_diag_f32(octx);
++            break;
++        default:
++            err = HTP_STATUS_NO_SUPPORT;
++            break;
++    }
++
++    return err;
++}
+diff --git src/ggml-hexagon/htp/fill-ops.c src/ggml-hexagon/htp/fill-ops.c
+new file mode 100644
+index 00000000..3ccfbe74
+--- /dev/null
++++ src/ggml-hexagon/htp/fill-ops.c
+@@ -0,0 +1,123 @@
++#pragma clang diagnostic ignored "-Wunused-variable"
++#pragma clang diagnostic ignored "-Wunused-function"
++#pragma clang diagnostic ignored "-Wunused-but-set-variable"
++
++#include <HAP_farf.h>
++#include <HAP_perf.h>
++
++#include <string.h>
++
++#include "hvx-copy.h"
++#include "hvx-utils.h"
++
++#define GGML_COMMON_DECL_C
++#include "ggml-common.h"
++#include "htp-ctx.h"
++#include "htp-ops.h"
++
++// ggml op_params layout for FILL:
++//   op_params[0] (as float) - the scalar fill value
++
++#define fill_preamble \
++    const struct htp_tensor * dst = octx->dst; \
++    \
++    const uint32_t ne0 = dst->ne[0]; \
++    const uint32_t ne1 = dst->ne[1]; \
++    const uint32_t ne2 = dst->ne[2]; \
++    const uint32_t ne3 = dst->ne[3]; \
++    \
++    const uint32_t nb1 = dst->nb[1]; \
++    const uint32_t nb2 = dst->nb[2]; \
++    const uint32_t nb3 = dst->nb[3]; \
++    \
++    const uint32_t nr = ne1 * ne2 * ne3;
++
++struct htp_fill_context {
++    struct htp_ops_context * octx;
++    uint32_t nrows_per_thread;
++    uint32_t total_rows;  // ne1 * ne2 * ne3
++    bool     opt_path;
++    HVX_Vector splat_vec;
++    uint32_t   elem_size;
++};
++
++static void fill_thread(unsigned int nth, unsigned int ith, void * data) {
++    const struct htp_fill_context * fctx = (const struct htp_fill_context *) data;
++    struct htp_ops_context        * octx = fctx->octx;
++    fill_preamble;
++
++    // Parallelise over the flat row index spanning ne1*ne2*ne3
++    const uint32_t ir0 = fctx->nrows_per_thread * ith;
++    const uint32_t ir1 = MIN(ir0 + fctx->nrows_per_thread, fctx->total_rows);
++
++    uint64_t t1 = HAP_perf_get_qtimer_count();
++
++    if (fctx->opt_path) {
++        // Opt path: tensor is fully contiguous, treat as flat array
++        const uint32_t elem_start = ir0 * ne0;
++        const uint32_t elem_end = ir1 * ne0;
++        uint8_t * dst_ptr = (uint8_t *) dst->data + elem_start * fctx->elem_size;
++        hvx_splat_u(dst_ptr, fctx->splat_vec, elem_end - elem_start, fctx->elem_size);
++    } else {
++        // Non-contiguous path: must respect strides
++        for (uint32_t ir = ir0; ir < ir1; ++ir) {
++            const uint32_t i1 = ir % ne1;
++            const uint32_t i2 = (ir / ne1) % ne2;
++            const uint32_t i3 = ir / (ne1 * ne2);
++            uint8_t * dst_ptr = (uint8_t *) dst->data + i1*nb1 + i2*nb2 + i3*nb3;
++            hvx_splat_u(dst_ptr, fctx->splat_vec, ne0, fctx->elem_size);
++        }
++    }
++
++    uint64_t t2 = HAP_perf_get_qtimer_count();
++    FARF(HIGH, "fill %u/%u: rows %u:%u usec %u\n",
++         ith, nth, ir0, ir1, (unsigned) HAP_perf_qtimer_count_to_us(t2 - t1));
++}
++
++int op_fill(struct htp_ops_context * octx) {
++    fill_preamble;
++
++    if (dst->type != HTP_TYPE_F32 && dst->type != HTP_TYPE_F16) {
++        return HTP_STATUS_NO_SUPPORT;
++    }
++
++    if (octx->flags & HTP_OPFLAGS_SKIP_COMPUTE) {
++        return HTP_STATUS_OK;
++    }
++
++    // nr = ne1*ne2*ne3 (flat row count across all outer dims); parallelise over it.
++    const uint32_t n_threads = MIN(nr, octx->n_threads);
++
++    // Optimize if fully contiguous: skip stride arithmetic, treat as flat array
++    const bool opt_path = (nb2 == nb1 * ne1) && (nb3 == nb2 * ne2);
++
++    FARF(HIGH, "fill: (%ux%ux%ux%u) type=%u opt=%d\n",
++         dst->ne[0], dst->ne[1], dst->ne[2], dst->ne[3], dst->type, (int) opt_path);
++
++    float val_f32 = 0.f;
++    memcpy(&val_f32, &octx->op_params[0], sizeof(float));
++
++    struct htp_fill_context fctx = {
++        .octx             = octx,
++        .nrows_per_thread = (nr + n_threads - 1) / n_threads,
++        .total_rows       = nr,
++        .opt_path         = opt_path,
++    };
++
++    switch (dst->type) {
++    case HTP_TYPE_F32:
++        fctx.splat_vec = hvx_vec_splat_f32(val_f32);
++        fctx.elem_size = sizeof(float);
++        break;
++    case HTP_TYPE_F16:
++        fctx.splat_vec = hvx_vec_splat_f16((_Float16) val_f32);
++        fctx.elem_size = sizeof(_Float16);
++        break;
++    default:
++        return HTP_STATUS_NO_SUPPORT;
++    }
++
++    worker_pool_run_func(octx->ctx->worker_pool, fill_thread, &fctx, n_threads);
++
++    return HTP_STATUS_OK;
++}
+diff --git src/ggml-hexagon/htp/htp-ctx.h src/ggml-hexagon/htp/htp-ctx.h
+index 8b5e47ad..78455e6b 100644
+--- src/ggml-hexagon/htp/htp-ctx.h
++++ src/ggml-hexagon/htp/htp-ctx.h
+@@ -98,5 +98,7 @@ int op_repeat(struct htp_ops_context * octx);
+ int op_argsort(struct htp_ops_context * octx);
+ int op_ssm_conv(struct htp_ops_context * octx);
+ int op_cumsum(struct htp_ops_context * octx);
++int op_fill(struct htp_ops_context * octx);
++int op_diag(struct htp_ops_context * octx);
+ 
+ #endif /* HTP_CTX_H */
+diff --git src/ggml-hexagon/htp/htp-ops.h src/ggml-hexagon/htp/htp-ops.h
+index 79b5ecd2..62d6ec02 100644
+--- src/ggml-hexagon/htp/htp-ops.h
++++ src/ggml-hexagon/htp/htp-ops.h
+@@ -80,6 +80,8 @@ enum htp_op_code {
+     HTP_OP_SSM_CONV,
+     HTP_OP_REPEAT,
+     HTP_OP_CUMSUM,
++    HTP_OP_FILL,
++    HTP_OP_DIAG,
+ 
+     HTP_OP_INVALID
+ };
+diff --git src/ggml-hexagon/htp/main.c src/ggml-hexagon/htp/main.c
+index 5091623a..9185c9ff 100644
+--- src/ggml-hexagon/htp/main.c
++++ src/ggml-hexagon/htp/main.c
+@@ -514,6 +514,12 @@ static int execute_op(struct htp_ops_context * octx) {
+         case HTP_OP_CUMSUM:
+             return op_cumsum(octx);
+ 
++        case HTP_OP_FILL:
++            return op_fill(octx);
++
++        case HTP_OP_DIAG:
++            return op_diag(octx);
++
+         case HTP_OP_INVALID:
+             break;
+ 
+diff --git src/ggml-hexagon/libggml-htp.inf src/ggml-hexagon/libggml-htp.inf
+index 656d2d9a..360d8b12 100644
+--- src/ggml-hexagon/libggml-htp.inf
++++ src/ggml-hexagon/libggml-htp.inf
+@@ -18,6 +18,7 @@ libggml-htp-v68.so = 1
+ libggml-htp-v69.so = 1
+ libggml-htp-v73.so = 1
+ libggml-htp-v75.so = 1
++libggml-htp-v79.so = 1
+ libggml-htp-v81.so = 1
+ 
+ [ControlFlags]
+@@ -31,6 +32,7 @@ libggml-htp-v68.so,,,0x10 ;COPYFLG_NO_OVERWRITE
+ libggml-htp-v69.so,,,0x10 ;COPYFLG_NO_OVERWRITE
+ libggml-htp-v73.so,,,0x10 ;COPYFLG_NO_OVERWRITE
+ libggml-htp-v75.so,,,0x10 ;COPYFLG_NO_OVERWRITE
++libggml-htp-v79.so,,,0x10 ;COPYFLG_NO_OVERWRITE
+ libggml-htp-v81.so,,,0x10 ;COPYFLG_NO_OVERWRITE
+ 
+ [Strings]
 diff --git src/ggml-metal/ggml-metal.cpp src/ggml-metal/ggml-metal.cpp
 index 4dbf8e6f..6a836e45 100644
 --- src/ggml-metal/ggml-metal.cpp
@@ -1644,6 +2146,196 @@ index 656573d1..2c72e33c 100644
  };
  
  enum ggml_status ov_graph_compute(struct ggml_cgraph * cgraph, ggml_backend_t backend);
+diff --git src/ggml-sycl/common.hpp src/ggml-sycl/common.hpp
+index fd84c917..0101b276 100644
+--- src/ggml-sycl/common.hpp
++++ src/ggml-sycl/common.hpp
+@@ -28,6 +28,13 @@
+ 
+ namespace syclexp = sycl::ext::oneapi::experimental;
+ 
++#if defined(__INTEL_LLVM_COMPILER) && __has_include(<sycl/ext/oneapi/bfloat16.hpp>)
++    #include <sycl/ext/oneapi/bfloat16.hpp>
++    #ifndef GGML_SYCL_HAS_BF16
++        #define GGML_SYCL_HAS_BF16
++    #endif
++#endif
++
+ #if GGML_SYCL_DNNL
+ #include "dnnl.hpp"
+ #include "dnnl_sycl.hpp"
+diff --git src/ggml-sycl/convert.cpp src/ggml-sycl/convert.cpp
+index f3c521b4..67b9c06f 100644
+--- src/ggml-sycl/convert.cpp
++++ src/ggml-sycl/convert.cpp
+@@ -2,13 +2,6 @@
+ #include "dequantize.hpp"
+ #include "presets.hpp"
+ 
+-#if defined(__INTEL_LLVM_COMPILER)
+-    #if __has_include(<sycl/ext/oneapi/bfloat16.hpp>)
+-        #include <sycl/ext/oneapi/bfloat16.hpp>
+-        #define GGML_SYCL_HAS_BF16
+-    #endif
+-#endif
+-
+ template <int qk, int qr, dequantize_kernel_t dequantize_kernel, typename dst_t>
+ static void dequantize_block(const void * __restrict__ vx, dst_t * __restrict__ y, const int64_t k,
+                              const sycl::nd_item<3> &item_ct1) {
+@@ -767,6 +760,22 @@ to_fp32_sycl_t ggml_get_to_fp32_sycl(ggml_type type, ggml_tensor *dst) {
+ }
+ 
+ 
++#ifdef GGML_SYCL_HAS_BF16
++to_bf16_sycl_t ggml_get_to_bf16_sycl(ggml_type type, ggml_tensor * /*dst*/) {
++    switch (type) {
++        case GGML_TYPE_F32:
++            return convert_unary_sycl<float>;
++        case GGML_TYPE_F16:
++            return convert_unary_sycl<sycl::half>;
++        case GGML_TYPE_BF16:
++            return convert_unary_sycl<sycl::ext::oneapi::bfloat16>;
++        default:
++            GGML_ABORT("fatal error: unsupport data type=%s\n", ggml_type_name(type));
++            return nullptr;
++    }
++}
++#endif
++
+ to_fp16_nc_sycl_t ggml_get_to_fp16_nc_sycl(ggml_type type) {
+     switch (type) {
+         case GGML_TYPE_F32:
+diff --git src/ggml-sycl/convert.hpp src/ggml-sycl/convert.hpp
+index 6e621f21..8de79d10 100644
+--- src/ggml-sycl/convert.hpp
++++ src/ggml-sycl/convert.hpp
+@@ -23,6 +23,11 @@ typedef to_t_sycl_t<sycl::half> to_fp16_sycl_t;
+ to_fp16_sycl_t ggml_get_to_fp16_sycl(ggml_type type, ggml_tensor * dst);
+ to_fp32_sycl_t ggml_get_to_fp32_sycl(ggml_type type, ggml_tensor * dst);
+ 
++#ifdef GGML_SYCL_HAS_BF16
++typedef to_t_sycl_t<sycl::ext::oneapi::bfloat16> to_bf16_sycl_t;
++to_bf16_sycl_t ggml_get_to_bf16_sycl(ggml_type type, ggml_tensor * dst);
++#endif
++
+ // Nc = Non-contiguous
+ template <typename T>
+ using to_t_nc_sycl_t = void (*)(const void * x, T * y, int64_t ne00, int64_t ne01, int64_t ne02, int64_t ne03,
+@@ -35,15 +40,19 @@ template<typename dst_t, typename src_t>
+  inline dst_t ggml_sycl_cast(src_t x) {
+     if constexpr (std::is_same_v<dst_t, src_t>) {
+         return x;
++#ifdef GGML_SYCL_HAS_BF16
+     } else if constexpr (std::is_same_v<dst_t, sycl::ext::oneapi::bfloat16>) {
+         return sycl::ext::oneapi::bfloat16(float(x));
+     } else if constexpr (std::is_same_v<src_t, sycl::ext::oneapi::bfloat16>) {
+         return static_cast<float>(x);
++#endif
+     } else if constexpr (std::is_same_v<src_t, sycl::float2> && std::is_same_v<dst_t, sycl::half2>) {
+         return x.template convert<sycl::half, sycl::rounding_mode::rte>();
++#ifdef GGML_SYCL_HAS_BF16
+     } else if constexpr (std::is_same_v<src_t, sycl::float2> &&
+                          std::is_same_v<dst_t, sycl::vec<sycl::ext::oneapi::bfloat16, 2>>) {
+         return {x.x, x.y};
++#endif
+     } else if constexpr(std::is_same_v<dst_t, int32_t>) {
+         return int32_t(x);
+     } else {
+diff --git src/ggml-sycl/gemm.hpp src/ggml-sycl/gemm.hpp
+index dcf6c7ae..c202da11 100644
+--- src/ggml-sycl/gemm.hpp
++++ src/ggml-sycl/gemm.hpp
+@@ -29,6 +29,9 @@ public:
+     static constexpr dt to_dt() {
+         if constexpr (std::is_same_v<T, float>) return dt::f32;
+         else if constexpr (std::is_same_v<T, sycl::half>) return dt::f16;
++#ifdef GGML_SYCL_HAS_BF16
++        else if constexpr (std::is_same_v<T, sycl::ext::oneapi::bfloat16>) return dt::bf16;
++#endif
+         else static_assert(0);
+     }
+ 
+diff --git src/ggml-sycl/ggml-sycl.cpp src/ggml-sycl/ggml-sycl.cpp
+index c02a41ad..3829da87 100644
+--- src/ggml-sycl/ggml-sycl.cpp
++++ src/ggml-sycl/ggml-sycl.cpp
+@@ -2176,6 +2176,31 @@ inline void ggml_sycl_op_mul_mat_sycl(
+ #else
+     bool use_fp16 = false;
+ #endif
++
++#if GGML_SYCL_DNNL && defined(GGML_SYCL_HAS_BF16)
++    // Fast path for bf16 src0
++    if (src0->type == GGML_TYPE_BF16 && !g_ggml_sycl_disable_dnn && ggml_is_contiguous(src0) &&
++        row_diff == src0->ne[1]) {
++        using bf16_t = sycl::ext::oneapi::bfloat16;
++        ggml_sycl_pool_alloc<bf16_t> src1_as_bf16(ctx.pool(), src1_ncols*ne10);
++        if (src1->type != GGML_TYPE_BF16) {
++            const to_bf16_sycl_t to_bf16_sycl = ggml_get_to_bf16_sycl(src1->type, dst);
++            GGML_ASSERT(to_bf16_sycl != nullptr);
++            to_bf16_sycl(src1_ddf_i, src1_as_bf16.get(), src1_ncols*ne10, stream);
++        } else {
++            stream->memcpy(src1_as_bf16.get(), src1_ddf_i, src1_ncols*ne10*sizeof(bf16_t));
++        }
++        DnnlGemmWrapper::row_gemm(ctx, row_diff, src1_ncols, ne10,
++                                  src0_dd_i, DnnlGemmWrapper::to_dt<bf16_t>(),
++                                  src1_as_bf16.get(), DnnlGemmWrapper::to_dt<bf16_t>(),
++                                  dst_dd_i, DnnlGemmWrapper::to_dt<float>(), stream);
++        GGML_UNUSED(dst);
++        GGML_UNUSED(src1_ddq_i);
++        GGML_UNUSED(src1_padded_row_size);
++        return;
++    }
++#endif
++
+     if ((src0->type == GGML_TYPE_F16 || ggml_is_quantized(src0->type)) && use_fp16 && ggml_is_contiguous(src0) &&
+         row_diff == src0->ne[1] && dst->op_params[0] == GGML_PREC_DEFAULT) {
+         ggml_sycl_pool_alloc<sycl::half> src0_as_f16(ctx.pool());
+@@ -3848,8 +3873,9 @@ static void ggml_sycl_mul_mat_id(ggml_backend_sycl_context & ctx,
+             }
+         }
+     } else {
+-        ggml_sycl_pool_alloc<char> src1_contiguous(ctx.pool(), sizeof(float)*ggml_nelements(src1));
+-        ggml_sycl_pool_alloc<char>  dst_contiguous(ctx.pool(), sizeof(float)*ggml_nelements(dst));
++        const int64_t n_routed_rows = ids->ne[1] * n_ids;
++        ggml_sycl_pool_alloc<char> src1_contiguous(ctx.pool(), sizeof(float)*n_routed_rows*ne10);
++        ggml_sycl_pool_alloc<char>  dst_contiguous(ctx.pool(), sizeof(float)*n_routed_rows*ne0);
+ 
+         src1_row.data = src1_contiguous.get();
+         dst_row.data  =  dst_contiguous.get();
+diff --git src/ggml-sycl/set_rows.cpp src/ggml-sycl/set_rows.cpp
+index a641c100..8fb41943 100644
+--- src/ggml-sycl/set_rows.cpp
++++ src/ggml-sycl/set_rows.cpp
+@@ -4,7 +4,11 @@
+ namespace utils {
+ template<typename T>
+ static constexpr bool is_arithmetic_v() {
+-    return std::is_arithmetic_v<T> || std::is_same_v<T, sycl::half> || std::is_same_v<T, sycl::ext::oneapi::bfloat16>;
++    return std::is_arithmetic_v<T> || std::is_same_v<T, sycl::half>
++#ifdef GGML_SYCL_HAS_BF16
++        || std::is_same_v<T, sycl::ext::oneapi::bfloat16>
++#endif
++        ;
+ }
+ }
+ 
+@@ -181,6 +185,7 @@ static void set_rows_sycl(ggml_backend_sycl_context & ctx, const ggml_tensor * s
+                 stream
+             );
+             break;
++#ifdef GGML_SYCL_HAS_BF16
+         case GGML_TYPE_BF16:
+             set_rows_sycl<TIn, TIdx, sycl::ext::oneapi::bfloat16>(
+                 src0_d, src1_d, (char *)dst->data,
+@@ -193,6 +198,7 @@ static void set_rows_sycl(ggml_backend_sycl_context & ctx, const ggml_tensor * s
+                 stream
+             );
+             break;
++#endif
+         case GGML_TYPE_Q8_0:
+             set_rows_sycl_q<TIdx, block_q8_0, QK8_0, cpy_blck_f32_q8_0>(src0_d, src1_d, (block_q8_0 *)dst->data, ne00, ne01, ne02, ne03, ne10, ne11, ne12, ne13, nb00, nb01, nb02, nb03, nb10, nb11, nb12, nb13, nb1, nb2, nb3, stream);
+             break;
 diff --git src/ggml-vulkan/ggml-vulkan.cpp src/ggml-vulkan/ggml-vulkan.cpp
 index 702a249d..d4acee8b 100644
 --- src/ggml-vulkan/ggml-vulkan.cpp
@@ -1697,3 +2389,444 @@ index 54b9b327..ff836615 100644
      string_to_spv("step_f16",       "step.comp",        {{"A_TYPE", "float16_t"},   {"D_TYPE", "float16_t"}});
      string_to_spv("step_f32",       "step.comp",        {{"A_TYPE", "float"},       {"D_TYPE", "float"}});
      string_to_spv("round_f16",      "round.comp",       {{"A_TYPE", "float16_t"},   {"D_TYPE", "float16_t"}});
+diff --git src/ggml-webgpu/ggml-webgpu-shader-lib.hpp src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
+index 9d88f980..f84dfee9 100644
+--- src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
++++ src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
+@@ -240,6 +240,27 @@ struct ggml_webgpu_ssm_conv_pipeline_key {
+     }
+ };
+ 
++/** CONV 2D */
++struct ggml_webgpu_conv2d_pipeline_key {
++    ggml_type weight_type;
++    ggml_type input_type;
++    ggml_type output_type;
++
++    bool operator==(const ggml_webgpu_conv2d_pipeline_key & other) const {
++        return weight_type == other.weight_type && input_type == other.input_type && output_type == other.output_type;
++    }
++};
++
++struct ggml_webgpu_conv2d_pipeline_key_hash {
++    size_t operator()(const ggml_webgpu_conv2d_pipeline_key & key) const {
++        size_t seed = 0;
++        ggml_webgpu_hash_combine(seed, key.weight_type);
++        ggml_webgpu_hash_combine(seed, key.input_type);
++        ggml_webgpu_hash_combine(seed, key.output_type);
++        return seed;
++    }
++};
++
+ /** Gated Delta Net **/
+ struct ggml_webgpu_gated_delta_net_pipeline_key {
+     int type;
+@@ -789,6 +810,8 @@ class ggml_webgpu_shader_lib {
+         rope_pipelines;
+     std::unordered_map<ggml_webgpu_soft_max_pipeline_key, webgpu_pipeline, ggml_webgpu_soft_max_pipeline_key_hash>
+         soft_max_pipelines;
++    std::unordered_map<ggml_webgpu_conv2d_pipeline_key, webgpu_pipeline, ggml_webgpu_conv2d_pipeline_key_hash>
++        conv2d_pipelines;
+ 
+   public:
+     ggml_webgpu_shader_lib(wgpu::Device device) { this->device = device; }
+@@ -2382,6 +2405,46 @@ class ggml_webgpu_shader_lib {
+         return soft_max_pipelines[key];
+     }
+ 
++    webgpu_pipeline get_conv2d_pipeline(const ggml_webgpu_shader_lib_context & context) {
++        ggml_webgpu_conv2d_pipeline_key key = {};
++        key.weight_type                     = context.src0->type;
++        key.input_type                      = context.src1->type;
++        key.output_type                     = context.dst->type;
++
++        auto it = conv2d_pipelines.find(key);
++        if (it != conv2d_pipelines.end()) {
++            return it->second;
++        }
++
++        std::vector<std::string> defines;
++        std::string              variant = "conv_2d";
++
++        auto push_type_defines = [&](const char * prefix, ggml_type type) {
++            std::string s_prefix = prefix;
++            if (type == GGML_TYPE_F32) {
++                defines.push_back(s_prefix + "_F32");
++            } else if (type == GGML_TYPE_F16) {
++                defines.push_back(s_prefix + "_F16");
++            } else {
++                GGML_ABORT("Unsupported type for CONV_2D shader");
++            }
++        };
++
++        push_type_defines("WEIGHT", key.weight_type);
++        push_type_defines("INPUT", key.input_type);
++        push_type_defines("OUTPUT", key.output_type);
++
++        defines.push_back(std::string("WG_SIZE=") + std::to_string(context.max_wg_size));
++
++        auto processed           = preprocessor.preprocess(wgsl_conv2d, defines);
++        auto decisions           = std::make_shared<ggml_webgpu_generic_shader_decisions>();
++        decisions->wg_size       = context.max_wg_size;
++        webgpu_pipeline pipeline = ggml_webgpu_create_pipeline(device, processed, variant);
++        pipeline.context         = decisions;
++        conv2d_pipelines[key]    = pipeline;
++        return conv2d_pipelines[key];
++    }
++
+   private:
+     static webgpu_pipeline ggml_webgpu_create_pipeline(wgpu::Device & device,
+                                                        std::string    shader_code,
+diff --git src/ggml-webgpu/ggml-webgpu.cpp src/ggml-webgpu/ggml-webgpu.cpp
+index aa20a745..55158675 100644
+--- src/ggml-webgpu/ggml-webgpu.cpp
++++ src/ggml-webgpu/ggml-webgpu.cpp
+@@ -8,6 +8,7 @@
+ #include "ggml-backend-impl.h"
+ #include "ggml-impl.h"
+ #include "ggml-webgpu-shader-lib.hpp"
++#include "ggml.h"
+ 
+ #ifdef __EMSCRIPTEN__
+ #    include <emscripten/emscripten.h>
+@@ -211,6 +212,7 @@ struct webgpu_global_context_struct {
+     wgpu::Buffer    memset_params_buf;
+     webgpu_pipeline memset_pipeline;
+ 
++    // TODO: We should rework the CPU profiling time handling to make it more useful. ref: https://github.com/ggml-org/llama.cpp/pull/22050
+ #ifdef GGML_WEBGPU_CPU_PROFILE
+     // Profiling: labeled CPU time in ms (total)
+     std::unordered_map<std::string, double> cpu_time_ms;
+@@ -218,11 +220,6 @@ struct webgpu_global_context_struct {
+     std::unordered_map<std::string, double> cpu_detail_ms;
+ #endif
+ 
+-#ifdef GGML_WEBGPU_GPU_PROFILE
+-    // Profiling: per-shader GPU time in ms
+-    std::unordered_map<std::string, double> shader_gpu_time_ms;
+-#endif
+-
+ #ifdef GGML_WEBGPU_DEBUG
+     wgpu::Buffer debug_host_buf;
+     wgpu::Buffer debug_dev_buf;
+@@ -268,10 +265,12 @@ struct webgpu_context_struct {
+     size_t memset_bytes_per_thread;
+ 
+ #ifdef GGML_WEBGPU_GPU_PROFILE
+-    wgpu::Buffer   profile_timestamp_dev_buf;
+-    wgpu::Buffer   profile_timestamp_host_buf;
+-    wgpu::QuerySet profile_timestamp_query_set;
+-    uint32_t       profile_timestamp_query_count = 0;
++    // Profiling: per-shader GPU time in ms
++    std::unordered_map<std::string, double> shader_gpu_time_ms;
++    wgpu::Buffer                            profile_timestamp_dev_buf;
++    wgpu::Buffer                            profile_timestamp_host_buf;
++    wgpu::QuerySet                          profile_timestamp_query_set;
++    uint32_t                                profile_timestamp_query_count = 0;
+ #endif
+ 
+     ~webgpu_context_struct() {
+@@ -713,12 +712,12 @@ static void ggml_backend_webgpu_free(ggml_backend_t backend) {
+ #ifdef GGML_WEBGPU_GPU_PROFILE
+     std::cout << "\n[ggml_webgpu gpu profiling summary]\n";
+     double total_gpu = 0.0;
+-    for (const auto & kv : ctx->webgpu_ctx->global_ctx->shader_gpu_time_ms) {
++    for (const auto & kv : ctx->webgpu_ctx->shader_gpu_time_ms) {
+         total_gpu += kv.second;
+     }
+     std::cout << "ggml_webgpu: total gpu time (all shaders): " << total_gpu << " ms\n";
+     std::cout << "\nggml_webgpu: gpu breakdown:\n";
+-    for (const auto & kv : ctx->webgpu_ctx->global_ctx->shader_gpu_time_ms) {
++    for (const auto & kv : ctx->webgpu_ctx->shader_gpu_time_ms) {
+         double pct = (total_gpu > 0.0) ? (kv.second / total_gpu * 100.0) : 0.0;
+         std::cout << "ggml_webgpu:  " << kv.first << ": " << kv.second << " ms (" << std::fixed << std::setprecision(2)
+                   << pct << "%)\n";
+@@ -923,6 +922,87 @@ static webgpu_encoded_op ggml_webgpu_solve_tri(webgpu_context & ctx,
+     return ggml_backend_webgpu_build(ctx, pipeline, params, entries, wg_x, wg_y);
+ }
+ 
++static webgpu_encoded_op ggml_webgpu_conv_2d(webgpu_context & ctx,
++                                             ggml_tensor *    src0,
++                                             ggml_tensor *    src1,
++                                             ggml_tensor *    dst) {
++    const int32_t s0 = ggml_get_op_params_i32(dst, 0);
++    const int32_t s1 = ggml_get_op_params_i32(dst, 1);
++    const int32_t p0 = ggml_get_op_params_i32(dst, 2);
++    const int32_t p1 = ggml_get_op_params_i32(dst, 3);
++    const int32_t d0 = ggml_get_op_params_i32(dst, 4);
++    const int32_t d1 = ggml_get_op_params_i32(dst, 5);
++
++    std::vector<uint32_t> params = {
++        (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, src0) / ggml_type_size(src0->type)),
++        (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, src1) / ggml_type_size(src1->type)),
++        (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, dst) / ggml_type_size(dst->type)),
++
++        (uint32_t) (src0->nb[0] / ggml_type_size(src0->type)),
++        (uint32_t) (src0->nb[1] / ggml_type_size(src0->type)),
++        (uint32_t) (src0->nb[2] / ggml_type_size(src0->type)),
++        (uint32_t) (src0->nb[3] / ggml_type_size(src0->type)),
++
++        (uint32_t) (src1->nb[0] / ggml_type_size(src1->type)),
++        (uint32_t) (src1->nb[1] / ggml_type_size(src1->type)),
++        (uint32_t) (src1->nb[2] / ggml_type_size(src1->type)),
++        (uint32_t) (src1->nb[3] / ggml_type_size(src1->type)),
++
++        (uint32_t) (dst->nb[0] / ggml_type_size(dst->type)),
++        (uint32_t) (dst->nb[1] / ggml_type_size(dst->type)),
++        (uint32_t) (dst->nb[2] / ggml_type_size(dst->type)),
++        (uint32_t) (dst->nb[3] / ggml_type_size(dst->type)),
++
++        (uint32_t) src0->ne[0],
++        (uint32_t) src0->ne[1],
++        (uint32_t) src0->ne[2],
++
++        (uint32_t) src1->ne[0],
++        (uint32_t) src1->ne[1],
++
++        (uint32_t) dst->ne[0],
++        (uint32_t) dst->ne[1],
++        (uint32_t) dst->ne[2],
++        (uint32_t) dst->ne[3],
++
++        (uint32_t) s0,
++        (uint32_t) s1,
++        (uint32_t) p0,
++        (uint32_t) p1,
++        (uint32_t) d0,
++        (uint32_t) d1,
++    };
++
++    std::vector<wgpu::BindGroupEntry> entries = {
++        ggml_webgpu_make_tensor_bind_group_entry(ctx, 0, src0),
++        ggml_webgpu_make_tensor_bind_group_entry(ctx, 1, src1),
++        ggml_webgpu_make_tensor_bind_group_entry(ctx, 2, dst),
++    };
++
++    uint32_t max_wg_size =
++        std::min((uint32_t) WEBGPU_MAX_WG_SIZE, ctx->global_ctx->capabilities.limits.maxComputeWorkgroupSizeX);
++    uint32_t wg_size =
++        std::min((uint32_t) ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup, max_wg_size);
++
++    ggml_webgpu_shader_lib_context shader_lib_ctx = {};
++    shader_lib_ctx.src0                           = src0;
++    shader_lib_ctx.src1                           = src1;
++    shader_lib_ctx.dst                            = dst;
++    shader_lib_ctx.max_wg_size                    = wg_size;
++
++    webgpu_pipeline pipeline = ctx->shader_lib->get_conv2d_pipeline(shader_lib_ctx);
++
++    auto * decisions = static_cast<ggml_webgpu_generic_shader_decisions *>(pipeline.context.get());
++
++    uint32_t n_out    = ggml_nelements(dst);
++    uint32_t total_wg = CEIL_DIV(n_out, decisions->wg_size);
++    uint32_t max_wg   = ctx->global_ctx->capabilities.limits.maxComputeWorkgroupsPerDimension;
++    uint32_t wg_x     = std::min(total_wg, max_wg);
++    uint32_t wg_y     = CEIL_DIV(total_wg, wg_x);
++
++    return ggml_backend_webgpu_build(ctx, pipeline, params, entries, wg_x, wg_y);
++}
++
+ static webgpu_encoded_op ggml_webgpu_ssm_conv(webgpu_context & ctx,
+                                               ggml_tensor *    src0,
+                                               ggml_tensor *    src1,
+@@ -2479,6 +2559,8 @@ static std::optional<webgpu_encoded_op> ggml_webgpu_encode_node(webgpu_context c
+         case GGML_OP_SUM:
+         case GGML_OP_SUM_ROWS:
+             return ggml_webgpu_sum_rows(ctx, src0, node);
++        case GGML_OP_CONV_2D:
++            return ggml_webgpu_conv_2d(ctx, src0, src1, node);
+         default:
+             return std::nullopt;
+     }
+@@ -2511,7 +2593,7 @@ static void ggml_backend_webgpu_collect_profile_results(webgpu_context &
+     for (size_t i = 0; i < pipeline_names.size(); ++i) {
+         // WebGPU timestamps are in ns; convert to ms.
+         const double elapsed_ms = double(ts_data[2 * i + 1] - ts_data[2 * i]) * 1e-6;
+-        ctx->global_ctx->shader_gpu_time_ms[pipeline_names[i]] += elapsed_ms;
++        ctx->shader_gpu_time_ms[pipeline_names[i]] += elapsed_ms;
+     }
+ 
+     ctx->profile_timestamp_host_buf.Unmap();
+@@ -3497,6 +3579,11 @@ static bool ggml_backend_webgpu_device_supports_op(ggml_backend_dev_t dev, const
+         case GGML_OP_SOLVE_TRI:
+             supports_op = op->type == GGML_TYPE_F32 && src0->type == GGML_TYPE_F32 && src1->type == GGML_TYPE_F32;
+             break;
++        case GGML_OP_CONV_2D:
++            supports_op = (op->type == GGML_TYPE_F32 || op->type == GGML_TYPE_F16) &&
++                          (src0->type == GGML_TYPE_F32 || src0->type == GGML_TYPE_F16) &&
++                          (src1->type == GGML_TYPE_F32 || src1->type == GGML_TYPE_F16);
++            break;
+         case GGML_OP_SSM_CONV:
+             supports_op = op->type == GGML_TYPE_F32;
+             break;
+diff --git src/ggml-webgpu/wgsl-shaders/conv2d.wgsl src/ggml-webgpu/wgsl-shaders/conv2d.wgsl
+new file mode 100644
+index 00000000..9eb131dc
+--- /dev/null
++++ src/ggml-webgpu/wgsl-shaders/conv2d.wgsl
+@@ -0,0 +1,165 @@
++#include "common_decls.tmpl"
++enable f16;
++
++@group(0) @binding(0)
++#if defined(WEIGHT_F32)
++var<storage, read_write> weights: array<f32>;
++#elif defined(WEIGHT_F16)
++var<storage, read_write> weights: array<f16>;
++#endif
++
++@group(0) @binding(1)
++#if defined(INPUT_F32)
++var<storage, read_write> input: array<f32>;
++#elif defined(INPUT_F16)
++var<storage, read_write> input: array<f16>;
++#endif
++
++@group(0) @binding(2)
++#if defined(OUTPUT_F32)
++var<storage, read_write> output: array<f32>;
++#elif defined(OUTPUT_F16)
++var<storage, read_write> output: array<f16>;
++#endif
++
++struct Params {
++    offset_w: u32,
++    offset_i: u32,
++    offset_o: u32,
++
++    // element strides
++    sw0: u32, sw1: u32, sw2: u32, sw3: u32,
++    si0: u32, si1: u32, si2: u32, si3: u32,
++    so0: u32, so1: u32, so2: u32, so3: u32,
++
++    // kernel dimensions
++    KW: u32, KH: u32, IC: u32,
++    // input dimensions
++    IW: u32, IH: u32,
++    // output dimensions
++    OW: u32, OH: u32, OC_out: u32, N_out: u32,
++
++    // stride
++    s0: u32, s1: u32,
++    // padding
++    p0: u32, p1: u32,
++    // dilation
++    d0: u32, d1: u32,
++};
++
++@group(0) @binding(3)
++var<uniform> params: Params;
++
++fn load_weight(idx: u32) -> f32 {
++    #if defined(WEIGHT_F32)
++        return weights[idx];
++    #elif defined(WEIGHT_F16)
++        return f32(weights[idx]);
++    #endif
++}
++
++fn load_input(idx: u32) -> f32 {
++    #if defined(INPUT_F32)
++        return input[idx];
++    #elif defined(INPUT_F16)
++        return f32(input[idx]);
++    #endif
++}
++
++fn store_output(idx: u32, val: f32) {
++    #if defined(OUTPUT_F32)
++        output[idx] = val;
++    #elif defined(OUTPUT_F16)
++        output[idx] = f16(val);
++    #endif
++}
++
++fn ceil_div_u32(x: u32, y: u32) -> u32 {
++    return (x + y - 1) / y;
++}
++
++// returns the first valid kernel index k such that base + k * step >= 0
++fn first_valid_k(base: i32, step: u32) -> u32 {
++    if (base >= 0) {
++        return 0;
++    }
++
++    return ceil_div_u32(u32(-base), step);
++}
++
++// returns the first invalid kernel index k such that base + k * step >= limit so valid k are in [0, end_valid_k)
++fn end_valid_k(base: i32, step: u32, limit: u32, k_max: u32) -> u32 {
++    let remaining = i32(limit) - base;
++    if (remaining <= 0) {
++        return 0;
++    }
++
++    return min(k_max, ceil_div_u32(u32(remaining), step));
++}
++
++@compute @workgroup_size(WG_SIZE)
++fn main(
++    @builtin(global_invocation_id) gid: vec3<u32>,
++    @builtin(num_workgroups) num_wg: vec3<u32>
++) {
++
++    let threads_per_group = u32(WG_SIZE);
++    let i_out = gid.x + (num_wg.x * threads_per_group) * gid.y;
++    let n_out = params.OW * params.OH * params.OC_out * params.N_out;
++
++    var sum: f32 = 0.0;
++    if (i_out >= n_out) {
++        return;
++    }
++
++    // Kernel layout: [KW, KH, IC, ..]
++    // Input layout:  [IW, IH, .., ..]
++    // Output layout: [OW, OH, OC, N]
++
++    var i = i_out;
++    let n = i / (params.OC_out * params.OH * params.OW);
++    i = i % (params.OC_out * params.OH * params.OW);
++    let oc = i / (params.OH * params.OW);
++    i = i % (params.OH * params.OW);
++    let oh = i / params.OW;
++    let ow = i % params.OW;
++
++    let ow_base = i32(ow * params.s0) - i32(params.p0);
++    let oh_base = i32(oh * params.s1) - i32(params.p1);
++
++    // clip the valid kernel window once
++    let kw_begin = first_valid_k(ow_base, params.d0);
++    let kw_end = end_valid_k(ow_base, params.d0, params.IW, params.KW);
++    let kh_begin = first_valid_k(oh_base, params.d1);
++    let kh_end = end_valid_k(oh_base, params.d1, params.IH, params.KH);
++
++    // entire receptive field is out of bounds
++    if (kw_begin >= kw_end || kh_begin >= kh_end) {
++        let out_idx = params.offset_o + ow * params.so0 + oh * params.so1 + oc * params.so2 + n * params.so3;
++        store_output(out_idx, 0.0);
++        return;
++    }
++
++    let weight_oc_base = params.offset_w + oc * params.sw3;
++    let input_n_base = params.offset_i + n * params.si3;
++
++    for (var ic: u32 = 0; ic < params.IC; ic += 1) {
++        let w_base_ic = ic * params.sw2 + weight_oc_base;
++        let in_base = ic * params.si2 + input_n_base;
++
++        for (var kh: u32 = kh_begin; kh < kh_end; kh += 1) {
++            let ih = u32(oh_base + i32(kh * params.d1));
++            let w_row_base = w_base_ic + kh * params.sw1;
++            let in_row_base = in_base + ih * params.si1;
++            for (var kw: u32 = kw_begin; kw < kw_end; kw += 1) {
++                let iw = u32(ow_base + i32(kw * params.d0));
++                let w_idx = w_row_base + kw * params.sw0;
++                let in_idx = in_row_base + iw * params.si0;
++                sum += load_weight(w_idx) * load_input(in_idx);
++            }
++        }
++    }
++
++    let out_idx = params.offset_o + ow * params.so0 + oh * params.so1 + oc * params.so2 + n * params.so3;
++    store_output(out_idx, sum);
++}
