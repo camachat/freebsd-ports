@@ -24,6 +24,9 @@ USE_LDCONFIG=	yes
 GH_ACCOUNT=	Netflix
 WRKSRC_SUBDIR=	lib${PORTNAME}
 
+post-patch:
+	${SED} -e 's|@VCS_TAG@|${DISTVERSION}|g' ${WRKSRC}/include/vcs_version.h.in > ${WRKSRC}/include/vcs_version.h
+
 post-install:
 # For legacy API consumers e.g., aom, x265
 	(cd ${WRKSRC:H} && ${COPYTREE_SHARE} "model" \
