@@ -1,0 +1,9 @@
+--- polly/lib/CMakeLists.txt.orig	2026-02-24 07:35:28 UTC
++++ polly/lib/CMakeLists.txt
+@@ -141,5 +141,5 @@ if (TARGET intrinsics_gen)
+ 
+ if (TARGET intrinsics_gen)
+   # Check if we are building as part of an LLVM build
+-  add_dependencies(obj.Polly intrinsics_gen)
++  add_dependencies(obj.Polly analysis_gen)
+ endif()
