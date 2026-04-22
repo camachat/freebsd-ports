@@ -11,8 +11,6 @@
 #                            Default: NO
 # openclaw_user (str):       User to run openclaw as
 #                            Default: root
-# openclaw_args (str):       Additional arguments for openclaw
-#                            Default: ""
 # openclaw_log (str):        Log file for openclaw
 #                            Default: "/var/log/openclaw.log"
 # openclaw_pidfile (str):    PID file for openclaw
@@ -27,15 +25,14 @@ load_rc_config $name
 
 : ${openclaw_enable:="NO"}
 : ${openclaw_user:="root"}
-: ${openclaw_args:=""}
 : ${openclaw_log:="/var/log/openclaw.log"}
 : ${openclaw_pidfile:="/var/run/openclaw.pid"}
 
 run_command="%%PREFIX%%/bin/openclaw"
-procname="${run_command}"
+procname="%%PREFIX%%/bin/node" # node in order to be stopped properly by the framework (instead of "${run_command}")
 pidfile=${openclaw_pidfile}
 command=/usr/sbin/daemon
-command_args="-f -t ${name} -p ${pidfile} -o ${openclaw_log} ${run_command} ${openclaw_args}"
+command_args="-f -t ${name} -p ${pidfile} -o ${openclaw_log} ${run_command} gateway run"
 
 start_precmd="openclaw_precmd"
 

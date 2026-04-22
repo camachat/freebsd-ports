@@ -5250,3 +5250,4 @@ emulators/emu64||2026-04-16|Broken, fails to build
 databases/py-sqlglotrs|databases/py-sqlglotc|2026-04-18|Remove obsoleted port. Use databases/py-sqlglotc instead
 devel/py-prettytable0|devel/py-prettytable|2026-04-18|Remove obsoleted port. Use devel/py-prettytable instead
 www/py-requests-cache0|www/py-requests-cache|2026-04-18|Remove obsoleted port. Use www/py-requests-cache instead
+sysutils/py-azure-cli-base||2026-04-21|Remove obsoleted port
