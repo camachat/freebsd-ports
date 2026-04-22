@@ -1,6 +1,6 @@
 PORTNAME=	vulkan-validation-layers
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.4.348
+DISTVERSION=	1.4.349
 CATEGORIES=	graphics
 
 MAINTAINER=	kde@FreeBSD.org
@@ -11,6 +11,7 @@ LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE.txt
 
 BUILD_DEPENDS=	robin-hood-hashing>0:devel/robin-hood-hashing \
+		spirv-headers>0:graphics/spirv-headers \
 		spirv-tools>0:graphics/spirv-tools \
 		vulkan-headers>0:graphics/vulkan-headers \
 		vulkan-utility-libraries>0:graphics/vulkan-utility-libraries
@@ -19,11 +20,7 @@ USES=		cmake compiler:c++11-lib pkgconfig python:build
 USE_GITHUB=	yes
 GH_ACCOUNT=	KhronosGroup
 GH_PROJECT=	Vulkan-ValidationLayers
-# for GH_TAGNAME in GH_TUPLE
-# git clone --quiet https://github.com/KhronosGroup/SPIRV-Headers.git && git -C SPIRV-Headers describe <COMMIT_HASH>
-# for COMMIT_HASH see ${WRKSRC}/scripts/known_good.json
-GH_TUPLE=	KhronosGroup:SPIRV-Headers:vulkan-sdk-1.4.335.0:headers/SPIRV-Headers
-CMAKE_OFF=	BUILD_TESTS
+CMAKE_OFF=	BUILD_TESTS UPDATE_DEPS
 
 PLIST_FILES=	lib/libVkLayer_khronos_validation.so \
 		share/vulkan/explicit_layer.d/VkLayer_khronos_validation.json
