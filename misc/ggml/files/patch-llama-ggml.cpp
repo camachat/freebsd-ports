@@ -1,3 +1,115 @@
+diff --git CMakeLists.txt CMakeLists.txt
+index 2effd587..b9f7deb1 100644
+--- CMakeLists.txt
++++ CMakeLists.txt
+@@ -213,7 +213,7 @@ set   (GGML_CUDA_COMPRESSION_MODE "size" CACHE STRING
+ set_property(CACHE GGML_CUDA_COMPRESSION_MODE PROPERTY STRINGS "none;speed;balance;size")
+ 
+ option(GGML_HIP                             "ggml: use HIP"                                   OFF)
+-option(GGML_HIP_GRAPHS                      "ggml: use HIP graph, experimental, slow"         OFF)
++option(GGML_HIP_GRAPHS                      "ggml: use HIP graph"                              ON)
+ option(GGML_HIP_RCCL                        "ggml: use ROCm Collective Comm. Library"         OFF)
+ option(GGML_HIP_NO_VMM                      "ggml: do not try to use HIP VMM"                 ON)
+ option(GGML_HIP_ROCWMMA_FATTN               "ggml: enable rocWMMA for FlashAttention"         OFF)
+diff --git src/ggml-cuda/ggml-cuda.cu src/ggml-cuda/ggml-cuda.cu
+index 18595631..1c2c3b4a 100644
+--- src/ggml-cuda/ggml-cuda.cu
++++ src/ggml-cuda/ggml-cuda.cu
+@@ -3592,6 +3592,30 @@ static bool ggml_cuda_can_fuse(const struct ggml_cgraph *                cgraph,
+         return true;
+     }
+ 
++    if (ops.size() == 2 && ops.begin()[0] == GGML_OP_UNARY && ops.begin()[1] == GGML_OP_SQR
++     && unary_ops.size() == 1 && unary_ops.begin()[0] == GGML_UNARY_OP_RELU) {
++        const ggml_tensor * unary = cgraph->nodes[node_idx];
++        const ggml_tensor * sqr   = cgraph->nodes[node_idx+1];
++
++        if (ggml_get_unary_op(unary) != GGML_UNARY_OP_RELU) {
++            return false;
++        }
++
++        if (unary->type != GGML_TYPE_F32 && unary->type != GGML_TYPE_F16) {
++            return false;
++        }
++
++        if (unary->type != sqr->type) {
++            return false;
++        }
++
++        if (!ggml_is_contiguous(unary->src[0])) {
++            return false;
++        }
++
++        return true;
++    }
++
+     if (ops.size() == 3 && ops.begin()[0] == GGML_OP_SCALE && ops.begin()[1] == GGML_OP_UNARY && ops.begin()[2] == GGML_OP_SCALE
+      && unary_ops.size() == 1 && unary_ops.begin()[0] == GGML_UNARY_OP_TANH) {
+         const ggml_tensor *scale  = cgraph->nodes[node_idx];
+@@ -4100,6 +4124,12 @@ static void ggml_cuda_graph_evaluate_and_capture(ggml_backend_cuda_context * cud
+                         continue;
+                     }
+ 
++                    if (ggml_cuda_can_fuse(cgraph, i, { GGML_OP_UNARY, GGML_OP_SQR }, { GGML_UNARY_OP_RELU })) {
++                        ggml_cuda_op_relu_sqr(*cuda_ctx, node, cgraph->nodes[i+1]);
++                        i++;
++                        continue;
++                    }
++
+                     if (ggml_cuda_can_fuse(cgraph, i, { GGML_OP_SCALE, GGML_OP_UNARY, GGML_OP_SCALE }, { GGML_UNARY_OP_TANH })) {
+                         i += 2;
+                         ggml_cuda_op_softcap(*cuda_ctx, cgraph->nodes[i], node);
+diff --git src/ggml-cuda/unary.cu src/ggml-cuda/unary.cu
+index 4ad30fa1..2aeba26f 100644
+--- src/ggml-cuda/unary.cu
++++ src/ggml-cuda/unary.cu
+@@ -65,6 +65,11 @@ static __device__ __forceinline__ float op_sqr(float x) {
+     return x * x;
+ }
+ 
++static __device__ __forceinline__ float op_relu_sqr(float x) {
++    const float r = fmaxf(x, 0.0f);
++    return r * r;
++}
++
+ static __device__ __forceinline__ float op_sqrt(float x) {
+     return sqrtf(x);
+ }
+@@ -615,3 +620,21 @@ void ggml_cuda_op_unary_mul(ggml_backend_cuda_context & ctx, ggml_tensor * unary
+             GGML_ABORT("Unsupported unary op for fused unary+mul");
+     }
+ }
++
++/* fused relu + sqr */
++
++void ggml_cuda_op_relu_sqr(ggml_backend_cuda_context & ctx, ggml_tensor * relu_node, ggml_tensor * sqr_node) {
++    const ggml_tensor * src = relu_node->src[0];
++    cudaStream_t stream = ctx.stream();
++
++    GGML_ASSERT(ggml_is_contiguous(src));
++    GGML_ASSERT(src->type == GGML_TYPE_F32 || src->type == GGML_TYPE_F16);
++    GGML_ASSERT(src->type == sqr_node->type);
++
++    const int k = ggml_nelements(src);
++    if (src->type == GGML_TYPE_F16) {
++        unary_cuda<op_relu_sqr>((const half *)src->data, (half *)sqr_node->data, k, stream);
++    } else {
++        unary_cuda<op_relu_sqr>((const float *)src->data, (float *)sqr_node->data, k, stream);
++    }
++}
+diff --git src/ggml-cuda/unary.cuh src/ggml-cuda/unary.cuh
+index f1dd2183..81ed873e 100644
+--- src/ggml-cuda/unary.cuh
++++ src/ggml-cuda/unary.cuh
+@@ -91,6 +91,8 @@ void ggml_cuda_op_xielu(ggml_backend_cuda_context & ctx, ggml_tensor * dst);
+ 
+ void ggml_cuda_op_unary_mul(ggml_backend_cuda_context & ctx, ggml_tensor * unary_node, ggml_tensor * mul_node);
+ 
++void ggml_cuda_op_relu_sqr(ggml_backend_cuda_context & ctx, ggml_tensor * relu_node, ggml_tensor * sqr_node);
++
+ __device__ __forceinline__ float ggml_cuda_op_silu_single(float x) {
+     return x / (1.0f + expf(-x));
+ }
 diff --git src/ggml-hexagon/ggml-hexagon.cpp src/ggml-hexagon/ggml-hexagon.cpp
 index 3d68b800..cdd9fcf5 100644
 --- src/ggml-hexagon/ggml-hexagon.cpp
@@ -2390,7 +2502,7 @@ index 54b9b327..ff836615 100644
      string_to_spv("step_f32",       "step.comp",        {{"A_TYPE", "float"},       {"D_TYPE", "float"}});
      string_to_spv("round_f16",      "round.comp",       {{"A_TYPE", "float16_t"},   {"D_TYPE", "float16_t"}});
 diff --git src/ggml-webgpu/ggml-webgpu-shader-lib.hpp src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
-index 9d88f980..6593a9fe 100644
+index 9d88f980..efc5b8c9 100644
 --- src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
 +++ src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
 @@ -194,6 +194,26 @@ struct ggml_webgpu_row_norm_pipeline_key_hash {
@@ -2420,7 +2532,7 @@ index 9d88f980..6593a9fe 100644
  /** Pad **/
  struct ggml_webgpu_pad_pipeline_key {
      bool circular;
-@@ -240,6 +260,27 @@ struct ggml_webgpu_ssm_conv_pipeline_key {
+@@ -240,6 +260,46 @@ struct ggml_webgpu_ssm_conv_pipeline_key {
      }
  };
  
@@ -2445,10 +2557,29 @@ index 9d88f980..6593a9fe 100644
 +    }
 +};
 +
++/** Im2Col **/
++struct ggml_webgpu_im2col_pipeline_key {
++    ggml_type input_type;
++    ggml_type output_type;
++
++    bool operator==(const ggml_webgpu_im2col_pipeline_key & other) const {
++        return input_type == other.input_type && output_type == other.output_type;
++    }
++};
++
++struct ggml_webgpu_im2col_pipeline_key_hash {
++    size_t operator()(const ggml_webgpu_im2col_pipeline_key & key) const {
++        size_t seed = 0;
++        ggml_webgpu_hash_combine(seed, key.input_type);
++        ggml_webgpu_hash_combine(seed, key.output_type);
++        return seed;
++    }
++};
++
  /** Gated Delta Net **/
  struct ggml_webgpu_gated_delta_net_pipeline_key {
      int type;
-@@ -496,7 +537,7 @@ inline uint32_t ggml_webgpu_flash_attn_max_kv_tile(const ggml_webgpu_shader_lib_
+@@ -496,7 +556,7 @@ inline uint32_t ggml_webgpu_flash_attn_max_kv_tile(const ggml_webgpu_shader_lib_
      const size_t q_tile       = context.sg_mat_m;
      const size_t base_q_bytes = (key.head_dim_qk + key.head_dim_v) * q_tile * GGML_WEBGPU_F16_SIZE_BYTES +
                                  2 * q_tile * GGML_WEBGPU_F32_SIZE_BYTES;
@@ -2457,7 +2588,7 @@ index 9d88f980..6593a9fe 100644
      if (!key.kv_direct) {
          bytes_per_kv += std::max(key.head_dim_qk, key.head_dim_v);
      }
-@@ -734,16 +775,17 @@ class ggml_webgpu_shader_lib {
+@@ -734,16 +794,17 @@ class ggml_webgpu_shader_lib {
      std::unordered_map<int, webgpu_pipeline> cumsum_pipelines;         // key is fixed, no variants yet
      std::unordered_map<ggml_webgpu_row_norm_pipeline_key, webgpu_pipeline, ggml_webgpu_row_norm_pipeline_key_hash>
          row_norm_pipelines;                                            // op/inplace
@@ -2480,12 +2611,14 @@ index 9d88f980..6593a9fe 100644
      std::unordered_map<ggml_webgpu_gated_delta_net_pipeline_key,
                         webgpu_pipeline,
                         ggml_webgpu_gated_delta_net_pipeline_key_hash>
-@@ -789,6 +831,13 @@ class ggml_webgpu_shader_lib {
+@@ -789,6 +850,15 @@ class ggml_webgpu_shader_lib {
          rope_pipelines;
      std::unordered_map<ggml_webgpu_soft_max_pipeline_key, webgpu_pipeline, ggml_webgpu_soft_max_pipeline_key_hash>
          soft_max_pipelines;
 +    std::unordered_map<ggml_webgpu_conv2d_pipeline_key, webgpu_pipeline, ggml_webgpu_conv2d_pipeline_key_hash>
 +        conv2d_pipelines;
++    std::unordered_map<ggml_webgpu_im2col_pipeline_key, webgpu_pipeline, ggml_webgpu_im2col_pipeline_key_hash>
++        im2col_pipelines;
 +
 +    std::unordered_map<ggml_webgpu_rms_norm_mul_pipeline_key,
 +                       webgpu_pipeline,
@@ -2494,7 +2627,7 @@ index 9d88f980..6593a9fe 100644
  
    public:
      ggml_webgpu_shader_lib(wgpu::Device device) { this->device = device; }
-@@ -1805,6 +1854,39 @@ class ggml_webgpu_shader_lib {
+@@ -1805,6 +1875,39 @@ class ggml_webgpu_shader_lib {
          return unary_pipelines[key];
      }
  
@@ -2534,7 +2667,7 @@ index 9d88f980..6593a9fe 100644
      webgpu_pipeline get_binary_pipeline(const ggml_webgpu_shader_lib_context & context) {
          ggml_webgpu_binary_pipeline_key key = {};
          key.type                            = context.dst->type;
-@@ -2382,6 +2464,46 @@ class ggml_webgpu_shader_lib {
+@@ -2382,6 +2485,84 @@ class ggml_webgpu_shader_lib {
          return soft_max_pipelines[key];
      }
  
@@ -2578,11 +2711,49 @@ index 9d88f980..6593a9fe 100644
 +        return conv2d_pipelines[key];
 +    }
 +
++    webgpu_pipeline get_im2col_pipeline(const ggml_webgpu_shader_lib_context & context) {
++        ggml_webgpu_im2col_pipeline_key key = {};
++        key.input_type                      = context.src1->type;
++        key.output_type                     = context.dst->type;
++
++        auto it = im2col_pipelines.find(key);
++        if (it != im2col_pipelines.end()) {
++            return it->second;
++        }
++
++        std::vector<std::string> defines;
++        std::string              variant = "im2col";
++
++        auto push_type_defines = [&](const char * prefix, ggml_type type) {
++            std::string s_prefix = prefix;
++            if (type == GGML_TYPE_F32) {
++                defines.push_back(s_prefix + "_F32");
++            } else if (type == GGML_TYPE_F16) {
++                defines.push_back(s_prefix + "_F16");
++            } else {
++                GGML_ABORT("Unsupported type for IM2COL shader");
++            }
++        };
++
++        push_type_defines("INPUT", key.input_type);
++        push_type_defines("OUTPUT", key.output_type);
++
++        defines.push_back(std::string("WG_SIZE=") + std::to_string(context.max_wg_size));
++
++        auto processed           = preprocessor.preprocess(wgsl_im2col, defines);
++        auto decisions           = std::make_shared<ggml_webgpu_generic_shader_decisions>();
++        decisions->wg_size       = context.max_wg_size;
++        webgpu_pipeline pipeline = ggml_webgpu_create_pipeline(device, processed, variant);
++        pipeline.context         = decisions;
++        im2col_pipelines[key]    = pipeline;
++        return im2col_pipelines[key];
++    }
++
    private:
      static webgpu_pipeline ggml_webgpu_create_pipeline(wgpu::Device & device,
                                                         std::string    shader_code,
 diff --git src/ggml-webgpu/ggml-webgpu.cpp src/ggml-webgpu/ggml-webgpu.cpp
-index aa20a745..44e3bf82 100644
+index aa20a745..bcca2bd4 100644
 --- src/ggml-webgpu/ggml-webgpu.cpp
 +++ src/ggml-webgpu/ggml-webgpu.cpp
 @@ -8,6 +8,7 @@
@@ -2645,7 +2816,7 @@ index aa20a745..44e3bf82 100644
          double pct = (total_gpu > 0.0) ? (kv.second / total_gpu * 100.0) : 0.0;
          std::cout << "ggml_webgpu:  " << kv.first << ": " << kv.second << " ms (" << std::fixed << std::setprecision(2)
                    << pct << "%)\n";
-@@ -923,6 +922,87 @@ static webgpu_encoded_op ggml_webgpu_solve_tri(webgpu_context & ctx,
+@@ -923,6 +922,170 @@ static webgpu_encoded_op ggml_webgpu_solve_tri(webgpu_context & ctx,
      return ggml_backend_webgpu_build(ctx, pipeline, params, entries, wg_x, wg_y);
  }
  
@@ -2706,25 +2877,108 @@ index aa20a745..44e3bf82 100644
 +        ggml_webgpu_make_tensor_bind_group_entry(ctx, 2, dst),
 +    };
 +
-+    uint32_t max_wg_size =
-+        std::min((uint32_t) WEBGPU_MAX_WG_SIZE, ctx->global_ctx->capabilities.limits.maxComputeWorkgroupSizeX);
-+    uint32_t wg_size =
-+        std::min((uint32_t) ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup, max_wg_size);
-+
 +    ggml_webgpu_shader_lib_context shader_lib_ctx = {};
 +    shader_lib_ctx.src0                           = src0;
 +    shader_lib_ctx.src1                           = src1;
 +    shader_lib_ctx.dst                            = dst;
-+    shader_lib_ctx.max_wg_size                    = wg_size;
++    shader_lib_ctx.max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup;
 +
 +    webgpu_pipeline pipeline = ctx->shader_lib->get_conv2d_pipeline(shader_lib_ctx);
 +
 +    auto * decisions = static_cast<ggml_webgpu_generic_shader_decisions *>(pipeline.context.get());
 +
-+    uint32_t n_out    = ggml_nelements(dst);
-+    uint32_t total_wg = CEIL_DIV(n_out, decisions->wg_size);
-+    uint32_t max_wg   = ctx->global_ctx->capabilities.limits.maxComputeWorkgroupsPerDimension;
-+    uint32_t wg_x     = std::min(total_wg, max_wg);
++    uint32_t total_wg = CEIL_DIV((uint32_t) ggml_nelements(dst), decisions->wg_size);
++    uint32_t wg_x     = std::min(ctx->global_ctx->capabilities.limits.maxComputeWorkgroupsPerDimension, total_wg);
++    uint32_t wg_y     = CEIL_DIV(total_wg, wg_x);
++
++    return ggml_backend_webgpu_build(ctx, pipeline, params, entries, wg_x, wg_y);
++}
++
++static webgpu_encoded_op ggml_webgpu_im2col(webgpu_context & ctx,
++                                            ggml_tensor *    src0,
++                                            ggml_tensor *    src1,
++                                            ggml_tensor *    dst) {
++    const int32_t s0    = ggml_get_op_params_i32(dst, 0);
++    const int32_t s1    = ggml_get_op_params_i32(dst, 1);
++    const int32_t p0    = ggml_get_op_params_i32(dst, 2);
++    const int32_t p1    = ggml_get_op_params_i32(dst, 3);
++    const int32_t d0    = ggml_get_op_params_i32(dst, 4);
++    const int32_t d1    = ggml_get_op_params_i32(dst, 5);
++    const bool    is_2D = ggml_get_op_params_i32(dst, 6) == 1;
++
++    const uint32_t KW = src0->ne[0];
++    const uint32_t KH = is_2D ? src0->ne[1] : 1;
++    const uint32_t IC = is_2D ? src0->ne[2] : src0->ne[1];
++
++    const uint32_t IW = src1->ne[0];
++    const uint32_t IH = is_2D ? src1->ne[1] : 1;
++    const uint32_t N  = is_2D ? src1->ne[3] : src1->ne[2];
++
++    const uint32_t OW = dst->ne[1];
++    const uint32_t OH = is_2D ? dst->ne[2] : 1;
++
++    const uint32_t si0 = (uint32_t) (src1->nb[0] / ggml_type_size(src1->type));
++    const uint32_t si1 = is_2D ? (uint32_t) (src1->nb[1] / ggml_type_size(src1->type)) : 0;
++    const uint32_t si2 = is_2D ? (uint32_t) (src1->nb[2] / ggml_type_size(src1->type)) :
++                                 (uint32_t) (src1->nb[1] / ggml_type_size(src1->type));
++    const uint32_t si3 = is_2D ? (uint32_t) (src1->nb[3] / ggml_type_size(src1->type)) :
++                                 (uint32_t) (src1->nb[2] / ggml_type_size(src1->type));
++
++    const uint32_t so0 = (uint32_t) (dst->nb[0] / ggml_type_size(dst->type));
++    const uint32_t so1 = (uint32_t) (dst->nb[1] / ggml_type_size(dst->type));
++    const uint32_t so2 = is_2D ? (uint32_t) (dst->nb[2] / ggml_type_size(dst->type)) : 0;
++    const uint32_t so3 = is_2D ? (uint32_t) (dst->nb[3] / ggml_type_size(dst->type)) :
++                                 (uint32_t) (dst->nb[2] / ggml_type_size(dst->type));
++
++    std::vector<uint32_t> params = {
++        (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, src1) / ggml_type_size(src1->type)),
++        (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, dst) / ggml_type_size(dst->type)),
++
++        si0,
++        si1,
++        si2,
++        si3,
++        so0,
++        so1,
++        so2,
++        so3,
++
++        KW,
++        KH,
++        IC,
++
++        IW,
++        IH,
++        N,
++
++        OW,
++        OH,
++
++        (uint32_t) s0,
++        (uint32_t) s1,
++        (uint32_t) p0,
++        (uint32_t) p1,
++        (uint32_t) d0,
++        (uint32_t) d1,
++    };
++
++    std::vector<wgpu::BindGroupEntry> entries = {
++        ggml_webgpu_make_tensor_bind_group_entry(ctx, 0, src1),
++        ggml_webgpu_make_tensor_bind_group_entry(ctx, 1, dst),
++    };
++
++    ggml_webgpu_shader_lib_context shader_lib_ctx = {};
++    shader_lib_ctx.src0                           = src0;
++    shader_lib_ctx.src1                           = src1;
++    shader_lib_ctx.dst                            = dst;
++    shader_lib_ctx.max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup;
++
++    webgpu_pipeline pipeline = ctx->shader_lib->get_im2col_pipeline(shader_lib_ctx);
++
++    auto * decisions = static_cast<ggml_webgpu_generic_shader_decisions *>(pipeline.context.get());
++
++    uint32_t total_wg = CEIL_DIV((uint32_t) ggml_nelements(dst), decisions->wg_size);
++    uint32_t wg_x     = std::min(ctx->global_ctx->capabilities.limits.maxComputeWorkgroupsPerDimension, total_wg);
 +    uint32_t wg_y     = CEIL_DIV(total_wg, wg_x);
 +
 +    return ggml_backend_webgpu_build(ctx, pipeline, params, entries, wg_x, wg_y);
@@ -2733,7 +2987,7 @@ index aa20a745..44e3bf82 100644
  static webgpu_encoded_op ggml_webgpu_ssm_conv(webgpu_context & ctx,
                                                ggml_tensor *    src0,
                                                ggml_tensor *    src1,
-@@ -1892,6 +1972,94 @@ static webgpu_encoded_op ggml_webgpu_repeat(webgpu_context & ctx, ggml_tensor *
+@@ -1892,6 +2055,94 @@ static webgpu_encoded_op ggml_webgpu_repeat(webgpu_context & ctx, ggml_tensor *
      return ggml_backend_webgpu_build(ctx, pipeline, params, entries, wg_x);
  }
  
@@ -2753,8 +3007,8 @@ index aa20a745..44e3bf82 100644
 +        GGML_ABORT("rms_norm must be equal to the one of mul_src0 and mul_src1");
 +    }
 +
-+    bool inplace     = (ggml_webgpu_tensor_equal(rn_dst, mul_src0) && ggml_webgpu_tensor_equal(mul_src1, dst)) ||
-+                       (ggml_webgpu_tensor_equal(rn_dst, mul_src1) && ggml_webgpu_tensor_equal(mul_src0, dst));
++    bool inplace = (ggml_webgpu_tensor_equal(rn_dst, mul_src0) && ggml_webgpu_tensor_equal(mul_src1, dst)) ||
++                   (ggml_webgpu_tensor_equal(rn_dst, mul_src1) && ggml_webgpu_tensor_equal(mul_src0, dst));
 +    bool src_overlap = ggml_webgpu_tensor_overlap(rn_src, mul_src);
 +
 +    uint32_t offset_merged_rn_src               = 0;
@@ -2828,7 +3082,7 @@ index aa20a745..44e3bf82 100644
  static webgpu_encoded_op ggml_webgpu_row_norm(webgpu_context & ctx, ggml_tensor * src, ggml_tensor * dst) {
      bool inplace = ggml_webgpu_tensor_equal(src, dst);
  
-@@ -2388,15 +2556,48 @@ static webgpu_encoded_op ggml_webgpu_sum_rows(webgpu_context & ctx, ggml_tensor
+@@ -2388,15 +2639,48 @@ static webgpu_encoded_op ggml_webgpu_sum_rows(webgpu_context & ctx, ggml_tensor
      return ggml_backend_webgpu_build(ctx, pipeline, params, entries, wg_x);
  }
  
@@ -2879,7 +3133,7 @@ index aa20a745..44e3bf82 100644
  
      ggml_tensor * src0 = node->src[0];
      ggml_tensor * src1 = node->src[1];
-@@ -2439,6 +2640,13 @@ static std::optional<webgpu_encoded_op> ggml_webgpu_encode_node(webgpu_context c
+@@ -2439,6 +2723,13 @@ static std::optional<webgpu_encoded_op> ggml_webgpu_encode_node(webgpu_context c
          case GGML_OP_REPEAT:
              return ggml_webgpu_repeat(ctx, src0, node);
          case GGML_OP_RMS_NORM:
@@ -2893,16 +3147,18 @@ index aa20a745..44e3bf82 100644
          case GGML_OP_L2_NORM:
              return ggml_webgpu_row_norm(ctx, src0, node);
          case GGML_OP_ROPE:
-@@ -2479,6 +2687,8 @@ static std::optional<webgpu_encoded_op> ggml_webgpu_encode_node(webgpu_context c
+@@ -2479,6 +2770,10 @@ static std::optional<webgpu_encoded_op> ggml_webgpu_encode_node(webgpu_context c
          case GGML_OP_SUM:
          case GGML_OP_SUM_ROWS:
              return ggml_webgpu_sum_rows(ctx, src0, node);
 +        case GGML_OP_CONV_2D:
 +            return ggml_webgpu_conv_2d(ctx, src0, src1, node);
++        case GGML_OP_IM2COL:
++            return ggml_webgpu_im2col(ctx, src0, src1, node);
          default:
              return std::nullopt;
      }
-@@ -2511,7 +2721,7 @@ static void ggml_backend_webgpu_collect_profile_results(webgpu_context &
+@@ -2511,7 +2806,7 @@ static void ggml_backend_webgpu_collect_profile_results(webgpu_context &
      for (size_t i = 0; i < pipeline_names.size(); ++i) {
          // WebGPU timestamps are in ns; convert to ms.
          const double elapsed_ms = double(ts_data[2 * i + 1] - ts_data[2 * i]) * 1e-6;
@@ -2911,7 +3167,7 @@ index aa20a745..44e3bf82 100644
      }
  
      ctx->profile_timestamp_host_buf.Unmap();
-@@ -2547,6 +2757,8 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
+@@ -2547,6 +2842,8 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
      uint32_t num_inflight_batches = 0;
      bool     contains_set_rows    = false;
      bool     batch_compute_passes = true;
@@ -2920,7 +3176,7 @@ index aa20a745..44e3bf82 100644
  
  #ifdef GGML_WEBGPU_GPU_PROFILE
      ctx->profile_timestamp_query_count = 0;
-@@ -2559,11 +2771,11 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
+@@ -2559,11 +2856,11 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
          ctx->active_compute_pass = ctx->active_command_encoder.BeginComputePass();
      }
  
@@ -2935,7 +3191,7 @@ index aa20a745..44e3bf82 100644
              commands.push_back(*cmd);
              num_batched_kernels += cmd.value().num_kernels;
  #ifdef GGML_WEBGPU_GPU_PROFILE
-@@ -2588,6 +2800,9 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
+@@ -2588,6 +2885,9 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
              ctx->param_arena.reset();
              commands.clear();
          }
@@ -2945,7 +3201,7 @@ index aa20a745..44e3bf82 100644
      }
  
      if (ctx->active_compute_pass) {
-@@ -2617,22 +2832,107 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
+@@ -2617,22 +2917,107 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
      return GGML_STATUS_SUCCESS;
  }
  
@@ -3057,35 +3313,7 @@ index aa20a745..44e3bf82 100644
      /* .graph_optimize          = */ NULL,
  };
  
-@@ -3155,7 +3455,7 @@ static webgpu_context initialize_webgpu_context(ggml_backend_dev_t dev) {
-     ggml_backend_webgpu_device_context * dev_ctx    = (ggml_backend_webgpu_device_context *) dev->context;
-     webgpu_context                       webgpu_ctx = std::make_shared<webgpu_context_struct>();
-     webgpu_ctx->global_ctx                          = dev_ctx->webgpu_global_ctx;
--    webgpu_ctx->shader_lib = std::make_unique<ggml_webgpu_shader_lib>(dev_ctx->webgpu_global_ctx->device);
-+    webgpu_ctx->shader_lib     = std::make_unique<ggml_webgpu_shader_lib>(dev_ctx->webgpu_global_ctx->device);
-     webgpu_ctx->param_arena.init(
-         webgpu_ctx->global_ctx->device, WEBGPU_PARAMS_BUF_SIZE_BYTES,
-         webgpu_ctx->global_ctx->command_submit_batch_size + WEBGPU_NUM_PARAM_SLOT_SAFETY_MARGIN,
-@@ -3405,12 +3705,12 @@ static bool ggml_backend_webgpu_device_supports_op(ggml_backend_dev_t dev, const
-                     break;
-                 }
-                 // Head dimensions must fit in workgroup memory with minimum tile sizes
--                size_t     limit_bytes = ctx->webgpu_global_ctx->capabilities.limits.maxComputeWorkgroupStorageSize;
--                const bool has_mask    = op->src[3] != nullptr;
--                const bool kv_direct   = src1->type == GGML_TYPE_F16 &&
--                                       (src0->ne[0] % ctx->webgpu_global_ctx->capabilities.sg_mat_k) == 0 &&
--                                       (src1->ne[1] % GGML_WEBGPU_KV_SEQ_PAD) == 0;
--                const size_t min_bytes = ggml_webgpu_flash_attn_wg_mem_bytes(
-+                size_t       limit_bytes = ctx->webgpu_global_ctx->capabilities.limits.maxComputeWorkgroupStorageSize;
-+                const bool   has_mask    = op->src[3] != nullptr;
-+                const bool   kv_direct   = src1->type == GGML_TYPE_F16 &&
-+                                           (src0->ne[0] % ctx->webgpu_global_ctx->capabilities.sg_mat_k) == 0 &&
-+                                           (src1->ne[1] % GGML_WEBGPU_KV_SEQ_PAD) == 0;
-+                const size_t min_bytes   = ggml_webgpu_flash_attn_wg_mem_bytes(
-                     ctx->webgpu_global_ctx->capabilities.sg_mat_m, ctx->webgpu_global_ctx->capabilities.sg_mat_n,
-                     (uint32_t) src0->ne[0], (uint32_t) src2->ne[0], has_mask, kv_direct);
-                 if (min_bytes > limit_bytes) {
-@@ -3497,6 +3797,11 @@ static bool ggml_backend_webgpu_device_supports_op(ggml_backend_dev_t dev, const
+@@ -3497,6 +3882,15 @@ static bool ggml_backend_webgpu_device_supports_op(ggml_backend_dev_t dev, const
          case GGML_OP_SOLVE_TRI:
              supports_op = op->type == GGML_TYPE_F32 && src0->type == GGML_TYPE_F32 && src1->type == GGML_TYPE_F32;
              break;
@@ -3094,10 +3322,14 @@ index aa20a745..44e3bf82 100644
 +                          (src0->type == GGML_TYPE_F32 || src0->type == GGML_TYPE_F16) &&
 +                          (src1->type == GGML_TYPE_F32 || src1->type == GGML_TYPE_F16);
 +            break;
++        case GGML_OP_IM2COL:
++            supports_op = (op->type == GGML_TYPE_F32 || op->type == GGML_TYPE_F16) &&
++                          (src0->type == GGML_TYPE_F32 || src0->type == GGML_TYPE_F16);
++            break;
          case GGML_OP_SSM_CONV:
              supports_op = op->type == GGML_TYPE_F32;
              break;
-@@ -3590,9 +3895,9 @@ static struct ggml_backend_device_i ggml_backend_webgpu_device_i = {
+@@ -3590,9 +3984,9 @@ static struct ggml_backend_device_i ggml_backend_webgpu_device_i = {
      /* .supports_op          = */ ggml_backend_webgpu_device_supports_op,
      /* .supports_buft        = */ ggml_backend_webgpu_device_supports_buft,
      /* .offload_op           = */ NULL,
@@ -3280,6 +3512,113 @@ index 00000000..9eb131dc
 +
 +    let out_idx = params.offset_o + ow * params.so0 + oh * params.so1 + oc * params.so2 + n * params.so3;
 +    store_output(out_idx, sum);
++}
+diff --git src/ggml-webgpu/wgsl-shaders/im2col.wgsl src/ggml-webgpu/wgsl-shaders/im2col.wgsl
+new file mode 100644
+index 00000000..386ebab8
+--- /dev/null
++++ src/ggml-webgpu/wgsl-shaders/im2col.wgsl
+@@ -0,0 +1,101 @@
++#include "common_decls.tmpl"
++enable f16;
++
++@group(0) @binding(0)
++#if defined(INPUT_F32)
++var<storage, read_write> input: array<f32>;
++#elif defined(INPUT_F16)
++var<storage, read_write> input: array<f16>;
++#endif
++
++@group(0) @binding(1)
++#if defined(OUTPUT_F32)
++var<storage, read_write> output: array<f32>;
++#elif defined(OUTPUT_F16)
++var<storage, read_write> output: array<f16>;
++#endif
++
++struct Params {
++    offset_i: u32,
++    offset_o: u32,
++
++    // element strides
++    si0: u32, si1: u32, si2: u32, si3: u32,
++    so0: u32, so1: u32, so2: u32, so3: u32,
++
++    KW: u32, KH: u32, IC: u32,
++    IW: u32, IH: u32, N: u32,
++    OW: u32, OH: u32,
++
++    // stride
++    s0: u32, s1: u32,
++    // padding
++    p0: u32, p1: u32,
++    // dilation
++    d0: u32, d1: u32,
++}
++
++@group(0) @binding(2)
++var<uniform> params: Params;
++
++fn load_input(idx: u32) -> f32 {
++    #if defined(INPUT_F32)
++        return input[idx];
++    #elif defined(INPUT_F16)
++        return f32(input[idx]);
++    #endif
++}
++
++fn store_output(idx: u32, val: f32) {
++    #if defined(OUTPUT_F32)
++        output[idx] = val;
++    #elif defined(OUTPUT_F16)
++        output[idx] = f16(val);
++    #endif
++}
++
++@compute @workgroup_size(WG_SIZE)
++fn main(
++    @builtin(global_invocation_id) gid: vec3<u32>,
++    @builtin(num_workgroups) num_wg: vec3<u32>
++) {
++
++    let threads_per_group = u32(WG_SIZE);
++    let i_out = gid.x + (num_wg.x * threads_per_group) * gid.y;
++    let K = params.KW * params.KH * params.IC;
++    let M = params.OW * params.OH;
++    let total = K * M * params.N;
++
++    if (i_out >= total) {
++        return;
++    }
++
++    // decode (k, m, n)
++    var i = i_out;
++    let n = i / (K * M);
++    i = i % (K * M);
++    let m = i / K;
++    let k = i % K;
++
++    // decode (oh, ow)
++    let oh = m / params.OW;
++    let ow = m % params.OW;
++
++    // decode (kw, kh, ic)
++    let kw = k % params.KW;
++    let tmp = k / params.KW;
++    let kh = tmp % params.KH;
++    let ic = tmp / params.KH;
++
++    let iw_i32 = i32(ow * params.s0 + kw * params.d0) - i32(params.p0);
++    let ih_i32 = i32(oh * params.s1 + kh * params.d1) - i32(params.p1);
++
++    if (iw_i32 >= 0 && iw_i32 < i32(params.IW) && ih_i32 >= 0 && ih_i32 < i32(params.IH)) {
++        let iw = u32(iw_i32);
++        let ih = u32(ih_i32);
++        let in_idx = params.offset_i + iw * params.si0 + ih * params.si1 + ic * params.si2 + n * params.si3;
++        store_output(params.offset_o + k * params.so0 + ow * params.so1 + oh * params.so2 + n * params.so3, load_input(in_idx));
++    } else {
++        store_output(params.offset_o + k * params.so0 + ow * params.so1 + oh * params.so2 + n * params.so3, 0.0);
++    }
 +}
 diff --git src/ggml-webgpu/wgsl-shaders/rms_norm_mul.wgsl src/ggml-webgpu/wgsl-shaders/rms_norm_mul.wgsl
 new file mode 100644
