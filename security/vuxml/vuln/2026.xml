@@ -1,3 +1,52 @@
+  <vuln vid="73b927a6-3ecd-11f1-be20-2cf05da270f3">
+    <topic>Gitlab -- vulnerabilities</topic>
+    <affects>
+<package>
+<name>gitlab-ce</name>
+<name>gitlab-ee</name>
+<range><ge>18.11.0</ge><lt>18.11.1</lt></range>
+<range><ge>18.10.0</ge><lt>18.10.4</lt></range>
+<range><ge>9.2.0</ge><lt>18.9.6</lt></range>
+</package>
+    </affects>
+    <description>
+	<body xmlns="http://www.w3.org/1999/xhtml">
+	<p>Gitlab reports:</p>
+	<blockquote cite="https://docs.gitlab.com/releases/patches/patch-release-gitlab-18-11-1-released/">
+	  <p>Cross-Site Request Forgery issue in GraphQL API impacts GitLab CE/EE GitLab</p>
+	  <p>Improper Resolution of Path Equivalence issue in Web IDE asset impacts GitLab CE/EE</p>
+	  <p>Cross-site Scripting issue in Storybook impacts GitLab CE/EE</p>
+	  <p>Denial of Service issue in discussions endpoint impacts GitLab CE/EE</p>
+	  <p>Denial of Service issue in Jira import impacts GitLab CE/EE</p>
+	  <p>Denial of Service issue in notes endpoint impacts GitLab CE/EE</p>
+	  <p>Denial of Service issue in GraphQL API impacts GitLab CE/EE</p>
+	  <p>Insufficient Session Expiration issue in virtual registry credentials validation impacts GitLab CE/E</p>
+	  <p>Improper Access Control issue in issue description renderer impacts GitLab CE/EE</p>
+	  <p>Improper Restriction of Rendered UI Layers or Frames issue in Mermaid sandbox impacts GitLab CE/EE</p>
+	  <p>Improper Access Control issue in project fork relationship API impacts GitLab CE/EE</p>
+	</blockquote>
+	</body>
+    </description>
+    <references>
+      <cvename>CVE-2026-4922</cvename>
+      <cvename>CVE-2026-5816</cvename>
+      <cvename>CVE-2026-5262</cvename>
+      <cvename>CVE-2025-0186</cvename>
+      <cvename>CVE-2026-1660</cvename>
+      <cvename>CVE-2025-6016</cvename>
+      <cvename>CVE-2025-3922</cvename>
+      <cvename>CVE-2026-6515</cvename>
+      <cvename>CVE-2026-5377</cvename>
+      <cvename>CVE-2026-3254</cvename>
+      <cvename>CVE-2025-9957</cvename>
+      <url>https://docs.gitlab.com/releases/patches/patch-release-gitlab-18-11-1-released/</url>
+    </references>
+    <dates>
+      <discovery>2026-04-22</discovery>
+      <entry>2026-04-23</entry>
+    </dates>
+  </vuln>
+
   <vuln vid="128951d0-3df0-11f1-bb07-bc241121aa0a">
     <topic>FreeBSD -- Missing large page handling in pmap_pkru_update_range()</topic>
     <affects>

@@ -1210,6 +1210,7 @@
     SUBDIR += laminar
     SUBDIR += lasi
     SUBDIR += lazygit
+    SUBDIR += lazymake
     SUBDIR += lazyworktree
     SUBDIR += lcov
     SUBDIR += leaktracer
@@ -6864,6 +6865,7 @@
     SUBDIR += rubygem-aws-sdk-inspector
     SUBDIR += rubygem-aws-sdk-inspector2
     SUBDIR += rubygem-aws-sdk-inspectorscan
+    SUBDIR += rubygem-aws-sdk-interconnect
     SUBDIR += rubygem-aws-sdk-internetmonitor
     SUBDIR += rubygem-aws-sdk-invoicing
     SUBDIR += rubygem-aws-sdk-iot
@@ -6923,6 +6925,7 @@
     SUBDIR += rubygem-aws-sdk-marketplacecatalog
     SUBDIR += rubygem-aws-sdk-marketplacecommerceanalytics
     SUBDIR += rubygem-aws-sdk-marketplacedeployment
+    SUBDIR += rubygem-aws-sdk-marketplacediscovery
     SUBDIR += rubygem-aws-sdk-marketplaceentitlementservice
     SUBDIR += rubygem-aws-sdk-marketplacemetering
     SUBDIR += rubygem-aws-sdk-marketplacereporting
@@ -7022,6 +7025,7 @@
     SUBDIR += rubygem-aws-sdk-s3
     SUBDIR += rubygem-aws-sdk-s3-gitlab
     SUBDIR += rubygem-aws-sdk-s3control
+    SUBDIR += rubygem-aws-sdk-s3files
     SUBDIR += rubygem-aws-sdk-s3outposts
     SUBDIR += rubygem-aws-sdk-s3tables
     SUBDIR += rubygem-aws-sdk-s3vectors
@@ -7357,6 +7361,7 @@
     SUBDIR += rubygem-cucumber-tag-expressions
     SUBDIR += rubygem-cucumber-tag-expressions8
     SUBDIR += rubygem-cucumber-wire
+    SUBDIR += rubygem-cucumber10
     SUBDIR += rubygem-curses
     SUBDIR += rubygem-cyoi
     SUBDIR += rubygem-daemon_controller

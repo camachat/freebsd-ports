@@ -10,6 +10,7 @@ bin/llama-template-analysis
 %%EXAMPLES%%bin/llama-convert-llama2c-to-ggml
 %%EXAMPLES%%bin/llama-cvector-generator
 %%EXAMPLES%%bin/llama-debug
+%%EXAMPLES%%bin/llama-debug-template-parser
 %%EXAMPLES%%bin/llama-diffusion-cli
 %%EXAMPLES%%bin/llama-embedding
 %%EXAMPLES%%bin/llama-eval-callback
@@ -32,6 +33,7 @@ bin/llama-template-analysis
 %%EXAMPLES%%bin/llama-passkey
 %%EXAMPLES%%bin/llama-perplexity
 %%EXAMPLES%%bin/llama-quantize
+%%EXAMPLES%%bin/llama-results
 %%EXAMPLES%%bin/llama-retrieval
 %%EXAMPLES%%bin/llama-save-load-state
 %%EXAMPLES%%bin/llama-server
@@ -39,6 +41,7 @@ bin/llama-template-analysis
 %%EXAMPLES%%bin/llama-simple-chat
 %%EXAMPLES%%bin/llama-speculative
 %%EXAMPLES%%bin/llama-speculative-simple
+%%EXAMPLES%%bin/llama-template-analysis
 %%EXAMPLES%%bin/llama-tokenize
 %%EXAMPLES%%bin/llama-tts
 include/llama-cpp.h

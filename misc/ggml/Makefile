@@ -10,10 +10,10 @@ WWW=		https://github.com/ggml-org/ggml
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		cmake:testing compiler:c++17-lang llvm:build,min=22 pkgconfig python:run shebangfix
-USE_LDCONFIG=	yes
-
 BROKEN_i386=	compilation fails: LLVM ERROR: out of memory
+
+USES=		cmake:testing compiler:c++17-lang llvm:build,min=22 python:run shebangfix
+USE_LDCONFIG=	yes
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	ggml-org
@@ -73,8 +73,5 @@ SUB_LIST+=		BLAS=""
 PLIST_SUB+=		BLAS="@comment "
 SUB_LIST+=		BLAS="@comment "
 .endif
-
-# tests as of 0.9.5: 100% tests passed, 0 tests failed out of 21
-# tests as of 0.9.11: 95% tests passed, 1 tests failed out of 21: test-backend-ops fails because of OOM in the 6GB Vulkan device
 
 .include <bsd.port.mk>

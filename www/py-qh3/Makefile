@@ -1,6 +1,6 @@
 PORTNAME=	qh3
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.7.2
+DISTVERSION=	1.7.3
 CATEGORIES=	www python
 #MASTER_SITES=	PYPI
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -142,7 +142,7 @@ CARGO_CRATES=	aes-0.8.4 \
 		rustls-0.23.38 \
 		rustls-pemfile-2.2.0 \
 		rustls-pki-types-1.14.0 \
-		rustls-webpki-0.103.12 \
+		rustls-webpki-0.103.13 \
 		salsa20-0.10.2 \
 		scrypt-0.11.0 \
 		semver-1.0.28 \

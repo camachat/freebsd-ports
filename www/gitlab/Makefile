@@ -480,6 +480,7 @@ post-install:
 	@${ECHO_CMD} "@dir ${WWWDIR_REL}/config" >> ${TMPPLIST}
 	@${ECHO_CMD} "@dir(git,git,755) ${WWWDIR_REL}/config/helpers/tailwind" >> ${TMPPLIST}
 	@${ECHO_CMD} "@dir(,,700) ${WWWDIR_REL}/builds" >> ${TMPPLIST}
+	@${ECHO_CMD} "@dir(git,git,750) ${WWWDIR_REL}/gems/gitlab-backup-cli/tmp" >> ${TMPPLIST}
 	@${ECHO_CMD} "@dir(,,744) ${WWWDIR_REL}/locale" >> ${TMPPLIST}
 	@${ECHO_CMD} "@dir ${WWWDIR_REL}/lib/assets" >> ${TMPPLIST}
 	@${ECHO_CMD} "@dir(,,744) ${WWWDIR_REL}/locale/bg" >> ${TMPPLIST}
@@ -548,10 +549,9 @@ post-install:
 	@${ECHO_CMD} "@dir(,,770) ${WWWDIR_REL}/workhorse/changelogs/unreleased" >> ${TMPPLIST}
 .if ${FLAVOR:U} == ee
 	# Gitlab-ee version
-	@${ECHO_CMD} "@dir(,,744) ${WWWDIR_REL}/gems/gitlab-backup-cli/tmp" >> ${TMPPLIST}
-	@${ECHO_CMD} "@dir(,,744) ${WWWDIR_REL}/qa/qa/specs/features/ee/api/4_verify" >> ${TMPPLIST}
-	@${ECHO_CMD} "@dir(,,744) ${WWWDIR_REL}/qa/qa/specs/features/ee/api/5_package" >> ${TMPPLIST}
-	@${ECHO_CMD} "@dir(,,744) ${WWWDIR_REL}/qa/qa/specs/features/ee/api/8_monitor" >> ${TMPPLIST}
+	@${ECHO_CMD} "@dir(,,755) ${WWWDIR_REL}/qa/qa/specs/features/ee/api/4_verify" >> ${TMPPLIST}
+	@${ECHO_CMD} "@dir(,,755) ${WWWDIR_REL}/qa/qa/specs/features/ee/api/5_package" >> ${TMPPLIST}
+	@${ECHO_CMD} "@dir(,,755) ${WWWDIR_REL}/qa/qa/specs/features/ee/api/8_monitor" >> ${TMPPLIST}
 .endif
 
 .if !defined(_GITLAB_MAKESUM_GUARD)

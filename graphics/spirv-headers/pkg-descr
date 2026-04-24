@@ -1,7 +1,8 @@
-The SPIR-V Headers contains machine-readable files for the SPIR-V Registry.
+SPIRV-Headers contains machine-readable files for the SPIR-V Registry.
 
-- Header files for various languages.
-- JSON files describing the grammar for the SPIR-V core instruction set and
-  the extended instruction sets.
-- The XML registry file.
-- A tool to build the headers from the JSON grammar.
+This includes:
+* Header files for various languages.
+* JSON files describing the grammar for the SPIR-V core instruction set and the
+  extended instruction sets.
+* The XML registry file.
+* A tool to build the headers from the JSON grammar.
