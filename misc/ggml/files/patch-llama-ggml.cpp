@@ -124,7 +124,7 @@ index f1dd2183..81ed873e 100644
      return x / (1.0f + expf(-x));
  }
 diff --git src/ggml-hexagon/ggml-hexagon.cpp src/ggml-hexagon/ggml-hexagon.cpp
-index 3d68b800..95590341 100644
+index 3d68b800..0d9b5e28 100644
 --- src/ggml-hexagon/ggml-hexagon.cpp
 +++ src/ggml-hexagon/ggml-hexagon.cpp
 @@ -12,9 +12,12 @@
@@ -273,12 +273,12 @@ index 3d68b800..95590341 100644
  struct ggml_hexagon_opbatch {
 -    const char* name;
 +    ggml_hexagon_session*            sess;
-+
-+    std::vector<const ggml_tensor*>  ops;       // pointers to original ops
  
 -    std::vector<htp_buf_desc> buffers;
 -    std::vector<htp_tensor>   tensors;
 -    std::vector<htp_op_desc>  ops;
++    std::vector<const ggml_tensor*>  ops;       // pointers to original ops
++
 +    std::vector<htp_buf_desc>        h_bufs;    // htp buffer descriptors
 +    std::vector<htp_tensor>          h_tens;    // htp tensor descriptors
 +    std::vector<htp_op_desc>         h_ops;     // htp op descriptors
@@ -390,11 +390,7 @@ index 3d68b800..95590341 100644
 +                       sizeof(htp_tensor)    * n_tensors +
 +                       sizeof(htp_op_desc)   * n_ops     +
 +                       sizeof(htp_prof_desc) * n_ops;
- 
--    size_t flush(uint8_t * mem_addr, size_t mem_size) {
--        static_assert(sizeof(htp_buf_desc) % 8 == 0, "sizeof(htp_buf_desc) must be multiple of 8");
--        static_assert(sizeof(htp_tensor)   % 8 == 0, "sizeof(htp_tensor) must be multiple of 8");
--        static_assert(sizeof(htp_op_desc)  % 8 == 0, "sizeof(htp_op_desc) must be multiple of 8");
++
 +        shm_buf = new ggml_hexagon_shared_buffer(sess, shm_blk_size * depth, true /* pinned */);
 +
 +        op_cache.resize(depth);
@@ -408,7 +404,11 @@ index 3d68b800..95590341 100644
 +                    sess->c_name(), batch_size, depth, shm_buf->size, shm_blk_size);
 +        }
 +    }
-+
+ 
+-    size_t flush(uint8_t * mem_addr, size_t mem_size) {
+-        static_assert(sizeof(htp_buf_desc) % 8 == 0, "sizeof(htp_buf_desc) must be multiple of 8");
+-        static_assert(sizeof(htp_tensor)   % 8 == 0, "sizeof(htp_tensor) must be multiple of 8");
+-        static_assert(sizeof(htp_op_desc)  % 8 == 0, "sizeof(htp_op_desc) must be multiple of 8");
 +    ~ggml_hexagon_opqueue() {
 +        delete shm_buf;
 +    }
@@ -494,7 +494,8 @@ index 3d68b800..95590341 100644
 -        reset();
 +        return true;
 +    }
-+
+ 
+-        return m_size;
 +    void pop(htp_opbatch_rsp rsp, dspqueue_buffer dbuf) {
 +        GGML_ASSERT(rsp.id < op_cache.size());
 +
@@ -514,8 +515,7 @@ index 3d68b800..95590341 100644
 +
 +        uint8_t * m_ptr = (uint8_t*) dbuf.ptr;
 +        uint8_t * p_ptr = m_ptr + (b_size + t_size + o_size);
- 
--        return m_size;
++
 +        if (opt_profile && rsp.n_ops > 0) {
 +            auto & ops = op_cache[rsp.id];
 +
@@ -670,7 +670,7 @@ index 3d68b800..95590341 100644
  
      try {
          allocate(dev_id);
-@@ -2596,6 +2670,29 @@ static bool ggml_hexagon_supported_cumsum(const struct ggml_hexagon_session * se
+@@ -2596,6 +2670,62 @@ static bool ggml_hexagon_supported_cumsum(const struct ggml_hexagon_session * se
      return true;
  }
  
@@ -697,19 +697,54 @@ index 3d68b800..95590341 100644
 +    return true;
 +}
 +
++static bool ggml_hexagon_supported_solve_tri(const struct ggml_hexagon_session * sess, const struct ggml_tensor * op) {
++    const struct ggml_tensor * src0 = op->src[0]; // A
++    const struct ggml_tensor * src1 = op->src[1]; // B
++    const struct ggml_tensor * dst  = op;         // X
++
++    if (!src0 || !src1) {
++        return false;
++    }
++
++    if (src0->type != GGML_TYPE_F32 || src1->type != GGML_TYPE_F32 || dst->type != GGML_TYPE_F32) {
++        return false;
++    }
++
++    if (src0->ne[0] != src0->ne[1]) {
++        return false;
++    }
++
++    if (src0->ne[1] != src1->ne[1]) {
++        return false;
++    }
++
++    if (src0->ne[2] != src1->ne[2] || src0->ne[3] != src1->ne[3]) {
++        return false;
++    }
++
++    if (dst->ne[0] != src1->ne[0] || dst->ne[1] != src1->ne[1] || dst->ne[2] != src1->ne[2] || dst->ne[3] != src1->ne[3]) {
++        return false;
++    }
++
++    GGML_UNUSED(sess);
++    return true;
++}
++
  static const char * ggml_backend_hexagon_name(ggml_backend_t backend) {
      auto sess = static_cast<ggml_hexagon_session *>(backend->context);
      return sess->c_name();
-@@ -2632,6 +2729,8 @@ static htp_op_code op_remap_to_htp(const ggml_tensor * t) {
+@@ -2632,7 +2762,9 @@ static htp_op_code op_remap_to_htp(const ggml_tensor * t) {
          case GGML_OP_ROPE:           return HTP_OP_ROPE;
          case GGML_OP_REPEAT:         return HTP_OP_REPEAT;
          case GGML_OP_CUMSUM:         return HTP_OP_CUMSUM;
+-
 +        case GGML_OP_FILL:           return HTP_OP_FILL;
 +        case GGML_OP_DIAG:           return HTP_OP_DIAG;
- 
++        case GGML_OP_SOLVE_TRI:      return HTP_OP_SOLVE_TRI;
          case GGML_OP_UNARY:
              switch (ggml_get_unary_op(t)) {
-@@ -2673,7 +2772,7 @@ static ggml_status ggml_backend_hexagon_graph_compute(ggml_backend_t backend, gg
+                 case GGML_UNARY_OP_SILU:     return HTP_OP_UNARY_SILU;
+@@ -2673,7 +2805,7 @@ static ggml_status ggml_backend_hexagon_graph_compute(ggml_backend_t backend, gg
  
      for (int i = 0; i < graph->n_nodes; ++i) {
          ggml_tensor * n = graph->nodes[i];
@@ -718,7 +753,7 @@ index 3d68b800..95590341 100644
              sess->enqueue_op(op_remap_to_htp(n), n);
          }
      }
-@@ -3029,6 +3128,17 @@ static bool ggml_hexagon_supported_repeat(const struct ggml_hexagon_session * se
+@@ -3029,6 +3161,17 @@ static bool ggml_hexagon_supported_repeat(const struct ggml_hexagon_session * se
      return true;
  }
  
@@ -736,7 +771,7 @@ index 3d68b800..95590341 100644
  static bool ggml_backend_hexagon_device_supports_op(ggml_backend_dev_t dev, const struct ggml_tensor * op) {
      auto sess = static_cast<ggml_hexagon_session *>(dev->context);
  
-@@ -3159,6 +3269,14 @@ static bool ggml_backend_hexagon_device_supports_op(ggml_backend_dev_t dev, cons
+@@ -3159,6 +3302,18 @@ static bool ggml_backend_hexagon_device_supports_op(ggml_backend_dev_t dev, cons
              supp = ggml_hexagon_supported_cumsum(sess, op);
              break;
  
@@ -748,10 +783,14 @@ index 3d68b800..95590341 100644
 +            supp = ggml_hexagon_supported_diag(sess, op);
 +            break;
 +
++        case GGML_OP_SOLVE_TRI:
++            supp = ggml_hexagon_supported_solve_tri(sess, op);
++            break;
++
          default:
              break;
      }
-@@ -3294,6 +3412,26 @@ static void * ggml_backend_hexagon_get_proc_address(ggml_backend_reg_t reg, cons
+@@ -3294,6 +3449,26 @@ static void * ggml_backend_hexagon_get_proc_address(ggml_backend_reg_t reg, cons
      return NULL;
  }
  
@@ -778,7 +817,7 @@ index 3d68b800..95590341 100644
  static void ggml_hexagon_init(ggml_backend_reg * reg) {
      // Basic sanity checks to make sure definitions match
      static_assert((unsigned int) HTP_TYPE_Q4_0 == (unsigned int) GGML_TYPE_Q4_0,
-@@ -3307,8 +3445,7 @@ static void ggml_hexagon_init(ggml_backend_reg * reg) {
+@@ -3307,8 +3482,7 @@ static void ggml_hexagon_init(ggml_backend_reg * reg) {
  
      const char * str_verbose = getenv("GGML_HEXAGON_VERBOSE");
      const char * str_hostbuf = getenv("GGML_HEXAGON_HOSTBUF");
@@ -788,7 +827,7 @@ index 3d68b800..95590341 100644
      const char * str_opbatch = getenv("GGML_HEXAGON_OPBATCH");
      const char * str_opqueue = getenv("GGML_HEXAGON_OPQUEUE");
      const char * str_opfilter= getenv("GGML_HEXAGON_OPFILTER");
-@@ -3321,19 +3458,30 @@ static void ggml_hexagon_init(ggml_backend_reg * reg) {
+@@ -3321,19 +3495,30 @@ static void ggml_hexagon_init(ggml_backend_reg * reg) {
  
      auto RE_ICASE = std::regex_constants::icase;
  
@@ -833,15 +872,16 @@ index 3d68b800..95590341 100644
      if (opt_ndev > GGML_HEXAGON_MAX_SESSIONS) {
          opt_ndev = GGML_HEXAGON_MAX_SESSIONS;
 diff --git src/ggml-hexagon/htp/CMakeLists.txt src/ggml-hexagon/htp/CMakeLists.txt
-index 9ca75945..b1ae60a9 100644
+index 9ca75945..8bd52847 100644
 --- src/ggml-hexagon/htp/CMakeLists.txt
 +++ src/ggml-hexagon/htp/CMakeLists.txt
-@@ -34,6 +34,8 @@ add_library(${HTP_LIB} SHARED
+@@ -34,6 +34,9 @@ add_library(${HTP_LIB} SHARED
      argsort-ops.c
      ssm-conv.c
      cumsum-ops.c
 +    fill-ops.c
 +    diag-ops.c
++    solve-tri-ops.c
  )
  
  target_compile_definitions(${HTP_LIB} PRIVATE
@@ -1241,7 +1281,7 @@ index f6713c5c..329249e1 100644
 +
  #endif /* HEX_UTILS_H */
 diff --git src/ggml-hexagon/htp/htp-ctx.h src/ggml-hexagon/htp/htp-ctx.h
-index 8b5e47ad..f8c89211 100644
+index 8b5e47ad..d704fede 100644
 --- src/ggml-hexagon/htp/htp-ctx.h
 +++ src/ggml-hexagon/htp/htp-ctx.h
 @@ -10,6 +10,7 @@
@@ -1263,16 +1303,17 @@ index 8b5e47ad..f8c89211 100644
  
      uint8_t *              vtcm_base;
      size_t                 vtcm_size;
-@@ -98,5 +101,7 @@ int op_repeat(struct htp_ops_context * octx);
+@@ -98,5 +101,8 @@ int op_repeat(struct htp_ops_context * octx);
  int op_argsort(struct htp_ops_context * octx);
  int op_ssm_conv(struct htp_ops_context * octx);
  int op_cumsum(struct htp_ops_context * octx);
 +int op_fill(struct htp_ops_context * octx);
 +int op_diag(struct htp_ops_context * octx);
++int op_solve_tri(struct htp_ops_context * octx);
  
  #endif /* HTP_CTX_H */
 diff --git src/ggml-hexagon/htp/htp-ops.h src/ggml-hexagon/htp/htp-ops.h
-index 79b5ecd2..56d7b398 100644
+index 79b5ecd2..4397245c 100644
 --- src/ggml-hexagon/htp/htp-ops.h
 +++ src/ggml-hexagon/htp/htp-ops.h
 @@ -42,9 +42,9 @@ enum htp_data_type {
@@ -1288,15 +1329,17 @@ index 79b5ecd2..56d7b398 100644
  };
  
  // Do not reorder first 4 (used as an index)
-@@ -80,6 +80,8 @@ enum htp_op_code {
+@@ -80,7 +80,9 @@ enum htp_op_code {
      HTP_OP_SSM_CONV,
      HTP_OP_REPEAT,
      HTP_OP_CUMSUM,
+-
 +    HTP_OP_FILL,
 +    HTP_OP_DIAG,
- 
++    HTP_OP_SOLVE_TRI,
      HTP_OP_INVALID
  };
+ 
 @@ -135,27 +137,45 @@ struct htp_op_desc {
      int32_t  params[HTP_OP_MAX_PARAMS]; // Params for the op, e.g. epsilon of RMS norm
      uint16_t src[HTP_OP_MAX_INPUTS];    // Input tensors indices
@@ -1373,8 +1416,50 @@ index 3eb5d5a6..dbcafd1d 100644
  };
  
  #endif /* HTP_IDL */
+diff --git src/ggml-hexagon/htp/hvx-base.h src/ggml-hexagon/htp/hvx-base.h
+index ed6026e7..d0926ded 100644
+--- src/ggml-hexagon/htp/hvx-base.h
++++ src/ggml-hexagon/htp/hvx-base.h
+@@ -256,6 +256,18 @@ static inline HVX_Vector hvx_vec_mul_f16_f16(HVX_Vector a, HVX_Vector b)
+     return Q6_Vhf_equals_Wqf32(Q6_Wqf32_vmpy_VhfVhf(a, b));
+ }
+ 
++static inline HVX_Vector hvx_vec_add_f32_f32(HVX_Vector a, HVX_Vector b) {
++    return Q6_Vsf_equals_Vqf32(Q6_Vqf32_vadd_VsfVsf(a, b));
++}
++
++static inline HVX_Vector hvx_vec_sub_f32_f32(HVX_Vector a, HVX_Vector b) {
++    return Q6_Vsf_equals_Vqf32(Q6_Vqf32_vsub_VsfVsf(a, b));
++}
++
++static inline HVX_Vector hvx_vec_mul_f32_f32(HVX_Vector a, HVX_Vector b) {
++    return Q6_Vsf_equals_Vqf32(Q6_Vqf32_vmpy_VsfVsf(a, b));
++}
++
+ #else
+ 
+ static inline HVX_Vector hvx_vec_add_f16_f16(HVX_Vector a, HVX_Vector b)
+@@ -273,6 +285,18 @@ static inline HVX_Vector hvx_vec_mul_f16_f16(HVX_Vector a, HVX_Vector b)
+     return Q6_Vhf_vmpy_VhfVhf(a, b);
+ }
+ 
++static inline HVX_Vector hvx_vec_add_f32_f32(HVX_Vector a, HVX_Vector b) {
++    return Q6_Vsf_vadd_VsfVsf(a, b);
++}
++
++static inline HVX_Vector hvx_vec_sub_f32_f32(HVX_Vector a, HVX_Vector b) {
++    return Q6_Vsf_vsub_VsfVsf(a, b);
++}
++
++static inline HVX_Vector hvx_vec_mul_f32_f32(HVX_Vector a, HVX_Vector b) {
++    return Q6_Vsf_vmpy_VsfVsf(a, b);
++}
++
+ #endif // __HVX_ARCH__ < 79
+ 
+ #endif /* HVX_BASE_H */
 diff --git src/ggml-hexagon/htp/main.c src/ggml-hexagon/htp/main.c
-index 5091623a..088434a6 100644
+index 5091623a..db277a25 100644
 --- src/ggml-hexagon/htp/main.c
 +++ src/ggml-hexagon/htp/main.c
 @@ -27,6 +27,7 @@
@@ -1542,7 +1627,7 @@ index 5091623a..088434a6 100644
  }
  
  static int execute_op(struct htp_ops_context * octx) {
-@@ -514,6 +567,12 @@ static int execute_op(struct htp_ops_context * octx) {
+@@ -514,6 +567,15 @@ static int execute_op(struct htp_ops_context * octx) {
          case HTP_OP_CUMSUM:
              return op_cumsum(octx);
  
@@ -1552,10 +1637,13 @@ index 5091623a..088434a6 100644
 +        case HTP_OP_DIAG:
 +            return op_diag(octx);
 +
++        case HTP_OP_SOLVE_TRI:
++            return op_solve_tri(octx);
++
          case HTP_OP_INVALID:
              break;
  
-@@ -720,29 +779,32 @@ static void htp_packet_callback(dspqueue_t queue, int error, void * context) {
+@@ -720,29 +782,32 @@ static void htp_packet_callback(dspqueue_t queue, int error, void * context) {
              continue;
          }
  
@@ -1600,7 +1688,7 @@ index 5091623a..088434a6 100644
  
          prep_op_bufs(ctx, bufs, n_bufs);
          prep_tensors(ctx, bufs, tens, n_tens);
-@@ -754,22 +816,34 @@ static void htp_packet_callback(dspqueue_t queue, int error, void * context) {
+@@ -754,22 +819,34 @@ static void htp_packet_callback(dspqueue_t queue, int error, void * context) {
  
          for (uint32_t i=0; i < n_ops; i++) {
              struct profile_data prof;
@@ -1656,6 +1744,279 @@ index bac06693..a0c26513 100644
      if (src0->type == HTP_TYPE_F16) {
          if (is_batched) {
              hmx_matmul_w16a32_batched_params_t batch_params = {
+diff --git src/ggml-hexagon/htp/solve-tri-ops.c src/ggml-hexagon/htp/solve-tri-ops.c
+new file mode 100644
+index 00000000..ae8e1a50
+--- /dev/null
++++ src/ggml-hexagon/htp/solve-tri-ops.c
+@@ -0,0 +1,267 @@
++#pragma clang diagnostic ignored "-Wunused-but-set-variable"
++
++#include <HAP_farf.h>
++#include <HAP_perf.h>
++#include <string.h>
++
++#define GGML_COMMON_DECL_C
++#include "ggml-common.h"
++#include "htp-ctx.h"
++#include "htp-ops.h"
++#include "hvx-types.h"
++#include "hvx-utils.h"
++
++struct htp_solve_tri_context {
++    struct htp_ops_context * octx;
++    uint32_t                 jobs_per_thread;
++    uint32_t                 total_jobs;
++    uint32_t                 k_chunks;
++    uint32_t                 col_block;
++};
++
++static inline void solve_tri_row_scalar(const float * A_row,
++                                        const float * B_row,
++                                        float *       X,
++                                        uint32_t      row,
++                                        uint32_t      k,
++                                        uint32_t      col0,
++                                        uint32_t      coln,
++                                        float         inv_diag) {
++    for (uint32_t col = col0; col < col0 + coln; ++col) {
++        float sum = 0.0f;
++        for (uint32_t t = 0; t < row; ++t) {
++            sum += A_row[t] * X[t * k + col];
++        }
++        X[row * k + col] = (B_row[col] - sum) * inv_diag;
++    }
++}
++
++static inline HVX_Vector hvx_load_partial_f32(const float * src, uint32_t n) {
++    HVX_Vector v = *((const HVX_UVector *) src);
++    HVX_VectorPred mask = Q6_Q_vsetq2_R(n * sizeof(float));
++    return Q6_V_vmux_QVV(mask, v, Q6_V_vzero());
++}
++
++static inline void solve_tri_row_hvx(const float * A_row,
++                                     const float * B_row,
++                                     float *       X,
++                                     uint32_t      row,
++                                     uint32_t      k,
++                                     uint32_t      col0,
++                                     uint32_t      coln,
++                                     float         inv_diag) {
++    const bool full = (coln == VLEN_FP32);
++
++    HVX_Vector sum_v = Q6_V_vzero();
++    for (uint32_t t = 0; t < row; ++t) {
++        const float   a         = A_row[t];
++        const float * x_row_col = X + t * k + col0;
++
++        HVX_Vector x_v = full ? *((const HVX_UVector *) x_row_col) : hvx_load_partial_f32(x_row_col, coln);
++        HVX_Vector a_v = hvx_vec_splat_f32(a);
++        sum_v          = hvx_vec_add_f32_f32(sum_v, hvx_vec_mul_f32_f32(x_v, a_v));
++    }
++
++    const float * b_row_col = B_row + col0;
++    float *       x_out_col = X + row * k + col0;
++
++    HVX_Vector b_v        = full ? *((const HVX_UVector *) b_row_col) : hvx_load_partial_f32(b_row_col, coln);
++    HVX_Vector inv_diag_v = hvx_vec_splat_f32(inv_diag);
++
++    HVX_Vector out_v = hvx_vec_mul_f32_f32(hvx_vec_sub_f32_f32(b_v, sum_v), inv_diag_v);
++    hvx_vec_store_u((void *) x_out_col, coln * sizeof(float), out_v);
++}
++
++// Batch-level thread: each job is one full batch.
++static void solve_tri_batch_thread_f32(unsigned int nth, unsigned int ith, void * data) {
++    struct htp_solve_tri_context * sctx = (struct htp_solve_tri_context *) data;
++    struct htp_ops_context *       octx = sctx->octx;
++
++    const struct htp_tensor * src0 = octx->src[0];  // A
++    const struct htp_tensor * src1 = octx->src[1];  // B
++    const struct htp_tensor * dst  = octx->dst;     // X
++
++    const uint32_t n = src0->ne[0];
++    const uint32_t k = src1->ne[0];
++
++    const uint32_t ne02 = src0->ne[2];
++
++    const uint32_t col_block = VLEN_FP32;
++    const uint32_t k_full    = (k / col_block) * col_block;
++
++    const uint32_t start_batch = sctx->jobs_per_thread * ith;
++    const uint32_t end_batch   = MIN(start_batch + sctx->jobs_per_thread, sctx->total_jobs);
++
++    uint64_t t1, t2;
++    t1 = HAP_perf_get_qtimer_count();
++
++    for (uint32_t batch = start_batch; batch < end_batch; ++batch) {
++        const uint32_t i03 = batch / ne02;
++        const uint32_t i02 = batch - i03 * ne02;
++
++        const float * A_batch =
++            (const float *) ((const uint8_t *) (uintptr_t) src0->data + i02 * src0->nb[2] + i03 * src0->nb[3]);
++        const float * B_batch =
++            (const float *) ((const uint8_t *) (uintptr_t) src1->data + i02 * src1->nb[2] + i03 * src1->nb[3]);
++        float * X_batch = (float *) ((uint8_t *) (uintptr_t) dst->data + i02 * dst->nb[2] + i03 * dst->nb[3]);
++
++        for (uint32_t row = 0; row < n; ++row) {
++            const float   diag     = A_batch[row * n + row];
++            const float   inv_diag = 1.0f / diag;
++            const float * A_row    = A_batch + row * n;
++            const float * B_row    = B_batch + row * k;
++
++            uint32_t col0 = 0;
++            for (; col0 < k_full; col0 += col_block) {
++                solve_tri_row_hvx(A_row, B_row, X_batch, row, k, col0, col_block, inv_diag);
++            }
++
++            if (col0 < k) {
++                const uint32_t coln = k - col0;
++                if (coln >= 8) {
++                    solve_tri_row_hvx(A_row, B_row, X_batch, row, k, col0, coln, inv_diag);
++                } else {
++                    solve_tri_row_scalar(A_row, B_row, X_batch, row, k, col0, coln, inv_diag);
++                }
++            }
++        }
++    }
++
++    t2 = HAP_perf_get_qtimer_count();
++
++    FARF(HIGH, "solve-tri-batch %d/%d: A=(%ux%u) B=(%ux%u) batch %u:%u usec %u\n",
++         ith, nth, n, n, k, n, start_batch, end_batch,
++         (unsigned) HAP_perf_qtimer_count_to_us(t2 - t1));
++}
++
++// Chunk-level thread: each job is one (batch, col_chunk) pair.
++static void solve_tri_chunk_thread_f32(unsigned int nth, unsigned int ith, void * data) {
++    struct htp_solve_tri_context * sctx = (struct htp_solve_tri_context *) data;
++    struct htp_ops_context *       octx = sctx->octx;
++
++    const struct htp_tensor * src0 = octx->src[0];  // A
++    const struct htp_tensor * src1 = octx->src[1];  // B
++    const struct htp_tensor * dst  = octx->dst;     // X
++
++    const uint32_t n = src0->ne[0];
++    const uint32_t k = src1->ne[0];
++
++    const uint32_t ne02 = src0->ne[2];
++
++    const uint32_t start_job = sctx->jobs_per_thread * ith;
++    const uint32_t end_job   = MIN(start_job + sctx->jobs_per_thread, sctx->total_jobs);
++
++    uint64_t t1, t2;
++    t1 = HAP_perf_get_qtimer_count();
++
++    for (uint32_t job = start_job; job < end_job; ++job) {
++        const uint32_t batch = job / sctx->k_chunks;
++        const uint32_t chunk = job - batch * sctx->k_chunks;
++
++        const uint32_t i03 = batch / ne02;
++        const uint32_t i02 = batch - i03 * ne02;
++
++        const uint32_t col0 = chunk * sctx->col_block;
++        const uint32_t coln = MIN(sctx->col_block, k - col0);
++
++        const float * A_batch =
++            (const float *) ((const uint8_t *) (uintptr_t) src0->data + i02 * src0->nb[2] + i03 * src0->nb[3]);
++        const float * B_batch =
++            (const float *) ((const uint8_t *) (uintptr_t) src1->data + i02 * src1->nb[2] + i03 * src1->nb[3]);
++        float * X_batch = (float *) ((uint8_t *) (uintptr_t) dst->data + i02 * dst->nb[2] + i03 * dst->nb[3]);
++
++        const bool use_hvx = (coln >= 8);
++
++        for (uint32_t row = 0; row < n; ++row) {
++            const float diag     = A_batch[row * n + row];
++            const float inv_diag = 1.0f / diag;
++
++            const float * A_row = A_batch + row * n;
++            const float * B_row = B_batch + row * k;
++
++            if (use_hvx) {
++                solve_tri_row_hvx(A_row, B_row, X_batch, row, k, col0, coln, inv_diag);
++            } else {
++                solve_tri_row_scalar(A_row, B_row, X_batch, row, k, col0, coln, inv_diag);
++            }
++        }
++    }
++
++    t2 = HAP_perf_get_qtimer_count();
++
++    FARF(HIGH, "solve-tri-chunk %d/%d: A=(%ux%u) B=(%ux%u) job %u:%u usec %u\n",
++         ith, nth, n, n, k, n, start_job, end_job,
++         (unsigned) HAP_perf_qtimer_count_to_us(t2 - t1));
++}
++
++int op_solve_tri(struct htp_ops_context * octx) {
++    const struct htp_tensor * src0 = octx->src[0];  // A
++    const struct htp_tensor * src1 = octx->src[1];  // B
++    const struct htp_tensor * dst  = octx->dst;     // X
++
++    if (src0->type != HTP_TYPE_F32 || src1->type != HTP_TYPE_F32 || dst->type != HTP_TYPE_F32) {
++        return HTP_STATUS_NO_SUPPORT;
++    }
++
++    // left=true, lower=true, uni=false only
++    if (src0->ne[0] != src0->ne[1]) {
++        return HTP_STATUS_INVAL_PARAMS;
++    }
++    if (src0->ne[1] != src1->ne[1]) {
++        return HTP_STATUS_INVAL_PARAMS;
++    }
++    if (src0->ne[2] != src1->ne[2] || src0->ne[3] != src1->ne[3]) {
++        return HTP_STATUS_INVAL_PARAMS;
++    }
++    if (dst->ne[0] != src1->ne[0] || dst->ne[1] != src1->ne[1] || dst->ne[2] != src1->ne[2] ||
++        dst->ne[3] != src1->ne[3]) {
++        return HTP_STATUS_INVAL_PARAMS;
++    }
++
++    if (octx->flags & HTP_OPFLAGS_SKIP_COMPUTE) {
++        return HTP_STATUS_OK;
++    }
++
++    const uint32_t k = src1->ne[0];
++
++    const uint32_t col_block     = VLEN_FP32;
++    const uint32_t k_chunks      = (k + col_block - 1) / col_block;
++    const uint32_t total_batches = src0->ne[2] * src0->ne[3];
++    const bool     batched       = total_batches >= (uint32_t) octx->n_threads;
++
++    FARF(HIGH, "solve-tri: (%ux%ux%ux%u) x (%ux%ux%ux%u) -> (%ux%ux%ux%u) : batched %d\n",
++         src0->ne[0], src0->ne[1], src0->ne[2], src0->ne[3],
++         src1->ne[0], src1->ne[1], src1->ne[2], src1->ne[3],
++         dst->ne[0], dst->ne[1], dst->ne[2], dst->ne[3], batched);
++
++    if (batched) {
++        // Batch-level parallelism
++        const uint32_t n_threads = MIN((uint32_t) octx->n_threads, total_batches);
++
++        struct htp_solve_tri_context sctx = {
++            .octx            = octx,
++            .jobs_per_thread = (total_batches + n_threads - 1) / n_threads,
++            .total_jobs      = total_batches,
++            .k_chunks        = k_chunks,
++            .col_block       = col_block,
++        };
++
++        worker_pool_run_func(octx->ctx->worker_pool, solve_tri_batch_thread_f32, &sctx, n_threads);
++    } else {
++        // Chunk-level parallelism
++        const uint32_t total_jobs = total_batches * k_chunks;
++        const uint32_t n_threads  = MIN((uint32_t) octx->n_threads, MAX(total_jobs, 1));
++
++        struct htp_solve_tri_context sctx = {
++            .octx            = octx,
++            .jobs_per_thread = (total_jobs + n_threads - 1) / n_threads,
++            .total_jobs      = total_jobs,
++            .k_chunks        = k_chunks,
++            .col_block       = col_block,
++        };
++
++        worker_pool_run_func(octx->ctx->worker_pool, solve_tri_chunk_thread_f32, &sctx, n_threads);
++    }
++
++    return HTP_STATUS_OK;
++}
 diff --git src/ggml-hexagon/libggml-htp.inf src/ggml-hexagon/libggml-htp.inf
 index 656d2d9a..360d8b12 100644
 --- src/ggml-hexagon/libggml-htp.inf
@@ -3883,21 +4244,22 @@ index 54b9b327..ff836615 100644
      string_to_spv("step_f32",       "step.comp",        {{"A_TYPE", "float"},       {"D_TYPE", "float"}});
      string_to_spv("round_f16",      "round.comp",       {{"A_TYPE", "float16_t"},   {"D_TYPE", "float16_t"}});
 diff --git src/ggml-webgpu/ggml-webgpu-shader-lib.hpp src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
-index 9d88f980..efc5b8c9 100644
+index 9d88f980..449eae80 100644
 --- src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
 +++ src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
-@@ -194,6 +194,26 @@ struct ggml_webgpu_row_norm_pipeline_key_hash {
+@@ -194,6 +194,28 @@ struct ggml_webgpu_row_norm_pipeline_key_hash {
      }
  };
  
 +/** RMS_NORM + MUL **/
 +
 +struct ggml_webgpu_rms_norm_mul_pipeline_key {
-+    bool inplace;
-+    bool src_overlap;
++    bool inplace;      // rn_src == dst
++    bool overlap;      // mul_src == dst
++    bool src_overlap;  // rn_src == mul_src
 +
 +    bool operator==(const ggml_webgpu_rms_norm_mul_pipeline_key & other) const {
-+        return inplace == other.inplace && src_overlap == other.src_overlap;
++        return inplace == other.inplace && overlap == other.overlap && src_overlap == other.src_overlap;
 +    }
 +};
 +
@@ -3905,6 +4267,7 @@ index 9d88f980..efc5b8c9 100644
 +    size_t operator()(const ggml_webgpu_rms_norm_mul_pipeline_key & key) const {
 +        size_t seed = 0;
 +        ggml_webgpu_hash_combine(seed, key.inplace);
++        ggml_webgpu_hash_combine(seed, key.overlap);
 +        ggml_webgpu_hash_combine(seed, key.src_overlap);
 +        return seed;
 +    }
@@ -3913,7 +4276,7 @@ index 9d88f980..efc5b8c9 100644
  /** Pad **/
  struct ggml_webgpu_pad_pipeline_key {
      bool circular;
-@@ -240,6 +260,46 @@ struct ggml_webgpu_ssm_conv_pipeline_key {
+@@ -240,6 +262,46 @@ struct ggml_webgpu_ssm_conv_pipeline_key {
      }
  };
  
@@ -3960,16 +4323,7 @@ index 9d88f980..efc5b8c9 100644
  /** Gated Delta Net **/
  struct ggml_webgpu_gated_delta_net_pipeline_key {
      int type;
-@@ -496,7 +556,7 @@ inline uint32_t ggml_webgpu_flash_attn_max_kv_tile(const ggml_webgpu_shader_lib_
-     const size_t q_tile       = context.sg_mat_m;
-     const size_t base_q_bytes = (key.head_dim_qk + key.head_dim_v) * q_tile * GGML_WEBGPU_F16_SIZE_BYTES +
-                                 2 * q_tile * GGML_WEBGPU_F32_SIZE_BYTES;
--    size_t bytes_per_kv = 0;
-+    size_t       bytes_per_kv = 0;
-     if (!key.kv_direct) {
-         bytes_per_kv += std::max(key.head_dim_qk, key.head_dim_v);
-     }
-@@ -734,16 +794,17 @@ class ggml_webgpu_shader_lib {
+@@ -734,16 +796,17 @@ class ggml_webgpu_shader_lib {
      std::unordered_map<int, webgpu_pipeline> cumsum_pipelines;         // key is fixed, no variants yet
      std::unordered_map<ggml_webgpu_row_norm_pipeline_key, webgpu_pipeline, ggml_webgpu_row_norm_pipeline_key_hash>
          row_norm_pipelines;                                            // op/inplace
@@ -3992,7 +4346,7 @@ index 9d88f980..efc5b8c9 100644
      std::unordered_map<ggml_webgpu_gated_delta_net_pipeline_key,
                         webgpu_pipeline,
                         ggml_webgpu_gated_delta_net_pipeline_key_hash>
-@@ -789,6 +850,15 @@ class ggml_webgpu_shader_lib {
+@@ -789,6 +852,15 @@ class ggml_webgpu_shader_lib {
          rope_pipelines;
      std::unordered_map<ggml_webgpu_soft_max_pipeline_key, webgpu_pipeline, ggml_webgpu_soft_max_pipeline_key_hash>
          soft_max_pipelines;
@@ -4008,13 +4362,14 @@ index 9d88f980..efc5b8c9 100644
  
    public:
      ggml_webgpu_shader_lib(wgpu::Device device) { this->device = device; }
-@@ -1805,6 +1875,39 @@ class ggml_webgpu_shader_lib {
+@@ -1805,6 +1877,43 @@ class ggml_webgpu_shader_lib {
          return unary_pipelines[key];
      }
  
 +    webgpu_pipeline get_rms_norm_mul_pipeline(const ggml_webgpu_shader_lib_context & context) {
 +        ggml_webgpu_rms_norm_mul_pipeline_key key = {};
 +        key.inplace                               = context.inplace;
++        key.overlap                               = context.overlap;
 +        key.src_overlap                           = context.src_overlap;
 +
 +        auto it = rms_norm_mul_pipelines.find(key);
@@ -4029,6 +4384,9 @@ index 9d88f980..efc5b8c9 100644
 +        if (key.inplace) {
 +            defines.push_back("INPLACE");
 +            variant += "_inplace";
++        } else if (key.overlap) {
++            defines.push_back("OVERLAP");
++            variant += "_overlap";
 +        } else if (key.src_overlap) {
 +            defines.push_back("SRC_OVERLAP");
 +            variant += "_src_overlap";
@@ -4048,7 +4406,7 @@ index 9d88f980..efc5b8c9 100644
      webgpu_pipeline get_binary_pipeline(const ggml_webgpu_shader_lib_context & context) {
          ggml_webgpu_binary_pipeline_key key = {};
          key.type                            = context.dst->type;
-@@ -2382,6 +2485,84 @@ class ggml_webgpu_shader_lib {
+@@ -2382,6 +2491,84 @@ class ggml_webgpu_shader_lib {
          return soft_max_pipelines[key];
      }
  
@@ -4134,7 +4492,7 @@ index 9d88f980..efc5b8c9 100644
      static webgpu_pipeline ggml_webgpu_create_pipeline(wgpu::Device & device,
                                                         std::string    shader_code,
 diff --git src/ggml-webgpu/ggml-webgpu.cpp src/ggml-webgpu/ggml-webgpu.cpp
-index aa20a745..bcca2bd4 100644
+index aa20a745..acc486cf 100644
 --- src/ggml-webgpu/ggml-webgpu.cpp
 +++ src/ggml-webgpu/ggml-webgpu.cpp
 @@ -8,6 +8,7 @@
@@ -4368,7 +4726,7 @@ index aa20a745..bcca2bd4 100644
  static webgpu_encoded_op ggml_webgpu_ssm_conv(webgpu_context & ctx,
                                                ggml_tensor *    src0,
                                                ggml_tensor *    src1,
-@@ -1892,6 +2055,94 @@ static webgpu_encoded_op ggml_webgpu_repeat(webgpu_context & ctx, ggml_tensor *
+@@ -1892,6 +2055,96 @@ static webgpu_encoded_op ggml_webgpu_repeat(webgpu_context & ctx, ggml_tensor *
      return ggml_backend_webgpu_build(ctx, pipeline, params, entries, wg_x);
  }
  
@@ -4388,8 +4746,9 @@ index aa20a745..bcca2bd4 100644
 +        GGML_ABORT("rms_norm must be equal to the one of mul_src0 and mul_src1");
 +    }
 +
-+    bool inplace = (ggml_webgpu_tensor_equal(rn_dst, mul_src0) && ggml_webgpu_tensor_equal(mul_src1, dst)) ||
++    bool overlap = (ggml_webgpu_tensor_equal(rn_dst, mul_src0) && ggml_webgpu_tensor_equal(mul_src1, dst)) ||
 +                   (ggml_webgpu_tensor_equal(rn_dst, mul_src1) && ggml_webgpu_tensor_equal(mul_src0, dst));
++    bool inplace     = ggml_webgpu_tensor_equal(rn_src, dst);
 +    bool src_overlap = ggml_webgpu_tensor_overlap(rn_src, mul_src);
 +
 +    uint32_t offset_merged_rn_src               = 0;
@@ -4433,7 +4792,7 @@ index aa20a745..bcca2bd4 100644
 +
 +    std::vector<wgpu::BindGroupEntry> entries;
 +
-+    if (inplace) {
++    if (inplace || overlap) {
 +        entries.push_back(ggml_webgpu_make_tensor_bind_group_entry(ctx, 0, rn_src));
 +        entries.push_back(ggml_webgpu_make_tensor_bind_group_entry(ctx, 1, mul_src));
 +    } else if (src_overlap) {
@@ -4453,6 +4812,7 @@ index aa20a745..bcca2bd4 100644
 +    ggml_webgpu_shader_lib_context shader_lib_ctx = {};
 +    shader_lib_ctx.max_wg_size = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup;
 +    shader_lib_ctx.inplace     = inplace;
++    shader_lib_ctx.overlap     = overlap;
 +    shader_lib_ctx.src_overlap = src_overlap;
 +
 +    webgpu_pipeline pipeline = ctx->shader_lib->get_rms_norm_mul_pipeline(shader_lib_ctx);
@@ -4463,7 +4823,7 @@ index aa20a745..bcca2bd4 100644
  static webgpu_encoded_op ggml_webgpu_row_norm(webgpu_context & ctx, ggml_tensor * src, ggml_tensor * dst) {
      bool inplace = ggml_webgpu_tensor_equal(src, dst);
  
-@@ -2388,15 +2639,48 @@ static webgpu_encoded_op ggml_webgpu_sum_rows(webgpu_context & ctx, ggml_tensor
+@@ -2388,15 +2641,48 @@ static webgpu_encoded_op ggml_webgpu_sum_rows(webgpu_context & ctx, ggml_tensor
      return ggml_backend_webgpu_build(ctx, pipeline, params, entries, wg_x);
  }
  
@@ -4514,7 +4874,7 @@ index aa20a745..bcca2bd4 100644
  
      ggml_tensor * src0 = node->src[0];
      ggml_tensor * src1 = node->src[1];
-@@ -2439,6 +2723,13 @@ static std::optional<webgpu_encoded_op> ggml_webgpu_encode_node(webgpu_context c
+@@ -2439,6 +2725,13 @@ static std::optional<webgpu_encoded_op> ggml_webgpu_encode_node(webgpu_context c
          case GGML_OP_REPEAT:
              return ggml_webgpu_repeat(ctx, src0, node);
          case GGML_OP_RMS_NORM:
@@ -4528,7 +4888,7 @@ index aa20a745..bcca2bd4 100644
          case GGML_OP_L2_NORM:
              return ggml_webgpu_row_norm(ctx, src0, node);
          case GGML_OP_ROPE:
-@@ -2479,6 +2770,10 @@ static std::optional<webgpu_encoded_op> ggml_webgpu_encode_node(webgpu_context c
+@@ -2479,6 +2772,10 @@ static std::optional<webgpu_encoded_op> ggml_webgpu_encode_node(webgpu_context c
          case GGML_OP_SUM:
          case GGML_OP_SUM_ROWS:
              return ggml_webgpu_sum_rows(ctx, src0, node);
@@ -4539,7 +4899,7 @@ index aa20a745..bcca2bd4 100644
          default:
              return std::nullopt;
      }
-@@ -2511,7 +2806,7 @@ static void ggml_backend_webgpu_collect_profile_results(webgpu_context &
+@@ -2511,7 +2808,7 @@ static void ggml_backend_webgpu_collect_profile_results(webgpu_context &
      for (size_t i = 0; i < pipeline_names.size(); ++i) {
          // WebGPU timestamps are in ns; convert to ms.
          const double elapsed_ms = double(ts_data[2 * i + 1] - ts_data[2 * i]) * 1e-6;
@@ -4548,7 +4908,7 @@ index aa20a745..bcca2bd4 100644
      }
  
      ctx->profile_timestamp_host_buf.Unmap();
-@@ -2547,6 +2842,8 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
+@@ -2547,6 +2844,8 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
      uint32_t num_inflight_batches = 0;
      bool     contains_set_rows    = false;
      bool     batch_compute_passes = true;
@@ -4557,7 +4917,7 @@ index aa20a745..bcca2bd4 100644
  
  #ifdef GGML_WEBGPU_GPU_PROFILE
      ctx->profile_timestamp_query_count = 0;
-@@ -2559,11 +2856,11 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
+@@ -2559,11 +2858,11 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
          ctx->active_compute_pass = ctx->active_command_encoder.BeginComputePass();
      }
  
@@ -4572,7 +4932,7 @@ index aa20a745..bcca2bd4 100644
              commands.push_back(*cmd);
              num_batched_kernels += cmd.value().num_kernels;
  #ifdef GGML_WEBGPU_GPU_PROFILE
-@@ -2588,6 +2885,9 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
+@@ -2588,6 +2887,9 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
              ctx->param_arena.reset();
              commands.clear();
          }
@@ -4582,7 +4942,7 @@ index aa20a745..bcca2bd4 100644
      }
  
      if (ctx->active_compute_pass) {
-@@ -2617,22 +2917,107 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
+@@ -2617,22 +2919,107 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
      return GGML_STATUS_SUCCESS;
  }
  
@@ -4694,7 +5054,7 @@ index aa20a745..bcca2bd4 100644
      /* .graph_optimize          = */ NULL,
  };
  
-@@ -3497,6 +3882,15 @@ static bool ggml_backend_webgpu_device_supports_op(ggml_backend_dev_t dev, const
+@@ -3497,6 +3884,15 @@ static bool ggml_backend_webgpu_device_supports_op(ggml_backend_dev_t dev, const
          case GGML_OP_SOLVE_TRI:
              supports_op = op->type == GGML_TYPE_F32 && src0->type == GGML_TYPE_F32 && src1->type == GGML_TYPE_F32;
              break;
@@ -4710,7 +5070,7 @@ index aa20a745..bcca2bd4 100644
          case GGML_OP_SSM_CONV:
              supports_op = op->type == GGML_TYPE_F32;
              break;
-@@ -3590,9 +3984,9 @@ static struct ggml_backend_device_i ggml_backend_webgpu_device_i = {
+@@ -3590,9 +3986,9 @@ static struct ggml_backend_device_i ggml_backend_webgpu_device_i = {
      /* .supports_op          = */ ggml_backend_webgpu_device_supports_op,
      /* .supports_buft        = */ ggml_backend_webgpu_device_supports_buft,
      /* .offload_op           = */ NULL,
@@ -5003,11 +5363,11 @@ index 00000000..386ebab8
 +}
 diff --git src/ggml-webgpu/wgsl-shaders/rms_norm_mul.wgsl src/ggml-webgpu/wgsl-shaders/rms_norm_mul.wgsl
 new file mode 100644
-index 00000000..71f063b5
+index 00000000..74aaa275
 --- /dev/null
 +++ src/ggml-webgpu/wgsl-shaders/rms_norm_mul.wgsl
-@@ -0,0 +1,139 @@
-+#ifdef INPLACE
+@@ -0,0 +1,154 @@
++#ifdef OVERLAP
 +
 +@group(0) @binding(0)
 +var<storage, read_write> rn_src: array<f32>;
@@ -5020,6 +5380,21 @@ index 00000000..71f063b5
 +
 +fn update(rn_src_offset: u32, dst_offset: u32, scale: f32, mul_src_offset: u32) {
 +    mul_src[dst_offset] = scale * rn_src[rn_src_offset] * mul_src[mul_src_offset];
++}
++
++#elif INPLACE
++
++@group(0) @binding(0)
++var<storage, read_write> rn_src: array<f32>;
++
++@group(0) @binding(1)
++var<storage, read_write> mul_src: array<f32>;
++
++@group(0) @binding(2)
++var<uniform> params: Params;
++
++fn update(rn_src_offset: u32, dst_offset: u32, scale: f32, mul_src_offset: u32) {
++    rn_src[dst_offset] = scale * rn_src[rn_src_offset] * mul_src[mul_src_offset];
 +}
 +
 +#elif SRC_OVERLAP
