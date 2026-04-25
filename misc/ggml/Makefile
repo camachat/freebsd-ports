@@ -12,7 +12,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 BROKEN_i386=	compilation fails: LLVM ERROR: out of memory
 
-USES=		cmake:testing compiler:c++17-lang llvm:build,min=22 python:run shebangfix
+USES=		cmake:testing compiler:c++17-lang llvm:build,min=22 pkgconfig python:run shebangfix
 USE_LDCONFIG=	yes
 
 USE_GITHUB=	yes

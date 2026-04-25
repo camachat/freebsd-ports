@@ -72,6 +72,485 @@ index 18595631..1c2c3b4a 100644
                      if (ggml_cuda_can_fuse(cgraph, i, { GGML_OP_SCALE, GGML_OP_UNARY, GGML_OP_SCALE }, { GGML_UNARY_OP_TANH })) {
                          i += 2;
                          ggml_cuda_op_softcap(*cuda_ctx, cgraph->nodes[i], node);
+diff --git src/ggml-cuda/mmq.cuh src/ggml-cuda/mmq.cuh
+index b1a319de..91a1b737 100644
+--- src/ggml-cuda/mmq.cuh
++++ src/ggml-cuda/mmq.cuh
+@@ -3478,10 +3478,10 @@ template <ggml_type type, int mmq_x, bool need_check>
+ static __global__ void mul_mat_q(
+         const char * __restrict__ x, const int * __restrict__ y, const int32_t * __restrict__ ids_dst,
+         const int32_t * __restrict__ expert_bounds, float * __restrict__ dst, float * __restrict__ tmp_fixup,
+-        const int ncols_x, const int nrows_x, const int ncols_dst, const int stride_row_x, const int ncols_y, const int stride_col_dst,
+-        const int channel_ratio, const int nchannels_y, const int stride_channel_x, const int stride_channel_y, const int stride_channel_dst,
+-        const int sample_ratio, const int nsamples_y, const int stride_sample_x, const int stride_sample_y, const int stride_sample_dst,
+-        const int ncols_max) {
++        const uint3 blocks_per_ne00, const int nrows_x, const int ncols_dst, const int stride_row_x, const int ncols_y, const int stride_col_dst,
++        const uint3 channel_ratio, const uint3 nchannels_y, const int stride_channel_x, const int stride_channel_y, const int stride_channel_dst,
++        const uint3 sample_ratio, const uint3 nsamples_y, const int stride_sample_x, const int stride_sample_y, const int stride_sample_dst,
++        const uint3 ntx) {
+ 
+     // Skip unused template specializations for faster compilation:
+     if (mmq_x > get_mmq_x_max_device() || mmq_x % mmq_get_granularity_device(mmq_x) != 0) {
+@@ -3495,8 +3495,7 @@ static __global__ void mul_mat_q(
+     constexpr int qk    = ggml_cuda_type_traits<type>::qk;
+     constexpr int mmq_y = get_mmq_y_device();
+ 
+-    const int ntx = (ncols_max + mmq_x - 1) / mmq_x; // Number of tiles x
+-    const int nty = (nrows_x   + mmq_y - 1) / mmq_y; // Number of tiles y
++    const uint32_t nty = (nrows_x + mmq_y - 1) / mmq_y; // Number of tiles y
+ 
+     // Initialize the ids for writing back data with just the index.
+     // For regular matrix multiplications this is never changed.
+@@ -3517,8 +3516,9 @@ static __global__ void mul_mat_q(
+     // On non-CDNA AMD or old CUDA the performance with stream-k was worse, use conventional tiling instead:
+ #if (defined(GGML_USE_HIP) && !defined(CDNA)) || __CUDA_ARCH__ < GGML_CUDA_CC_VOLTA
+     {
+-        const int wt = blockIdx.z / nchannels_y;
+-        const int zt = blockIdx.z - wt*nchannels_y;
++        const uint2 tmp2 = fast_div_modulo(blockIdx.z, nchannels_y);
++        const int wt = tmp2.x;
++        const int zt = tmp2.y;
+         const int jt = blockIdx.y;
+         const int it = blockIdx.x;
+ 
+@@ -3561,40 +3561,40 @@ static __global__ void mul_mat_q(
+         const int tile_x_max_i = nrows_x  - it*mmq_y - 1;
+         const int tile_y_max_j = col_diff - jt*mmq_x - 1;
+ 
+-        const int offset_x = (wt/sample_ratio)*stride_sample_x + (zt/channel_ratio)*stride_channel_x + it*mmq_y*stride_row_x;
++        const int offset_x = fastdiv(wt, sample_ratio)*stride_sample_x + fastdiv(zt, channel_ratio)*stride_channel_x + it*mmq_y*stride_row_x;
+ 
+         constexpr bool fixup = false;
+         mul_mat_q_process_tile<type, mmq_x, need_check, fixup>
+             (x, offset_x, y + offset_y, ids_dst_shared, dst + offset_dst, tmp_fixup, stride_row_x, ncols_y, stride_col_dst,
+-             tile_x_max_i, tile_y_max_j, 0, ncols_x/qk);
++             tile_x_max_i, tile_y_max_j, 0, blocks_per_ne00.z);
+         return;
+     }
+ #endif // (defined(GGML_USE_HIP) && !defined(CDNA4) && !defined(CDNA3)) || __CUDA_ARCH__ < GGML_CUDA_CC_VOLTA
+ 
+-    constexpr int ITER_K = get_iter_k(type);
+-
+-    const     int64_t blocks_per_ne00 = ncols_x / qk;
+-    constexpr int     blocks_per_iter = ITER_K / qk;
++    constexpr int ITER_K          = get_iter_k(type);
++    constexpr int blocks_per_iter = ITER_K / qk;
+ 
+     // kbc == k block continuous, current index in continuous ijk space.
+-    int64_t kbc      = (int64_t) blockIdx.x     *nsamples_y*nchannels_y*ntx*nty*blocks_per_ne00 / gridDim.x;
+-    int64_t kbc_stop = (int64_t)(blockIdx.x + 1)*nsamples_y*nchannels_y*ntx*nty*blocks_per_ne00 / gridDim.x;
++    int kbc      = int64_t(blockIdx.x)    *(nsamples_y.z*nchannels_y.z*ntx.z*nty*blocks_per_ne00.z) / gridDim.x;
++    int kbc_stop = int64_t(blockIdx.x + 1)*(nsamples_y.z*nchannels_y.z*ntx.z*nty*blocks_per_ne00.z) / gridDim.x;
+ 
+-    kbc      -= (kbc      % blocks_per_ne00) % blocks_per_iter;
+-    kbc_stop -= (kbc_stop % blocks_per_ne00) % blocks_per_iter;
++    kbc      -= fastmodulo(kbc,      blocks_per_ne00) % blocks_per_iter;
++    kbc_stop -= fastmodulo(kbc_stop, blocks_per_ne00) % blocks_per_iter;
+ 
+     // kb0 == k index when doing the matrix multiplication for an output tile.
+-    int kb0_start = kbc % blocks_per_ne00;
+-    int kb0_stop  = min(blocks_per_ne00, kb0_start + kbc_stop - kbc);
+-    while (kbc < kbc_stop && kb0_stop == blocks_per_ne00) {
+-        int tmp = kbc;
+-        const int it = tmp / (nsamples_y*nchannels_y*ntx*blocks_per_ne00);
+-        tmp -= it * (nsamples_y*nchannels_y*ntx*blocks_per_ne00);
+-        const int wt = tmp / (nchannels_y*ntx*blocks_per_ne00);
+-        tmp -= wt * (nchannels_y*ntx*blocks_per_ne00);
+-        const int zt = tmp / (ntx*blocks_per_ne00);
+-        tmp -= zt * (ntx*blocks_per_ne00);
+-        const int jt = tmp / blocks_per_ne00;
++    int kb0_start = fastmodulo(kbc, blocks_per_ne00);
++    int kb0_stop  = min(blocks_per_ne00.z, uint32_t(kb0_start + kbc_stop - kbc));
++    while (kbc < kbc_stop && kb0_stop == int(blocks_per_ne00.z)) {
++        int tmp = fastdiv(kbc, blocks_per_ne00);
++        uint2 tmp2 = fast_div_modulo(tmp, ntx);
++        const int jt = tmp2.y;
++        tmp = tmp2.x;
++        tmp2 = fast_div_modulo(tmp, nchannels_y);
++        const int zt = tmp2.y;
++        tmp = tmp2.x;
++        tmp2 = fast_div_modulo(tmp, nsamples_y);
++        const int wt = tmp2.y;
++        const int it = tmp2.x;
+ 
+         // Defaults for regular matrix multiplication:
+         int col_low    = 0;
+@@ -3612,11 +3612,11 @@ static __global__ void mul_mat_q(
+             offset_dst = 0;
+ 
+             if (jt*mmq_x >= col_diff) {
+-                kbc += blocks_per_ne00;
+-                kbc -= kbc % blocks_per_ne00;
++                kbc += blocks_per_ne00.z;
++                kbc -= fastmodulo(kbc, blocks_per_ne00);
+ 
+                 kb0_start = 0;
+-                kb0_stop  = min(blocks_per_ne00, kbc_stop - kbc);
++                kb0_stop  = min(blocks_per_ne00.z, uint32_t(kbc_stop - kbc));
+ 
+                 continue;
+             }
+@@ -3641,32 +3641,34 @@ static __global__ void mul_mat_q(
+         const int tile_x_max_i = nrows_x  - it*mmq_y - 1;
+         const int tile_y_max_j = col_diff - jt*mmq_x - 1;
+ 
+-        const int offset_x = (wt/sample_ratio)*stride_sample_x + (zt/channel_ratio)*stride_channel_x + it*mmq_y*stride_row_x;
++        const int offset_x = fastdiv(wt, sample_ratio)*stride_sample_x + fastdiv(zt, channel_ratio)*stride_channel_x + it*mmq_y*stride_row_x;
+ 
+         constexpr bool fixup = false; // All but (potentially) the last iterations write their data to dst rather than the fixup buffer.
+         mul_mat_q_process_tile<type, mmq_x, need_check, fixup>
+             (x, offset_x, y + offset_y, ids_dst_shared, dst + offset_dst, tmp_fixup, stride_row_x, ncols_y, stride_col_dst,
+              tile_x_max_i, tile_y_max_j, kb0_start, kb0_stop);
+ 
+-        kbc += blocks_per_ne00;
+-        kbc -= kbc % blocks_per_ne00;
++        kbc += blocks_per_ne00.z;
++        kbc -= fastmodulo(kbc, blocks_per_ne00);
+ 
+         kb0_start = 0;
+-        kb0_stop  = min(blocks_per_ne00, kbc_stop - kbc);
++        kb0_stop  = min(blocks_per_ne00.z, uint32_t(kbc_stop - kbc));
+     }
+ 
+     if (kbc >= kbc_stop) {
+         return;
+     }
+ 
+-    int tmp = kbc;
+-    const int it = tmp / (nsamples_y*nchannels_y*ntx*blocks_per_ne00);
+-    tmp -= it * (nsamples_y*nchannels_y*ntx*blocks_per_ne00);
+-    const int wt = tmp / (nchannels_y*ntx*blocks_per_ne00);
+-    tmp -= wt * (nchannels_y*ntx*blocks_per_ne00);
+-    const int zt = tmp / (ntx*blocks_per_ne00);
+-    tmp -= zt * (ntx*blocks_per_ne00);
+-    const int jt = tmp / blocks_per_ne00;
++    int tmp = fastdiv(kbc, blocks_per_ne00);
++    uint2 tmp2 = fast_div_modulo(tmp, ntx);
++    const int jt = tmp2.y;
++    tmp = tmp2.x;
++    tmp2 = fast_div_modulo(tmp, nchannels_y);
++    const int zt = tmp2.y;
++    tmp = tmp2.x;
++    tmp2 = fast_div_modulo(tmp, nsamples_y);
++    const int wt = tmp2.y;
++    const int it = tmp2.x;
+ 
+     // Defaults for regular matrix multiplication:
+     int col_low    = 0;
+@@ -3708,7 +3710,7 @@ static __global__ void mul_mat_q(
+     const int tile_x_max_i = nrows_x  - it*mmq_y - 1;
+     const int tile_y_max_j = col_diff - jt*mmq_x - 1;
+ 
+-    const int offset_x = (wt/sample_ratio)*stride_sample_x + (zt/channel_ratio)*stride_channel_x + it*mmq_y*stride_row_x;
++    const int offset_x = fastdiv(wt, sample_ratio)*stride_sample_x + fastdiv(zt, channel_ratio)*stride_channel_x + it*mmq_y*stride_row_x;
+ 
+     constexpr bool fixup = true; // Last index writes its data to fixup buffer to avoid data races with other blocks.
+     mul_mat_q_process_tile<type, mmq_x, need_check, fixup>
+@@ -3717,46 +3719,37 @@ static __global__ void mul_mat_q(
+ }
+ 
+ template <ggml_type type, int mmq_x, bool need_check>
+-static __global__ void mul_mat_q_stream_k_fixup(const int32_t * ids_dst,
+-                                                const int32_t * expert_bounds,
+-                                                float * __restrict__ dst,
+-                                                const float * __restrict__ tmp_last_tile,
+-                                                const int    ncols_x,
+-                                                const int    nrows_x,
+-                                                const int    ncols_dst,
+-                                                const size_t stride_col_dst,
+-                                                const int    nchannels_y,
+-                                                const size_t stride_channel_dst,
+-                                                const int    nsamples_y,
+-                                                const size_t stride_sample_dst,
+-                                                const int    ncols_max) {
+-    constexpr int     mmq_y           = get_mmq_y_device();
+-    constexpr int     qk              = ggml_cuda_type_traits<type>::qk;
+-    constexpr int     ITER_K          = get_iter_k(type);
+-
+-    constexpr int     blocks_per_iter = ITER_K / qk;
+-    const     int64_t blocks_per_ne00 = ncols_x / qk;
++__launch_bounds__(ggml_cuda_get_physical_warp_size()*mmq_get_nwarps_device()/2, 1)
++static __global__ void mul_mat_q_stream_k_fixup(
++        const int32_t * __restrict__ ids_dst, const int32_t * __restrict__ expert_bounds, float * __restrict__ dst,
++        float * __restrict__ tmp_last_tile, const uint3 blocks_per_ne00, const int nrows_x, const int ncols_dst,
++        const int stride_col_dst, const uint3 nchannels_y, const int stride_channel_dst, const uint3 nsamples_y,
++        const int stride_sample_dst, const uint3 ntx) {
++    constexpr int mmq_y           = get_mmq_y_device();
++    constexpr int qk              = ggml_cuda_type_traits<type>::qk;
++    constexpr int ITER_K          = get_iter_k(type);
++    constexpr int blocks_per_iter = ITER_K / qk;
+ 
+-    constexpr int nwarps = mmq_get_nwarps_device();
++    constexpr int nwarps = mmq_get_nwarps_device()/2;
+     constexpr int warp_size = ggml_cuda_get_physical_warp_size();
+ 
+-    float sum[mmq_x*mmq_y / (nwarps*warp_size)] = {0.0f};
++    float sum[mmq_x / nwarps] = {0.0f};
++    const int i = blockIdx.y*warp_size + threadIdx.x;
+ 
+-    const int ntx  = (ncols_max + mmq_x - 1) / mmq_x;
+-    const int nty  = (nrows_x   + mmq_y - 1) / mmq_y;
++    const int nty = (nrows_x + mmq_y - 1) / mmq_y;
+ 
+     const int bidx0 = blockIdx.x;
+ 
+     // kbc == k block continuous, current index in continuous ijk space.
+-    int64_t kbc0      = (int64_t) bidx0     *nsamples_y*nchannels_y*ntx*nty*blocks_per_ne00 / gridDim.x;
+-    int64_t kbc0_stop = (int64_t)(bidx0 + 1)*nsamples_y*nchannels_y*ntx*nty*blocks_per_ne00 / gridDim.x;
++    int kbc0      = int64_t(blockIdx.x)    *(nsamples_y.z*nchannels_y.z*ntx.z*nty*blocks_per_ne00.z) / gridDim.x;
++    int kbc0_stop = int64_t(blockIdx.x + 1)*(nsamples_y.z*nchannels_y.z*ntx.z*nty*blocks_per_ne00.z) / gridDim.x;
+ 
+-    kbc0      -= (kbc0      % blocks_per_ne00) % blocks_per_iter;
+-    kbc0_stop -= (kbc0_stop % blocks_per_ne00) % blocks_per_iter;
++    kbc0      -= fastmodulo(kbc0,      blocks_per_ne00) % blocks_per_iter;
++    kbc0_stop -= fastmodulo(kbc0_stop, blocks_per_ne00) % blocks_per_iter;
+ 
+     const bool did_not_have_any_data   = kbc0 == kbc0_stop;
+-    const bool wrote_beginning_of_tile = kbc0 % blocks_per_ne00 == 0;
+-    const bool did_not_write_last      = kbc0/blocks_per_ne00 == kbc0_stop/blocks_per_ne00 && kbc0_stop % blocks_per_ne00 != 0;
++    const bool wrote_beginning_of_tile = fastmodulo(kbc0, blocks_per_ne00) == 0;
++    const bool did_not_write_last      = fastdiv(kbc0, blocks_per_ne00) == fastdiv(kbc0_stop, blocks_per_ne00) && fastmodulo(kbc0_stop, blocks_per_ne00) != 0;
+     if (did_not_have_any_data || wrote_beginning_of_tile || did_not_write_last) {
+         return;
+     }
+@@ -3765,11 +3758,11 @@ static __global__ void mul_mat_q_stream_k_fixup(const int32_t * ids_dst,
+ 
+     // Iterate over previous blocks and sum up partial sums written to fixup buffer.
+     // All CUDA blocks that get here must have a previous block that needs a fixup.
+-    int64_t bidx = bidx0 - 1;
+-    int64_t kbc_stop = kbc0;
++    int bidx = bidx0 - 1;
++    int kbc_stop = kbc0;
+     while(true) {
+-        int64_t kbc = bidx*nsamples_y*nchannels_y*ntx*nty*blocks_per_ne00 / gridDim.x;
+-        kbc -= (kbc % blocks_per_ne00) % blocks_per_iter;
++        int kbc = int64_t(bidx)*(nsamples_y.z*nchannels_y.z*ntx.z*nty*blocks_per_ne00.z) / gridDim.x;
++        kbc -= fastmodulo(kbc, blocks_per_ne00) % blocks_per_iter;
+ 
+         if (kbc == kbc_stop) { // Did not have any data.
+             bidx--;
+@@ -3779,20 +3772,16 @@ static __global__ void mul_mat_q_stream_k_fixup(const int32_t * ids_dst,
+ 
+         any_fixup = true;
+ 
++
+ #pragma unroll
+         for (int j0 = 0; j0 < mmq_x; j0 += nwarps) {
+             const int j = j0 + threadIdx.y;
+ 
+-#pragma unroll
+-            for (int i0 = 0; i0 < mmq_y; i0 += warp_size) {
+-                const int i = i0 + threadIdx.x;
+-
+-                sum[(j0/nwarps) * (mmq_y/warp_size) + i0/warp_size] += tmp_last_tile[bidx*(mmq_x*mmq_y) + j*mmq_y + i];
+-            }
++            sum[j0/nwarps] += tmp_last_tile[bidx*(mmq_x*mmq_y) + j*mmq_y + i];
+         }
+ 
+         // If this block started in a previous tile we are done and don't need to combine additional partial results.
+-        if (kbc % blocks_per_ne00 == 0 || kbc/blocks_per_ne00 < kbc0/blocks_per_ne00) {
++        if (fastmodulo(kbc, blocks_per_ne00) == 0 || fastdiv(kbc, blocks_per_ne00) < fastdiv(kbc0, blocks_per_ne00)) {
+             break;
+         }
+         bidx--;
+@@ -3803,14 +3792,16 @@ static __global__ void mul_mat_q_stream_k_fixup(const int32_t * ids_dst,
+         return;
+     }
+ 
+-    int tmp = kbc0;
+-    const int it = tmp / (nsamples_y*nchannels_y*ntx*blocks_per_ne00);
+-    tmp -= it * (nsamples_y*nchannels_y*ntx*blocks_per_ne00);
+-    const int wt = tmp / (nchannels_y*ntx*blocks_per_ne00);
+-    tmp -= wt * (nchannels_y*ntx*blocks_per_ne00);
+-    const int zt = tmp / (ntx*blocks_per_ne00);
+-    tmp -= zt * (ntx*blocks_per_ne00);
+-    const int jt = tmp / blocks_per_ne00;
++    int tmp = fastdiv(kbc0, blocks_per_ne00);
++    uint2 tmp2 = fast_div_modulo(tmp, ntx);
++    const int jt = tmp2.y;
++    tmp = tmp2.x;
++    tmp2 = fast_div_modulo(tmp, nchannels_y);
++    const int zt = tmp2.y;
++    tmp = tmp2.x;
++    tmp2 = fast_div_modulo(tmp, nsamples_y);
++    const int wt = tmp2.y;
++    const int it = tmp2.x;
+ 
+     if (!ids_dst) {
+         const int offset_dst = wt*stride_sample_dst + zt*stride_channel_dst + jt*mmq_x*stride_col_dst + it*mmq_y;
+@@ -3818,6 +3809,9 @@ static __global__ void mul_mat_q_stream_k_fixup(const int32_t * ids_dst,
+ 
+         const int i_max = nrows_x   - it*mmq_y - 1;
+         const int j_max = ncols_dst - jt*mmq_x - 1;
++        if (need_check && i > i_max) {
++            return;
++        }
+ 
+ #pragma unroll
+         for (int j0 = 0; j0 < mmq_x; j0 += nwarps) {
+@@ -3827,16 +3821,7 @@ static __global__ void mul_mat_q_stream_k_fixup(const int32_t * ids_dst,
+                 return;
+             }
+ 
+-#pragma unroll
+-            for (int i0 = 0; i0 < mmq_y; i0 += warp_size) {
+-                const int i = i0 + threadIdx.x;
+-
+-                if (need_check && i > i_max) {
+-                    continue;
+-                }
+-
+-                dst[j*stride_col_dst + i] += sum[(j0/nwarps) * (mmq_y/warp_size) + i0/warp_size];
+-            }
++            dst[j*stride_col_dst + i] += sum[j0/nwarps];
+         }
+         return;
+     }
+@@ -3856,6 +3841,9 @@ static __global__ void mul_mat_q_stream_k_fixup(const int32_t * ids_dst,
+ 
+     const int i_max = nrows_x  - it*mmq_y - 1;
+     const int j_max = col_diff - jt*mmq_x - 1;
++    if (need_check && i > i_max) {
++        return;
++    }
+ 
+ #pragma unroll
+     for (int j0 = 0; j0 < mmq_x; j0 += nwarps) {
+@@ -3865,16 +3853,7 @@ static __global__ void mul_mat_q_stream_k_fixup(const int32_t * ids_dst,
+             return;
+         }
+ 
+-#pragma unroll
+-        for (int i0 = 0; i0 < mmq_y; i0 += warp_size) {
+-            const int i = i0 + threadIdx.x;
+-
+-            if (need_check && i > i_max) {
+-                continue;
+-            }
+-
+-            dst[ids_dst_shared[j]*stride_col_dst + i] += sum[(j0/nwarps) * (mmq_y/warp_size) + i0/warp_size];
+-        }
++        dst[ids_dst_shared[j]*stride_col_dst + i] += sum[j0/nwarps];
+     }
+ }
+ 
+@@ -3922,29 +3901,44 @@ static void launch_mul_mat_q(ggml_backend_cuda_context & ctx, const mmq_args & a
+     const int channel_ratio = args.nchannels_y / args.nchannels_x;
+     const int sample_ratio  = args.nsamples_y  / args.nsamples_x;
+ 
++    const uint3 blocks_per_ne00_fd = init_fastdiv_values(args.ncols_x / ggml_cuda_type_traits<type>::qk);
++    const uint3 ntx_fd             = init_fastdiv_values(ntx);
++    const uint3 nchannels_y_fd     = init_fastdiv_values(args.nchannels_y);
++    const uint3 nsamples_y_fd      = init_fastdiv_values(args.nsamples_y);
++    const uint3 channel_ratio_fd   = init_fastdiv_values(channel_ratio);
++    const uint3 sample_ratio_fd    = init_fastdiv_values(sample_ratio);
++
+     if (!args.use_stream_k) {
+         if (args.nrows_x % mmq_y == 0) {
+             constexpr bool need_check = false;
+             mul_mat_q<type, mmq_x, need_check><<<block_nums_xy_tiling, block_dims, nbytes_shared, stream>>>
+                 (args.x, args.y, args.ids_dst, args.expert_bounds, args.dst, nullptr,
+-                 args.ncols_x, args.nrows_x, args.ncols_dst, args.stride_row_x, args.ncols_y, args.nrows_dst,
+-                 channel_ratio, args.nchannels_y, args.stride_channel_x, args.stride_channel_y, args.stride_channel_dst,
+-                 sample_ratio, args.nsamples_y, args.stride_sample_x, args.stride_sample_y, args.stride_sample_dst,
+-                 args.ncols_max);
++                 blocks_per_ne00_fd, args.nrows_x, args.ncols_dst, args.stride_row_x, args.ncols_y, args.nrows_dst,
++                 channel_ratio_fd, nchannels_y_fd, args.stride_channel_x, args.stride_channel_y, args.stride_channel_dst,
++                 sample_ratio_fd, nsamples_y_fd, args.stride_sample_x, args.stride_sample_y, args.stride_sample_dst,
++                 ntx_fd);
+         } else {
+             constexpr bool need_check = true;
+             mul_mat_q<type, mmq_x, need_check><<<block_nums_xy_tiling, block_dims, nbytes_shared, stream>>>
+                 (args.x, args.y, args.ids_dst, args.expert_bounds, args.dst, nullptr,
+-                 args.ncols_x, args.nrows_x, args.ncols_dst, args.stride_row_x, args.ncols_y, args.nrows_dst,
+-                 channel_ratio, args.nchannels_y, args.stride_channel_x, args.stride_channel_y, args.stride_channel_dst,
+-                 sample_ratio, args.nsamples_y, args.stride_sample_x, args.stride_sample_y, args.stride_sample_dst,
+-                 args.ncols_max);
++                 blocks_per_ne00_fd, args.nrows_x, args.ncols_dst, args.stride_row_x, args.ncols_y, args.nrows_dst,
++                 channel_ratio_fd, nchannels_y_fd, args.stride_channel_x, args.stride_channel_y, args.stride_channel_dst,
++                 sample_ratio_fd, nsamples_y_fd, args.stride_sample_x, args.stride_sample_y, args.stride_sample_dst,
++                 ntx_fd);
+         }
+         return;
+     }
+ 
+-    const dim3 block_nums_stream_k(nsm, 1, 1);
+-    const bool fixup_needed = ntx*nty*ntzw % nsm != 0;
++    // For the stream-k kernel it is possible to run it with tiling by setting the number of CUDA blocks equal to the number of tiles.
++    // This is worthwhile if the efficiency of tiling is high and skipping the fixup kernel is more important.
++    const int ntiles_dst = ntx * nty * ntzw;
++    const int tiles_nwaves = (ntiles_dst + nsm - 1) / nsm;
++    const int tiles_efficiency_percent = 100 * ntiles_dst / (nsm*tiles_nwaves);
++    const dim3 block_nums_stream_k(GGML_CUDA_CC_IS_NVIDIA(cc) && tiles_efficiency_percent >= 90 ? ntiles_dst : nsm, 1, 1);
++
++    GGML_ASSERT(ntiles_dst * blocks_per_ne00_fd.z < (1 << 30)); // Assert that variable kbc will not overflow.
++
++    const bool fixup_needed = ntiles_dst % block_nums_stream_k.x != 0;
+ 
+     ggml_cuda_pool & pool = ctx.pool(id);
+     ggml_cuda_pool_alloc<float> tmp_fixup(pool);
+@@ -3952,40 +3946,45 @@ static void launch_mul_mat_q(ggml_backend_cuda_context & ctx, const mmq_args & a
+         tmp_fixup.alloc(block_nums_stream_k.x * mmq_x*mmq_y);
+     }
+ 
++    const dim3 block_nums_fixup(block_nums_stream_k.x, mmq_y/warp_size, 1);
++    const dim3 block_dims_fixup(block_dims.x, block_dims.y/2, block_dims.z);
++
+     if (args.nrows_x % mmq_y == 0) {
+         constexpr bool need_check = false;
+         mul_mat_q<type, mmq_x, need_check><<<block_nums_stream_k, block_dims, nbytes_shared, stream>>>
+             (args.x, args.y, args.ids_dst, args.expert_bounds, args.dst, tmp_fixup.ptr,
+-             args.ncols_x, args.nrows_x, args.ncols_dst, args.stride_row_x, args.ncols_y, args.nrows_dst,
+-             channel_ratio, args.nchannels_y, args.stride_channel_x, args.stride_channel_y, args.stride_channel_dst,
+-             sample_ratio, args.nsamples_y, args.stride_sample_x, args.stride_sample_y, args.stride_sample_dst,
+-             args.ncols_max);
++             blocks_per_ne00_fd, args.nrows_x, args.ncols_dst, args.stride_row_x, args.ncols_y, args.nrows_dst,
++             channel_ratio_fd, nchannels_y_fd, args.stride_channel_x, args.stride_channel_y, args.stride_channel_dst,
++             sample_ratio_fd, nsamples_y_fd, args.stride_sample_x, args.stride_sample_y, args.stride_sample_dst,
++             ntx_fd);
+ 
+         if (!fixup_needed) {
+             return;
+         }
+ 
+-        mul_mat_q_stream_k_fixup<type, mmq_x, need_check><<<block_nums_stream_k, block_dims, 0, stream>>>
+-            (args.ids_dst, args.expert_bounds, args.dst, tmp_fixup.ptr, args.ncols_x, args.nrows_x, args.ncols_dst,
+-             args.nrows_dst, args.nchannels_y, args.stride_channel_dst, args.nsamples_y, args.stride_sample_dst,
+-             args.ncols_max);
++        CUDA_CHECK(cudaGetLastError());
++        mul_mat_q_stream_k_fixup<type, mmq_x, need_check><<<block_nums_fixup, block_dims_fixup, 0, stream>>>
++            (args.ids_dst, args.expert_bounds, args.dst, tmp_fixup.ptr, blocks_per_ne00_fd, args.nrows_x, args.ncols_dst,
++             args.nrows_dst, nchannels_y_fd, args.stride_channel_dst, nsamples_y_fd, args.stride_sample_dst,
++             ntx_fd);
+     } else {
+         constexpr bool need_check = true;
+         mul_mat_q<type, mmq_x, need_check><<<block_nums_stream_k, block_dims, nbytes_shared, stream>>>
+             (args.x, args.y, args.ids_dst, args.expert_bounds, args.dst, tmp_fixup.ptr,
+-             args.ncols_x, args.nrows_x, args.ncols_dst, args.stride_row_x, args.ncols_y, args.nrows_dst,
+-             channel_ratio, args.nchannels_y, args.stride_channel_x, args.stride_channel_y, args.stride_channel_dst,
+-             sample_ratio, args.nsamples_y, args.stride_sample_x, args.stride_sample_y, args.stride_sample_dst,
+-             args.ncols_max);
++             blocks_per_ne00_fd, args.nrows_x, args.ncols_dst, args.stride_row_x, args.ncols_y, args.nrows_dst,
++             channel_ratio_fd, nchannels_y_fd, args.stride_channel_x, args.stride_channel_y, args.stride_channel_dst,
++             sample_ratio_fd, nsamples_y_fd, args.stride_sample_x, args.stride_sample_y, args.stride_sample_dst,
++             ntx_fd);
+ 
+         if (!fixup_needed) {
+             return;
+         }
+ 
+-        mul_mat_q_stream_k_fixup<type, mmq_x, need_check><<<block_nums_stream_k, block_dims, 0, stream>>>
+-            (args.ids_dst, args.expert_bounds, args.dst, tmp_fixup.ptr, args.ncols_x, args.nrows_x, args.ncols_dst,
+-             args.nrows_dst, args.nchannels_y, args.stride_channel_dst, args.nsamples_y, args.stride_sample_dst,
+-             args.ncols_max);
++        CUDA_CHECK(cudaGetLastError());
++        mul_mat_q_stream_k_fixup<type, mmq_x, need_check><<<block_nums_fixup, block_dims_fixup, 0, stream>>>
++            (args.ids_dst, args.expert_bounds, args.dst, tmp_fixup.ptr, blocks_per_ne00_fd, args.nrows_x, args.ncols_dst,
++             args.nrows_dst, nchannels_y_fd, args.stride_channel_dst, nsamples_y_fd, args.stride_sample_dst,
++             ntx_fd);
+     }
+ }
+ 
 diff --git src/ggml-cuda/unary.cu src/ggml-cuda/unary.cu
 index 4ad30fa1..2aeba26f 100644
 --- src/ggml-cuda/unary.cu
@@ -1280,6 +1759,19 @@ index f6713c5c..329249e1 100644
 +}
 +
  #endif /* HEX_UTILS_H */
+diff --git src/ggml-hexagon/htp/hmx-matmul-ops.c src/ggml-hexagon/htp/hmx-matmul-ops.c
+index dbca8220..05e3c6c2 100644
+--- src/ggml-hexagon/htp/hmx-matmul-ops.c
++++ src/ggml-hexagon/htp/hmx-matmul-ops.c
+@@ -1683,7 +1683,7 @@ int mat_mul_qk_0_d16a32_out_stationary(struct htp_context *ctx, float *restrict
+     __fp16  *vtcm_scales     = (__fp16 *) vtcm_seq_alloc(&vtcm_ptr, 256);
+     assert((size_t)(vtcm_ptr - (uint8_t *)ctx->vtcm_base) <= vtcm_budget);
+ 
+-    FARF(HIGH, "hmx-mm: m=%d k=%d n=%d wtype=%d block M=%zu N=%zu K=%zu vtcm=%zu/%zu", __func__, m, k, n, weight_type,
++    FARF(HIGH, "hmx-mm: m=%d k=%d n=%d wtype=%d block M=%zu N=%zu K=%zu vtcm=%zu/%zu", m, k, n, weight_type,
+          M_BLOCK_SIZE, N_BLOCK_SIZE, K_BLOCK_SIZE, (size_t) (vtcm_ptr - (uint8_t *) ctx->vtcm_base), vtcm_budget);
+ 
+     // initialize eye tile (32x32 identity matrix)
 diff --git src/ggml-hexagon/htp/htp-ctx.h src/ggml-hexagon/htp/htp-ctx.h
 index 8b5e47ad..d704fede 100644
 --- src/ggml-hexagon/htp/htp-ctx.h
@@ -1459,7 +1951,7 @@ index ed6026e7..d0926ded 100644
  
  #endif /* HVX_BASE_H */
 diff --git src/ggml-hexagon/htp/main.c src/ggml-hexagon/htp/main.c
-index 5091623a..db277a25 100644
+index 5091623a..62942f63 100644
 --- src/ggml-hexagon/htp/main.c
 +++ src/ggml-hexagon/htp/main.c
 @@ -27,6 +27,7 @@
@@ -1470,10 +1962,31 @@ index 5091623a..db277a25 100644
  #include "worker-pool.h"
  
  AEEResult htp_iface_open(const char * uri, remote_handle64 * handle) {
-@@ -103,6 +104,54 @@ AEEResult htp_iface_open(const char * uri, remote_handle64 * handle) {
-     return AEE_SUCCESS;
- }
+@@ -100,6 +101,72 @@ AEEResult htp_iface_open(const char * uri, remote_handle64 * handle) {
+         }
+     }
  
++    {
++        // Set HMX clock
++        HAP_power_request_t request;
++        memset(&request, 0, sizeof(HAP_power_request_t));
++        request.type = HAP_power_set_HMX_v2;
++        request.hmx_v2.set_clock = TRUE;
++        request.hmx_v2.target_corner = HAP_DCVS_EXP_VCORNER_MAX;
++        request.hmx_v2.min_corner = HAP_DCVS_EXP_VCORNER_MAX;
++        request.hmx_v2.max_corner = HAP_DCVS_EXP_VCORNER_MAX;
++        request.hmx_v2.perf_mode = HAP_CLK_PERF_HIGH;
++        FARF(ALWAYS, "Setting HMX clock\n");
++        err = HAP_power_set((void *) &ctx, &request);
++        if (err != AEE_SUCCESS) {
++            FARF(ERROR, "Error setting HMX clock.");
++            return err;
++        }
++    }
++
++    return AEE_SUCCESS;
++}
++
 +AEEResult htp_iface_etm(remote_handle64 handle, uint32_t enable) {
 +    int err = enable ? HAP_user_etm_enable() : HAP_user_etm_disable();
 +    if (err) {
@@ -1519,13 +2032,10 @@ index 5091623a..db277a25 100644
 +
 +    ctx->profiler = mode;
 +
-+    return AEE_SUCCESS;
-+}
-+
- AEEResult htp_iface_close(remote_handle64 handle) {
-     struct htp_context * ctx = (struct htp_context *) handle;
+     return AEE_SUCCESS;
+ }
  
-@@ -129,35 +178,19 @@ AEEResult htp_iface_close(remote_handle64 handle) {
+@@ -129,35 +196,19 @@ AEEResult htp_iface_close(remote_handle64 handle) {
          }
      }
  
@@ -1569,7 +2079,7 @@ index 5091623a..db277a25 100644
      struct htp_context * ctx = (struct htp_context *) handle;
      if (!ctx) {
          return AEE_EBADPARM;
-@@ -204,7 +237,7 @@ AEEResult htp_iface_mmap(remote_handle64 handle, int fd, uint32_t size, uint32_t
+@@ -204,7 +255,7 @@ AEEResult htp_iface_mmap(remote_handle64 handle, int fd, uint32_t size, uint32_t
      return AEE_ENOMEMORY;
  }
  
@@ -1578,7 +2088,7 @@ index 5091623a..db277a25 100644
      struct htp_context * ctx = (struct htp_context *) handle;
      if (!ctx) {
          return AEE_EBADPARM;
-@@ -434,19 +467,39 @@ static void htp_error_callback(dspqueue_t queue, int error, void * context) {
+@@ -434,19 +485,39 @@ static void htp_error_callback(dspqueue_t queue, int error, void * context) {
  struct profile_data {
      uint64_t usecs;
      uint64_t cycles;
@@ -1627,7 +2137,7 @@ index 5091623a..db277a25 100644
  }
  
  static int execute_op(struct htp_ops_context * octx) {
-@@ -514,6 +567,15 @@ static int execute_op(struct htp_ops_context * octx) {
+@@ -514,6 +585,15 @@ static int execute_op(struct htp_ops_context * octx) {
          case HTP_OP_CUMSUM:
              return op_cumsum(octx);
  
@@ -1643,7 +2153,7 @@ index 5091623a..db277a25 100644
          case HTP_OP_INVALID:
              break;
  
-@@ -720,29 +782,32 @@ static void htp_packet_callback(dspqueue_t queue, int error, void * context) {
+@@ -720,29 +800,32 @@ static void htp_packet_callback(dspqueue_t queue, int error, void * context) {
              continue;
          }
  
@@ -1688,7 +2198,7 @@ index 5091623a..db277a25 100644
  
          prep_op_bufs(ctx, bufs, n_bufs);
          prep_tensors(ctx, bufs, tens, n_tens);
-@@ -754,22 +819,34 @@ static void htp_packet_callback(dspqueue_t queue, int error, void * context) {
+@@ -754,22 +837,34 @@ static void htp_packet_callback(dspqueue_t queue, int error, void * context) {
  
          for (uint32_t i=0; i < n_ops; i++) {
              struct profile_data prof;
@@ -2018,9 +2528,18 @@ index 00000000..ae8e1a50
 +    return HTP_STATUS_OK;
 +}
 diff --git src/ggml-hexagon/libggml-htp.inf src/ggml-hexagon/libggml-htp.inf
-index 656d2d9a..360d8b12 100644
+index 656d2d9a..39cefcdd 100644
 --- src/ggml-hexagon/libggml-htp.inf
 +++ src/ggml-hexagon/libggml-htp.inf
+@@ -8,7 +8,7 @@ CatalogFile = libggml-htp.cat
+ PnpLockDown = 1
+ 
+ [DestinationDirs]
+-Drivers_Dir = 6
++Drivers_Dir = 13
+ 
+ [SourceDisksNames]
+ 1 = %DiskId%
 @@ -18,6 +18,7 @@ libggml-htp-v68.so = 1
  libggml-htp-v69.so = 1
  libggml-htp-v73.so = 1
@@ -2037,11 +2556,135 @@ index 656d2d9a..360d8b12 100644
  libggml-htp-v81.so,,,0x10 ;COPYFLG_NO_OVERWRITE
  
  [Strings]
+diff --git src/ggml-metal/ggml-metal-device.cpp src/ggml-metal/ggml-metal-device.cpp
+index 07d016d2..d211bf79 100644
+--- src/ggml-metal/ggml-metal-device.cpp
++++ src/ggml-metal/ggml-metal-device.cpp
+@@ -677,7 +677,15 @@ ggml_metal_pipeline_with_params ggml_metal_library_get_pipeline_mul_mm(ggml_meta
+     const ggml_type tsrc1 = op->src[1]->type;
+ 
+     const bool bc_inp = op->src[0]->ne[0] % 32 != 0;
+-    const bool bc_out = op->ne[0] % 64 != 0 || op->ne[1] % 32 != 0;
++
++    constexpr int NRA = SZ_SIMDGROUP * N_MM_BLOCK_Y * N_MM_SIMD_GROUP_Y;
++    constexpr int NRB = SZ_SIMDGROUP * N_MM_BLOCK_X * N_MM_SIMD_GROUP_X;
++
++    const bool has_tensor = ggml_metal_device_get_props(ggml_metal_library_get_device(lib))->has_tensor;
++
++    const bool bc_out = has_tensor
++        ? (op->ne[0] % NRA != 0 || op->ne[1] % NRB != 0)
++        : (op->ne[0] % 64  != 0 || op->ne[1] % 32  != 0);
+ 
+     snprintf(base, 256, "kernel_mul_mm_%s_%s", ggml_type_name(tsrc0), ggml_type_name(tsrc1));
+     snprintf(name, 256, "%s_bci=%d_bco=%d", base, bc_inp, bc_out);
+@@ -694,8 +702,20 @@ ggml_metal_pipeline_with_params ggml_metal_library_get_pipeline_mul_mm(ggml_meta
+         ggml_metal_cv_free(cv);
+     }
+ 
+-    // when the output size is not multiple of 64x32, we need extra smem to prevent out-of-bounds writes
+-    res.smem = bc_out ? 8192 : 4096 + 2048;
++    if (has_tensor) {
++        res.nr0 = NRA;
++        res.nr1 = NRB;
++
++        const size_t smem_a = NRA * N_MM_NK_TOTAL * sizeof(ggml_fp16_t);
++        res.smem = smem_a;
++    } else {
++        res.nr0 = 64;
++        res.nr1 = 32;
++
++        res.smem = bc_out ? 8192 : (4096 + 2048);
++    }
++
++    res.nsg = N_MM_SIMD_GROUP_X * N_MM_SIMD_GROUP_Y;
+ 
+     return res;
+ }
+diff --git src/ggml-metal/ggml-metal-device.h src/ggml-metal/ggml-metal-device.h
+index b4235013..a6c1dab5 100644
+--- src/ggml-metal/ggml-metal-device.h
++++ src/ggml-metal/ggml-metal-device.h
+@@ -102,6 +102,8 @@ ggml_metal_library_t ggml_metal_library_init_from_source(ggml_metal_device_t dev
+ 
+ void ggml_metal_library_free(ggml_metal_library_t lib);
+ 
++ggml_metal_device_t ggml_metal_library_get_device(ggml_metal_library_t lib);
++
+ struct ggml_metal_pipeline_with_params ggml_metal_library_get_pipeline    (ggml_metal_library_t lib, const char * name);
+ struct ggml_metal_pipeline_with_params ggml_metal_library_compile_pipeline(ggml_metal_library_t lib, const char * base, const char * name, ggml_metal_cv_t cv);
+ 
 diff --git src/ggml-metal/ggml-metal-device.m src/ggml-metal/ggml-metal-device.m
-index 27cb1683..27b78c5e 100644
+index 27cb1683..fe90aafe 100644
 --- src/ggml-metal/ggml-metal-device.m
 +++ src/ggml-metal/ggml-metal-device.m
-@@ -814,7 +814,7 @@ ggml_metal_device_t ggml_metal_device_init(int device) {
+@@ -95,8 +95,8 @@ int ggml_metal_pipeline_max_theads_per_threadgroup(struct ggml_metal_pipeline_wi
+ 
+ struct ggml_metal_library {
+     id<MTLLibrary> obj;
+-    id<MTLDevice> device;
+ 
++    ggml_metal_device_t dev;
+     ggml_metal_pipelines_t pipelines; // cache of compiled pipelines
+ 
+     NSLock * lock;
+@@ -251,7 +251,7 @@ ggml_metal_library_t ggml_metal_library_init(ggml_metal_device_t dev) {
+     ggml_metal_library_t res = calloc(1, sizeof(struct ggml_metal_library));
+ 
+     res->obj       = library;
+-    res->device    = device;
++    res->dev       = dev;
+     res->pipelines = ggml_metal_pipelines_init();
+     res->lock      = [NSLock new];
+ 
+@@ -318,7 +318,7 @@ ggml_metal_library_t ggml_metal_library_init_from_source(ggml_metal_device_t dev
+     }
+ 
+     res->obj       = library;
+-    res->device    = device;
++    res->dev       = dev;
+     res->pipelines = ggml_metal_pipelines_init();
+     res->lock      = [NSLock new];
+ 
+@@ -341,6 +341,10 @@ void ggml_metal_library_free(ggml_metal_library_t lib) {
+     free(lib);
+ }
+ 
++ggml_metal_device_t ggml_metal_library_get_device(ggml_metal_library_t lib) {
++    return lib->dev;
++}
++
+ struct ggml_metal_pipeline_with_params ggml_metal_library_get_pipeline(ggml_metal_library_t lib, const char * name) {
+     [lib->lock lock];
+ 
+@@ -405,7 +409,8 @@ struct ggml_metal_pipeline_with_params ggml_metal_library_compile_pipeline(ggml_
+             return res;
+         }
+ 
+-        id<MTLComputePipelineState> obj = [lib->device newComputePipelineStateWithFunction:mtl_function error:&error];
++        id<MTLDevice> device = ggml_metal_device_get_obj(lib->dev);
++        id<MTLComputePipelineState> obj = [device newComputePipelineStateWithFunction:mtl_function error:&error];
+ 
+         [mtl_function release];
+ 
+@@ -699,7 +704,7 @@ ggml_metal_device_t ggml_metal_device_init(int device) {
+                     "    auto sB = tB.slice(0, 0); \n"
+                     "    mm.run(sB, sA, cT); \n"
+                     " \n"
+-                    "    auto tC = tensor<device float, dextents<int32_t, 2>, tensor_inline>(C, dextents<int32_t, 2>(4, 4)); \n"
++                    "    auto tC = tensor<device float, dextents<int32_t, 2>, tensor_inline>(C, dextents<int32_t, 2>(16, 16)); \n"
+                     " \n"
+                     "    cT.store(tC); \n"
+                     "}";
+@@ -749,7 +754,7 @@ ggml_metal_device_t ggml_metal_device_init(int device) {
+                     "    auto sB = tB.slice(0, 0); \n"
+                     "    mm.run(sB, sA, cT); \n"
+                     " \n"
+-                    "    auto tC = tensor<device float, dextents<int32_t, 2>, tensor_inline>(C, dextents<int32_t, 2>(4, 4)); \n"
++                    "    auto tC = tensor<device float, dextents<int32_t, 2>, tensor_inline>(C, dextents<int32_t, 2>(16, 16)); \n"
+                     " \n"
+                     "    cT.store(tC); \n"
+                     "}";
+@@ -814,7 +819,7 @@ ggml_metal_device_t ggml_metal_device_init(int device) {
              }
  
              // print MTL GPU family:
@@ -2050,7 +2693,7 @@ index 27cb1683..27b78c5e 100644
  
              // determine max supported GPU family
              // https://developer.apple.com/metal/Metal-Shading-Language-Specification.pdf
-@@ -931,13 +931,13 @@ void ggml_metal_device_rsets_keep_alive(ggml_metal_device_t dev) {
+@@ -931,13 +936,13 @@ void ggml_metal_device_rsets_keep_alive(ggml_metal_device_t dev) {
  }
  
  struct ggml_metal_event {
@@ -2066,7 +2709,7 @@ index 27cb1683..27b78c5e 100644
  
      id<MTLCommandBuffer> cmd_buf = (id<MTLCommandBuffer>) cmd_buf_raw;
  
-@@ -945,7 +945,7 @@ void ggml_metal_event_encode_signal(ggml_metal_event_t ev, ggml_metal_cmd_buf_t
+@@ -945,7 +950,7 @@ void ggml_metal_event_encode_signal(ggml_metal_event_t ev, ggml_metal_cmd_buf_t
  }
  
  void ggml_metal_event_encode_wait(ggml_metal_event_t ev, ggml_metal_cmd_buf_t cmd_buf_raw) {
@@ -2075,7 +2718,7 @@ index 27cb1683..27b78c5e 100644
  
      id<MTLCommandBuffer> cmd_buf = (id<MTLCommandBuffer>) cmd_buf_raw;
  
-@@ -953,7 +953,7 @@ void ggml_metal_event_encode_wait(ggml_metal_event_t ev, ggml_metal_cmd_buf_t cm
+@@ -953,7 +958,7 @@ void ggml_metal_event_encode_wait(ggml_metal_event_t ev, ggml_metal_cmd_buf_t cm
  }
  
  ggml_metal_event_t ggml_metal_device_event_init(ggml_metal_device_t dev) {
@@ -2084,7 +2727,7 @@ index 27cb1683..27b78c5e 100644
  
      ggml_metal_event_t ev = calloc(1, sizeof(struct ggml_metal_event));
  
-@@ -964,7 +964,7 @@ ggml_metal_event_t ggml_metal_device_event_init(ggml_metal_device_t dev) {
+@@ -964,7 +969,7 @@ ggml_metal_event_t ggml_metal_device_event_init(ggml_metal_device_t dev) {
  }
  
  void ggml_metal_device_event_free(ggml_metal_device_t dev, ggml_metal_event_t ev) {
@@ -2093,7 +2736,7 @@ index 27cb1683..27b78c5e 100644
      [event release];
  
      free(ev);
-@@ -973,14 +973,13 @@ void ggml_metal_device_event_free(ggml_metal_device_t dev, ggml_metal_event_t ev
+@@ -973,14 +978,13 @@ void ggml_metal_device_event_free(ggml_metal_device_t dev, ggml_metal_event_t ev
  }
  
  void ggml_metal_device_event_synchronize(ggml_metal_device_t dev, ggml_metal_event_t ev) {
@@ -2114,6 +2757,48 @@ index 27cb1683..27b78c5e 100644
  }
  
  void ggml_metal_device_get_memory(ggml_metal_device_t dev, size_t * free, size_t * total) {
+diff --git src/ggml-metal/ggml-metal-impl.h src/ggml-metal/ggml-metal-impl.h
+index 379a8b33..ff74cafb 100644
+--- src/ggml-metal/ggml-metal-impl.h
++++ src/ggml-metal/ggml-metal-impl.h
+@@ -1,6 +1,19 @@
+ #ifndef GGML_METAL_IMPL
+ #define GGML_METAL_IMPL
+ 
++// kernel parameters for mat-mat threadgroups
++//
++// TODO: become function constants
++
++#define SZ_SIMDGROUP 16
++#define N_MM_NK 2
++#define N_MM_NK_TOTAL (SZ_SIMDGROUP * N_MM_NK)
++
++#define N_MM_BLOCK_X 4
++#define N_MM_BLOCK_Y 2
++#define N_MM_SIMD_GROUP_X 2
++#define N_MM_SIMD_GROUP_Y 2
++
+ // kernel parameters for mat-vec threadgroups
+ //
+ // N_R0: number of src0 rows to process per simdgroup
+diff --git src/ggml-metal/ggml-metal-ops.cpp src/ggml-metal/ggml-metal-ops.cpp
+index e1735279..5fa162c8 100644
+--- src/ggml-metal/ggml-metal-ops.cpp
++++ src/ggml-metal/ggml-metal-ops.cpp
+@@ -2195,7 +2195,12 @@ int ggml_metal_op_mul_mat(ggml_metal_op_t ctx, int idx) {
+         const size_t smem = pipeline.smem;
+ 
+         ggml_metal_encoder_set_threadgroup_memory_size(enc, smem, 0);
+-        ggml_metal_encoder_dispatch_threadgroups(enc, ((ne11 + 31)/32), ((ne01 + 63)/64), ne12*ne13, 128, 1, 1);
++
++        const int nr0 = pipeline.nr0;
++        const int nr1 = pipeline.nr1;
++        const int nsg = pipeline.nsg;
++
++        ggml_metal_encoder_dispatch_threadgroups(enc, ((ne11 + nr1 - 1) / nr1), ((ne01 + nr0 - 1) / nr0), ne12 * ne13, 32, nsg, 1);
+     } else {
+         auto pipeline = ggml_metal_library_get_pipeline_mul_mv(lib, op);
+ 
 diff --git src/ggml-metal/ggml-metal.cpp src/ggml-metal/ggml-metal.cpp
 index 4dbf8e6f..6a836e45 100644
 --- src/ggml-metal/ggml-metal.cpp
@@ -2129,6 +2814,328 @@ index 4dbf8e6f..6a836e45 100644
              static ggml_backend_metal_reg_ptr reg_ctx(ggml_backend_metal_reg_init());
  
              for (int i = 0; i < g_devices; ++i) {
+diff --git src/ggml-metal/ggml-metal.metal src/ggml-metal/ggml-metal.metal
+index 9f38c9d2..c372eaed 100644
+--- src/ggml-metal/ggml-metal.metal
++++ src/ggml-metal/ggml-metal.metal
+@@ -9306,7 +9306,137 @@ constant bool FC_mul_mm_bc_inp [[function_constant(FC_MUL_MM + 0)]];
+ constant bool FC_mul_mm_bc_out [[function_constant(FC_MUL_MM + 1)]];
+ 
+ // each block_q contains 16*nl weights
+-template<typename S0, typename S0_4x4, typename S0_8x8, typename S1, typename S1_2x4, typename S1_8x8, typename block_q, short nl, void (*dequantize_func)(device const block_q *, short, thread S0_4x4 &), typename T0, typename T0_4x4, typename T1, typename T1_2x4>
++#ifdef GGML_METAL_HAS_TENSOR
++template<
++    typename SA, typename SA_4x4, typename SA_8x8,
++    typename SB, typename SB_2x4, typename SB_8x8,
++    typename block_q, short nl, void (*dequantize_func)(device const block_q *, short, thread SA_4x4 &),
++    typename T0, typename T0_4x4, typename T1, typename T1_2x4>
++kernel void kernel_mul_mm(
++        constant ggml_metal_kargs_mul_mm & args,
++        device const char * srcA,
++        device const char * srcB,
++        device       char * dst,
++        threadgroup  char * shmem [[threadgroup(0)]],
++        uint3  tgpig [[threadgroup_position_in_grid]],
++        ushort tiitg [[thread_index_in_threadgroup]],
++        ushort sgitg [[simdgroup_index_in_threadgroup]]) {
++    (void) sgitg;
++
++    // Matrix dimensions: A(M,K) x B(K,N) -> C(M,N)
++    const int K = args.ne00;
++    const int M = args.ne0;
++    const int N = args.ne1;
++
++    // Batch dimension handling
++    const int im = tgpig.z;
++    const int i12 = im % args.ne12;
++    const int i13 = im / args.ne12;
++
++    // Batch offsets for srcA and srcB
++    const uint64_t offset0 = (i12/args.r2)*args.nb02 + (i13/args.r3)*args.nb03;
++
++    // Tile dimensions
++    constexpr int NRB = SZ_SIMDGROUP * N_MM_BLOCK_X * N_MM_SIMD_GROUP_X;
++    constexpr int NRA = SZ_SIMDGROUP * N_MM_BLOCK_Y * N_MM_SIMD_GROUP_Y;
++
++    // Tile offsets in output matrix
++    const int ra = tgpig.y * NRA;
++    const int rb = tgpig.x * NRB;
++
++    // Threadgroup memory for dequantized A tile only
++    threadgroup SA * sa = (threadgroup SA *)(shmem);
++
++    // Work-item count for A loading
++    constexpr int A_WORK_ITEMS = NRA * N_MM_NK;
++    constexpr int NUM_THREADS = N_SIMDWIDTH * N_MM_SIMD_GROUP_X * N_MM_SIMD_GROUP_Y;
++
++    // tA wraps threadgroup memory
++    auto tA = tensor(sa, dextents<int32_t, 2>(N_MM_NK_TOTAL, NRA));
++
++    // tB wraps device memory directly
++    device T1 * ptrB = (device T1 *)(srcB + args.nb12*i12 + args.nb13*i13);
++    const int strideB = args.nb11 / sizeof(T1);
++    auto tB = tensor(ptrB, dextents<int32_t, 2>(K, N), array<int, 2>({1, strideB}));
++
++    // Configure matmul operation
++    mpp::tensor_ops::matmul2d<
++        mpp::tensor_ops::matmul2d_descriptor(
++            NRB, NRA, N_MM_NK_TOTAL, false, true, true,
++            mpp::tensor_ops::matmul2d_descriptor::mode::multiply_accumulate),
++        execution_simdgroups<N_MM_SIMD_GROUP_X * N_MM_SIMD_GROUP_Y>> mm;
++
++    auto cT = mm.get_destination_cooperative_tensor<decltype(tB), decltype(tA), float>();
++
++    // Accumulate partial results over K dimension
++    for (int loop_k = 0; loop_k < K; loop_k += N_MM_NK_TOTAL) {
++        // === PHASE 1: Dequantization of A into threadgroup memory ===
++        for (int work = tiitg; work < A_WORK_ITEMS; work += NUM_THREADS) {
++            const int row = work / N_MM_NK;
++            const int k_chunk = work % N_MM_NK;
++            const int k_pos = loop_k + k_chunk * 16;
++            const short k_base = k_chunk * 16;
++
++            // Bounds check: skip device read if row is out of matrix bounds
++            if (ra + row < M) {
++                if (is_same<T0_4x4, block_q>::value && FC_mul_mm_bc_inp) {
++                    // Element-wise reads when K is not aligned (nb01 not aligned for half4x4/float4x4).
++                    // MSL spec Table 2.5: half4x4 requires 8-byte alignment. When K is odd,
++                    // nb01 = K*2 is not 8-byte aligned, so odd-row pointers are misaligned.
++                    // Mirrors the legacy kernel's existing guard.
++                    device const T0 * row_ptr = (device const T0 *)(srcA + args.nb01 * (ra + row) + offset0);
++
++                    FOR_UNROLL (short i = 0; i < 16; i++) {
++                        sa[row * N_MM_NK_TOTAL + (k_base + i)] = (k_pos + i < K) ? (SA) row_ptr[k_pos + i] : (SA)0;
++                    }
++                } else {
++                    const int block_idx = k_pos / (16 * nl);
++                    const short il = (k_pos / 16) % nl;
++
++                    device const block_q * row_ptr = (device const block_q *)(srcA + args.nb01 * (ra + row) + offset0);
++
++                    SA_4x4 temp_a;
++                    dequantize_func(row_ptr + block_idx, il, temp_a);
++
++                    FOR_UNROLL (short i = 0; i < 16; i++) {
++                        // Zero-pad A for K positions beyond valid range (handles partial K iterations)
++                        sa[row * N_MM_NK_TOTAL + (k_base + i)] = (k_pos + i < K) ? temp_a[i/4][i%4] : (SA)0;
++                    }
++                }
++            } else {
++                // Zero-pad rows beyond matrix bounds
++                FOR_UNROLL (short i = 0; i < 16; i++) {
++                    sa[row * N_MM_NK_TOTAL + (k_base + i)] = (SA)0;
++                }
++            }
++        }
++
++        threadgroup_barrier(mem_flags::mem_threadgroup);
++
++        // === PHASE 2: Tensor matmul ===
++        auto mA = tA.slice(0, 0);
++        auto mB = tB.slice(loop_k, rb);
++
++        mm.run(mB, mA, cT);
++
++        threadgroup_barrier(mem_flags::mem_threadgroup);
++    }
++
++    // Store result tile to output matrix (with batch offset)
++    // cT.store handles bounds checking via tD's extents (M, N)
++    device float * dstBatch = (device float *)dst + im * N * M;
++
++    auto tD = tensor(dstBatch, dextents<int32_t, 2>(M, N), array<int, 2>({1, M}));
++    cT.store(tD.slice(ra, rb));
++}
++
++#else
++
++template<
++    typename S0, typename S0_4x4, typename S0_8x8,
++    typename S1, typename S1_2x4, typename S1_8x8,
++    typename block_q, short nl, void (*dequantize_func)(device const block_q *, short, thread S0_4x4 &),
++    typename T0, typename T0_4x4, typename T1, typename T1_2x4>
+ kernel void kernel_mul_mm(
+         constant ggml_metal_kargs_mul_mm & args,
+         device const char * src0,
+@@ -9320,10 +9450,6 @@ kernel void kernel_mul_mm(
+     threadgroup S0 * sa = (threadgroup S0 *)(shmem);
+     threadgroup S1 * sb = (threadgroup S1 *)(shmem + 4096);
+ 
+-#ifdef GGML_METAL_HAS_TENSOR
+-    threadgroup float * sc = (threadgroup float *)(shmem);
+-#endif
+-
+     constexpr int NR0 = 64;
+     constexpr int NR1 = 32;
+ 
+@@ -9363,7 +9489,6 @@ kernel void kernel_mul_mm(
+         + args.nb11*(r1 + lr1)
+         + args.nb10*iy);
+ 
+-#ifndef GGML_METAL_HAS_TENSOR
+     S0_8x8 ma[4];
+     S1_8x8 mb[2];
+ 
+@@ -9372,19 +9497,8 @@ kernel void kernel_mul_mm(
+     for (short i = 0; i < 8; i++){
+         mc[i] = make_filled_simdgroup_matrix<float, 8>(0.f);
+     }
+-#else
+-    auto tA = tensor<threadgroup S0, dextents<int32_t, 2>, tensor_inline>(sa, dextents<int32_t, 2>(NK,  NR0));
+-    auto tB = tensor<threadgroup S1, dextents<int32_t, 2>, tensor_inline>(sb, dextents<int32_t, 2>(NR1, NK ));
+-
+-    mpp::tensor_ops::matmul2d<
+-        mpp::tensor_ops::matmul2d_descriptor(NR1, NR0, NK, false, true, false, mpp::tensor_ops::matmul2d_descriptor::mode::multiply_accumulate),
+-        execution_simdgroups<4>> mm;
+-
+-    auto cT = mm.get_destination_cooperative_tensor<decltype(tA), decltype(tB), float>();
+-#endif
+ 
+     for (int loop_k = 0; loop_k < args.ne00; loop_k += NK) {
+-#ifndef GGML_METAL_HAS_TENSOR
+         // load data and store to threadgroup memory
+         if (is_same<T0_4x4, block_q>::value && FC_mul_mm_bc_inp) {
+             threadgroup_barrier(mem_flags::mem_threadgroup);
+@@ -9454,66 +9568,6 @@ kernel void kernel_mul_mm(
+ 
+             *(threadgroup S1_2x4 *)(sb + 64*ib + 8*ly) = (S1_2x4)(*((device T1_2x4 *) y));
+         }
+-#else
+-        // load data and store to threadgroup memory
+-        if (is_same<T0_4x4, block_q>::value && FC_mul_mm_bc_inp) {
+-            threadgroup_barrier(mem_flags::mem_threadgroup);
+-
+-            // no need for dequantization
+-            for (short i = 0; i < 16; i++) {
+-                const short sx = 2*il0 + i/8;
+-                const short sy = (tiitg/NL0)/8;
+-
+-                const short lx = i%8;
+-                const short ly = (tiitg/NL0)%8;
+-                //const short lx = (tiitg/NL0)%8;
+-                //const short ly = i%8;
+-
+-                *(sa + NK*(8*sy + ly) + 8*sx + lx) = loop_k + 16*il + i < args.ne00 ? *((device T0 *) x + i) : 0;
+-            }
+-        } else {
+-            S0_4x4 temp_a;
+-            dequantize_func(x, il, temp_a);
+-
+-            threadgroup_barrier(mem_flags::mem_threadgroup);
+-
+-            FOR_UNROLL (short i = 0; i < 16; i++) {
+-                const short sx = 2*il0 + i/8;
+-                const short sy = (tiitg/NL0)/8;
+-
+-                const short lx = i%8;
+-                const short ly = (tiitg/NL0)%8;
+-                //const short lx = (tiitg/NL0)%8;
+-                //const short ly = i%8;
+-
+-                *(sa + NK*(8*sy + ly) + 8*sx + lx) = temp_a[i/4][i%4];
+-            }
+-        }
+-
+-        if (FC_mul_mm_bc_inp) {
+-            for (short i = 0; i < 8; ++i) {
+-                const short sx = (tiitg%NL1);
+-                const short sy = (tiitg/NL1)/8;
+-
+-                const short lx = i;
+-                const short ly = (tiitg/NL1)%8;
+-                //const short lx = (tiitg/NL1)%8;
+-                //const short ly = i;
+-
+-                *(sb + NK*(8*sy + ly) + 8*sx + lx) = loop_k + iy + i < args.ne00 ? (S1) *((device T1 *) y + i) : 0;
+-            }
+-        } else {
+-            const short sx = (tiitg%NL1);
+-            const short sy = (tiitg/NL1)/8;
+-
+-            //const short lx = i;
+-            const short ly = (tiitg/NL1)%8;
+-            //const short lx = (tiitg/NL1)%8;
+-            //const short ly = i;
+-
+-            *(threadgroup S1_2x4 *)(sb + NK*(8*sy + ly) + 8*sx) = (S1_2x4)(*((device T1_2x4 *) y));
+-        }
+-#endif
+ 
+         il = (il + 2 < nl) ? il + 2 : il % 2;
+         x  = (il < 2) ? x + (2 + nl - 1)/nl : x;
+@@ -9522,7 +9576,6 @@ kernel void kernel_mul_mm(
+ 
+         threadgroup_barrier(mem_flags::mem_threadgroup);
+ 
+-#ifndef GGML_METAL_HAS_TENSOR
+         // load matrices from threadgroup memory and conduct outer products
+         threadgroup const S0 * lsma = (sa + 4*64*(sgitg%2));
+         threadgroup const S1 * lsmb = (sb + 2*64*(sgitg/2));
+@@ -9549,24 +9602,10 @@ kernel void kernel_mul_mm(
+             lsma += 8*64;
+             lsmb += 4*64;
+         }
+-#else
+-        auto sA = tA.slice(0, 0);
+-        auto sB = tB.slice(0, 0);
+-
+-        mm.run(sB, sA, cT);
+-#endif
+     }
+ 
+     if (!FC_mul_mm_bc_out || (r0 + NR0 <= args.ne0 && r1 + NR1 <= args.ne1)) {
+         // if no bounds checks on the output are needed, we can directly write to device memory
+-#ifdef GGML_METAL_HAS_TENSOR
+-        device float * C = (device float *) dst +
+-            r0 + \
+-            r1 * args.ne0 + im*args.ne1*args.ne0;
+-
+-        auto tC = tensor<device float, dextents<int32_t, 2>, tensor_inline>(C, dextents<int32_t, 2>(args.ne0, NR1));
+-        cT.store(tC);
+-#else
+         device float * C = (device float *) dst +
+             (r0 + 32*(sgitg &  1)) + \
+             (r1 + 16*(sgitg >> 1)) * args.ne0 + im*args.ne1*args.ne0;
+@@ -9574,21 +9613,15 @@ kernel void kernel_mul_mm(
+         for (short i = 0; i < 8; i++) {
+             simdgroup_store(mc[i], C + 8*(i%4) + 8*args.ne0*(i/4), args.ne0, 0, false);
+         }
+-#endif
+     } else {
+         // block is smaller than 64x32, we should avoid writing data outside of the matrix
+         threadgroup_barrier(mem_flags::mem_threadgroup);
+ 
+         threadgroup float * temp_str = ((threadgroup float *) shmem) + 32*(sgitg&1) + (16*(sgitg >> 1))*NR0;
+ 
+-#ifdef GGML_METAL_HAS_TENSOR
+-        auto tC = tensor<threadgroup float, dextents<int32_t, 2>, tensor_inline>(sc, dextents<int32_t, 2>(NR0, NR1));
+-        cT.store(tC);
+-#else
+         for (short i = 0; i < 8; i++) {
+             simdgroup_store(mc[i], temp_str + 8*(i%4) + 8*NR0*(i/4), NR0, 0, false);
+         }
+-#endif
+ 
+         threadgroup_barrier(mem_flags::mem_threadgroup);
+ 
+@@ -9614,6 +9647,8 @@ kernel void kernel_mul_mm(
+     }
+ }
+ 
++#endif // GGML_METAL_HAS_TENSOR
++
+ template<short ne20> // n_expert_used
+ kernel void kernel_mul_mm_id_map0(
+         constant ggml_metal_kargs_mul_mm_id_map0 & args,
+@@ -9789,7 +9824,7 @@ kernel void kernel_mul_mm_id(
+ 
+                 const short ib = 8*sx + sy;
+ 
+-                *(sa + 64*ib + 8*ly + lx) = loop_k + 16*il + i < args.ne00 ? *((device T0 *) x + i) : 0;
++                *(sa + 64*ib + 8*ly + lx) = loop_k + 16*il + i < args.ne00 ? (S0) *((device T0 *) x + i) : (S0) 0;
+             }
+         } else {
+             S0_4x4 temp_a;
 diff --git src/ggml-openvino/ggml-decoder.cpp src/ggml-openvino/ggml-decoder.cpp
 index 0938d227..5095e799 100644
 --- src/ggml-openvino/ggml-decoder.cpp
@@ -3761,7 +4768,7 @@ index 656573d1..2c72e33c 100644
  
  enum ggml_status ov_graph_compute(struct ggml_cgraph * cgraph, ggml_backend_t backend);
 diff --git src/ggml-sycl/common.hpp src/ggml-sycl/common.hpp
-index fd84c917..0101b276 100644
+index fd84c917..5abf2290 100644
 --- src/ggml-sycl/common.hpp
 +++ src/ggml-sycl/common.hpp
 @@ -28,6 +28,13 @@
@@ -3778,6 +4785,15 @@ index fd84c917..0101b276 100644
  #if GGML_SYCL_DNNL
  #include "dnnl.hpp"
  #include "dnnl_sycl.hpp"
+@@ -217,7 +224,7 @@ struct sycl_device_info {
+                        // cudaOccupancyMaxActiveBlocksPerMultiprocessor
+     bool    vmm;                // virtual memory support
+     size_t  total_vram;
+-    //sycl_hw_info hw_info;     \\ device id and aarch, currently not used
++    sycl_hw_info hw_info;
+     optimize_feature opt_feature;
+ };
+ 
 diff --git src/ggml-sycl/convert.cpp src/ggml-sycl/convert.cpp
 index f3c521b4..67b9c06f 100644
 --- src/ggml-sycl/convert.cpp
@@ -3870,10 +4886,18 @@ index dcf6c7ae..c202da11 100644
      }
  
 diff --git src/ggml-sycl/ggml-sycl.cpp src/ggml-sycl/ggml-sycl.cpp
-index c02a41ad..36923160 100644
+index c02a41ad..1eead625 100644
 --- src/ggml-sycl/ggml-sycl.cpp
 +++ src/ggml-sycl/ggml-sycl.cpp
-@@ -2176,6 +2176,31 @@ inline void ggml_sycl_op_mul_mat_sycl(
+@@ -104,6 +104,7 @@ static ggml_sycl_device_info ggml_sycl_init() {
+ 
+         info.max_work_group_sizes[i] = prop.get_max_work_group_size();
+         info.devices[i].max_wg_per_cu = info.max_work_group_sizes[i] / prop.get_max_compute_units();
++        info.devices[i].hw_info = get_device_hw_info(&device);
+ 
+     }
+ 
+@@ -2176,6 +2177,31 @@ inline void ggml_sycl_op_mul_mat_sycl(
  #else
      bool use_fp16 = false;
  #endif
@@ -3905,7 +4929,25 @@ index c02a41ad..36923160 100644
      if ((src0->type == GGML_TYPE_F16 || ggml_is_quantized(src0->type)) && use_fp16 && ggml_is_contiguous(src0) &&
          row_diff == src0->ne[1] && dst->op_params[0] == GGML_PREC_DEFAULT) {
          ggml_sycl_pool_alloc<sycl::half> src0_as_f16(ctx.pool());
-@@ -3783,6 +3808,51 @@ __dpct_inline__ static void k_copy_dst_from_contiguous(
+@@ -3678,9 +3704,16 @@ static void ggml_sycl_mul_mat(ggml_backend_sycl_context & ctx, const ggml_tensor
+     // Dispatch becomes obscure with the reorder, MMVQ when the reorder optimization
+     // is enabled takes precedence over DMMV, the current if-else implementation
+     // requires disabling DMMV if both conditions are met
++
+     if (!g_ggml_sycl_prioritize_dmmv && ((should_reorder_tensor(ctx, dst) &&
+                                           ggml_sycl_supports_reorder_mmvq(src0->type)))) {
+-        use_dequantize_mul_mat_vec = use_dequantize_mul_mat_vec && !use_mul_mat_vec_q;
++      // Arc770 get benefit with Q4_0 by skipping it.
++      if (!(ggml_sycl_info().devices[ctx.device].hw_info.arch ==
++                gpu_arch::intel_gpu_acm_g10 &&
++            src0->type == GGML_TYPE_Q4_0)) {
++        use_dequantize_mul_mat_vec =
++            use_dequantize_mul_mat_vec && !use_mul_mat_vec_q;
++      }
+     }
+ 
+     if (!split && src0->type == GGML_TYPE_F16 && ggml_is_permuted(src0) && ggml_is_permuted(src1) && src1->ne[1] == 1) {
+@@ -3783,6 +3816,51 @@ __dpct_inline__ static void k_copy_dst_from_contiguous(
      }
  }
  
@@ -3957,7 +4999,7 @@ index c02a41ad..36923160 100644
  static void ggml_sycl_mul_mat_id(ggml_backend_sycl_context & ctx,
                                   ggml_tensor *dst) try {
      scope_op_debug_print scope_dbg_print(__func__, dst, /*num_src=*/3);
-@@ -3798,6 +3868,12 @@ static void ggml_sycl_mul_mat_id(ggml_backend_sycl_context & ctx,
+@@ -3798,6 +3876,12 @@ static void ggml_sycl_mul_mat_id(ggml_backend_sycl_context & ctx,
      const int64_t n_as = ne02;
      const int64_t n_ids = ids->ne[0];
  
@@ -3970,7 +5012,7 @@ index c02a41ad..36923160 100644
      std::vector<char> ids_host(ggml_nbytes(ids));
      const char * ids_dev = (const char *) ids->data;
  
-@@ -3848,8 +3924,9 @@ static void ggml_sycl_mul_mat_id(ggml_backend_sycl_context & ctx,
+@@ -3848,8 +3932,9 @@ static void ggml_sycl_mul_mat_id(ggml_backend_sycl_context & ctx,
              }
          }
      } else {
@@ -4199,6 +5241,129 @@ index a641c100..8fb41943 100644
          case GGML_TYPE_Q8_0:
              set_rows_sycl_q<TIdx, block_q8_0, QK8_0, cpy_blck_f32_q8_0>(src0_d, src1_d, (block_q8_0 *)dst->data, ne00, ne01, ne02, ne03, ne10, ne11, ne12, ne13, nb00, nb01, nb02, nb03, nb10, nb11, nb12, nb13, nb1, nb2, nb3, stream);
              break;
+diff --git src/ggml-sycl/sycl_hw.cpp src/ggml-sycl/sycl_hw.cpp
+index 70411400..03b0c37a 100644
+--- src/ggml-sycl/sycl_hw.cpp
++++ src/ggml-sycl/sycl_hw.cpp
+@@ -1,15 +1,67 @@
+ #include "sycl_hw.hpp"
+ 
+-// TODO: currently not used
+-/*
+-sycl_hw_info get_device_hw_info(sycl::device *device_ptr) {
+-  sycl_hw_info res;
+-  int32_t id = device_ptr->get_info<sycl::ext::intel::info::device::device_id>();
+-  res.device_id = id;
++using namespace std;
+ 
+-  syclex::architecture arch = device_ptr->get_info<syclex::info::device::architecture>();
+-  res.arch = arch;
++/*defined in
++* /opt/intel/oneapi/compiler/latest/include/sycl/ext/oneapi/experimental/device_architecture.def
++*/
++static map<gpu_arch, std::pair<const char*, sycl_intel_gpu_family>> arch2name = {
++    {gpu_arch::intel_gpu_bdw,     {"intel_gpu_bdw",     GPU_FAMILY_IGPU_NON_XE}},
++    {gpu_arch::intel_gpu_skl,     {"intel_gpu_skl",     GPU_FAMILY_IGPU_NON_XE}},
++    {gpu_arch::intel_gpu_kbl,     {"intel_gpu_kbl",     GPU_FAMILY_IGPU_NON_XE}},
++    {gpu_arch::intel_gpu_cfl,     {"intel_gpu_cfl",     GPU_FAMILY_IGPU_NON_XE}},
++    {gpu_arch::intel_gpu_apl,     {"intel_gpu_apl",     GPU_FAMILY_IGPU_NON_XE}},
++    {gpu_arch::intel_gpu_glk,     {"intel_gpu_glk",     GPU_FAMILY_IGPU_NON_XE}},
++    {gpu_arch::intel_gpu_whl,     {"intel_gpu_whl",     GPU_FAMILY_IGPU_NON_XE}},
++    {gpu_arch::intel_gpu_aml,     {"intel_gpu_aml",     GPU_FAMILY_IGPU_NON_XE}},
++    {gpu_arch::intel_gpu_cml,     {"intel_gpu_cml",     GPU_FAMILY_IGPU_NON_XE}},
++    {gpu_arch::intel_gpu_icllp,   {"intel_gpu_icllp",   GPU_FAMILY_IGPU_NON_XE}},
++    {gpu_arch::intel_gpu_ehl,     {"intel_gpu_ehl",     GPU_FAMILY_IGPU_NON_XE}},
++    {gpu_arch::intel_gpu_tgllp,   {"intel_gpu_tgllp",   GPU_FAMILY_IGPU_NON_XE}},
++    {gpu_arch::intel_gpu_rkl,     {"intel_gpu_rkl",     GPU_FAMILY_IGPU_NON_XE}},
++    {gpu_arch::intel_gpu_adl_s,   {"intel_gpu_adl_s",   GPU_FAMILY_IGPU_NON_XE}},
++    {gpu_arch::intel_gpu_adl_p,   {"intel_gpu_adl_p",   GPU_FAMILY_IGPU_NON_XE}},
++    {gpu_arch::intel_gpu_adl_n,   {"intel_gpu_adl_n",   GPU_FAMILY_IGPU_NON_XE}},
++    {gpu_arch::intel_gpu_dg1,     {"intel_gpu_dg1",     GPU_FAMILY_DGPU_CLIENT_GAME}},
++    {gpu_arch::intel_gpu_acm_g10, {"intel_gpu_acm_g10", GPU_FAMILY_DGPU_CLIENT_GAME}},
++    {gpu_arch::intel_gpu_acm_g11, {"intel_gpu_acm_g11", GPU_FAMILY_DGPU_CLIENT_GAME}},
++    {gpu_arch::intel_gpu_acm_g12, {"intel_gpu_acm_g12", GPU_FAMILY_DGPU_CLIENT_GAME}},
++    {gpu_arch::intel_gpu_pvc,     {"intel_gpu_pvc",     GPU_FAMILY_DGPU_CLOUD}},
++    {gpu_arch::intel_gpu_pvc_vg,  {"intel_gpu_pvc_vg",  GPU_FAMILY_DGPU_CLOUD}},
++    {gpu_arch::intel_gpu_mtl_u,   {"intel_gpu_mtl_u",   GPU_FAMILY_IGPU_XE}},
++    {gpu_arch::intel_gpu_mtl_h,   {"intel_gpu_mtl_h",   GPU_FAMILY_IGPU_XE}},
++    {gpu_arch::intel_gpu_arl_h,   {"intel_gpu_arl_h",   GPU_FAMILY_IGPU_XE}},
++    {gpu_arch::intel_gpu_bmg_g21, {"intel_gpu_bmg_g21", GPU_FAMILY_DGPU_CLIENT_GAME}},
++    {gpu_arch::intel_gpu_bmg_g31, {"intel_gpu_bmg_g31", GPU_FAMILY_DGPU_CLIENT_GAME}},
++    {gpu_arch::intel_gpu_lnl_m,   {"intel_gpu_lnl_m",   GPU_FAMILY_IGPU_XE}},
++    {gpu_arch::intel_gpu_ptl_h,   {"intel_gpu_ptl_h",   GPU_FAMILY_IGPU_XE}},
++    {gpu_arch::intel_gpu_ptl_u,   {"intel_gpu_ptl_u",   GPU_FAMILY_IGPU_XE}},
++    {gpu_arch::intel_gpu_wcl,     {"intel_gpu_wcl",     GPU_FAMILY_IGPU_XE}}
++};
++
++
++sycl_hw_info get_device_hw_info(sycl::device* device_ptr) {
++    sycl_hw_info res;
++    int32_t id =
++        device_ptr->get_info<sycl::ext::intel::info::device::device_id>();
++    res.device_id = id;
++
++    res.name = device_ptr->get_info<sycl::info::device::name>();
+ 
+-  return res;
++    syclex::architecture arch =
++        device_ptr->get_info<syclex::info::device::architecture>();
++    res.arch = arch;
++
++    map<syclex::architecture,
++        std::pair<const char*, sycl_intel_gpu_family>>::iterator it =
++        arch2name.find(res.arch);
++    if (it != arch2name.end()) {
++        res.arch_name = it->second.first;
++        res.gpu_family = it->second.second;
++    } else {
++        res.arch_name = "unknown";
++        res.gpu_family = GPU_FAMILY_UKNOWN;
++    }
++
++    return res;
+ }
+-*/
+diff --git src/ggml-sycl/sycl_hw.hpp src/ggml-sycl/sycl_hw.hpp
+index 36b140bf..a5d20462 100644
+--- src/ggml-sycl/sycl_hw.hpp
++++ src/ggml-sycl/sycl_hw.hpp
+@@ -9,18 +9,30 @@
+ #include <sycl/sycl.hpp>
+ 
+ namespace syclex = sycl::ext::oneapi::experimental;
++using gpu_arch = sycl::ext::oneapi::experimental::architecture;
++
++// It's used to mark the GPU computing capacity
++// The value must flow the order of performance.
++enum sycl_intel_gpu_family {
++  GPU_FAMILY_UKNOWN = -1,
++  // iGPU without Xe core, before Meteor Lake iGPU(Xe)
++  GPU_FAMILY_IGPU_NON_XE = 0,
++  // iGPU with Xe core, Meteor Lake iGPU or newer.
++  GPU_FAMILY_IGPU_XE = 1,
++  // dGPU for gaming in client/data center (DG1/FLex 140 or newer).
++  GPU_FAMILY_DGPU_CLIENT_GAME = 2,
++  // dGPU for AI in cloud, PVC or newer.
++  GPU_FAMILY_DGPU_CLOUD = 3
++};
+ 
+-// TODO: currently not used
+-/*
+ struct sycl_hw_info {
+   syclex::architecture arch;
++  const char* arch_name;
+   int32_t device_id;
++  std::string name;
++  sycl_intel_gpu_family gpu_family;
+ };
+ 
+-bool is_in_vector(std::vector<int> &vec, int item);
+-
+ sycl_hw_info get_device_hw_info(sycl::device *device_ptr);
+-*/
+-
+ 
+ #endif // SYCL_HW_HPP
 diff --git src/ggml-vulkan/ggml-vulkan.cpp src/ggml-vulkan/ggml-vulkan.cpp
 index 702a249d..d4acee8b 100644
 --- src/ggml-vulkan/ggml-vulkan.cpp
@@ -4253,10 +5418,40 @@ index 54b9b327..ff836615 100644
      string_to_spv("step_f32",       "step.comp",        {{"A_TYPE", "float"},       {"D_TYPE", "float"}});
      string_to_spv("round_f16",      "round.comp",       {{"A_TYPE", "float16_t"},   {"D_TYPE", "float16_t"}});
 diff --git src/ggml-webgpu/ggml-webgpu-shader-lib.hpp src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
-index 9d88f980..449eae80 100644
+index 9d88f980..16ebc32c 100644
 --- src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
 +++ src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
-@@ -194,6 +194,28 @@ struct ggml_webgpu_row_norm_pipeline_key_hash {
+@@ -98,6 +98,29 @@ struct ggml_webgpu_ssm_conv_shader_decisions {
+     uint32_t tokens_per_wg;
+ };
+ 
++struct ggml_webgpu_ssm_scan_pipeline_key {
++    int type;
++    int d_state;
++
++    bool operator==(const ggml_webgpu_ssm_scan_pipeline_key & other) const {
++        return type == other.type && d_state == other.d_state;
++    }
++};
++
++struct ggml_webgpu_ssm_scan_pipeline_key_hash {
++    size_t operator()(const ggml_webgpu_ssm_scan_pipeline_key & key) const {
++        size_t seed = 0;
++        ggml_webgpu_hash_combine(seed, key.type);
++        ggml_webgpu_hash_combine(seed, key.d_state);
++        return seed;
++    }
++};
++
++struct ggml_webgpu_ssm_scan_shader_decisions {
++    uint32_t wg_size;
++    uint32_t tokens_per_tile;
++};
++
+ /** Argsort **/
+ 
+ struct ggml_webgpu_argsort_shader_lib_context {
+@@ -194,6 +217,28 @@ struct ggml_webgpu_row_norm_pipeline_key_hash {
      }
  };
  
@@ -4285,7 +5480,7 @@ index 9d88f980..449eae80 100644
  /** Pad **/
  struct ggml_webgpu_pad_pipeline_key {
      bool circular;
-@@ -240,6 +262,46 @@ struct ggml_webgpu_ssm_conv_pipeline_key {
+@@ -240,6 +285,46 @@ struct ggml_webgpu_ssm_conv_pipeline_key {
      }
  };
  
@@ -4332,7 +5527,239 @@ index 9d88f980..449eae80 100644
  /** Gated Delta Net **/
  struct ggml_webgpu_gated_delta_net_pipeline_key {
      int type;
-@@ -734,16 +796,17 @@ class ggml_webgpu_shader_lib {
+@@ -374,19 +459,27 @@ struct ggml_webgpu_unary_pipeline_key_hash {
+ 
+ /** FlashAttention */
+ 
++enum ggml_webgpu_flash_attn_path : uint32_t {
++    GGML_WEBGPU_FLASH_ATTN_PATH_SUBGROUP_MATRIX = 0u,
++    GGML_WEBGPU_FLASH_ATTN_PATH_TILE            = 1u,
++    GGML_WEBGPU_FLASH_ATTN_PATH_VEC             = 2u,
++};
++
+ struct ggml_webgpu_flash_attn_pipeline_key {
+     ggml_type kv_type;
+     uint32_t  head_dim_qk;
+     uint32_t  head_dim_v;
+     bool      kv_direct;
++    bool      kv_overlap;
+     bool      has_mask;
+     bool      has_sinks;
+     bool      uses_logit_softcap;
++    uint32_t  path;
+ 
+     bool operator==(const ggml_webgpu_flash_attn_pipeline_key & other) const {
+         return kv_type == other.kv_type && head_dim_qk == other.head_dim_qk && head_dim_v == other.head_dim_v &&
+-               kv_direct == other.kv_direct && has_mask == other.has_mask && has_sinks == other.has_sinks &&
+-               uses_logit_softcap == other.uses_logit_softcap;
++               kv_direct == other.kv_direct && kv_overlap == other.kv_overlap && has_mask == other.has_mask &&
++               has_sinks == other.has_sinks && uses_logit_softcap == other.uses_logit_softcap && path == other.path;
+     }
+ };
+ 
+@@ -397,39 +490,70 @@ struct ggml_webgpu_flash_attn_pipeline_key_hash {
+         ggml_webgpu_hash_combine(seed, key.head_dim_qk);
+         ggml_webgpu_hash_combine(seed, key.head_dim_v);
+         ggml_webgpu_hash_combine(seed, key.kv_direct);
++        ggml_webgpu_hash_combine(seed, key.kv_overlap);
+         ggml_webgpu_hash_combine(seed, key.has_mask);
+         ggml_webgpu_hash_combine(seed, key.has_sinks);
+         ggml_webgpu_hash_combine(seed, key.uses_logit_softcap);
++        ggml_webgpu_hash_combine(seed, key.path);
+         return seed;
+     }
+ };
+ 
+ struct ggml_webgpu_flash_attn_decisions {
+-    uint32_t q_tile  = 0;
+-    uint32_t kv_tile = 0;
+-    uint32_t wg_size = 0;
++    uint32_t path      = GGML_WEBGPU_FLASH_ATTN_PATH_SUBGROUP_MATRIX;
++    uint32_t q_tile    = 0;
++    uint32_t kv_tile   = 0;
++    uint32_t wg_size   = 0;
++    bool     kv_direct = false;
+ };
+ 
+-struct ggml_webgpu_flash_attn_vec_decisions {
+-    uint32_t kv_tile = 0;
+-    uint32_t wg_size = 0;
+-};
++inline constexpr uint32_t GGML_WEBGPU_FLASH_ATTN_TILE_KV_VEC_WIDTH = 4u;
++inline constexpr uint32_t GGML_WEBGPU_FLASH_ATTN_TILE_Q_TILE       = 4u;
++
++inline uint32_t ggml_webgpu_flash_attn_pick_vec_ne(const ggml_webgpu_flash_attn_pipeline_key & key) {
++    if (key.path != GGML_WEBGPU_FLASH_ATTN_PATH_VEC || key.kv_type != GGML_TYPE_F16 ||
++        key.head_dim_qk != key.head_dim_v) {
++        return 1u;
++    }
++
++    switch (key.head_dim_qk) {
++        case 64:
++        case 192:
++        case 576:
++            return 2u;
++        case 96:
++            return 4u;
++        default:
++            return 1u;
++    }
++}
+ 
+ inline ggml_webgpu_flash_attn_pipeline_key ggml_webgpu_flash_attn_make_pipeline_key(
+-    const ggml_webgpu_shader_lib_context & context) {
++    const ggml_webgpu_shader_lib_context & context,
++    uint32_t                               path) {
+     const bool has_mask  = context.src3 != nullptr;
+     const bool has_sinks = context.src4 != nullptr;
+-    const bool kv_direct = (context.src1->type == GGML_TYPE_F16) && (context.src0->ne[0] % context.sg_mat_k == 0) &&
+-                           (context.src1->ne[1] % GGML_WEBGPU_KV_SEQ_PAD == 0);
++    bool       kv_direct = false;
++    if (path != GGML_WEBGPU_FLASH_ATTN_PATH_TILE) {
++        uint32_t kv_direct_align = GGML_WEBGPU_FLASH_ATTN_TILE_KV_VEC_WIDTH;
++        if (path == GGML_WEBGPU_FLASH_ATTN_PATH_SUBGROUP_MATRIX) {
++            kv_direct_align = context.sg_mat_k;
++        }
++        kv_direct = (context.src1->type == GGML_TYPE_F16) &&
++                    (context.src0->ne[0] % std::max(1u, kv_direct_align) == 0) &&
++                    (context.src1->ne[1] % GGML_WEBGPU_KV_SEQ_PAD == 0);
++    }
+ 
+     ggml_webgpu_flash_attn_pipeline_key key = {};
+     key.kv_type                             = context.src1->type;
+     key.head_dim_qk                         = (uint32_t) context.src0->ne[0];
+     key.head_dim_v                          = (uint32_t) context.src2->ne[0];
+     key.kv_direct                           = kv_direct;
++    key.kv_overlap                          = context.src_overlap;
+     key.has_mask                            = has_mask;
+     key.has_sinks                           = has_sinks;
+     key.uses_logit_softcap                  = ggml_get_op_params_f32(context.dst, 2) != 0.0f;
++    key.path                                = path;
+     return key;
+ }
+ 
+@@ -492,8 +616,16 @@ inline size_t ggml_webgpu_flash_attn_wg_mem_bytes(uint32_t q_tile,
+ 
+ inline uint32_t ggml_webgpu_flash_attn_max_kv_tile(const ggml_webgpu_shader_lib_context &      context,
+                                                    const ggml_webgpu_flash_attn_pipeline_key & key) {
+-    const size_t limit_bytes  = context.wg_mem_limit_bytes;
+-    const size_t q_tile       = context.sg_mat_m;
++    const size_t limit_bytes    = context.wg_mem_limit_bytes;
++    uint32_t     q_tile         = context.sg_mat_m;
++    uint32_t     kv_granularity = context.sg_mat_n;
++    if (key.path == GGML_WEBGPU_FLASH_ATTN_PATH_TILE) {
++        q_tile         = GGML_WEBGPU_FLASH_ATTN_TILE_Q_TILE;
++        kv_granularity = std::max(1u, context.max_subgroup_size);
++    } else if (key.path == GGML_WEBGPU_FLASH_ATTN_PATH_VEC) {
++        q_tile         = 1u;
++        kv_granularity = 8u;
++    }
+     const size_t base_q_bytes = (key.head_dim_qk + key.head_dim_v) * q_tile * GGML_WEBGPU_F16_SIZE_BYTES +
+                                 2 * q_tile * GGML_WEBGPU_F32_SIZE_BYTES;
+     size_t bytes_per_kv = 0;
+@@ -506,23 +638,90 @@ inline uint32_t ggml_webgpu_flash_attn_max_kv_tile(const ggml_webgpu_shader_lib_
+     bytes_per_kv += q_tile;
+     bytes_per_kv *= GGML_WEBGPU_F16_SIZE_BYTES;
+     const uint32_t max_kv_tile = (limit_bytes - base_q_bytes) / bytes_per_kv;
+-    return (max_kv_tile / context.sg_mat_n) * context.sg_mat_n;
++    return (max_kv_tile / kv_granularity) * kv_granularity;
+ }
+ 
+-inline uint32_t ggml_webgpu_flash_attn_vec_get_kv_tile(const ggml_webgpu_shader_lib_context & context) {
+-    const ggml_webgpu_flash_attn_pipeline_key key         = ggml_webgpu_flash_attn_make_pipeline_key(context);
+-    const uint32_t                            min_kv_tile = ggml_webgpu_flash_attn_max_kv_tile(context, key);
+-    uint32_t                                  kv_tile     = std::max(context.sg_mat_n, std::min(32u, min_kv_tile));
+-    kv_tile                                               = (kv_tile / context.sg_mat_n) * context.sg_mat_n;
++inline ggml_webgpu_flash_attn_decisions ggml_webgpu_flash_attn_get_decisions(
++    const ggml_webgpu_shader_lib_context & context,
++    size_t                                 storage_offset_alignment) {
++    ggml_webgpu_flash_attn_decisions decisions = {};
++    const size_t                     alignment = std::max<size_t>(1u, storage_offset_alignment);
++    const auto *                     K         = context.src1;
++    const auto *                     V         = context.src2;
++    GGML_ASSERT(K != nullptr);
++    GGML_ASSERT(V != nullptr);
++
++    const auto flash_attn_tensor_offset = [](const ggml_tensor * tensor) -> size_t {
++        constexpr uintptr_t ptr_base_addr = 0x1000u;
++        const ggml_tensor * base          = tensor->view_src != nullptr ? tensor->view_src : tensor;
++        return reinterpret_cast<uintptr_t>(base->data) - ptr_base_addr + tensor->view_offs;
++    };
++
++    const uint32_t k_offset_elems =
++        (uint32_t) ((flash_attn_tensor_offset(K) & (alignment - 1)) / ggml_type_size(K->type));
++    const uint32_t v_offset_elems =
++        (uint32_t) ((flash_attn_tensor_offset(V) & (alignment - 1)) / ggml_type_size(V->type));
++    const bool f16_vec4_aligned = (k_offset_elems % GGML_WEBGPU_FLASH_ATTN_TILE_KV_VEC_WIDTH == 0u) &&
++                                  (v_offset_elems % GGML_WEBGPU_FLASH_ATTN_TILE_KV_VEC_WIDTH == 0u);
++    const bool kv_vec_type_supported =
++        K->type == GGML_TYPE_F16 || K->type == GGML_TYPE_Q4_0 || K->type == GGML_TYPE_Q8_0;
++    const bool use_vec = context.supports_subgroups && (context.src0->ne[1] < 20) && (context.src0->ne[0] % 32 == 0) &&
++                         (context.src2->ne[0] % GGML_WEBGPU_FLASH_ATTN_TILE_KV_VEC_WIDTH == 0) &&
++                         kv_vec_type_supported && (K->type != GGML_TYPE_F16 || f16_vec4_aligned) &&
++                         (context.src2->type == K->type);
++    const bool use_tile = context.supports_subgroups && !context.supports_subgroup_matrix && K->type == GGML_TYPE_F16 &&
++                          V->type == GGML_TYPE_F16 && f16_vec4_aligned &&
++                          (context.src0->ne[0] % GGML_WEBGPU_FLASH_ATTN_TILE_KV_VEC_WIDTH == 0) &&
++                          (context.src2->ne[0] % GGML_WEBGPU_FLASH_ATTN_TILE_KV_VEC_WIDTH == 0) && !use_vec;
++
++    decisions.path = use_vec  ? GGML_WEBGPU_FLASH_ATTN_PATH_VEC :
++                     use_tile ? GGML_WEBGPU_FLASH_ATTN_PATH_TILE :
++                                GGML_WEBGPU_FLASH_ATTN_PATH_SUBGROUP_MATRIX;
++
++    const ggml_webgpu_flash_attn_pipeline_key key = ggml_webgpu_flash_attn_make_pipeline_key(context, decisions.path);
++    decisions.kv_direct                           = key.kv_direct;
++
++    if (decisions.path == GGML_WEBGPU_FLASH_ATTN_PATH_VEC) {
++        const uint32_t min_kv_tile = ggml_webgpu_flash_attn_max_kv_tile(context, key);
++        decisions.q_tile           = 1u;
++        decisions.kv_tile          = std::max(8u, std::min(32u, min_kv_tile));
++        decisions.kv_tile          = (decisions.kv_tile / 8u) * 8u;
++        decisions.wg_size          = std::max(1u, std::min<uint32_t>(32u, context.max_subgroup_size));
++        if (decisions.kv_direct) {
++            decisions.kv_tile = std::min(decisions.kv_tile, GGML_WEBGPU_KV_SEQ_PAD);
++            while (GGML_WEBGPU_KV_SEQ_PAD % decisions.kv_tile != 0) {
++                decisions.kv_tile -= 8u;
++            }
++        }
++        return decisions;
++    }
++
++    decisions.q_tile =
++        decisions.path == GGML_WEBGPU_FLASH_ATTN_PATH_TILE ? GGML_WEBGPU_FLASH_ATTN_TILE_Q_TILE : context.sg_mat_m;
++    decisions.kv_tile = decisions.path == GGML_WEBGPU_FLASH_ATTN_PATH_TILE ?
++                            std::min(64u, ggml_webgpu_flash_attn_max_kv_tile(context, key)) :
++                            std::min(ggml_webgpu_flash_attn_max_kv_tile(context, key),
++                                     context.sg_mat_n * GGML_WEBGPU_FLASH_ATTN_PREFERRED_KV_SG_TILES);
++    decisions.wg_size = decisions.path == GGML_WEBGPU_FLASH_ATTN_PATH_TILE ?
++                            GGML_WEBGPU_FLASH_ATTN_PREFERRED_WG_SIZE :
++                            std::max(context.max_subgroup_size, GGML_WEBGPU_FLASH_ATTN_PREFERRED_WG_SIZE);
++
++    if (decisions.path == GGML_WEBGPU_FLASH_ATTN_PATH_TILE) {
++        const uint32_t tile_kv_granularity = std::max(1u, context.max_subgroup_size);
++        decisions.kv_tile =
++            std::max(tile_kv_granularity, (decisions.kv_tile / tile_kv_granularity) * tile_kv_granularity);
++    }
+ 
+-    if (key.kv_direct) {
+-        kv_tile = std::min(kv_tile, GGML_WEBGPU_KV_SEQ_PAD);
+-        while (GGML_WEBGPU_KV_SEQ_PAD % kv_tile != 0) {
+-            kv_tile -= context.sg_mat_n;
++    if (decisions.kv_direct) {
++        GGML_ASSERT(decisions.kv_tile <= GGML_WEBGPU_KV_SEQ_PAD);
++        while (GGML_WEBGPU_KV_SEQ_PAD % decisions.kv_tile != 0) {
++            decisions.kv_tile -= decisions.path == GGML_WEBGPU_FLASH_ATTN_PATH_TILE ?
++                                     std::max(1u, context.max_subgroup_size) :
++                                     context.sg_mat_n;
+         }
+     }
+ 
+-    return kv_tile;
++    return decisions;
+ }
+ 
+ /** Matrix Multiplication **/
+@@ -734,16 +933,19 @@ class ggml_webgpu_shader_lib {
      std::unordered_map<int, webgpu_pipeline> cumsum_pipelines;         // key is fixed, no variants yet
      std::unordered_map<ggml_webgpu_row_norm_pipeline_key, webgpu_pipeline, ggml_webgpu_row_norm_pipeline_key_hash>
          row_norm_pipelines;                                            // op/inplace
@@ -4352,10 +5779,21 @@ index 9d88f980..449eae80 100644
      std::unordered_map<ggml_webgpu_ssm_conv_pipeline_key, webgpu_pipeline, ggml_webgpu_ssm_conv_pipeline_key_hash>
 -        ssm_conv_pipelines;                                            // type/vectorized
 +        ssm_conv_pipelines;   // type/vectorized
++    std::unordered_map<ggml_webgpu_ssm_scan_pipeline_key, webgpu_pipeline, ggml_webgpu_ssm_scan_pipeline_key_hash>
++        ssm_scan_pipelines;   // type/d_state
      std::unordered_map<ggml_webgpu_gated_delta_net_pipeline_key,
                         webgpu_pipeline,
                         ggml_webgpu_gated_delta_net_pipeline_key_hash>
-@@ -789,6 +852,15 @@ class ggml_webgpu_shader_lib {
+@@ -758,8 +960,6 @@ class ggml_webgpu_shader_lib {
+         repeat_pipelines;           // type
+     std::unordered_map<ggml_webgpu_flash_attn_pipeline_key, webgpu_pipeline, ggml_webgpu_flash_attn_pipeline_key_hash>
+         flash_attn_pipelines;
+-    std::unordered_map<ggml_webgpu_flash_attn_pipeline_key, webgpu_pipeline, ggml_webgpu_flash_attn_pipeline_key_hash>
+-        flash_attn_vec_pipelines;
+     std::unordered_map<ggml_webgpu_flash_attn_vec_reduce_pipeline_key,
+                        webgpu_pipeline,
+                        ggml_webgpu_flash_attn_vec_reduce_pipeline_key_hash>
+@@ -789,6 +989,15 @@ class ggml_webgpu_shader_lib {
          rope_pipelines;
      std::unordered_map<ggml_webgpu_soft_max_pipeline_key, webgpu_pipeline, ggml_webgpu_soft_max_pipeline_key_hash>
          soft_max_pipelines;
@@ -4371,7 +5809,61 @@ index 9d88f980..449eae80 100644
  
    public:
      ggml_webgpu_shader_lib(wgpu::Device device) { this->device = device; }
-@@ -1805,6 +1877,43 @@ class ggml_webgpu_shader_lib {
+@@ -1249,6 +1458,53 @@ class ggml_webgpu_shader_lib {
+         return ssm_conv_pipelines[key];
+     }
+ 
++    webgpu_pipeline get_ssm_scan_pipeline(const ggml_webgpu_shader_lib_context & context) {
++        ggml_webgpu_ssm_scan_pipeline_key key = {};
++        key.type                              = context.dst->type;
++        key.d_state                           = (int) context.src0->ne[0];
++
++        auto it = ssm_scan_pipelines.find(key);
++        if (it != ssm_scan_pipelines.end()) {
++            return it->second;
++        }
++
++        std::vector<std::string> defines;
++        std::string              variant = "ssm_scan";
++
++        switch (key.type) {
++            case GGML_TYPE_F32:
++                variant += "_f32";
++                break;
++            default:
++                GGML_ABORT("Unsupported type for ssm_scan shader");
++        }
++
++        const uint32_t wg_size = (uint32_t) key.d_state;
++
++        constexpr uint32_t tokens_per_tile = 4u;
++
++        defines.push_back("WG_SIZE=" + std::to_string(wg_size) + "u");
++        defines.push_back("TOKENS_PER_TILE=" + std::to_string(tokens_per_tile) + "u");
++
++        if (context.supports_subgroups) {
++            defines.push_back("USE_SUBGROUP_REDUCTION");
++            variant += "_sg_reduce";
++        } else {
++            variant += "_wg_reduce";
++        }
++
++        variant += "_d" + std::to_string(key.d_state);
++
++        auto processed             = preprocessor.preprocess(wgsl_ssm_scan, defines);
++        auto decisions             = std::make_shared<ggml_webgpu_ssm_scan_shader_decisions>();
++        decisions->wg_size         = wg_size;
++        decisions->tokens_per_tile = tokens_per_tile;
++        webgpu_pipeline pipeline   = ggml_webgpu_create_pipeline(device, processed, variant);
++        pipeline.context           = decisions;
++        ssm_scan_pipelines[key]    = pipeline;
++        return ssm_scan_pipelines[key];
++    }
++
+     webgpu_pipeline get_gated_delta_net_pipeline(const ggml_webgpu_shader_lib_context & context) {
+         ggml_webgpu_gated_delta_net_pipeline_key key = {};
+         key.type                                     = context.dst->type;
+@@ -1805,6 +2061,43 @@ class ggml_webgpu_shader_lib {
          return unary_pipelines[key];
      }
  
@@ -4415,7 +5907,208 @@ index 9d88f980..449eae80 100644
      webgpu_pipeline get_binary_pipeline(const ggml_webgpu_shader_lib_context & context) {
          ggml_webgpu_binary_pipeline_key key = {};
          key.type                            = context.dst->type;
-@@ -2382,6 +2491,84 @@ class ggml_webgpu_shader_lib {
+@@ -1935,14 +2228,19 @@ class ggml_webgpu_shader_lib {
+         return repeat_pipelines[key];
+     }
+ 
+-    webgpu_pipeline get_flash_attn_pipeline(const ggml_webgpu_shader_lib_context & context) {
+-        const ggml_webgpu_flash_attn_pipeline_key key = ggml_webgpu_flash_attn_make_pipeline_key(context);
+-        auto                                      it  = flash_attn_pipelines.find(key);
++    webgpu_pipeline get_flash_attn_pipeline(const ggml_webgpu_shader_lib_context & context,
++                                            size_t                                 storage_offset_alignment) {
++        const ggml_webgpu_flash_attn_decisions decisions =
++            ggml_webgpu_flash_attn_get_decisions(context, storage_offset_alignment);
++        ggml_webgpu_flash_attn_pipeline_key key = ggml_webgpu_flash_attn_make_pipeline_key(context, decisions.path);
++        auto                                it  = flash_attn_pipelines.find(key);
+         if (it != flash_attn_pipelines.end()) {
+             return it->second;
+         }
+         std::vector<std::string> defines;
+-        std::string              variant = "flash_attn";
++        std::string              variant = decisions.path == GGML_WEBGPU_FLASH_ATTN_PATH_VEC  ? "flash_attn_vec" :
++                                           decisions.path == GGML_WEBGPU_FLASH_ATTN_PATH_TILE ? "flash_attn_tile" :
++                                                                                                "flash_attn";
+ 
+         switch (key.kv_type) {
+             case GGML_TYPE_F32:
+@@ -1964,7 +2262,12 @@ class ggml_webgpu_shader_lib {
+ 
+         if (key.has_mask) {
+             defines.push_back("MASK");
+-            variant += "_mask";
++            if (key.path == GGML_WEBGPU_FLASH_ATTN_PATH_VEC) {
++                defines.push_back("BLK");
++                variant += "_mask_blk";
++            } else {
++                variant += "_mask";
++            }
+         }
+         if (key.has_sinks) {
+             defines.push_back("SINKS");
+@@ -1978,6 +2281,10 @@ class ggml_webgpu_shader_lib {
+             defines.push_back("KV_DIRECT");
+             variant += "_kvdirect";
+         }
++        if (key.kv_overlap) {
++            defines.push_back("KV_OVERLAP");
++            variant += "_kv_overlap";
++        }
+ 
+         defines.push_back(std::string("HEAD_DIM_QK=") + std::to_string(key.head_dim_qk));
+         variant += std::string("_hsqk") + std::to_string(key.head_dim_qk);
+@@ -1985,129 +2292,37 @@ class ggml_webgpu_shader_lib {
+         defines.push_back(std::string("HEAD_DIM_V=") + std::to_string(key.head_dim_v));
+         variant += std::string("_hsv") + std::to_string(key.head_dim_v);
+ 
+-        defines.push_back(std::string("SG_MAT_M=") + std::to_string(context.sg_mat_m));
+-        defines.push_back(std::string("SG_MAT_N=") + std::to_string(context.sg_mat_n));
+-        defines.push_back(std::string("SG_MAT_K=") + std::to_string(context.sg_mat_k));
+-
+-        auto decisions    = std::make_shared<ggml_webgpu_flash_attn_decisions>();
+-        decisions->q_tile = context.sg_mat_m;
+-
+-        const uint32_t min_kv_tile = ggml_webgpu_flash_attn_max_kv_tile(context, key);
+-        uint32_t       kv_tile = std::min(min_kv_tile, context.sg_mat_n * GGML_WEBGPU_FLASH_ATTN_PREFERRED_KV_SG_TILES);
+-
+-        if (key.kv_direct) {
+-            kv_tile = std::min(kv_tile, GGML_WEBGPU_KV_SEQ_PAD);
+-            while (GGML_WEBGPU_KV_SEQ_PAD % kv_tile != 0) {
+-                kv_tile -= context.sg_mat_n;
+-            }
++        const char * shader_src = wgsl_flash_attn;
++        if (key.path == GGML_WEBGPU_FLASH_ATTN_PATH_VEC) {
++            defines.push_back("KV_GRANULARITY=8");
++            defines.push_back(std::string("VEC_NE=") + std::to_string(ggml_webgpu_flash_attn_pick_vec_ne(key)) + "u");
++            shader_src = wgsl_flash_attn_vec_split;
++        } else if (key.path == GGML_WEBGPU_FLASH_ATTN_PATH_TILE) {
++            shader_src = wgsl_flash_attn_tile;
++            defines.push_back("MAX_SUBGROUP_SIZE=" + std::to_string(context.max_subgroup_size));
++            defines.push_back("KV_STAGE_STRIDE=" + std::to_string(std::max(key.head_dim_qk, key.head_dim_v)));
++            variant += "_tile";
++        } else {
++            defines.push_back(std::string("SG_MAT_M=") + std::to_string(context.sg_mat_m));
++            defines.push_back(std::string("SG_MAT_N=") + std::to_string(context.sg_mat_n));
++            defines.push_back(std::string("SG_MAT_K=") + std::to_string(context.sg_mat_k));
+         }
+ 
+-        decisions->kv_tile = kv_tile;
+-        decisions->wg_size = std::max(context.max_subgroup_size, GGML_WEBGPU_FLASH_ATTN_PREFERRED_WG_SIZE);
+-
+-        defines.push_back(std::string("Q_TILE=") + std::to_string(decisions->q_tile));
+-        defines.push_back(std::string("KV_TILE=") + std::to_string(decisions->kv_tile));
+-        defines.push_back(std::string("WG_SIZE=") + std::to_string(decisions->wg_size));
++        auto pipeline_decisions = std::make_shared<ggml_webgpu_flash_attn_decisions>(decisions);
++        defines.push_back(std::string("Q_TILE=") + std::to_string(decisions.q_tile));
++        defines.push_back(std::string("KV_TILE=") + std::to_string(decisions.kv_tile));
++        defines.push_back(std::string("WG_SIZE=") + std::to_string(decisions.wg_size));
+ 
+         webgpu_pipeline pipeline =
+-            ggml_webgpu_create_pipeline(device, preprocessor.preprocess(wgsl_flash_attn, defines), variant);
+-        pipeline.context          = decisions;
++            ggml_webgpu_create_pipeline(device, preprocessor.preprocess(shader_src, defines), variant);
++        pipeline.context          = pipeline_decisions;
+         flash_attn_pipelines[key] = pipeline;
+         return flash_attn_pipelines[key];
+     }
+ 
+-    webgpu_pipeline get_flash_attn_vec_pipeline(const ggml_webgpu_shader_lib_context & context) {
+-        const ggml_webgpu_flash_attn_pipeline_key key = ggml_webgpu_flash_attn_make_pipeline_key(context);
+-        auto                                      it  = flash_attn_vec_pipelines.find(key);
+-        if (it != flash_attn_vec_pipelines.end()) {
+-            return it->second;
+-        }
+-
+-        std::vector<std::string> defines;
+-        std::string              variant = "flash_attn_vec";
+-
+-        switch (key.kv_type) {
+-            case GGML_TYPE_F32:
+-                defines.push_back("KV_F32");
+-                break;
+-            case GGML_TYPE_F16:
+-                defines.push_back("KV_F16");
+-                break;
+-            case GGML_TYPE_Q4_0:
+-                defines.push_back("KV_Q4_0");
+-                break;
+-            case GGML_TYPE_Q8_0:
+-                defines.push_back("KV_Q8_0");
+-                break;
+-            default:
+-                GGML_ABORT("Unsupported KV type for flash attention shader");
+-        }
+-        variant += std::string("_") + ggml_type_name(key.kv_type);
+-
+-        if (key.has_mask) {
+-            defines.push_back("MASK");
+-            defines.push_back("BLK");
+-            variant += "_mask_blk";
+-        }
+-        if (key.has_sinks) {
+-            defines.push_back("SINKS");
+-            variant += "_sinks";
+-        }
+-        if (key.uses_logit_softcap) {
+-            defines.push_back("LOGIT_SOFTCAP");
+-            variant += "_lgsc";
+-        }
+-        if (key.kv_direct) {
+-            defines.push_back("KV_DIRECT");
+-            variant += "_kvdirect";
+-        }
+-
+-        defines.push_back(std::string("HEAD_DIM_QK=") + std::to_string(key.head_dim_qk));
+-        variant += std::string("_hsqk") + std::to_string(key.head_dim_qk);
+-
+-        defines.push_back(std::string("HEAD_DIM_V=") + std::to_string(key.head_dim_v));
+-        variant += std::string("_hsv") + std::to_string(key.head_dim_v);
+-
+-        defines.push_back(std::string("SG_MAT_M=") + std::to_string(context.sg_mat_m));
+-        defines.push_back(std::string("SG_MAT_N=") + std::to_string(context.sg_mat_n));
+-        defines.push_back(std::string("SG_MAT_K=") + std::to_string(context.sg_mat_k));
+-        defines.push_back("Q_TILE=1");
+-
+-        auto decisions     = std::make_shared<ggml_webgpu_flash_attn_vec_decisions>();
+-        decisions->kv_tile = ggml_webgpu_flash_attn_vec_get_kv_tile(context);
+-        decisions->wg_size = std::max(1u, std::min<uint32_t>(32u, context.max_subgroup_size));
+-        uint32_t vec_ne    = 1u;
+-
+-        // Keep conservative defaults unless this is the f16 vec-split shape family.
+-        if (key.kv_type == GGML_TYPE_F16 && key.head_dim_qk == key.head_dim_v) {
+-            switch (key.head_dim_qk) {
+-                case 64:
+-                case 192:
+-                case 576:
+-                    vec_ne = 2u;
+-                    break;
+-                case 96:
+-                    vec_ne = 4u;
+-                    break;
+-                default:
+-                    break;
+-            }
+-        }
+-
+-        defines.push_back(std::string("KV_TILE=") + std::to_string(decisions->kv_tile));
+-        defines.push_back(std::string("WG_SIZE=") + std::to_string(decisions->wg_size));
+-        defines.push_back(std::string("VEC_NE=") + std::to_string(vec_ne) + "u");
+-
+-        webgpu_pipeline pipeline =
+-            ggml_webgpu_create_pipeline(device, preprocessor.preprocess(wgsl_flash_attn_vec_split, defines), variant);
+-        pipeline.context              = decisions;
+-        flash_attn_vec_pipelines[key] = pipeline;
+-        return flash_attn_vec_pipelines[key];
+-    }
+-
+-    webgpu_pipeline get_flash_attn_blk_pipeline(const ggml_webgpu_shader_lib_context & context) {
++    webgpu_pipeline get_flash_attn_blk_pipeline(const ggml_webgpu_shader_lib_context & context, uint32_t kv_tile) {
+         ggml_webgpu_flash_attn_blk_pipeline_key key = {};
+-        key.kv_tile                                 = ggml_webgpu_flash_attn_vec_get_kv_tile(context);
++        key.kv_tile                                 = kv_tile;
+         auto it                                     = flash_attn_blk_pipelines.find(key);
+         if (it != flash_attn_blk_pipelines.end()) {
+             return it->second;
+@@ -2382,6 +2597,84 @@ class ggml_webgpu_shader_lib {
          return soft_max_pipelines[key];
      }
  
@@ -4501,7 +6194,7 @@ index 9d88f980..449eae80 100644
      static webgpu_pipeline ggml_webgpu_create_pipeline(wgpu::Device & device,
                                                         std::string    shader_code,
 diff --git src/ggml-webgpu/ggml-webgpu.cpp src/ggml-webgpu/ggml-webgpu.cpp
-index aa20a745..acc486cf 100644
+index aa20a745..bcec20c1 100644
 --- src/ggml-webgpu/ggml-webgpu.cpp
 +++ src/ggml-webgpu/ggml-webgpu.cpp
 @@ -8,6 +8,7 @@
@@ -4549,7 +6242,31 @@ index aa20a745..acc486cf 100644
  #endif
  
      ~webgpu_context_struct() {
-@@ -713,12 +712,12 @@ static void ggml_backend_webgpu_free(ggml_backend_t backend) {
+@@ -390,23 +389,6 @@ static size_t ggml_webgpu_tensor_misalignment(webgpu_context & ctx, const ggml_t
+     return offset & (ctx->global_ctx->capabilities.limits.minStorageBufferOffsetAlignment - 1);
+ }
+ 
+-static bool ggml_webgpu_flash_attn_use_vec(webgpu_global_context & global_ctx,
+-                                           const ggml_tensor *     Q,
+-                                           const ggml_tensor *     K,
+-                                           const ggml_tensor *     V) {
+-    const size_t   alignment = global_ctx->capabilities.limits.minStorageBufferOffsetAlignment;
+-    const uint32_t k_offset_elems =
+-        (uint32_t) ((ggml_webgpu_tensor_offset(K) & (alignment - 1)) / ggml_type_size(K->type));
+-    const uint32_t v_offset_elems =
+-        (uint32_t) ((ggml_webgpu_tensor_offset(V) & (alignment - 1)) / ggml_type_size(V->type));
+-    const bool f16_vec4_aligned = (k_offset_elems % 4u == 0u) && (v_offset_elems % 4u == 0u);
+-    const bool kv_vec_type_supported =
+-        K->type == GGML_TYPE_F16 || K->type == GGML_TYPE_Q4_0 || K->type == GGML_TYPE_Q8_0;
+-
+-    return (Q->ne[1] < 20) && (Q->ne[0] % 32 == 0) && (V->ne[0] % 4 == 0) && kv_vec_type_supported &&
+-           (K->type != GGML_TYPE_F16 || f16_vec4_aligned) && (V->type == K->type);
+-}
+-
+ static size_t ggml_webgpu_tensor_align_offset(webgpu_context & ctx, const ggml_tensor * t) {
+     size_t offset = ggml_webgpu_tensor_offset(t);
+     return offset & ~(ctx->global_ctx->capabilities.limits.minStorageBufferOffsetAlignment - 1);
+@@ -713,12 +695,12 @@ static void ggml_backend_webgpu_free(ggml_backend_t backend) {
  #ifdef GGML_WEBGPU_GPU_PROFILE
      std::cout << "\n[ggml_webgpu gpu profiling summary]\n";
      double total_gpu = 0.0;
@@ -4564,7 +6281,7 @@ index aa20a745..acc486cf 100644
          double pct = (total_gpu > 0.0) ? (kv.second / total_gpu * 100.0) : 0.0;
          std::cout << "ggml_webgpu:  " << kv.first << ": " << kv.second << " ms (" << std::fixed << std::setprecision(2)
                    << pct << "%)\n";
-@@ -923,6 +922,170 @@ static webgpu_encoded_op ggml_webgpu_solve_tri(webgpu_context & ctx,
+@@ -923,6 +905,170 @@ static webgpu_encoded_op ggml_webgpu_solve_tri(webgpu_context & ctx,
      return ggml_backend_webgpu_build(ctx, pipeline, params, entries, wg_x, wg_y);
  }
  
@@ -4735,7 +6452,240 @@ index aa20a745..acc486cf 100644
  static webgpu_encoded_op ggml_webgpu_ssm_conv(webgpu_context & ctx,
                                                ggml_tensor *    src0,
                                                ggml_tensor *    src1,
-@@ -1892,6 +2055,96 @@ static webgpu_encoded_op ggml_webgpu_repeat(webgpu_context & ctx, ggml_tensor *
+@@ -969,6 +1115,80 @@ static webgpu_encoded_op ggml_webgpu_ssm_conv(webgpu_context & ctx,
+     return ggml_backend_webgpu_build(ctx, pipeline, params, entries, wg_x, wg_y);
+ }
+ 
++static webgpu_encoded_op ggml_webgpu_ssm_scan(webgpu_context & ctx,
++                                              ggml_tensor *    src0,
++                                              ggml_tensor *    src1,
++                                              ggml_tensor *    src2,
++                                              ggml_tensor *    src3,
++                                              ggml_tensor *    src4,
++                                              ggml_tensor *    src5,
++                                              ggml_tensor *    src6,
++                                              ggml_tensor *    dst) {
++    ggml_webgpu_shader_lib_context shader_lib_ctx = {};
++    shader_lib_ctx.src0                           = src0;
++    shader_lib_ctx.dst                            = dst;
++    shader_lib_ctx.max_wg_size        = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup;
++    shader_lib_ctx.supports_subgroups = ctx->global_ctx->capabilities.supports_subgroups;
++
++    webgpu_pipeline pipeline = ctx->shader_lib->get_ssm_scan_pipeline(shader_lib_ctx);
++
++    std::vector<uint32_t> params = {
++        (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, src0) / ggml_type_size(src0->type)),
++        (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, src1) / ggml_type_size(src1->type)),
++        (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, src2) / ggml_type_size(src2->type)),
++        (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, src3) / ggml_type_size(src3->type)),
++        (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, src4) / ggml_type_size(src4->type)),
++        (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, src5) / ggml_type_size(src5->type)),
++        (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, src6) / ggml_type_size(src6->type)),
++        (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, dst) / ggml_type_size(dst->type)),
++
++        (uint32_t) (src0->nb[1] / ggml_type_size(src0->type)),
++        (uint32_t) (src0->nb[2] / ggml_type_size(src0->type)),
++        (uint32_t) (src0->nb[3] / ggml_type_size(src0->type)),
++
++        (uint32_t) (src1->nb[1] / ggml_type_size(src1->type)),
++        (uint32_t) (src1->nb[2] / ggml_type_size(src1->type)),
++        (uint32_t) (src1->nb[3] / ggml_type_size(src1->type)),
++
++        (uint32_t) (src2->nb[1] / ggml_type_size(src2->type)),
++        (uint32_t) (src2->nb[2] / ggml_type_size(src2->type)),
++
++        (uint32_t) src3->ne[0],
++        (uint32_t) (src3->nb[1] / ggml_type_size(src3->type)),
++
++        (uint32_t) (src4->nb[1] / ggml_type_size(src4->type)),
++        (uint32_t) (src4->nb[2] / ggml_type_size(src4->type)),
++        (uint32_t) (src4->nb[3] / ggml_type_size(src4->type)),
++
++        (uint32_t) (src5->nb[1] / ggml_type_size(src5->type)),
++        (uint32_t) (src5->nb[2] / ggml_type_size(src5->type)),
++        (uint32_t) (src5->nb[3] / ggml_type_size(src5->type)),
++
++        (uint32_t) src0->ne[0],
++        (uint32_t) src0->ne[1],
++        (uint32_t) src0->ne[2],
++        (uint32_t) src4->ne[1],
++        (uint32_t) src1->ne[2],
++        (uint32_t) src1->ne[3],
++        (uint32_t) ggml_nelements(src1),
++    };
++
++    std::vector<wgpu::BindGroupEntry> entries = {
++        ggml_webgpu_make_tensor_bind_group_entry(ctx, 0, src0), ggml_webgpu_make_tensor_bind_group_entry(ctx, 1, src1),
++        ggml_webgpu_make_tensor_bind_group_entry(ctx, 2, src2), ggml_webgpu_make_tensor_bind_group_entry(ctx, 3, src3),
++        ggml_webgpu_make_tensor_bind_group_entry(ctx, 4, src4), ggml_webgpu_make_tensor_bind_group_entry(ctx, 5, src5),
++        ggml_webgpu_make_tensor_bind_group_entry(ctx, 6, src6), ggml_webgpu_make_tensor_bind_group_entry(ctx, 7, dst),
++    };
++
++    const uint32_t total_wg       = (uint32_t) (src0->ne[1] * src0->ne[2] * src1->ne[3]);
++    const uint32_t max_wg_per_dim = ctx->global_ctx->capabilities.limits.maxComputeWorkgroupsPerDimension;
++    uint32_t       wg_x;
++    uint32_t       wg_y;
++    compute_2d_workgroups(total_wg, max_wg_per_dim, wg_x, wg_y);
++
++    return ggml_backend_webgpu_build(ctx, pipeline, params, entries, wg_x, wg_y);
++}
++
+ static webgpu_encoded_op ggml_webgpu_gated_delta_net(webgpu_context & ctx,
+                                                      ggml_tensor *    src0,
+                                                      ggml_tensor *    src1,
+@@ -1404,7 +1624,6 @@ static webgpu_encoded_op ggml_webgpu_mul_mat_id(webgpu_context & ctx,
+     return ggml_backend_webgpu_build_multi(ctx, dispatches);
+ }
+ 
+-#ifndef __EMSCRIPTEN__
+ static webgpu_encoded_op ggml_webgpu_flash_attn(webgpu_context & ctx,
+                                                 ggml_tensor *    Q,
+                                                 ggml_tensor *    K,
+@@ -1422,13 +1641,29 @@ static webgpu_encoded_op ggml_webgpu_flash_attn(webgpu_context & ctx,
+     float m0          = powf(2.0f, -(max_bias) / n_head_log2);
+     float m1          = powf(2.0f, -(max_bias / 2.0f) / n_head_log2);
+ 
+-    const int has_mask  = (mask != nullptr);
+-    const int has_sinks = (sinks != nullptr);
++    const int  has_mask   = (mask != nullptr);
++    const int  has_sinks  = (sinks != nullptr);
++    const bool kv_overlap = ggml_webgpu_tensor_overlap(K, V) && K->type == V->type;
++
++    uint32_t offset_k       = (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, K) / ggml_type_size(K->type));
++    uint32_t offset_v       = (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, V) / ggml_type_size(V->type));
++    size_t   kv_bind_offset = 0;
++    size_t   kv_bind_size   = 0;
++    if (kv_overlap) {
++        const size_t k_bind_offset = ggml_webgpu_tensor_align_offset(ctx, K);
++        const size_t v_bind_offset = ggml_webgpu_tensor_align_offset(ctx, V);
++        const size_t k_bind_end    = k_bind_offset + ggml_webgpu_tensor_binding_size(ctx, K);
++        const size_t v_bind_end    = v_bind_offset + ggml_webgpu_tensor_binding_size(ctx, V);
++        kv_bind_offset             = std::min(k_bind_offset, v_bind_offset);
++        kv_bind_size               = std::max(k_bind_end, v_bind_end) - kv_bind_offset;
++        offset_k = (uint32_t) ((ggml_webgpu_tensor_offset(K) - kv_bind_offset) / ggml_type_size(K->type));
++        offset_v = (uint32_t) ((ggml_webgpu_tensor_offset(V) - kv_bind_offset) / ggml_type_size(V->type));
++    }
+ 
+     std::vector<uint32_t> params = {
+         (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, Q) / ggml_type_size(Q->type)),
+-        (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, K) / ggml_type_size(K->type)),
+-        (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, V) / ggml_type_size(V->type)),
++        offset_k,
++        offset_v,
+         has_mask ? (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, mask) / ggml_type_size(mask->type)) : 0,
+         has_sinks ? (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, sinks) / ggml_type_size(sinks->type)) : 0,
+         (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, dst) / ggml_type_size(dst->type)),
+@@ -1456,10 +1691,15 @@ static webgpu_encoded_op ggml_webgpu_flash_attn(webgpu_context & ctx,
+     };
+     std::vector<wgpu::BindGroupEntry> entries = {
+         ggml_webgpu_make_tensor_bind_group_entry(ctx, 0, Q),
+-        ggml_webgpu_make_tensor_bind_group_entry(ctx, 1, K),
+-        ggml_webgpu_make_tensor_bind_group_entry(ctx, 2, V),
+     };
+-    uint32_t binding_index = 3;
++    if (kv_overlap) {
++        entries.push_back(
++            ggml_webgpu_make_bind_group_entry(1, ggml_webgpu_tensor_buf(K), kv_bind_offset, kv_bind_size));
++    } else {
++        entries.push_back(ggml_webgpu_make_tensor_bind_group_entry(ctx, 1, K));
++        entries.push_back(ggml_webgpu_make_tensor_bind_group_entry(ctx, 2, V));
++    }
++    uint32_t binding_index = kv_overlap ? 2u : 3u;
+     if (has_mask) {
+         entries.push_back(ggml_webgpu_make_tensor_bind_group_entry(ctx, binding_index++, mask));
+     }
+@@ -1475,25 +1715,25 @@ static webgpu_encoded_op ggml_webgpu_flash_attn(webgpu_context & ctx,
+     shader_lib_ctx.src3                           = mask;
+     shader_lib_ctx.src4                           = sinks;
+     shader_lib_ctx.dst                            = dst;
++    shader_lib_ctx.src_overlap                    = kv_overlap;
++    shader_lib_ctx.supports_subgroups             = ctx->global_ctx->capabilities.supports_subgroups;
++    shader_lib_ctx.supports_subgroup_matrix       = ctx->global_ctx->capabilities.supports_subgroup_matrix;
+     shader_lib_ctx.max_wg_size        = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup;
+     shader_lib_ctx.wg_mem_limit_bytes = ctx->global_ctx->capabilities.limits.maxComputeWorkgroupStorageSize;
+     shader_lib_ctx.sg_mat_m           = ctx->global_ctx->capabilities.sg_mat_m;
+     shader_lib_ctx.sg_mat_n           = ctx->global_ctx->capabilities.sg_mat_n;
+     shader_lib_ctx.sg_mat_k           = ctx->global_ctx->capabilities.sg_mat_k;
+     shader_lib_ctx.max_subgroup_size  = ctx->global_ctx->capabilities.max_subgroup_size;
+-    const bool      use_vec           = ggml_webgpu_flash_attn_use_vec(ctx->global_ctx, Q, K, V);
+-    webgpu_pipeline pipeline          = use_vec ? ctx->shader_lib->get_flash_attn_vec_pipeline(shader_lib_ctx) :
+-                                                  ctx->shader_lib->get_flash_attn_pipeline(shader_lib_ctx);
++    webgpu_pipeline pipeline          = ctx->shader_lib->get_flash_attn_pipeline(
++        shader_lib_ctx, ctx->global_ctx->capabilities.limits.minStorageBufferOffsetAlignment);
++    auto * decisions = static_cast<ggml_webgpu_flash_attn_decisions *>(pipeline.context.get());
+ 
+-    if (!use_vec) {
+-        auto *   decisions   = static_cast<ggml_webgpu_flash_attn_decisions *>(pipeline.context.get());
++    if (decisions->path != GGML_WEBGPU_FLASH_ATTN_PATH_VEC) {
+         uint32_t wg_per_head = CEIL_DIV(Q->ne[1], decisions->q_tile);
+         uint32_t wg_x        = wg_per_head * Q->ne[2] * Q->ne[3];  // wg per head * number of heads * number of batches
+         return ggml_backend_webgpu_build(ctx, pipeline, params, entries, wg_x);
+     }
+ 
+-    auto * decisions = static_cast<ggml_webgpu_flash_attn_vec_decisions *>(pipeline.context.get());
+-
+     wgpu::Buffer blk_buf         = {};
+     uint64_t     blk_size_bytes  = 0;
+     uint32_t     blk_nblk0       = 0;
+@@ -1532,10 +1772,12 @@ static webgpu_encoded_op ggml_webgpu_flash_attn(webgpu_context & ctx,
+         tmp_bind_size   = tmp_size_bytes;
+         scratch_offset  = ROUNDUP_POW2(scratch_offset + tmp_size_bytes, align_bytes);
+     } else {
+-        // nwg==1 writes final dst directly in vec-split; keep tmp binding valid without extra allocation.
++        // nwg==1 writes final dst directly in vec-split; bind tmp to a tiny non-overlapping scratch region.
++        tmp_size_bytes  = WEBGPU_STORAGE_BUF_BINDING_MULT;
+         tmp_buf         = ggml_webgpu_tensor_buf(dst);
+-        tmp_bind_offset = ggml_webgpu_tensor_align_offset(ctx, dst);
+-        tmp_bind_size   = ggml_webgpu_tensor_binding_size(ctx, dst);
++        tmp_bind_offset = scratch_offset;
++        tmp_bind_size   = tmp_size_bytes;
++        scratch_offset  = ROUNDUP_POW2(scratch_offset + tmp_size_bytes, align_bytes);
+     }
+ 
+     webgpu_pipeline                   blk_pipeline;
+@@ -1550,7 +1792,7 @@ static webgpu_encoded_op ggml_webgpu_flash_attn(webgpu_context & ctx,
+         const uint64_t blk_elems    = (uint64_t) blk_nblk0 * blk_nblk1 * blk_batch_count;
+         blk_size_bytes              = ROUNDUP_POW2(blk_elems * sizeof(uint32_t), WEBGPU_STORAGE_BUF_BINDING_MULT);
+         const ggml_webgpu_shader_lib_context blk_shader_ctx = shader_lib_ctx;
+-        blk_pipeline = ctx->shader_lib->get_flash_attn_blk_pipeline(blk_shader_ctx);
++        blk_pipeline = ctx->shader_lib->get_flash_attn_blk_pipeline(blk_shader_ctx, decisions->kv_tile);
+ 
+         blk_params = {
+             (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, mask) / ggml_type_size(mask->type)),  // offset_mask
+@@ -1582,12 +1824,19 @@ static webgpu_encoded_op ggml_webgpu_flash_attn(webgpu_context & ctx,
+     std::vector<wgpu::BindGroupEntry> split_entries = {
+         ggml_webgpu_make_bind_group_entry(0, ggml_webgpu_tensor_buf(Q), ggml_webgpu_tensor_align_offset(ctx, Q),
+                                           ggml_webgpu_tensor_binding_size(ctx, Q)),
+-        ggml_webgpu_make_bind_group_entry(1, ggml_webgpu_tensor_buf(K), ggml_webgpu_tensor_align_offset(ctx, K),
+-                                          ggml_webgpu_tensor_binding_size(ctx, K)),
+-        ggml_webgpu_make_bind_group_entry(2, ggml_webgpu_tensor_buf(V), ggml_webgpu_tensor_align_offset(ctx, V),
+-                                          ggml_webgpu_tensor_binding_size(ctx, V)),
+     };
+-    uint32_t split_binding_index = 3;
++    if (kv_overlap) {
++        split_entries.push_back(
++            ggml_webgpu_make_bind_group_entry(1, ggml_webgpu_tensor_buf(K), kv_bind_offset, kv_bind_size));
++    } else {
++        split_entries.push_back(ggml_webgpu_make_bind_group_entry(1, ggml_webgpu_tensor_buf(K),
++                                                                  ggml_webgpu_tensor_align_offset(ctx, K),
++                                                                  ggml_webgpu_tensor_binding_size(ctx, K)));
++        split_entries.push_back(ggml_webgpu_make_bind_group_entry(2, ggml_webgpu_tensor_buf(V),
++                                                                  ggml_webgpu_tensor_align_offset(ctx, V),
++                                                                  ggml_webgpu_tensor_binding_size(ctx, V)));
++    }
++    uint32_t split_binding_index = kv_overlap ? 2u : 3u;
+     if (has_mask) {
+         split_entries.push_back(ggml_webgpu_make_bind_group_entry(split_binding_index++, ggml_webgpu_tensor_buf(mask),
+                                                                   ggml_webgpu_tensor_align_offset(ctx, mask),
+@@ -1657,7 +1906,6 @@ static webgpu_encoded_op ggml_webgpu_flash_attn(webgpu_context & ctx,
+ 
+     return ggml_backend_webgpu_build_multi(ctx, dispatches);
+ }
+-#endif  // __EMSCRIPTEN__
+ 
+ static webgpu_encoded_op ggml_webgpu_unary_op(webgpu_context & ctx, ggml_tensor * src, ggml_tensor * dst) {
+     bool is_unary = dst->op == GGML_OP_UNARY;
+@@ -1892,6 +2140,96 @@ static webgpu_encoded_op ggml_webgpu_repeat(webgpu_context & ctx, ggml_tensor *
      return ggml_backend_webgpu_build(ctx, pipeline, params, entries, wg_x);
  }
  
@@ -4832,7 +6782,7 @@ index aa20a745..acc486cf 100644
  static webgpu_encoded_op ggml_webgpu_row_norm(webgpu_context & ctx, ggml_tensor * src, ggml_tensor * dst) {
      bool inplace = ggml_webgpu_tensor_equal(src, dst);
  
-@@ -2388,15 +2641,48 @@ static webgpu_encoded_op ggml_webgpu_sum_rows(webgpu_context & ctx, ggml_tensor
+@@ -2388,15 +2726,48 @@ static webgpu_encoded_op ggml_webgpu_sum_rows(webgpu_context & ctx, ggml_tensor
      return ggml_backend_webgpu_build(ctx, pipeline, params, entries, wg_x);
  }
  
@@ -4883,7 +6833,19 @@ index aa20a745..acc486cf 100644
  
      ggml_tensor * src0 = node->src[0];
      ggml_tensor * src1 = node->src[1];
-@@ -2439,6 +2725,13 @@ static std::optional<webgpu_encoded_op> ggml_webgpu_encode_node(webgpu_context c
+@@ -2424,11 +2795,7 @@ static std::optional<webgpu_encoded_op> ggml_webgpu_encode_node(webgpu_context c
+         case GGML_OP_MUL_MAT_ID:
+             return ggml_webgpu_mul_mat_id(ctx, src0, src1, src2, node);
+         case GGML_OP_FLASH_ATTN_EXT:
+-#ifndef __EMSCRIPTEN__
+             return ggml_webgpu_flash_attn(ctx, src0, src1, src2, node->src[3], node->src[4], node);
+-#else
+-            return std::nullopt;
+-#endif
+         case GGML_OP_ADD:
+         case GGML_OP_SUB:
+         case GGML_OP_MUL:
+@@ -2439,6 +2806,13 @@ static std::optional<webgpu_encoded_op> ggml_webgpu_encode_node(webgpu_context c
          case GGML_OP_REPEAT:
              return ggml_webgpu_repeat(ctx, src0, node);
          case GGML_OP_RMS_NORM:
@@ -4897,7 +6859,17 @@ index aa20a745..acc486cf 100644
          case GGML_OP_L2_NORM:
              return ggml_webgpu_row_norm(ctx, src0, node);
          case GGML_OP_ROPE:
-@@ -2479,6 +2772,10 @@ static std::optional<webgpu_encoded_op> ggml_webgpu_encode_node(webgpu_context c
+@@ -2464,6 +2838,9 @@ static std::optional<webgpu_encoded_op> ggml_webgpu_encode_node(webgpu_context c
+             return ggml_webgpu_solve_tri(ctx, src0, src1, node);
+         case GGML_OP_SSM_CONV:
+             return ggml_webgpu_ssm_conv(ctx, src0, src1, node);
++        case GGML_OP_SSM_SCAN:
++            return ggml_webgpu_ssm_scan(ctx, src0, src1, src2, node->src[3], node->src[4], node->src[5], node->src[6],
++                                        node);
+         case GGML_OP_GATED_DELTA_NET:
+             return ggml_webgpu_gated_delta_net(ctx, src0, src1, src2, node->src[3], node->src[4], node->src[5], node);
+         case GGML_OP_PAD:
+@@ -2479,6 +2856,10 @@ static std::optional<webgpu_encoded_op> ggml_webgpu_encode_node(webgpu_context c
          case GGML_OP_SUM:
          case GGML_OP_SUM_ROWS:
              return ggml_webgpu_sum_rows(ctx, src0, node);
@@ -4908,7 +6880,7 @@ index aa20a745..acc486cf 100644
          default:
              return std::nullopt;
      }
-@@ -2511,7 +2808,7 @@ static void ggml_backend_webgpu_collect_profile_results(webgpu_context &
+@@ -2511,14 +2892,17 @@ static void ggml_backend_webgpu_collect_profile_results(webgpu_context &
      for (size_t i = 0; i < pipeline_names.size(); ++i) {
          // WebGPU timestamps are in ns; convert to ms.
          const double elapsed_ms = double(ts_data[2 * i + 1] - ts_data[2 * i]) * 1e-6;
@@ -4917,7 +6889,28 @@ index aa20a745..acc486cf 100644
      }
  
      ctx->profile_timestamp_host_buf.Unmap();
-@@ -2547,6 +2844,8 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
+ }
+ #endif
+ 
++// Don't bother checking set_rows index overflow for now, since practically the WebGPU doesn't need to support
++// models that would require it right now.
+ static void ggml_backend_webgpu_check_set_rows(webgpu_context & ctx, uint32_t & num_inflight_batches) {
++#ifdef GGML_WEBGPU_CHECK_SET_ROWS
+     wgpu::CommandEncoder encoder = ctx->global_ctx->device.CreateCommandEncoder();
+     encoder.CopyBufferToBuffer(ctx->set_rows_dev_error_buf, 0, ctx->set_rows_host_error_buf, 0,
+                                ctx->set_rows_host_error_buf.GetSize());
+@@ -2531,6 +2915,10 @@ static void ggml_backend_webgpu_check_set_rows(webgpu_context & ctx, uint32_t &
+         GGML_ABORT("ggml_webgpu: SET_ROWS index > 2^32, unsupported.");
+     }
+     ctx->set_rows_host_error_buf.Unmap();
++#else
++    GGML_UNUSED(ctx);
++    GGML_UNUSED(num_inflight_batches);
++#endif
+ }
+ 
+ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, struct ggml_cgraph * cgraph) {
+@@ -2547,6 +2935,8 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
      uint32_t num_inflight_batches = 0;
      bool     contains_set_rows    = false;
      bool     batch_compute_passes = true;
@@ -4926,7 +6919,7 @@ index aa20a745..acc486cf 100644
  
  #ifdef GGML_WEBGPU_GPU_PROFILE
      ctx->profile_timestamp_query_count = 0;
-@@ -2559,11 +2858,11 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
+@@ -2559,11 +2949,11 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
          ctx->active_compute_pass = ctx->active_command_encoder.BeginComputePass();
      }
  
@@ -4941,7 +6934,7 @@ index aa20a745..acc486cf 100644
              commands.push_back(*cmd);
              num_batched_kernels += cmd.value().num_kernels;
  #ifdef GGML_WEBGPU_GPU_PROFILE
-@@ -2588,6 +2887,9 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
+@@ -2588,6 +2978,9 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
              ctx->param_arena.reset();
              commands.clear();
          }
@@ -4951,7 +6944,13 @@ index aa20a745..acc486cf 100644
      }
  
      if (ctx->active_compute_pass) {
-@@ -2617,22 +2919,107 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
+@@ -2611,28 +3004,111 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
+         ggml_backend_webgpu_check_set_rows(ctx, num_inflight_batches);
+     }
+ 
+-    ggml_backend_webgpu_wait_queue(ctx->global_ctx);
+-
+     WEBGPU_CPU_PROFILE_TOTAL_END(graph_compute, ctx->global_ctx);
      return GGML_STATUS_SUCCESS;
  }
  
@@ -5063,7 +7062,163 @@ index aa20a745..acc486cf 100644
      /* .graph_optimize          = */ NULL,
  };
  
-@@ -3497,6 +3884,15 @@ static bool ggml_backend_webgpu_device_supports_op(ggml_backend_dev_t dev, const
+@@ -2870,13 +3346,19 @@ static size_t ggml_backend_webgpu_buffer_type_get_alloc_size(ggml_backend_buffer
+                         ctx->webgpu_global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup;
+                     shader_lib_ctx.wg_mem_limit_bytes =
+                         ctx->webgpu_global_ctx->capabilities.limits.maxComputeWorkgroupStorageSize;
++                    shader_lib_ctx.supports_subgroups = ctx->webgpu_global_ctx->capabilities.supports_subgroups;
++                    shader_lib_ctx.supports_subgroup_matrix =
++                        ctx->webgpu_global_ctx->capabilities.supports_subgroup_matrix;
+                     shader_lib_ctx.sg_mat_m          = ctx->webgpu_global_ctx->capabilities.sg_mat_m;
+                     shader_lib_ctx.sg_mat_n          = ctx->webgpu_global_ctx->capabilities.sg_mat_n;
+                     shader_lib_ctx.sg_mat_k          = ctx->webgpu_global_ctx->capabilities.sg_mat_k;
+                     shader_lib_ctx.max_subgroup_size = ctx->webgpu_global_ctx->capabilities.max_subgroup_size;
+ 
+-                    if (ggml_webgpu_flash_attn_use_vec(ctx->webgpu_global_ctx, Q, K, V)) {
+-                        const uint32_t kv_tile = ggml_webgpu_flash_attn_vec_get_kv_tile(shader_lib_ctx);
++                    const ggml_webgpu_flash_attn_decisions decisions = ggml_webgpu_flash_attn_get_decisions(
++                        shader_lib_ctx, ctx->webgpu_global_ctx->capabilities.limits.minStorageBufferOffsetAlignment);
++
++                    if (decisions.path == GGML_WEBGPU_FLASH_ATTN_PATH_VEC) {
++                        const uint32_t kv_tile = decisions.kv_tile;
+ 
+                         const uint32_t vec_nwg_cap = std::max(
+                             1u, std::min<uint32_t>(32u, ctx->webgpu_global_ctx->capabilities.max_subgroup_size));
+@@ -2896,6 +3378,8 @@ static size_t ggml_backend_webgpu_buffer_type_get_alloc_size(ggml_backend_buffer
+                             const size_t   tmp_size_bytes  = ROUNDUP_POW2(
+                                 (tmp_data_elems + tmp_stats_elems) * sizeof(float), WEBGPU_STORAGE_BUF_BINDING_MULT);
+                             res += tmp_size_bytes + align;
++                        } else {
++                            res += WEBGPU_STORAGE_BUF_BINDING_MULT + align;
+                         }
+                         if (mask != nullptr) {
+                             const uint32_t blk_nblk0       = CEIL_DIV((uint32_t) K->ne[1], kv_tile);
+@@ -3044,12 +3528,12 @@ static bool create_webgpu_device(ggml_backend_webgpu_reg_context * ctx) {
+     ctx->webgpu_global_ctx->capabilities.supports_subgroups =
+         ctx->webgpu_global_ctx->adapter.HasFeature(wgpu::FeatureName::Subgroups);
+ 
++    bool valid_subgroup_matrix_config = false;
+ #ifndef __EMSCRIPTEN__
+     // Accept f16 subgroup matrix configurations (square or non-square).
+     // NVIDIA GPUs typically report square configs (e.g. 16x16x16),
+     // while Intel Xe2 GPUs report non-square configs (e.g. 8x16x16).
+     // The shaders are already parameterized to handle any M/N/K dimensions.
+-    bool valid_subgroup_matrix_config = false;
+     if (ctx->webgpu_global_ctx->adapter.HasFeature(wgpu::FeatureName::ChromiumExperimentalSubgroupMatrix)) {
+         for (size_t i = 0; i < subgroup_matrix_configs.configCount; i++) {
+             const wgpu::SubgroupMatrixConfig config = subgroup_matrix_configs.configs[i];
+@@ -3063,8 +3547,8 @@ static bool create_webgpu_device(ggml_backend_webgpu_reg_context * ctx) {
+             }
+         }
+     }
+-    ctx->webgpu_global_ctx->capabilities.supports_subgroup_matrix = valid_subgroup_matrix_config;
+ #endif
++    ctx->webgpu_global_ctx->capabilities.supports_subgroup_matrix = valid_subgroup_matrix_config;
+ 
+     // For subgroup matrix code to be the most efficient, we would like the subgroup size to be consistent and accurate.
+     // Unfortunately, that is not possible, so we use the maximum subgroup size reported by the adapter.
+@@ -3112,12 +3596,12 @@ static bool create_webgpu_device(ggml_backend_webgpu_reg_context * ctx) {
+     // Enable Dawn-specific toggles to increase native performance
+     // TODO: Maybe WebGPU needs a "fast" mode where you can request compilers skip adding checks like these,
+     //       only for native performance?
+-    const char * const deviceEnabledToggles[]  = { "skip_validation", "disable_robustness", "disable_workgroup_init",
+-                                                   "disable_polyfills_on_integer_div_and_mod" };
+-    const char * const deviceDisabledToggles[] = { "timestamp_quantization" };
++    const char * const          deviceEnabledToggles[]  = { "disable_robustness", "disable_workgroup_init",
++                                                            "disable_polyfills_on_integer_div_and_mod" };
++    const char * const          deviceDisabledToggles[] = { "timestamp_quantization" };
+     wgpu::DawnTogglesDescriptor deviceTogglesDesc;
+     deviceTogglesDesc.enabledToggles      = deviceEnabledToggles;
+-    deviceTogglesDesc.enabledToggleCount  = 4;
++    deviceTogglesDesc.enabledToggleCount  = 3;
+     deviceTogglesDesc.disabledToggles     = deviceDisabledToggles;
+     deviceTogglesDesc.disabledToggleCount = 1;
+ 
+@@ -3395,33 +3879,63 @@ static bool ggml_backend_webgpu_device_supports_op(ggml_backend_dev_t dev, const
+             break;
+         case GGML_OP_FLASH_ATTN_EXT:
+             {
+-#ifndef __EMSCRIPTEN__
+-                if (!ctx->webgpu_global_ctx->capabilities.supports_subgroup_matrix) {
++                supports_op = src0->type == GGML_TYPE_F32 &&
++                              (src1->type == GGML_TYPE_F32 || src1->type == GGML_TYPE_F16 ||
++                               src1->type == GGML_TYPE_Q4_0 || src1->type == GGML_TYPE_Q8_0) &&
++                              src2->type == src1->type && op->type == GGML_TYPE_F32;
++                if (!supports_op) {
+                     break;
+                 }
+-                // Head dimensions must be divisible by subgroup matrix dimensions
+-                if (src0->ne[0] % ctx->webgpu_global_ctx->capabilities.sg_mat_k != 0 ||
+-                    src2->ne[0] % ctx->webgpu_global_ctx->capabilities.sg_mat_n != 0) {
++                ggml_webgpu_shader_lib_context shader_lib_ctx = {};
++                shader_lib_ctx.src0                           = src0;
++                shader_lib_ctx.src1                           = src1;
++                shader_lib_ctx.src2                           = src2;
++                shader_lib_ctx.src3                           = op->src[3];
++                shader_lib_ctx.src4                           = op->src[4];
++                shader_lib_ctx.dst                            = const_cast<ggml_tensor *>(op);
++                shader_lib_ctx.supports_subgroups             = ctx->webgpu_global_ctx->capabilities.supports_subgroups;
++                shader_lib_ctx.supports_subgroup_matrix = ctx->webgpu_global_ctx->capabilities.supports_subgroup_matrix;
++                shader_lib_ctx.wg_mem_limit_bytes =
++                    ctx->webgpu_global_ctx->capabilities.limits.maxComputeWorkgroupStorageSize;
++                shader_lib_ctx.sg_mat_m          = ctx->webgpu_global_ctx->capabilities.sg_mat_m;
++                shader_lib_ctx.sg_mat_n          = ctx->webgpu_global_ctx->capabilities.sg_mat_n;
++                shader_lib_ctx.sg_mat_k          = ctx->webgpu_global_ctx->capabilities.sg_mat_k;
++                shader_lib_ctx.max_subgroup_size = ctx->webgpu_global_ctx->capabilities.max_subgroup_size;
++
++                const ggml_webgpu_flash_attn_decisions decisions = ggml_webgpu_flash_attn_get_decisions(
++                    shader_lib_ctx, ctx->webgpu_global_ctx->capabilities.limits.minStorageBufferOffsetAlignment);
++                const size_t limit_bytes = ctx->webgpu_global_ctx->capabilities.limits.maxComputeWorkgroupStorageSize;
++                const bool   has_mask    = op->src[3] != nullptr;
++                if (decisions.path == GGML_WEBGPU_FLASH_ATTN_PATH_VEC) {
++                    const size_t min_bytes =
++                        ggml_webgpu_flash_attn_wg_mem_bytes(decisions.q_tile, decisions.kv_tile, (uint32_t) src0->ne[0],
++                                                            (uint32_t) src2->ne[0], has_mask, decisions.kv_direct);
++                    if (min_bytes > limit_bytes) {
++                        supports_op = false;
++                    }
+                     break;
+                 }
+-                // Head dimensions must fit in workgroup memory with minimum tile sizes
+-                size_t     limit_bytes = ctx->webgpu_global_ctx->capabilities.limits.maxComputeWorkgroupStorageSize;
+-                const bool has_mask    = op->src[3] != nullptr;
+-                const bool kv_direct   = src1->type == GGML_TYPE_F16 &&
+-                                       (src0->ne[0] % ctx->webgpu_global_ctx->capabilities.sg_mat_k) == 0 &&
+-                                       (src1->ne[1] % GGML_WEBGPU_KV_SEQ_PAD) == 0;
+-                const size_t min_bytes = ggml_webgpu_flash_attn_wg_mem_bytes(
+-                    ctx->webgpu_global_ctx->capabilities.sg_mat_m, ctx->webgpu_global_ctx->capabilities.sg_mat_n,
+-                    (uint32_t) src0->ne[0], (uint32_t) src2->ne[0], has_mask, kv_direct);
+-                if (min_bytes > limit_bytes) {
++
++                if (decisions.path == GGML_WEBGPU_FLASH_ATTN_PATH_TILE) {
++                    const size_t min_bytes =
++                        ggml_webgpu_flash_attn_wg_mem_bytes(decisions.q_tile, decisions.kv_tile, (uint32_t) src0->ne[0],
++                                                            (uint32_t) src2->ne[0], has_mask, decisions.kv_direct);
++                    if (min_bytes > limit_bytes) {
++                        supports_op = false;
++                    }
+                     break;
+                 }
+ 
+-                supports_op = src0->type == GGML_TYPE_F32 &&
+-                              (src1->type == GGML_TYPE_F32 || src1->type == GGML_TYPE_F16 ||
+-                               src1->type == GGML_TYPE_Q4_0 || src1->type == GGML_TYPE_Q8_0) &&
+-                              src2->type == src1->type && op->type == GGML_TYPE_F32;
+-#endif
++                if (!ctx->webgpu_global_ctx->capabilities.supports_subgroup_matrix) {
++                    supports_op = false;
++                    break;
++                }
++                const size_t min_bytes =
++                    ggml_webgpu_flash_attn_wg_mem_bytes(decisions.q_tile, decisions.kv_tile, (uint32_t) src0->ne[0],
++                                                        (uint32_t) src2->ne[0], has_mask, decisions.kv_direct);
++                if (min_bytes > limit_bytes) {
++                    supports_op = false;
++                }
+                 break;
+             }
+         case GGML_OP_RMS_NORM:
+@@ -3497,9 +4011,22 @@ static bool ggml_backend_webgpu_device_supports_op(ggml_backend_dev_t dev, const
          case GGML_OP_SOLVE_TRI:
              supports_op = op->type == GGML_TYPE_F32 && src0->type == GGML_TYPE_F32 && src1->type == GGML_TYPE_F32;
              break;
@@ -5079,7 +7234,14 @@ index aa20a745..acc486cf 100644
          case GGML_OP_SSM_CONV:
              supports_op = op->type == GGML_TYPE_F32;
              break;
-@@ -3590,9 +3986,9 @@ static struct ggml_backend_device_i ggml_backend_webgpu_device_i = {
++        case GGML_OP_SSM_SCAN:
++            supports_op = op->type == GGML_TYPE_F32 &&
++                          src0->ne[0] <= ctx->webgpu_global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup;
++            break;
+         case GGML_OP_GATED_DELTA_NET:
+             {
+                 const uint32_t s_v = (uint32_t) src2->ne[0];
+@@ -3590,9 +4117,9 @@ static struct ggml_backend_device_i ggml_backend_webgpu_device_i = {
      /* .supports_op          = */ ggml_backend_webgpu_device_supports_op,
      /* .supports_buft        = */ ggml_backend_webgpu_device_supports_buft,
      /* .offload_op           = */ NULL,
@@ -5263,6 +7425,968 @@ index 00000000..9eb131dc
 +    let out_idx = params.offset_o + ow * params.so0 + oh * params.so1 + oc * params.so2 + n * params.so3;
 +    store_output(out_idx, sum);
 +}
+diff --git src/ggml-webgpu/wgsl-shaders/flash_attn.wgsl src/ggml-webgpu/wgsl-shaders/flash_attn.wgsl
+index aa2d2e54..6d5d69fb 100644
+--- src/ggml-webgpu/wgsl-shaders/flash_attn.wgsl
++++ src/ggml-webgpu/wgsl-shaders/flash_attn.wgsl
+@@ -138,26 +138,55 @@ struct Params {
+ };
+ 
+ @group(0) @binding(0) var<storage, read_write> Q: array<f32>;
++#ifdef KV_OVERLAP
++@group(0) @binding(1) var<storage, read_write> K: array<KV_TYPE>;
++#define V K
++#else
+ @group(0) @binding(1) var<storage, read_write> K: array<KV_TYPE>;
+ @group(0) @binding(2) var<storage, read_write> V: array<KV_TYPE>;
++#endif
+ 
+ #if defined(MASK) && defined(SINKS)
++#ifdef KV_OVERLAP
++@group(0) @binding(2) var<storage, read_write> mask: array<f16>;
++@group(0) @binding(3) var<storage, read_write> sinks: array<f32>;
++#define DST_BINDING 4
++#define PARAMS_BINDING 5
++#else
+ @group(0) @binding(3) var<storage, read_write> mask: array<f16>;
+ @group(0) @binding(4) var<storage, read_write> sinks: array<f32>;
+ #define DST_BINDING 5
+ #define PARAMS_BINDING 6
++#endif
+ #elif defined(MASK)
++#ifdef KV_OVERLAP
++@group(0) @binding(2) var<storage, read_write> mask: array<f16>;
++#define DST_BINDING 3
++#define PARAMS_BINDING 4
++#else
+ @group(0) @binding(3) var<storage, read_write> mask: array<f16>;
+ #define DST_BINDING 4
+ #define PARAMS_BINDING 5
++#endif
+ #elif defined(SINKS)
++#ifdef KV_OVERLAP
++@group(0) @binding(2) var<storage, read_write> sinks: array<f32>;
++#define DST_BINDING 3
++#define PARAMS_BINDING 4
++#else
+ @group(0) @binding(3) var<storage, read_write> sinks: array<f32>;
+ #define DST_BINDING 4
+ #define PARAMS_BINDING 5
++#endif
++#else
++#ifdef KV_OVERLAP
++#define DST_BINDING 2
++#define PARAMS_BINDING 3
+ #else
+ #define DST_BINDING 3
+ #define PARAMS_BINDING 4
+ #endif
++#endif
+ 
+ @group(0) @binding(DST_BINDING) var<storage, read_write> dst: array<vec4<f32>>;
+ @group(0) @binding(PARAMS_BINDING) var<uniform> params: Params;
+diff --git src/ggml-webgpu/wgsl-shaders/flash_attn_tile.wgsl src/ggml-webgpu/wgsl-shaders/flash_attn_tile.wgsl
+new file mode 100644
+index 00000000..37ea23b8
+--- /dev/null
++++ src/ggml-webgpu/wgsl-shaders/flash_attn_tile.wgsl
+@@ -0,0 +1,330 @@
++enable f16;
++enable subgroups;
++
++#define HEAD_DIM_QK 64
++#define HEAD_DIM_V 64
++#define KV_STAGE_STRIDE 64
++#define Q_TILE 4
++#define KV_TILE 64
++#define WG_SIZE 128
++
++struct Params {
++    offset_q: u32,
++    offset_k: u32,
++    offset_v: u32,
++    offset_mask: u32,
++    offset_sinks: u32,
++    offset_dst: u32,
++
++    n_heads: u32,
++    seq_len_q: u32,
++    seq_len_kv: u32,
++
++    stride_q1: u32,
++    stride_q2: u32,
++    stride_q3: u32,
++    stride_k1: u32,
++    stride_k2: u32,
++    stride_k3: u32,
++    stride_v1: u32,
++    stride_v2: u32,
++    stride_v3: u32,
++    stride_mask3: u32,
++
++    q_per_kv: u32,
++
++    scale: f32,
++    max_bias: f32,
++    logit_softcap: f32,
++    n_head_log2: f32,
++    m0: f32,
++    m1: f32,
++};
++
++@group(0) @binding(0) var<storage, read_write> Q: array<f32>;
++#ifdef KV_OVERLAP
++@group(0) @binding(1) var<storage, read_write> K: array<vec4<f16>>;
++#define V K
++#else
++@group(0) @binding(1) var<storage, read_write> K: array<vec4<f16>>;
++@group(0) @binding(2) var<storage, read_write> V: array<vec4<f16>>;
++#endif
++
++#if defined(MASK) && defined(SINKS)
++#ifdef KV_OVERLAP
++@group(0) @binding(2) var<storage, read_write> mask: array<f16>;
++@group(0) @binding(3) var<storage, read_write> sinks: array<f32>;
++#define DST_BINDING 4
++#define PARAMS_BINDING 5
++#else
++@group(0) @binding(3) var<storage, read_write> mask: array<f16>;
++@group(0) @binding(4) var<storage, read_write> sinks: array<f32>;
++#define DST_BINDING 5
++#define PARAMS_BINDING 6
++#endif
++#elif defined(MASK)
++#ifdef KV_OVERLAP
++@group(0) @binding(2) var<storage, read_write> mask: array<f16>;
++#define DST_BINDING 3
++#define PARAMS_BINDING 4
++#else
++@group(0) @binding(3) var<storage, read_write> mask: array<f16>;
++#define DST_BINDING 4
++#define PARAMS_BINDING 5
++#endif
++#elif defined(SINKS)
++#ifdef KV_OVERLAP
++@group(0) @binding(2) var<storage, read_write> sinks: array<f32>;
++#define DST_BINDING 3
++#define PARAMS_BINDING 4
++#else
++@group(0) @binding(3) var<storage, read_write> sinks: array<f32>;
++#define DST_BINDING 4
++#define PARAMS_BINDING 5
++#endif
++#else
++#ifdef KV_OVERLAP
++#define DST_BINDING 2
++#define PARAMS_BINDING 3
++#else
++#define DST_BINDING 3
++#define PARAMS_BINDING 4
++#endif
++#endif
++
++@group(0) @binding(DST_BINDING) var<storage, read_write> dst: array<vec4<f32>>;
++@group(0) @binding(PARAMS_BINDING) var<uniform> params: Params;
++
++const FLOAT_MIN: f32 = -1.0e9;
++const Q_CHUNKS: u32 = HEAD_DIM_QK / 4u;
++const V_CHUNKS: u32 = HEAD_DIM_V / 4u;
++const SCORE_REGS_PER_LANE: u32 = (KV_TILE + MAX_SUBGROUP_SIZE - 1u) / MAX_SUBGROUP_SIZE;
++const OUT_REGS_PER_LANE: u32 = (V_CHUNKS + MAX_SUBGROUP_SIZE - 1u) / MAX_SUBGROUP_SIZE;
++
++var<workgroup> q_shmem: array<f16, Q_TILE * HEAD_DIM_QK>;
++var<workgroup> kv_shmem: array<f16, KV_TILE * KV_STAGE_STRIDE>;
++var<workgroup> p_shmem: array<f32, Q_TILE * KV_TILE>;
++
++@compute @workgroup_size(WG_SIZE)
++fn main(@builtin(workgroup_id) wg_id: vec3<u32>,
++        @builtin(local_invocation_id) local_id: vec3<u32>,
++        @builtin(subgroup_id) subgroup_id: u32,
++        @builtin(subgroup_size) subgroup_size: u32,
++        @builtin(num_subgroups) num_subgroups: u32,
++        @builtin(subgroup_invocation_id) sg_inv_id: u32) {
++    if (subgroup_size == 0u || num_subgroups < Q_TILE) {
++        return;
++    }
++
++    let wg_per_head = (params.seq_len_q + Q_TILE - 1u) / Q_TILE;
++    let wg_per_batch = wg_per_head * params.n_heads;
++
++    let dst2_stride = HEAD_DIM_V * params.n_heads;
++    let dst3_stride = dst2_stride * params.seq_len_q;
++
++    let batch_idx = wg_id.x / wg_per_batch;
++    let q_batch_offset = params.offset_q + batch_idx * params.stride_q3;
++    let k_batch_offset = params.offset_k + batch_idx * params.stride_k3;
++    let v_batch_offset = params.offset_v + batch_idx * params.stride_v3;
++    let dst_batch_offset = params.offset_dst + batch_idx * dst3_stride;
++    let wg_in_batch = wg_id.x % wg_per_batch;
++
++    let head_idx = wg_in_batch / wg_per_head;
++    let q_head_offset = q_batch_offset + head_idx * params.stride_q2;
++    let k_head_idx = head_idx / params.q_per_kv;
++    let v_head_offset = v_batch_offset + k_head_idx * params.stride_v2;
++    let k_head_offset = k_batch_offset + k_head_idx * params.stride_k2;
++
++    let wg_in_head = wg_in_batch % wg_per_head;
++    let q_row_start = wg_in_head * Q_TILE;
++    let global_q_row = q_row_start + subgroup_id;
++    let row_active = subgroup_id < Q_TILE && global_q_row < params.seq_len_q;
++
++#ifdef MASK
++    let mask_global_offset = params.offset_mask + batch_idx * params.stride_mask3 + q_row_start * params.seq_len_kv;
++#endif
++
++    let dst_global_offset = dst_batch_offset + q_row_start * dst2_stride + head_idx * HEAD_DIM_V;
++
++    let head = f32(head_idx);
++    let slope = select(1.0,
++                       select(pow(params.m1, 2.0 * (head - params.n_head_log2) + 1.0),
++                              pow(params.m0, head + 1.0),
++                              head < params.n_head_log2),
++                       params.max_bias > 0.0);
++
++    for (var elem_idx = local_id.x; elem_idx < Q_TILE * HEAD_DIM_QK; elem_idx += WG_SIZE) {
++        let q_tile_row = elem_idx / HEAD_DIM_QK;
++        let q_col = elem_idx % HEAD_DIM_QK;
++        let head_q_row = q_row_start + q_tile_row;
++        let global_q_row_offset = q_head_offset + head_q_row * params.stride_q1;
++        q_shmem[elem_idx] = f16(select(
++            0.0,
++            Q[global_q_row_offset + q_col] * params.scale,
++            head_q_row < params.seq_len_q));
++    }
++
++    workgroupBarrier();
++
++    var row_max = FLOAT_MIN;
++    var exp_sum = 0.0;
++    var out_regs: array<vec4<f32>, OUT_REGS_PER_LANE>;
++    for (var reg_idx = 0u; reg_idx < OUT_REGS_PER_LANE; reg_idx += 1u) {
++        out_regs[reg_idx] = vec4<f32>(0.0);
++    }
++
++    let q_base = subgroup_id * HEAD_DIM_QK;
++    let subgroup_p_offset = subgroup_id * KV_TILE;
++
++    for (var kv_tile = 0u; kv_tile < params.seq_len_kv; kv_tile += KV_TILE) {
++        let kv_count = min(KV_TILE, params.seq_len_kv - kv_tile);
++        let score_slots = min(SCORE_REGS_PER_LANE, (kv_count + subgroup_size - 1u) / subgroup_size);
++        let out_slots = min(OUT_REGS_PER_LANE, (V_CHUNKS + subgroup_size - 1u) / subgroup_size);
++        var local_scores: array<f32, SCORE_REGS_PER_LANE>;
++        for (var slot = 0u; slot < SCORE_REGS_PER_LANE; slot += 1u) {
++            local_scores[slot] = FLOAT_MIN;
++        }
++
++        for (var vec_idx_local = local_id.x; vec_idx_local < kv_count * Q_CHUNKS; vec_idx_local += WG_SIZE) {
++            let kv_local = vec_idx_local / Q_CHUNKS;
++            let chunk = vec_idx_local % Q_CHUNKS;
++            let global_k_row = kv_tile + kv_local;
++            let k_vec_index = (k_head_offset + global_k_row * params.stride_k1 + chunk * 4u) >> 2u;
++            let k4 = K[k_vec_index];
++            let kv_off = kv_local * KV_STAGE_STRIDE + chunk * 4u;
++            kv_shmem[kv_off + 0u] = k4.x;
++            kv_shmem[kv_off + 1u] = k4.y;
++            kv_shmem[kv_off + 2u] = k4.z;
++            kv_shmem[kv_off + 3u] = k4.w;
++        }
++
++        workgroupBarrier();
++
++        var local_max = FLOAT_MIN;
++        if (row_active) {
++            for (var slot = 0u; slot < score_slots; slot += 1u) {
++                let kv_local = sg_inv_id + slot * subgroup_size;
++                if (kv_local >= kv_count) {
++                    continue;
++                }
++
++                let global_k_row = kv_tile + kv_local;
++                var dot_val = 0.0;
++                for (var chunk = 0u; chunk < Q_CHUNKS; chunk += 1u) {
++                    let q_off = q_base + chunk * 4u;
++                    let qv = vec4<f32>(
++                        f32(q_shmem[q_off + 0u]),
++                        f32(q_shmem[q_off + 1u]),
++                        f32(q_shmem[q_off + 2u]),
++                        f32(q_shmem[q_off + 3u]));
++                    let kv_off = kv_local * KV_STAGE_STRIDE + chunk * 4u;
++                    let kv = vec4<f32>(
++                        f32(kv_shmem[kv_off + 0u]),
++                        f32(kv_shmem[kv_off + 1u]),
++                        f32(kv_shmem[kv_off + 2u]),
++                        f32(kv_shmem[kv_off + 3u]));
++                    dot_val += dot(qv, kv);
++                }
++#ifdef LOGIT_SOFTCAP
++                dot_val = params.logit_softcap * tanh(dot_val);
++#endif
++#ifdef MASK
++                let mask_idx = mask_global_offset + subgroup_id * params.seq_len_kv + global_k_row;
++                dot_val += slope * f32(mask[mask_idx]);
++#endif
++                local_scores[slot] = dot_val;
++                local_max = max(local_max, dot_val);
++            }
++        }
++
++        let tile_max = subgroupMax(local_max);
++        let new_max = max(row_max, tile_max);
++        let cur_exp = exp(row_max - new_max);
++        exp_sum *= cur_exp;
++        for (var reg_idx = 0u; reg_idx < OUT_REGS_PER_LANE; reg_idx += 1u) {
++            out_regs[reg_idx] *= cur_exp;
++        }
++
++        var local_sum = 0.0;
++        for (var slot = 0u; slot < score_slots; slot += 1u) {
++            let kv_local = sg_inv_id + slot * subgroup_size;
++            if (row_active && kv_local < kv_count) {
++                let p = exp(local_scores[slot] - new_max);
++                p_shmem[subgroup_p_offset + kv_local] = p;
++                local_sum += p;
++            }
++        }
++
++        workgroupBarrier();
++
++        for (var vec_idx_local = local_id.x; vec_idx_local < kv_count * V_CHUNKS; vec_idx_local += WG_SIZE) {
++            let kv_local = vec_idx_local / V_CHUNKS;
++            let chunk = vec_idx_local % V_CHUNKS;
++            let global_v_row = kv_tile + kv_local;
++            let v_vec_index = (v_head_offset + global_v_row * params.stride_v1 + chunk * 4u) >> 2u;
++            let v4 = V[v_vec_index];
++            let kv_off = kv_local * KV_STAGE_STRIDE + chunk * 4u;
++            kv_shmem[kv_off + 0u] = v4.x;
++            kv_shmem[kv_off + 1u] = v4.y;
++            kv_shmem[kv_off + 2u] = v4.z;
++            kv_shmem[kv_off + 3u] = v4.w;
++        }
++
++        workgroupBarrier();
++
++        let tile_sum = subgroupAdd(local_sum);
++        exp_sum += tile_sum;
++        row_max = new_max;
++
++        if (row_active) {
++            for (var reg_idx = 0u; reg_idx < out_slots; reg_idx += 1u) {
++                let chunk = sg_inv_id + reg_idx * subgroup_size;
++                if (chunk >= V_CHUNKS) {
++                    continue;
++                }
++
++                var acc = out_regs[reg_idx];
++                for (var kv_local = 0u; kv_local < kv_count; kv_local += 1u) {
++                    let p = p_shmem[subgroup_p_offset + kv_local];
++                    let kv_off = kv_local * KV_STAGE_STRIDE + chunk * 4u;
++                    let v4 = vec4<f32>(
++                        f32(kv_shmem[kv_off + 0u]),
++                        f32(kv_shmem[kv_off + 1u]),
++                        f32(kv_shmem[kv_off + 2u]),
++                        f32(kv_shmem[kv_off + 3u]));
++                    acc += p * v4;
++                }
++                out_regs[reg_idx] = acc;
++            }
++        }
++
++        workgroupBarrier();
++    }
++
++#ifdef SINKS
++    if (row_active) {
++        let sink_score = sinks[params.offset_sinks + head_idx];
++        let sink_max = max(row_max, sink_score);
++        let sink_scale = exp(row_max - sink_max);
++        for (var reg_idx = 0u; reg_idx < OUT_REGS_PER_LANE; reg_idx += 1u) {
++            out_regs[reg_idx] *= sink_scale;
++        }
++        exp_sum = exp_sum * sink_scale + exp(sink_score - sink_max);
++        row_max = sink_max;
++    }
++#endif
++
++    if (row_active) {
++        let inv_exp_sum = select(0.0, 1.0 / exp_sum, exp_sum != 0.0);
++        let row_base = dst_global_offset + subgroup_id * dst2_stride;
++        let out_slots = min(OUT_REGS_PER_LANE, (V_CHUNKS + subgroup_size - 1u) / subgroup_size);
++        for (var reg_idx = 0u; reg_idx < out_slots; reg_idx += 1u) {
++            let chunk = sg_inv_id + reg_idx * subgroup_size;
++            if (chunk >= V_CHUNKS) {
++                continue;
++            }
++            let dst_vec_index = (row_base + chunk * 4u) >> 2u;
++            dst[dst_vec_index] = out_regs[reg_idx] * inv_exp_sum;
++        }
++    }
++}
+diff --git src/ggml-webgpu/wgsl-shaders/flash_attn_vec_blk.wgsl src/ggml-webgpu/wgsl-shaders/flash_attn_vec_blk.wgsl
+index 61107c6a..b4f7c16c 100644
+--- src/ggml-webgpu/wgsl-shaders/flash_attn_vec_blk.wgsl
++++ src/ggml-webgpu/wgsl-shaders/flash_attn_vec_blk.wgsl
+@@ -15,7 +15,7 @@ struct Params {
+     nblk1: u32,
+ };
+ 
+-@group(0) @binding(0) var<storage, read> mask: array<f16>;
++@group(0) @binding(0) var<storage, read_write> mask: array<f16>;
+ @group(0) @binding(1) var<storage, read_write> blk: array<u32>;
+ @group(0) @binding(2) var<uniform> params: Params;
+ 
+diff --git src/ggml-webgpu/wgsl-shaders/flash_attn_vec_split.wgsl src/ggml-webgpu/wgsl-shaders/flash_attn_vec_split.wgsl
+index a5257587..b1e23478 100644
+--- src/ggml-webgpu/wgsl-shaders/flash_attn_vec_split.wgsl
++++ src/ggml-webgpu/wgsl-shaders/flash_attn_vec_split.wgsl
+@@ -1,8 +1,6 @@
+-diagnostic(off, chromium.subgroup_matrix_uniformity);
+ diagnostic(off, subgroup_uniformity);
+ enable f16;
+ enable subgroups;
+-enable chromium_experimental_subgroup_matrix;
+ 
+ #ifdef KV_F32
+ #define KV_TYPE f32
+@@ -13,19 +11,14 @@ enable chromium_experimental_subgroup_matrix;
+ #define HEAD_DIM_QK 64
+ #define HEAD_DIM_V 64
+ 
+-
+-#define SG_MAT_M 8
+-#define SG_MAT_N 8
+-#define SG_MAT_K 8
+-
+-#define Q_TILE SG_MAT_M
++#define KV_GRANULARITY 8
+ #define KV_TILE 16
+ #define WG_SIZE 64
+ #ifndef VEC_NE
+ #define VEC_NE 4u
+ #endif
+ 
+-#define KV_BLOCKS (KV_TILE / SG_MAT_N)
++#define KV_BLOCKS (KV_TILE / KV_GRANULARITY)
+ 
+ #define BLOCK_SIZE 32
+ #define BLOCKS_K ((HEAD_DIM_QK + BLOCK_SIZE - 1) / BLOCK_SIZE)
+@@ -97,6 +90,14 @@ struct Params {
+ };
+ 
+ @group(0) @binding(0) var<storage, read_write> Q: array<f32>;
++#ifdef KV_OVERLAP
++#if defined(KV_Q4_0) || defined(KV_Q8_0)
++@group(0) @binding(1) var<storage, read_write> K: array<KV_TYPE>;
++#else
++@group(0) @binding(1) var<storage, read_write> K: array<vec4<KV_TYPE>>;
++#endif
++#define V K
++#else
+ #if defined(KV_Q4_0) || defined(KV_Q8_0)
+ @group(0) @binding(1) var<storage, read_write> K: array<KV_TYPE>;
+ #else
+@@ -107,7 +108,22 @@ struct Params {
+ #else
+ @group(0) @binding(2) var<storage, read_write> V: array<vec4<KV_TYPE>>;
+ #endif
++#endif
+ #if defined(MASK) && defined(SINKS)
++#ifdef KV_OVERLAP
++@group(0) @binding(2) var<storage, read_write> mask: array<f16>;
++@group(0) @binding(3) var<storage, read_write> sinks: array<f32>;
++#ifdef BLK
++#define BLK_BINDING 4
++#define TMP_BINDING 5
++#define DST_BINDING 6
++#define PARAMS_BINDING 7
++#else
++#define TMP_BINDING 4
++#define DST_BINDING 5
++#define PARAMS_BINDING 6
++#endif
++#else
+ @group(0) @binding(3) var<storage, read_write> mask: array<f16>;
+ @group(0) @binding(4) var<storage, read_write> sinks: array<f32>;
+ #ifdef BLK
+@@ -120,7 +136,21 @@ struct Params {
+ #define DST_BINDING 6
+ #define PARAMS_BINDING 7
+ #endif
++#endif
+ #elif defined(MASK)
++#ifdef KV_OVERLAP
++@group(0) @binding(2) var<storage, read_write> mask: array<f16>;
++#ifdef BLK
++#define BLK_BINDING 3
++#define TMP_BINDING 4
++#define DST_BINDING 5
++#define PARAMS_BINDING 6
++#else
++#define TMP_BINDING 3
++#define DST_BINDING 4
++#define PARAMS_BINDING 5
++#endif
++#else
+ @group(0) @binding(3) var<storage, read_write> mask: array<f16>;
+ #ifdef BLK
+ #define BLK_BINDING 4
+@@ -132,16 +162,30 @@ struct Params {
+ #define DST_BINDING 5
+ #define PARAMS_BINDING 6
+ #endif
++#endif
+ #elif defined(SINKS)
++#ifdef KV_OVERLAP
++@group(0) @binding(2) var<storage, read_write> sinks: array<f32>;
++#define TMP_BINDING 3
++#define DST_BINDING 4
++#define PARAMS_BINDING 5
++#else
+ @group(0) @binding(3) var<storage, read_write> sinks: array<f32>;
+ #define TMP_BINDING 4
+ #define DST_BINDING 5
+ #define PARAMS_BINDING 6
++#endif
++#else
++#ifdef KV_OVERLAP
++#define TMP_BINDING 2
++#define DST_BINDING 3
++#define PARAMS_BINDING 4
+ #else
+ #define TMP_BINDING 3
+ #define DST_BINDING 4
+ #define PARAMS_BINDING 5
+ #endif
++#endif
+ 
+ #ifdef BLK
+ @group(0) @binding(BLK_BINDING) var<storage, read_write> blk: array<u32>;
+@@ -153,7 +197,7 @@ struct Params {
+ // Just a very small float value.
+ const FLOAT_MIN: f32 = -1.0e9;
+ 
+-var<workgroup> q_shmem: array<f16, Q_TILE * HEAD_DIM_QK>;
++var<workgroup> q_shmem: array<f16, HEAD_DIM_QK>;
+ 
+ #ifndef KV_DIRECT
+ const kv_shmem_size = KV_TILE * max(HEAD_DIM_QK, HEAD_DIM_V);
+@@ -161,31 +205,27 @@ const kv_shmem_size = KV_TILE * max(HEAD_DIM_QK, HEAD_DIM_V);
+ var<workgroup> kv_shmem: array<f16, kv_shmem_size>;
+ #endif
+ 
+-var<workgroup> o_shmem: array<f16, Q_TILE * HEAD_DIM_V>;
++var<workgroup> o_shmem: array<f16, HEAD_DIM_V>;
+ 
+ #ifdef MASK
+ // storage for mask values
+-var<workgroup> mask_shmem: array<f16, Q_TILE * KV_TILE>;
++var<workgroup> mask_shmem: array<f16, KV_TILE>;
+ #endif
+ 
+ // note that we reuse the same storage for both since we only need one at a time
+-var<workgroup> inter_shmem: array<f16, Q_TILE * KV_TILE>;
++var<workgroup> inter_shmem: array<f16, KV_TILE>;
+ 
+ // Storage for row max and exp sum during online softmax
+-var<workgroup> row_max_shmem: array<f32, Q_TILE>;
+-var<workgroup> exp_sum_shmem: array<f32, Q_TILE>;
+-var<workgroup> blk_state_wg: u32;
+-
+-fn calc_softmax_term(kv_idx: u32, q_tile_row: u32, slope: f32, has_bias: bool, apply_mask: bool) -> f32 {
++fn calc_softmax_term(kv_idx: u32, slope: f32, has_bias: bool, apply_mask: bool) -> f32 {
+     var v = select(FLOAT_MIN,
+-                   f32(inter_shmem[kv_idx + q_tile_row * KV_TILE]) * params.scale,
++                   f32(inter_shmem[kv_idx]) * params.scale,
+                    kv_idx < KV_TILE);
+ #ifdef LOGIT_SOFTCAP
+     v = params.logit_softcap * tanh(v);
+ #endif
+ #ifdef MASK
+     if (apply_mask) {
+-        var mask_val = select(0.0,f32(mask_shmem[q_tile_row * KV_TILE + kv_idx]), kv_idx < KV_TILE);
++        var mask_val = select(0.0, f32(mask_shmem[kv_idx]), kv_idx < KV_TILE);
+         v += select(mask_val, slope * mask_val, has_bias);
+     }
+ #endif
+@@ -199,19 +239,17 @@ fn main(@builtin(workgroup_id) wg_id: vec3<u32>,
+     @builtin(subgroup_size) subgroup_size: u32,
+     @builtin(num_subgroups) num_subgroups: u32,
+     @builtin(subgroup_invocation_id) sg_inv_id: u32) {
++    // Vec path processes exactly one query row per workgroup, so subgroup 0 can
++    // keep the running softmax state in private storage.
++    var row_max = FLOAT_MIN;
++    var exp_sum = 0.0;
+ 
+-    // initialize row max for online softmax
+-    for (var i = local_id.x; i < Q_TILE; i += WG_SIZE) {
+-        row_max_shmem[i] = FLOAT_MIN;
+-        exp_sum_shmem[i] = 0.0;
+-    }
+-
+-    for (var i = local_id.x; i < Q_TILE * HEAD_DIM_V; i += WG_SIZE) {
++    for (var i = local_id.x; i < HEAD_DIM_V; i += WG_SIZE) {
+         o_shmem[i] = 0.0;
+     }
+ 
+     // workgroups per head/batch
+-    let wg_per_head = (params.seq_len_q + Q_TILE - 1u) / Q_TILE;
++    let wg_per_head = params.seq_len_q;
+     let wg_per_batch = wg_per_head * params.n_heads;
+ 
+     let dst2_stride = HEAD_DIM_V * params.n_heads;
+@@ -235,9 +273,9 @@ fn main(@builtin(workgroup_id) wg_id: vec3<u32>,
+     let k_head_offset = k_batch_offset + k_head_idx * params.stride_k2;
+     let v_head_offset = v_batch_offset + v_head_idx * params.stride_v2;
+ 
+-    // starting Q row for this workgroup
++    // Vec path handles one Q row per workgroup.
+     let wg_in_head = wg_in_batch % wg_per_head;
+-    let q_row_start = wg_in_head * Q_TILE;
++    let q_row_start = wg_in_head;
+ 
+ #ifdef MASK
+     // mask offset
+@@ -248,21 +286,18 @@ fn main(@builtin(workgroup_id) wg_id: vec3<u32>,
+     let has_bias = params.max_bias > 0.0;
+     let slope = select(1.0, select(pow(params.m1, 2.0 * (head - params.n_head_log2) + 1.0), pow(params.m0, head + 1.0), head < params.n_head_log2), has_bias);
+ 
+-    // load q tile into shared memory
+-    for (var elem_idx = local_id.x; elem_idx < Q_TILE * HEAD_DIM_QK; elem_idx += WG_SIZE) {
+-        let q_row = elem_idx / HEAD_DIM_QK;
+-        let q_col = elem_idx % HEAD_DIM_QK;
+-        let head_q_row = q_row_start + q_row;
+-        let global_q_row_offset = q_head_offset + head_q_row * params.stride_q1;
++    // load the single Q row into shared memory
++    for (var elem_idx = local_id.x; elem_idx < HEAD_DIM_QK; elem_idx += WG_SIZE) {
++        let global_q_row_offset = q_head_offset + q_row_start * params.stride_q1;
+         q_shmem[elem_idx] = f16(select(
+             0.0,
+-            Q[global_q_row_offset + q_col],
+-            head_q_row < params.seq_len_q && q_col < HEAD_DIM_QK));
++            Q[global_q_row_offset + elem_idx],
++            q_row_start < params.seq_len_q));
+     }
+ 
+     for (var kv_tile = iwg * KV_TILE; kv_tile < params.seq_len_kv; kv_tile += KV_TILE * params.nwg) {
+ #ifdef BLK
+-        let q_blk = q_row_start / Q_TILE;
++        let q_blk = q_row_start;
+         let kv_blk = kv_tile / KV_TILE;
+         let blk_batch = select(0u, batch_idx, params.stride_mask3 > 0u);
+         let blk_idx = params.blk_base + (blk_batch * params.blk_nblk1 + q_blk) * params.blk_nblk0 + kv_blk;
+@@ -270,13 +305,9 @@ fn main(@builtin(workgroup_id) wg_id: vec3<u32>,
+ #else
+         let blk_state_local = 1u;
+ #endif
+-        if (local_id.x == 0u) {
+-            blk_state_wg = blk_state_local;
+-        }
+-        workgroupBarrier();
+-        let blk_state = blk_state_wg;
++        let blk_state = blk_state_local;
+         let skip_tile = blk_state == 0u;
+-        for (var elem_idx = local_id.x; elem_idx < Q_TILE * KV_TILE; elem_idx += WG_SIZE) {
++        for (var elem_idx = local_id.x; elem_idx < KV_TILE; elem_idx += WG_SIZE) {
+             inter_shmem[elem_idx] = f16(0.0);
+         }
+ 
+@@ -360,20 +391,14 @@ fn main(@builtin(workgroup_id) wg_id: vec3<u32>,
+         let num_of_threads = subgroup_size / VEC_NE;
+         let tx = sg_inv_id % num_of_threads;
+         let ty = sg_inv_id / num_of_threads;
+-          for (var q_tile_row = subgroup_id; q_tile_row < Q_TILE; q_tile_row += num_subgroups) {
+-              let global_q_row = q_row_start + q_tile_row;
+-              if (global_q_row >= params.seq_len_q) {
+-                  continue;
+-              }
+-              let local_q_row_offset = q_tile_row * HEAD_DIM_QK;
+-
++          if (subgroup_id == 0u && q_row_start < params.seq_len_q) {
+               for (var kv_base : u32 = 0u; kv_base < KV_TILE; kv_base += VEC_NE) {
+                   let kv_idx = kv_base + ty;
+                   var partial_sum: f32 = 0.0;
+                   let kv_valid = kv_idx < KV_TILE && (kv_tile + kv_idx) < params.seq_len_kv;
+                   if (kv_valid) {
+                     for (var i = tx; i < (HEAD_DIM_QK / 4u); i += num_of_threads) {
+-                        let q_off = local_q_row_offset + i * 4u;
++                        let q_off = i * 4u;
+ 
+                         let qv = vec4<f32>(
+                             f32(q_shmem[q_off + 0u]),
+@@ -410,8 +435,7 @@ fn main(@builtin(workgroup_id) wg_id: vec3<u32>,
+ 
+                   let sum_bcast = subgroupShuffle(sum, num_of_threads * ty);
+                   if (tx == 0u && kv_valid) {
+-                      let dst_idx = q_tile_row * KV_TILE + kv_idx;
+-                      inter_shmem[dst_idx] = f16(sum_bcast);
++                      inter_shmem[kv_idx] = f16(sum_bcast);
+                   }
+               }
+           }
+@@ -422,13 +446,10 @@ fn main(@builtin(workgroup_id) wg_id: vec3<u32>,
+       let apply_mask = !skip_tile && (blk_state != 2u);
+       if (apply_mask) {
+           // load mask tile into shared memory for this KV block
+-          for (var elem_idx = local_id.x; elem_idx < Q_TILE * KV_TILE; elem_idx += WG_SIZE) {
+-              let mask_row = elem_idx / KV_TILE;
+-              let mask_col = elem_idx % KV_TILE;
+-              let global_q_row = q_row_start + mask_row;
+-              let global_k_col = kv_tile + mask_col;
+-              let mask_in_bounds = global_q_row < params.seq_len_q && global_k_col < params.seq_len_kv;
+-              let mask_idx = mask_global_offset + mask_row * params.seq_len_kv + global_k_col;
++          for (var elem_idx = local_id.x; elem_idx < KV_TILE; elem_idx += WG_SIZE) {
++              let global_k_col = kv_tile + elem_idx;
++              let mask_in_bounds = q_row_start < params.seq_len_q && global_k_col < params.seq_len_kv;
++              let mask_idx = mask_global_offset + global_k_col;
+               mask_shmem[elem_idx] = select(0.0, mask[mask_idx], mask_in_bounds);
+           }
+       }
+@@ -439,50 +460,40 @@ fn main(@builtin(workgroup_id) wg_id: vec3<u32>,
+       workgroupBarrier();
+ 
+       // online softmax
+-      if (!skip_tile) {
+-          for (var q_tile_row = subgroup_id; q_tile_row < Q_TILE; q_tile_row += num_subgroups) {
+-              let global_q_row = q_row_start + q_tile_row;
+-              if (global_q_row >= params.seq_len_q) {
+-                  break;
+-              }
+-
+-              var prev_max = row_max_shmem[q_tile_row];
+-              var final_max = prev_max;
+-              // pass 1: compute final max across the full KV tile in chunks
+-              for (var kv_offset = 0u; kv_offset < KV_TILE; kv_offset += subgroup_size) {
+-                  let kv_idx = kv_offset + sg_inv_id;
+-                  let kv_valid = kv_tile + kv_idx < params.seq_len_kv && kv_idx < KV_TILE;
+-                  let softmax_term = select(FLOAT_MIN,
+-                                            calc_softmax_term(kv_idx, q_tile_row, slope, has_bias, apply_mask),
+-                                            kv_valid);
+-                  final_max = subgroupMax(max(final_max, softmax_term));
+-              }
++      if (!skip_tile && subgroup_id == 0u && q_row_start < params.seq_len_q) {
++          var prev_max = row_max;
++          var final_max = prev_max;
++          // pass 1: compute final max across the full KV tile in chunks
++          for (var kv_offset = 0u; kv_offset < KV_TILE; kv_offset += subgroup_size) {
++              let kv_idx = kv_offset + sg_inv_id;
++              let kv_valid = kv_tile + kv_idx < params.seq_len_kv && kv_idx < KV_TILE;
++              let softmax_term = select(FLOAT_MIN,
++                                        calc_softmax_term(kv_idx, slope, has_bias, apply_mask),
++                                        kv_valid);
++              final_max = subgroupMax(max(final_max, softmax_term));
++          }
+ 
+-              var total_exp_term: f32 = 0.0;
+-              // pass 2: compute exp sum and write P using final_max
+-              for (var kv_offset = 0u; kv_offset < KV_TILE; kv_offset += subgroup_size) {
+-                  let kv_idx = kv_offset + sg_inv_id;
+-                  let softmax_term = calc_softmax_term(kv_idx, q_tile_row, slope, has_bias, apply_mask);
+-                  let cur_p = select(0.0,
+-                                     exp(softmax_term - final_max),
+-                                     kv_tile + kv_idx < params.seq_len_kv && kv_idx < KV_TILE);
+-                  total_exp_term += subgroupAdd(cur_p);
+-                  if (kv_idx < KV_TILE) {
+-                      inter_shmem[kv_idx + q_tile_row * KV_TILE] = f16(cur_p);
+-                  }
++          var total_exp_term: f32 = 0.0;
++          // pass 2: compute exp sum and write P using final_max
++          for (var kv_offset = 0u; kv_offset < KV_TILE; kv_offset += subgroup_size) {
++              let kv_idx = kv_offset + sg_inv_id;
++              let softmax_term = calc_softmax_term(kv_idx, slope, has_bias, apply_mask);
++              let cur_p = select(0.0,
++                                 exp(softmax_term - final_max),
++                                 kv_tile + kv_idx < params.seq_len_kv && kv_idx < KV_TILE);
++              total_exp_term += subgroupAdd(cur_p);
++              if (kv_idx < KV_TILE) {
++                  inter_shmem[kv_idx] = f16(cur_p);
+               }
++          }
+ 
+-              let cur_exp = exp(prev_max - final_max);
++          let cur_exp = exp(prev_max - final_max);
+ 
+-              if (sg_inv_id == 0) {
+-                  row_max_shmem[q_tile_row] = final_max;
+-                  exp_sum_shmem[q_tile_row] = exp_sum_shmem[q_tile_row] * cur_exp + total_exp_term;
+-              }
++          row_max = final_max;
++          exp_sum = exp_sum * cur_exp + total_exp_term;
+ 
+-              for (var elem_idx = sg_inv_id; elem_idx < HEAD_DIM_V; elem_idx += subgroup_size) {
+-                  let idx = q_tile_row * HEAD_DIM_V + elem_idx;
+-                  o_shmem[idx] = f16(f32(o_shmem[idx]) * cur_exp);
+-              }
++          for (var elem_idx = sg_inv_id; elem_idx < HEAD_DIM_V; elem_idx += subgroup_size) {
++              o_shmem[elem_idx] = f16(f32(o_shmem[elem_idx]) * cur_exp);
+           }
+       }
+ 
+@@ -562,15 +573,13 @@ fn main(@builtin(workgroup_id) wg_id: vec3<u32>,
+       workgroupBarrier();
+ 
+       if (!skip_tile) {
+-          // we have P (Q_TILE x KV_TILE) in inter_shmem and V (KV_TILE x head_dim_v) in kv_shmem
++          // we have P (KV_TILE) in inter_shmem and V (KV_TILE x head_dim_v) in kv_shmem
+           // we want to compute O += P * V across the full KV tile
+           let ne_threads : u32 = VEC_NE;
+           let nl_threads = max(1u, subgroup_size / ne_threads);
+           let tx_pv = sg_inv_id % nl_threads;
+           let ty_pv = sg_inv_id / nl_threads;
+-          for (var q_tile_row = subgroup_id;
+-               q_tile_row < Q_TILE;
+-               q_tile_row += num_subgroups) {
++          if (subgroup_id == 0u && q_row_start < params.seq_len_q) {
+               for (var vec_col = tx_pv; vec_col < (HEAD_DIM_V / 4u); vec_col += nl_threads) {
+                   var lo = vec4<f32>(0.0, 0.0, 0.0, 0.0);
+                   for (var cc = 0u; cc < KV_TILE / ne_threads; cc += 1u) {
+@@ -580,7 +589,7 @@ fn main(@builtin(workgroup_id) wg_id: vec3<u32>,
+                           continue;
+                       }
+ 
+-                      let p = f32(inter_shmem[kv_idx + q_tile_row * KV_TILE]);
++                      let p = f32(inter_shmem[kv_idx]);
+ #ifdef KV_DIRECT
+                       let v_idx = v_head_offset + v_row * params.stride_v1 + vec_col * 4u;
+                       let v4 = vec4<f32>(V[v_idx >> 2u]);
+@@ -621,11 +630,10 @@ fn main(@builtin(workgroup_id) wg_id: vec3<u32>,
+ 
+                   if (ty_pv == 0u) {
+                       let elem_base = vec_col * 4u;
+-                      let o_base_idx = q_tile_row * HEAD_DIM_V + elem_base;
+-                      o_shmem[o_base_idx + 0u] = f16(f32(o_shmem[o_base_idx + 0u]) + lo_x);
+-                      o_shmem[o_base_idx + 1u] = f16(f32(o_shmem[o_base_idx + 1u]) + lo_y);
+-                      o_shmem[o_base_idx + 2u] = f16(f32(o_shmem[o_base_idx + 2u]) + lo_z);
+-                      o_shmem[o_base_idx + 3u] = f16(f32(o_shmem[o_base_idx + 3u]) + lo_w);
++                      o_shmem[elem_base + 0u] = f16(f32(o_shmem[elem_base + 0u]) + lo_x);
++                      o_shmem[elem_base + 1u] = f16(f32(o_shmem[elem_base + 1u]) + lo_y);
++                      o_shmem[elem_base + 2u] = f16(f32(o_shmem[elem_base + 2u]) + lo_z);
++                      o_shmem[elem_base + 3u] = f16(f32(o_shmem[elem_base + 3u]) + lo_w);
+                   }
+               }
+           }
+@@ -637,70 +645,46 @@ fn main(@builtin(workgroup_id) wg_id: vec3<u32>,
+ 
+ #ifdef SINKS
+     // Sinks are global terms and must be applied exactly once across split workgroups.
+-    if (iwg == 0u) {
+-        for (var q_tile_row = subgroup_id;
+-             q_tile_row < Q_TILE;
+-             q_tile_row += num_subgroups) {
+-                let global_q_row = q_row_start + q_tile_row;
+-                if (global_q_row >= params.seq_len_q) {
+-                    break;
+-                }
+-
+-                var prev_max = row_max_shmem[q_tile_row];
+-
+-                // for non-sink threads, exp(FLOAT_MIN) effectively zeroes out their contribution to the sum
+-                let sink_val = select(FLOAT_MIN, sinks[params.offset_sinks + head_idx], sg_inv_id == 0);
+-                let new_max = subgroupMax(max(prev_max, sink_val));
+-                let max_exp = exp(prev_max - new_max);
+-                let sink_exp = exp(sink_val - new_max);
+-
+-                let sink_exp_sum = subgroupAdd(sink_exp);
+-
+-                if (sg_inv_id == 0) {
+-                    row_max_shmem[q_tile_row] = new_max;
+-                    exp_sum_shmem[q_tile_row] = exp_sum_shmem[q_tile_row] * max_exp + sink_exp_sum;
+-                }
+-
+-            for (var elem_idx = sg_inv_id; elem_idx < HEAD_DIM_V; elem_idx += subgroup_size) {
+-                let idx = q_tile_row * HEAD_DIM_V + elem_idx;
+-                o_shmem[idx] = f16(f32(o_shmem[idx]) * max_exp);
+-            }
++    if (iwg == 0u && subgroup_id == 0u && q_row_start < params.seq_len_q) {
++        var prev_max = row_max;
++
++        // for non-sink threads, exp(FLOAT_MIN) effectively zeroes out their contribution to the sum
++        let sink_val = select(FLOAT_MIN, sinks[params.offset_sinks + head_idx], sg_inv_id == 0u);
++        let new_max = subgroupMax(max(prev_max, sink_val));
++        let max_exp = exp(prev_max - new_max);
++        let sink_exp = exp(sink_val - new_max);
++
++        let sink_exp_sum = subgroupAdd(sink_exp);
++
++        row_max = new_max;
++        exp_sum = exp_sum * max_exp + sink_exp_sum;
++
++        for (var elem_idx = sg_inv_id; elem_idx < HEAD_DIM_V; elem_idx += subgroup_size) {
++            o_shmem[elem_idx] = f16(f32(o_shmem[elem_idx]) * max_exp);
+         }
+-        workgroupBarrier();
+     }
++    workgroupBarrier();
+ #endif
+     let rows_per_batch = params.n_heads * params.seq_len_q;
+-    for (var q_tile_row = subgroup_id;
+-         q_tile_row < Q_TILE;
+-         q_tile_row += num_subgroups) {
+-
+-        let global_q_row = q_row_start + q_tile_row;
+-        if (global_q_row >= params.seq_len_q) { break; }
+-
++    if (subgroup_id == 0u && q_row_start < params.seq_len_q) {
+         if (params.nwg == 1u) {
+-            let exp_sum = exp_sum_shmem[q_tile_row];
+             let scale = select(0.0, 1.0 / exp_sum, exp_sum != 0.0);
+-            let row_base: u32 =
+-                params.offset_dst + batch_idx * dst3_stride + global_q_row * dst2_stride + head_idx * HEAD_DIM_V;
++            let row_base: u32 = params.offset_dst + batch_idx * dst3_stride + q_row_start * dst2_stride +
++                                head_idx * HEAD_DIM_V;
+ 
+             for (var elem_base = sg_inv_id * 4u; elem_base < HEAD_DIM_V; elem_base += subgroup_size * 4u) {
+-                let i0 = q_tile_row * HEAD_DIM_V + (elem_base + 0u);
+-                let i1 = q_tile_row * HEAD_DIM_V + (elem_base + 1u);
+-                let i2 = q_tile_row * HEAD_DIM_V + (elem_base + 2u);
+-                let i3 = q_tile_row * HEAD_DIM_V + (elem_base + 3u);
+-
+                 let v = vec4<f32>(
+-                    f32(o_shmem[i0]) * scale,
+-                    f32(o_shmem[i1]) * scale,
+-                    f32(o_shmem[i2]) * scale,
+-                    f32(o_shmem[i3]) * scale
++                    f32(o_shmem[elem_base + 0u]) * scale,
++                    f32(o_shmem[elem_base + 1u]) * scale,
++                    f32(o_shmem[elem_base + 2u]) * scale,
++                    f32(o_shmem[elem_base + 3u]) * scale
+                 );
+ 
+                 let dst_vec_index: u32 = (row_base + elem_base) >> 2u;
+                 dst[dst_vec_index] = v;
+             }
+         } else {
+-            let rid = batch_idx * rows_per_batch + head_idx * params.seq_len_q + global_q_row;
++            let rid = batch_idx * rows_per_batch + head_idx * params.seq_len_q + q_row_start;
+             let tmp_row_data_base = params.tmp_data_base + rid * (HEAD_DIM_V * params.nwg) + iwg * HEAD_DIM_V;
+             let tmp_row_stats_base = params.tmp_stats_base + rid * (2u * params.nwg) + 2u * iwg;
+ 
+@@ -708,21 +692,16 @@ fn main(@builtin(workgroup_id) wg_id: vec3<u32>,
+                 elem_base < HEAD_DIM_V;
+                 elem_base += subgroup_size * 4u) {
+ 
+-                let i0 = q_tile_row * HEAD_DIM_V + (elem_base + 0u);
+-                let i1 = q_tile_row * HEAD_DIM_V + (elem_base + 1u);
+-                let i2 = q_tile_row * HEAD_DIM_V + (elem_base + 2u);
+-                let i3 = q_tile_row * HEAD_DIM_V + (elem_base + 3u);
+-
+                 let tbase = tmp_row_data_base + elem_base;
+-                tmp[tbase + 0u] = f32(o_shmem[i0]);
+-                tmp[tbase + 1u] = f32(o_shmem[i1]);
+-                tmp[tbase + 2u] = f32(o_shmem[i2]);
+-                tmp[tbase + 3u] = f32(o_shmem[i3]);
++                tmp[tbase + 0u] = f32(o_shmem[elem_base + 0u]);
++                tmp[tbase + 1u] = f32(o_shmem[elem_base + 1u]);
++                tmp[tbase + 2u] = f32(o_shmem[elem_base + 2u]);
++                tmp[tbase + 3u] = f32(o_shmem[elem_base + 3u]);
+             }
+ 
+             if (sg_inv_id == 0u) {
+-                tmp[tmp_row_stats_base + 0u] = exp_sum_shmem[q_tile_row];
+-                tmp[tmp_row_stats_base + 1u] = row_max_shmem[q_tile_row];
++                tmp[tmp_row_stats_base + 0u] = exp_sum;
++                tmp[tmp_row_stats_base + 1u] = row_max;
+             }
+         }
+     }
 diff --git src/ggml-webgpu/wgsl-shaders/im2col.wgsl src/ggml-webgpu/wgsl-shaders/im2col.wgsl
 new file mode 100644
 index 00000000..386ebab8
@@ -5529,6 +8653,180 @@ index 00000000..74aaa275
 +        update(i_rn_src_row + col, i_dst_row + col, scale, i_mul_src_row + col % params.mul_src_ne0);
 +        col += WG_SIZE;
 +    }
++}
+diff --git src/ggml-webgpu/wgsl-shaders/ssm_scan.wgsl src/ggml-webgpu/wgsl-shaders/ssm_scan.wgsl
+new file mode 100644
+index 00000000..64324738
+--- /dev/null
++++ src/ggml-webgpu/wgsl-shaders/ssm_scan.wgsl
+@@ -0,0 +1,168 @@
++#ifdef USE_SUBGROUP_REDUCTION
++enable subgroups;
++#endif
++
++struct Params {
++    offset_s: u32,
++    offset_x: u32,
++    offset_dt: u32,
++    offset_A: u32,
++    offset_B: u32,
++    offset_C: u32,
++    offset_ids: u32,
++    offset_dst: u32,
++
++    stride_s1: u32,
++    stride_s2: u32,
++    stride_s3: u32,
++
++    stride_x1: u32,
++    stride_x2: u32,
++    stride_x3: u32,
++
++    stride_dt1: u32,
++    stride_dt2: u32,
++
++    a_ne0: u32,
++    stride_A1: u32,
++
++    stride_B1: u32,
++    stride_B2: u32,
++    stride_B3: u32,
++
++    stride_C1: u32,
++    stride_C2: u32,
++    stride_C3: u32,
++
++    d_state: u32,
++    d_inner: u32,
++    n_head: u32,
++    n_group: u32,
++    n_seq_tokens: u32,
++    n_seqs: u32,
++
++    y_elems: u32,
++};
++
++@group(0) @binding(0) var<storage, read_write> s_in: array<f32>;
++@group(0) @binding(1) var<storage, read_write> x: array<f32>;
++@group(0) @binding(2) var<storage, read_write> dt: array<f32>;
++@group(0) @binding(3) var<storage, read_write> A: array<f32>;
++@group(0) @binding(4) var<storage, read_write> B: array<f32>;
++@group(0) @binding(5) var<storage, read_write> C: array<f32>;
++@group(0) @binding(6) var<storage, read_write> ids: array<i32>;
++@group(0) @binding(7) var<storage, read_write> dst: array<f32>;
++@group(0) @binding(8) var<uniform> params: Params;
++
++var<workgroup> shared_x_dt: array<f32, TOKENS_PER_TILE>;
++var<workgroup> shared_dtsp: array<f32, TOKENS_PER_TILE>;
++var<workgroup> shared_reduce: array<f32, TOKENS_PER_TILE * WG_SIZE>;
++
++fn reduce_base(token_in_tile: u32) -> u32 {
++    return token_in_tile * WG_SIZE;
++}
++
++@compute @workgroup_size(WG_SIZE)
++fn main(
++    @builtin(local_invocation_id) local_id: vec3<u32>,
++    @builtin(workgroup_id) wg_id: vec3<u32>,
++    @builtin(num_workgroups) num_wg: vec3<u32>
++#ifdef USE_SUBGROUP_REDUCTION
++  , @builtin(subgroup_id) subgroup_id: u32,
++    @builtin(subgroup_invocation_id) subgroup_invocation_id: u32,
++    @builtin(num_subgroups) num_subgroups: u32
++#endif
++) {
++    let tid = local_id.x;
++    let wg_linear = wg_id.y * num_wg.x + wg_id.x;
++
++    let i1 = wg_linear % params.d_inner;
++    let head_seq = wg_linear / params.d_inner;
++    let ir = head_seq % params.n_head;
++    let i3 = head_seq / params.n_head;
++
++    let state_slot = u32(ids[params.offset_ids + i3]);
++    let g = ir / (params.n_head / params.n_group);
++
++    let s_idx = params.offset_s + tid + i1 * params.stride_s1 + ir * params.stride_s2 + state_slot * params.stride_s3;
++    var s_prev = s_in[s_idx];
++
++    let A0 = A[params.offset_A + (tid % params.a_ne0) + ir * params.stride_A1];
++
++    for (var token_base = 0u; token_base < params.n_seq_tokens; token_base += TOKENS_PER_TILE) {
++        if (tid < TOKENS_PER_TILE) {
++            let token = token_base + tid;
++            if (token < params.n_seq_tokens) {
++                let x_idx = params.offset_x + i1 + ir * params.stride_x1 + token * params.stride_x2 + i3 * params.stride_x3;
++                let dt_idx = params.offset_dt + ir + token * params.stride_dt1 + i3 * params.stride_dt2;
++                let dt0 = dt[dt_idx];
++                let dtsp = select(log(1.0 + exp(dt0)), dt0, dt0 > 20.0);
++                shared_dtsp[tid] = dtsp;
++                shared_x_dt[tid] = x[x_idx] * dtsp;
++            }
++        }
++
++        workgroupBarrier();
++
++        for (var token_in_tile = 0u; token_in_tile < TOKENS_PER_TILE; token_in_tile++) {
++            let token = token_base + token_in_tile;
++            if (token >= params.n_seq_tokens) {
++                break;
++            }
++
++            let x_dt = shared_x_dt[token_in_tile];
++            let dA = exp(shared_dtsp[token_in_tile] * A0);
++            let reduce_idx = reduce_base(token_in_tile) + tid;
++
++            let b_idx = params.offset_B + tid + g * params.stride_B1 + token * params.stride_B2 + i3 * params.stride_B3;
++            let c_idx = params.offset_C + tid + g * params.stride_C1 + token * params.stride_C2 + i3 * params.stride_C3;
++            let s = s_prev * dA + B[b_idx] * x_dt;
++            s_prev = s;
++
++#ifdef USE_SUBGROUP_REDUCTION
++            let subgroup_partial = subgroupAdd(s * C[c_idx]);
++            if (subgroup_invocation_id == 0u) {
++                shared_reduce[reduce_idx - tid + subgroup_id] = subgroup_partial;
++            }
++#else
++            shared_reduce[reduce_idx] = s * C[c_idx];
++#endif
++
++            workgroupBarrier();
++
++#ifdef USE_SUBGROUP_REDUCTION
++            if (tid == 0u) {
++                var sum = 0.0;
++                for (var sg = 0u; sg < num_subgroups; sg++) {
++                    sum += shared_reduce[reduce_base(token_in_tile) + sg];
++                }
++                let y_idx =
++                    params.offset_dst + i1 + ir * params.d_inner + token * (params.n_head * params.d_inner) +
++                    i3 * (params.n_seq_tokens * params.n_head * params.d_inner);
++                dst[y_idx] = sum;
++            }
++#else
++            for (var stride = WG_SIZE / 2u; stride > 0u; stride >>= 1u) {
++                if (tid < stride) {
++                    shared_reduce[reduce_idx] += shared_reduce[reduce_idx + stride];
++                }
++                workgroupBarrier();
++            }
++
++            if (tid == 0u) {
++                let y_idx =
++                    params.offset_dst + i1 + ir * params.d_inner + token * (params.n_head * params.d_inner) +
++                    i3 * (params.n_seq_tokens * params.n_head * params.d_inner);
++                dst[y_idx] = shared_reduce[reduce_base(token_in_tile)];
++            }
++#endif
++
++            workgroupBarrier();
++        }
++    }
++
++    let state_idx =
++        params.offset_dst + params.y_elems + tid + i1 * params.d_state + ir * (params.d_state * params.d_inner) +
++        i3 * (params.d_state * params.d_inner * params.n_head);
++    dst[state_idx] = s_prev;
 +}
 diff --git src/ggml.c src/ggml.c
 index eda041f4..54d3eae3 100644
