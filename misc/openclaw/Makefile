@@ -1,5 +1,6 @@
 PORTNAME=	openclaw
-DISTVERSION=	2026.4.23
+DISTVERSION=	2026.4.24
+PORTREVISION=	1
 CATEGORIES=	misc # machine-learning
 PKGNAMESUFFIX=	-ai-gateway
 DISTFILES=	${PORTNAME}-${DISTVERSION}${EXTRACT_SUFX}
@@ -45,11 +46,15 @@ SKILL_DEPENDENCIES_RUN_DEPENDS=	blogwatcher:misc/blogwatcher \
 				grizzly:misc/grizzly \
 				jq:textproc/jq \
 				memo:misc/memo \
+				nano-pdf:textproc/nano-pdf \
 				op:security/op \
 				rg:textproc/ripgrep \
+				sag:audio/sag \
 				songsee:audio/songsee \
+				sonos:misc/sonoscli \
 				spotify_player:audio/spotify-player \
 				tmux:sysutils/tmux \
+				wacli:misc/wacli \
 				whisper:misc/py-openai-whisper
 
 PACKAGE_NAME=	openclaw
@@ -171,7 +176,7 @@ post-patch-EXTEND_TYPING_TTL_TIMEOUT-on:
 post-install:
 	# remove empty directories in STAGEDIR
 	@${FIND} ${STAGEDIR}${PREFIX}/lib/node_modules -type d -empty -delete
-	# autoplist: thousands of files with randomizing strings in names warrant autoplist
+	# autoplist: 32k+ files with randomizing strings in names warrant autoplist
 	@cd ${STAGEDIR}${PREFIX} && \
 		${FIND} * -type f -or -type l >> ${TMPPLIST}
 
