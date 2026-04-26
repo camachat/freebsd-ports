@@ -24,6 +24,436 @@ index 48fbe208..52754e1b 100644
      endif()
  endif()
  
+diff --git src/ggml-backend-meta.cpp src/ggml-backend-meta.cpp
+index 6d22f342..41a61775 100644
+--- src/ggml-backend-meta.cpp
++++ src/ggml-backend-meta.cpp
+@@ -1205,40 +1205,57 @@ static void ggml_backend_meta_buffer_set_tensor(ggml_backend_buffer_t buffer, gg
+ 
+     if (split_state.n_segments != 1) {
+         GGML_ASSERT(split_state.axis >= 0 && split_state.axis < GGML_MAX_DIMS);
+-        GGML_ASSERT(offset == 0);
+-        GGML_ASSERT(size == ggml_nbytes(tensor));
+         GGML_ASSERT(tensor->ne[3] == 1);
++
+         size_t offset_data = 0;
+         std::vector<size_t> simple_offsets(n_bufs, 0);
+         if (split_state.axis == GGML_BACKEND_SPLIT_AXIS_0) {
+             GGML_ASSERT(tensor->ne[2] == 1);
++
++            const size_t row_stride = tensor->nb[1];
++            GGML_ASSERT(offset % row_stride == 0);
++            GGML_ASSERT(size   % row_stride == 0);
++            const int64_t r_start = offset / row_stride;
++            const int64_t r_count = size   / row_stride;
++            GGML_ASSERT(r_start + r_count <= tensor->ne[1]);
++
+             const int64_t blck_size = ggml_blck_size(tensor->type);
+             for (size_t s = 0; s < split_state.n_segments; s++) {
+                 for (size_t j = 0; j < n_bufs; j++) {
+                     ggml_tensor * simple_tensor = ggml_backend_meta_buffer_simple_tensor(tensor, j);
+                     GGML_ASSERT(split_state.ne[s*n_bufs + j] % blck_size == 0);
+                     const size_t nbytes = split_state.ne[s*n_bufs + j]/blck_size * tensor->nb[0];
+-                    ggml_backend_tensor_set_2d(simple_tensor, (const char *) data + offset_data, simple_offsets[j], nbytes,
+-                        tensor->ne[1], simple_tensor->nb[1], tensor->nb[1]);
++                    ggml_backend_tensor_set_2d(simple_tensor, (const char *) data + offset_data,
++                        simple_offsets[j] + r_start * simple_tensor->nb[1], nbytes,
++                        r_count, simple_tensor->nb[1], tensor->nb[1]);
+                     offset_data       += nbytes;
+                     simple_offsets[j] += nbytes;
+                 }
+             }
+-            GGML_ASSERT(offset_data*tensor->ne[1] == size);
++            GGML_ASSERT(offset_data*r_count == size);
+             return;
+         }
+         GGML_ASSERT(split_state.axis == GGML_BACKEND_SPLIT_AXIS_1);
++
++        const size_t row_stride = tensor->nb[2];
++        GGML_ASSERT(offset % row_stride == 0);
++        GGML_ASSERT(size   % row_stride == 0);
++        const int64_t r_start = offset / row_stride;
++        const int64_t r_count = size   / row_stride;
++        GGML_ASSERT(r_start + r_count <= tensor->ne[2]);
++
+         for (size_t s = 0; s < split_state.n_segments; s++) {
+             for (size_t j = 0; j < n_bufs; j++) {
+                 ggml_tensor * simple_tensor = ggml_backend_meta_buffer_simple_tensor(tensor, j);
+                 const size_t nbytes = split_state.ne[s*n_bufs + j] * tensor->nb[1];
+-                ggml_backend_tensor_set_2d(simple_tensor, (const char *) data + offset_data, simple_offsets[j], nbytes,
+-                    tensor->ne[2], simple_tensor->nb[2], tensor->nb[2]);
++                ggml_backend_tensor_set_2d(simple_tensor, (const char *) data + offset_data,
++                    simple_offsets[j] + r_start * simple_tensor->nb[2], nbytes,
++                    r_count, simple_tensor->nb[2], tensor->nb[2]);
+                 offset_data       += nbytes;
+                 simple_offsets[j] += nbytes;
+             }
+         }
+-        GGML_ASSERT(offset_data*tensor->ne[2] == size);
++        GGML_ASSERT(offset_data*r_count == size);
+         return;
+     }
+ 
+@@ -1295,40 +1312,57 @@ static void ggml_backend_meta_buffer_get_tensor(ggml_backend_buffer_t buffer, co
+ 
+     if (split_state.n_segments != 1) {
+         GGML_ASSERT(split_state.axis >= 0 && split_state.axis < GGML_MAX_DIMS);
+-        GGML_ASSERT(offset == 0);
+-        GGML_ASSERT(size == ggml_nbytes(tensor));
+         GGML_ASSERT(tensor->ne[3] == 1);
++
+         size_t offset_data = 0;
+         std::vector<size_t> simple_offsets(n_bufs, 0);
+         if (split_state.axis == GGML_BACKEND_SPLIT_AXIS_0) {
+             GGML_ASSERT(tensor->ne[2] == 1);
++
++            const size_t row_stride = tensor->nb[1];
++            GGML_ASSERT(offset % row_stride == 0);
++            GGML_ASSERT(size   % row_stride == 0);
++            const int64_t r_start = offset / row_stride;
++            const int64_t r_count = size   / row_stride;
++            GGML_ASSERT(r_start + r_count <= tensor->ne[1]);
++
+             const int64_t blck_size = ggml_blck_size(tensor->type);
+             for (size_t s = 0; s < split_state.n_segments; s++) {
+                 for (size_t j = 0; j < n_bufs; j++) {
+                     const ggml_tensor * simple_tensor = ggml_backend_meta_buffer_simple_tensor(tensor, j);
+                     GGML_ASSERT(split_state.ne[s*n_bufs + j] % blck_size == 0);
+                     const size_t nbytes = split_state.ne[s*n_bufs + j]/blck_size * tensor->nb[0];
+-                    ggml_backend_tensor_get_2d(simple_tensor, (char *) data + offset_data, simple_offsets[j], nbytes,
+-                        tensor->ne[1], simple_tensor->nb[1], tensor->nb[1]);
++                    ggml_backend_tensor_get_2d(simple_tensor, (char *) data + offset_data,
++                        simple_offsets[j] + r_start * simple_tensor->nb[1], nbytes,
++                        r_count, simple_tensor->nb[1], tensor->nb[1]);
+                     offset_data       += nbytes;
+                     simple_offsets[j] += nbytes;
+                 }
+             }
+-            GGML_ASSERT(offset_data*tensor->ne[1] == size);
++            GGML_ASSERT(offset_data*r_count == size);
+             return;
+         }
+         GGML_ASSERT(split_state.axis == GGML_BACKEND_SPLIT_AXIS_1);
++
++        const size_t row_stride = tensor->nb[2];
++        GGML_ASSERT(offset % row_stride == 0);
++        GGML_ASSERT(size   % row_stride == 0);
++        const int64_t r_start = offset / row_stride;
++        const int64_t r_count = size   / row_stride;
++        GGML_ASSERT(r_start + r_count <= tensor->ne[2]);
++
+         for (size_t s = 0; s < split_state.n_segments; s++) {
+             for (size_t j = 0; j < n_bufs; j++) {
+                 const ggml_tensor * simple_tensor = ggml_backend_meta_buffer_simple_tensor(tensor, j);
+                 const size_t nbytes = split_state.ne[s*n_bufs + j] * tensor->nb[1];
+-                ggml_backend_tensor_get_2d(simple_tensor, (char *) data + offset_data, simple_offsets[j], nbytes,
+-                    tensor->ne[2], simple_tensor->nb[2], tensor->nb[2]);
++                ggml_backend_tensor_get_2d(simple_tensor, (char *) data + offset_data,
++                    simple_offsets[j] + r_start * simple_tensor->nb[2], nbytes,
++                    r_count, simple_tensor->nb[2], tensor->nb[2]);
+                 offset_data       += nbytes;
+                 simple_offsets[j] += nbytes;
+             }
+         }
+-        GGML_ASSERT(offset_data*tensor->ne[2] == size);
++        GGML_ASSERT(offset_data*r_count == size);
+         return;
+     }
+ 
+diff --git src/ggml-cpu/arch/x86/quants.c src/ggml-cpu/arch/x86/quants.c
+index 0a3e071e..94b19b82 100644
+--- src/ggml-cpu/arch/x86/quants.c
++++ src/ggml-cpu/arch/x86/quants.c
+@@ -2300,9 +2300,8 @@ void ggml_vec_dot_q6_K_q8_K(int n, float * GGML_RESTRICT s, size_t bs, const voi
+ 
+ #if defined __AVX2__
+ 
+-    const __m256i m4 = _mm256_set1_epi8(0xF);
+-    const __m256i m2 = _mm256_set1_epi8(3);
+-    const __m256i m32s = _mm256_set1_epi8(32);
++    const __m256i m3 = _mm256_set1_epi8(3);
++    const __m256i m15 = _mm256_set1_epi8(15);
+ 
+     __m256 acc = _mm256_setzero_ps();
+ 
+@@ -2314,53 +2313,45 @@ void ggml_vec_dot_q6_K_q8_K(int n, float * GGML_RESTRICT s, size_t bs, const voi
+         const uint8_t * GGML_RESTRICT qh = x[i].qh;
+         const int8_t  * GGML_RESTRICT q8 = y[i].qs;
+ 
++        const __m256i q8sums = _mm256_loadu_si256((const __m256i*)y[i].bsums);
+         const __m128i scales = _mm_loadu_si128((const __m128i*)x[i].scales);
++        const __m256i scales_16 = _mm256_cvtepi8_epi16(scales);
++        const __m256i q8sclsub = _mm256_slli_epi32(_mm256_madd_epi16(q8sums, scales_16), 5);
+ 
+         __m256i sumi = _mm256_setzero_si256();
+ 
+         int is = 0;
+ 
+         for (int j = 0; j < QK_K/128; ++j) {
+-
+-            const __m128i scale_0 = _mm_shuffle_epi8(scales, get_scale_shuffle(is + 0));
+-            const __m128i scale_1 = _mm_shuffle_epi8(scales, get_scale_shuffle(is + 1));
+-            const __m128i scale_2 = _mm_shuffle_epi8(scales, get_scale_shuffle(is + 2));
+-            const __m128i scale_3 = _mm_shuffle_epi8(scales, get_scale_shuffle(is + 3));
+-            is += 4;
+-
+             const __m256i q4bits1 = _mm256_loadu_si256((const __m256i*)q4); q4 += 32;
+             const __m256i q4bits2 = _mm256_loadu_si256((const __m256i*)q4); q4 += 32;
+             const __m256i q4bitsH = _mm256_loadu_si256((const __m256i*)qh); qh += 32;
+ 
+-            const __m256i q4h_0 = _mm256_slli_epi16(_mm256_and_si256(q4bitsH, m2), 4);
+-            const __m256i q4h_1 = _mm256_slli_epi16(_mm256_and_si256(_mm256_srli_epi16(q4bitsH, 2), m2), 4);
+-            const __m256i q4h_2 = _mm256_slli_epi16(_mm256_and_si256(_mm256_srli_epi16(q4bitsH, 4), m2), 4);
+-            const __m256i q4h_3 = _mm256_slli_epi16(_mm256_and_si256(_mm256_srli_epi16(q4bitsH, 6), m2), 4);
++            const __m256i q4h_0 = _mm256_slli_epi16(_mm256_and_si256(q4bitsH, m3), 4);
++            const __m256i q4h_1 = _mm256_slli_epi16(_mm256_and_si256(q4bitsH, _mm256_set1_epi8(12)), 2);
++            const __m256i q4h_2 = _mm256_and_si256(q4bitsH, _mm256_set1_epi8(48));
++            const __m256i q4h_3 = _mm256_srli_epi16(_mm256_and_si256(q4bitsH, _mm256_set1_epi8(-64)), 2);
+ 
+-            const __m256i q4_0 = _mm256_or_si256(_mm256_and_si256(q4bits1, m4), q4h_0);
+-            const __m256i q4_1 = _mm256_or_si256(_mm256_and_si256(q4bits2, m4), q4h_1);
+-            const __m256i q4_2 = _mm256_or_si256(_mm256_and_si256(_mm256_srli_epi16(q4bits1, 4), m4), q4h_2);
+-            const __m256i q4_3 = _mm256_or_si256(_mm256_and_si256(_mm256_srli_epi16(q4bits2, 4), m4), q4h_3);
++            const __m256i q4_0 = _mm256_or_si256(_mm256_and_si256(q4bits1, m15), q4h_0);
++            const __m256i q4_1 = _mm256_or_si256(_mm256_and_si256(q4bits2, m15), q4h_1);
++            const __m256i q4_2 = _mm256_or_si256(_mm256_and_si256(_mm256_srli_epi16(q4bits1, 4), m15), q4h_2);
++            const __m256i q4_3 = _mm256_or_si256(_mm256_and_si256(_mm256_srli_epi16(q4bits2, 4), m15), q4h_3);
+ 
+             const __m256i q8_0 = _mm256_loadu_si256((const __m256i*)q8); q8 += 32;
+             const __m256i q8_1 = _mm256_loadu_si256((const __m256i*)q8); q8 += 32;
+             const __m256i q8_2 = _mm256_loadu_si256((const __m256i*)q8); q8 += 32;
+             const __m256i q8_3 = _mm256_loadu_si256((const __m256i*)q8); q8 += 32;
+ 
+-            __m256i q8s_0 = _mm256_maddubs_epi16(m32s, q8_0);
+-            __m256i q8s_1 = _mm256_maddubs_epi16(m32s, q8_1);
+-            __m256i q8s_2 = _mm256_maddubs_epi16(m32s, q8_2);
+-            __m256i q8s_3 = _mm256_maddubs_epi16(m32s, q8_3);
+-
+             __m256i p16_0 = _mm256_maddubs_epi16(q4_0, q8_0);
+             __m256i p16_1 = _mm256_maddubs_epi16(q4_1, q8_1);
+             __m256i p16_2 = _mm256_maddubs_epi16(q4_2, q8_2);
+             __m256i p16_3 = _mm256_maddubs_epi16(q4_3, q8_3);
+ 
+-            p16_0 = _mm256_sub_epi16(p16_0, q8s_0);
+-            p16_1 = _mm256_sub_epi16(p16_1, q8s_1);
+-            p16_2 = _mm256_sub_epi16(p16_2, q8s_2);
+-            p16_3 = _mm256_sub_epi16(p16_3, q8s_3);
++            const __m128i scale_0 = _mm_shuffle_epi8(scales, get_scale_shuffle(is + 0));
++            const __m128i scale_1 = _mm_shuffle_epi8(scales, get_scale_shuffle(is + 1));
++            const __m128i scale_2 = _mm_shuffle_epi8(scales, get_scale_shuffle(is + 2));
++            const __m128i scale_3 = _mm_shuffle_epi8(scales, get_scale_shuffle(is + 3));
++            is += 4;
+ 
+             p16_0 = _mm256_madd_epi16(_mm256_cvtepi8_epi16(scale_0), p16_0);
+             p16_1 = _mm256_madd_epi16(_mm256_cvtepi8_epi16(scale_1), p16_1);
+@@ -2372,6 +2363,7 @@ void ggml_vec_dot_q6_K_q8_K(int n, float * GGML_RESTRICT s, size_t bs, const voi
+ 
+         }
+ 
++        sumi = _mm256_sub_epi32(sumi, q8sclsub);
+         acc = _mm256_fmadd_ps(_mm256_broadcast_ss(&d), _mm256_cvtepi32_ps(sumi), acc);
+     }
+ 
+diff --git src/ggml-cpu/vec.h src/ggml-cpu/vec.h
+index a0375a28..bcd68da9 100644
+--- src/ggml-cpu/vec.h
++++ src/ggml-cpu/vec.h
+@@ -1036,12 +1036,12 @@ inline static float ggml_gelu_quick_f32(float x) {
+     return x*(1.0f/(1.0f+expf(GELU_QUICK_COEF*x)));
+ }
+ 
+-//inline static void ggml_vec_gelu_quick_f16(const int n, ggml_fp16_t * y, const ggml_fp16_t * x) {
+-//    const uint16_t * i16 = (const uint16_t *) x;
+-//    for (int i = 0; i < n; ++i) {
+-//        y[i] = ggml_table_gelu_quick_f16[i16[i]];
+-//    }
+-//}
++inline static void ggml_vec_gelu_quick_f16(const int n, ggml_fp16_t * y, const ggml_fp16_t * x) {
++    const uint16_t * i16 = (const uint16_t *) x;
++    for (int i = 0; i < n; ++i) {
++        y[i] = ggml_table_gelu_quick_f16[i16[i]];
++    }
++}
+ 
+ #ifdef GGML_GELU_QUICK_FP16
+ inline static void ggml_vec_gelu_quick_f32(const int n, float * y, const float * x) {
+@@ -1060,13 +1060,6 @@ inline static void ggml_vec_gelu_quick_f32(const int n, float * y, const float *
+ }
+ #endif
+ 
+-inline static void ggml_vec_gelu_quick_f16(const int n, ggml_fp16_t * y, const ggml_fp16_t * x) {
+-    for (int i = 0; i < n; ++i) {
+-        float v = GGML_CPU_FP16_TO_FP32(x[i]);
+-        y[i] = GGML_CPU_FP32_TO_FP16(v*(1.0f/(1.0f+expf(GELU_QUICK_COEF*v))));
+-    }
+-}
+-
+ // Sigmoid Linear Unit (SiLU) function
+ inline static float ggml_silu_f32(float x) {
+     return x/(1.0f + expf(-x));
+diff --git src/ggml-cuda/concat.cu src/ggml-cuda/concat.cu
+index e9ffd274..102f944f 100644
+--- src/ggml-cuda/concat.cu
++++ src/ggml-cuda/concat.cu
+@@ -1,96 +1,79 @@
+ #include "concat.cuh"
+ 
+ // contiguous kernels
+-static __global__ void concat_f32_dim0(const float * x, const float * y, float * dst, const int ne0, const int ne00) {
+-    int nidx = threadIdx.x + blockIdx.x * blockDim.x;
+-    if (nidx >= ne0) {
+-        return;
+-    }
+-
+-    int offset_dst =
+-        nidx +
+-        blockIdx.y * ne0 +
+-        blockIdx.z * ne0 * gridDim.y;
+-
+-    if (nidx < ne00) { // src0
+-        int offset_src =
+-            nidx +
+-            blockIdx.y * ne00 +
+-            blockIdx.z * ne00 * gridDim.y;
+-        dst[offset_dst] = x[offset_src];
+-    } else {
+-        int offset_src =
+-            (nidx - ne00) +
+-            blockIdx.y * (ne0 - ne00) +
+-            blockIdx.z * (ne0 - ne00) * gridDim.y;
+-        dst[offset_dst] = y[offset_src];
+-    }
+-}
+-
+-static __global__ void concat_f32_dim1(const float * x, const float * y, float * dst, const int ne0, const int ne01) {
+-    int nidx = threadIdx.x + blockIdx.x * blockDim.x;
+-    if (nidx >= ne0) {
+-        return;
+-    }
++template <int dim>
++static __global__ void __launch_bounds__(CUDA_CONCAT_BLOCK_SIZE) concat_f32_cont(const float * x,
++                                                                                 const float * y,
++                                                                                 float *       dst,
++                                                                                 int64_t       ne00,
++                                                                                 int64_t       ne01,
++                                                                                 int64_t       ne02,
++                                                                                 int64_t       ne0,
++                                                                                 int64_t       ne1,
++                                                                                 int64_t       ne2) {
++    static_assert(dim >= 0 && dim <= 2, "dim must be in [0, 2]");
++
++    const int64_t n = ne0 * ne1 * ne2;
++
++    for (int64_t i = (int64_t) blockIdx.x * blockDim.x + threadIdx.x; i < n; i += (int64_t) blockDim.x * gridDim.x) {
++        if constexpr (dim == 0) {
++            const int64_t row = i / ne0;
++            const int64_t i0  = i - row * ne0;
++
++            if (i0 < ne00) {
++                dst[i] = x[row * ne00 + i0];
++            } else {
++                dst[i] = y[row * (ne0 - ne00) + (i0 - ne00)];
++            }
++        } else if constexpr (dim == 1) {
++            const int64_t dst_plane  = ne0 * ne1;
++            const int64_t src0_plane = ne0 * ne01;
++            const int64_t src1_plane = dst_plane - src0_plane;
++            const int64_t i2         = i / dst_plane;
++            const int64_t i01        = i - i2 * dst_plane;
++
++            if (i01 < src0_plane) {
++                dst[i] = x[i2 * src0_plane + i01];
++            } else {
++                dst[i] = y[i2 * src1_plane + (i01 - src0_plane)];
++            }
++        } else {
++            const int64_t src0_size = ne0 * ne1 * ne02;
+ 
+-    int offset_dst =
+-        nidx +
+-        blockIdx.y * ne0 +
+-        blockIdx.z * ne0 * gridDim.y;
+-
+-    if (blockIdx.y < (unsigned)ne01) { // src0
+-        int offset_src =
+-            nidx +
+-            blockIdx.y * ne0 +
+-            blockIdx.z * ne0 * ne01;
+-        dst[offset_dst] = x[offset_src];
+-    } else {
+-        int offset_src =
+-            nidx +
+-            (blockIdx.y - ne01) * ne0 +
+-            blockIdx.z * ne0 * (gridDim.y - ne01);
+-        dst[offset_dst] = y[offset_src];
++            if (i < src0_size) {
++                dst[i] = x[i];
++            } else {
++                dst[i] = y[i - src0_size];
++            }
++        }
+     }
+ }
+ 
+-static __global__ void concat_f32_dim2(const float * x, const float * y, float * dst, const int ne0, const int ne02) {
+-    int nidx = threadIdx.x + blockIdx.x * blockDim.x;
+-    if (nidx >= ne0) {
+-        return;
+-    }
+-
+-    int offset_dst =
+-        nidx +
+-        blockIdx.y * ne0 +
+-        blockIdx.z * ne0 * gridDim.y;
+-
+-    if (blockIdx.z < (unsigned)ne02) { // src0
+-        int offset_src =
+-            nidx +
+-            blockIdx.y * ne0 +
+-            blockIdx.z * ne0 * gridDim.y;
+-        dst[offset_dst] = x[offset_src];
+-    } else {
+-        int offset_src =
+-            nidx +
+-            blockIdx.y * ne0 +
+-            (blockIdx.z - ne02) * ne0 *  gridDim.y;
+-        dst[offset_dst] = y[offset_src];
+-    }
+-}
++static void concat_f32_cuda(const float * x,
++                            const float * y,
++                            float *       dst,
++                            int64_t       ne00,
++                            int64_t       ne01,
++                            int64_t       ne02,
++                            int64_t       ne0,
++                            int64_t       ne1,
++                            int64_t       ne2,
++                            int           dim,
++                            cudaStream_t  stream) {
++    const int64_t n          = ne0 * ne1 * ne2;
++    const int     num_blocks = (n + CUDA_CONCAT_BLOCK_SIZE - 1) / CUDA_CONCAT_BLOCK_SIZE;
+ 
+-static void concat_f32_cuda(const float * x, const float * y, float * dst, int ne00, int ne01, int ne02, int ne0, int ne1, int ne2, int dim, cudaStream_t stream) {
+-    int num_blocks = (ne0 + CUDA_CONCAT_BLOCK_SIZE - 1) / CUDA_CONCAT_BLOCK_SIZE;
+-    dim3 gridDim(num_blocks, ne1, ne2);
+     if (dim == 0) {
+-        concat_f32_dim0<<<gridDim, CUDA_CONCAT_BLOCK_SIZE, 0, stream>>>(x, y, dst, ne0, ne00);
++        concat_f32_cont<0>
++            <<<num_blocks, CUDA_CONCAT_BLOCK_SIZE, 0, stream>>>(x, y, dst, ne00, ne01, ne02, ne0, ne1, ne2);
+         return;
+     }
+     if (dim == 1) {
+-        concat_f32_dim1<<<gridDim, CUDA_CONCAT_BLOCK_SIZE, 0, stream>>>(x, y, dst, ne0, ne01);
++        concat_f32_cont<1>
++            <<<num_blocks, CUDA_CONCAT_BLOCK_SIZE, 0, stream>>>(x, y, dst, ne00, ne01, ne02, ne0, ne1, ne2);
+         return;
+     }
+-    concat_f32_dim2<<<gridDim, CUDA_CONCAT_BLOCK_SIZE, 0, stream>>>(x, y, dst, ne0, ne02);
++    concat_f32_cont<2><<<num_blocks, CUDA_CONCAT_BLOCK_SIZE, 0, stream>>>(x, y, dst, ne00, ne01, ne02, ne0, ne1, ne2);
+ }
+ 
+ // non-contiguous kernel (slow)
 diff --git src/ggml-cuda/ggml-cuda.cu src/ggml-cuda/ggml-cuda.cu
 index 18595631..1c2c3b4a 100644
 --- src/ggml-cuda/ggml-cuda.cu
@@ -1951,7 +2381,7 @@ index ed6026e7..d0926ded 100644
  
  #endif /* HVX_BASE_H */
 diff --git src/ggml-hexagon/htp/main.c src/ggml-hexagon/htp/main.c
-index 5091623a..62942f63 100644
+index 5091623a..f5834730 100644
 --- src/ggml-hexagon/htp/main.c
 +++ src/ggml-hexagon/htp/main.c
 @@ -27,6 +27,7 @@
@@ -1962,10 +2392,11 @@ index 5091623a..62942f63 100644
  #include "worker-pool.h"
  
  AEEResult htp_iface_open(const char * uri, remote_handle64 * handle) {
-@@ -100,6 +101,72 @@ AEEResult htp_iface_open(const char * uri, remote_handle64 * handle) {
+@@ -100,6 +101,74 @@ AEEResult htp_iface_open(const char * uri, remote_handle64 * handle) {
          }
      }
  
++#if __HVX_ARCH__ >= 75
 +    {
 +        // Set HMX clock
 +        HAP_power_request_t request;
@@ -1983,6 +2414,7 @@ index 5091623a..62942f63 100644
 +            return err;
 +        }
 +    }
++#endif
 +
 +    return AEE_SUCCESS;
 +}
@@ -2035,7 +2467,7 @@ index 5091623a..62942f63 100644
      return AEE_SUCCESS;
  }
  
-@@ -129,35 +196,19 @@ AEEResult htp_iface_close(remote_handle64 handle) {
+@@ -129,35 +198,19 @@ AEEResult htp_iface_close(remote_handle64 handle) {
          }
      }
  
@@ -2079,7 +2511,7 @@ index 5091623a..62942f63 100644
      struct htp_context * ctx = (struct htp_context *) handle;
      if (!ctx) {
          return AEE_EBADPARM;
-@@ -204,7 +255,7 @@ AEEResult htp_iface_mmap(remote_handle64 handle, int fd, uint32_t size, uint32_t
+@@ -204,7 +257,7 @@ AEEResult htp_iface_mmap(remote_handle64 handle, int fd, uint32_t size, uint32_t
      return AEE_ENOMEMORY;
  }
  
@@ -2088,7 +2520,7 @@ index 5091623a..62942f63 100644
      struct htp_context * ctx = (struct htp_context *) handle;
      if (!ctx) {
          return AEE_EBADPARM;
-@@ -434,19 +485,39 @@ static void htp_error_callback(dspqueue_t queue, int error, void * context) {
+@@ -434,19 +487,39 @@ static void htp_error_callback(dspqueue_t queue, int error, void * context) {
  struct profile_data {
      uint64_t usecs;
      uint64_t cycles;
@@ -2137,7 +2569,7 @@ index 5091623a..62942f63 100644
  }
  
  static int execute_op(struct htp_ops_context * octx) {
-@@ -514,6 +585,15 @@ static int execute_op(struct htp_ops_context * octx) {
+@@ -514,6 +587,15 @@ static int execute_op(struct htp_ops_context * octx) {
          case HTP_OP_CUMSUM:
              return op_cumsum(octx);
  
@@ -2153,7 +2585,7 @@ index 5091623a..62942f63 100644
          case HTP_OP_INVALID:
              break;
  
-@@ -720,29 +800,32 @@ static void htp_packet_callback(dspqueue_t queue, int error, void * context) {
+@@ -720,29 +802,32 @@ static void htp_packet_callback(dspqueue_t queue, int error, void * context) {
              continue;
          }
  
@@ -2198,7 +2630,7 @@ index 5091623a..62942f63 100644
  
          prep_op_bufs(ctx, bufs, n_bufs);
          prep_tensors(ctx, bufs, tens, n_tens);
-@@ -754,22 +837,34 @@ static void htp_packet_callback(dspqueue_t queue, int error, void * context) {
+@@ -754,22 +839,34 @@ static void htp_packet_callback(dspqueue_t queue, int error, void * context) {
  
          for (uint32_t i=0; i < n_ops; i++) {
              struct profile_data prof;
@@ -3136,6 +3568,1928 @@ index 9f38c9d2..c372eaed 100644
              }
          } else {
              S0_4x4 temp_a;
+diff --git src/ggml-opencl/CMakeLists.txt src/ggml-opencl/CMakeLists.txt
+index 772fc537..5ed83eeb 100644
+--- src/ggml-opencl/CMakeLists.txt
++++ src/ggml-opencl/CMakeLists.txt
+@@ -96,6 +96,8 @@ set(GGML_OPENCL_KERNELS
+     mul_mv_q6_k_f32_flat
+     mul_mv_q8_0_f32
+     mul_mv_q8_0_f32_flat
++    mul_mv_iq4_nl_f32
++    mul_mv_iq4_nl_f32_flat
+     mul_mv_mxfp4_f32
+     mul_mv_mxfp4_f32_flat
+     mul_mv_id_q4_0_f32_8x_flat
+@@ -110,12 +112,15 @@ set(GGML_OPENCL_KERNELS
+     mul_mm_q4_0_f32_l4_lm
+     mul_mm_q4_1_f32_l4_lm
+     mul_mm_q8_0_f32_l4_lm
++    mul_mm_iq4_nl_f32_l4_lm
+     mul_mm_q4_k_f32_l4_lm
+     mul_mm_q5_k_f32_l4_lm
+     mul_mm_q6_k_f32_l4_lm
+     mul_mm_q8_0_f32_8x4
+     gemv_noshuffle_q4_1_f32
+     gemm_noshuffle_q4_1_f32
++    gemv_noshuffle_iq4_nl_f32
++    gemm_noshuffle_iq4_nl_f32
+     gemv_noshuffle_general_q8_0_f32
+     gemv_noshuffle_q4_k_f32
+     gemm_noshuffle_q4_k_f32
+diff --git src/ggml-opencl/ggml-opencl.cpp src/ggml-opencl/ggml-opencl.cpp
+index 8bc7ae65..4d31591a 100644
+--- src/ggml-opencl/ggml-opencl.cpp
++++ src/ggml-opencl/ggml-opencl.cpp
+@@ -545,6 +545,9 @@ struct ggml_backend_opencl_context {
+     cl_kernel kernel_convert_block_q5_K_noshuffle;
+     cl_kernel kernel_restore_block_q5_K_noshuffle;
+     cl_kernel kernel_convert_block_q6_K, kernel_restore_block_q6_K;
++    cl_kernel kernel_convert_block_iq4_nl, kernel_restore_block_iq4_nl;
++    cl_kernel kernel_convert_block_iq4_nl_noshuffle;
++    cl_kernel kernel_restore_block_iq4_nl_noshuffle;
+     cl_kernel kernel_mul_mat_q4_0_f32_1d_8x_flat, kernel_mul_mat_q4_0_f32_1d_16x_flat;
+     cl_kernel kernel_mul_mv_q4_1_f32;
+     cl_kernel kernel_mul_mv_q4_1_f32_flat;
+@@ -556,6 +559,8 @@ struct ggml_backend_opencl_context {
+     cl_kernel kernel_mul_mv_q6_K_f32_flat;
+     cl_kernel kernel_mul_mv_mxfp4_f32, kernel_mul_mv_mxfp4_f32_flat;
+     cl_kernel kernel_mul_mv_q8_0_f32, kernel_mul_mv_q8_0_f32_flat;
++    cl_kernel kernel_mul_mv_iq4_nl_f32;
++    cl_kernel kernel_mul_mv_iq4_nl_f32_flat;
+     cl_kernel kernel_solve_tri_f32;
+     cl_kernel kernel_im2col_f32, kernel_im2col_f16;
+     cl_kernel kernel_argsort_f32_i32;
+@@ -594,6 +599,7 @@ struct ggml_backend_opencl_context {
+     cl_kernel kernel_mul_mm_q4_k_f32_l4_lm;
+     cl_kernel kernel_mul_mm_q5_k_f32_l4_lm;
+     cl_kernel kernel_mul_mm_q6_k_f32_l4_lm;
++    cl_kernel kernel_mul_mm_iq4_nl_f32_l4_lm;
+ 
+     std::vector<ProfilingInfo> profiling_info;
+ 
+@@ -734,6 +740,8 @@ struct ggml_backend_opencl_context {
+     cl_kernel kernel_gemm_noshuffle_q6_K_f32;
+     cl_kernel kernel_gemv_noshuffle_q5_k_f32;
+     cl_kernel kernel_gemm_noshuffle_q5_k_f32;
++    cl_kernel kernel_gemv_noshuffle_iq4_nl_f32;
++    cl_kernel kernel_gemm_noshuffle_iq4_nl_f32;
+ #endif // GGML_OPENCL_USE_ADRENO_KERNELS
+ 
+     void free() {
+@@ -954,6 +962,10 @@ static void load_cl_kernels(ggml_backend_opencl_context *backend_ctx, ggml_cl_ve
+         CL_CHECK((backend_ctx->kernel_restore_block_q6_K  = clCreateKernel(backend_ctx->program_cvt, "kernel_restore_block_q6_K", &err), err));
+         CL_CHECK((backend_ctx->kernel_convert_block_q6_K_noshuffle  = clCreateKernel(backend_ctx->program_cvt, "kernel_convert_block_q6_K_noshuffle", &err), err));
+         CL_CHECK((backend_ctx->kernel_restore_block_q6_K_noshuffle  = clCreateKernel(backend_ctx->program_cvt, "kernel_restore_block_q6_K_noshuffle", &err), err));
++        CL_CHECK((backend_ctx->kernel_convert_block_iq4_nl = clCreateKernel(backend_ctx->program_cvt, "kernel_convert_block_iq4_nl", &err), err));
++        CL_CHECK((backend_ctx->kernel_restore_block_iq4_nl = clCreateKernel(backend_ctx->program_cvt, "kernel_restore_block_iq4_nl", &err), err));
++        CL_CHECK((backend_ctx->kernel_convert_block_iq4_nl_noshuffle = clCreateKernel(backend_ctx->program_cvt, "kernel_convert_block_iq4_nl_noshuffle", &err), err));
++        CL_CHECK((backend_ctx->kernel_restore_block_iq4_nl_noshuffle = clCreateKernel(backend_ctx->program_cvt, "kernel_restore_block_iq4_nl_noshuffle", &err), err));
+         GGML_LOG_CONT(".");
+     }
+ 
+@@ -1359,6 +1371,40 @@ static void load_cl_kernels(ggml_backend_opencl_context *backend_ctx, ggml_cl_ve
+         GGML_LOG_CONT(".");
+     }
+ 
++    // mul_mv_iq4_nl_f32
++    {
++#ifdef GGML_OPENCL_EMBED_KERNELS
++        const std::string kernel_src {
++            #include "mul_mv_iq4_nl_f32.cl.h"
++        };
++#else
++        const std::string kernel_src = read_file("mul_mv_iq4_nl_f32.cl");
++#endif
++        cl_program prog =
++            build_program_from_source(backend_ctx->context, backend_ctx->device, kernel_src.c_str(), compile_opts);
++
++        CL_CHECK((backend_ctx->kernel_mul_mv_iq4_nl_f32 = clCreateKernel(prog, "kernel_mul_mv_iq4_nl_f32", &err), err));
++        CL_CHECK(clReleaseProgram(prog));
++        GGML_LOG_CONT(".");
++    }
++
++    // mul_mv_iq4_nl_f32_flat
++    {
++#ifdef GGML_OPENCL_EMBED_KERNELS
++        const std::string kernel_src {
++            #include "mul_mv_iq4_nl_f32_flat.cl.h"
++        };
++#else
++        const std::string kernel_src = read_file("mul_mv_iq4_nl_f32_flat.cl");
++#endif
++        cl_program prog =
++            build_program_from_source(backend_ctx->context, backend_ctx->device, kernel_src.c_str(), compile_opts);
++
++        CL_CHECK((backend_ctx->kernel_mul_mv_iq4_nl_f32_flat = clCreateKernel(prog, "kernel_mul_mv_iq4_nl_f32_flat", &err), err));
++        CL_CHECK(clReleaseProgram(prog));
++        GGML_LOG_CONT(".");
++    }
++
+     // mul_mv_mxfp4_f32
+     {
+ #ifdef GGML_OPENCL_EMBED_KERNELS
+@@ -1567,6 +1613,23 @@ static void load_cl_kernels(ggml_backend_opencl_context *backend_ctx, ggml_cl_ve
+         GGML_LOG_CONT(".");
+     }
+ 
++    // mul_mm_iq4_nl_f32_l4_lm
++    {
++#ifdef GGML_OPENCL_EMBED_KERNELS
++        const std::string kernel_src {
++            #include "mul_mm_iq4_nl_f32_l4_lm.cl.h"
++        };
++#else
++        const std::string kernel_src = read_file("mul_mm_iq4_nl_f32_l4_lm.cl");
++#endif
++        cl_program prog =
++            build_program_from_source(backend_ctx->context, backend_ctx->device, kernel_src.c_str(), compile_opts);
++
++        CL_CHECK((backend_ctx->kernel_mul_mm_iq4_nl_f32_l4_lm = clCreateKernel(prog, "kernel_mul_mm_iq4_nl_f32_l4_lm", &err), err));
++        CL_CHECK(clReleaseProgram(prog));
++        GGML_LOG_CONT(".");
++    }
++
+     // mul_mm_q4_k_f32_l4_lm
+     {
+ #ifdef GGML_OPENCL_EMBED_KERNELS
+@@ -2647,6 +2710,45 @@ static void load_cl_kernels(ggml_backend_opencl_context *backend_ctx, ggml_cl_ve
+         GGML_LOG_CONT(".");
+     }
+ 
++    // gemm_noshuffle_iq4_nl_f32
++    {
++#ifdef GGML_OPENCL_EMBED_KERNELS
++        const std::string kernel_src {
++            #include "gemm_noshuffle_iq4_nl_f32.cl.h"
++       };
++#else
++        const std::string kernel_src = read_file("gemm_noshuffle_iq4_nl_f32.cl");
++#endif
++        cl_program prog = build_program_from_source(backend_ctx->context, backend_ctx->device, kernel_src.c_str(), compile_opts);
++        CL_CHECK((backend_ctx->kernel_gemm_noshuffle_iq4_nl_f32 = clCreateKernel(prog, "kernel_gemm_noshuffle_iq4_nl_f32", &err), err));
++        CL_CHECK(clReleaseProgram(prog));
++        GGML_LOG_CONT(".");
++    }
++
++    // gemv_noshuffle_iq4_nl_f32
++    {
++        std::string CL_gemv_compile_opts = std::string("-cl-std=") + opencl_c_std +
++                                       " -cl-mad-enable ";
++        if (backend_ctx->has_vector_subgroup_broadcast) {
++            CL_gemv_compile_opts += " -DVECTOR_SUB_GROUP_BROADCAST ";
++        }
++
++#ifdef GGML_OPENCL_EMBED_KERNELS
++        const std::string kernel_src {
++            #include "gemv_noshuffle_iq4_nl_f32.cl.h"
++        };
++#else
++        const std::string kernel_src = read_file("gemv_noshuffle_iq4_nl_f32.cl");
++#endif
++
++        cl_program prog = build_program_from_source(
++            backend_ctx->context, backend_ctx->device, kernel_src.c_str(), CL_gemv_compile_opts);
++
++        CL_CHECK((backend_ctx->kernel_gemv_noshuffle_iq4_nl_f32 = clCreateKernel(prog, "kernel_gemv_noshuffle_iq4_nl_f32", &err), err));
++        CL_CHECK(clReleaseProgram(prog));
++        GGML_LOG_CONT(".");
++    }
++
+     // mul_mm_q8_0_f32_8x4
+     {
+ #ifdef GGML_OPENCL_EMBED_KERNELS
+@@ -3597,6 +3699,30 @@ struct ggml_tensor_extra_cl_q8_0 {
+     }
+ };
+ 
++struct ggml_tensor_extra_cl_iq4_nl {
++    cl_mem q = nullptr;
++    cl_mem q_img = nullptr;
++
++    cl_mem d = nullptr;
++    cl_mem d_img = nullptr;
++
++    size_t size_q = 0;
++    size_t size_d = 0;
++
++    ~ggml_tensor_extra_cl_iq4_nl() {
++        reset();
++    }
++
++    void reset() {
++        if (q != nullptr) { CL_CHECK(clReleaseMemObject(q)); q = nullptr; }
++        if (d != nullptr) { CL_CHECK(clReleaseMemObject(d)); d = nullptr; }
++        q_img = nullptr;
++        d_img = nullptr;
++        size_q = 0;
++        size_d = 0;
++    }
++};
++
+ struct ggml_tensor_extra_cl_q4_K {
+     // Quantized values
+     cl_mem q = nullptr;
+@@ -4097,6 +4223,7 @@ static bool ggml_opencl_supports_op(ggml_backend_dev_t dev, const struct ggml_te
+                 return op->src[1]->type == GGML_TYPE_F32;
+             } else if (op->src[0]->type == GGML_TYPE_Q4_0  || op->src[0]->type == GGML_TYPE_Q4_1 ||
+                        op->src[0]->type == GGML_TYPE_MXFP4 ||
++                       op->src[0]->type == GGML_TYPE_IQ4_NL ||
+                        op->src[0]->type == GGML_TYPE_Q4_K  ||
+                        op->src[0]->type == GGML_TYPE_Q5_K  ||
+                        op->src[0]->type == GGML_TYPE_Q6_K) {
+@@ -4295,6 +4422,12 @@ struct ggml_backend_opencl_buffer_context {
+         for (ggml_tensor_extra_cl_q8_0 * e : temp_tensor_extras_q8_0_in_use) {
+             delete e;
+         }
++        for (ggml_tensor_extra_cl_iq4_nl * e : temp_tensor_extras_iq4_nl) {
++            delete e;
++        }
++        for (ggml_tensor_extra_cl_iq4_nl * e : temp_tensor_extras_iq4_nl_in_use) {
++            delete e;
++        }
+         for (ggml_tensor_extra_cl_q4_K * e : temp_tensor_extras_q4_K) {
+             delete e;
+         }
+@@ -4390,6 +4523,21 @@ struct ggml_backend_opencl_buffer_context {
+         return extra;
+     }
+ 
++    ggml_tensor_extra_cl_iq4_nl * ggml_opencl_alloc_temp_tensor_extra_iq4_nl() {
++        ggml_tensor_extra_cl_iq4_nl * extra;
++        if (temp_tensor_extras_iq4_nl.empty()) {
++            extra = new ggml_tensor_extra_cl_iq4_nl();
++        } else {
++            extra = temp_tensor_extras_iq4_nl.back();
++            temp_tensor_extras_iq4_nl.pop_back();
++        }
++
++        temp_tensor_extras_iq4_nl_in_use.push_back(extra);
++
++        extra->reset();
++        return extra;
++    }
++
+     ggml_tensor_extra_cl_q4_K * ggml_opencl_alloc_temp_tensor_extra_q4_K() {
+         ggml_tensor_extra_cl_q4_K * extra;
+         if (temp_tensor_extras_q4_K.empty()) {
+@@ -4461,6 +4609,11 @@ struct ggml_backend_opencl_buffer_context {
+         }
+         temp_tensor_extras_q8_0_in_use.clear();
+ 
++        for (ggml_tensor_extra_cl_iq4_nl * e : temp_tensor_extras_iq4_nl_in_use) {
++            temp_tensor_extras_iq4_nl.push_back(e);
++        }
++        temp_tensor_extras_iq4_nl_in_use.clear();
++
+         for (ggml_tensor_extra_cl_q4_K * e : temp_tensor_extras_q4_K_in_use) {
+             temp_tensor_extras_q4_K.push_back(e);
+         }
+@@ -4492,6 +4645,8 @@ struct ggml_backend_opencl_buffer_context {
+     std::vector<ggml_tensor_extra_cl_mxfp4 *> temp_tensor_extras_mxfp4_in_use;
+     std::vector<ggml_tensor_extra_cl_q8_0 *> temp_tensor_extras_q8_0;
+     std::vector<ggml_tensor_extra_cl_q8_0 *> temp_tensor_extras_q8_0_in_use;
++    std::vector<ggml_tensor_extra_cl_iq4_nl *> temp_tensor_extras_iq4_nl;
++    std::vector<ggml_tensor_extra_cl_iq4_nl *> temp_tensor_extras_iq4_nl_in_use;
+     std::vector<ggml_tensor_extra_cl_q4_K *> temp_tensor_extras_q4_K;
+     std::vector<ggml_tensor_extra_cl_q4_K *> temp_tensor_extras_q4_K_in_use;
+     std::vector<ggml_tensor_extra_cl_q5_K *> temp_tensor_extras_q5_K;
+@@ -5123,6 +5278,87 @@ static void ggml_backend_opencl_buffer_set_tensor(ggml_backend_buffer_t buffer,
+ 
+         return;
+     }
++    if (tensor->type == GGML_TYPE_IQ4_NL) {
++        ggml_tensor_extra_cl * extra_orig = (ggml_tensor_extra_cl *)tensor->extra;
++        GGML_ASSERT(extra_orig && "Tensors in OpenCL backend should have been allocated and initialized");
++
++        ggml_backend_opencl_buffer_context * ctx = (ggml_backend_opencl_buffer_context *) buffer->context;
++        ggml_tensor_extra_cl_iq4_nl * extra = ctx->ggml_opencl_alloc_temp_tensor_extra_iq4_nl();
++
++        size_t size_d = ggml_nelements(tensor)/ggml_blck_size(tensor->type)*sizeof(ggml_fp16_t);
++        size_t size_q = ggml_nelements(tensor)/ggml_blck_size(tensor->type)*(ggml_blck_size(tensor->type)/2);
++        GGML_ASSERT(size_d + size_q == ggml_nbytes(tensor) && "Incorrect tensor size");
++
++        cl_int err;
++        cl_mem data_device = clCreateBuffer(context, CL_MEM_READ_WRITE,
++            ggml_nbytes(tensor), NULL, &err);
++        CL_CHECK(err);
++        CL_CHECK(clEnqueueWriteBuffer(
++            queue, data_device, CL_TRUE, 0,
++            ggml_nbytes(tensor), data, 0, NULL, NULL));
++
++        cl_buffer_region region;
++
++        // Create subbuffer for scales.
++        region.origin = align_to(extra_orig->offset + tensor->view_offs + offset, backend_ctx->alignment);
++        region.size = size_d;
++        extra->d = clCreateSubBuffer(
++            extra_orig->data_device, CL_MEM_READ_WRITE,
++            CL_BUFFER_CREATE_TYPE_REGION, &region, &err);
++        CL_CHECK(err);
++        auto previous_origin = region.origin;
++
++        // Create subbuffer for quants.
++        region.origin = align_to(previous_origin + size_d, backend_ctx->alignment);
++        region.size = size_q;
++        extra->q = clCreateSubBuffer(
++            extra_orig->data_device, CL_MEM_READ_WRITE,
++            CL_BUFFER_CREATE_TYPE_REGION, &region, &err);
++        CL_CHECK(err);
++
++    #ifdef GGML_OPENCL_USE_ADRENO_KERNELS
++        cl_kernel kernel = backend_ctx->kernel_convert_block_iq4_nl;
++        if (use_adreno_kernels(backend_ctx, tensor)) {
++            kernel = backend_ctx->kernel_convert_block_iq4_nl_noshuffle;
++        }
++    #else
++        cl_kernel kernel = backend_ctx->kernel_convert_block_iq4_nl;
++    #endif
++        cl_ulong n_blk = ggml_nelements(tensor)/ggml_blck_size(tensor->type);
++        cl_uchar mask_0F = 0x0F;
++        cl_uchar mask_F0 = 0xF0;
++
++        CL_CHECK(clSetKernelArg(kernel, 0, sizeof(cl_mem), &data_device));
++        CL_CHECK(clSetKernelArg(kernel, 1, sizeof(cl_mem), &extra->q));
++        CL_CHECK(clSetKernelArg(kernel, 2, sizeof(cl_mem), &extra->d));
++        CL_CHECK(clSetKernelArg(kernel, 3, sizeof(cl_uchar), &mask_0F));
++        CL_CHECK(clSetKernelArg(kernel, 4, sizeof(cl_uchar), &mask_F0));
++        CL_CHECK(clSetKernelArg(kernel, 5, sizeof(cl_ulong), &n_blk));
++
++        size_t global_work_size[] = {(size_t)CEIL_DIV(n_blk, 64)*64, 1, 1};
++        size_t local_work_size[] = {64, 1, 1};
++
++        cl_event evt;
++        CL_CHECK(clEnqueueNDRangeKernel(queue, kernel, 3, NULL, global_work_size, local_work_size, 0, NULL, &evt));
++        CL_CHECK(clWaitForEvents(1, &evt));
++        CL_CHECK(clReleaseMemObject(data_device));
++
++        tensor->extra = extra;
++
++#ifdef GGML_OPENCL_USE_ADRENO_KERNELS
++        if (use_adreno_kernels(backend_ctx, tensor)) {
++            int M = tensor->ne[1];
++            int K = tensor->ne[0];
++            GGML_ASSERT(K % 32 == 0);
++
++            // Transpose q as ushort
++            transpose_2d_as_16b(backend_ctx, extra->q, extra->q, size_q, K/4, M);
++            // Transpose d as ushort
++            transpose_2d_as_16b(backend_ctx, extra->d, extra->d, size_d, K/32, M);
++        }
++#endif
++        return;
++    }
+     if (tensor->type == GGML_TYPE_Q4_K) {
+         ggml_tensor_extra_cl * extra_orig = (ggml_tensor_extra_cl *)tensor->extra;
+         GGML_ASSERT(extra_orig && "Tesnors in OpenCL backend should have been allocated and initialized");
+@@ -5775,6 +6011,78 @@ static void ggml_backend_opencl_buffer_get_tensor(ggml_backend_buffer_t buffer,
+         CL_CHECK(clReleaseMemObject(data_device));
+         return;
+     }
++    if (tensor->type == GGML_TYPE_IQ4_NL) {
++        ggml_tensor_extra_cl_iq4_nl * extra = (ggml_tensor_extra_cl_iq4_nl *)tensor->extra;
++
++        cl_int err;
++        cl_mem data_device = clCreateBuffer(context, CL_MEM_READ_WRITE,
++            ggml_nbytes(tensor), NULL, &err);
++        CL_CHECK(err);
++
++#ifdef GGML_OPENCL_USE_ADRENO_KERNELS
++        if (use_adreno_kernels(backend_ctx, tensor)) {
++            static ggml_cl_buffer buf_trans_q;
++            static ggml_cl_buffer buf_trans_d;
++            static ggml_cl_buffer buf_unpacked;
++
++            cl_int M = tensor->ne[1];
++            cl_int K = tensor->ne[0];
++            GGML_ASSERT(K % 32 == 0);
++
++            size_t size_q = (ggml_nelements(tensor)/ggml_blck_size(tensor->type))*(ggml_blck_size(tensor->type)/2);
++            size_t size_d = (ggml_nelements(tensor)/ggml_blck_size(tensor->type))*sizeof(ggml_fp16_t);
++            GGML_ASSERT(size_d + size_q == ggml_nbytes(tensor) && "Incorrect tensor size");
++
++            buf_trans_q.allocate(backend_ctx->context, size_q);
++            buf_trans_d.allocate(backend_ctx->context, size_d);
++            buf_unpacked.allocate(backend_ctx->context, ggml_nbytes(tensor));
++
++            // transpose q, d back
++            transpose_2d_as_16b(backend_ctx, extra->q, buf_trans_q.buffer, size_q, M, K/4);
++            transpose_2d_as_16b(backend_ctx, extra->d, buf_trans_d.buffer, size_d, M, K/32);
++
++            cl_uchar mask_0F = 0x0F;
++            cl_uchar mask_F0 = 0xF0;
++
++            cl_kernel kernel = backend_ctx->kernel_restore_block_iq4_nl_noshuffle;
++            cl_ulong n_blk = ggml_nelements(tensor)/ggml_blck_size(tensor->type);
++
++            CL_CHECK(clSetKernelArg(kernel, 0, sizeof(cl_mem),   &buf_trans_q.buffer));
++            CL_CHECK(clSetKernelArg(kernel, 1, sizeof(cl_mem),   &buf_trans_d.buffer));
++            CL_CHECK(clSetKernelArg(kernel, 2, sizeof(cl_mem),   &buf_unpacked.buffer));
++            CL_CHECK(clSetKernelArg(kernel, 3, sizeof(cl_uchar), &mask_0F));
++            CL_CHECK(clSetKernelArg(kernel, 4, sizeof(cl_uchar), &mask_F0));
++            CL_CHECK(clSetKernelArg(kernel, 5, sizeof(cl_ulong), &n_blk));
++
++            size_t global_work_size[] = {(size_t)n_blk, 1, 1};
++            size_t local_work_size[] = {1, 1, 1};
++
++            CL_CHECK(clEnqueueNDRangeKernel(queue, kernel, 3, NULL, global_work_size, local_work_size, 0, NULL, NULL));
++            CL_CHECK(clEnqueueReadBuffer(queue, buf_unpacked.buffer, CL_TRUE, offset, size, data, 0, NULL, NULL));
++            return;
++        }
++#endif
++        cl_kernel kernel = backend_ctx->kernel_restore_block_iq4_nl;
++        cl_ulong n_blk = ggml_nelements(tensor)/ggml_blck_size(tensor->type);
++
++        CL_CHECK(clSetKernelArg(kernel, 0, sizeof(cl_mem), &extra->q));
++        CL_CHECK(clSetKernelArg(kernel, 1, sizeof(cl_mem), &extra->d));
++        CL_CHECK(clSetKernelArg(kernel, 2, sizeof(cl_mem), &data_device));
++        CL_CHECK(clSetKernelArg(kernel, 3, sizeof(cl_ulong), &n_blk));
++
++        size_t global_work_size[] = {(size_t)n_blk, 1, 1};
++        size_t local_work_size[] = {1, 1, 1};
++
++        cl_event evt;
++        CL_CHECK(clEnqueueNDRangeKernel(queue, kernel, 3, NULL,
++            global_work_size, local_work_size, 0, NULL, &evt));
++        CL_CHECK(clWaitForEvents(1, &evt));
++        CL_CHECK(clEnqueueReadBuffer(
++            queue, data_device, CL_TRUE, offset,
++            size, data, 0, NULL, NULL));
++        CL_CHECK(clReleaseMemObject(data_device));
++        return;
++    }
+     if (tensor->type == GGML_TYPE_Q4_K) {
+         ggml_tensor_extra_cl_q4_K * extra = (ggml_tensor_extra_cl_q4_K *)tensor->extra;
+ 
+@@ -9840,6 +10148,178 @@ static void ggml_cl_mul_mat_q4_1_f32_adreno(ggml_backend_t backend, const ggml_t
+ #endif
+ }
+ 
++static void ggml_cl_mul_mat_iq4_nl_f32_adreno(ggml_backend_t backend, const ggml_tensor * src0, const ggml_tensor * src1, ggml_tensor * dst) {
++#ifdef GGML_OPENCL_USE_ADRENO_KERNELS
++    GGML_ASSERT(src0);
++    GGML_ASSERT(src0->extra);
++    GGML_ASSERT(src1);
++    GGML_ASSERT(src1->extra);
++    GGML_ASSERT(dst);
++    GGML_ASSERT(dst->extra);
++
++    ggml_backend_opencl_context *backend_ctx = (ggml_backend_opencl_context *)backend->context;
++
++    ggml_tensor_extra_cl * extra1 = (ggml_tensor_extra_cl *)src1->extra;
++    ggml_tensor_extra_cl * extrad = (ggml_tensor_extra_cl *)dst->extra;
++    ggml_tensor_extra_cl_iq4_nl * extra0_iq4_nl = (ggml_tensor_extra_cl_iq4_nl *)src0->extra;
++
++    cl_ulong offset1 = extra1->offset + src1->view_offs;
++    cl_ulong offsetd = extrad->offset + dst->view_offs;
++
++    const int  ne00 = src0->ne[0];
++    const int  ne01 = src0->ne[1];
++
++    const int  ne1 = dst->ne[1];
++
++    GGML_ASSERT(ne00 % 32 == 0);
++
++    cl_context context = backend_ctx->context;
++    cl_kernel kernel;
++
++    cl_int              err;
++    cl_image_format     img_fmt;
++    cl_image_desc       img_desc;
++    cl_buffer_region    region;
++
++    int M = ne01;
++    int N = ne1;
++    int K = ne00;
++
++    if (ne1 == 1) {
++        cl_mem q_img = nullptr;
++        cl_mem b_sub_buf = nullptr;
++        cl_mem b_img = nullptr;
++
++        // image for q
++        img_fmt = { CL_R, CL_UNSIGNED_INT32};
++        memset(&img_desc, 0, sizeof(img_desc));
++        img_desc.image_type = CL_MEM_OBJECT_IMAGE1D_BUFFER;
++        img_desc.image_width = M * K / 2 / 4;
++        img_desc.buffer = extra0_iq4_nl->q;
++        CL_CHECK((q_img = clCreateImage(context, CL_MEM_READ_ONLY, &img_fmt, &img_desc, NULL, &err), err));
++
++        // subbuffer for activations
++        region.origin = offset1;
++        region.size = K * N * sizeof(float);
++        CL_CHECK((b_sub_buf = clCreateSubBuffer(extra1->data_device, 0, CL_BUFFER_CREATE_TYPE_REGION, &region, &err), err));
++
++        // image for activations
++        img_fmt = {CL_RGBA, CL_FLOAT};
++        memset(&img_desc, 0, sizeof(img_desc));
++        img_desc.image_type = CL_MEM_OBJECT_IMAGE1D_BUFFER;
++        img_desc.image_width = K * N / 4;
++        img_desc.buffer = b_sub_buf;
++        CL_CHECK((b_img = clCreateImage(context, CL_MEM_READ_ONLY, &img_fmt, &img_desc, NULL, &err), err));
++
++        kernel = backend_ctx->kernel_gemv_noshuffle_iq4_nl_f32;
++
++        CL_CHECK(clSetKernelArg(kernel, 0, sizeof(cl_mem),   &q_img));
++        CL_CHECK(clSetKernelArg(kernel, 1, sizeof(cl_mem),   &extra0_iq4_nl->d));
++        CL_CHECK(clSetKernelArg(kernel, 2, sizeof(cl_mem),   &b_img));
++        CL_CHECK(clSetKernelArg(kernel, 3, sizeof(cl_mem),   &extrad->data_device));
++        CL_CHECK(clSetKernelArg(kernel, 4, sizeof(cl_ulong), &offsetd));
++        CL_CHECK(clSetKernelArg(kernel, 5, sizeof(cl_int),   &ne00));
++        CL_CHECK(clSetKernelArg(kernel, 6, sizeof(cl_int),   &ne01));
++
++        size_t local_work_size[3] = {64, 4, 1};
++        size_t global_work_size[3] = {(size_t)CEIL_DIV(ne01/2, 64)*64, 4, 1};
++
++        backend_ctx->enqueue_ndrange_kernel(kernel, 3, global_work_size, local_work_size, dst);
++
++        CL_CHECK(clReleaseMemObject(q_img));
++        CL_CHECK(clReleaseMemObject(b_sub_buf));
++        CL_CHECK(clReleaseMemObject(b_img));
++    } else {
++        cl_mem b_sub_buf = nullptr;
++        cl_mem b_sub_buf_trans = nullptr;
++        cl_mem b_img = nullptr;
++        cl_mem b_img_trans = nullptr;
++
++        // subbuffer for activations
++        region.origin = offset1;
++        region.size = K * N * sizeof(float);
++        CL_CHECK((b_sub_buf = clCreateSubBuffer(extra1->data_device, 0, CL_BUFFER_CREATE_TYPE_REGION, &region, &err), err));
++
++        // image for activations
++        img_fmt = {CL_RGBA, CL_FLOAT};
++        memset(&img_desc, 0, sizeof(img_desc));
++        img_desc.image_type = CL_MEM_OBJECT_IMAGE1D_BUFFER;
++        img_desc.image_width = K * N / 4;
++        img_desc.buffer = b_sub_buf;
++        CL_CHECK((b_img = clCreateImage(context, CL_MEM_READ_ONLY, &img_fmt, &img_desc, NULL, &err), err));
++
++        // pad N to multiple of 8
++        int extra_elements = N % 8;
++        int padding = 0;
++        if (extra_elements > 0){
++            padding = 8 - extra_elements;
++        }
++
++        // subbuffer for transposed activations
++        region.origin = 0;
++        region.size = K * (N + padding) * sizeof(float)/2;
++        backend_ctx->prealloc_act_trans.allocate(context, region.size);
++        CL_CHECK((b_sub_buf_trans = clCreateSubBuffer(backend_ctx->prealloc_act_trans.buffer, 0, CL_BUFFER_CREATE_TYPE_REGION, &region, &err), err));
++
++        // image for transposed activations
++        img_fmt = {CL_RGBA, CL_HALF_FLOAT};
++        memset(&img_desc, 0, sizeof(img_desc));
++        img_desc.image_type = CL_MEM_OBJECT_IMAGE1D_BUFFER;
++        img_desc.image_width = K * (N + padding) / 4;
++        img_desc.buffer = b_sub_buf_trans;
++        CL_CHECK((b_img_trans = clCreateImage(context, 0, &img_fmt, &img_desc, NULL, &err), err));
++
++        // transpose activations
++        int height_B = N/4;
++        if (height_B == 0) {
++            height_B = 1;
++        }
++        int width_B = K/4;
++        int padded_height_B = (N + padding)/4;
++
++        kernel = backend_ctx->kernel_transpose_32_16;
++        CL_CHECK(clSetKernelArg(kernel, 0, sizeof(cl_mem), &b_img));
++        CL_CHECK(clSetKernelArg(kernel, 1, sizeof(cl_mem), &b_img_trans));
++        CL_CHECK(clSetKernelArg(kernel, 2, sizeof(int),    &height_B));
++        CL_CHECK(clSetKernelArg(kernel, 3, sizeof(int),    &width_B));
++        CL_CHECK(clSetKernelArg(kernel, 4, sizeof(int),    &padded_height_B));
++
++        size_t local_work_size_t[2] = { 1, 16 };
++        size_t global_work_size_t[2] = { (size_t)width_B, (size_t)padded_height_B };
++        backend_ctx->enqueue_ndrange_kernel(kernel, 2, global_work_size_t, local_work_size_t, dst);
++
++        // gemm
++        kernel = backend_ctx->kernel_gemm_noshuffle_iq4_nl_f32;
++        int padded_N = N + padding;
++
++        CL_CHECK(clSetKernelArg(kernel, 0, sizeof(cl_mem),   &extra0_iq4_nl->q));
++        CL_CHECK(clSetKernelArg(kernel, 1, sizeof(cl_mem),   &extra0_iq4_nl->d));
++        CL_CHECK(clSetKernelArg(kernel, 2, sizeof(cl_mem),   &b_img_trans));
++        CL_CHECK(clSetKernelArg(kernel, 3, sizeof(cl_mem),   &extrad->data_device));
++        CL_CHECK(clSetKernelArg(kernel, 4, sizeof(cl_ulong), &offsetd));
++        CL_CHECK(clSetKernelArg(kernel, 5, sizeof(cl_int),   &ne01));
++        CL_CHECK(clSetKernelArg(kernel, 6, sizeof(cl_int),   &padded_N));
++        CL_CHECK(clSetKernelArg(kernel, 7, sizeof(cl_int),   &ne00));
++        CL_CHECK(clSetKernelArg(kernel, 8, sizeof(cl_int),   &ne1));
++
++        size_t global_work_size[3] = {(size_t)CEIL_DIV(ne1, 8), (size_t)CEIL_DIV(ne01, 4), 1};
++        size_t local_work_size[3] = {1, 128, 1};
++
++        backend_ctx->enqueue_ndrange_kernel(kernel, 3, global_work_size, local_work_size, dst);
++
++        CL_CHECK(clReleaseMemObject(b_sub_buf));
++        CL_CHECK(clReleaseMemObject(b_sub_buf_trans));
++        CL_CHECK(clReleaseMemObject(b_img));
++        CL_CHECK(clReleaseMemObject(b_img_trans));
++    }
++#else
++    GGML_UNUSED(backend);
++    GGML_UNUSED(src0);
++    GGML_UNUSED(src1);
++    GGML_UNUSED(dst);
++#endif
++}
++
+ static void ggml_cl_mul_mat_q8_0_f32_adreno(ggml_backend_t backend, const ggml_tensor * src0, const ggml_tensor * src1, ggml_tensor * dst) {
+ #ifdef GGML_OPENCL_USE_ADRENO_KERNELS
+     GGML_ASSERT(src0);
+@@ -10634,6 +11114,7 @@ static void ggml_cl_mul_mat(ggml_backend_t backend, const ggml_tensor * src0, co
+     ggml_tensor_extra_cl_q4_1 * extra0_q4_1 = (ggml_tensor_extra_cl_q4_1 *)src0->extra;
+     ggml_tensor_extra_cl_mxfp4 * extra0_mxfp4 = (ggml_tensor_extra_cl_mxfp4 *)src0->extra;
+     ggml_tensor_extra_cl_q8_0 * extra0_q8_0 = (ggml_tensor_extra_cl_q8_0 *)src0->extra;
++    ggml_tensor_extra_cl_iq4_nl * extra0_iq4_nl = (ggml_tensor_extra_cl_iq4_nl *)src0->extra;
+     ggml_tensor_extra_cl_q4_K * extra0_q4_K = (ggml_tensor_extra_cl_q4_K *)src0->extra;
+     ggml_tensor_extra_cl_q5_K * extra0_q5_K = (ggml_tensor_extra_cl_q5_K *)src0->extra;
+     ggml_tensor_extra_cl_q6_K * extra0_q6_K = (ggml_tensor_extra_cl_q6_K *)src0->extra;
+@@ -10738,6 +11219,12 @@ static void ggml_cl_mul_mat(ggml_backend_t backend, const ggml_tensor * src0, co
+             return;
+     }
+ 
++    // iq4_nl x fp32
++    if (src0t == GGML_TYPE_IQ4_NL && src1t == GGML_TYPE_F32) {
++        ggml_cl_mul_mat_iq4_nl_f32_adreno(backend, src0, src1, dst);
++        return;
++    }
++
+     // q8_0 x fp32
+     if (src0t == GGML_TYPE_Q8_0 && src1t == GGML_TYPE_F32 &&
+         enable_adreno_trans_weight(backend_ctx, src0)) {
+@@ -11302,6 +11789,48 @@ static void ggml_cl_mul_mat(ggml_backend_t backend, const ggml_tensor * src0, co
+                 backend_ctx->enqueue_ndrange_kernel(kernel, 3, global_work_size, local_work_size, dst);
+                 return;
+             }
++            case GGML_TYPE_IQ4_NL: {
++                if (ne11 < 32) {
++                    break;
++                }
++                if (!ggml_is_contiguous(src0) || !ggml_is_contiguous(src1)) {
++                    break;
++                }
++
++                kernel = backend_ctx->kernel_mul_mm_iq4_nl_f32_l4_lm;
++                nth0 = 128; // calculated as (BM*BN)/(TM*TN)
++
++                int batch_stride_a = ne00*ne01;
++                int batch_stride_b = ne10*ne11;
++                int batch_stride_d = ne0*ne1;
++
++                CL_CHECK(clSetKernelArg(kernel,  0, sizeof(cl_mem),   &extra0_iq4_nl->q));
++                CL_CHECK(clSetKernelArg(kernel,  1, sizeof(cl_mem),   &extra0_iq4_nl->d));
++                CL_CHECK(clSetKernelArg(kernel,  2, sizeof(cl_mem),   &extra1->data_device));
++                CL_CHECK(clSetKernelArg(kernel,  3, sizeof(cl_ulong), &offset1));
++                CL_CHECK(clSetKernelArg(kernel,  4, sizeof(cl_mem),   &extrad->data_device));
++                CL_CHECK(clSetKernelArg(kernel,  5, sizeof(cl_ulong), &offsetd));
++                CL_CHECK(clSetKernelArg(kernel,  6, sizeof(int),      &ne00));
++                CL_CHECK(clSetKernelArg(kernel,  7, sizeof(int),      &ne01));
++                CL_CHECK(clSetKernelArg(kernel,  8, sizeof(int),      &ne02));
++                CL_CHECK(clSetKernelArg(kernel,  9, sizeof(int),      &ne11));
++                CL_CHECK(clSetKernelArg(kernel, 10, sizeof(int),      &ne12));
++                CL_CHECK(clSetKernelArg(kernel, 11, sizeof(int),      &ne10)); // stride_a
++                CL_CHECK(clSetKernelArg(kernel, 12, sizeof(int),      &ne10)); // stride_b
++                CL_CHECK(clSetKernelArg(kernel, 13, sizeof(int),      &ne01)); // stride_d
++                CL_CHECK(clSetKernelArg(kernel, 14, sizeof(int),      &batch_stride_a));
++                CL_CHECK(clSetKernelArg(kernel, 15, sizeof(int),      &batch_stride_b));
++                CL_CHECK(clSetKernelArg(kernel, 16, sizeof(int),      &batch_stride_d));
++                CL_CHECK(clSetKernelArg(kernel, 17, sizeof(int),      &r2));
++                CL_CHECK(clSetKernelArg(kernel, 18, sizeof(int),      &r3));
++
++                // 64 is block tile size BM and BN - change here when BM and BN in the kernel are changed.
++                size_t global_work_size[] = {(size_t)(CEIL_DIV(ne01, 64)*nth0), (size_t)(CEIL_DIV(ne11, 64)), (size_t)ne12*ne13};
++                size_t local_work_size[] = {(size_t)nth0, 1, 1};
++
++                backend_ctx->enqueue_ndrange_kernel(kernel, 3, global_work_size, local_work_size, dst);
++                return;
++            }
+             case GGML_TYPE_Q4_K: {
+                 if (ne11 < 32) {
+                     break;
+@@ -11829,6 +12358,70 @@ static void ggml_cl_mul_mat(ggml_backend_t backend, const ggml_tensor * src0, co
+             CL_CHECK(clSetKernelArg(kernel, 16, sizeof(int),      &ne1));
+             CL_CHECK(clSetKernelArg(kernel, 17, sizeof(int),      &r2));
+             CL_CHECK(clSetKernelArg(kernel, 18, sizeof(int),      &r3));
++#endif // GGML_OPENCL_SOA_Q
++            break;
++        }
++        case GGML_TYPE_IQ4_NL: {
++#ifdef GGML_OPENCL_SOA_Q
++            kernel = backend_ctx->kernel_mul_mv_iq4_nl_f32_flat;
++
++            if (backend_ctx->gpu_family == INTEL) {
++                nth0 = 16;
++                nth1 = 1;
++                ndst = 8;
++            } else if (backend_ctx->gpu_family == ADRENO) {
++                nth0 = 64;
++                nth1 = 1;
++                ndst = 8;
++            } else {
++                GGML_ASSERT(false && "TODO: Unknown GPU");
++            }
++
++            CL_CHECK(clSetKernelArg(kernel,  0, sizeof(cl_mem),   &extra0_iq4_nl->q));
++            CL_CHECK(clSetKernelArg(kernel,  1, sizeof(cl_mem),   &extra0_iq4_nl->d));
++            CL_CHECK(clSetKernelArg(kernel,  2, sizeof(cl_mem),   &extra1->data_device));
++            CL_CHECK(clSetKernelArg(kernel,  3, sizeof(cl_ulong), &offset1));
++            CL_CHECK(clSetKernelArg(kernel,  4, sizeof(cl_mem),   &extrad->data_device));
++            CL_CHECK(clSetKernelArg(kernel,  5, sizeof(cl_ulong), &offsetd));
++            CL_CHECK(clSetKernelArg(kernel,  6, sizeof(int),      &ne00));
++            CL_CHECK(clSetKernelArg(kernel,  7, sizeof(int),      &ne01));
++            CL_CHECK(clSetKernelArg(kernel,  8, sizeof(int),      &ne02));
++            CL_CHECK(clSetKernelArg(kernel,  9, sizeof(int),      &ne10));
++            CL_CHECK(clSetKernelArg(kernel, 10, sizeof(int),      &ne12));
++            CL_CHECK(clSetKernelArg(kernel, 11, sizeof(int),      &ne0));
++            CL_CHECK(clSetKernelArg(kernel, 12, sizeof(int),      &ne1));
++            CL_CHECK(clSetKernelArg(kernel, 13, sizeof(int),      &r2));
++            CL_CHECK(clSetKernelArg(kernel, 14, sizeof(int),      &r3));
++#else
++            kernel = backend_ctx->kernel_mul_mv_iq4_nl_f32;
++
++            if (backend_ctx->gpu_family == INTEL) {
++                nth0 = 16;
++                nth1 = 1;
++                ndst = 4;
++            } else if (backend_ctx->gpu_family == ADRENO) {
++                nth0 = 64;
++                nth1 = 1;
++                ndst = 4;
++            } else {
++                GGML_ASSERT(false && "TODO: Unknown GPU");
++            }
++
++            CL_CHECK(clSetKernelArg(kernel,  0, sizeof(cl_mem),   &extra0->data_device));
++            CL_CHECK(clSetKernelArg(kernel,  1, sizeof(cl_ulong), &offset0));
++            CL_CHECK(clSetKernelArg(kernel,  2, sizeof(cl_mem),   &extra1->data_device));
++            CL_CHECK(clSetKernelArg(kernel,  3, sizeof(cl_ulong), &offset1));
++            CL_CHECK(clSetKernelArg(kernel,  4, sizeof(cl_mem),   &extrad->data_device));
++            CL_CHECK(clSetKernelArg(kernel,  5, sizeof(cl_ulong), &offsetd));
++            CL_CHECK(clSetKernelArg(kernel,  6, sizeof(int),      &ne00));
++            CL_CHECK(clSetKernelArg(kernel,  7, sizeof(int),      &ne01));
++            CL_CHECK(clSetKernelArg(kernel,  8, sizeof(int),      &ne02));
++            CL_CHECK(clSetKernelArg(kernel,  9, sizeof(int),      &ne10));
++            CL_CHECK(clSetKernelArg(kernel, 10, sizeof(int),      &ne12));
++            CL_CHECK(clSetKernelArg(kernel, 11, sizeof(int),      &ne0));
++            CL_CHECK(clSetKernelArg(kernel, 12, sizeof(int),      &ne1));
++            CL_CHECK(clSetKernelArg(kernel, 13, sizeof(int),      &r2));
++            CL_CHECK(clSetKernelArg(kernel, 14, sizeof(int),      &r3));
+ #endif // GGML_OPENCL_SOA_Q
+             break;
+         }
+@@ -12131,6 +12724,7 @@ static void ggml_cl_mul_mat(ggml_backend_t backend, const ggml_tensor * src0, co
+     if (src0t == GGML_TYPE_Q4_0 || src0t == GGML_TYPE_MXFP4 ||
+         src0t == GGML_TYPE_Q4_1 ||
+         src0t == GGML_TYPE_Q8_0 ||
++        src0t == GGML_TYPE_IQ4_NL ||
+         src0t == GGML_TYPE_Q2_K) {
+         // Each SIMD group produces N_DST values in the result. Assuming each
+         // workgroup has N_SIMDGROUP SIMD groups, then each workgroup will
+diff --git src/ggml-opencl/kernels/cvt.cl src/ggml-opencl/kernels/cvt.cl
+index 39af32d2..f3937d83 100644
+--- src/ggml-opencl/kernels/cvt.cl
++++ src/ggml-opencl/kernels/cvt.cl
+@@ -87,6 +87,17 @@ struct block_q6_K {
+     half d;                  // super-block scale
+ };
+ 
++//------------------------------------------------------------------------------
++// block_iq4_nl
++//------------------------------------------------------------------------------
++#define QK4_NL 32
++
++struct block_iq4_nl
++{
++    half d;
++    uint8_t qs[QK4_NL / 2];
++};
++
+ //------------------------------------------------------------------------------
+ // kernel_convert_block_q4_0
+ // Convert the block_q4_0 format to 2 separate arrays (AOS -> SOA).
+@@ -895,3 +906,99 @@ kernel void kernel_restore_block_q6_K_noshuffle(
+         b->scales[i] = s[i];
+     }
+ }
++
++//------------------------------------------------------------------------------
++// kernel_convert_block_iq4_nl
++// Convert the block_iq4_nl format to 2 separate arrays (AOS -> SOA).
++//------------------------------------------------------------------------------
++kernel void kernel_convert_block_iq4_nl(
++    global struct block_iq4_nl * src0,
++    global uchar * dst_q,
++    global half  * dst_d,
++    uchar          mask_0F,
++    uchar          mask_F0,
++    ulong          n_blk
++) {
++    if (get_global_id(0) >= n_blk) {
++        return;
++    }
++    global struct block_iq4_nl * b = (global struct block_iq4_nl *) src0 + get_global_id(0);
++    global uchar * q = (global uchar *) dst_q + QK4_NL/2*get_global_id(0);
++    global half  * d = (global half *) dst_d + get_global_id(0);
++
++    *d = b->d;
++
++    for (int i = 0; i < QK4_NL/2; ++i) {
++        q[i] = b->qs[i];
++    }
++}
++
++kernel void kernel_restore_block_iq4_nl(
++    global uchar * src_q,
++    global half  * src_d,
++    global struct block_iq4_nl * dst,
++    ulong          n_blk
++) {
++    if (get_global_id(0) >= n_blk) {
++        return;
++    }
++    global struct block_iq4_nl * b = (global struct block_iq4_nl *) dst + get_global_id(0);
++    global uchar * q = (global uchar *) src_q + QK4_NL/2*get_global_id(0);
++    global half  * d = (global half *) src_d + get_global_id(0);
++
++    b->d = *d;
++
++    for (int i = 0; i < QK4_NL/2; ++i) {
++        b->qs[i] = q[i];
++    }
++}
++
++kernel void kernel_convert_block_iq4_nl_noshuffle(
++    global struct block_iq4_nl * src0,
++    global uchar * dst_q,
++    global half  * dst_d,
++    uchar          mask_0F,
++    uchar          mask_F0,
++    ulong          n_blk
++) {
++    if (get_global_id(0) >= n_blk) {
++        return;
++    }
++    global struct block_iq4_nl * b = (global struct block_iq4_nl *) src0 + get_global_id(0);
++    global uchar * q = (global uchar *) dst_q + QK4_NL/2*get_global_id(0);
++    global half  * d = (global half *) dst_d + get_global_id(0);
++
++    *d = b->d;
++    for (int i = 0; i < QK4_NL/4; ++i) {
++        uchar x0 = b->qs[2*i + 0];
++        uchar x1 = b->qs[2*i + 1];
++
++        q[i + 0       ] = convert_uchar(x0 & mask_0F) | convert_uchar((x1 & mask_0F) << 4);
++        q[i + QK4_NL/4] = convert_uchar((x0 & mask_F0) >> 4) | convert_uchar(x1 & mask_F0);
++    }
++}
++
++kernel void kernel_restore_block_iq4_nl_noshuffle(
++    global uchar * src_q,
++    global half  * src_d,
++    global struct block_iq4_nl * dst,
++    uchar mask_0F,
++    uchar mask_F0,
++    ulong n_blk
++) {
++    if (get_global_id(0) >= n_blk) {
++        return;
++    }
++    global struct block_iq4_nl * b = (global struct block_iq4_nl *) dst + get_global_id(0);
++    global uchar * q = (global uchar *) src_q + QK4_NL/2*get_global_id(0);
++    global half  * d = (global half *) src_d + get_global_id(0);
++
++    b->d = *d;
++    for (int i = 0; i < QK4_NL/4; ++i) {
++        uchar x0 = q[i + 0       ];
++        uchar x1 = q[i + QK4_NL/4];
++
++        b->qs[2*i + 0] = convert_uchar((x0 & mask_0F) | ((x1 & mask_0F) << 4));
++        b->qs[2*i + 1] = convert_uchar(((x0 & mask_F0) >> 4) | (x1 & mask_F0));
++    }
++}
+diff --git src/ggml-opencl/kernels/gemm_noshuffle_iq4_nl_f32.cl src/ggml-opencl/kernels/gemm_noshuffle_iq4_nl_f32.cl
+new file mode 100644
+index 00000000..6869d822
+--- /dev/null
++++ src/ggml-opencl/kernels/gemm_noshuffle_iq4_nl_f32.cl
+@@ -0,0 +1,150 @@
++#pragma OPENCL EXTENSION cl_khr_fp16 : enable
++#pragma OPENCL EXTENSION cl_qcom_reqd_sub_group_size : enable
++
++#ifdef cl_qcom_reqd_sub_group_size
++#define ADRENO_GPU 1
++#define REQD_SUBGROUP_SIZE_128 __attribute__((qcom_reqd_sub_group_size("full")))
++#endif
++
++constant half kvalues_iq4nl[16] = {
++    (half)-127.f, (half)-104.f, (half)-83.f, (half)-65.f,
++    (half) -49.f, (half) -35.f, (half)-22.f, (half)-10.f,
++    (half)   1.f, (half)  13.f, (half) 25.f, (half) 38.f,
++    (half)  53.f, (half)  69.f, (half) 89.f, (half)113.f
++};
++
++// Packed LUT: 2 FP16 values per uint, 8 unique constant loads instead of 16
++constant uint iq4nl_packed[8] = {
++    0xD680D7F0u,  // idx 0,1: -127, -104
++    0xD410D530u,  // idx 2,3: -83, -65
++    0xD060D220u,  // idx 4,5: -49, -35
++    0xC900CD80u,  // idx 6,7: -22, -10
++    0x4A803C00u,  // idx 8,9: 1, 13
++    0x50C04E40u,  // idx 10,11: 25, 38
++    0x545052A0u,  // idx 12,13: 53, 69
++    0x57105590u   // idx 14,15: 89, 113
++};
++
++// Packed dequant: 1 uint constant load (8-way divergence) + shift + as_half
++#define IQ4_NL_DEQUANT(nibble) as_half((ushort)(iq4nl_packed[(nibble) >> 1] >> (((nibble) & 1u) << 4)))
++
++#ifdef ADRENO_GPU
++REQD_SUBGROUP_SIZE_128
++#endif
++
++kernel void kernel_gemm_noshuffle_iq4_nl_f32(
++        global const ushort * src0_q,
++        global const half  * src0_d,
++        read_only image1d_buffer_t src1,
++        global float * dst,
++        ulong offsetd,
++        int m,
++        int n,
++        int k,
++        int n_no_padding
++) {
++    dst = (global float *)((global char *)dst + offsetd);
++
++    int m_4 = m >> 2;
++    int n_4 = n >> 2;
++
++    int gy = get_global_id(0);
++    int gx = get_global_id(1);
++    int gx_2 = gx << 2;
++
++    half8 c0 = 0, c1 = 0, c2 = 0, c3 = 0;
++    half8 B;
++    half4 dequantized_weights;
++
++    global const ushort * weight_ptr = src0_q + gx_2;
++    global const half * scale_ptr = src0_d + gx_2;
++
++    for (int i = 0; i < k; i += 4) {
++        B.s0123 = read_imageh(src1, gy*2 + (i)*(n_4));
++        B.s4567 = read_imageh(src1, gy*2 + (i)*(n_4)+1);
++
++        ushort4 bits4 = vload4(0, weight_ptr + (i/4)*(m));
++
++        half4 scale = vload4(0, scale_ptr + (i/32)*(m));
++
++        // j=0
++        dequantized_weights.s0 = IQ4_NL_DEQUANT(bits4.s0 & 0x000Fu) * scale.s0;
++        dequantized_weights.s1 = IQ4_NL_DEQUANT(bits4.s1 & 0x000Fu) * scale.s1;
++        dequantized_weights.s2 = IQ4_NL_DEQUANT(bits4.s2 & 0x000Fu) * scale.s2;
++        dequantized_weights.s3 = IQ4_NL_DEQUANT(bits4.s3 & 0x000Fu) * scale.s3;
++        c0 += B * dequantized_weights.s0;
++        c1 += B * dequantized_weights.s1;
++        c2 += B * dequantized_weights.s2;
++        c3 += B * dequantized_weights.s3;
++
++        // j=1
++        B.s0123 = read_imageh(src1, gy*2 + (i+1)*(n_4));
++        B.s4567 = read_imageh(src1, gy*2 + (i+1)*(n_4)+1);
++        dequantized_weights.s0 = IQ4_NL_DEQUANT((bits4.s0 >> 4) & 0x000Fu) * scale.s0;
++        dequantized_weights.s1 = IQ4_NL_DEQUANT((bits4.s1 >> 4) & 0x000Fu) * scale.s1;
++        dequantized_weights.s2 = IQ4_NL_DEQUANT((bits4.s2 >> 4) & 0x000Fu) * scale.s2;
++        dequantized_weights.s3 = IQ4_NL_DEQUANT((bits4.s3 >> 4) & 0x000Fu) * scale.s3;
++        c0 += B * dequantized_weights.s0;
++        c1 += B * dequantized_weights.s1;
++        c2 += B * dequantized_weights.s2;
++        c3 += B * dequantized_weights.s3;
++
++        // j=2
++        B.s0123 = read_imageh(src1, gy*2 + (i+2)*(n_4));
++        B.s4567 = read_imageh(src1, gy*2 + (i+2)*(n_4)+1);
++        dequantized_weights.s0 = IQ4_NL_DEQUANT((bits4.s0 >> 8) & 0x000Fu) * scale.s0;
++        dequantized_weights.s1 = IQ4_NL_DEQUANT((bits4.s1 >> 8) & 0x000Fu) * scale.s1;
++        dequantized_weights.s2 = IQ4_NL_DEQUANT((bits4.s2 >> 8) & 0x000Fu) * scale.s2;
++        dequantized_weights.s3 = IQ4_NL_DEQUANT((bits4.s3 >> 8) & 0x000Fu) * scale.s3;
++        c0 += B * dequantized_weights.s0;
++        c1 += B * dequantized_weights.s1;
++        c2 += B * dequantized_weights.s2;
++        c3 += B * dequantized_weights.s3;
++
++        // j=3
++        B.s0123 = read_imageh(src1, gy*2 + (i+3)*(n_4));
++        B.s4567 = read_imageh(src1, gy*2 + (i+3)*(n_4)+1);
++        dequantized_weights.s0 = IQ4_NL_DEQUANT((bits4.s0 >> 12) & 0x000Fu) * scale.s0;
++        dequantized_weights.s1 = IQ4_NL_DEQUANT((bits4.s1 >> 12) & 0x000Fu) * scale.s1;
++        dequantized_weights.s2 = IQ4_NL_DEQUANT((bits4.s2 >> 12) & 0x000Fu) * scale.s2;
++        dequantized_weights.s3 = IQ4_NL_DEQUANT((bits4.s3 >> 12) & 0x000Fu) * scale.s3;
++        c0 += B * dequantized_weights.s0;
++        c1 += B * dequantized_weights.s1;
++        c2 += B * dequantized_weights.s2;
++        c3 += B * dequantized_weights.s3;
++    }
++
++    int idx = (gy<<3)*m + (gx<<2);
++
++    if(idx+3 < m*n_no_padding){
++        vstore4((float4)(c0.s0, c1.s0, c2.s0, c3.s0), 0, dst + idx);
++        idx += m;
++    }
++    if(idx+3 < m*n_no_padding){
++        vstore4((float4)(c0.s1, c1.s1, c2.s1, c3.s1), 0, dst + idx);
++        idx += m;
++    }
++    if(idx+3 < m*n_no_padding){
++        vstore4((float4)(c0.s2, c1.s2, c2.s2, c3.s2), 0, dst + idx);
++        idx += m;
++    }
++    if(idx+3 < m*n_no_padding){
++        vstore4((float4)(c0.s3, c1.s3, c2.s3, c3.s3), 0, dst + idx);
++        idx += m;
++    }
++    if(idx+3 < m*n_no_padding){
++        vstore4((float4)(c0.s4, c1.s4, c2.s4, c3.s4), 0, dst + idx);
++        idx += m;
++    }
++    if(idx+3 < m*n_no_padding){
++        vstore4((float4)(c0.s5, c1.s5, c2.s5, c3.s5), 0, dst + idx);
++        idx += m;
++    }
++    if(idx+3 < m*n_no_padding){
++        vstore4((float4)(c0.s6, c1.s6, c2.s6, c3.s6), 0, dst + idx);
++        idx += m;
++    }
++    if(idx+3 < m*n_no_padding){
++        vstore4((float4)(c0.s7, c1.s7, c2.s7, c3.s7), 0, dst + idx);
++    }
++}
+diff --git src/ggml-opencl/kernels/gemv_noshuffle_iq4_nl_f32.cl src/ggml-opencl/kernels/gemv_noshuffle_iq4_nl_f32.cl
+new file mode 100644
+index 00000000..9386bf25
+--- /dev/null
++++ src/ggml-opencl/kernels/gemv_noshuffle_iq4_nl_f32.cl
+@@ -0,0 +1,302 @@
++#pragma OPENCL EXTENSION cl_khr_fp16 : enable
++#pragma OPENCL EXTENSION cl_khr_subgroups : enable
++
++#ifdef cl_qcom_reqd_sub_group_size
++#pragma OPENCL EXTENSION cl_qcom_reqd_sub_group_size : enable
++#define ADRENO_GPU 1
++#define REQD_SUBGROUP_SIZE_64 __attribute__((qcom_reqd_sub_group_size("half")))
++#endif
++
++#define QK4_NL 32
++#define NSUBGROUPS 4
++#define SUBGROUP_SIZE 64
++
++constant half kvalues_iq4nl[16] = {
++    (half)-127.f, (half)-104.f, (half)-83.f, (half)-65.f,
++    (half) -49.f, (half) -35.f, (half)-22.f, (half)-10.f,
++    (half)   1.f, (half)  13.f, (half) 25.f, (half) 38.f,
++    (half)  53.f, (half)  69.f, (half) 89.f, (half)113.f
++};
++
++// Packed LUT: 2 FP16 values per uint, 8 unique constant loads instead of 16
++constant uint iq4nl_packed[8] = {
++    0xD680D7F0u,  // idx 0,1: -127, -104
++    0xD410D530u,  // idx 2,3: -83, -65
++    0xD060D220u,  // idx 4,5: -49, -35
++    0xC900CD80u,  // idx 6,7: -22, -10
++    0x4A803C00u,  // idx 8,9: 1, 13
++    0x50C04E40u,  // idx 10,11: 25, 38
++    0x545052A0u,  // idx 12,13: 53, 69
++    0x57105590u   // idx 14,15: 89, 113
++};
++
++// Packed dequant: 1 uint constant load (8-way divergence) + shift + as_half
++#define IQ4_NL_DEQUANT(nibble) as_half((ushort)(iq4nl_packed[(nibble) >> 1] >> (((nibble) & 1u) << 4)))
++
++#define dequantizeBlockAccum_ns_sgbroadcast_1_hi(total_sums, bits4, scale, y) \
++    float shared_y; \
++    shared_y = sub_group_broadcast(y.s0, 0); \
++    total_sums.s0 += IQ4_NL_DEQUANT((bits4.s0 & 0x000F)) * scale.s0 * shared_y; \
++    total_sums.s1 += IQ4_NL_DEQUANT((bits4.s1 & 0x000F)) * scale.s1 * shared_y; \
++    shared_y = sub_group_broadcast(y.s1, 0); \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s0 & 0x00F0) >> 4)) * scale.s0 * shared_y; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s1 & 0x00F0) >> 4)) * scale.s1 * shared_y; \
++    shared_y = sub_group_broadcast(y.s2, 0); \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s0 & 0x0F00) >> 8)) * scale.s0 * shared_y; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s1 & 0x0F00) >> 8)) * scale.s1 * shared_y; \
++    shared_y = sub_group_broadcast(y.s3, 0); \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s0 & 0xF000) >> 12)) * scale.s0 * shared_y; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s1 & 0xF000) >> 12)) * scale.s1 * shared_y; \
++    shared_y = sub_group_broadcast(y.s4, 0); \
++    total_sums.s0 += IQ4_NL_DEQUANT((bits4.s2 & 0x000F)) * scale.s0 * shared_y; \
++    total_sums.s1 += IQ4_NL_DEQUANT((bits4.s3 & 0x000F)) * scale.s1 * shared_y; \
++    shared_y = sub_group_broadcast(y.s5, 0); \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s2 & 0x00F0) >> 4)) * scale.s0 * shared_y; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s3 & 0x00F0) >> 4)) * scale.s1 * shared_y; \
++    shared_y = sub_group_broadcast(y.s6, 0); \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s2 & 0x0F00) >> 8)) * scale.s0 * shared_y; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s3 & 0x0F00) >> 8)) * scale.s1 * shared_y; \
++    shared_y = sub_group_broadcast(y.s7, 0); \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s2 & 0xF000) >> 12)) * scale.s0 * shared_y; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s3 & 0xF000) >> 12)) * scale.s1 * shared_y; \
++    shared_y = sub_group_broadcast(y.s0, 1); \
++    total_sums.s0 += IQ4_NL_DEQUANT((bits4.s4 & 0x000F)) * scale.s0 * shared_y; \
++    total_sums.s1 += IQ4_NL_DEQUANT((bits4.s5 & 0x000F)) * scale.s1 * shared_y; \
++    shared_y = sub_group_broadcast(y.s1, 1); \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s4 & 0x00F0) >> 4)) * scale.s0 * shared_y; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s5 & 0x00F0) >> 4)) * scale.s1 * shared_y; \
++    shared_y = sub_group_broadcast(y.s2, 1); \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s4 & 0x0F00) >> 8)) * scale.s0 * shared_y; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s5 & 0x0F00) >> 8)) * scale.s1 * shared_y; \
++    shared_y = sub_group_broadcast(y.s3, 1); \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s4 & 0xF000) >> 12)) * scale.s0 * shared_y; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s5 & 0xF000) >> 12)) * scale.s1 * shared_y; \
++    shared_y = sub_group_broadcast(y.s4, 1); \
++    total_sums.s0 += IQ4_NL_DEQUANT((bits4.s6 & 0x000F)) * scale.s0 * shared_y; \
++    total_sums.s1 += IQ4_NL_DEQUANT((bits4.s7 & 0x000F)) * scale.s1 * shared_y; \
++    shared_y = sub_group_broadcast(y.s5, 1); \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s6 & 0x00F0) >> 4)) * scale.s0 * shared_y; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s7 & 0x00F0) >> 4)) * scale.s1 * shared_y; \
++    shared_y = sub_group_broadcast(y.s6, 1); \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s6 & 0x0F00) >> 8)) * scale.s0 * shared_y; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s7 & 0x0F00) >> 8)) * scale.s1 * shared_y; \
++    shared_y = sub_group_broadcast(y.s7, 1); \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s6 & 0xF000) >> 12)) * scale.s0 * shared_y; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s7 & 0xF000) >> 12)) * scale.s1 * shared_y; \
++
++
++#define dequantizeBlockAccum_ns_sgbroadcast_1_lo(total_sums, bits4, scale, y) \
++    shared_y = sub_group_broadcast(y.s0, 2); \
++    total_sums.s0 += IQ4_NL_DEQUANT((bits4.s0 & 0x000F)) * scale.s0 * shared_y; \
++    total_sums.s1 += IQ4_NL_DEQUANT((bits4.s1 & 0x000F)) * scale.s1 * shared_y; \
++    shared_y = sub_group_broadcast(y.s1, 2); \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s0 & 0x00F0) >> 4)) * scale.s0 * shared_y; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s1 & 0x00F0) >> 4)) * scale.s1 * shared_y; \
++    shared_y = sub_group_broadcast(y.s2, 2); \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s0 & 0x0F00) >> 8)) * scale.s0 * shared_y; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s1 & 0x0F00) >> 8)) * scale.s1 * shared_y; \
++    shared_y = sub_group_broadcast(y.s3, 2); \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s0 & 0xF000) >> 12)) * scale.s0 * shared_y; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s1 & 0xF000) >> 12)) * scale.s1 * shared_y; \
++    shared_y = sub_group_broadcast(y.s4, 2); \
++    total_sums.s0 += IQ4_NL_DEQUANT((bits4.s2 & 0x000F)) * scale.s0 * shared_y; \
++    total_sums.s1 += IQ4_NL_DEQUANT((bits4.s3 & 0x000F)) * scale.s1 * shared_y; \
++    shared_y = sub_group_broadcast(y.s5, 2); \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s2 & 0x00F0) >> 4)) * scale.s0 * shared_y; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s3 & 0x00F0) >> 4)) * scale.s1 * shared_y; \
++    shared_y = sub_group_broadcast(y.s6, 2); \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s2 & 0x0F00) >> 8)) * scale.s0 * shared_y; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s3 & 0x0F00) >> 8)) * scale.s1 * shared_y; \
++    shared_y = sub_group_broadcast(y.s7, 2); \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s2 & 0xF000) >> 12)) * scale.s0 * shared_y; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s3 & 0xF000) >> 12)) * scale.s1 * shared_y; \
++    shared_y = sub_group_broadcast(y.s0, 3); \
++    total_sums.s0 += IQ4_NL_DEQUANT((bits4.s4 & 0x000F)) * scale.s0 * shared_y; \
++    total_sums.s1 += IQ4_NL_DEQUANT((bits4.s5 & 0x000F)) * scale.s1 * shared_y; \
++    shared_y = sub_group_broadcast(y.s1, 3); \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s4 & 0x00F0) >> 4)) * scale.s0 * shared_y; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s5 & 0x00F0) >> 4)) * scale.s1 * shared_y; \
++    shared_y = sub_group_broadcast(y.s2, 3); \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s4 & 0x0F00) >> 8)) * scale.s0 * shared_y; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s5 & 0x0F00) >> 8)) * scale.s1 * shared_y; \
++    shared_y = sub_group_broadcast(y.s3, 3); \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s4 & 0xF000) >> 12)) * scale.s0 * shared_y; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s5 & 0xF000) >> 12)) * scale.s1 * shared_y; \
++    shared_y = sub_group_broadcast(y.s4, 3); \
++    total_sums.s0 += IQ4_NL_DEQUANT((bits4.s6 & 0x000F)) * scale.s0 * shared_y; \
++    total_sums.s1 += IQ4_NL_DEQUANT((bits4.s7 & 0x000F)) * scale.s1 * shared_y; \
++    shared_y = sub_group_broadcast(y.s5, 3); \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s6 & 0x00F0) >> 4)) * scale.s0 * shared_y; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s7 & 0x00F0) >> 4)) * scale.s1 * shared_y; \
++    shared_y = sub_group_broadcast(y.s6, 3); \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s6 & 0x0F00) >> 8)) * scale.s0 * shared_y; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s7 & 0x0F00) >> 8)) * scale.s1 * shared_y; \
++    shared_y = sub_group_broadcast(y.s7, 3); \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s6 & 0xF000) >> 12)) * scale.s0 * shared_y; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s7 & 0xF000) >> 12)) * scale.s1 * shared_y; \
++
++
++#define dequantizeBlockAccum_ns_sgbroadcast_8_hi(total_sums, bits4, scale, y) \
++    float8 shared_y; \
++    shared_y = sub_group_broadcast(y, 0); \
++    total_sums.s0 += IQ4_NL_DEQUANT((bits4.s0 & 0x000F))         * scale.s0 * shared_y.s0; \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s0 & 0x00F0) >> 4))  * scale.s0 * shared_y.s1; \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s0 & 0x0F00) >> 8))  * scale.s0 * shared_y.s2; \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s0 & 0xF000) >> 12)) * scale.s0 * shared_y.s3; \
++    total_sums.s0 += IQ4_NL_DEQUANT((bits4.s2 & 0x000F))         * scale.s0 * shared_y.s4; \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s2 & 0x00F0) >> 4))  * scale.s0 * shared_y.s5; \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s2 & 0x0F00) >> 8))  * scale.s0 * shared_y.s6; \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s2 & 0xF000) >> 12)) * scale.s0 * shared_y.s7; \
++    total_sums.s1 += IQ4_NL_DEQUANT((bits4.s1 & 0x000F))         * scale.s1 * shared_y.s0; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s1 & 0x00F0) >> 4))  * scale.s1 * shared_y.s1; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s1 & 0x0F00) >> 8))  * scale.s1 * shared_y.s2; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s1 & 0xF000) >> 12)) * scale.s1 * shared_y.s3; \
++    total_sums.s1 += IQ4_NL_DEQUANT((bits4.s3 & 0x000F))         * scale.s1 * shared_y.s4; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s3 & 0x00F0) >> 4))  * scale.s1 * shared_y.s5; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s3 & 0x0F00) >> 8))  * scale.s1 * shared_y.s6; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s3 & 0xF000) >> 12)) * scale.s1 * shared_y.s7; \
++    shared_y = sub_group_broadcast(y, 1); \
++    total_sums.s0 += IQ4_NL_DEQUANT((bits4.s4 & 0x000F))         * scale.s0 * shared_y.s0; \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s4 & 0x00F0) >> 4))  * scale.s0 * shared_y.s1; \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s4 & 0x0F00) >> 8))  * scale.s0 * shared_y.s2; \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s4 & 0xF000) >> 12)) * scale.s0 * shared_y.s3; \
++    total_sums.s0 += IQ4_NL_DEQUANT((bits4.s6 & 0x000F))         * scale.s0 * shared_y.s4; \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s6 & 0x00F0) >> 4))  * scale.s0 * shared_y.s5; \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s6 & 0x0F00) >> 8))  * scale.s0 * shared_y.s6; \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s6 & 0xF000) >> 12)) * scale.s0 * shared_y.s7; \
++    total_sums.s1 += IQ4_NL_DEQUANT((bits4.s5 & 0x000F))         * scale.s1 * shared_y.s0; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s5 & 0x00F0) >> 4))  * scale.s1 * shared_y.s1; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s5 & 0x0F00) >> 8))  * scale.s1 * shared_y.s2; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s5 & 0xF000) >> 12)) * scale.s1 * shared_y.s3; \
++    total_sums.s1 += IQ4_NL_DEQUANT((bits4.s7 & 0x000F))         * scale.s1 * shared_y.s4; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s7 & 0x00F0) >> 4))  * scale.s1 * shared_y.s5; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s7 & 0x0F00) >> 8))  * scale.s1 * shared_y.s6; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s7 & 0xF000) >> 12)) * scale.s1 * shared_y.s7; \
++
++
++#define dequantizeBlockAccum_ns_sgbroadcast_8_lo(total_sums, bits4, scale, y) \
++    shared_y = sub_group_broadcast(y, 2); \
++    total_sums.s0 += IQ4_NL_DEQUANT((bits4.s0 & 0x000F))         * scale.s0 * shared_y.s0; \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s0 & 0x00F0) >> 4))  * scale.s0 * shared_y.s1; \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s0 & 0x0F00) >> 8))  * scale.s0 * shared_y.s2; \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s0 & 0xF000) >> 12)) * scale.s0 * shared_y.s3; \
++    total_sums.s0 += IQ4_NL_DEQUANT((bits4.s2 & 0x000F))         * scale.s0 * shared_y.s4; \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s2 & 0x00F0) >> 4))  * scale.s0 * shared_y.s5; \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s2 & 0x0F00) >> 8))  * scale.s0 * shared_y.s6; \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s2 & 0xF000) >> 12)) * scale.s0 * shared_y.s7; \
++    total_sums.s1 += IQ4_NL_DEQUANT((bits4.s1 & 0x000F))         * scale.s1 * shared_y.s0; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s1 & 0x00F0) >> 4))  * scale.s1 * shared_y.s1; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s1 & 0x0F00) >> 8))  * scale.s1 * shared_y.s2; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s1 & 0xF000) >> 12)) * scale.s1 * shared_y.s3; \
++    total_sums.s1 += IQ4_NL_DEQUANT((bits4.s3 & 0x000F))         * scale.s1 * shared_y.s4; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s3 & 0x00F0) >> 4))  * scale.s1 * shared_y.s5; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s3 & 0x0F00) >> 8))  * scale.s1 * shared_y.s6; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s3 & 0xF000) >> 12)) * scale.s1 * shared_y.s7; \
++    shared_y = sub_group_broadcast(y, 3); \
++    total_sums.s0 += IQ4_NL_DEQUANT((bits4.s4 & 0x000F))         * scale.s0 * shared_y.s0; \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s4 & 0x00F0) >> 4))  * scale.s0 * shared_y.s1; \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s4 & 0x0F00) >> 8))  * scale.s0 * shared_y.s2; \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s4 & 0xF000) >> 12)) * scale.s0 * shared_y.s3; \
++    total_sums.s0 += IQ4_NL_DEQUANT((bits4.s6 & 0x000F))         * scale.s0 * shared_y.s4; \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s6 & 0x00F0) >> 4))  * scale.s0 * shared_y.s5; \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s6 & 0x0F00) >> 8))  * scale.s0 * shared_y.s6; \
++    total_sums.s0 += IQ4_NL_DEQUANT(((bits4.s6 & 0xF000) >> 12)) * scale.s0 * shared_y.s7; \
++    total_sums.s1 += IQ4_NL_DEQUANT((bits4.s5 & 0x000F))         * scale.s1 * shared_y.s0; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s5 & 0x00F0) >> 4))  * scale.s1 * shared_y.s1; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s5 & 0x0F00) >> 8))  * scale.s1 * shared_y.s2; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s5 & 0xF000) >> 12)) * scale.s1 * shared_y.s3; \
++    total_sums.s1 += IQ4_NL_DEQUANT((bits4.s7 & 0x000F))         * scale.s1 * shared_y.s4; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s7 & 0x00F0) >> 4))  * scale.s1 * shared_y.s5; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s7 & 0x0F00) >> 8))  * scale.s1 * shared_y.s6; \
++    total_sums.s1 += IQ4_NL_DEQUANT(((bits4.s7 & 0xF000) >> 12)) * scale.s1 * shared_y.s7; \
++
++#ifdef ADRENO_GPU
++REQD_SUBGROUP_SIZE_64
++#endif
++kernel void kernel_gemv_noshuffle_iq4_nl_f32(
++        read_only  image1d_buffer_t src0_q,
++        global half2  * src0_d,
++        read_only  image1d_buffer_t src1,
++        global float * dst,
++        ulong offsetd,
++        int ne00,
++        int ne01)
++{
++    uint groupId = get_local_id(1);
++    uint gid     = get_global_id(0);
++    ushort slid    = get_sub_group_local_id();
++
++    uint K = ne00;
++    uint M = ne01;
++
++    uint LINE_STRIDE_A = M / 2;
++    uint BLOCK_STRIDE_A = NSUBGROUPS * M;
++
++    private uint4     regA;
++    private half2     regS;
++    private float8    regB;
++
++    private float2 totalSum = (float2)(0.0f);
++
++    // loop along K in block granularity, skip 4 blocks every iter
++    for (uint k = groupId; k < (K / QK4_NL); k += NSUBGROUPS) {
++        regS = src0_d[gid + k * LINE_STRIDE_A]; // each fiber loads scale of two rows
++        // first 4 fibers in each wave load 8 B values to its private scope
++        if (slid < 4) {
++            regB.s0123 = read_imagef(src1, (slid * 2 + k * 8));
++            regB.s4567 = read_imagef(src1, (1 + slid * 2 + k * 8));
++        }
++
++        // load half weights for two blocks in consecutive rows
++        regA.s0 = read_imageui(src0_q, (gid + k * BLOCK_STRIDE_A + LINE_STRIDE_A * 0)).x;
++        regA.s1 = read_imageui(src0_q, (gid + k * BLOCK_STRIDE_A + LINE_STRIDE_A * 1)).x;
++        regA.s2 = read_imageui(src0_q, (gid + k * BLOCK_STRIDE_A + LINE_STRIDE_A * 2)).x;
++        regA.s3 = read_imageui(src0_q, (gid + k * BLOCK_STRIDE_A + LINE_STRIDE_A * 3)).x;
++#ifdef VECTOR_SUB_GROUP_BROADCAST
++        dequantizeBlockAccum_ns_sgbroadcast_8_hi(totalSum, as_ushort8(regA), regS, regB);
++#else
++        dequantizeBlockAccum_ns_sgbroadcast_1_hi(totalSum, as_ushort8(regA), regS, regB);
++#endif // VECTOR_SUB_GROUP_BROADCAST
++
++        regA.s0 = read_imageui(src0_q, (gid + k * BLOCK_STRIDE_A + LINE_STRIDE_A * 4)).x;
++        regA.s1 = read_imageui(src0_q, (gid + k * BLOCK_STRIDE_A + LINE_STRIDE_A * 5)).x;
++        regA.s2 = read_imageui(src0_q, (gid + k * BLOCK_STRIDE_A + LINE_STRIDE_A * 6)).x;
++        regA.s3 = read_imageui(src0_q, (gid + k * BLOCK_STRIDE_A + LINE_STRIDE_A * 7)).x;
++#ifdef VECTOR_SUB_GROUP_BROADCAST
++        dequantizeBlockAccum_ns_sgbroadcast_8_lo(totalSum, as_ushort8(regA), regS, regB);
++#else
++        dequantizeBlockAccum_ns_sgbroadcast_1_lo(totalSum, as_ushort8(regA), regS, regB);
++#endif // VECTOR_SUB_GROUP_BROADCAST
++    }
++
++    // reduction in local memory, assumes #wave=4
++    local float2 reduceLM[SUBGROUP_SIZE * 3];
++    if (groupId == 1) {
++        reduceLM[SUBGROUP_SIZE * 0 + slid] = totalSum;
++    }
++    if (groupId == 2) {
++        reduceLM[SUBGROUP_SIZE * 1 + slid] = totalSum;
++    }
++    if (groupId == 3) {
++        reduceLM[SUBGROUP_SIZE * 2 + slid] = totalSum;
++    }
++
++    barrier(CLK_LOCAL_MEM_FENCE);
++
++    if (groupId == 0) {
++        totalSum += reduceLM[SUBGROUP_SIZE * 0 + slid];
++    }
++    if (groupId == 0) {
++        totalSum += reduceLM[SUBGROUP_SIZE * 1 + slid];
++    }
++    if (groupId == 0) {
++        totalSum += reduceLM[SUBGROUP_SIZE * 2 + slid];
++    }
++
++    // 2 outputs per fiber in wave 0
++    if (groupId == 0) {
++        dst = (global float*)((global char*)dst + offsetd);
++        vstore2(totalSum, 0, &(dst[gid * 2]));
++    }
++
++}
+diff --git src/ggml-opencl/kernels/mul_mm_iq4_nl_f32_l4_lm.cl src/ggml-opencl/kernels/mul_mm_iq4_nl_f32_l4_lm.cl
+new file mode 100644
+index 00000000..11ff7f8d
+--- /dev/null
++++ src/ggml-opencl/kernels/mul_mm_iq4_nl_f32_l4_lm.cl
+@@ -0,0 +1,171 @@
++#pragma OPENCL EXTENSION cl_khr_fp16 : enable
++
++#define LOAD_VEC_A 8
++#define LOAD_VEC_B 4
++
++#define BM 64
++#define BN 64
++#define BK 32
++#define TM 4
++#define TN 8
++
++constant float kvalues_iq4nl[16] = {
++    -127.f, -104.f, -83.f, -65.f, -49.f, -35.f, -22.f, -10.f,
++      1.f,   13.f,  25.f,  38.f,  53.f,  69.f,  89.f, 113.f
++};
++
++kernel void kernel_mul_mm_iq4_nl_f32_l4_lm(
++    global uchar4 * src0_q,
++    global half   * src0_d,
++    global float4 * src1,
++    ulong offset1,
++    global float  * dst,
++    ulong offsetd,
++
++    int ne00,
++    int ne01,
++    int ne02,
++    int ne11,
++    int ne12,
++
++    int stride_a,
++    int stride_b,
++    int stride_d,
++
++    int batch_stride_a,
++    int batch_stride_b,
++    int batch_stride_d,
++
++    int r2,
++    int r3
++) {
++    src1 = (global float4*)((global char*)src1 + offset1);
++    dst  = (global float *)((global char*)dst  + offsetd);
++
++    local float buf_a[BM * BK];
++    local float buf_b[BN * BK];
++
++    const int batch_idx = get_global_id(2);
++
++    const int i13 = batch_idx / ne12;
++    const int i12 = batch_idx % ne12;
++
++    const int i03 = i13 / r3;
++    const int i02 = i12 / r2;
++
++    const int batch_idx_a = i03 * ne02 + i02;
++
++    const int ir = get_group_id(0);
++    const int ic = get_group_id(1);
++
++    const int tid = get_local_id(0);
++    const int th_r  = tid % (BM / TM);
++    const int th_c  = tid / (BM / TM);
++
++    const int loadr_a = get_local_id(0) % (BK / LOAD_VEC_A);
++    const int loadc_a = get_local_id(0) / (BK / LOAD_VEC_A);
++    const int loadr_b = get_local_id(0) % (BK / LOAD_VEC_B);
++    const int loadc_b = get_local_id(0) / (BK / LOAD_VEC_B);
++
++    const int loadstride_a = get_local_size(0) * LOAD_VEC_A / BK;
++    const int loadstride_b = get_local_size(0) * LOAD_VEC_B / BK;
++
++    int pos_a = (batch_idx_a * batch_stride_a + ir * BM * stride_a) / LOAD_VEC_A;
++    int pos_b = (batch_idx   * batch_stride_b + ic * BN * stride_b) / LOAD_VEC_B;
++
++    float sums[TM * TN];
++    float cache_a[TM];
++    float cache_b[TN];
++
++    for (int i = 0; i < TM * TN; i++) {
++        sums[i] = 0.0f;
++    }
++
++    for (int block = 0; block < ne00; block += BK) {
++        for (int l = 0; l < BM; l += loadstride_a) {
++            if (ir*BM + loadc_a + l < ne01) {
++                int idx = pos_a + (loadc_a + l) * stride_a / LOAD_VEC_A + loadr_a;
++                int ib  = idx / 4;
++                int iqs = idx % 4;
++
++                float d = (float)src0_d[ib];
++                global uchar4 * qs = src0_q + ib*4 + iqs;
++                uchar4 q = *qs;
++                // IQ4_NL: use lookup table instead of linear (nibble - 8)
++                float4 v1 = (float4)(kvalues_iq4nl[(q.s0   )&0x0F], kvalues_iq4nl[(q.s1   )&0x0F],
++                                     kvalues_iq4nl[(q.s2   )&0x0F], kvalues_iq4nl[(q.s3   )&0x0F])*d;
++                float4 v2 = (float4)(kvalues_iq4nl[(q.s0>>4)&0x0F], kvalues_iq4nl[(q.s1>>4)&0x0F],
++                                     kvalues_iq4nl[(q.s2>>4)&0x0F], kvalues_iq4nl[(q.s3>>4)&0x0F])*d;
++
++                buf_a[(loadr_a * 4 +  0) * BM + loadc_a + l] = v1.s0;
++                buf_a[(loadr_a * 4 +  1) * BM + loadc_a + l] = v1.s1;
++                buf_a[(loadr_a * 4 +  2) * BM + loadc_a + l] = v1.s2;
++                buf_a[(loadr_a * 4 +  3) * BM + loadc_a + l] = v1.s3;
++                buf_a[(loadr_a * 4 + 16) * BM + loadc_a + l] = v2.s0;
++                buf_a[(loadr_a * 4 + 17) * BM + loadc_a + l] = v2.s1;
++                buf_a[(loadr_a * 4 + 18) * BM + loadc_a + l] = v2.s2;
++                buf_a[(loadr_a * 4 + 19) * BM + loadc_a + l] = v2.s3;
++            } else {
++                buf_a[(loadr_a * 4 +  0) * BM + loadc_a + l] = 0.0f;
++                buf_a[(loadr_a * 4 +  1) * BM + loadc_a + l] = 0.0f;
++                buf_a[(loadr_a * 4 +  2) * BM + loadc_a + l] = 0.0f;
++                buf_a[(loadr_a * 4 +  3) * BM + loadc_a + l] = 0.0f;
++                buf_a[(loadr_a * 4 + 16) * BM + loadc_a + l] = 0.0f;
++                buf_a[(loadr_a * 4 + 17) * BM + loadc_a + l] = 0.0f;
++                buf_a[(loadr_a * 4 + 18) * BM + loadc_a + l] = 0.0f;
++                buf_a[(loadr_a * 4 + 19) * BM + loadc_a + l] = 0.0f;
++            }
++        }
++
++        for (int l = 0; l < BN; l += loadstride_b) {
++            if (ic*BN + loadc_b + l < ne11) {
++                int idx = pos_b + (loadc_b + l) * stride_b / LOAD_VEC_B + loadr_b;
++                buf_b[(loadr_b * LOAD_VEC_B + 0) * BN + loadc_b + l] = src1[idx].s0;
++                buf_b[(loadr_b * LOAD_VEC_B + 1) * BN + loadc_b + l] = src1[idx].s1;
++                buf_b[(loadr_b * LOAD_VEC_B + 2) * BN + loadc_b + l] = src1[idx].s2;
++                buf_b[(loadr_b * LOAD_VEC_B + 3) * BN + loadc_b + l] = src1[idx].s3;
++            } else {
++                buf_b[(loadr_b * LOAD_VEC_B + 0) * BN + loadc_b + l] = 0.0f;
++                buf_b[(loadr_b * LOAD_VEC_B + 1) * BN + loadc_b + l] = 0.0f;
++                buf_b[(loadr_b * LOAD_VEC_B + 2) * BN + loadc_b + l] = 0.0f;
++                buf_b[(loadr_b * LOAD_VEC_B + 3) * BN + loadc_b + l] = 0.0f;
++            }
++        }
++
++        barrier(CLK_LOCAL_MEM_FENCE);
++
++        pos_a += BK / LOAD_VEC_A;
++        pos_b += BK / LOAD_VEC_B;
++
++        for (int i = 0; i < BK; i++) {
++            for (int j = 0; j < TM; j++) {
++                cache_a[j] = buf_a[(i) * BM + th_r * TM + j];
++            }
++
++            for (int j = 0; j < TN; j++) {
++                cache_b[j] = buf_b[(i) * BN + th_c * TN + j];
++            }
++
++            for (int cc = 0; cc < TN; cc++) {
++                for (int cr = 0; cr < TM; cr++) {
++                    const int sums_idx = cc*TM + cr;
++                    sums[sums_idx] = mad(cache_a[cr], cache_b[cc], sums[sums_idx]);
++                }
++            }
++        }
++        barrier(CLK_LOCAL_MEM_FENCE);
++    }
++
++    const int dr = ir * BM + th_r * TM;
++    const int dc = ic * BN + th_c * TN;
++
++    const int offsets = batch_idx * batch_stride_d;
++
++    for (int cc = 0; cc < TN; cc++) {
++        for (int cr = 0; cr < TM; cr++) {
++            if (dr + cr < ne01 && dc + cc < ne11) {
++                dst[offsets + (dc + cc) * stride_d + dr + cr] = sums[cc * TM + cr];
++            }
++        }
++    }
++}
+diff --git src/ggml-opencl/kernels/mul_mv_iq4_nl_f32.cl src/ggml-opencl/kernels/mul_mv_iq4_nl_f32.cl
+new file mode 100644
+index 00000000..a6a325cd
+--- /dev/null
++++ src/ggml-opencl/kernels/mul_mv_iq4_nl_f32.cl
+@@ -0,0 +1,164 @@
++#pragma OPENCL EXTENSION cl_khr_fp16 : enable
++
++#ifdef cl_intel_subgroups
++#pragma OPENCL EXTENSION cl_intel_subgroups : enable
++#else
++#pragma OPENCL EXTENSION cl_khr_subgroups : enable
++#endif
++
++#ifdef cl_intel_required_subgroup_size
++#pragma OPENCL EXTENSION cl_intel_required_subgroup_size : enable
++#define INTEL_GPU 1
++#define REQD_SUBGROUP_SIZE_16 __attribute__((intel_reqd_sub_group_size(16)))
++#define REQD_SUBGROUP_SIZE_32 __attribute__((intel_reqd_sub_group_size(32)))
++#elif defined(cl_qcom_reqd_sub_group_size)
++#pragma OPENCL EXTENSION cl_qcom_reqd_sub_group_size : enable
++#define ADRENO_GPU 1
++#define REQD_SUBGROUP_SIZE_64  __attribute__((qcom_reqd_sub_group_size("half")))
++#define REQD_SUBGROUP_SIZE_128 __attribute__((qcom_reqd_sub_group_size("full")))
++#endif
++
++#define QK4_NL 32
++
++typedef char int8_t;
++typedef uchar uint8_t;
++typedef short int16_t;
++typedef ushort uint16_t;
++typedef int int32_t;
++typedef uint uint32_t;
++
++constant float kvalues_iq4nl[16] = {
++    -127.f, -104.f, -83.f, -65.f, -49.f, -35.f, -22.f, -10.f,
++      1.f,   13.f,  25.f,  38.f,  53.f,  69.f,  89.f, 113.f
++};
++
++//------------------------------------------------------------------------------
++// block_iq4_nl
++//------------------------------------------------------------------------------
++struct block_iq4_nl
++{
++    half d;
++    uint8_t qs[QK4_NL / 2];
++};
++
++//------------------------------------------------------------------------------
++// mul_vec_q_n_f32
++//------------------------------------------------------------------------------
++// Compute inner product between half a block of iq4_nl and 16 floats (yl).
++// il indicates where the quants begin (0 or 8).
++inline float block_iq4_nl_dot_y(
++        global struct block_iq4_nl * qb_curr,
++        private float * yl,
++        int il
++) {
++    float d = qb_curr->d;
++    float acc = 0.f;
++    global uchar * qs = qb_curr->qs + il;
++    for (int i = 0; i < 8; ++i) {
++        acc += yl[i]   * kvalues_iq4nl[qs[i] & 0x0F];
++        acc += yl[i+8] * kvalues_iq4nl[qs[i] >> 4];
++    }
++    return d * acc;
++}
++
++#ifdef INTEL_GPU
++#define N_DST 4 // each subgroup group works on 4 rows
++#define N_SUBGROUP 1 // number of subgroups in a thread group
++#define N_SUBGROUP_SIZE 16 // assuming subgroup size is 16
++#elif defined (ADRENO_GPU)
++#define N_DST 4
++#define N_SUBGROUP 1
++#define N_SUBGROUP_SIZE 64
++#endif
++
++inline void mul_vec_q_n_f32(
++        global void * src0,
++        global float * src1,
++        global float * dst,
++        int ne00,
++        int ne01,
++        int ne02,
++        int ne10,
++        int ne12,
++        int ne0,
++        int ne1,
++        int r2,
++        int r3
++) {
++
++    const ulong nb = ne00/QK4_NL;
++
++    int r0 = get_group_id(0);
++    int r1 = get_group_id(1);
++    int im = get_group_id(2);
++
++    int first_row = (r0 * N_SUBGROUP + get_sub_group_id()) * N_DST;
++
++    int i12 = im%ne12;
++    int i13 = im/ne12;
++
++    ulong offset0 = first_row * nb + (i12/r2)*(nb*ne01) + (i13/r3)*(nb*ne01*ne02);
++
++    global struct block_iq4_nl * x = (global struct block_iq4_nl *) src0 + offset0;
++    global float               * y = (global float               *) src1 + r1*ne10 + im*ne00*ne1;
++
++    float yl[16];       // src1 vector cache
++    float sumf[N_DST]={0.f};
++
++    int ix = get_sub_group_local_id()/2;
++    int il = 8*(get_sub_group_local_id()%2);
++
++    global float * yb = y + ix * QK4_NL + il;
++
++    // each thread in a SIMD group deals with half a block.
++    for (int ib = ix; ib < nb; ib += N_SUBGROUP_SIZE/2) {
++        for (int i = 0; i < 8; ++i) {
++            yl[i]   = yb[i];
++            yl[i+8] = yb[i+16];
++        }
++
++        for (int row = 0; row < N_DST; row++) {
++            sumf[row] += block_iq4_nl_dot_y(x+ib+row*nb, yl, il);
++        }
++
++        yb += QK4_NL * (N_SUBGROUP_SIZE/2);
++    }
++
++    float tot[N_DST] = {
++        sub_group_reduce_add(sumf[0]), sub_group_reduce_add(sumf[1]),
++        sub_group_reduce_add(sumf[2]), sub_group_reduce_add(sumf[3])};
++    for (int row = 0; row < N_DST; ++row) {
++        if (get_sub_group_local_id() == 0 && first_row + row < ne01) {
++            dst[r1*ne0 + im*ne0*ne1 + first_row + row] = tot[row];
++        }
++    }
++}
++
++#ifdef INTEL_GPU
++REQD_SUBGROUP_SIZE_16
++#elif defined (ADRENO_GPU)
++REQD_SUBGROUP_SIZE_64
++#endif
++kernel void kernel_mul_mv_iq4_nl_f32(
++        global void * src0,
++        ulong offset0,
++        global float * src1,
++        ulong offset1,
++        global float * dst,
++        ulong offsetd,
++        int ne00,
++        int ne01,
++        int ne02,
++        int ne10,
++        int ne12,
++        int ne0,
++        int ne1,
++        int r2,
++        int r3
++) {
++    src0 = (global void*)((global char*)src0 + offset0);
++    src1 = (global float*)((global char*)src1 + offset1);
++    dst = (global float*)((global char*)dst + offsetd);
++
++    mul_vec_q_n_f32(src0, src1, dst, ne00, ne01, ne02, ne10, ne12, ne0, ne1, r2, r3);
++}
+diff --git src/ggml-opencl/kernels/mul_mv_iq4_nl_f32_flat.cl src/ggml-opencl/kernels/mul_mv_iq4_nl_f32_flat.cl
+new file mode 100644
+index 00000000..8c5b3f52
+--- /dev/null
++++ src/ggml-opencl/kernels/mul_mv_iq4_nl_f32_flat.cl
+@@ -0,0 +1,202 @@
++#pragma OPENCL EXTENSION cl_khr_fp16 : enable
++
++#ifdef cl_intel_subgroups
++#pragma OPENCL EXTENSION cl_intel_subgroups : enable
++#else
++#pragma OPENCL EXTENSION cl_khr_subgroups : enable
++#endif
++
++#ifdef cl_intel_required_subgroup_size
++#pragma OPENCL EXTENSION cl_intel_required_subgroup_size : enable
++#define INTEL_GPU 1
++#define REQD_SUBGROUP_SIZE_16 __attribute__((intel_reqd_sub_group_size(16)))
++#define REQD_SUBGROUP_SIZE_32 __attribute__((intel_reqd_sub_group_size(32)))
++#elif defined(cl_qcom_reqd_sub_group_size)
++#pragma OPENCL EXTENSION cl_qcom_reqd_sub_group_size : enable
++#define ADRENO_GPU 1
++#define REQD_SUBGROUP_SIZE_64  __attribute__((qcom_reqd_sub_group_size("half")))
++#define REQD_SUBGROUP_SIZE_128 __attribute__((qcom_reqd_sub_group_size("full")))
++#endif
++
++#define QK4_NL 32
++
++typedef char int8_t;
++typedef uchar uint8_t;
++typedef short int16_t;
++typedef ushort uint16_t;
++typedef int int32_t;
++typedef uint uint32_t;
++
++constant float kvalues_iq4nl[16] = {
++    -127.f, -104.f, -83.f, -65.f, -49.f, -35.f, -22.f, -10.f,
++      1.f,   13.f,  25.f,  38.f,  53.f,  69.f,  89.f, 113.f
++};
++
++//------------------------------------------------------------------------------
++// block_iq4_nl
++//------------------------------------------------------------------------------
++struct block_iq4_nl
++{
++    half d;
++    uint8_t qs[QK4_NL / 2];
++};
++
++// Compute dot product between half a block of iq4_nl quants and activations.
++// x points to the quant bytes, dh points to the scale.
++// yl has 16 activation values: [0..7] for low nibbles, [8..15] for high nibbles.
++// il indicates offset into the quant bytes (0 or 8).
++inline float block_iq4_nl_dot_y_flat(
++        global uchar * x,
++        global half  * dh,
++        private float * yl,
++        int il
++) {
++    float d = *dh;
++    global uchar * qs = x + il;
++    float acc = 0.f;
++    for (int i = 0; i < 8; ++i) {
++        acc += yl[i]   * kvalues_iq4nl[qs[i] & 0x0F];
++        acc += yl[i+8] * kvalues_iq4nl[qs[i] >> 4];
++    }
++    return d * acc;
++}
++
++#undef N_DST
++#undef N_SIMDGROUP
++#undef N_SIMDWIDTH
++
++#ifdef INTEL_GPU
++#define N_DST 8 // each subgroup works on 8 rows
++#define N_SUBGROUP 1 // number of subgroups in a thread group
++#define N_SUBGROUP_SIZE 16 // assuming subgroup size is 16
++#elif defined (ADRENO_GPU)
++#define N_DST 8
++#define N_SUBGROUP 1
++#define N_SUBGROUP_SIZE 64
++#endif
++
++inline void mul_vec_q_n_f32_8x_flat(
++        global uchar * src0_q,
++        global half  * src0_d,
++        global float * src1,
++        global float * dst,
++        int ne00,
++        int ne01,
++        int ne02,
++        int ne10,
++        int ne12,
++        int ne0,
++        int ne1,
++        int r2,
++        int r3
++) {
++    const ulong nb = ne00/QK4_NL;
++
++    int r0 = get_group_id(0);
++    int r1 = get_group_id(1);
++    int im = get_group_id(2);
++
++    int first_row = (r0 * N_SUBGROUP + get_sub_group_id()) * N_DST;
++
++    int i12 = im%ne12;
++    int i13 = im/ne12;
++
++    // The number of scales is the same as the number of blocks.
++    ulong offset0_d = first_row * nb + (i12/r2)*(nb*ne01) + (i13/r3)*(nb*ne01*ne02);
++    // Each block contains QK4_NL/2 uchars, hence offset for qs is as follows.
++    ulong offset0_q = (first_row * nb + (i12/r2)*(nb*ne01) + (i13/r3)*(nb*ne01*ne02)) * QK4_NL/2;
++
++    global uchar * x = (global uchar *) src0_q + offset0_q;
++    global half  * d = (global half  *) src0_d + offset0_d;
++    global float * y = (global float *) src1   + r1*ne10 + im*ne00*ne1;
++
++    float yl[16];
++    float8 sumf = 0.f;
++
++    int ix = get_sub_group_local_id()/2;
++    int il = 8*(get_sub_group_local_id()%2);
++
++    global float * yb = y + ix*QK4_NL + il;
++
++    for (int ib = ix; ib < nb; ib += N_SUBGROUP_SIZE/2) {
++        for (int i = 0; i < 8; ++i) {
++            yl[i]   = yb[i];
++            yl[i+8] = yb[i+16];
++        }
++
++        sumf.s0 += block_iq4_nl_dot_y_flat(x + ib*QK4_NL/2 + 0*nb*QK4_NL/2, d + ib + 0*nb, yl, il);
++        sumf.s1 += block_iq4_nl_dot_y_flat(x + ib*QK4_NL/2 + 1*nb*QK4_NL/2, d + ib + 1*nb, yl, il);
++        sumf.s2 += block_iq4_nl_dot_y_flat(x + ib*QK4_NL/2 + 2*nb*QK4_NL/2, d + ib + 2*nb, yl, il);
++        sumf.s3 += block_iq4_nl_dot_y_flat(x + ib*QK4_NL/2 + 3*nb*QK4_NL/2, d + ib + 3*nb, yl, il);
++
++        sumf.s4 += block_iq4_nl_dot_y_flat(x + ib*QK4_NL/2 + 4*nb*QK4_NL/2, d + ib + 4*nb, yl, il);
++        sumf.s5 += block_iq4_nl_dot_y_flat(x + ib*QK4_NL/2 + 5*nb*QK4_NL/2, d + ib + 5*nb, yl, il);
++        sumf.s6 += block_iq4_nl_dot_y_flat(x + ib*QK4_NL/2 + 6*nb*QK4_NL/2, d + ib + 6*nb, yl, il);
++        sumf.s7 += block_iq4_nl_dot_y_flat(x + ib*QK4_NL/2 + 7*nb*QK4_NL/2, d + ib + 7*nb, yl, il);
++
++        yb += QK4_NL * (N_SUBGROUP_SIZE/2);
++    }
++
++    float8 tot = (float8)(
++        sub_group_reduce_add(sumf.s0), sub_group_reduce_add(sumf.s1),
++        sub_group_reduce_add(sumf.s2), sub_group_reduce_add(sumf.s3),
++        sub_group_reduce_add(sumf.s4), sub_group_reduce_add(sumf.s5),
++        sub_group_reduce_add(sumf.s6), sub_group_reduce_add(sumf.s7)
++    );
++
++    if (get_sub_group_local_id() == 0) {
++        if (first_row + 0 < ne01) {
++            dst[r1*ne0 + im*ne0*ne1 + first_row + 0] = tot.s0;
++        }
++        if (first_row + 1 < ne01) {
++            dst[r1*ne0 + im*ne0*ne1 + first_row + 1] = tot.s1;
++        }
++        if (first_row + 2 < ne01) {
++            dst[r1*ne0 + im*ne0*ne1 + first_row + 2] = tot.s2;
++        }
++        if (first_row + 3 < ne01) {
++            dst[r1*ne0 + im*ne0*ne1 + first_row + 3] = tot.s3;
++        }
++
++        if (first_row + 4 < ne01) {
++            dst[r1*ne0 + im*ne0*ne1 + first_row + 4] = tot.s4;
++        }
++        if (first_row + 5 < ne01) {
++            dst[r1*ne0 + im*ne0*ne1 + first_row + 5] = tot.s5;
++        }
++        if (first_row + 6 < ne01) {
++            dst[r1*ne0 + im*ne0*ne1 + first_row + 6] = tot.s6;
++        }
++        if (first_row + 7 < ne01) {
++            dst[r1*ne0 + im*ne0*ne1 + first_row + 7] = tot.s7;
++        }
++    }
++}
++
++#ifdef INTEL_GPU
++REQD_SUBGROUP_SIZE_16
++#elif defined (ADRENO_GPU)
++REQD_SUBGROUP_SIZE_64
++#endif
++kernel void kernel_mul_mv_iq4_nl_f32_flat(
++        global uchar * src0_q,
++        global half  * src0_d,
++        global float * src1,
++        ulong offset1,
++        global float * dst,
++        ulong offsetd,
++        int ne00,
++        int ne01,
++        int ne02,
++        int ne10,
++        int ne12,
++        int ne0,
++        int ne1,
++        int r2,
++        int r3
++) {
++    src1 = (global float*)((global char*)src1 + offset1);
++    dst = (global float*)((global char*)dst + offsetd);
++
++    mul_vec_q_n_f32_8x_flat(src0_q, src0_d, src1, dst, ne00, ne01, ne02, ne10, ne12, ne0, ne1, r2, r3);
++}
 diff --git src/ggml-openvino/ggml-decoder.cpp src/ggml-openvino/ggml-decoder.cpp
 index 0938d227..5095e799 100644
 --- src/ggml-openvino/ggml-decoder.cpp
@@ -5418,10 +7772,38 @@ index 54b9b327..ff836615 100644
      string_to_spv("step_f32",       "step.comp",        {{"A_TYPE", "float"},       {"D_TYPE", "float"}});
      string_to_spv("round_f16",      "round.comp",       {{"A_TYPE", "float16_t"},   {"D_TYPE", "float16_t"}});
 diff --git src/ggml-webgpu/ggml-webgpu-shader-lib.hpp src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
-index 9d88f980..16ebc32c 100644
+index 9d88f980..503171ee 100644
 --- src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
 +++ src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
-@@ -98,6 +98,29 @@ struct ggml_webgpu_ssm_conv_shader_decisions {
+@@ -26,20 +26,23 @@
+ // Matrix multiplication parameters
+ 
+ // Register tiling parameters
+-#define WEBGPU_MUL_MAT_TILE_M    8
+-#define WEBGPU_MUL_MAT_TILE_N    8
++#define WEBGPU_MUL_MAT_TILE_M    4
++#define WEBGPU_MUL_MAT_TILE_N    4
+ #define WEBGPU_MUL_MAT_WG_SIZE_M 8
+ #define WEBGPU_MUL_MAT_WG_SIZE_N 8
+-#define WEBGPU_MUL_MAT_TILE_K    32
++#define WEBGPU_MUL_MAT_REG_TILE_K_FLOAT 8
++#define WEBGPU_MUL_MAT_REG_TILE_K_QUANT 32
+ 
+ // Subgroup matrix parameters
+ // The number of subgroups in the M dimension
+ #define WEBGPU_MUL_MAT_SUBGROUP_M        2
+ // The number of subgroups in the N dimension
+-#define WEBGPU_MUL_MAT_SUBGROUP_N        2
++#define WEBGPU_MUL_MAT_SUBGROUP_N        4
+ // The number of subgroup matrices each subgroup accumulates over
+ #define WEBGPU_MUL_MAT_SUBGROUP_MATRIX_M 4
+ #define WEBGPU_MUL_MAT_SUBGROUP_MATRIX_N 2
++#define WEBGPU_MUL_MAT_SUBGROUP_TILE_K_FLOAT 32
++#define WEBGPU_MUL_MAT_SUBGROUP_TILE_K_QUANT 32
+ 
+ // Matrix-vector multiplication parameters
+ #define WEBGPU_MUL_MAT_VEC_WG_SIZE 256
+@@ -98,6 +101,29 @@ struct ggml_webgpu_ssm_conv_shader_decisions {
      uint32_t tokens_per_wg;
  };
  
@@ -5451,7 +7833,7 @@ index 9d88f980..16ebc32c 100644
  /** Argsort **/
  
  struct ggml_webgpu_argsort_shader_lib_context {
-@@ -194,6 +217,28 @@ struct ggml_webgpu_row_norm_pipeline_key_hash {
+@@ -194,6 +220,28 @@ struct ggml_webgpu_row_norm_pipeline_key_hash {
      }
  };
  
@@ -5480,7 +7862,7 @@ index 9d88f980..16ebc32c 100644
  /** Pad **/
  struct ggml_webgpu_pad_pipeline_key {
      bool circular;
-@@ -240,6 +285,46 @@ struct ggml_webgpu_ssm_conv_pipeline_key {
+@@ -240,6 +288,46 @@ struct ggml_webgpu_ssm_conv_pipeline_key {
      }
  };
  
@@ -5527,7 +7909,7 @@ index 9d88f980..16ebc32c 100644
  /** Gated Delta Net **/
  struct ggml_webgpu_gated_delta_net_pipeline_key {
      int type;
-@@ -374,19 +459,27 @@ struct ggml_webgpu_unary_pipeline_key_hash {
+@@ -374,19 +462,27 @@ struct ggml_webgpu_unary_pipeline_key_hash {
  
  /** FlashAttention */
  
@@ -5557,7 +7939,7 @@ index 9d88f980..16ebc32c 100644
      }
  };
  
-@@ -397,39 +490,70 @@ struct ggml_webgpu_flash_attn_pipeline_key_hash {
+@@ -397,39 +493,70 @@ struct ggml_webgpu_flash_attn_pipeline_key_hash {
          ggml_webgpu_hash_combine(seed, key.head_dim_qk);
          ggml_webgpu_hash_combine(seed, key.head_dim_v);
          ggml_webgpu_hash_combine(seed, key.kv_direct);
@@ -5638,7 +8020,7 @@ index 9d88f980..16ebc32c 100644
      return key;
  }
  
-@@ -492,8 +616,16 @@ inline size_t ggml_webgpu_flash_attn_wg_mem_bytes(uint32_t q_tile,
+@@ -492,8 +619,16 @@ inline size_t ggml_webgpu_flash_attn_wg_mem_bytes(uint32_t q_tile,
  
  inline uint32_t ggml_webgpu_flash_attn_max_kv_tile(const ggml_webgpu_shader_lib_context &      context,
                                                     const ggml_webgpu_flash_attn_pipeline_key & key) {
@@ -5657,7 +8039,7 @@ index 9d88f980..16ebc32c 100644
      const size_t base_q_bytes = (key.head_dim_qk + key.head_dim_v) * q_tile * GGML_WEBGPU_F16_SIZE_BYTES +
                                  2 * q_tile * GGML_WEBGPU_F32_SIZE_BYTES;
      size_t bytes_per_kv = 0;
-@@ -506,23 +638,90 @@ inline uint32_t ggml_webgpu_flash_attn_max_kv_tile(const ggml_webgpu_shader_lib_
+@@ -506,23 +641,90 @@ inline uint32_t ggml_webgpu_flash_attn_max_kv_tile(const ggml_webgpu_shader_lib_
      bytes_per_kv += q_tile;
      bytes_per_kv *= GGML_WEBGPU_F16_SIZE_BYTES;
      const uint32_t max_kv_tile = (limit_bytes - base_q_bytes) / bytes_per_kv;
@@ -5734,17 +8116,17 @@ index 9d88f980..16ebc32c 100644
 +    decisions.wg_size = decisions.path == GGML_WEBGPU_FLASH_ATTN_PATH_TILE ?
 +                            GGML_WEBGPU_FLASH_ATTN_PREFERRED_WG_SIZE :
 +                            std::max(context.max_subgroup_size, GGML_WEBGPU_FLASH_ATTN_PREFERRED_WG_SIZE);
-+
-+    if (decisions.path == GGML_WEBGPU_FLASH_ATTN_PATH_TILE) {
-+        const uint32_t tile_kv_granularity = std::max(1u, context.max_subgroup_size);
-+        decisions.kv_tile =
-+            std::max(tile_kv_granularity, (decisions.kv_tile / tile_kv_granularity) * tile_kv_granularity);
-+    }
  
 -    if (key.kv_direct) {
 -        kv_tile = std::min(kv_tile, GGML_WEBGPU_KV_SEQ_PAD);
 -        while (GGML_WEBGPU_KV_SEQ_PAD % kv_tile != 0) {
 -            kv_tile -= context.sg_mat_n;
++    if (decisions.path == GGML_WEBGPU_FLASH_ATTN_PATH_TILE) {
++        const uint32_t tile_kv_granularity = std::max(1u, context.max_subgroup_size);
++        decisions.kv_tile =
++            std::max(tile_kv_granularity, (decisions.kv_tile / tile_kv_granularity) * tile_kv_granularity);
++    }
++
 +    if (decisions.kv_direct) {
 +        GGML_ASSERT(decisions.kv_tile <= GGML_WEBGPU_KV_SEQ_PAD);
 +        while (GGML_WEBGPU_KV_SEQ_PAD % decisions.kv_tile != 0) {
@@ -5759,7 +8141,7 @@ index 9d88f980..16ebc32c 100644
  }
  
  /** Matrix Multiplication **/
-@@ -734,16 +933,19 @@ class ggml_webgpu_shader_lib {
+@@ -734,16 +936,19 @@ class ggml_webgpu_shader_lib {
      std::unordered_map<int, webgpu_pipeline> cumsum_pipelines;         // key is fixed, no variants yet
      std::unordered_map<ggml_webgpu_row_norm_pipeline_key, webgpu_pipeline, ggml_webgpu_row_norm_pipeline_key_hash>
          row_norm_pipelines;                                            // op/inplace
@@ -5784,7 +8166,7 @@ index 9d88f980..16ebc32c 100644
      std::unordered_map<ggml_webgpu_gated_delta_net_pipeline_key,
                         webgpu_pipeline,
                         ggml_webgpu_gated_delta_net_pipeline_key_hash>
-@@ -758,8 +960,6 @@ class ggml_webgpu_shader_lib {
+@@ -758,8 +963,6 @@ class ggml_webgpu_shader_lib {
          repeat_pipelines;           // type
      std::unordered_map<ggml_webgpu_flash_attn_pipeline_key, webgpu_pipeline, ggml_webgpu_flash_attn_pipeline_key_hash>
          flash_attn_pipelines;
@@ -5793,7 +8175,7 @@ index 9d88f980..16ebc32c 100644
      std::unordered_map<ggml_webgpu_flash_attn_vec_reduce_pipeline_key,
                         webgpu_pipeline,
                         ggml_webgpu_flash_attn_vec_reduce_pipeline_key_hash>
-@@ -789,6 +989,15 @@ class ggml_webgpu_shader_lib {
+@@ -789,6 +992,15 @@ class ggml_webgpu_shader_lib {
          rope_pipelines;
      std::unordered_map<ggml_webgpu_soft_max_pipeline_key, webgpu_pipeline, ggml_webgpu_soft_max_pipeline_key_hash>
          soft_max_pipelines;
@@ -5809,7 +8191,7 @@ index 9d88f980..16ebc32c 100644
  
    public:
      ggml_webgpu_shader_lib(wgpu::Device device) { this->device = device; }
-@@ -1249,6 +1458,53 @@ class ggml_webgpu_shader_lib {
+@@ -1249,6 +1461,53 @@ class ggml_webgpu_shader_lib {
          return ssm_conv_pipelines[key];
      }
  
@@ -5863,7 +8245,74 @@ index 9d88f980..16ebc32c 100644
      webgpu_pipeline get_gated_delta_net_pipeline(const ggml_webgpu_shader_lib_context & context) {
          ggml_webgpu_gated_delta_net_pipeline_key key = {};
          key.type                                     = context.dst->type;
-@@ -1805,6 +2061,43 @@ class ggml_webgpu_shader_lib {
+@@ -1478,13 +1737,24 @@ class ggml_webgpu_shader_lib {
+         // VEC/SCALAR controls
+         defines.push_back(key.vectorized ? "VEC" : "SCALAR");
+ 
++        const bool is_quant = ggml_is_quantized(context.src0->type);
++
++        uint32_t tile_k;
++        if (key.use_subgroup_matrix) {
++            tile_k = is_quant ? WEBGPU_MUL_MAT_SUBGROUP_TILE_K_QUANT
++                              : WEBGPU_MUL_MAT_SUBGROUP_TILE_K_FLOAT;
++        } else {
++            tile_k = is_quant ? WEBGPU_MUL_MAT_REG_TILE_K_QUANT
++                              : WEBGPU_MUL_MAT_REG_TILE_K_FLOAT;
++        }
++
+         // Tiles
+         defines.push_back("TILE_M=" + std::to_string(WEBGPU_MUL_MAT_TILE_M) + "u");
+         defines.push_back("TILE_N=" + std::to_string(WEBGPU_MUL_MAT_TILE_N) + "u");
+-        defines.push_back("TILE_K=" + std::to_string(WEBGPU_MUL_MAT_TILE_K) + "u");
+ 
+         // Subgroup matrix specifics
+         if (key.use_subgroup_matrix) {
++            defines.push_back("TILE_K=" + std::to_string(tile_k) + "u");
+             defines.push_back("MAX_SUBGROUP_SIZE=" + std::to_string(context.max_subgroup_size) + "u");
+             defines.push_back("SUBGROUP_M=" + std::to_string(WEBGPU_MUL_MAT_SUBGROUP_M) + "u");
+             defines.push_back("SUBGROUP_N=" + std::to_string(WEBGPU_MUL_MAT_SUBGROUP_N) + "u");
+@@ -1504,12 +1774,13 @@ class ggml_webgpu_shader_lib {
+         if (!key.use_subgroup_matrix) {
+             defines.push_back("WORKGROUP_SIZE_M=" + std::to_string(WEBGPU_MUL_MAT_WG_SIZE_M) + "u");
+             defines.push_back("WORKGROUP_SIZE_N=" + std::to_string(WEBGPU_MUL_MAT_WG_SIZE_N) + "u");
++            defines.push_back("TILE_K=" + std::to_string(tile_k) + "u");
+         }
+ 
+         auto processed = preprocessor.preprocess(shader_src, defines);
+ 
+         auto decisions                 = std::make_shared<ggml_webgpu_mul_mat_shader_decisions>();
+-        decisions->tile_k              = WEBGPU_MUL_MAT_TILE_K;
++        decisions->tile_k              = tile_k;
+         decisions->tile_m              = WEBGPU_MUL_MAT_TILE_M;
+         decisions->tile_n              = WEBGPU_MUL_MAT_TILE_N;
+         decisions->use_subgroup_matrix = key.use_subgroup_matrix;
+@@ -1706,10 +1977,15 @@ class ggml_webgpu_shader_lib {
+ 
+         defines.push_back("SCALAR");
+ 
++        // mul_mat_id is register-tile only.
++        const uint32_t tile_k = ggml_is_quantized(context.src0->type)
++                                    ? WEBGPU_MUL_MAT_REG_TILE_K_QUANT
++                                    : WEBGPU_MUL_MAT_REG_TILE_K_FLOAT;
++
+         // Tiles
+         defines.push_back("TILE_M=" + std::to_string(WEBGPU_MUL_MAT_TILE_M) + "u");
+         defines.push_back("TILE_N=" + std::to_string(WEBGPU_MUL_MAT_TILE_N) + "u");
+-        defines.push_back("TILE_K=" + std::to_string(WEBGPU_MUL_MAT_TILE_K) + "u");
++        defines.push_back("TILE_K=" + std::to_string(tile_k) + "u");
+ 
+         defines.push_back("WORKGROUP_SIZE_M=" + std::to_string(WEBGPU_MUL_MAT_WG_SIZE_M) + "u");
+         defines.push_back("WORKGROUP_SIZE_N=" + std::to_string(WEBGPU_MUL_MAT_WG_SIZE_N) + "u");
+@@ -1720,7 +1996,7 @@ class ggml_webgpu_shader_lib {
+         auto processed = preprocessor.preprocess(wgsl_mul_mat_id, defines);
+ 
+         auto decisions       = std::make_shared<ggml_webgpu_mul_mat_shader_decisions>();
+-        decisions->tile_k    = WEBGPU_MUL_MAT_TILE_K;
++        decisions->tile_k    = tile_k;
+         decisions->tile_m    = WEBGPU_MUL_MAT_TILE_M;
+         decisions->tile_n    = WEBGPU_MUL_MAT_TILE_N;
+         decisions->wg_size_m = WEBGPU_MUL_MAT_WG_SIZE_M;
+@@ -1805,6 +2081,43 @@ class ggml_webgpu_shader_lib {
          return unary_pipelines[key];
      }
  
@@ -5907,7 +8356,7 @@ index 9d88f980..16ebc32c 100644
      webgpu_pipeline get_binary_pipeline(const ggml_webgpu_shader_lib_context & context) {
          ggml_webgpu_binary_pipeline_key key = {};
          key.type                            = context.dst->type;
-@@ -1935,14 +2228,19 @@ class ggml_webgpu_shader_lib {
+@@ -1935,14 +2248,19 @@ class ggml_webgpu_shader_lib {
          return repeat_pipelines[key];
      }
  
@@ -5931,7 +8380,7 @@ index 9d88f980..16ebc32c 100644
  
          switch (key.kv_type) {
              case GGML_TYPE_F32:
-@@ -1964,7 +2262,12 @@ class ggml_webgpu_shader_lib {
+@@ -1964,7 +2282,12 @@ class ggml_webgpu_shader_lib {
  
          if (key.has_mask) {
              defines.push_back("MASK");
@@ -5945,7 +8394,7 @@ index 9d88f980..16ebc32c 100644
          }
          if (key.has_sinks) {
              defines.push_back("SINKS");
-@@ -1978,6 +2281,10 @@ class ggml_webgpu_shader_lib {
+@@ -1978,6 +2301,10 @@ class ggml_webgpu_shader_lib {
              defines.push_back("KV_DIRECT");
              variant += "_kvdirect";
          }
@@ -5956,7 +8405,7 @@ index 9d88f980..16ebc32c 100644
  
          defines.push_back(std::string("HEAD_DIM_QK=") + std::to_string(key.head_dim_qk));
          variant += std::string("_hsqk") + std::to_string(key.head_dim_qk);
-@@ -1985,129 +2292,37 @@ class ggml_webgpu_shader_lib {
+@@ -1985,129 +2312,37 @@ class ggml_webgpu_shader_lib {
          defines.push_back(std::string("HEAD_DIM_V=") + std::to_string(key.head_dim_v));
          variant += std::string("_hsv") + std::to_string(key.head_dim_v);
  
@@ -6108,7 +8557,7 @@ index 9d88f980..16ebc32c 100644
          auto it                                     = flash_attn_blk_pipelines.find(key);
          if (it != flash_attn_blk_pipelines.end()) {
              return it->second;
-@@ -2382,6 +2597,84 @@ class ggml_webgpu_shader_lib {
+@@ -2382,6 +2617,84 @@ class ggml_webgpu_shader_lib {
          return soft_max_pipelines[key];
      }
  
