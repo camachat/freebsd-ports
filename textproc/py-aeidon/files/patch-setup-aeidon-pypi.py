@@ -1,8 +1,8 @@
---- setup-aeidon.py.orig	2024-05-28 20:53:03 UTC
-+++ setup-aeidon.py
-@@ -2,30 +2,31 @@
- 
- """setuptools/wheel/PyPI version of the aeidon package."""
+--- setup-aeidon-pypi.py.orig	2026-04-13 19:25:36 UTC
++++ setup-aeidon-pypi.py
+@@ -8,22 +8,22 @@ please use the main setup.py as explained in README.ae
+ please use the main setup.py as explained in README.aeidon.md.
+ """
  
 -import shutil
 +#import shutil
@@ -18,6 +18,10 @@
 +#shutil.copytree("data/headers", "aeidon/data/headers")
 +#shutil.copytree("data/patterns", "aeidon/data/patterns")
  
+-with open("README.aeidon.md", "r") as f:
++with open("README.md", "r") as f:
+     long_description = f.read()
+ 
  setup(
      name="aeidon",
 -    version=get_aeidon_version(),
@@ -25,9 +29,7 @@
      author="Osmo Salomaa",
      author_email="otsaloma@iki.fi",
      description="Reading, writing and manipulating text-based subtitle files",
--    long_description=open("README.aeidon.md", "r").read(),
-+    long_description=open("README.md", "r").read(),
-     long_description_content_type="text/markdown",
+@@ -32,9 +32,10 @@ setup(
      url="https://github.com/otsaloma/gaupol",
      license="GPL",
      packages=find_packages(exclude=["gaupol*", "*.test"]),

@@ -812,6 +812,7 @@
     SUBDIR += nvimpager
     SUBDIR += nvme-cli
     SUBDIR += nvramtool
+    SUBDIR += nvtop
     SUBDIR += oak
     SUBDIR += obliterate
     SUBDIR += oc
@@ -1060,6 +1061,7 @@
     SUBDIR += py-croniter2
     SUBDIR += py-dbuild
     SUBDIR += py-debian-inspector
+    SUBDIR += py-dex
     SUBDIR += py-dict-toolbox
     SUBDIR += py-diffoscope
     SUBDIR += py-director
