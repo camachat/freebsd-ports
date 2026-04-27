@@ -7176,6 +7176,19 @@ index 656573d1..2c72e33c 100644
  };
  
  enum ggml_status ov_graph_compute(struct ggml_cgraph * cgraph, ggml_backend_t backend);
+diff --git src/ggml-rpc/ggml-rpc.cpp src/ggml-rpc/ggml-rpc.cpp
+index 2ded7397..505bec73 100644
+--- src/ggml-rpc/ggml-rpc.cpp
++++ src/ggml-rpc/ggml-rpc.cpp
+@@ -1101,7 +1101,7 @@ bool rpc_server::set_tensor(const std::vector<uint8_t> & input) {
+         fs::path cache_file = fs::path(cache_dir) / hash_str;
+         std::ofstream ofs(cache_file, std::ios::binary);
+         ofs.write((const char *)data, size);
+-        GGML_LOG_INFO("[%s] saved to '%s'\n", __func__, cache_file.c_str());
++        GGML_LOG_INFO("[%s] saved to '%s'\n", __func__, cache_file.string().c_str());
+     }
+     ggml_backend_tensor_set(tensor, data, offset, size);
+     return true;
 diff --git src/ggml-sycl/common.hpp src/ggml-sycl/common.hpp
 index fd84c917..5abf2290 100644
 --- src/ggml-sycl/common.hpp
@@ -7827,7 +7840,7 @@ index 54b9b327..ff836615 100644
      string_to_spv("step_f32",       "step.comp",        {{"A_TYPE", "float"},       {"D_TYPE", "float"}});
      string_to_spv("round_f16",      "round.comp",       {{"A_TYPE", "float16_t"},   {"D_TYPE", "float16_t"}});
 diff --git src/ggml-webgpu/ggml-webgpu-shader-lib.hpp src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
-index 9d88f980..503171ee 100644
+index 9d88f980..08ea2906 100644
 --- src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
 +++ src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
 @@ -26,20 +26,23 @@
@@ -8300,7 +8313,32 @@ index 9d88f980..503171ee 100644
      webgpu_pipeline get_gated_delta_net_pipeline(const ggml_webgpu_shader_lib_context & context) {
          ggml_webgpu_gated_delta_net_pipeline_key key = {};
          key.type                                     = context.dst->type;
-@@ -1478,13 +1737,24 @@ class ggml_webgpu_shader_lib {
+@@ -1356,6 +1615,24 @@ class ggml_webgpu_shader_lib {
+                     defines.push_back("MUL_ACC_" + type_upper);
+                     defines.push_back("U32_DEQUANT_HELPERS");
+                     defines.push_back("SRC0_INNER_TYPE=u32");
++                    switch (context.src0->type) {
++                        case GGML_TYPE_IQ1_S:
++                        case GGML_TYPE_IQ1_M:
++                        case GGML_TYPE_IQ2_S:
++                        case GGML_TYPE_IQ3_S:
++                        case GGML_TYPE_IQ4_NL:
++                        case GGML_TYPE_IQ4_XS:
++                            defines.push_back(type_upper + "_GRID");
++                            break;
++                        case GGML_TYPE_IQ2_XXS:
++                        case GGML_TYPE_IQ2_XS:
++                        case GGML_TYPE_IQ3_XXS:
++                            defines.push_back(type_upper + "_GRID");
++                            defines.push_back(type_upper + "_TABLES");
++                            break;
++                        default:
++                            break;
++                    }
+                     break;
+                 }
+         }
+@@ -1478,13 +1755,24 @@ class ggml_webgpu_shader_lib {
          // VEC/SCALAR controls
          defines.push_back(key.vectorized ? "VEC" : "SCALAR");
  
@@ -8326,7 +8364,7 @@ index 9d88f980..503171ee 100644
              defines.push_back("MAX_SUBGROUP_SIZE=" + std::to_string(context.max_subgroup_size) + "u");
              defines.push_back("SUBGROUP_M=" + std::to_string(WEBGPU_MUL_MAT_SUBGROUP_M) + "u");
              defines.push_back("SUBGROUP_N=" + std::to_string(WEBGPU_MUL_MAT_SUBGROUP_N) + "u");
-@@ -1504,12 +1774,13 @@ class ggml_webgpu_shader_lib {
+@@ -1504,12 +1792,13 @@ class ggml_webgpu_shader_lib {
          if (!key.use_subgroup_matrix) {
              defines.push_back("WORKGROUP_SIZE_M=" + std::to_string(WEBGPU_MUL_MAT_WG_SIZE_M) + "u");
              defines.push_back("WORKGROUP_SIZE_N=" + std::to_string(WEBGPU_MUL_MAT_WG_SIZE_N) + "u");
@@ -8341,7 +8379,7 @@ index 9d88f980..503171ee 100644
          decisions->tile_m              = WEBGPU_MUL_MAT_TILE_M;
          decisions->tile_n              = WEBGPU_MUL_MAT_TILE_N;
          decisions->use_subgroup_matrix = key.use_subgroup_matrix;
-@@ -1706,10 +1977,15 @@ class ggml_webgpu_shader_lib {
+@@ -1706,10 +1995,15 @@ class ggml_webgpu_shader_lib {
  
          defines.push_back("SCALAR");
  
@@ -8358,7 +8396,7 @@ index 9d88f980..503171ee 100644
  
          defines.push_back("WORKGROUP_SIZE_M=" + std::to_string(WEBGPU_MUL_MAT_WG_SIZE_M) + "u");
          defines.push_back("WORKGROUP_SIZE_N=" + std::to_string(WEBGPU_MUL_MAT_WG_SIZE_N) + "u");
-@@ -1720,7 +1996,7 @@ class ggml_webgpu_shader_lib {
+@@ -1720,7 +2014,7 @@ class ggml_webgpu_shader_lib {
          auto processed = preprocessor.preprocess(wgsl_mul_mat_id, defines);
  
          auto decisions       = std::make_shared<ggml_webgpu_mul_mat_shader_decisions>();
@@ -8367,7 +8405,7 @@ index 9d88f980..503171ee 100644
          decisions->tile_m    = WEBGPU_MUL_MAT_TILE_M;
          decisions->tile_n    = WEBGPU_MUL_MAT_TILE_N;
          decisions->wg_size_m = WEBGPU_MUL_MAT_WG_SIZE_M;
-@@ -1805,6 +2081,43 @@ class ggml_webgpu_shader_lib {
+@@ -1805,6 +2099,43 @@ class ggml_webgpu_shader_lib {
          return unary_pipelines[key];
      }
  
@@ -8411,7 +8449,7 @@ index 9d88f980..503171ee 100644
      webgpu_pipeline get_binary_pipeline(const ggml_webgpu_shader_lib_context & context) {
          ggml_webgpu_binary_pipeline_key key = {};
          key.type                            = context.dst->type;
-@@ -1935,14 +2248,19 @@ class ggml_webgpu_shader_lib {
+@@ -1935,14 +2266,19 @@ class ggml_webgpu_shader_lib {
          return repeat_pipelines[key];
      }
  
@@ -8435,7 +8473,7 @@ index 9d88f980..503171ee 100644
  
          switch (key.kv_type) {
              case GGML_TYPE_F32:
-@@ -1964,7 +2282,12 @@ class ggml_webgpu_shader_lib {
+@@ -1964,7 +2300,12 @@ class ggml_webgpu_shader_lib {
  
          if (key.has_mask) {
              defines.push_back("MASK");
@@ -8449,7 +8487,7 @@ index 9d88f980..503171ee 100644
          }
          if (key.has_sinks) {
              defines.push_back("SINKS");
-@@ -1978,6 +2301,10 @@ class ggml_webgpu_shader_lib {
+@@ -1978,6 +2319,10 @@ class ggml_webgpu_shader_lib {
              defines.push_back("KV_DIRECT");
              variant += "_kvdirect";
          }
@@ -8460,7 +8498,7 @@ index 9d88f980..503171ee 100644
  
          defines.push_back(std::string("HEAD_DIM_QK=") + std::to_string(key.head_dim_qk));
          variant += std::string("_hsqk") + std::to_string(key.head_dim_qk);
-@@ -1985,129 +2312,37 @@ class ggml_webgpu_shader_lib {
+@@ -1985,129 +2330,37 @@ class ggml_webgpu_shader_lib {
          defines.push_back(std::string("HEAD_DIM_V=") + std::to_string(key.head_dim_v));
          variant += std::string("_hsv") + std::to_string(key.head_dim_v);
  
@@ -8612,7 +8650,7 @@ index 9d88f980..503171ee 100644
          auto it                                     = flash_attn_blk_pipelines.find(key);
          if (it != flash_attn_blk_pipelines.end()) {
              return it->second;
-@@ -2382,6 +2617,84 @@ class ggml_webgpu_shader_lib {
+@@ -2382,6 +2635,84 @@ class ggml_webgpu_shader_lib {
          return soft_max_pipelines[key];
      }
  
@@ -8698,7 +8736,7 @@ index 9d88f980..503171ee 100644
      static webgpu_pipeline ggml_webgpu_create_pipeline(wgpu::Device & device,
                                                         std::string    shader_code,
 diff --git src/ggml-webgpu/ggml-webgpu.cpp src/ggml-webgpu/ggml-webgpu.cpp
-index aa20a745..bcec20c1 100644
+index aa20a745..d6d7dbda 100644
 --- src/ggml-webgpu/ggml-webgpu.cpp
 +++ src/ggml-webgpu/ggml-webgpu.cpp
 @@ -8,6 +8,7 @@
@@ -9037,7 +9075,25 @@ index aa20a745..bcec20c1 100644
  static webgpu_encoded_op ggml_webgpu_gated_delta_net(webgpu_context & ctx,
                                                       ggml_tensor *    src0,
                                                       ggml_tensor *    src1,
-@@ -1404,7 +1624,6 @@ static webgpu_encoded_op ggml_webgpu_mul_mat_id(webgpu_context & ctx,
+@@ -1171,6 +1391,17 @@ static webgpu_encoded_op ggml_webgpu_mul_mat(webgpu_context & ctx,
+                 case GGML_TYPE_Q2_K:
+                     use_fast = true;
+                     break;
++                case GGML_TYPE_IQ1_S:
++                case GGML_TYPE_IQ1_M:
++                case GGML_TYPE_IQ2_XXS:
++                case GGML_TYPE_IQ2_XS:
++                case GGML_TYPE_IQ2_S:
++                case GGML_TYPE_IQ3_XXS:
++                case GGML_TYPE_IQ3_S:
++                case GGML_TYPE_IQ4_NL:
++                case GGML_TYPE_IQ4_XS:
++                    use_fast = is_vec;
++                    break;
+                 default:
+                     break;
+             }
+@@ -1404,7 +1635,6 @@ static webgpu_encoded_op ggml_webgpu_mul_mat_id(webgpu_context & ctx,
      return ggml_backend_webgpu_build_multi(ctx, dispatches);
  }
  
@@ -9045,7 +9101,7 @@ index aa20a745..bcec20c1 100644
  static webgpu_encoded_op ggml_webgpu_flash_attn(webgpu_context & ctx,
                                                  ggml_tensor *    Q,
                                                  ggml_tensor *    K,
-@@ -1422,13 +1641,29 @@ static webgpu_encoded_op ggml_webgpu_flash_attn(webgpu_context & ctx,
+@@ -1422,13 +1652,29 @@ static webgpu_encoded_op ggml_webgpu_flash_attn(webgpu_context & ctx,
      float m0          = powf(2.0f, -(max_bias) / n_head_log2);
      float m1          = powf(2.0f, -(max_bias / 2.0f) / n_head_log2);
  
@@ -9079,7 +9135,7 @@ index aa20a745..bcec20c1 100644
          has_mask ? (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, mask) / ggml_type_size(mask->type)) : 0,
          has_sinks ? (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, sinks) / ggml_type_size(sinks->type)) : 0,
          (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, dst) / ggml_type_size(dst->type)),
-@@ -1456,10 +1691,15 @@ static webgpu_encoded_op ggml_webgpu_flash_attn(webgpu_context & ctx,
+@@ -1456,10 +1702,15 @@ static webgpu_encoded_op ggml_webgpu_flash_attn(webgpu_context & ctx,
      };
      std::vector<wgpu::BindGroupEntry> entries = {
          ggml_webgpu_make_tensor_bind_group_entry(ctx, 0, Q),
@@ -9098,7 +9154,7 @@ index aa20a745..bcec20c1 100644
      if (has_mask) {
          entries.push_back(ggml_webgpu_make_tensor_bind_group_entry(ctx, binding_index++, mask));
      }
-@@ -1475,25 +1715,25 @@ static webgpu_encoded_op ggml_webgpu_flash_attn(webgpu_context & ctx,
+@@ -1475,25 +1726,25 @@ static webgpu_encoded_op ggml_webgpu_flash_attn(webgpu_context & ctx,
      shader_lib_ctx.src3                           = mask;
      shader_lib_ctx.src4                           = sinks;
      shader_lib_ctx.dst                            = dst;
@@ -9131,7 +9187,7 @@ index aa20a745..bcec20c1 100644
      wgpu::Buffer blk_buf         = {};
      uint64_t     blk_size_bytes  = 0;
      uint32_t     blk_nblk0       = 0;
-@@ -1532,10 +1772,12 @@ static webgpu_encoded_op ggml_webgpu_flash_attn(webgpu_context & ctx,
+@@ -1532,10 +1783,12 @@ static webgpu_encoded_op ggml_webgpu_flash_attn(webgpu_context & ctx,
          tmp_bind_size   = tmp_size_bytes;
          scratch_offset  = ROUNDUP_POW2(scratch_offset + tmp_size_bytes, align_bytes);
      } else {
@@ -9147,7 +9203,7 @@ index aa20a745..bcec20c1 100644
      }
  
      webgpu_pipeline                   blk_pipeline;
-@@ -1550,7 +1792,7 @@ static webgpu_encoded_op ggml_webgpu_flash_attn(webgpu_context & ctx,
+@@ -1550,7 +1803,7 @@ static webgpu_encoded_op ggml_webgpu_flash_attn(webgpu_context & ctx,
          const uint64_t blk_elems    = (uint64_t) blk_nblk0 * blk_nblk1 * blk_batch_count;
          blk_size_bytes              = ROUNDUP_POW2(blk_elems * sizeof(uint32_t), WEBGPU_STORAGE_BUF_BINDING_MULT);
          const ggml_webgpu_shader_lib_context blk_shader_ctx = shader_lib_ctx;
@@ -9156,7 +9212,7 @@ index aa20a745..bcec20c1 100644
  
          blk_params = {
              (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, mask) / ggml_type_size(mask->type)),  // offset_mask
-@@ -1582,12 +1824,19 @@ static webgpu_encoded_op ggml_webgpu_flash_attn(webgpu_context & ctx,
+@@ -1582,12 +1835,19 @@ static webgpu_encoded_op ggml_webgpu_flash_attn(webgpu_context & ctx,
      std::vector<wgpu::BindGroupEntry> split_entries = {
          ggml_webgpu_make_bind_group_entry(0, ggml_webgpu_tensor_buf(Q), ggml_webgpu_tensor_align_offset(ctx, Q),
                                            ggml_webgpu_tensor_binding_size(ctx, Q)),
@@ -9181,7 +9237,7 @@ index aa20a745..bcec20c1 100644
      if (has_mask) {
          split_entries.push_back(ggml_webgpu_make_bind_group_entry(split_binding_index++, ggml_webgpu_tensor_buf(mask),
                                                                    ggml_webgpu_tensor_align_offset(ctx, mask),
-@@ -1657,7 +1906,6 @@ static webgpu_encoded_op ggml_webgpu_flash_attn(webgpu_context & ctx,
+@@ -1657,7 +1917,6 @@ static webgpu_encoded_op ggml_webgpu_flash_attn(webgpu_context & ctx,
  
      return ggml_backend_webgpu_build_multi(ctx, dispatches);
  }
@@ -9189,7 +9245,7 @@ index aa20a745..bcec20c1 100644
  
  static webgpu_encoded_op ggml_webgpu_unary_op(webgpu_context & ctx, ggml_tensor * src, ggml_tensor * dst) {
      bool is_unary = dst->op == GGML_OP_UNARY;
-@@ -1892,6 +2140,96 @@ static webgpu_encoded_op ggml_webgpu_repeat(webgpu_context & ctx, ggml_tensor *
+@@ -1892,6 +2151,96 @@ static webgpu_encoded_op ggml_webgpu_repeat(webgpu_context & ctx, ggml_tensor *
      return ggml_backend_webgpu_build(ctx, pipeline, params, entries, wg_x);
  }
  
@@ -9286,7 +9342,7 @@ index aa20a745..bcec20c1 100644
  static webgpu_encoded_op ggml_webgpu_row_norm(webgpu_context & ctx, ggml_tensor * src, ggml_tensor * dst) {
      bool inplace = ggml_webgpu_tensor_equal(src, dst);
  
-@@ -2388,15 +2726,48 @@ static webgpu_encoded_op ggml_webgpu_sum_rows(webgpu_context & ctx, ggml_tensor
+@@ -2388,15 +2737,48 @@ static webgpu_encoded_op ggml_webgpu_sum_rows(webgpu_context & ctx, ggml_tensor
      return ggml_backend_webgpu_build(ctx, pipeline, params, entries, wg_x);
  }
  
@@ -9337,7 +9393,7 @@ index aa20a745..bcec20c1 100644
  
      ggml_tensor * src0 = node->src[0];
      ggml_tensor * src1 = node->src[1];
-@@ -2424,11 +2795,7 @@ static std::optional<webgpu_encoded_op> ggml_webgpu_encode_node(webgpu_context c
+@@ -2424,11 +2806,7 @@ static std::optional<webgpu_encoded_op> ggml_webgpu_encode_node(webgpu_context c
          case GGML_OP_MUL_MAT_ID:
              return ggml_webgpu_mul_mat_id(ctx, src0, src1, src2, node);
          case GGML_OP_FLASH_ATTN_EXT:
@@ -9349,7 +9405,7 @@ index aa20a745..bcec20c1 100644
          case GGML_OP_ADD:
          case GGML_OP_SUB:
          case GGML_OP_MUL:
-@@ -2439,6 +2806,13 @@ static std::optional<webgpu_encoded_op> ggml_webgpu_encode_node(webgpu_context c
+@@ -2439,6 +2817,13 @@ static std::optional<webgpu_encoded_op> ggml_webgpu_encode_node(webgpu_context c
          case GGML_OP_REPEAT:
              return ggml_webgpu_repeat(ctx, src0, node);
          case GGML_OP_RMS_NORM:
@@ -9363,7 +9419,7 @@ index aa20a745..bcec20c1 100644
          case GGML_OP_L2_NORM:
              return ggml_webgpu_row_norm(ctx, src0, node);
          case GGML_OP_ROPE:
-@@ -2464,6 +2838,9 @@ static std::optional<webgpu_encoded_op> ggml_webgpu_encode_node(webgpu_context c
+@@ -2464,6 +2849,9 @@ static std::optional<webgpu_encoded_op> ggml_webgpu_encode_node(webgpu_context c
              return ggml_webgpu_solve_tri(ctx, src0, src1, node);
          case GGML_OP_SSM_CONV:
              return ggml_webgpu_ssm_conv(ctx, src0, src1, node);
@@ -9373,7 +9429,7 @@ index aa20a745..bcec20c1 100644
          case GGML_OP_GATED_DELTA_NET:
              return ggml_webgpu_gated_delta_net(ctx, src0, src1, src2, node->src[3], node->src[4], node->src[5], node);
          case GGML_OP_PAD:
-@@ -2479,6 +2856,10 @@ static std::optional<webgpu_encoded_op> ggml_webgpu_encode_node(webgpu_context c
+@@ -2479,6 +2867,10 @@ static std::optional<webgpu_encoded_op> ggml_webgpu_encode_node(webgpu_context c
          case GGML_OP_SUM:
          case GGML_OP_SUM_ROWS:
              return ggml_webgpu_sum_rows(ctx, src0, node);
@@ -9384,7 +9440,7 @@ index aa20a745..bcec20c1 100644
          default:
              return std::nullopt;
      }
-@@ -2511,14 +2892,17 @@ static void ggml_backend_webgpu_collect_profile_results(webgpu_context &
+@@ -2511,14 +2903,17 @@ static void ggml_backend_webgpu_collect_profile_results(webgpu_context &
      for (size_t i = 0; i < pipeline_names.size(); ++i) {
          // WebGPU timestamps are in ns; convert to ms.
          const double elapsed_ms = double(ts_data[2 * i + 1] - ts_data[2 * i]) * 1e-6;
@@ -9403,7 +9459,7 @@ index aa20a745..bcec20c1 100644
      wgpu::CommandEncoder encoder = ctx->global_ctx->device.CreateCommandEncoder();
      encoder.CopyBufferToBuffer(ctx->set_rows_dev_error_buf, 0, ctx->set_rows_host_error_buf, 0,
                                 ctx->set_rows_host_error_buf.GetSize());
-@@ -2531,6 +2915,10 @@ static void ggml_backend_webgpu_check_set_rows(webgpu_context & ctx, uint32_t &
+@@ -2531,6 +2926,10 @@ static void ggml_backend_webgpu_check_set_rows(webgpu_context & ctx, uint32_t &
          GGML_ABORT("ggml_webgpu: SET_ROWS index > 2^32, unsupported.");
      }
      ctx->set_rows_host_error_buf.Unmap();
@@ -9414,7 +9470,7 @@ index aa20a745..bcec20c1 100644
  }
  
  static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, struct ggml_cgraph * cgraph) {
-@@ -2547,6 +2935,8 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
+@@ -2547,6 +2946,8 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
      uint32_t num_inflight_batches = 0;
      bool     contains_set_rows    = false;
      bool     batch_compute_passes = true;
@@ -9423,7 +9479,7 @@ index aa20a745..bcec20c1 100644
  
  #ifdef GGML_WEBGPU_GPU_PROFILE
      ctx->profile_timestamp_query_count = 0;
-@@ -2559,11 +2949,11 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
+@@ -2559,11 +2960,11 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
          ctx->active_compute_pass = ctx->active_command_encoder.BeginComputePass();
      }
  
@@ -9438,7 +9494,7 @@ index aa20a745..bcec20c1 100644
              commands.push_back(*cmd);
              num_batched_kernels += cmd.value().num_kernels;
  #ifdef GGML_WEBGPU_GPU_PROFILE
-@@ -2588,6 +2978,9 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
+@@ -2588,6 +2989,9 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
              ctx->param_arena.reset();
              commands.clear();
          }
@@ -9448,7 +9504,7 @@ index aa20a745..bcec20c1 100644
      }
  
      if (ctx->active_compute_pass) {
-@@ -2611,28 +3004,111 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
+@@ -2611,28 +3015,111 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
          ggml_backend_webgpu_check_set_rows(ctx, num_inflight_batches);
      }
  
@@ -9566,7 +9622,7 @@ index aa20a745..bcec20c1 100644
      /* .graph_optimize          = */ NULL,
  };
  
-@@ -2870,13 +3346,19 @@ static size_t ggml_backend_webgpu_buffer_type_get_alloc_size(ggml_backend_buffer
+@@ -2870,13 +3357,19 @@ static size_t ggml_backend_webgpu_buffer_type_get_alloc_size(ggml_backend_buffer
                          ctx->webgpu_global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup;
                      shader_lib_ctx.wg_mem_limit_bytes =
                          ctx->webgpu_global_ctx->capabilities.limits.maxComputeWorkgroupStorageSize;
@@ -9588,7 +9644,7 @@ index aa20a745..bcec20c1 100644
  
                          const uint32_t vec_nwg_cap = std::max(
                              1u, std::min<uint32_t>(32u, ctx->webgpu_global_ctx->capabilities.max_subgroup_size));
-@@ -2896,6 +3378,8 @@ static size_t ggml_backend_webgpu_buffer_type_get_alloc_size(ggml_backend_buffer
+@@ -2896,6 +3389,8 @@ static size_t ggml_backend_webgpu_buffer_type_get_alloc_size(ggml_backend_buffer
                              const size_t   tmp_size_bytes  = ROUNDUP_POW2(
                                  (tmp_data_elems + tmp_stats_elems) * sizeof(float), WEBGPU_STORAGE_BUF_BINDING_MULT);
                              res += tmp_size_bytes + align;
@@ -9597,7 +9653,7 @@ index aa20a745..bcec20c1 100644
                          }
                          if (mask != nullptr) {
                              const uint32_t blk_nblk0       = CEIL_DIV((uint32_t) K->ne[1], kv_tile);
-@@ -3044,12 +3528,12 @@ static bool create_webgpu_device(ggml_backend_webgpu_reg_context * ctx) {
+@@ -3044,12 +3539,12 @@ static bool create_webgpu_device(ggml_backend_webgpu_reg_context * ctx) {
      ctx->webgpu_global_ctx->capabilities.supports_subgroups =
          ctx->webgpu_global_ctx->adapter.HasFeature(wgpu::FeatureName::Subgroups);
  
@@ -9611,7 +9667,7 @@ index aa20a745..bcec20c1 100644
      if (ctx->webgpu_global_ctx->adapter.HasFeature(wgpu::FeatureName::ChromiumExperimentalSubgroupMatrix)) {
          for (size_t i = 0; i < subgroup_matrix_configs.configCount; i++) {
              const wgpu::SubgroupMatrixConfig config = subgroup_matrix_configs.configs[i];
-@@ -3063,8 +3547,8 @@ static bool create_webgpu_device(ggml_backend_webgpu_reg_context * ctx) {
+@@ -3063,8 +3558,8 @@ static bool create_webgpu_device(ggml_backend_webgpu_reg_context * ctx) {
              }
          }
      }
@@ -9621,7 +9677,7 @@ index aa20a745..bcec20c1 100644
  
      // For subgroup matrix code to be the most efficient, we would like the subgroup size to be consistent and accurate.
      // Unfortunately, that is not possible, so we use the maximum subgroup size reported by the adapter.
-@@ -3112,12 +3596,12 @@ static bool create_webgpu_device(ggml_backend_webgpu_reg_context * ctx) {
+@@ -3112,12 +3607,12 @@ static bool create_webgpu_device(ggml_backend_webgpu_reg_context * ctx) {
      // Enable Dawn-specific toggles to increase native performance
      // TODO: Maybe WebGPU needs a "fast" mode where you can request compilers skip adding checks like these,
      //       only for native performance?
@@ -9638,7 +9694,7 @@ index aa20a745..bcec20c1 100644
      deviceTogglesDesc.disabledToggles     = deviceDisabledToggles;
      deviceTogglesDesc.disabledToggleCount = 1;
  
-@@ -3395,33 +3879,63 @@ static bool ggml_backend_webgpu_device_supports_op(ggml_backend_dev_t dev, const
+@@ -3395,33 +3890,63 @@ static bool ggml_backend_webgpu_device_supports_op(ggml_backend_dev_t dev, const
              break;
          case GGML_OP_FLASH_ATTN_EXT:
              {
@@ -9722,7 +9778,7 @@ index aa20a745..bcec20c1 100644
                  break;
              }
          case GGML_OP_RMS_NORM:
-@@ -3497,9 +4011,22 @@ static bool ggml_backend_webgpu_device_supports_op(ggml_backend_dev_t dev, const
+@@ -3497,9 +4022,22 @@ static bool ggml_backend_webgpu_device_supports_op(ggml_backend_dev_t dev, const
          case GGML_OP_SOLVE_TRI:
              supports_op = op->type == GGML_TYPE_F32 && src0->type == GGML_TYPE_F32 && src1->type == GGML_TYPE_F32;
              break;
@@ -9745,7 +9801,7 @@ index aa20a745..bcec20c1 100644
          case GGML_OP_GATED_DELTA_NET:
              {
                  const uint32_t s_v = (uint32_t) src2->ne[0];
-@@ -3590,9 +4117,9 @@ static struct ggml_backend_device_i ggml_backend_webgpu_device_i = {
+@@ -3590,9 +4128,9 @@ static struct ggml_backend_device_i ggml_backend_webgpu_device_i = {
      /* .supports_op          = */ ggml_backend_webgpu_device_supports_op,
      /* .supports_buft        = */ ggml_backend_webgpu_device_supports_buft,
      /* .offload_op           = */ NULL,
@@ -10998,6 +11054,531 @@ index 00000000..386ebab8
 +        store_output(params.offset_o + k * params.so0 + ow * params.so1 + oh * params.so2 + n * params.so3, 0.0);
 +    }
 +}
+diff --git src/ggml-webgpu/wgsl-shaders/mul_mat_vec.wgsl src/ggml-webgpu/wgsl-shaders/mul_mat_vec.wgsl
+index 97c9f6d7..c2eafee6 100644
+--- src/ggml-webgpu/wgsl-shaders/mul_mat_vec.wgsl
++++ src/ggml-webgpu/wgsl-shaders/mul_mat_vec.wgsl
+@@ -812,6 +812,520 @@ fn main(
+     }
+ #endif
+ 
++#ifdef MUL_ACC_IQ1_S
++#define BLOCK_SIZE 256
++#define BLOCK_SIZE_BYTES 50
++#define THREADS_PER_BLOCK 16
++
++    let tid = thread_id % THREADS_PER_BLOCK;
++    let block_group = thread_id / THREADS_PER_BLOCK;
++    let num_block_groups: u32 = WG_SIZE / THREADS_PER_BLOCK;
++
++    let sub_blk = tid / 2u;
++    let half    = tid % 2u;
++    let slot0   = half * 2u;
++    let y_offset = sub_blk * 32u + slot0 * 8u;
++
++    let num_blocks = params.k / BLOCK_SIZE;
++
++    for (var block = block_group; block < num_blocks; block += num_block_groups) {
++        let x_base = src1_idx_base + block * BLOCK_SIZE + y_offset;
++        var x_block: array<f32, 16>;
++        for (var i = 0u; i < 16u; i++) {
++            x_block[i] = f32(src1[x_base + i]);
++        }
++
++        for (var row = 0u; row < OUTPUTS_PER_WG; row++) {
++            let output_row = row_base + row;
++            if (output_row < params.m) {
++                let block_byte_base = (src0_batch_offset + output_row * params.stride_01 + block) * BLOCK_SIZE_BYTES;
++
++                let d     = f32(load_f16_at_src0(block_byte_base));
++                let qh    = load_u32_at_src0(block_byte_base + 34u + sub_blk * 2u) & 0xFFFFu;
++                let dl    = d * f32(2u * ((qh >> 12u) & 7u) + 1u);
++                let delta = select(IQ1_DELTA, -IQ1_DELTA, (qh & 0x8000u) != 0u);
++                let qs_w  = load_u32_at_src0(block_byte_base + 2u + sub_blk * 4u);
++
++                var row_sum = 0.0;
++                for (var ll = 0u; ll < 2u; ll++) {
++                    let l       = slot0 + ll;
++                    let qs_byte = get_byte(qs_w, l);
++                    let ig      = (qs_byte | (((qh >> (3u * l)) & 7u) << 8u)) * 8u;
++                    let gw      = iq1_grid[ig / 16u];
++                    let bit_base = (ig % 16u) * 2u;
++                    for (var j = 0u; j < 8u; j++) {
++                        let g  = (gw >> (bit_base + j * 2u)) & 3u;
++                        let gs = select(f32(g), f32(g) - 4.0, (g & 2u) != 0u);
++                        row_sum += dl * (gs + delta) * x_block[ll * 8u + j];
++                    }
++                }
++                acc[row] += row_sum;
++            }
++        }
++    }
++#endif
++
++#ifdef MUL_ACC_IQ1_M
++#define BLOCK_SIZE 256
++#define BLOCK_SIZE_BYTES 56
++#define THREADS_PER_BLOCK 16
++
++    let tid = thread_id % THREADS_PER_BLOCK;
++    let block_group = thread_id / THREADS_PER_BLOCK;
++    let num_block_groups: u32 = WG_SIZE / THREADS_PER_BLOCK;
++
++    let sub_blk = tid / 2u;
++    let half    = tid % 2u;
++    let slot0   = half * 2u;
++    let y_offset = sub_blk * 32u + slot0 * 8u;
++
++    let num_blocks = params.k / BLOCK_SIZE;
++
++    for (var block = block_group; block < num_blocks; block += num_block_groups) {
++        let x_base = src1_idx_base + block * BLOCK_SIZE + y_offset;
++        var x_block: array<f32, 16>;
++        for (var i = 0u; i < 16u; i++) {
++            x_block[i] = f32(src1[x_base + i]);
++        }
++
++        for (var row = 0u; row < OUTPUTS_PER_WG; row++) {
++            let output_row = row_base + row;
++            if (output_row < params.m) {
++                let block_byte_base = (src0_batch_offset + output_row * params.stride_01 + block) * BLOCK_SIZE_BYTES;
++
++                let sc_lo = load_u32_at_src0(block_byte_base + 48u);
++                let sc_hi = load_u32_at_src0(block_byte_base + 52u);
++                let sc0 = sc_lo & 0xFFFFu;
++                let sc1 = (sc_lo >> 16u) & 0xFFFFu;
++                let sc2 = sc_hi & 0xFFFFu;
++                let sc3 = (sc_hi >> 16u) & 0xFFFFu;
++                let d_bits = (sc0 >> 12u) | ((sc1 >> 8u) & 0xF0u) | ((sc2 >> 4u) & 0xF00u) | (sc3 & 0xF000u);
++                let d = f32(bitcast<vec2<f16>>(d_bits)[0]);
++
++                let sc_u16 = select(select(sc2, sc3, sub_blk >= 6u),
++                                    select(sc0, sc1, sub_blk >= 2u),
++                                    sub_blk < 4u);
++
++                let qs_w = load_u32_at_src0(block_byte_base + sub_blk * 4u);
++                let qh = load_u32_at_src0(block_byte_base + 32u + sub_blk * 2u) & 0xFFFFu;
++                let qh_lo = qh & 0xFFu;
++                let qh_hi = (qh >> 8u) & 0xFFu;
++
++                var row_sum = 0.0;
++                for (var ll = 0u; ll < 2u; ll++) {
++                    let l = slot0 + ll;
++                    let bit_off = 6u * (sub_blk % 2u) + 3u * (l / 2u);
++                    let sub_scale = (sc_u16 >> bit_off) & 0x7u;
++                    let dl = d * f32(2u * sub_scale + 1u);
++                    let qh_byte = select(qh_lo, qh_hi, l >= 2u);
++                    let ll2 = l % 2u;
++                    let grid_idx = get_byte(qs_w, l) | (((qh_byte >> (4u * ll2)) & 7u) << 8u);
++                    let delta = select(IQ1_DELTA, -IQ1_DELTA, ((qh_byte >> (3u + 4u * ll2)) & 1u) != 0u);
++                    let ig = grid_idx * 8u;
++                    let gw = iq1_grid[ig / 16u];
++                    let bit_base = (ig % 16u) * 2u;
++                    for (var j = 0u; j < 8u; j++) {
++                        let g  = (gw >> (bit_base + j * 2u)) & 3u;
++                        let gs = select(f32(g), f32(g) - 4.0, (g & 2u) != 0u);
++                        row_sum += dl * (gs + delta) * x_block[ll * 8u + j];
++                    }
++                }
++                acc[row] += row_sum;
++            }
++        }
++    }
++#endif
++
++#ifdef MUL_ACC_IQ2_XXS
++#define BLOCK_SIZE 256
++#define BLOCK_SIZE_BYTES 66
++#define THREADS_PER_BLOCK 16
++
++    let tid = thread_id % THREADS_PER_BLOCK;
++    let block_group = thread_id / THREADS_PER_BLOCK;
++    let num_block_groups: u32 = WG_SIZE / THREADS_PER_BLOCK;
++
++    let sub_blk = tid / 2u;
++    let half    = tid % 2u;
++    let slot0   = half * 2u;
++    let y_offset = sub_blk * 32u + slot0 * 8u;
++
++    let num_blocks = params.k / BLOCK_SIZE;
++
++    for (var block = block_group; block < num_blocks; block += num_block_groups) {
++        let x_base = src1_idx_base + block * BLOCK_SIZE + y_offset;
++        var x_block: array<f32, 16>;
++        for (var i = 0u; i < 16u; i++) {
++            x_block[i] = f32(src1[x_base + i]);
++        }
++
++        for (var row = 0u; row < OUTPUTS_PER_WG; row++) {
++            let output_row = row_base + row;
++            if (output_row < params.m) {
++                let block_byte_base = (src0_batch_offset + output_row * params.stride_01 + block) * BLOCK_SIZE_BYTES;
++                let d = f32(load_f16_at_src0(block_byte_base));
++                let aux_lo = load_u32_at_src0(block_byte_base + 2u + sub_blk * 8u);
++                let aux_hi = load_u32_at_src0(block_byte_base + 2u + sub_blk * 8u + 4u);
++                let ls = aux_hi >> 28u;
++                let db = d * (0.5 + f32(ls)) * 0.25;
++
++                var row_sum = 0.0;
++                for (var ll = 0u; ll < 2u; ll++) {
++                    let l = slot0 + ll;
++                    let grid_idx = (aux_lo >> (8u * l)) & 0xFFu;
++                    let signs_idx = (aux_hi >> (7u * l)) & 0x7Fu;
++                    let signs = (ksigns_iq2xs[signs_idx / 4u] >> ((signs_idx % 4u) * 8u)) & 0xFFu;
++                    let gw_lo = iq2xxs_grid[grid_idx * 2u];
++                    let gw_hi = iq2xxs_grid[grid_idx * 2u + 1u];
++                    for (var j = 0u; j < 8u; j++) {
++                        let gw = select(gw_hi, gw_lo, j < 4u);
++                        let b = f32((gw >> ((j & 3u) * 8u)) & 0xFFu);
++                        let s = select(1.0, -1.0, ((signs >> j) & 1u) != 0u);
++                        row_sum += db * b * s * x_block[ll * 8u + j];
++                    }
++                }
++                acc[row] += row_sum;
++            }
++        }
++    }
++#endif
++
++#ifdef MUL_ACC_IQ2_XS
++#define BLOCK_SIZE 256
++#define BLOCK_SIZE_BYTES 74
++#define THREADS_PER_BLOCK 16
++
++    let tid = thread_id % THREADS_PER_BLOCK;
++    let block_group = thread_id / THREADS_PER_BLOCK;
++    let num_block_groups: u32 = WG_SIZE / THREADS_PER_BLOCK;
++
++    let sub_blk = tid / 2u;
++    let half    = tid % 2u;
++    let slot0   = half * 2u;
++    let y_offset = sub_blk * 32u + slot0 * 8u;
++
++    let num_blocks = params.k / BLOCK_SIZE;
++
++    for (var block = block_group; block < num_blocks; block += num_block_groups) {
++        let x_base = src1_idx_base + block * BLOCK_SIZE + y_offset;
++        var x_block: array<f32, 16>;
++        for (var i = 0u; i < 16u; i++) {
++            x_block[i] = f32(src1[x_base + i]);
++        }
++
++        for (var row = 0u; row < OUTPUTS_PER_WG; row++) {
++            let output_row = row_base + row;
++            if (output_row < params.m) {
++                let block_byte_base = (src0_batch_offset + output_row * params.stride_01 + block) * BLOCK_SIZE_BYTES;
++                let d = f32(load_f16_at_src0(block_byte_base));
++                let qs_lo = load_u32_at_src0(block_byte_base + 2u + sub_blk * 8u);
++                let qs_hi = load_u32_at_src0(block_byte_base + 2u + sub_blk * 8u + 4u);
++                let scales_word = load_u32_at_src0(block_byte_base + 66u + (sub_blk / 4u) * 4u);
++                let scales_byte = get_byte(scales_word, sub_blk % 4u);
++
++                var row_sum = 0.0;
++                for (var ll = 0u; ll < 2u; ll++) {
++                    let l = slot0 + ll;
++                    let qs_word = select(qs_hi, qs_lo, l < 2u);
++                    let half2 = (l % 2u) * 16u;
++                    let qs_val = (qs_word >> half2) & 0xFFFFu;
++                    let grid_idx = qs_val & 0x1FFu;
++                    let signs_idx = (qs_val >> 9u) & 0x7Fu;
++                    let sub_scale = (scales_byte >> (4u * (l / 2u))) & 0xFu;
++                    let db = d * (0.5 + f32(sub_scale)) * 0.25;
++                    let signs = (ksigns_iq2xs[signs_idx / 4u] >> ((signs_idx % 4u) * 8u)) & 0xFFu;
++                    let gw_lo = iq2xs_grid[grid_idx * 2u];
++                    let gw_hi = iq2xs_grid[grid_idx * 2u + 1u];
++                    for (var j = 0u; j < 8u; j++) {
++                        let gw = select(gw_hi, gw_lo, j < 4u);
++                        let b = f32((gw >> ((j & 3u) * 8u)) & 0xFFu);
++                        let s = select(1.0, -1.0, ((signs >> j) & 1u) != 0u);
++                        row_sum += db * b * s * x_block[ll * 8u + j];
++                    }
++                }
++                acc[row] += row_sum;
++            }
++        }
++    }
++#endif
++
++#ifdef MUL_ACC_IQ2_S
++#define BLOCK_SIZE 256
++#define BLOCK_SIZE_BYTES 82
++#define THREADS_PER_BLOCK 16
++
++    let tid = thread_id % THREADS_PER_BLOCK;
++    let block_group = thread_id / THREADS_PER_BLOCK;
++    let num_block_groups: u32 = WG_SIZE / THREADS_PER_BLOCK;
++
++    let sub_blk = tid / 2u;
++    let half    = tid % 2u;
++    let slot0   = half * 2u;
++    let y_offset = sub_blk * 32u + slot0 * 8u;
++
++    let num_blocks = params.k / BLOCK_SIZE;
++
++    for (var block = block_group; block < num_blocks; block += num_block_groups) {
++        let x_base = src1_idx_base + block * BLOCK_SIZE + y_offset;
++        var x_block: array<f32, 16>;
++        for (var i = 0u; i < 16u; i++) {
++            x_block[i] = f32(src1[x_base + i]);
++        }
++
++        for (var row = 0u; row < OUTPUTS_PER_WG; row++) {
++            let output_row = row_base + row;
++            if (output_row < params.m) {
++                let block_byte_base = (src0_batch_offset + output_row * params.stride_01 + block) * BLOCK_SIZE_BYTES;
++                let d = f32(load_f16_at_src0(block_byte_base));
++                let qs_w = load_u32_at_src0(block_byte_base + 2u + sub_blk * 4u);
++                let sg_w = load_u32_at_src0(block_byte_base + 34u + sub_blk * 4u);
++                let qh_word = load_u32_at_src0(block_byte_base + 66u + (sub_blk / 4u) * 4u);
++                let qh_byte = get_byte(qh_word, sub_blk % 4u);
++                let sc_word = load_u32_at_src0(block_byte_base + 74u + (sub_blk / 4u) * 4u);
++                let scales_byte = get_byte(sc_word, sub_blk % 4u);
++
++                var row_sum = 0.0;
++                for (var ll = 0u; ll < 2u; ll++) {
++                    let l = slot0 + ll;
++                    let qs_byte = get_byte(qs_w, l);
++                    let sign_byte = get_byte(sg_w, l);
++                    let grid_idx = qs_byte | (((qh_byte >> (2u * l)) & 3u) << 8u);
++                    let sub_scale = (scales_byte >> (4u * (l / 2u))) & 0xFu;
++                    let db = d * (0.5 + f32(sub_scale)) * 0.25;
++                    let gw_lo = iq2s_grid[grid_idx * 2u];
++                    let gw_hi = iq2s_grid[grid_idx * 2u + 1u];
++                    for (var j = 0u; j < 8u; j++) {
++                        let gw = select(gw_hi, gw_lo, j < 4u);
++                        let b = f32((gw >> ((j & 3u) * 8u)) & 0xFFu);
++                        let s = select(1.0, -1.0, ((sign_byte >> j) & 1u) != 0u);
++                        row_sum += db * b * s * x_block[ll * 8u + j];
++                    }
++                }
++                acc[row] += row_sum;
++            }
++        }
++    }
++#endif
++
++#ifdef MUL_ACC_IQ3_XXS
++#define BLOCK_SIZE 256
++#define BLOCK_SIZE_BYTES 98
++#define THREADS_PER_BLOCK 16
++
++    let tid = thread_id % THREADS_PER_BLOCK;
++    let block_group = thread_id / THREADS_PER_BLOCK;
++    let num_block_groups: u32 = WG_SIZE / THREADS_PER_BLOCK;
++
++    let sub_blk = tid / 2u;
++    let half    = tid % 2u;
++    let slot0   = half * 2u;
++    let y_offset = sub_blk * 32u + slot0 * 8u;
++
++    let num_blocks = params.k / BLOCK_SIZE;
++
++    for (var block = block_group; block < num_blocks; block += num_block_groups) {
++        let x_base = src1_idx_base + block * BLOCK_SIZE + y_offset;
++        var x_block: array<f32, 16>;
++        for (var i = 0u; i < 16u; i++) {
++            x_block[i] = f32(src1[x_base + i]);
++        }
++
++        for (var row = 0u; row < OUTPUTS_PER_WG; row++) {
++            let output_row = row_base + row;
++            if (output_row < params.m) {
++                let block_byte_base = (src0_batch_offset + output_row * params.stride_01 + block) * BLOCK_SIZE_BYTES;
++                let d = f32(load_f16_at_src0(block_byte_base));
++                let qs_lo = load_u32_at_src0(block_byte_base + 2u + sub_blk * 8u);
++                let qs_hi = load_u32_at_src0(block_byte_base + 2u + sub_blk * 8u + 4u);
++                let aux = load_u32_at_src0(block_byte_base + 66u + sub_blk * 4u);
++                let ls = aux >> 28u;
++                let db = d * (0.5 + f32(ls)) * 0.5;
++
++                var row_sum = 0.0;
++                for (var ll = 0u; ll < 2u; ll++) {
++                    let l = slot0 + ll;
++                    let qs_word = select(qs_hi, qs_lo, l < 2u);
++                    let byte_pos = (l % 2u) * 2u;
++                    let grid_idx_0 = (qs_word >> (byte_pos * 8u)) & 0xFFu;
++                    let grid_idx_1 = (qs_word >> ((byte_pos + 1u) * 8u)) & 0xFFu;
++                    let signs_idx = (aux >> (7u * l)) & 0x7Fu;
++                    let signs = (ksigns_iq2xs[signs_idx / 4u] >> ((signs_idx % 4u) * 8u)) & 0xFFu;
++                    let grid1 = iq3xxs_grid[grid_idx_0];
++                    let grid2 = iq3xxs_grid[grid_idx_1];
++                    for (var j = 0u; j < 4u; j++) {
++                        let b1 = f32((grid1 >> (j * 8u)) & 0xFFu);
++                        let b2 = f32((grid2 >> (j * 8u)) & 0xFFu);
++                        let s1 = select(1.0, -1.0, ((signs >> j) & 1u) != 0u);
++                        let s2 = select(1.0, -1.0, ((signs >> (j + 4u)) & 1u) != 0u);
++                        row_sum += db * b1 * s1 * x_block[ll * 8u + j];
++                        row_sum += db * b2 * s2 * x_block[ll * 8u + j + 4u];
++                    }
++                }
++                acc[row] += row_sum;
++            }
++        }
++    }
++#endif
++
++#ifdef MUL_ACC_IQ3_S
++#define BLOCK_SIZE 256
++#define BLOCK_SIZE_BYTES 110
++#define THREADS_PER_BLOCK 16
++
++    let tid = thread_id % THREADS_PER_BLOCK;
++    let block_group = thread_id / THREADS_PER_BLOCK;
++    let num_block_groups: u32 = WG_SIZE / THREADS_PER_BLOCK;
++
++    let sub_blk = tid / 2u;
++    let half    = tid % 2u;
++    let slot0   = half * 2u;
++    let y_offset = sub_blk * 32u + slot0 * 8u;
++
++    let num_blocks = params.k / BLOCK_SIZE;
++
++    for (var block = block_group; block < num_blocks; block += num_block_groups) {
++        let x_base = src1_idx_base + block * BLOCK_SIZE + y_offset;
++        var x_block: array<f32, 16>;
++        for (var i = 0u; i < 16u; i++) {
++            x_block[i] = f32(src1[x_base + i]);
++        }
++
++        for (var row = 0u; row < OUTPUTS_PER_WG; row++) {
++            let output_row = row_base + row;
++            if (output_row < params.m) {
++                let block_byte_base = (src0_batch_offset + output_row * params.stride_01 + block) * BLOCK_SIZE_BYTES;
++                let d = f32(load_f16_at_src0(block_byte_base));
++                let qs_lo = load_u32_at_src0(block_byte_base + 2u + sub_blk * 8u);
++                let qs_hi = load_u32_at_src0(block_byte_base + 2u + sub_blk * 8u + 4u);
++                let qh_word = load_u32_at_src0(block_byte_base + 66u + (sub_blk / 4u) * 4u);
++                let qh_byte = get_byte(qh_word, sub_blk % 4u);
++                let sg_w = load_u32_at_src0(block_byte_base + 74u + sub_blk * 4u);
++                let sc_word = load_u32_at_src0(block_byte_base + 106u);
++                let scales_byte = get_byte(sc_word, sub_blk / 2u);
++                let sub_scale = (scales_byte >> (4u * (sub_blk % 2u))) & 0xFu;
++                let db = d * (1.0 + 2.0 * f32(sub_scale));
++
++                var row_sum = 0.0;
++                for (var ll = 0u; ll < 2u; ll++) {
++                    let l = slot0 + ll;
++                    let qs_word = select(qs_hi, qs_lo, l < 2u);
++                    let byte_pos = (l % 2u) * 2u;
++                    let qs0 = (qs_word >> (byte_pos * 8u)) & 0xFFu;
++                    let qs1 = (qs_word >> ((byte_pos + 1u) * 8u)) & 0xFFu;
++                    let grid_idx_1 = qs0 | (((qh_byte >> (2u * l)) & 1u) << 8u);
++                    let grid_idx_2 = qs1 | (((qh_byte >> (2u * l + 1u)) & 1u) << 8u);
++                    let sign_byte = get_byte(sg_w, l);
++                    let grid1 = iq3s_grid[grid_idx_1];
++                    let grid2 = iq3s_grid[grid_idx_2];
++                    for (var j = 0u; j < 4u; j++) {
++                        let b1 = f32((grid1 >> (j * 8u)) & 0xFFu);
++                        let b2 = f32((grid2 >> (j * 8u)) & 0xFFu);
++                        let s1 = select(1.0, -1.0, ((sign_byte >> j) & 1u) != 0u);
++                        let s2 = select(1.0, -1.0, ((sign_byte >> (j + 4u)) & 1u) != 0u);
++                        row_sum += db * b1 * s1 * x_block[ll * 8u + j];
++                        row_sum += db * b2 * s2 * x_block[ll * 8u + j + 4u];
++                    }
++                }
++                acc[row] += row_sum;
++            }
++        }
++    }
++#endif
++
++#ifdef MUL_ACC_IQ4_NL
++#define BLOCK_SIZE 32
++#define BLOCK_SIZE_BYTES 18
++#define THREADS_PER_BLOCK 4
++#define ELEMS_PER_THREAD (BLOCK_SIZE/THREADS_PER_BLOCK)
++
++    let num_blocks = params.k / BLOCK_SIZE;
++    let thread_within_block = thread_id % THREADS_PER_BLOCK;
++    for (var block = thread_id / THREADS_PER_BLOCK; block < num_blocks; block += WG_SIZE / THREADS_PER_BLOCK) {
++        let x_base = src1_idx_base + block * BLOCK_SIZE + thread_within_block * 4u;
++        var x_block: array<f32, ELEMS_PER_THREAD>;
++        for (var i = 0u; i < ELEMS_PER_THREAD / 2u; i++) {
++            x_block[i] = f32(src1[x_base + i]);
++            x_block[i + 4u] = f32(src1[x_base + i + 16u]);
++        }
++
++        for (var row = 0u; row < OUTPUTS_PER_WG; row++) {
++            let output_row = row_base + row;
++            if (output_row < params.m) {
++                let block_byte_base = (src0_batch_offset + output_row * params.stride_01 + block) * BLOCK_SIZE_BYTES;
++                let d = f32(load_f16_at_src0(block_byte_base));
++                var row_sum = 0.0;
++
++                let q_packed = load_u32_at_src0(block_byte_base + 2u + 4u * thread_within_block);
++                for (var byte_idx = 0u; byte_idx < 4u; byte_idx++) {
++                    let q_byte = get_byte(q_packed, byte_idx);
++                    let q_lo = f32(kvalues_iq4nl[q_byte & 0xFu]) * d;
++                    let q_hi = f32(kvalues_iq4nl[(q_byte >> 4u) & 0xFu]) * d;
++                    row_sum += q_lo * x_block[byte_idx];
++                    row_sum += q_hi * x_block[byte_idx + 4u];
++                }
++                acc[row] += row_sum;
++            }
++        }
++    }
++#endif
++
++#ifdef MUL_ACC_IQ4_XS
++#define BLOCK_SIZE 256
++#define BLOCK_SIZE_BYTES 136
++#define THREADS_PER_BLOCK 16
++
++    let tid = thread_id % THREADS_PER_BLOCK;
++    let block_group = thread_id / THREADS_PER_BLOCK;
++    let num_block_groups: u32 = WG_SIZE / THREADS_PER_BLOCK;
++
++    let sub_blk = tid / 2u;
++    let half    = tid % 2u;
++    let y_offset = sub_blk * 32u + half * 16u;
++
++    let num_blocks = params.k / BLOCK_SIZE;
++
++    for (var block = block_group; block < num_blocks; block += num_block_groups) {
++        let x_base = src1_idx_base + block * BLOCK_SIZE + y_offset;
++        var x_block: array<f32, 16>;
++        for (var i = 0u; i < 16u; i++) {
++            x_block[i] = f32(src1[x_base + i]);
++        }
++
++        for (var row = 0u; row < OUTPUTS_PER_WG; row++) {
++            let output_row = row_base + row;
++            if (output_row < params.m) {
++                let block_byte_base = (src0_batch_offset + output_row * params.stride_01 + block) * BLOCK_SIZE_BYTES;
++                let d = f32(load_f16_at_src0(block_byte_base));
++                let scales_h = load_u16_at_src0(block_byte_base + 2u);
++                let scales_l_word = load_u32_at_src0(block_byte_base + 4u);
++                let sl_byte = get_byte(scales_l_word, sub_blk / 2u);
++                let sl = (sl_byte >> (4u * (sub_blk % 2u))) & 0xFu;
++                let sh_bits = (scales_h >> (2u * sub_blk)) & 3u;
++                let ls = i32(sl | (sh_bits << 4u));
++                let dl = d * f32(ls - 32);
++
++                let qs_byte_off = 8u + sub_blk * 16u;
++                let q_w0 = load_u32_at_src0(block_byte_base + qs_byte_off);
++                let q_w1 = load_u32_at_src0(block_byte_base + qs_byte_off + 4u);
++                let q_w2 = load_u32_at_src0(block_byte_base + qs_byte_off + 8u);
++                let q_w3 = load_u32_at_src0(block_byte_base + qs_byte_off + 12u);
++
++                var row_sum = 0.0;
++                for (var i = 0u; i < 16u; i++) {
++                    let q_word = select(
++                        select(q_w0, q_w1, i >= 4u),
++                        select(q_w2, q_w3, i >= 12u),
++                        i >= 8u);
++                    let q_byte = get_byte(q_word, i % 4u);
++                    let nib = select(q_byte & 0xFu, (q_byte >> 4u) & 0xFu, half == 1u);
++                    row_sum += f32(kvalues_iq4nl[nib]) * dl * x_block[i];
++                }
++                acc[row] += row_sum;
++            }
++        }
++    }
++#endif
++
+ #ifdef USE_SUBGROUP_REDUCTION
+     for (var row = 0u; row < OUTPUTS_PER_WG; row++) {
+         let subgroup_total = subgroupAdd(acc[row]);
 diff --git src/ggml-webgpu/wgsl-shaders/rms_norm_mul.wgsl src/ggml-webgpu/wgsl-shaders/rms_norm_mul.wgsl
 new file mode 100644
 index 00000000..74aaa275
