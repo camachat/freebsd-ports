@@ -12,18 +12,25 @@ index 2effd587..b9f7deb1 100644
  option(GGML_HIP_NO_VMM                      "ggml: do not try to use HIP VMM"                 ON)
  option(GGML_HIP_ROCWMMA_FATTN               "ggml: enable rocWMMA for FlashAttention"         OFF)
 diff --git src/CMakeLists.txt src/CMakeLists.txt
-index 48fbe208..52754e1b 100644
+index 48fbe208..3e48860b 100644
 --- src/CMakeLists.txt
 +++ src/CMakeLists.txt
-@@ -473,7 +473,7 @@ target_link_libraries(ggml-base PRIVATE Threads::Threads)
- find_library(MATH_LIBRARY m)
- if (MATH_LIBRARY)
-     if (NOT WIN32 OR NOT DEFINED ENV{ONEAPI_ROOT})
+@@ -470,11 +470,10 @@ endforeach()
+ 
+ target_link_libraries(ggml-base PRIVATE Threads::Threads)
+ 
+-find_library(MATH_LIBRARY m)
+-if (MATH_LIBRARY)
+-    if (NOT WIN32 OR NOT DEFINED ENV{ONEAPI_ROOT})
 -        target_link_libraries(ggml-base PRIVATE m)
-+        target_link_libraries(ggml-base PRIVATE ${MATH_LIBRARY})
-     endif()
+-    endif()
++if (DEFINED MATH_LIBRARY)
++    target_link_libraries(ggml-base PRIVATE ${MATH_LIBRARY})
++elseif (NOT WIN32 AND NOT DEFINED ENV{ONEAPI_ROOT})
++    target_link_libraries(ggml-base PRIVATE m)
  endif()
  
+ if (CMAKE_SYSTEM_NAME MATCHES "Android")
 diff --git src/ggml-backend-meta.cpp src/ggml-backend-meta.cpp
 index 6d22f342..41a61775 100644
 --- src/ggml-backend-meta.cpp
@@ -160,6 +167,1261 @@ index 6d22f342..41a61775 100644
          return;
      }
  
+diff --git src/ggml-backend-reg.cpp src/ggml-backend-reg.cpp
+index 05871092..8165ae2c 100644
+--- src/ggml-backend-reg.cpp
++++ src/ggml-backend-reg.cpp
+@@ -181,6 +181,12 @@ struct ggml_backend_registry {
+             return;
+         }
+ 
++        for (auto & entry : backends) {
++            if (entry.reg == reg) {
++                return;
++            }
++        }
++
+ #ifndef NDEBUG
+         GGML_LOG_DEBUG("%s: registered backend %s (%zu devices)\n",
+             __func__, ggml_backend_reg_name(reg), ggml_backend_reg_dev_count(reg));
+@@ -192,6 +198,12 @@ struct ggml_backend_registry {
+     }
+ 
+     void register_device(ggml_backend_dev_t device) {
++        for (auto & dev : devices) {
++            if (dev == device) {
++                return;
++            }
++        }
++
+ #ifndef NDEBUG
+         GGML_LOG_DEBUG("%s: registered device %s (%s)\n", __func__, ggml_backend_dev_name(device), ggml_backend_dev_description(device));
+ #endif
+diff --git src/ggml-cann/aclnn_ops.cpp src/ggml-cann/aclnn_ops.cpp
+index a950475f..2dc0f409 100644
+--- src/ggml-cann/aclnn_ops.cpp
++++ src/ggml-cann/aclnn_ops.cpp
+@@ -25,6 +25,7 @@
+ #include "ggml-impl.h"
+ #include "ggml.h"
+ 
++
+ #include <aclnnop/aclnn_add.h>
+ #include <aclnnop/aclnn_add_rms_norm.h>
+ #include <aclnnop/aclnn_addcdiv.h>
+@@ -45,7 +46,9 @@
+ #include <aclnnop/aclnn_fused_infer_attention_score_v2.h>
+ #include <aclnnop/aclnn_ger.h>
+ #include <aclnnop/aclnn_group_norm.h>
++#include <aclnnop/aclnn_gather_v2.h>
+ #include <aclnnop/aclnn_grouped_matmul_v3.h>
++#include <aclnnop/aclnn_scatter.h>
+ #include <aclnnop/aclnn_gt_scalar.h>
+ #include <aclnnop/aclnn_im2col.h>
+ #include <aclnnop/aclnn_index_copy.h>
+@@ -62,6 +65,7 @@
+ #include <aclnnop/aclnn_permute.h>
+ #include <aclnnop/aclnn_pow.h>
+ #include <aclnnop/aclnn_pow_tensor_tensor.h>
++#include <aclnnop/aclnn_recurrent_gated_delta_rule.h>
+ #include <aclnnop/aclnn_reduce_sum.h>
+ #include <aclnnop/aclnn_reflection_pad1d.h>
+ #include <aclnnop/aclnn_repeat.h>
+@@ -69,11 +73,15 @@
+ #include <aclnnop/aclnn_rms_norm.h>
+ #include <aclnnop/aclnn_roll.h>
+ #include <aclnnop/aclnn_softmax.h>
++#include <aclnnop/aclnn_softmax_cross_entropy_with_logits.h>
+ #include <aclnnop/aclnn_sub.h>
+ #include <aclnnop/aclnn_sum.h>
+ #include <aclnnop/aclnn_threshold.h>
+ #include <aclnnop/aclnn_tril.h>
++#include <aclnnop/aclnn_triangular_solve.h>
+ #include <aclnnop/aclnn_triu.h>
++#include <aclnnop/aclnn_logical_not.h>
++#include <aclnnop/aclnn_masked_fill_scalar.h>
+ #include <aclnnop/aclnn_upsample_nearest_2d.h>
+ #include <aclnnop/aclnn_weight_quant_batch_matmul_v2.h>
+ #include <aclnnop/aclnn_zero.h>
+@@ -151,6 +159,107 @@ void ggml_cann_op_unary_gated(std::function<void(ggml_backend_cann_context &, ac
+     GGML_CANN_CALL_ACLNN_OP(ctx, InplaceMul, acl_dst.get(), acl_src1.get());
+ }
+ 
++// Fused SwiGLU using aclnnSwiGlu: splits input along innermost dim, applies
++// SiLU to left half, multiplies by right half.
++//
++// Falls back to the generic two-kernel path when src[1] != nullptr (two
++// independent halves) or swapped != 0 (reversed activation order), as
++// aclnnSwiGlu only handles the single interleaved tensor in standard order.
++//
++// CANN tiling for SwiGlu requires (storageShapeDim + viewDims) to be even.
++// aclCreateTensor always uses storageShapeDim=1, so viewDims must be odd.
++// We use a 3D view (1+3=4, even) to satisfy this constraint while preserving
++// correct split semantics along the innermost (ne[0]) dimension.
++void ggml_cann_swiglu(ggml_backend_cann_context & ctx, ggml_tensor * dst) {
++    auto silu_fn = [](ggml_backend_cann_context & ctx, aclTensor * acl_src, aclTensor * acl_dst) {
++        GGML_CANN_CALL_ACLNN_OP(ctx, Silu, acl_src, acl_dst);
++    };
++
++    const int32_t swapped = ggml_get_op_params_i32(dst, 1);
++    if (dst->src[1] != nullptr || swapped != 0) {
++        ggml_cann_op_unary_gated(silu_fn, ctx, dst);
++        return;
++    }
++
++    // aclnnSwiGlu requires the split dim (src->ne[0]) to be even; fall back otherwise.
++    if (dst->src[0]->ne[0] % 2 != 0) {
++        ggml_cann_op_unary_gated(silu_fn, ctx, dst);
++        return;
++    }
++
++    ggml_tensor * src0 = dst->src[0];
++    size_t elem_size = ggml_element_size(src0);
++
++    // src0 GGML: [2*ne0, ne1, ne2, ne3] → 3D view [2*ne0, ne1, ne2*ne3]
++    // CANN reversed: [ne2*ne3, ne1, 2*ne0], split along CANN dim 2 (last).
++    int64_t ne0_x2   = src0->ne[0];
++    int64_t ne1      = src0->ne[1];
++    int64_t ne23     = src0->ne[2] * src0->ne[3];
++    int64_t src3d_ne[] = { ne0_x2, ne1, ne23 };
++    size_t  src3d_nb[] = { (size_t)src0->nb[0], (size_t)src0->nb[1], (size_t)src0->nb[2] };
++    acl_tensor_ptr acl_src = ggml_cann_create_tensor(src0->data, ggml_cann_type_mapping(src0->type),
++                                                     elem_size, src3d_ne, src3d_nb, 3);
++
++    // dst GGML: [ne0, ne1, ne2, ne3] → 3D view [ne0, ne1, ne2*ne3]
++    int64_t ne0      = dst->ne[0];
++    int64_t dst3d_ne[] = { ne0, ne1, ne23 };
++    size_t  dst3d_nb[] = { (size_t)dst->nb[0], (size_t)dst->nb[1], (size_t)dst->nb[2] };
++    acl_tensor_ptr acl_dst = ggml_cann_create_tensor(dst->data, ggml_cann_type_mapping(dst->type),
++                                                     elem_size, dst3d_ne, dst3d_nb, 3);
++
++    // CANN tensor [ne23, ne1, 2*ne0]: split along CANN dim 2 (last) = 2*ne0.
++    GGML_CANN_CALL_ACLNN_OP(ctx, SwiGlu, acl_src.get(), (int64_t)2, acl_dst.get());
++}
++
++// Fused GeGLU using aclnnGeGluV3: splits input along ne[0] (CANN last dim),
++// activates the LEFT half with GELU, multiplies by right half.
++// approximate: 0=tanh, 1=none(erf). activateLeft=true matches GGML convention.
++// outGelu is a required-but-discard output buffer.
++//
++// Falls back to the generic two-kernel path when src[1] != nullptr (two
++// independent halves) or swapped != 0 (reversed activation order), as
++// aclnnGeGluV3 only handles the single interleaved tensor in standard order.
++void ggml_cann_geglu(ggml_backend_cann_context & ctx, ggml_tensor * dst, int64_t approximate) {
++    auto gelu_fn = [](ggml_backend_cann_context & ctx, aclTensor * acl_src, aclTensor * acl_dst) {
++        GGML_CANN_CALL_ACLNN_OP(ctx, Gelu, acl_src, acl_dst);
++    };
++
++    const int32_t swapped = ggml_get_op_params_i32(dst, 1);
++    if (dst->src[1] != nullptr || swapped != 0) {
++        ggml_cann_op_unary_gated(gelu_fn, ctx, dst);
++        return;
++    }
++
++    // aclnnGeGluV3 requires the split dim (src->ne[0]) to be even; fall back otherwise.
++    if (dst->src[0]->ne[0] % 2 != 0) {
++        ggml_cann_op_unary_gated(gelu_fn, ctx, dst);
++        return;
++    }
++
++    ggml_tensor * src0 = dst->src[0];
++    acl_tensor_ptr acl_src = ggml_cann_create_tensor(src0);
++    acl_tensor_ptr acl_dst = ggml_cann_create_tensor(dst);
++
++    // Allocate a temporary buffer for the required outGelu output (same shape as dst).
++    // Build contiguous strides since the pool allocation is a fresh buffer.
++    size_t  elem_size    = ggml_element_size(dst);
++    int64_t ne[GGML_MAX_DIMS] = { dst->ne[0], dst->ne[1], dst->ne[2], dst->ne[3] };
++    size_t  nb[GGML_MAX_DIMS];
++    nb[0] = elem_size;
++    for (int i = 1; i < GGML_MAX_DIMS; i++) {
++        nb[i] = nb[i - 1] * ne[i - 1];
++    }
++    size_t gelu_out_size = nb[GGML_MAX_DIMS - 1] * ne[GGML_MAX_DIMS - 1];
++    ggml_cann_pool_alloc gelu_out_alloc(ctx.pool(), gelu_out_size);
++
++    acl_tensor_ptr acl_gelu_out = ggml_cann_create_tensor(
++        gelu_out_alloc.get(), ggml_cann_type_mapping(dst->type), elem_size, ne, nb, GGML_MAX_DIMS);
++    // V3 adds activateLeft param; true → Gelu(left)*right, matching GGML convention.
++    // GGML dim 0 → CANN last dim (index GGML_MAX_DIMS-1 = 3 for 4D tensor).
++    GGML_CANN_CALL_ACLNN_OP(ctx, GeGluV3, acl_src.get(), (int64_t)(GGML_MAX_DIMS - 1), approximate, true,
++                             acl_dst.get(), acl_gelu_out.get());
++}
++
+ /**
+  * @brief Repeats elements of a tensor along each dimension according to the
+  * specified repeat array.
+@@ -445,28 +554,33 @@ void ggml_cann_l2_norm(ggml_backend_cann_context & ctx, ggml_tensor * dst) {
+     ggml_cann_pool_alloc temp_buffer_allocator(ctx.pool(), n_bytes);
+     void *               buffer = temp_buffer_allocator.get();
+ 
+-    int64_t div_ne[] = { 1, src->ne[1], src->ne[2], src->ne[3] };
+-    size_t  div_nb[GGML_MAX_DIMS];
+-    div_nb[0] = sizeof(float);
++    int64_t norm_ne[] = { 1, src->ne[1], src->ne[2], src->ne[3] };
++    size_t  norm_nb[GGML_MAX_DIMS];
++    norm_nb[0] = sizeof(float);
+     for (int i = 1; i < GGML_MAX_DIMS; ++i) {
+-        div_nb[i] = div_nb[i - 1] * div_ne[i - 1];
++        norm_nb[i] = norm_nb[i - 1] * norm_ne[i - 1];
+     }
+-    acl_tensor_ptr acl_div = ggml_cann_create_tensor(buffer, ACL_FLOAT, type_size, div_ne, div_nb, GGML_MAX_DIMS);
++    acl_tensor_ptr acl_norm = ggml_cann_create_tensor(buffer, ACL_FLOAT, sizeof(float), norm_ne, norm_nb, GGML_MAX_DIMS);
+ 
+     std::vector<int64_t> norm_dims  = { 3 };
+     acl_int_array_ptr    dims_array = ggml_cann_create_int_array(norm_dims.data(), norm_dims.size());
+ 
+     float          p_value  = 2.0f;
+     acl_scalar_ptr p_scalar = ggml_cann_create_scalar(&p_value, aclDataType::ACL_FLOAT);
+-    GGML_CANN_CALL_ACLNN_OP(ctx, Norm, acl_src.get(), p_scalar.get(), dims_array.get(), true, acl_div.get());
++    GGML_CANN_CALL_ACLNN_OP(ctx, Norm, acl_src.get(), p_scalar.get(), dims_array.get(), true, acl_norm.get());
++
++    ggml_cann_pool_alloc clamp_buffer_allocator(ctx.pool());
++    acl_tensor_ptr       acl_clamped;
+ 
+-    // Clamp norm to at least eps: scale = 1/fmaxf(norm, eps)
+-    acl_scalar_ptr acl_min = ggml_cann_create_scalar(&eps, aclDataType::ACL_FLOAT);
+-    float          flt_max = FLT_MAX;
+-    acl_scalar_ptr acl_max = ggml_cann_create_scalar(&flt_max, aclDataType::ACL_FLOAT);
+-    GGML_CANN_CALL_ACLNN_OP(ctx, Clamp, acl_div.get(), acl_min.get(), acl_max.get(), acl_div.get());
++    if (eps > 0.0f) {
++        void *         clamp_buf  = clamp_buffer_allocator.alloc(n_bytes);
++        acl_clamped               = ggml_cann_create_tensor(clamp_buf, ACL_FLOAT, sizeof(float), norm_ne, norm_nb, GGML_MAX_DIMS);
++        acl_scalar_ptr eps_scalar = ggml_cann_create_scalar(&eps, aclDataType::ACL_FLOAT);
++        GGML_CANN_CALL_ACLNN_OP(ctx, ClampMin, acl_norm.get(), eps_scalar.get(), acl_clamped.get());
++    }
+ 
+-    GGML_CANN_CALL_ACLNN_OP(ctx, Div, acl_src.get(), acl_div.get(), acl_dst.get());
++    aclTensor * acl_div_input = acl_clamped ? acl_clamped.get() : acl_norm.get();
++    GGML_CANN_CALL_ACLNN_OP(ctx, Div, acl_src.get(), acl_div_input, acl_dst.get());
+ }
+ 
+ void ggml_cann_cross_entropy_loss(ggml_backend_cann_context & ctx, ggml_tensor * dst) {
+@@ -482,56 +596,30 @@ void ggml_cann_cross_entropy_loss(ggml_backend_cann_context & ctx, ggml_tensor *
+     logits_nb[1]              = logits_nb[0] * logits_ne[0];
+     acl_tensor_ptr acl_logits = ggml_cann_create_tensor(src0->data, ACL_FLOAT, sizeof(float), logits_ne, logits_nb, 2);
+ 
+-    size_t               log_softmax_type_size = sizeof(float);
+-    int64_t              log_softmax_n_bytes   = nr * nc * log_softmax_type_size;
+-    ggml_cann_pool_alloc log_softmax_allocator(ctx.pool(), log_softmax_n_bytes);
+-    void *               log_softmax_buffer = log_softmax_allocator.get();
+-
+-    int64_t log_softmax_ne[] = { nc, nr };
+-    size_t  log_softmax_nb[2];
+-    log_softmax_nb[0]              = log_softmax_type_size;
+-    log_softmax_nb[1]              = log_softmax_nb[0] * log_softmax_ne[0];
+-    acl_tensor_ptr acl_log_softmax = ggml_cann_create_tensor(log_softmax_buffer, ACL_FLOAT, log_softmax_type_size,
+-                                                             log_softmax_ne, log_softmax_nb, 2);
+-
+-    GGML_CANN_CALL_ACLNN_OP(ctx, LogSoftmax, acl_logits.get(), 1, acl_log_softmax.get());
+-
+     int64_t labels_ne[] = { nc, nr };
+     size_t  labels_nb[2];
+     labels_nb[0]              = ggml_type_size(src1->type);
+     labels_nb[1]              = labels_nb[0] * labels_ne[0];
+     acl_tensor_ptr acl_labels = ggml_cann_create_tensor(src1->data, ACL_FLOAT, sizeof(float), labels_ne, labels_nb, 2);
+ 
+-    size_t               mul_type_size = sizeof(float);
+-    int64_t              mul_n_bytes   = nr * nc * mul_type_size;
+-    ggml_cann_pool_alloc mul_allocator(ctx.pool(), mul_n_bytes);
+-    void *               mul_buffer = mul_allocator.get();
+-
+-    int64_t mul_ne[] = { nc, nr };
+-    size_t  mul_nb[2];
+-    mul_nb[0]                     = mul_type_size;
+-    mul_nb[1]                     = mul_nb[0] * mul_ne[0];
+-    acl_tensor_ptr acl_mul_result = ggml_cann_create_tensor(mul_buffer, ACL_FLOAT, mul_type_size, mul_ne, mul_nb, 2);
+-
+-    GGML_CANN_CALL_ACLNN_OP(ctx, Mul, acl_log_softmax.get(), acl_labels.get(), acl_mul_result.get());
++    size_t               loss_per_sample_type_size = sizeof(float);
++    int64_t              loss_per_sample_n_bytes   = nr * loss_per_sample_type_size;
++    ggml_cann_pool_alloc loss_per_sample_allocator(ctx.pool(), loss_per_sample_n_bytes);
++    void *               loss_per_sample_buffer = loss_per_sample_allocator.get();
+ 
+-    size_t               sum_per_sample_type_size = sizeof(float);
+-    int64_t              sum_per_sample_n_bytes   = nr * sum_per_sample_type_size;
+-    ggml_cann_pool_alloc sum_per_sample_allocator(ctx.pool(), sum_per_sample_n_bytes);
+-    void *               sum_per_sample_buffer = sum_per_sample_allocator.get();
++    int64_t loss_per_sample_ne[] = { nr };
++    size_t  loss_per_sample_nb[1];
++    loss_per_sample_nb[0] = loss_per_sample_type_size;
++    acl_tensor_ptr acl_loss_per_sample = ggml_cann_create_tensor(
++        loss_per_sample_buffer, ACL_FLOAT, loss_per_sample_type_size, loss_per_sample_ne, loss_per_sample_nb, 1);
+ 
+-    int64_t sum_per_sample_ne[] = { nr };
+-    size_t  sum_per_sample_nb[1];
+-    sum_per_sample_nb[0]              = sum_per_sample_type_size;
+-    acl_tensor_ptr acl_sum_per_sample = ggml_cann_create_tensor(
+-        sum_per_sample_buffer, ACL_FLOAT, sum_per_sample_type_size, sum_per_sample_ne, sum_per_sample_nb, 1);
++    size_t               backprop_n_bytes = nr * nc * sizeof(float);
++    ggml_cann_pool_alloc backprop_allocator(ctx.pool(), backprop_n_bytes);
++    void *               backprop_buffer = backprop_allocator.get();
++    acl_tensor_ptr acl_backprop = ggml_cann_create_tensor(backprop_buffer, ACL_FLOAT, sizeof(float), logits_ne, logits_nb, 2);
+ 
+-    std::vector<int64_t> sum_dims   = { 1 };
+-    acl_int_array_ptr    dims_array = ggml_cann_create_int_array(sum_dims.data(), sum_dims.size());
+-    bool                 keep_dims  = false;
+-
+-    GGML_CANN_CALL_ACLNN_OP(ctx, ReduceSum, acl_mul_result.get(), dims_array.get(), keep_dims, ACL_FLOAT,
+-                            acl_sum_per_sample.get());
++    GGML_CANN_CALL_ACLNN_OP(ctx, SoftmaxCrossEntropyWithLogits, acl_logits.get(), acl_labels.get(),
++                            acl_loss_per_sample.get(), acl_backprop.get());
+ 
+     size_t               total_sum_type_size = sizeof(float);
+     int64_t              total_sum_n_bytes   = 1 * total_sum_type_size;
+@@ -547,11 +635,12 @@ void ggml_cann_cross_entropy_loss(ggml_backend_cann_context & ctx, ggml_tensor *
+ 
+     std::vector<int64_t> total_sum_dims    = { 0 };
+     acl_int_array_ptr total_sum_dims_array = ggml_cann_create_int_array(total_sum_dims.data(), total_sum_dims.size());
++    bool              keep_dims            = false;
+ 
+-    GGML_CANN_CALL_ACLNN_OP(ctx, ReduceSum, acl_sum_per_sample.get(), total_sum_dims_array.get(), keep_dims, ACL_FLOAT,
++    GGML_CANN_CALL_ACLNN_OP(ctx, ReduceSum, acl_loss_per_sample.get(), total_sum_dims_array.get(), keep_dims, ACL_FLOAT,
+                             acl_total_sum.get());
+ 
+-    float          value        = -1.0f / static_cast<float>(nr);
++    float          value        = 1.0f / static_cast<float>(nr);
+     acl_scalar_ptr scale_factor = ggml_cann_create_scalar(&value, aclDataType::ACL_FLOAT);
+     acl_tensor_ptr acl_dst =
+         ggml_cann_create_tensor(dst->data, ACL_FLOAT, sizeof(float), total_sum_ne, total_sum_nb, 1);
+@@ -589,6 +678,33 @@ void ggml_cann_group_norm(ggml_backend_cann_context & ctx, ggml_tensor * dst) {
+                             acl_mean_out.get(), acl_rstd_out.get());
+ }
+ 
++void ggml_cann_set(ggml_backend_cann_context & ctx, ggml_tensor * dst) {
++    ggml_tensor * src0 = dst->src[0];
++    ggml_tensor * src1 = dst->src[1];
++
++    size_t nb1     = ((int32_t *) dst->op_params)[0];
++    size_t nb2     = ((int32_t *) dst->op_params)[1];
++    size_t nb3     = ((int32_t *) dst->op_params)[2];
++    size_t offset  = ((int32_t *) dst->op_params)[3];
++    bool   inplace = (bool) ((int32_t *) dst->op_params)[4];
++
++    size_t param_nb[] = { ggml_element_size(src0), nb1, nb2, nb3 };
++
++    // Create a view of dst at the target offset with src1's dimensions
++    acl_tensor_ptr acl_dst  = ggml_cann_create_tensor(dst, src1->ne, param_nb, GGML_MAX_DIMS, ACL_FORMAT_ND, offset);
++    acl_tensor_ptr acl_src1 = ggml_cann_create_tensor(src1);
++
++    if (!inplace) {
++        // First copy src0 to dst entirely
++        size_t cpy_size = ggml_nbytes(dst);
++        ACL_CHECK(
++            aclrtMemcpyAsync(dst->data, cpy_size, src0->data, cpy_size, ACL_MEMCPY_DEVICE_TO_DEVICE, ctx.stream()));
++    }
++
++    // Copy src1 into the target region of dst
++    GGML_CANN_CALL_ACLNN_OP(ctx, InplaceCopy, acl_dst.get(), acl_src1.get());
++}
++
+ void ggml_cann_acc(ggml_backend_cann_context & ctx, ggml_tensor * dst) {
+     ggml_tensor * src0 = dst->src[0];
+     ggml_tensor * src1 = dst->src[1];
+@@ -652,6 +768,113 @@ void ggml_cann_sum(ggml_backend_cann_context & ctx, ggml_tensor * dst) {
+     aclnn_reduce_sum(ctx, dst, reduce_dims, 4);
+ }
+ 
++void ggml_cann_cumsum(ggml_backend_cann_context & ctx, ggml_tensor * dst) {
++    ggml_tensor * src = dst->src[0];
++    acl_tensor_ptr acl_src = ggml_cann_create_tensor(src);
++    acl_tensor_ptr acl_dst = ggml_cann_create_tensor(dst);
++    // GGML cumsum operates along dim 0 (innermost / ne[0]).
++    // ggml_cann_create_tensor reverses dimensions to [ne3,ne2,ne1,ne0],
++    // so GGML dim 0 maps to CANN dim 3 (the last dim of the 4-D tensor).
++    GGML_CANN_CALL_ACLNN_OP(ctx, Cumsum, acl_src.get(), (int64_t)3,
++                            ggml_cann_type_mapping(dst->type), acl_dst.get());
++}
++
++void ggml_cann_solve_tri(ggml_backend_cann_context & ctx, ggml_tensor * dst) {
++    ggml_tensor * src0 = dst->src[0];  // A: [N, N, B2, B3] lower triangular
++    ggml_tensor * src1 = dst->src[1];  // B: [K, N, B2, B3]
++
++    acl_tensor_ptr acl_a = ggml_cann_create_tensor(src0);
++    acl_tensor_ptr acl_b = ggml_cann_create_tensor(src1);
++    acl_tensor_ptr acl_x = ggml_cann_create_tensor(dst);
++
++    // mOut: triangular copy of A (required output), same shape as A.
++    const size_t a_bytes = ggml_nbytes(src0);
++    ggml_cann_pool_alloc m_alloc(ctx.pool(), a_bytes);
++    acl_tensor_ptr acl_m = ggml_cann_create_tensor(
++        m_alloc.get(), ggml_cann_type_mapping(src0->type),
++        ggml_type_size(src0->type), src0->ne, src0->nb, GGML_MAX_DIMS);
++
++    // Solve AX = B: upper=false (lower tri), transpose=false, unitriangular=false.
++    GGML_CANN_CALL_ACLNN_OP(ctx, TriangularSolve,
++        acl_b.get(), acl_a.get(), false, false, false,
++        acl_x.get(), acl_m.get());
++}
++
++void ggml_cann_diag(ggml_backend_cann_context & ctx, ggml_tensor * dst) {
++    ggml_tensor * src = dst->src[0];
++
++    GGML_ASSERT(src->ne[1] == 1);
++
++    const int64_t N       = src->ne[0];
++    const int64_t n_batch = src->ne[2] * src->ne[3];
++    const size_t  nb_f32  = sizeof(float);
++
++    // Fill dst with zeros.
++    acl_tensor_ptr acl_dst = ggml_cann_create_tensor(dst);
++    {
++        float          zero = 0.0f;
++        acl_scalar_ptr acl_zero = ggml_cann_create_scalar(&zero, ACL_FLOAT);
++        GGML_CANN_CALL_ACLNN_OP(ctx, InplaceFillScalar, acl_dst.get(), acl_zero.get());
++    }
++
++    // Copy src vector onto the diagonal of dst via strided views.
++    // src viewed as [N, n_batch], contiguous strides.
++    int64_t ne_vec[2]      = { N, n_batch };
++    size_t  nb_src_vec[2]  = { nb_f32, N * nb_f32 };
++    // dst diagonal view: stride (N+1)*4 steps along the diagonal.
++    size_t  nb_dst_diag[2] = { (N + 1) * nb_f32, N * N * nb_f32 };
++
++    acl_tensor_ptr acl_src_vec  = ggml_cann_create_tensor(src->data, ACL_FLOAT, nb_f32, ne_vec, nb_src_vec, 2);
++    acl_tensor_ptr acl_dst_diag = ggml_cann_create_tensor(dst->data, ACL_FLOAT, nb_f32, ne_vec, nb_dst_diag, 2);
++
++    GGML_CANN_CALL_ACLNN_OP(ctx, InplaceCopy, acl_dst_diag.get(), acl_src_vec.get());
++}
++
++void ggml_cann_fill(ggml_backend_cann_context & ctx, ggml_tensor * dst) {
++    float c = ggml_get_op_params_f32(dst, 0);
++
++    acl_tensor_ptr acl_dst = ggml_cann_create_tensor(dst);
++    acl_scalar_ptr acl_c   = ggml_cann_create_scalar(&c, ACL_FLOAT);
++    GGML_CANN_CALL_ACLNN_OP(ctx, InplaceFillScalar, acl_dst.get(), acl_c.get());
++}
++
++void ggml_cann_tri(ggml_backend_cann_context & ctx, ggml_tensor * dst) {
++    ggml_tensor * src = dst->src[0];
++
++    const int64_t S       = src->ne[0];
++    const int64_t n_batch = src->ne[2] * src->ne[3];
++    const size_t  nb_f32  = sizeof(float);
++
++    int64_t ne3d[3] = { S, S, n_batch };
++    size_t  nb3d[3] = { nb_f32, S * nb_f32, S * S * nb_f32 };
++
++    const ggml_tri_type ttype = (ggml_tri_type) ggml_get_op_params_i32(dst, 0);
++
++    acl_tensor_ptr acl_src = ggml_cann_create_tensor(src->data, ACL_FLOAT, nb_f32, ne3d, nb3d, 3);
++    acl_tensor_ptr acl_dst = ggml_cann_create_tensor(dst->data, ACL_FLOAT, nb_f32, ne3d, nb3d, 3);
++
++    switch (ttype) {
++        case GGML_TRI_TYPE_LOWER:
++            // Tril(-1): preserve row > col (strict lower), zero upper + diagonal.
++            GGML_CANN_CALL_ACLNN_OP(ctx, Tril, acl_src.get(), (int64_t)-1, acl_dst.get());
++            break;
++        case GGML_TRI_TYPE_UPPER_DIAG:
++            // Triu(0): preserve row <= col (upper + diagonal), zero strict lower.
++            GGML_CANN_CALL_ACLNN_OP(ctx, Triu, acl_src.get(), (int64_t)0, acl_dst.get());
++            break;
++        case GGML_TRI_TYPE_UPPER:
++            // Triu(1): preserve row < col (strict upper), zero lower + diagonal.
++            GGML_CANN_CALL_ACLNN_OP(ctx, Triu, acl_src.get(), (int64_t)1, acl_dst.get());
++            break;
++        case GGML_TRI_TYPE_LOWER_DIAG:
++            // Tril(0): preserve row >= col (lower + diagonal), zero strict upper.
++            GGML_CANN_CALL_ACLNN_OP(ctx, Tril, acl_src.get(), (int64_t)0, acl_dst.get());
++            break;
++        default:
++            GGML_ABORT("unsupported tri type");
++    }
++}
++
+ void ggml_cann_upsample_nearest2d(ggml_backend_cann_context & ctx, ggml_tensor * dst) {
+     ggml_tensor *  src     = dst->src[0];
+     acl_tensor_ptr acl_src = ggml_cann_create_tensor(src, nullptr, nullptr, 0, ACL_FORMAT_NCHW);
+@@ -1695,152 +1918,90 @@ void ggml_cann_softmax(ggml_backend_cann_context & ctx, ggml_tensor * dst) {
+     aclnn_softmax(ctx, softmax_tensor.get(), 3, acl_dst.get());
+ }
+ 
+-/**
+- * @brief Performs index select operation on a 4D tensor using the CANN backend.
+- *
+- * This function applies the `IndexSelect` operation along a specific dimension
+- * of the source tensor (`src_buffer`) using the indices from the index tensor (`index`).
+- * It iterates over the last two dimensions of the source tensor, creates the corresponding
+- * CANN tensors for the source, index, and output slices, and executes the `IndexSelect`
+- * operation for each slice.
+- *
+- * @param ctx The context for CANN backend operations.
+- * @param src_buffer The source buffer containing the 4D input tensor data.
+- * @param src_ne The dimensions of the source tensor.
+- * @param src_nb The strides (byte offsets) of the source tensor.
+- * @param dst_buffer The destination buffer where the output tensor data will be written.
+- * @param dst_ne The dimensions of the destination tensor.
+- * @param dst_nb The strides (byte offsets) of the destination tensor.
+- * @param index The index tensor specifying the indices to select from the source tensor.
+- * @param type The data type of the source and destination tensors.
+- */
+-static void aclnn_index_select_4d(ggml_backend_cann_context & ctx,
+-                                  void *                      src_buffer,
+-                                  int64_t *                   src_ne,
+-                                  size_t *                    src_nb,
+-                                  void *                      dst_buffer,
+-                                  int64_t *                   dst_ne,
+-                                  size_t *                    dst_nb,
+-                                  ggml_tensor *               index,
+-                                  ggml_type                   type) {
+-    for (int64_t i = 0; i < src_ne[3]; i++) {
+-        for (int64_t j = 0; j < src_ne[2]; j++) {
+-            // src
+-            acl_tensor_ptr acl_src_tensor =
+-                ggml_cann_create_tensor((char *) src_buffer + i * src_nb[3] + j * src_nb[2],
+-                                        ggml_cann_type_mapping(type), ggml_type_size(type), src_ne, src_nb, 2);
+-
+-            // index
+-            acl_tensor_ptr acl_index = ggml_cann_create_tensor(
+-                (char *) index->data + (i % index->ne[2]) * index->nb[2] + (j % index->ne[1]) * index->nb[1],
+-                ggml_cann_type_mapping(index->type), ggml_element_size(index), index->ne, index->nb, 1);
+-
+-            // out
+-            acl_tensor_ptr acl_out =
+-                ggml_cann_create_tensor((char *) dst_buffer + i * dst_nb[3] + j * dst_nb[2],
+-                                        ggml_cann_type_mapping(type), ggml_type_size(type), dst_ne, dst_nb, 2);
+-            GGML_CANN_CALL_ACLNN_OP(ctx, IndexSelect, acl_src_tensor.get(), 0, acl_index.get(), acl_out.get());
+-        }
+-    }
+-}
+-
+-/**
+- * @brief Performs inplace index copy operation on a 4D tensor using the CANN backend.
+- *
+- * This function applies the `IndexCopy` operation along a specific dimension of the
+- * destination tensor (`dst_buffer`) by copying elements from the source tensor (`src_buffer`)
+- * to positions specified by the index tensor (`index`).
+- * It iterates over the last two dimensions of the tensors, creates the corresponding
+- * CANN tensors for source, index, and destination slices, and performs the index copy
+- * operation for each slice.
+- *
+- * @param ctx The context for CANN backend operations.
+- * @param src_buffer The source buffer containing the 4D input tensor data to be copied.
+- * @param src_ne The dimensions of the source tensor.
+- * @param src_nb The strides (byte offsets) of the source tensor.
+- * @param dst_buffer The destination buffer where values will be copied to.
+- * @param dst_ne The dimensions of the destination tensor.
+- * @param dst_nb The strides (byte offsets) of the destination tensor.
+- * @param index The index tensor specifying target positions in the destination tensor.
+- * @param type The data type of the source and destination tensors.
+- */
+-static void aclnn_index_copy_4d(ggml_backend_cann_context & ctx,
+-                                void *                      src_buffer,
+-                                int64_t *                   src_ne,
+-                                size_t *                    src_nb,
+-                                void *                      dst_buffer,
+-                                int64_t *                   dst_ne,
+-                                size_t *                    dst_nb,
+-                                ggml_tensor *               index,
+-                                ggml_type                   type) {
+-    for (int64_t i = 0; i < src_ne[3]; i++) {
+-        for (int64_t j = 0; j < src_ne[2]; j++) {
+-            // src
+-            acl_tensor_ptr acl_src_tensor =
+-                ggml_cann_create_tensor((char *) src_buffer + i * src_nb[3] + j * src_nb[2],
+-                                        ggml_cann_type_mapping(type), ggml_type_size(type), src_ne, src_nb, 2);
+-
+-            // index
+-            acl_tensor_ptr acl_index = ggml_cann_create_tensor(
+-                (char *) index->data + (i % index->ne[2]) * index->nb[2] + (j % index->ne[1]) * index->nb[1],
+-                ggml_cann_type_mapping(index->type), ggml_element_size(index), index->ne, index->nb, 1);
+-
+-            // out
+-            acl_tensor_ptr acl_out =
+-                ggml_cann_create_tensor((char *) dst_buffer + i * dst_nb[3] + j * dst_nb[2],
+-                                        ggml_cann_type_mapping(type), ggml_type_size(type), dst_ne, dst_nb, 2);
+-            GGML_CANN_CALL_ACLNN_OP(ctx, InplaceIndexCopy, acl_out.get(), 0, acl_index.get(), acl_src_tensor.get());
+-        }
+-    }
+-}
+ 
+ void ggml_cann_get_rows(ggml_backend_cann_context & ctx, ggml_tensor * dst) {
+-    ggml_tensor * src0 = dst->src[0];  // src
++    ggml_tensor * src0 = dst->src[0];  // weight
+     ggml_tensor * src1 = dst->src[1];  // index
+ 
+     GGML_ASSERT(dst->type == GGML_TYPE_F32 || dst->type == GGML_TYPE_F16
+                 || dst->type == GGML_TYPE_BF16);
+ 
++    // n_idx: number of row indices per (i2, i3) batch slice.
++    // ggml guarantees: src0->ne[2] == src1->ne[1], src0->ne[3] == src1->ne[2], src1->ne[3] == 1.
++    const int64_t n_idx = src1->ne[0];
++
++    // Gather all (i2, i3) batch slices from src into dst.
++    // ggml_cann_create_tensor reverses dims, so ACL sees [ne1, ne0].
++    // GatherV2 with dim=0 gathers along ACL dim-0 == ggml ne[1] (the vocabulary / row axis).
++    // nb: the 4 strides of the source buffer (nb[0..1] for the 2D slice shape,
++    //     nb[2..3] for computing per-batch-slice base pointer offsets).
++    auto gather_batched = [&](void * src_base, aclDataType acl_type, size_t type_size,
++                              const size_t * nb) {
++        int64_t src_ne[2]  = { src0->ne[0], src0->ne[1] };
++        size_t  src_nb_2d[2] = { nb[0], nb[1] };
++        int64_t dst_ne[2]  = { src0->ne[0], n_idx };
++        size_t  dst_nb_2d[2] = { dst->nb[0], dst->nb[1] };
++        int64_t idx_ne[1]  = { n_idx };
++        size_t  idx_nb[1]  = { (size_t)ggml_element_size(src1) };
++
++        for (int64_t i3 = 0; i3 < src0->ne[3]; i3++) {
++            for (int64_t i2 = 0; i2 < src0->ne[2]; i2++) {
++                acl_tensor_ptr acl_src = ggml_cann_create_tensor(
++                    (char *)src_base + i3 * nb[3] + i2 * nb[2],
++                    acl_type, type_size, src_ne, src_nb_2d, 2);
++                acl_tensor_ptr acl_idx = ggml_cann_create_tensor(
++                    (char *)src1->data + i3 * src1->nb[2] + i2 * src1->nb[1],
++                    ggml_cann_type_mapping(src1->type), (size_t)ggml_element_size(src1),
++                    idx_ne, idx_nb, 1);
++                acl_tensor_ptr acl_dst = ggml_cann_create_tensor(
++                    (char *)dst->data + i3 * dst->nb[3] + i2 * dst->nb[2],
++                    acl_type, type_size, dst_ne, dst_nb_2d, 2);
++                GGML_CANN_CALL_ACLNN_OP(ctx, GatherV2, acl_src.get(), 0, acl_idx.get(), acl_dst.get());
++            }
++        }
++    };
++
+     switch (src0->type) {
+         case GGML_TYPE_BF16:
+         case GGML_TYPE_F16:
+         case GGML_TYPE_F32:
+             if (src0->type == dst->type) {
+-                aclnn_index_select_4d(ctx, src0->data, src0->ne, src0->nb, dst->data, dst->ne, dst->nb, src1,
+-                                      dst->type);
++                gather_batched(src0->data,
++                               ggml_cann_type_mapping(src0->type), ggml_type_size(src0->type),
++                               src0->nb);
+             } else {
+-                acl_tensor_ptr       acl_src0 = ggml_cann_create_tensor(src0);
+-                ggml_cann_pool_alloc src_buffer_allocator(ctx.pool(), ggml_nelements(src0) * ggml_element_size(dst));
+-                void *               src_trans_buffer = src_buffer_allocator.get();
+-                size_t               src_trans_nb[GGML_MAX_DIMS];
+-                src_trans_nb[0] = dst->nb[0];
++                // Cast src0 to dst type, then gather.
++                ggml_cann_pool_alloc src_cast_allocator(ctx.pool(),
++                                                        ggml_nelements(src0) * ggml_element_size(dst));
++                size_t src_cast_nb[GGML_MAX_DIMS];
++                src_cast_nb[0] = ggml_type_size(dst->type);
+                 for (int i = 1; i < GGML_MAX_DIMS; i++) {
+-                    src_trans_nb[i] = src_trans_nb[i - 1] * src0->ne[i - 1];
++                    src_cast_nb[i] = src_cast_nb[i - 1] * src0->ne[i - 1];
+                 }
+-                acl_tensor_ptr src_trans_tensor =
+-                    ggml_cann_create_tensor(src_trans_buffer, ggml_cann_type_mapping(dst->type),
+-                                            ggml_type_size(dst->type), src0->ne, src_trans_nb, GGML_MAX_DIMS);
+-                aclnn_cast(ctx, acl_src0.get(), src_trans_tensor.get(), ggml_cann_type_mapping(dst->type));
+-                aclnn_index_select_4d(ctx, src_trans_buffer, src0->ne, src_trans_nb, dst->data, dst->ne, dst->nb, src1,
+-                                      dst->type);
++                acl_tensor_ptr acl_src0     = ggml_cann_create_tensor(src0);
++                acl_tensor_ptr acl_src_cast = ggml_cann_create_tensor(
++                    src_cast_allocator.get(), ggml_cann_type_mapping(dst->type), ggml_type_size(dst->type),
++                    src0->ne, src_cast_nb, GGML_MAX_DIMS);
++                aclnn_cast(ctx, acl_src0.get(), acl_src_cast.get(), ggml_cann_type_mapping(dst->type));
++
++                gather_batched(src_cast_allocator.get(),
++                               ggml_cann_type_mapping(dst->type), ggml_type_size(dst->type),
++                               src_cast_nb);
+             }
+             break;
+         case GGML_TYPE_Q8_0:
+             {
+-                // add 1 dim for bcast mul.
++                // Dequantize Q8_0 to dst type, then gather.
+                 size_t  weight_nb[GGML_MAX_DIMS + 1], scale_nb[GGML_MAX_DIMS + 1], dequant_nb[GGML_MAX_DIMS + 1];
+                 int64_t weight_ne[GGML_MAX_DIMS + 1], scale_ne[GGML_MAX_DIMS + 1], *dequant_ne;
+-                int64_t scale_offset = 0;
+-                // [3,4,5,64] -> [3,4,5,2,32]
+-                weight_ne[0]         = QK8_0;
+-                weight_ne[1]         = src0->ne[0] / QK8_0;
+-                weight_nb[0]         = sizeof(int8_t);
+-                weight_nb[1]         = weight_nb[0] * weight_ne[0];
++                weight_ne[0] = QK8_0;
++                weight_ne[1] = src0->ne[0] / QK8_0;
++                weight_nb[0] = sizeof(int8_t);
++                weight_nb[1] = weight_nb[0] * weight_ne[0];
+                 for (int i = 2; i < GGML_MAX_DIMS + 1; i++) {
+                     weight_ne[i] = src0->ne[i - 1];
+                     weight_nb[i] = weight_nb[i - 1] * weight_ne[i - 1];
+                 }
+-                // [3,4,5,64] -> [3,4,5,2,1]
+                 scale_ne[0] = 1;
+                 scale_ne[1] = src0->ne[0] / QK8_0;
+                 scale_nb[0] = sizeof(uint16_t);
+@@ -1849,31 +2010,33 @@ void ggml_cann_get_rows(ggml_backend_cann_context & ctx, ggml_tensor * dst) {
+                     scale_ne[i] = src0->ne[i - 1];
+                     scale_nb[i] = scale_nb[i - 1] * scale_ne[i - 1];
+                 }
+-                // [3,4,5,64] -> [3,4,5,2,32]
+                 dequant_ne    = weight_ne;
+                 dequant_nb[0] = ggml_type_size(dst->type);
+                 for (int i = 1; i < GGML_MAX_DIMS + 1; i++) {
+                     dequant_nb[i] = dequant_nb[i - 1] * dequant_ne[i - 1];
+                 }
+-                scale_offset = ggml_nelements(src0) * sizeof(int8_t);
+-                ggml_cann_pool_alloc dequant_buffer_allocator(ctx.pool(),
+-                                                              ggml_nelements(src0) * ggml_type_size(dst->type));
+-                acl_tensor_ptr       acl_weight_tensor = ggml_cann_create_tensor(src0->data, ACL_INT8, sizeof(int8_t),
+-                                                                                 weight_ne, weight_nb, GGML_MAX_DIMS + 1);
+-                acl_tensor_ptr       acl_scale_tensor =
+-                    ggml_cann_create_tensor(src0->data, ACL_FLOAT16, sizeof(uint16_t), scale_ne, scale_nb,
+-                                            GGML_MAX_DIMS + 1, ACL_FORMAT_ND, scale_offset);
+-                acl_tensor_ptr dequant_tensor =
+-                    ggml_cann_create_tensor(dequant_buffer_allocator.get(), ggml_cann_type_mapping(dst->type),
+-                                            ggml_type_size(dst->type), dequant_ne, dequant_nb, GGML_MAX_DIMS + 1);
+-                aclnn_mul(ctx, acl_weight_tensor.get(), acl_scale_tensor.get(), dequant_tensor.get());
+-                dequant_nb[0] = ggml_type_size(dst->type);
++                const int64_t scale_offset = ggml_nelements(src0) * sizeof(int8_t);
++                ggml_cann_pool_alloc dequant_allocator(ctx.pool(),
++                                                       ggml_nelements(src0) * ggml_type_size(dst->type));
++                acl_tensor_ptr acl_weight = ggml_cann_create_tensor(src0->data, ACL_INT8, sizeof(int8_t),
++                                                                     weight_ne, weight_nb, GGML_MAX_DIMS + 1);
++                acl_tensor_ptr acl_scale  = ggml_cann_create_tensor(
++                    src0->data, ACL_FLOAT16, sizeof(uint16_t), scale_ne, scale_nb,
++                    GGML_MAX_DIMS + 1, ACL_FORMAT_ND, scale_offset);
++                acl_tensor_ptr acl_dequant = ggml_cann_create_tensor(
++                    dequant_allocator.get(), ggml_cann_type_mapping(dst->type),
++                    ggml_type_size(dst->type), dequant_ne, dequant_nb, GGML_MAX_DIMS + 1);
++                aclnn_mul(ctx, acl_weight.get(), acl_scale.get(), acl_dequant.get());
++
++                // Reinterpret dequant buffer as 4D [src0->ne] with contiguous strides.
+                 dequant_ne    = src0->ne;
++                dequant_nb[0] = ggml_type_size(dst->type);
+                 for (int i = 1; i < GGML_MAX_DIMS; i++) {
+                     dequant_nb[i] = dequant_nb[i - 1] * src0->ne[i - 1];
+                 }
+-                aclnn_index_select_4d(ctx, dequant_buffer_allocator.get(), dequant_ne, dequant_nb, dst->data, dst->ne,
+-                                      dst->nb, src1, dst->type);
++                gather_batched(dequant_allocator.get(),
++                               ggml_cann_type_mapping(dst->type), ggml_type_size(dst->type),
++                               dequant_nb);
+                 break;
+             }
+         default:
+@@ -1883,31 +2046,70 @@ void ggml_cann_get_rows(ggml_backend_cann_context & ctx, ggml_tensor * dst) {
+ }
+ 
+ void ggml_cann_set_rows(ggml_backend_cann_context & ctx, ggml_tensor * dst) {
+-    ggml_tensor * src0 = dst->src[0];  // src
+-    ggml_tensor * src1 = dst->src[1];  // index
++    ggml_tensor * src0 = dst->src[0];  // source values
++    ggml_tensor * src1 = dst->src[1];  // row indices
++
++    // n_idx: number of source rows to scatter per batch slice.
++    // ggml guarantees: src0->ne[1] == src1->ne[0].
++    const int64_t n_idx = src1->ne[0];
++
++    // Copy n_idx rows of src [ne0, n_idx] into dst [ne0, ne1] at positions given by a 1D index.
++    // ggml_cann_create_tensor reverses dims, so ACL sees [ne1, ne0] for dst.
++    // InplaceIndexCopy with dim=0 copies along ACL dim-0 == ggml ne[1] (the row axis).
++    // src_nb: the 4 strides of the source buffer (nb[0..1] for the 2D slice shape,
++    //         nb[2..3] for computing per-batch-slice base pointer offsets).
++    auto scatter_batched = [&](void * src_base, aclDataType acl_type, size_t type_size,
++                               const size_t * src_nb) {
++        int64_t d_ne[2]    = { dst->ne[0], dst->ne[1] };
++        size_t  d_nb[2]    = { dst->nb[0], dst->nb[1] };
++        int64_t s_ne[2]    = { dst->ne[0], n_idx };
++        size_t  s_nb_2d[2] = { src_nb[0], src_nb[1] };
++        int64_t i_ne[1]    = { n_idx };
++        size_t  i_nb[1]    = { (size_t)ggml_element_size(src1) };
++
++        for (int64_t i3 = 0; i3 < dst->ne[3]; i3++) {
++            for (int64_t i2 = 0; i2 < dst->ne[2]; i2++) {
++                acl_tensor_ptr acl_dst = ggml_cann_create_tensor(
++                    (char *)dst->data + i3 * dst->nb[3] + i2 * dst->nb[2],
++                    acl_type, type_size, d_ne, d_nb, 2);
++                acl_tensor_ptr acl_idx = ggml_cann_create_tensor(
++                    (char *)src1->data + (i3 % src1->ne[2]) * src1->nb[2] + (i2 % src1->ne[1]) * src1->nb[1],
++                    ggml_cann_type_mapping(src1->type), (size_t)ggml_element_size(src1),
++                    i_ne, i_nb, 1);
++                acl_tensor_ptr acl_src = ggml_cann_create_tensor(
++                    (char *)src_base + i3 * src_nb[3] + i2 * src_nb[2],
++                    acl_type, type_size, s_ne, s_nb_2d, 2);
++                GGML_CANN_CALL_ACLNN_OP(ctx, InplaceIndexCopy, acl_dst.get(), 0, acl_idx.get(), acl_src.get());
++            }
++        }
++    };
+ 
+     switch (dst->type) {
+         case GGML_TYPE_F32:
+-            {
+-                aclnn_index_copy_4d(ctx, src0->data, src0->ne, src0->nb, dst->data, dst->ne, dst->nb, src1, dst->type);
+-                break;
+-            }
++            scatter_batched(src0->data,
++                            ggml_cann_type_mapping(dst->type), ggml_type_size(dst->type),
++                            src0->nb);
++            break;
+         case GGML_TYPE_F16:
+         case GGML_TYPE_BF16:
+             {
+-                acl_tensor_ptr       acl_src0 = ggml_cann_create_tensor(src0);
+-                ggml_cann_pool_alloc src_buffer_allocator(ctx.pool(), ggml_nelements(src0) * sizeof(uint16_t));
+-                void *               src_trans_buffer = src_buffer_allocator.get();
+-                size_t               src_trans_nb[GGML_MAX_DIMS];
+-                src_trans_nb[0] = sizeof(uint16_t);
++                // Cast src0 (F32) to dst type first.
++                ggml_cann_pool_alloc src_cast_allocator(ctx.pool(),
++                                                        ggml_nelements(src0) * ggml_type_size(dst->type));
++                size_t src_cast_nb[GGML_MAX_DIMS];
++                src_cast_nb[0] = ggml_type_size(dst->type);
+                 for (int i = 1; i < GGML_MAX_DIMS; i++) {
+-                    src_trans_nb[i] = src_trans_nb[i - 1] * src0->ne[i - 1];
++                    src_cast_nb[i] = src_cast_nb[i - 1] * src0->ne[i - 1];
+                 }
+-                acl_tensor_ptr src_trans_tensor = ggml_cann_create_tensor(
+-                    src_trans_buffer, ggml_cann_type_mapping(dst->type), ggml_type_size(dst->type), src0->ne, src_trans_nb, GGML_MAX_DIMS);
+-                aclnn_cast(ctx, acl_src0.get(), src_trans_tensor.get(), ggml_cann_type_mapping(dst->type));
+-                aclnn_index_copy_4d(ctx, src_trans_buffer, src0->ne, src_trans_nb, dst->data, dst->ne, dst->nb, src1,
+-                                    dst->type);
++                acl_tensor_ptr acl_src0     = ggml_cann_create_tensor(src0);
++                acl_tensor_ptr acl_src_cast = ggml_cann_create_tensor(
++                    src_cast_allocator.get(), ggml_cann_type_mapping(dst->type), ggml_type_size(dst->type),
++                    src0->ne, src_cast_nb, GGML_MAX_DIMS);
++                aclnn_cast(ctx, acl_src0.get(), acl_src_cast.get(), ggml_cann_type_mapping(dst->type));
++
++                scatter_batched(src_cast_allocator.get(),
++                                ggml_cann_type_mapping(dst->type), ggml_type_size(dst->type),
++                                src_cast_nb);
+                 break;
+             }
+         default:
+@@ -3268,29 +3470,50 @@ void ggml_cann_pad_reflect_1d(ggml_backend_cann_context & ctx, ggml_tensor * dst
+     int64_t           paddingsArray[2] = { opts[0], opts[1] };
+     acl_int_array_ptr paddings         = ggml_cann_create_int_array(paddingsArray, 2);
+ 
+-    for (int64_t i = 0; i < src0->ne[3]; i++) {
+-        acl_tensor_ptr acl_src =
+-            ggml_cann_create_tensor((char *) src0->data + i * src0->ne[3], ggml_cann_type_mapping(src0->type),
+-                                    ggml_element_size(src0), src0->ne, src0->nb, 3);
++    // Collapsing ne[2]*ne[3] into a single batch dimension requires that dim3
++    // is contiguous with respect to dim2 in both src and dst.
++    GGML_ASSERT(src0->nb[3] == src0->nb[2] * src0->ne[2]);
++    GGML_ASSERT(dst->nb[3]  == dst->nb[2]  * dst->ne[2]);
+ 
+-        acl_tensor_ptr acl_dst =
+-            ggml_cann_create_tensor((char *) dst->data + i * src0->ne[3], ggml_cann_type_mapping(dst->type),
+-                                    ggml_element_size(dst), dst->ne, dst->nb, 3);
++    int64_t src_ne_3d[3] = { src0->ne[0], src0->ne[1], src0->ne[2] * src0->ne[3] };
++    int64_t dst_ne_3d[3] = { dst->ne[0],  dst->ne[1],  dst->ne[2]  * dst->ne[3]  };
+ 
+-        GGML_CANN_CALL_ACLNN_OP(ctx, ReflectionPad1d, acl_src.get(), paddings.get(), acl_dst.get());
+-    }
++    acl_tensor_ptr acl_src = ggml_cann_create_tensor(src0->data, ggml_cann_type_mapping(src0->type),
++                                                     ggml_element_size(src0), src_ne_3d, src0->nb, 3);
++
++    acl_tensor_ptr acl_dst = ggml_cann_create_tensor(dst->data, ggml_cann_type_mapping(dst->type),
++                                                     ggml_element_size(dst), dst_ne_3d, dst->nb, 3);
++
++    GGML_CANN_CALL_ACLNN_OP(ctx, ReflectionPad1d, acl_src.get(), paddings.get(), acl_dst.get());
+ }
+ 
+ void ggml_cann_count_equal(ggml_backend_cann_context & ctx, ggml_tensor * dst) {
+     ggml_tensor * src0 = dst->src[0];
+     ggml_tensor * src1 = dst->src[1];
+ 
++    // Write element-wise equality (0 or 1) into a temporary buffer to avoid
++    // modifying src0 in-place.  Use the same type as src0 so ReduceSum can
++    // consume it directly without a type cast.
++    ggml_cann_pool_alloc eq_alloc(ctx.pool(), ggml_nelements(src0) * ggml_element_size(src0));
++    size_t eq_nb[GGML_MAX_DIMS];
++    eq_nb[0] = ggml_element_size(src0);
++    for (int i = 1; i < GGML_MAX_DIMS; i++) {
++        eq_nb[i] = eq_nb[i - 1] * src0->ne[i - 1];
++    }
++    acl_tensor_ptr acl_eq = ggml_cann_create_tensor(
++        eq_alloc.get(), ggml_cann_type_mapping(src0->type), ggml_element_size(src0),
++        src0->ne, eq_nb, GGML_MAX_DIMS);
++
+     acl_tensor_ptr acl_self  = ggml_cann_create_tensor(src0);
+     acl_tensor_ptr acl_other = ggml_cann_create_tensor(src1);
+-
+-    GGML_CANN_CALL_ACLNN_OP(ctx, InplaceEqTensor, acl_self.get(), acl_other.get());
+-
+-    ggml_cann_sum(ctx, dst);
++    GGML_CANN_CALL_ACLNN_OP(ctx, EqTensor, acl_self.get(), acl_other.get(), acl_eq.get());
++
++    // Sum the 0/1 values into dst.
++    acl_tensor_ptr    acl_dst    = ggml_cann_create_tensor(dst);
++    int64_t           dims[4]    = { 0, 1, 2, 3 };
++    acl_int_array_ptr dims_arr   = ggml_cann_create_int_array(dims, 4);
++    GGML_CANN_CALL_ACLNN_OP(ctx, ReduceSum, acl_eq.get(), dims_arr.get(), true,
++                            ggml_cann_type_mapping(dst->type), acl_dst.get());
+ }
+ 
+ void ggml_cann_step(ggml_backend_cann_context & ctx, ggml_tensor * dst) {
+@@ -3306,6 +3529,27 @@ void ggml_cann_step(ggml_backend_cann_context & ctx, ggml_tensor * dst) {
+     GGML_CANN_CALL_ACLNN_OP(ctx, GtScalar, acl_src.get(), alpha.get(), acl_dst.get());
+ }
+ 
++void ggml_cann_softplus(ggml_backend_cann_context & ctx, ggml_tensor * dst) {
++    ggml_tensor * src0 = dst->src[0];
++
++    acl_tensor_ptr acl_src = ggml_cann_create_tensor(src0);
++    acl_tensor_ptr acl_dst = ggml_cann_create_tensor(dst);
++
++    float          beta_val      = 1.0f;
++    float          threshold_val = 20.0f;
++    acl_scalar_ptr beta          = ggml_cann_create_scalar(&beta_val,      ACL_FLOAT);
++    acl_scalar_ptr threshold     = ggml_cann_create_scalar(&threshold_val, ACL_FLOAT);
++
++    GGML_CANN_CALL_ACLNN_OP(ctx, Softplus, acl_src.get(), beta.get(), threshold.get(), acl_dst.get());
++}
++
++void ggml_cann_geglu_quick(ggml_backend_cann_context & ctx, ggml_tensor * dst) {
++    auto gelu_quick_fn = [](ggml_backend_cann_context & ctx, aclTensor * acl_src, aclTensor * acl_dst) {
++        GGML_CANN_CALL_ACLNN_OP(ctx, GeluV2, acl_src, 0, acl_dst);
++    };
++    ggml_cann_op_unary_gated(gelu_quick_fn, ctx, dst);
++}
++
+ /**
+  * @brief Performs expert-specific matrix multiplication (MoE) with
+  * floating-point precision using the CANN backend.
+@@ -3892,46 +4136,65 @@ void ggml_cann_flash_attn_ext(ggml_backend_cann_context & ctx, ggml_tensor * dst
+ }
+ 
+ static void ggml_cann_out_prod_fp(ggml_backend_cann_context & ctx, ggml_tensor * dst) {
+-    ggml_tensor * src0 = dst->src[0];  // weight
+-    ggml_tensor * src1 = dst->src[1];  // input
++    ggml_tensor * src0 = dst->src[0];  // weight  [ne00=m, ne01=K, ne02, ne03]
++    ggml_tensor * src1 = dst->src[1];  // input   [ne10=n, ne11=K, ne12, ne13]
+     GGML_TENSOR_BINARY_OP_LOCALS
+ 
+-    acl_tensor_ptr acl_dst = ggml_cann_create_tensor(dst);
+-    GGML_CANN_CALL_ACLNN_OP(ctx, InplaceZero, acl_dst.get());
++    // dst[i,j] = sum_k src0[i,k] * src1[j,k]  i.e. dst = src0 @ src1^T.
++    //
++    // ggml_cann_create_tensor reverses dimension order, so ACL sees:
++    //   acl_src0 slice:   ggml[m,K]  ->  ACL[K,m]
++    //   acl_src1 slice:   ggml[n,K]  ->  ACL[K,n]
++    //   acl_dst  slice:   ggml[m,n]  ->  ACL[n,m]
++    //
++    // Build a transposed view of src1 by swapping ne[0]/ne[1]:
++    //   src1_t:  ggml[K,n] (swapped strides)  ->  ACL[n,K]
++    //
++    // Matmul(src1_t [n,K], src0 [K,m]) = [n,m] = acl_dst  ✓
++    //
++    // The outer batch loop is kept because src0 may have fewer batch slices than
++    // dst (ne02 <= ne2, ne03 <= ne3): this is a strided-broadcast not supported
++    // by standard CANN Matmul broadcasting.
++
++    const aclDataType src0_acl_type = ggml_cann_type_mapping(src0->type);
++    const aclDataType src1_acl_type = ggml_cann_type_mapping(src1->type);
++    const aclDataType dst_acl_type  = ggml_cann_type_mapping(dst->type);
++    const size_t      src0_type_sz  = ggml_type_size(src0->type);
++    const size_t      src1_type_sz  = ggml_type_size(src1->type);
++    const size_t      dst_type_sz   = ggml_type_size(dst->type);
+ 
+     const int64_t dps2 = ne2 / ne02;
+     const int64_t dps3 = ne3 / ne03;
++
+     for (int64_t i3 = 0; i3 < ne3; i3++) {
+         for (int64_t i2 = 0; i2 < ne2; i2++) {
+             const int64_t i02 = i2 / dps2;
+             const int64_t i03 = i3 / dps3;
+ 
+-            const int64_t  i12 = i2;
+-            const int64_t  i13 = i3;
+-            acl_tensor_ptr accumulator =
+-                ggml_cann_create_tensor((char *) dst->data + i2 * nb2 + i3 * nb3, ggml_cann_type_mapping(dst->type),
+-                                        ggml_type_size(dst->type), dst->ne, dst->nb, 2);
+-
+-            // The outer product needs to be accumulated in this dimension.
+-            for (int64_t i1 = 0; i1 < ne11; i1++) {
+-                acl_tensor_ptr acl_input = ggml_cann_create_tensor(
+-                    (char *) src1->data + i1 * nb11 + i12 * nb12 + i13 * nb13, ggml_cann_type_mapping(src0->type),
+-                    ggml_type_size(src0->type), src1->ne, src1->nb, 1);
+-
+-                acl_tensor_ptr acl_weight = ggml_cann_create_tensor(
+-                    (char *) src0->data + i1 * nb01 + i02 * nb02 + i03 * nb03, ggml_cann_type_mapping(src0->type),
+-                    ggml_type_size(src0->type), src0->ne, src0->nb, 1);
+-
+-                ggml_cann_pool_alloc output_allocator(ctx.pool());
+-                void *               output_buffer = output_allocator.alloc(ggml_nbytes(dst));
+-                acl_tensor_ptr       acl_out = ggml_cann_create_tensor(output_buffer, ggml_cann_type_mapping(dst->type),
+-                                                                       ggml_type_size(dst->type), dst->ne, dst->nb, 2);
+-
+-                GGML_CANN_CALL_ACLNN_OP(ctx, Ger, acl_input.get(), acl_weight.get(), acl_out.get());
+-                float       alpha_value = 1.0f;
+-                aclScalar * alpha       = aclCreateScalar(&alpha_value, ACL_FLOAT);
+-                GGML_CANN_CALL_ACLNN_OP(ctx, InplaceAdd, accumulator.get(), acl_out.get(), alpha);
+-            }
++            // src0 2D slice at [i02, i03]: ggml [m, K] -> ACL [K, m]
++            int64_t src0_ne[2] = { ne00, ne01 };
++            size_t  src0_nb[2] = { nb00, nb01 };
++            acl_tensor_ptr acl_src0_s = ggml_cann_create_tensor(
++                (char *) src0->data + i02 * nb02 + i03 * nb03,
++                src0_acl_type, src0_type_sz, src0_ne, src0_nb, 2);
++
++            // src1 transposed 2D slice at [i2, i3]: swap ne/nb -> ggml[K,n] -> ACL[n,K]
++            int64_t src1_t_ne[2] = { ne11, ne10 };
++            size_t  src1_t_nb[2] = { nb11, nb10 };
++            acl_tensor_ptr acl_src1_t = ggml_cann_create_tensor(
++                (char *) src1->data + i2 * nb12 + i3 * nb13,
++                src1_acl_type, src1_type_sz, src1_t_ne, src1_t_nb, 2);
++
++            // dst 2D slice at [i2, i3]: ggml [m, n] -> ACL [n, m]
++            int64_t dst_ne[2] = { ne0, ne1 };
++            size_t  dst_nb[2] = { nb0, nb1 };
++            acl_tensor_ptr acl_dst_s = ggml_cann_create_tensor(
++                (char *) dst->data + i2 * nb2 + i3 * nb3,
++                dst_acl_type, dst_type_sz, dst_ne, dst_nb, 2);
++
++            // Matmul(src1_t [n,K], src0 [K,m]) = [n,m] = acl_dst_s  ✓
++            GGML_CANN_CALL_ACLNN_OP(ctx, Matmul,
++                acl_src1_t.get(), acl_src0_s.get(), acl_dst_s.get(), (int8_t) 1);
+         }
+     }
+ }
+@@ -4170,3 +4433,4 @@ void ggml_cann_gated_linear_attn(ggml_backend_cann_context & ctx, ggml_tensor *
+         }
+     }
+ }
++
+diff --git src/ggml-cann/aclnn_ops.h src/ggml-cann/aclnn_ops.h
+index 7f5ba4d3..cdbf9260 100644
+--- src/ggml-cann/aclnn_ops.h
++++ src/ggml-cann/aclnn_ops.h
+@@ -32,6 +32,9 @@
+ #include <aclnnop/aclnn_cat.h>
+ #include <aclnnop/aclnn_clamp.h>
+ #include <aclnnop/aclnn_cos.h>
++#include <aclnnop/aclnn_cumsum.h>
++#include <aclnnop/aclnn_tril.h>
++#include <aclnnop/aclnn_triu.h>
+ #include <aclnnop/aclnn_exp.h>
+ #include <aclnnop/aclnn_gelu.h>
+ #include <aclnnop/aclnn_gelu_v2.h>
+@@ -47,6 +50,9 @@
+ #include <aclnnop/aclnn_sign.h>
+ #include <aclnnop/aclnn_silu.h>
+ #include <aclnnop/aclnn_sin.h>
++#include <aclnnop/aclnn_softplus.h>
++#include <aclnnop/aclnn_swi_glu.h>
++#include <aclnnop/aclnn_geglu.h>
+ #include <aclnnop/aclnn_slice.h>
+ #include <aclnnop/aclnn_sqrt.h>
+ #include <aclnnop/aclnn_tanh.h>
+@@ -69,6 +75,9 @@
+  */
+ void ggml_cann_repeat(ggml_backend_cann_context & ctx, ggml_tensor * dst);
+ 
++void ggml_cann_swiglu(ggml_backend_cann_context & ctx, ggml_tensor * dst);
++void ggml_cann_geglu(ggml_backend_cann_context & ctx, ggml_tensor * dst, int64_t approximate);
++
+ /**
+  * @brief   Applies the Leaky ReLU activation function to a tensor using the CANN
+  *          backend.
+@@ -325,6 +334,48 @@ void ggml_cann_sum_rows(ggml_backend_cann_context & ctx, ggml_tensor * dst);
+ 
+ void ggml_cann_sum(ggml_backend_cann_context & ctx, ggml_tensor * dst);
+ 
++/**
++ * @brief   Computes the cumulative sum of a ggml tensor along dim 0 using the
++ *          CANN backend.
++ *
++ * @param ctx The CANN context used for operations.
++ * @param dst The destination tensor. dst->op is `GGML_OP_CUMSUM`.
++ */
++void ggml_cann_cumsum(ggml_backend_cann_context & ctx, ggml_tensor * dst);
++
++/**
++ * @brief   Computes a triangular mask (tril/triu) of a square ggml tensor
++ *          using the CANN backend.
++ *
++ * @param ctx The CANN context used for operations.
++ * @param dst The destination tensor. dst->op is `GGML_OP_TRI`.
++ */
++void ggml_cann_tri(ggml_backend_cann_context & ctx, ggml_tensor * dst);
++
++/**
++ * @brief   Solves a triangular linear system AX=B using the CANN backend.
++ *
++ * @param ctx The CANN context used for operations.
++ * @param dst The destination tensor. dst->op is `GGML_OP_SOLVE_TRI`.
++ */
++void ggml_cann_solve_tri(ggml_backend_cann_context & ctx, ggml_tensor * dst);
++
++/**
++ * @brief   Creates a diagonal matrix from a vector using the CANN backend.
++ *
++ * @param ctx The CANN context used for operations.
++ * @param dst The destination tensor. dst->op is `GGML_OP_DIAG`.
++ */
++void ggml_cann_diag(ggml_backend_cann_context & ctx, ggml_tensor * dst);
++
++/**
++ * @brief   Fills a tensor with a constant scalar value using the CANN backend.
++ *
++ * @param ctx The CANN context used for operations.
++ * @param dst The destination tensor. dst->op is `GGML_OP_FILL`.
++ */
++void ggml_cann_fill(ggml_backend_cann_context & ctx, ggml_tensor * dst);
++
+ /**
+  * @brief   Upsamples a ggml tensor using nearest neighbor interpolation using
+  *          the CANN backend.
+@@ -461,6 +512,9 @@ void ggml_cann_timestep_embedding(ggml_backend_cann_context & ctx, ggml_tensor *
+ // @see ggml_cann_dup.
+ void ggml_cann_cpy(ggml_backend_cann_context & ctx, ggml_tensor * dst);
+ 
++// @see ggml_cann_acc, but copies src1 into dst instead of adding.
++void ggml_cann_set(ggml_backend_cann_context & ctx, ggml_tensor * dst);
++
+ /**
+  * @brief   Computes the softmax activation with optional masking.
+  *
+@@ -813,6 +867,8 @@ void ggml_cann_count_equal(ggml_backend_cann_context & ctx, ggml_tensor * dst);
+  *            dst->op is expected to be `GGML_OP_STEP`.
+  */
+ void ggml_cann_step(ggml_backend_cann_context & ctx, ggml_tensor * dst);
++void ggml_cann_softplus(ggml_backend_cann_context & ctx, ggml_tensor * dst);
++void ggml_cann_geglu_quick(ggml_backend_cann_context & ctx, ggml_tensor * dst);
+ 
+ /**
+  * @brief   Performs the Flash Attention extended operator using the CANN backend.
+diff --git src/ggml-cann/ggml-cann.cpp src/ggml-cann/ggml-cann.cpp
+index 5fc484b3..3618ba7f 100644
+--- src/ggml-cann/ggml-cann.cpp
++++ src/ggml-cann/ggml-cann.cpp
+@@ -1428,6 +1428,22 @@ static bool ggml_backend_cann_buffer_cpy_tensor(ggml_backend_buffer_t buffer,
+     return false;
+ }
+ 
++/**
++ * @brief Set a region of a tensor's device memory to a specified value.
++ *
++ * @param buffer The CANN buffer containing the tensor.
++ * @param tensor Pointer to the tensor whose memory will be set.
++ * @param value The value to which each byte in the region will be set.
++ * @param offset Byte offset within the tensor's data to start setting.
++ * @param size Number of bytes to set.
++ */
++static void ggml_backend_cann_buffer_memset_tensor(ggml_backend_buffer_t buffer, ggml_tensor * tensor, uint8_t value, size_t offset, size_t size) {
++    ggml_backend_cann_buffer_context * ctx = (ggml_backend_cann_buffer_context *) buffer->context;
++
++    ggml_cann_set_device(ctx->device);
++    ACL_CHECK(aclrtMemset((char *) tensor->data + offset, size, value, size));
++}
++
+ /**
+  * @brief Clear a CANN buffer by setting all its memory to a specified value.
+  *
+@@ -1454,7 +1470,7 @@ static const ggml_backend_buffer_i ggml_backend_cann_buffer_interface = {
+     /* .free_buffer     = */ ggml_backend_cann_buffer_free_buffer,
+     /* .get_base        = */ ggml_backend_cann_buffer_get_base,
+     /* .init_tensor     = */ ggml_backend_cann_buffer_init_tensor,
+-    /* .memset_tensor   = */ NULL,
++    /* .memset_tensor   = */ ggml_backend_cann_buffer_memset_tensor,
+     /* .set_tensor      = */ ggml_backend_cann_buffer_set_tensor,
+     /* .get_tensor      = */ ggml_backend_cann_buffer_get_tensor,
+     /* .set_tensor_2d   = */ NULL,
+@@ -1835,6 +1851,9 @@ static bool ggml_cann_compute_forward(ggml_backend_cann_context & ctx, struct gg
+                 case GGML_UNARY_OP_STEP:
+                     ggml_cann_step(ctx, dst);
+                     break;
++                case GGML_UNARY_OP_SOFTPLUS:
++                    ggml_cann_softplus(ctx, dst);
++                    break;
+                 default:
+                     return false;
+             }
+@@ -1845,20 +1864,16 @@ static bool ggml_cann_compute_forward(ggml_backend_cann_context & ctx, struct gg
+                     GGML_CANN_CALL_OP_UNARY_GATED(Relu);
+                     break;
+                 case GGML_GLU_OP_GEGLU:
++                    ggml_cann_geglu(ctx, dst, 0);  // approximate=0 → tanh
++                    break;
+                 case GGML_GLU_OP_GEGLU_ERF:
+-                    // aclnnGelu internally uses the erf-based approximation.
+-                    GGML_CANN_CALL_OP_UNARY_GATED(Gelu);
++                    ggml_cann_geglu(ctx, dst, 1);  // approximate=1 → erf
+                     break;
+                 case GGML_GLU_OP_SWIGLU:
+-                    GGML_CANN_CALL_OP_UNARY_GATED(Silu);
++                    ggml_cann_swiglu(ctx, dst);
+                     break;
+                 case GGML_GLU_OP_GEGLU_QUICK:
+-                    {
+-                        auto lambda = [](ggml_backend_cann_context & ctx, aclTensor * acl_src, aclTensor * acl_dst) {
+-                            GGML_CANN_CALL_ACLNN_OP(ctx, GeluV2, acl_src, 0, acl_dst);
+-                        };
+-                        ggml_cann_op_unary_gated(lambda, ctx, dst);
+-                    }
++                    ggml_cann_geglu_quick(ctx, dst);
+                     break;
+                 default:
+                     return false;
+@@ -1920,6 +1935,9 @@ static bool ggml_cann_compute_forward(ggml_backend_cann_context & ctx, struct gg
+         case GGML_OP_CPY:
+             ggml_cann_cpy(ctx, dst);
+             break;
++        case GGML_OP_SET:
++            ggml_cann_set(ctx, dst);
++            break;
+         case GGML_OP_CONT:
+             ggml_cann_dup(ctx, dst);
+             break;
+@@ -1989,6 +2007,21 @@ static bool ggml_cann_compute_forward(ggml_backend_cann_context & ctx, struct gg
+         case GGML_OP_SSM_CONV:
+             ggml_cann_ssm_conv(ctx, dst);
+             break;
++        case GGML_OP_CUMSUM:
++            ggml_cann_cumsum(ctx, dst);
++            break;
++        case GGML_OP_TRI:
++            ggml_cann_tri(ctx, dst);
++            break;
++        case GGML_OP_FILL:
++            ggml_cann_fill(ctx, dst);
++            break;
++        case GGML_OP_DIAG:
++            ggml_cann_diag(ctx, dst);
++            break;
++        case GGML_OP_SOLVE_TRI:
++            ggml_cann_solve_tri(ctx, dst);
++            break;
+         default:
+             return false;
+     }
+@@ -2324,6 +2357,7 @@ static enum ggml_status ggml_backend_cann_graph_compute(ggml_backend_t backend,
+     if (use_cann_graph) {
+         // If no matching graph is found, the graph needs to be recaptured.
+         graph_capture_required = !cann_ctx->graph_lru_cache.find_and_move_to_front(cgraph);
++
+         if (graph_capture_required) {
+             // If no matching graph is found, add a new ACL graph.
+             ggml_cann_graph * new_graph = ggml_cann_graph::create_from_cgraph(cgraph);
+@@ -2382,6 +2416,7 @@ static bool ggml_backend_cann_supports_op(ggml_backend_dev_t dev, const ggml_ten
+                 case GGML_UNARY_OP_SGN:
+                 case GGML_UNARY_OP_STEP:
+                 case GGML_UNARY_OP_GELU_ERF:
++                case GGML_UNARY_OP_SOFTPLUS:
+                     return true;
+                 default:
+                     return false;
+@@ -2572,6 +2607,7 @@ static bool ggml_backend_cann_supports_op(ggml_backend_dev_t dev, const ggml_ten
+         case GGML_OP_SUM_ROWS:
+         case GGML_OP_ARGSORT:
+         case GGML_OP_ACC:
++        case GGML_OP_SET:
+         case GGML_OP_GROUP_NORM:
+             return true;
+         case GGML_OP_PAD:
+@@ -2649,6 +2685,16 @@ static bool ggml_backend_cann_supports_op(ggml_backend_dev_t dev, const ggml_ten
+             }
+         case GGML_OP_SSM_CONV:
+             return true;
++        case GGML_OP_CUMSUM:
++            return op->src[0]->type == GGML_TYPE_F32;
++        case GGML_OP_TRI:
++            return op->src[0]->type == GGML_TYPE_F32;
++        case GGML_OP_FILL:
++            return op->src[0]->type == GGML_TYPE_F32;
++        case GGML_OP_DIAG:
++            return op->src[0]->type == GGML_TYPE_F32;
++        case GGML_OP_SOLVE_TRI:
++            return op->src[0]->type == GGML_TYPE_F32;
+         default:
+             return false;
+     }
 diff --git src/ggml-cpu/amx/mmq.cpp src/ggml-cpu/amx/mmq.cpp
 index 93a6d397..d9383a04 100644
 --- src/ggml-cpu/amx/mmq.cpp
@@ -7787,10 +9049,35 @@ index 36b140bf..a5d20462 100644
  
  #endif // SYCL_HW_HPP
 diff --git src/ggml-vulkan/ggml-vulkan.cpp src/ggml-vulkan/ggml-vulkan.cpp
-index 702a249d..d4acee8b 100644
+index 702a249d..69c24bb5 100644
 --- src/ggml-vulkan/ggml-vulkan.cpp
 +++ src/ggml-vulkan/ggml-vulkan.cpp
-@@ -792,6 +792,7 @@ struct vk_device_struct {
+@@ -20,12 +20,19 @@ DispatchLoaderDynamic & ggml_vk_default_dispatcher();
+ #define VULKAN_HPP_DEFAULT_DISPATCHER ggml_vk_default_dispatcher()
+ 
+ #include <vulkan/vulkan.hpp>
+-// SPIRV-Headers: LunarG Windows SDK uses Include/spirv-headers/spirv.hpp (not spirv/unified1/). MinGW/MSYS2 and
+-// Linux packages use Khronos layout spirv/unified1/spirv.hpp. See docs/build.md#vulkan.
+-#if defined(_WIN32) && !defined(__MINGW32__)
+-#include <spirv-headers/spirv.hpp>
++
++// SPIR-V Headers: different SDK installations expose different include paths.
++// LunarG Vulkan SDK on Windows typically provides <spirv-headers/spirv.hpp>.
++// Linux packages, MSYS2 and MinGW often use the Khronos layout <spirv/unified1/spirv.hpp>.
++#if __has_include(<spirv/unified1/spirv.hpp>)
++#    include <spirv/unified1/spirv.hpp>
++#elif __has_include(<spirv-headers/spirv.hpp>)
++#    include <spirv-headers/spirv.hpp>
++#elif __has_include(<spirv.hpp>)
++#    include <spirv.hpp>
+ #else
+-#include <spirv/unified1/spirv.hpp>
++     // Fallback to let the compiler throw a standard "file not found" error
++#    include <spirv/unified1/spirv.hpp>
+ #endif
+ 
+ #include <algorithm>
+@@ -792,6 +799,7 @@ struct vk_device_struct {
      vk_pipeline pipeline_arange_f32;
  
      vk_pipeline pipeline_fill_f32;
@@ -7798,7 +9085,7 @@ index 702a249d..d4acee8b 100644
  
      vk_pipeline pipeline_geglu[2];
      vk_pipeline pipeline_reglu[2];
-@@ -4577,6 +4578,7 @@ static void ggml_vk_load_shaders(vk_device& device) {
+@@ -4577,6 +4585,7 @@ static void ggml_vk_load_shaders(vk_device& device) {
      ggml_vk_create_pipeline(device, device->pipeline_arange_f32, "arange_f32", arange_f32_len, arange_f32_data, "main", 1, sizeof(vk_op_push_constants), {512, 1, 1}, {}, 1);
  
      ggml_vk_create_pipeline(device, device->pipeline_fill_f32, "fill_f32", fill_f32_len, fill_f32_data, "main", 1, sizeof(vk_op_push_constants), {512, 1, 1}, {}, 1);
@@ -7806,7 +9093,7 @@ index 702a249d..d4acee8b 100644
  
  #define CREATE_GLU(name)  \
      ggml_vk_create_pipeline(device, device->pipeline_ ## name [0], #name "_f32", name ## _f32_len, name ## _f32_data, "main", 3, sizeof(vk_op_glu_push_constants), {512, 1, 1}, {}, 1, true);   \
-@@ -9844,6 +9846,9 @@ static vk_pipeline ggml_vk_op_get_pipeline(ggml_backend_vk_context * ctx, const
+@@ -9844,6 +9853,9 @@ static vk_pipeline ggml_vk_op_get_pipeline(ggml_backend_vk_context * ctx, const
          if (dst->type == GGML_TYPE_F32) {
              return ctx->device->pipeline_fill_f32;
          }
@@ -7816,7 +9103,31 @@ index 702a249d..d4acee8b 100644
          return nullptr;
      default:
          return nullptr;
-@@ -15713,8 +15718,9 @@ static bool ggml_backend_vk_device_supports_op(ggml_backend_dev_t dev, const ggm
+@@ -13002,6 +13014,7 @@ static bool ggml_vk_build_graph(ggml_backend_vk_context * ctx, ggml_cgraph * cgr
+             if (vk_perf_logger_enabled && vk_perf_logger_concurrent) {
+                 ctx->query_node_idx[ctx->query_idx] = node_idx;
+                 compute_ctx->s->buffer->buf.writeTimestamp(vk::PipelineStageFlagBits::eAllCommands, ctx->query_pool, ctx->query_idx++);
++                ggml_vk_sync_buffers(ctx, compute_ctx);
+             }
+         }
+         // Add all fused nodes to the unsynchronized lists.
+@@ -14491,6 +14504,7 @@ static ggml_status ggml_backend_vk_graph_compute(ggml_backend_t backend, ggml_cg
+         compute_ctx = ggml_vk_get_compute_ctx(ctx);
+         ctx->query_idx = 0;
+         compute_ctx->s->buffer->buf.writeTimestamp(vk::PipelineStageFlagBits::eAllCommands, ctx->query_pool, ctx->query_idx++);
++        ggml_vk_sync_buffers(ctx, compute_ctx);
+     }
+ 
+     ctx->prealloc_y_last_pipeline_used = nullptr;
+@@ -14727,6 +14741,7 @@ static ggml_status ggml_backend_vk_graph_compute(ggml_backend_t backend, ggml_cg
+                 ctx->query_nodes[ctx->query_idx] = cgraph->nodes[i];
+                 ctx->query_fusion_names[ctx->query_idx] = fusion_string;
+                 compute_ctx->s->buffer->buf.writeTimestamp(vk::PipelineStageFlagBits::eAllCommands, ctx->query_pool, ctx->query_idx++);
++                ggml_vk_sync_buffers(ctx, compute_ctx);
+             } else {
+                 // track a fusion string and number of fused ops for the current node_idx
+                 ctx->query_fusion_names[i] = fusion_string;
+@@ -15713,8 +15728,9 @@ static bool ggml_backend_vk_device_supports_op(ggml_backend_dev_t dev, const ggm
                  || (op->src[0]->type == GGML_TYPE_F16 && op->src[1]->type == GGML_TYPE_F32)
                  || (op->src[0]->type == GGML_TYPE_F16 && op->src[1]->type == GGML_TYPE_F16);
          case GGML_OP_ARANGE:
@@ -7840,7 +9151,7 @@ index 54b9b327..ff836615 100644
      string_to_spv("step_f32",       "step.comp",        {{"A_TYPE", "float"},       {"D_TYPE", "float"}});
      string_to_spv("round_f16",      "round.comp",       {{"A_TYPE", "float16_t"},   {"D_TYPE", "float16_t"}});
 diff --git src/ggml-webgpu/ggml-webgpu-shader-lib.hpp src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
-index 9d88f980..08ea2906 100644
+index 9d88f980..fb2c9527 100644
 --- src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
 +++ src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
 @@ -26,20 +26,23 @@
@@ -8259,7 +9570,26 @@ index 9d88f980..08ea2906 100644
  
    public:
      ggml_webgpu_shader_lib(wgpu::Device device) { this->device = device; }
-@@ -1249,6 +1461,53 @@ class ggml_webgpu_shader_lib {
+@@ -1075,6 +1287,7 @@ class ggml_webgpu_shader_lib {
+                     std::transform(type_upper.begin(), type_upper.end(), type_upper.begin(), ::toupper);
+ 
+                     switch (key.src_type) {
++                        case GGML_TYPE_Q1_0:
+                         case GGML_TYPE_Q4_0:
+                         case GGML_TYPE_Q5_0:
+                         case GGML_TYPE_Q8_0:
+@@ -1111,7 +1324,9 @@ class ggml_webgpu_shader_lib {
+ 
+                     defines.push_back("DST_TYPE=f32");
+ 
+-                    if ((key.src_type >= GGML_TYPE_Q4_0 && key.src_type <= GGML_TYPE_Q8_1) ||
++                    if (key.src_type == GGML_TYPE_Q1_0) {
++                        defines.push_back("BLOCK_SIZE=128u");
++                    } else if ((key.src_type >= GGML_TYPE_Q4_0 && key.src_type <= GGML_TYPE_Q8_1) ||
+                         key.src_type == GGML_TYPE_IQ4_NL) {
+                         defines.push_back("BLOCK_SIZE=32u");
+                     } else if (key.src_type >= GGML_TYPE_Q2_K) {
+@@ -1249,6 +1464,53 @@ class ggml_webgpu_shader_lib {
          return ssm_conv_pipelines[key];
      }
  
@@ -8313,7 +9643,7 @@ index 9d88f980..08ea2906 100644
      webgpu_pipeline get_gated_delta_net_pipeline(const ggml_webgpu_shader_lib_context & context) {
          ggml_webgpu_gated_delta_net_pipeline_key key = {};
          key.type                                     = context.dst->type;
-@@ -1356,6 +1615,24 @@ class ggml_webgpu_shader_lib {
+@@ -1356,6 +1618,24 @@ class ggml_webgpu_shader_lib {
                      defines.push_back("MUL_ACC_" + type_upper);
                      defines.push_back("U32_DEQUANT_HELPERS");
                      defines.push_back("SRC0_INNER_TYPE=u32");
@@ -8338,7 +9668,18 @@ index 9d88f980..08ea2906 100644
                      break;
                  }
          }
-@@ -1478,13 +1755,24 @@ class ggml_webgpu_shader_lib {
+@@ -1380,7 +1660,9 @@ class ggml_webgpu_shader_lib {
+         uint32_t wg_size        = WEBGPU_MUL_MAT_VEC_WG_SIZE;
+         uint32_t outputs_per_wg = WEBGPU_MUL_MAT_VEC_FLOAT_OUTPUTS_PER_WG;
+ 
+-        if (key.src0_type >= GGML_TYPE_Q2_K) {
++        if (key.src0_type == GGML_TYPE_Q1_0) {
++            outputs_per_wg = WEBGPU_MUL_MAT_VEC_LEGACY_Q_OUTPUTS_PER_WG;
++        } else if (key.src0_type >= GGML_TYPE_Q2_K) {
+             outputs_per_wg = WEBGPU_MUL_MAT_VEC_K_Q_OUTPUTS_PER_WG;
+         } else if (key.src0_type >= GGML_TYPE_Q4_0) {
+             outputs_per_wg = WEBGPU_MUL_MAT_VEC_LEGACY_Q_OUTPUTS_PER_WG;
+@@ -1478,13 +1760,24 @@ class ggml_webgpu_shader_lib {
          // VEC/SCALAR controls
          defines.push_back(key.vectorized ? "VEC" : "SCALAR");
  
@@ -8364,7 +9705,7 @@ index 9d88f980..08ea2906 100644
              defines.push_back("MAX_SUBGROUP_SIZE=" + std::to_string(context.max_subgroup_size) + "u");
              defines.push_back("SUBGROUP_M=" + std::to_string(WEBGPU_MUL_MAT_SUBGROUP_M) + "u");
              defines.push_back("SUBGROUP_N=" + std::to_string(WEBGPU_MUL_MAT_SUBGROUP_N) + "u");
-@@ -1504,12 +1792,13 @@ class ggml_webgpu_shader_lib {
+@@ -1504,12 +1797,13 @@ class ggml_webgpu_shader_lib {
          if (!key.use_subgroup_matrix) {
              defines.push_back("WORKGROUP_SIZE_M=" + std::to_string(WEBGPU_MUL_MAT_WG_SIZE_M) + "u");
              defines.push_back("WORKGROUP_SIZE_N=" + std::to_string(WEBGPU_MUL_MAT_WG_SIZE_N) + "u");
@@ -8379,7 +9720,7 @@ index 9d88f980..08ea2906 100644
          decisions->tile_m              = WEBGPU_MUL_MAT_TILE_M;
          decisions->tile_n              = WEBGPU_MUL_MAT_TILE_N;
          decisions->use_subgroup_matrix = key.use_subgroup_matrix;
-@@ -1706,10 +1995,15 @@ class ggml_webgpu_shader_lib {
+@@ -1706,10 +2000,15 @@ class ggml_webgpu_shader_lib {
  
          defines.push_back("SCALAR");
  
@@ -8396,7 +9737,7 @@ index 9d88f980..08ea2906 100644
  
          defines.push_back("WORKGROUP_SIZE_M=" + std::to_string(WEBGPU_MUL_MAT_WG_SIZE_M) + "u");
          defines.push_back("WORKGROUP_SIZE_N=" + std::to_string(WEBGPU_MUL_MAT_WG_SIZE_N) + "u");
-@@ -1720,7 +2014,7 @@ class ggml_webgpu_shader_lib {
+@@ -1720,7 +2019,7 @@ class ggml_webgpu_shader_lib {
          auto processed = preprocessor.preprocess(wgsl_mul_mat_id, defines);
  
          auto decisions       = std::make_shared<ggml_webgpu_mul_mat_shader_decisions>();
@@ -8405,7 +9746,7 @@ index 9d88f980..08ea2906 100644
          decisions->tile_m    = WEBGPU_MUL_MAT_TILE_M;
          decisions->tile_n    = WEBGPU_MUL_MAT_TILE_N;
          decisions->wg_size_m = WEBGPU_MUL_MAT_WG_SIZE_M;
-@@ -1805,6 +2099,43 @@ class ggml_webgpu_shader_lib {
+@@ -1805,6 +2104,43 @@ class ggml_webgpu_shader_lib {
          return unary_pipelines[key];
      }
  
@@ -8449,7 +9790,7 @@ index 9d88f980..08ea2906 100644
      webgpu_pipeline get_binary_pipeline(const ggml_webgpu_shader_lib_context & context) {
          ggml_webgpu_binary_pipeline_key key = {};
          key.type                            = context.dst->type;
-@@ -1935,14 +2266,19 @@ class ggml_webgpu_shader_lib {
+@@ -1935,14 +2271,19 @@ class ggml_webgpu_shader_lib {
          return repeat_pipelines[key];
      }
  
@@ -8473,7 +9814,7 @@ index 9d88f980..08ea2906 100644
  
          switch (key.kv_type) {
              case GGML_TYPE_F32:
-@@ -1964,7 +2300,12 @@ class ggml_webgpu_shader_lib {
+@@ -1964,7 +2305,12 @@ class ggml_webgpu_shader_lib {
  
          if (key.has_mask) {
              defines.push_back("MASK");
@@ -8487,7 +9828,7 @@ index 9d88f980..08ea2906 100644
          }
          if (key.has_sinks) {
              defines.push_back("SINKS");
-@@ -1978,6 +2319,10 @@ class ggml_webgpu_shader_lib {
+@@ -1978,6 +2324,10 @@ class ggml_webgpu_shader_lib {
              defines.push_back("KV_DIRECT");
              variant += "_kvdirect";
          }
@@ -8498,7 +9839,7 @@ index 9d88f980..08ea2906 100644
  
          defines.push_back(std::string("HEAD_DIM_QK=") + std::to_string(key.head_dim_qk));
          variant += std::string("_hsqk") + std::to_string(key.head_dim_qk);
-@@ -1985,129 +2330,37 @@ class ggml_webgpu_shader_lib {
+@@ -1985,129 +2335,37 @@ class ggml_webgpu_shader_lib {
          defines.push_back(std::string("HEAD_DIM_V=") + std::to_string(key.head_dim_v));
          variant += std::string("_hsv") + std::to_string(key.head_dim_v);
  
@@ -8650,7 +9991,7 @@ index 9d88f980..08ea2906 100644
          auto it                                     = flash_attn_blk_pipelines.find(key);
          if (it != flash_attn_blk_pipelines.end()) {
              return it->second;
-@@ -2382,6 +2635,84 @@ class ggml_webgpu_shader_lib {
+@@ -2382,6 +2640,84 @@ class ggml_webgpu_shader_lib {
          return soft_max_pipelines[key];
      }
  
@@ -8736,7 +10077,7 @@ index 9d88f980..08ea2906 100644
      static webgpu_pipeline ggml_webgpu_create_pipeline(wgpu::Device & device,
                                                         std::string    shader_code,
 diff --git src/ggml-webgpu/ggml-webgpu.cpp src/ggml-webgpu/ggml-webgpu.cpp
-index aa20a745..d6d7dbda 100644
+index aa20a745..6d861c0c 100644
 --- src/ggml-webgpu/ggml-webgpu.cpp
 +++ src/ggml-webgpu/ggml-webgpu.cpp
 @@ -8,6 +8,7 @@
@@ -9075,8 +10416,11 @@ index aa20a745..d6d7dbda 100644
  static webgpu_encoded_op ggml_webgpu_gated_delta_net(webgpu_context & ctx,
                                                       ggml_tensor *    src0,
                                                       ggml_tensor *    src1,
-@@ -1171,6 +1391,17 @@ static webgpu_encoded_op ggml_webgpu_mul_mat(webgpu_context & ctx,
+@@ -1169,8 +1389,20 @@ static webgpu_encoded_op ggml_webgpu_mul_mat(webgpu_context & ctx,
+                 case GGML_TYPE_Q5_K:
+                 case GGML_TYPE_Q3_K:
                  case GGML_TYPE_Q2_K:
++                case GGML_TYPE_Q1_0:
                      use_fast = true;
                      break;
 +                case GGML_TYPE_IQ1_S:
@@ -9093,7 +10437,7 @@ index aa20a745..d6d7dbda 100644
                  default:
                      break;
              }
-@@ -1404,7 +1635,6 @@ static webgpu_encoded_op ggml_webgpu_mul_mat_id(webgpu_context & ctx,
+@@ -1404,7 +1636,6 @@ static webgpu_encoded_op ggml_webgpu_mul_mat_id(webgpu_context & ctx,
      return ggml_backend_webgpu_build_multi(ctx, dispatches);
  }
  
@@ -9101,7 +10445,7 @@ index aa20a745..d6d7dbda 100644
  static webgpu_encoded_op ggml_webgpu_flash_attn(webgpu_context & ctx,
                                                  ggml_tensor *    Q,
                                                  ggml_tensor *    K,
-@@ -1422,13 +1652,29 @@ static webgpu_encoded_op ggml_webgpu_flash_attn(webgpu_context & ctx,
+@@ -1422,13 +1653,29 @@ static webgpu_encoded_op ggml_webgpu_flash_attn(webgpu_context & ctx,
      float m0          = powf(2.0f, -(max_bias) / n_head_log2);
      float m1          = powf(2.0f, -(max_bias / 2.0f) / n_head_log2);
  
@@ -9135,7 +10479,7 @@ index aa20a745..d6d7dbda 100644
          has_mask ? (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, mask) / ggml_type_size(mask->type)) : 0,
          has_sinks ? (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, sinks) / ggml_type_size(sinks->type)) : 0,
          (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, dst) / ggml_type_size(dst->type)),
-@@ -1456,10 +1702,15 @@ static webgpu_encoded_op ggml_webgpu_flash_attn(webgpu_context & ctx,
+@@ -1456,10 +1703,15 @@ static webgpu_encoded_op ggml_webgpu_flash_attn(webgpu_context & ctx,
      };
      std::vector<wgpu::BindGroupEntry> entries = {
          ggml_webgpu_make_tensor_bind_group_entry(ctx, 0, Q),
@@ -9154,7 +10498,7 @@ index aa20a745..d6d7dbda 100644
      if (has_mask) {
          entries.push_back(ggml_webgpu_make_tensor_bind_group_entry(ctx, binding_index++, mask));
      }
-@@ -1475,25 +1726,25 @@ static webgpu_encoded_op ggml_webgpu_flash_attn(webgpu_context & ctx,
+@@ -1475,25 +1727,25 @@ static webgpu_encoded_op ggml_webgpu_flash_attn(webgpu_context & ctx,
      shader_lib_ctx.src3                           = mask;
      shader_lib_ctx.src4                           = sinks;
      shader_lib_ctx.dst                            = dst;
@@ -9187,7 +10531,7 @@ index aa20a745..d6d7dbda 100644
      wgpu::Buffer blk_buf         = {};
      uint64_t     blk_size_bytes  = 0;
      uint32_t     blk_nblk0       = 0;
-@@ -1532,10 +1783,12 @@ static webgpu_encoded_op ggml_webgpu_flash_attn(webgpu_context & ctx,
+@@ -1532,10 +1784,12 @@ static webgpu_encoded_op ggml_webgpu_flash_attn(webgpu_context & ctx,
          tmp_bind_size   = tmp_size_bytes;
          scratch_offset  = ROUNDUP_POW2(scratch_offset + tmp_size_bytes, align_bytes);
      } else {
@@ -9203,7 +10547,7 @@ index aa20a745..d6d7dbda 100644
      }
  
      webgpu_pipeline                   blk_pipeline;
-@@ -1550,7 +1803,7 @@ static webgpu_encoded_op ggml_webgpu_flash_attn(webgpu_context & ctx,
+@@ -1550,7 +1804,7 @@ static webgpu_encoded_op ggml_webgpu_flash_attn(webgpu_context & ctx,
          const uint64_t blk_elems    = (uint64_t) blk_nblk0 * blk_nblk1 * blk_batch_count;
          blk_size_bytes              = ROUNDUP_POW2(blk_elems * sizeof(uint32_t), WEBGPU_STORAGE_BUF_BINDING_MULT);
          const ggml_webgpu_shader_lib_context blk_shader_ctx = shader_lib_ctx;
@@ -9212,7 +10556,7 @@ index aa20a745..d6d7dbda 100644
  
          blk_params = {
              (uint32_t) (ggml_webgpu_tensor_misalignment(ctx, mask) / ggml_type_size(mask->type)),  // offset_mask
-@@ -1582,12 +1835,19 @@ static webgpu_encoded_op ggml_webgpu_flash_attn(webgpu_context & ctx,
+@@ -1582,12 +1836,19 @@ static webgpu_encoded_op ggml_webgpu_flash_attn(webgpu_context & ctx,
      std::vector<wgpu::BindGroupEntry> split_entries = {
          ggml_webgpu_make_bind_group_entry(0, ggml_webgpu_tensor_buf(Q), ggml_webgpu_tensor_align_offset(ctx, Q),
                                            ggml_webgpu_tensor_binding_size(ctx, Q)),
@@ -9237,7 +10581,7 @@ index aa20a745..d6d7dbda 100644
      if (has_mask) {
          split_entries.push_back(ggml_webgpu_make_bind_group_entry(split_binding_index++, ggml_webgpu_tensor_buf(mask),
                                                                    ggml_webgpu_tensor_align_offset(ctx, mask),
-@@ -1657,7 +1917,6 @@ static webgpu_encoded_op ggml_webgpu_flash_attn(webgpu_context & ctx,
+@@ -1657,7 +1918,6 @@ static webgpu_encoded_op ggml_webgpu_flash_attn(webgpu_context & ctx,
  
      return ggml_backend_webgpu_build_multi(ctx, dispatches);
  }
@@ -9245,7 +10589,7 @@ index aa20a745..d6d7dbda 100644
  
  static webgpu_encoded_op ggml_webgpu_unary_op(webgpu_context & ctx, ggml_tensor * src, ggml_tensor * dst) {
      bool is_unary = dst->op == GGML_OP_UNARY;
-@@ -1892,6 +2151,96 @@ static webgpu_encoded_op ggml_webgpu_repeat(webgpu_context & ctx, ggml_tensor *
+@@ -1892,6 +2152,96 @@ static webgpu_encoded_op ggml_webgpu_repeat(webgpu_context & ctx, ggml_tensor *
      return ggml_backend_webgpu_build(ctx, pipeline, params, entries, wg_x);
  }
  
@@ -9342,7 +10686,7 @@ index aa20a745..d6d7dbda 100644
  static webgpu_encoded_op ggml_webgpu_row_norm(webgpu_context & ctx, ggml_tensor * src, ggml_tensor * dst) {
      bool inplace = ggml_webgpu_tensor_equal(src, dst);
  
-@@ -2388,15 +2737,48 @@ static webgpu_encoded_op ggml_webgpu_sum_rows(webgpu_context & ctx, ggml_tensor
+@@ -2388,15 +2738,48 @@ static webgpu_encoded_op ggml_webgpu_sum_rows(webgpu_context & ctx, ggml_tensor
      return ggml_backend_webgpu_build(ctx, pipeline, params, entries, wg_x);
  }
  
@@ -9393,7 +10737,7 @@ index aa20a745..d6d7dbda 100644
  
      ggml_tensor * src0 = node->src[0];
      ggml_tensor * src1 = node->src[1];
-@@ -2424,11 +2806,7 @@ static std::optional<webgpu_encoded_op> ggml_webgpu_encode_node(webgpu_context c
+@@ -2424,11 +2807,7 @@ static std::optional<webgpu_encoded_op> ggml_webgpu_encode_node(webgpu_context c
          case GGML_OP_MUL_MAT_ID:
              return ggml_webgpu_mul_mat_id(ctx, src0, src1, src2, node);
          case GGML_OP_FLASH_ATTN_EXT:
@@ -9405,7 +10749,7 @@ index aa20a745..d6d7dbda 100644
          case GGML_OP_ADD:
          case GGML_OP_SUB:
          case GGML_OP_MUL:
-@@ -2439,6 +2817,13 @@ static std::optional<webgpu_encoded_op> ggml_webgpu_encode_node(webgpu_context c
+@@ -2439,6 +2818,13 @@ static std::optional<webgpu_encoded_op> ggml_webgpu_encode_node(webgpu_context c
          case GGML_OP_REPEAT:
              return ggml_webgpu_repeat(ctx, src0, node);
          case GGML_OP_RMS_NORM:
@@ -9419,7 +10763,7 @@ index aa20a745..d6d7dbda 100644
          case GGML_OP_L2_NORM:
              return ggml_webgpu_row_norm(ctx, src0, node);
          case GGML_OP_ROPE:
-@@ -2464,6 +2849,9 @@ static std::optional<webgpu_encoded_op> ggml_webgpu_encode_node(webgpu_context c
+@@ -2464,6 +2850,9 @@ static std::optional<webgpu_encoded_op> ggml_webgpu_encode_node(webgpu_context c
              return ggml_webgpu_solve_tri(ctx, src0, src1, node);
          case GGML_OP_SSM_CONV:
              return ggml_webgpu_ssm_conv(ctx, src0, src1, node);
@@ -9429,7 +10773,7 @@ index aa20a745..d6d7dbda 100644
          case GGML_OP_GATED_DELTA_NET:
              return ggml_webgpu_gated_delta_net(ctx, src0, src1, src2, node->src[3], node->src[4], node->src[5], node);
          case GGML_OP_PAD:
-@@ -2479,6 +2867,10 @@ static std::optional<webgpu_encoded_op> ggml_webgpu_encode_node(webgpu_context c
+@@ -2479,6 +2868,10 @@ static std::optional<webgpu_encoded_op> ggml_webgpu_encode_node(webgpu_context c
          case GGML_OP_SUM:
          case GGML_OP_SUM_ROWS:
              return ggml_webgpu_sum_rows(ctx, src0, node);
@@ -9440,7 +10784,7 @@ index aa20a745..d6d7dbda 100644
          default:
              return std::nullopt;
      }
-@@ -2511,14 +2903,17 @@ static void ggml_backend_webgpu_collect_profile_results(webgpu_context &
+@@ -2511,14 +2904,17 @@ static void ggml_backend_webgpu_collect_profile_results(webgpu_context &
      for (size_t i = 0; i < pipeline_names.size(); ++i) {
          // WebGPU timestamps are in ns; convert to ms.
          const double elapsed_ms = double(ts_data[2 * i + 1] - ts_data[2 * i]) * 1e-6;
@@ -9459,7 +10803,7 @@ index aa20a745..d6d7dbda 100644
      wgpu::CommandEncoder encoder = ctx->global_ctx->device.CreateCommandEncoder();
      encoder.CopyBufferToBuffer(ctx->set_rows_dev_error_buf, 0, ctx->set_rows_host_error_buf, 0,
                                 ctx->set_rows_host_error_buf.GetSize());
-@@ -2531,6 +2926,10 @@ static void ggml_backend_webgpu_check_set_rows(webgpu_context & ctx, uint32_t &
+@@ -2531,6 +2927,10 @@ static void ggml_backend_webgpu_check_set_rows(webgpu_context & ctx, uint32_t &
          GGML_ABORT("ggml_webgpu: SET_ROWS index > 2^32, unsupported.");
      }
      ctx->set_rows_host_error_buf.Unmap();
@@ -9470,7 +10814,7 @@ index aa20a745..d6d7dbda 100644
  }
  
  static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, struct ggml_cgraph * cgraph) {
-@@ -2547,6 +2946,8 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
+@@ -2547,6 +2947,8 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
      uint32_t num_inflight_batches = 0;
      bool     contains_set_rows    = false;
      bool     batch_compute_passes = true;
@@ -9479,7 +10823,7 @@ index aa20a745..d6d7dbda 100644
  
  #ifdef GGML_WEBGPU_GPU_PROFILE
      ctx->profile_timestamp_query_count = 0;
-@@ -2559,11 +2960,11 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
+@@ -2559,11 +2961,11 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
          ctx->active_compute_pass = ctx->active_command_encoder.BeginComputePass();
      }
  
@@ -9494,7 +10838,7 @@ index aa20a745..d6d7dbda 100644
              commands.push_back(*cmd);
              num_batched_kernels += cmd.value().num_kernels;
  #ifdef GGML_WEBGPU_GPU_PROFILE
-@@ -2588,6 +2989,9 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
+@@ -2588,6 +2990,9 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
              ctx->param_arena.reset();
              commands.clear();
          }
@@ -9504,7 +10848,7 @@ index aa20a745..d6d7dbda 100644
      }
  
      if (ctx->active_compute_pass) {
-@@ -2611,28 +3015,111 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
+@@ -2611,28 +3016,111 @@ static ggml_status ggml_backend_webgpu_graph_compute(ggml_backend_t backend, str
          ggml_backend_webgpu_check_set_rows(ctx, num_inflight_batches);
      }
  
@@ -9622,7 +10966,7 @@ index aa20a745..d6d7dbda 100644
      /* .graph_optimize          = */ NULL,
  };
  
-@@ -2870,13 +3357,19 @@ static size_t ggml_backend_webgpu_buffer_type_get_alloc_size(ggml_backend_buffer
+@@ -2870,13 +3358,19 @@ static size_t ggml_backend_webgpu_buffer_type_get_alloc_size(ggml_backend_buffer
                          ctx->webgpu_global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup;
                      shader_lib_ctx.wg_mem_limit_bytes =
                          ctx->webgpu_global_ctx->capabilities.limits.maxComputeWorkgroupStorageSize;
@@ -9644,7 +10988,7 @@ index aa20a745..d6d7dbda 100644
  
                          const uint32_t vec_nwg_cap = std::max(
                              1u, std::min<uint32_t>(32u, ctx->webgpu_global_ctx->capabilities.max_subgroup_size));
-@@ -2896,6 +3389,8 @@ static size_t ggml_backend_webgpu_buffer_type_get_alloc_size(ggml_backend_buffer
+@@ -2896,6 +3390,8 @@ static size_t ggml_backend_webgpu_buffer_type_get_alloc_size(ggml_backend_buffer
                              const size_t   tmp_size_bytes  = ROUNDUP_POW2(
                                  (tmp_data_elems + tmp_stats_elems) * sizeof(float), WEBGPU_STORAGE_BUF_BINDING_MULT);
                              res += tmp_size_bytes + align;
@@ -9653,7 +10997,7 @@ index aa20a745..d6d7dbda 100644
                          }
                          if (mask != nullptr) {
                              const uint32_t blk_nblk0       = CEIL_DIV((uint32_t) K->ne[1], kv_tile);
-@@ -3044,12 +3539,12 @@ static bool create_webgpu_device(ggml_backend_webgpu_reg_context * ctx) {
+@@ -3044,12 +3540,12 @@ static bool create_webgpu_device(ggml_backend_webgpu_reg_context * ctx) {
      ctx->webgpu_global_ctx->capabilities.supports_subgroups =
          ctx->webgpu_global_ctx->adapter.HasFeature(wgpu::FeatureName::Subgroups);
  
@@ -9667,7 +11011,7 @@ index aa20a745..d6d7dbda 100644
      if (ctx->webgpu_global_ctx->adapter.HasFeature(wgpu::FeatureName::ChromiumExperimentalSubgroupMatrix)) {
          for (size_t i = 0; i < subgroup_matrix_configs.configCount; i++) {
              const wgpu::SubgroupMatrixConfig config = subgroup_matrix_configs.configs[i];
-@@ -3063,8 +3558,8 @@ static bool create_webgpu_device(ggml_backend_webgpu_reg_context * ctx) {
+@@ -3063,8 +3559,8 @@ static bool create_webgpu_device(ggml_backend_webgpu_reg_context * ctx) {
              }
          }
      }
@@ -9677,7 +11021,7 @@ index aa20a745..d6d7dbda 100644
  
      // For subgroup matrix code to be the most efficient, we would like the subgroup size to be consistent and accurate.
      // Unfortunately, that is not possible, so we use the maximum subgroup size reported by the adapter.
-@@ -3112,12 +3607,12 @@ static bool create_webgpu_device(ggml_backend_webgpu_reg_context * ctx) {
+@@ -3112,12 +3608,12 @@ static bool create_webgpu_device(ggml_backend_webgpu_reg_context * ctx) {
      // Enable Dawn-specific toggles to increase native performance
      // TODO: Maybe WebGPU needs a "fast" mode where you can request compilers skip adding checks like these,
      //       only for native performance?
@@ -9694,7 +11038,31 @@ index aa20a745..d6d7dbda 100644
      deviceTogglesDesc.disabledToggles     = deviceDisabledToggles;
      deviceTogglesDesc.disabledToggleCount = 1;
  
-@@ -3395,33 +3890,63 @@ static bool ggml_backend_webgpu_device_supports_op(ggml_backend_dev_t dev, const
+@@ -3241,6 +3737,7 @@ static bool ggml_backend_webgpu_device_supports_buft(ggml_backend_dev_t dev, ggm
+ 
+ static bool ggml_webgpu_supported_qtype(ggml_type type) {
+     switch (type) {
++        case GGML_TYPE_Q1_0:
+         case GGML_TYPE_Q4_0:
+         case GGML_TYPE_Q4_1:
+         case GGML_TYPE_Q5_0:
+@@ -3335,6 +3832,7 @@ static bool ggml_backend_webgpu_device_supports_op(ggml_backend_dev_t dev, const
+                         switch (src0->type) {
+                             case GGML_TYPE_F32:
+                             case GGML_TYPE_F16:
++                            case GGML_TYPE_Q1_0:
+                             case GGML_TYPE_Q4_0:
+                             case GGML_TYPE_Q4_1:
+                             case GGML_TYPE_Q5_0:
+@@ -3373,6 +3871,7 @@ static bool ggml_backend_webgpu_device_supports_op(ggml_backend_dev_t dev, const
+                     switch (src0->type) {
+                         case GGML_TYPE_F32:
+                         case GGML_TYPE_F16:
++                        case GGML_TYPE_Q1_0:
+                         case GGML_TYPE_Q4_0:
+                         case GGML_TYPE_Q4_1:
+                         case GGML_TYPE_Q5_0:
+@@ -3395,33 +3894,63 @@ static bool ggml_backend_webgpu_device_supports_op(ggml_backend_dev_t dev, const
              break;
          case GGML_OP_FLASH_ATTN_EXT:
              {
@@ -9778,7 +11146,7 @@ index aa20a745..d6d7dbda 100644
                  break;
              }
          case GGML_OP_RMS_NORM:
-@@ -3497,9 +4022,22 @@ static bool ggml_backend_webgpu_device_supports_op(ggml_backend_dev_t dev, const
+@@ -3497,9 +4026,22 @@ static bool ggml_backend_webgpu_device_supports_op(ggml_backend_dev_t dev, const
          case GGML_OP_SOLVE_TRI:
              supports_op = op->type == GGML_TYPE_F32 && src0->type == GGML_TYPE_F32 && src1->type == GGML_TYPE_F32;
              break;
@@ -9801,7 +11169,7 @@ index aa20a745..d6d7dbda 100644
          case GGML_OP_GATED_DELTA_NET:
              {
                  const uint32_t s_v = (uint32_t) src2->ne[0];
-@@ -3590,9 +4128,9 @@ static struct ggml_backend_device_i ggml_backend_webgpu_device_i = {
+@@ -3590,9 +4132,9 @@ static struct ggml_backend_device_i ggml_backend_webgpu_device_i = {
      /* .supports_op          = */ ggml_backend_webgpu_device_supports_op,
      /* .supports_buft        = */ ggml_backend_webgpu_device_supports_buft,
      /* .offload_op           = */ NULL,
@@ -10947,6 +12315,35 @@ index a5257587..b1e23478 100644
              }
          }
      }
+diff --git src/ggml-webgpu/wgsl-shaders/get_rows.wgsl src/ggml-webgpu/wgsl-shaders/get_rows.wgsl
+index 1415798f..5710cd35 100644
+--- src/ggml-webgpu/wgsl-shaders/get_rows.wgsl
++++ src/ggml-webgpu/wgsl-shaders/get_rows.wgsl
+@@ -27,6 +27,24 @@ fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
+ }
+ #endif
+ 
++#ifdef Q1_0
++fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
++    let block_byte_base = (src_base + offset) * 18;
++    let d = load_f16_as_f32_at_src(block_byte_base);
++    for (var j: u32 = 0u; j < 4u; j++) {
++        let q_packed = load_u32_at_src(block_byte_base + 2u + j * 4u);
++        let dst_base128 = dst_base + offset * 128u + j * 32u;
++        for (var k: u32 = 0; k < 4u; k++) {
++            let q_byte = get_byte(q_packed, k);
++            for (var bit: u32 = 0; bit < 8u; bit++) {
++                let w = select(-d, d, ((q_byte >> bit) & 1u) != 0u);
++                dst[dst_base128 + k * 8u + bit] = w;
++            }
++        }
++    }
++}
++#endif
++
+ #ifdef Q4_0
+ fn copy_elements(src_base: u32, dst_base: u32, offset: u32) {
+     let block_byte_base = (src_base + offset) * 18; // Block stride: 18 bytes
 diff --git src/ggml-webgpu/wgsl-shaders/im2col.wgsl src/ggml-webgpu/wgsl-shaders/im2col.wgsl
 new file mode 100644
 index 00000000..386ebab8
@@ -11054,11 +12451,94 @@ index 00000000..386ebab8
 +        store_output(params.offset_o + k * params.so0 + ow * params.so1 + oh * params.so2 + n * params.so3, 0.0);
 +    }
 +}
+diff --git src/ggml-webgpu/wgsl-shaders/mul_mat_decls.tmpl src/ggml-webgpu/wgsl-shaders/mul_mat_decls.tmpl
+index 5a323818..15b22c4f 100644
+--- src/ggml-webgpu/wgsl-shaders/mul_mat_decls.tmpl
++++ src/ggml-webgpu/wgsl-shaders/mul_mat_decls.tmpl
+@@ -61,6 +61,39 @@ fn init_shmem_src1(thread_id: u32, batch_offset: u32, offset_n: u32, k_outer: u3
+ #endif // INIT_SRC1_SHMEM_FLOAT
+ #endif
+ 
++#ifdef INIT_SRC0_SHMEM_Q1_0
++const BLOCK_SIZE = 128u;
++const BLOCK_SIZE_BYTES = 18u;
++const NQ = 8u; // 8 weights (1 byte of qs) per thread per iteration
++
++fn init_shmem_src0(thread_id: u32, batch_offset: u32, offset_m: u32, k_outer: u32) {
++    for (var i = thread_id * NQ; i < TILE_SRC0_SHMEM; i += TOTAL_WORKGROUP_SIZE * NQ) {
++        let tile_m = i / TILE_K;
++        let tile_k_start = i % TILE_K;
++        let global_m = offset_m + tile_m;
++        let global_k_start = k_outer + tile_k_start;
++
++        if (global_m >= params.m) {
++            break;
++        }
++
++        let block_k = global_k_start / BLOCK_SIZE;
++        let byte_in_block = (global_k_start % BLOCK_SIZE) / 8u;
++        let src0_idx = batch_offset + global_m * params.stride_01 + block_k;
++        let block_byte_base = src0_idx * BLOCK_SIZE_BYTES;
++        let d = load_f16_at_src0(block_byte_base);
++        let q_byte = load_u32_at_src0(block_byte_base + 2u + byte_in_block) & 0xFFu;
++
++        for (var bit = 0u; bit < NQ; bit++) {
++            let global_k = global_k_start + bit;
++            if (global_k < params.k) {
++                shmem[i + bit] = select(-d, d, ((q_byte >> bit) & 1u) != 0u);
++            }
++        }
++    }
++}
++#endif // INIT_SRC0_SHMEM_Q1_0
++
+ #ifdef INIT_SRC0_SHMEM_Q4_0
+ const BLOCK_SIZE = 32u;
+ const BLOCK_SIZE_BYTES = 18u;
 diff --git src/ggml-webgpu/wgsl-shaders/mul_mat_vec.wgsl src/ggml-webgpu/wgsl-shaders/mul_mat_vec.wgsl
-index 97c9f6d7..c2eafee6 100644
+index 97c9f6d7..a8000439 100644
 --- src/ggml-webgpu/wgsl-shaders/mul_mat_vec.wgsl
 +++ src/ggml-webgpu/wgsl-shaders/mul_mat_vec.wgsl
-@@ -812,6 +812,520 @@ fn main(
+@@ -128,6 +128,38 @@ fn main(
+     }
+ #endif
+ 
++#ifdef MUL_ACC_Q1_0
++#define BLOCK_SIZE 128
++#define BLOCK_SIZE_BYTES 18
++#define THREADS_PER_BLOCK 16
++#define ELEMS_PER_THREAD (BLOCK_SIZE/THREADS_PER_BLOCK)
++
++    let num_blocks = params.k / BLOCK_SIZE;
++    let thread_within_block = thread_id % THREADS_PER_BLOCK;
++    for (var block = thread_id / THREADS_PER_BLOCK; block < num_blocks; block += WG_SIZE / THREADS_PER_BLOCK) {
++        let x_base = src1_idx_base + block * BLOCK_SIZE + thread_within_block * ELEMS_PER_THREAD;
++        var x_block: array<f32, ELEMS_PER_THREAD>;
++        for (var i = 0u; i < ELEMS_PER_THREAD; i++) {
++            x_block[i] = f32(src1[x_base + i]);
++        }
++
++        for (var row = 0u; row < OUTPUTS_PER_WG; row++) {
++            let output_row = row_base + row;
++            if (output_row < params.m) {
++                let block_byte_base = (src0_batch_offset + output_row * params.stride_01 + block) * BLOCK_SIZE_BYTES;
++                let d = f32(load_f16_at_src0(block_byte_base));
++                let q_byte = load_u32_at_src0(block_byte_base + 2u + thread_within_block) & 0xFFu;
++                var row_sum = 0.0;
++                for (var bit = 0u; bit < 8u; bit++) {
++                    let w = select(-d, d, ((q_byte >> bit) & 1u) != 0u);
++                    row_sum += w * x_block[bit];
++                }
++                acc[row] += row_sum;
++            }
++        }
++    }
++#endif
++
+ #ifdef MUL_ACC_Q4_0
+ #define BLOCK_SIZE 32
+ #define BLOCK_SIZE_BYTES 18
+@@ -812,6 +844,520 @@ fn main(
      }
  #endif
  
