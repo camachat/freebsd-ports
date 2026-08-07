@@ -1,0 +1,29 @@
+--- src/CMakeLists.txt.orig	2025-12-17 05:23:44 UTC
++++ src/CMakeLists.txt
+@@ -524,6 +524,26 @@ add_feature_info("OpenCV algorithms" ENABLE_OPENCV "Us
+ endif()  # ENABLE_OPENCV
+ add_feature_info("OpenCV algorithms" ENABLE_OPENCV "Use OpenCV algorithms")
+ 
++#
++include(CheckFunctionExists)
++include(CheckLibraryExists)
++
++# EXECINFO
++check_function_exists(backtrace FUNCTION_BACKTRACE_FOUND)
++if(NOT FUNCTION_BACKTRACE_FOUND)
++	find_library(EXECINFO_LIBRARY NAMES execinfo)
++	if(EXECINFO_LIBRARY)
++		unset(FUNCTION_BACKTRACE_FOUND CACHE)
++		check_library_exists(${EXECINFO_LIBRARY} backtrace "" FUNCTION_BACKTRACE_FOUND)
++	endif(EXECINFO_LIBRARY)
++endif(NOT FUNCTION_BACKTRACE_FOUND)
++if(NOT FUNCTION_BACKTRACE_FOUND)
++	message(FATAL_ERROR "backtrace - ${FUNCTION_BACKTRACE_FOUND}")
++endif(NOT FUNCTION_BACKTRACE_FOUND)
++if(EXECINFO_LIBRARY)
++	target_link_libraries(openshot PRIVATE ${EXECINFO_LIBRARY})
++endif(EXECINFO_LIBRARY)
++
+ ###############  LINK LIBRARY  #################
+ # Link remaining dependency libraries
+ if(DEFINED PROFILER)

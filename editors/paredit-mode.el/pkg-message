@@ -1,0 +1,9 @@
+[
+{ type: install
+  message: <<EOM
+Add the following line to your Emacs configuration:
+
+    (require 'paredit)
+EOM
+}
+]

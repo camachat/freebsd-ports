@@ -1,0 +1,101 @@
+Use bind-tools option to ease the server/tools package split
+
+--- meson.build.orig	2026-07-13 10:59:45 UTC
++++ meson.build
+@@ -71,6 +71,8 @@ zlib_opt = get_option('zlib').enable_auto_if(developer
+ tracing_opt = get_option('tracing')
+ zlib_opt = get_option('zlib').enable_auto_if(developer_mode)
+ 
++bind_tools = get_option('bind-tools').enabled()
++
+ build_options = meson.build_options()
+ if build_options == ''
+     build_options = 'default'
+@@ -1347,6 +1349,7 @@ libisccfg_dep = declare_dependency(
+     include_directories: isccfg_inc,
+ )
+ 
++if bind_tools
+ executable(
+     'arpaname',
+     arpaname_src,
+@@ -1574,7 +1577,9 @@ executable(
+         libisc_dep,
+     ],
+ )
++endif
+ 
++if not bind_tools
+ executable(
+     'named-checkconf',
+     named_checkconf_src,
+@@ -1651,7 +1656,9 @@ executable(
+         lmdb_dep,
+     ],
+ )
++endif
+ 
++if bind_tools
+ executable(
+     'named-rrchecker',
+     named_rrchecker_src,
+@@ -1665,6 +1672,7 @@ executable(
+     ],
+ 
+ )
++endif
+ 
+ named_deps = []
+ 
+@@ -1702,6 +1710,7 @@ named_srcconf = named_srcset.apply(config, strict: fal
+ 
+ named_srcconf = named_srcset.apply(config, strict: false)
+ 
++if not bind_tools
+ executable(
+     'named',
+     named_srcconf.sources(),
+@@ -1730,7 +1739,9 @@ executable(
+         named_srcconf.dependencies(),
+     ],
+ )
++endif
+ 
++if bind_tools
+ executable(
+     'nsec3hash',
+     nsec3hash_src,
+@@ -1778,7 +1789,9 @@ executable(
+         edit_dep,
+     ],
+ )
++endif
+ 
++if not bind_tools
+ executable(
+     'rndc-confgen',
+     rndc_confgen_src,
+@@ -1876,6 +1889,7 @@ shared_library(
+         libns_dep,
+     ],
+ )
++endif
+ 
+ subdir('doc')
+ subdir('tests')
+@@ -1958,7 +1972,6 @@ print(release_date, end="")
+ print(release_date, end="")
+ '''
+ 
+-if doc_opt.allowed()
+     release_date = ''
+     if python.found()
+         release_date = run_command(python, ['-c', get_release_date], check: true).stdout()
+@@ -1979,6 +1992,7 @@ if doc_opt.allowed()
+ 
+     install_man(man_pages)
+ 
++if doc_opt.allowed()
+     if sphinx_build.found()
+         alias_target('doc-misc', doc_misc_targets)
+ 

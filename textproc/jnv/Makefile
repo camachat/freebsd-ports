@@ -1,0 +1,235 @@
+PORTNAME=	jnv
+DISTVERSIONPREFIX=	v
+DISTVERSION=	0.7.1
+PORTREVISION=	3
+CATEGORIES=	textproc
+
+MAINTAINER=	yuri@FreeBSD.org
+COMMENT=	Interactive JSON filter using jq
+WWW=		https://github.com/ynqa/jnv
+
+LICENSE=	MIT
+LICENSE_FILE=	${WRKSRC}/LICENSE
+
+USES=		cargo
+
+USE_GITHUB=	yes
+GH_ACCOUNT=	ynqa
+
+CARGO_CRATES=	adler2-2.0.1 \
+		aho-corasick-1.1.4 \
+		android_system_properties-0.1.5 \
+		anstream-1.0.0 \
+		anstyle-1.0.14 \
+		anstyle-parse-1.0.0 \
+		anstyle-query-1.1.5 \
+		anstyle-wincon-3.0.11 \
+		anyhow-1.0.102 \
+		arboard-3.6.1 \
+		autocfg-1.5.0 \
+		base64-0.22.1 \
+		bitflags-2.11.0 \
+		bumpalo-3.20.2 \
+		bytemuck-1.25.0 \
+		byteorder-lite-0.1.0 \
+		bytes-1.11.1 \
+		cc-1.2.58 \
+		cfg-if-1.0.4 \
+		chrono-0.4.44 \
+		clap-4.6.0 \
+		clap_builder-4.6.0 \
+		clap_derive-4.6.0 \
+		clap_lex-1.1.0 \
+		clipboard-win-5.4.1 \
+		colorchoice-1.0.5 \
+		convert_case-0.10.0 \
+		core-foundation-sys-0.8.7 \
+		crc32fast-1.5.0 \
+		crossbeam-deque-0.8.6 \
+		crossbeam-epoch-0.9.18 \
+		crossbeam-skiplist-0.1.3 \
+		crossbeam-utils-0.8.21 \
+		crossterm-0.29.0 \
+		crossterm_winapi-0.9.1 \
+		crunchy-0.2.4 \
+		derive_more-2.1.1 \
+		derive_more-impl-2.1.1 \
+		dirs-6.0.0 \
+		dirs-sys-0.5.0 \
+		dispatch2-0.3.1 \
+		document-features-0.2.12 \
+		downcast-rs-1.2.1 \
+		duration-string-0.5.3 \
+		dyn-clone-1.0.20 \
+		either-1.15.0 \
+		equivalent-1.0.2 \
+		errno-0.3.14 \
+		error-code-3.3.2 \
+		fax-0.2.6 \
+		fax_derive-0.2.0 \
+		fdeflate-0.3.7 \
+		filedescriptor-0.8.3 \
+		find-msvc-tools-0.1.9 \
+		fixedbitset-0.5.7 \
+		flate2-1.1.9 \
+		foldhash-0.1.5 \
+		futures-0.3.32 \
+		futures-channel-0.3.32 \
+		futures-core-0.3.32 \
+		futures-executor-0.3.32 \
+		futures-io-0.3.32 \
+		futures-macro-0.3.32 \
+		futures-sink-0.3.32 \
+		futures-task-0.3.32 \
+		futures-util-0.3.32 \
+		gethostname-1.1.0 \
+		getrandom-0.2.17 \
+		half-2.7.1 \
+		hashbrown-0.15.5 \
+		hashbrown-0.16.1 \
+		heck-0.5.0 \
+		hifijson-0.2.3 \
+		iana-time-zone-0.1.65 \
+		iana-time-zone-haiku-0.1.2 \
+		image-0.25.10 \
+		indexmap-2.13.0 \
+		is_terminal_polyfill-1.70.2 \
+		itoa-1.0.18 \
+		jaq-core-2.2.1 \
+		jaq-json-1.1.3 \
+		jaq-std-2.1.2 \
+		js-sys-0.3.91 \
+		libc-0.2.183 \
+		libm-0.2.16 \
+		libredox-0.1.15 \
+		linux-raw-sys-0.12.1 \
+		litrs-1.0.0 \
+		lock_api-0.4.14 \
+		log-0.4.29 \
+		memchr-2.8.0 \
+		miniz_oxide-0.8.9 \
+		mio-1.2.0 \
+		moxcms-0.8.1 \
+		nom-8.0.0 \
+		num-traits-0.2.19 \
+		objc2-0.6.4 \
+		objc2-app-kit-0.3.2 \
+		objc2-core-foundation-0.3.2 \
+		objc2-core-graphics-0.3.2 \
+		objc2-encode-4.1.0 \
+		objc2-foundation-0.3.2 \
+		objc2-io-surface-0.3.2 \
+		once_cell-1.21.4 \
+		once_cell_polyfill-1.70.2 \
+		option-ext-0.2.0 \
+		os_pipe-1.2.3 \
+		parking_lot-0.12.5 \
+		parking_lot_core-0.9.12 \
+		percent-encoding-2.3.2 \
+		petgraph-0.8.3 \
+		pin-project-lite-0.2.17 \
+		pkg-config-0.3.32 \
+		png-0.18.1 \
+		proc-macro2-1.0.106 \
+		promkit-core-0.3.0 \
+		promkit-widgets-0.5.0 \
+		pxfm-0.1.28 \
+		quick-error-2.0.1 \
+		quick-xml-0.39.2 \
+		quote-1.0.45 \
+		rayon-1.11.0 \
+		rayon-core-1.13.0 \
+		redox_syscall-0.5.18 \
+		redox_users-0.5.2 \
+		regex-lite-0.1.9 \
+		rustc_version-0.4.1 \
+		rustix-1.1.4 \
+		rustversion-1.0.22 \
+		scopeguard-1.2.0 \
+		semver-1.0.27 \
+		serde-1.0.228 \
+		serde_core-1.0.228 \
+		serde_derive-1.0.228 \
+		serde_json-1.0.149 \
+		serde_spanned-1.1.0 \
+		shlex-1.3.0 \
+		signal-hook-0.3.18 \
+		signal-hook-mio-0.2.5 \
+		signal-hook-registry-1.4.8 \
+		simd-adler32-0.3.9 \
+		slab-0.4.12 \
+		smallvec-1.15.1 \
+		socket2-0.6.3 \
+		strsim-0.11.1 \
+		syn-2.0.117 \
+		termcfg-0.2.0 \
+		thiserror-1.0.69 \
+		thiserror-2.0.18 \
+		thiserror-impl-1.0.69 \
+		thiserror-impl-2.0.18 \
+		tiff-0.11.3 \
+		tokio-1.50.0 \
+		tokio-macros-2.6.1 \
+		toml-1.1.0+spec-1.1.0 \
+		toml_datetime-1.1.0+spec-1.1.0 \
+		toml_parser-1.1.0+spec-1.1.0 \
+		toml_writer-1.1.0+spec-1.1.0 \
+		tree_magic_mini-3.2.2 \
+		typed-arena-2.0.2 \
+		unicode-ident-1.0.24 \
+		unicode-segmentation-1.13.2 \
+		unicode-width-0.2.2 \
+		urlencoding-2.1.3 \
+		utf8parse-0.2.2 \
+		wasi-0.11.1+wasi-snapshot-preview1 \
+		wasm-bindgen-0.2.114 \
+		wasm-bindgen-macro-0.2.114 \
+		wasm-bindgen-macro-support-0.2.114 \
+		wasm-bindgen-shared-0.2.114 \
+		wayland-backend-0.3.14 \
+		wayland-client-0.31.13 \
+		wayland-protocols-0.32.11 \
+		wayland-protocols-wlr-0.3.11 \
+		wayland-scanner-0.31.9 \
+		wayland-sys-0.31.10 \
+		weezl-0.1.12 \
+		winapi-0.3.9 \
+		winapi-i686-pc-windows-gnu-0.4.0 \
+		winapi-x86_64-pc-windows-gnu-0.4.0 \
+		windows-core-0.62.2 \
+		windows-implement-0.60.2 \
+		windows-interface-0.59.3 \
+		windows-link-0.2.1 \
+		windows-result-0.4.1 \
+		windows-strings-0.5.1 \
+		windows-sys-0.60.2 \
+		windows-sys-0.61.2 \
+		windows-targets-0.53.5 \
+		windows_aarch64_gnullvm-0.53.1 \
+		windows_aarch64_msvc-0.53.1 \
+		windows_i686_gnu-0.53.1 \
+		windows_i686_gnullvm-0.53.1 \
+		windows_i686_msvc-0.53.1 \
+		windows_x86_64_gnu-0.53.1 \
+		windows_x86_64_gnullvm-0.53.1 \
+		windows_x86_64_msvc-0.53.1 \
+		winnow-1.0.0 \
+		wl-clipboard-rs-0.9.3 \
+		x11rb-0.13.2 \
+		x11rb-protocol-0.13.2 \
+		zerocopy-0.8.47 \
+		zerocopy-derive-0.8.47 \
+		zmij-1.0.21 \
+		zune-core-0.5.1 \
+		zune-jpeg-0.5.15
+
+PLIST_FILES=	bin/${PORTNAME}
+
+post-install:
+	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}
+
+do-test:
+	@cd ${WRKSRC} && \
+		${CARGO} test --frozen --all-features
+
+.include <bsd.port.mk>

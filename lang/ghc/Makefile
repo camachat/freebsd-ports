@@ -1,0 +1,267 @@
+PORTNAME=	ghc
+PORTVERSION=	${GHC_VERSION}
+PORTREVISION?=	0
+CATEGORIES=	lang haskell
+MASTER_SITES=	https://www.haskell.org/ghc/dist/${PORTVERSION}/:source \
+		LOCAL/arrowd/:boot \
+		LOCAL/pkubaj:boot
+DISTFILES=	ghc-${PORTVERSION}-src${EXTRACT_SUFX}:source
+
+MAINTAINER=	haskell@FreeBSD.org
+COMMENT=	Compiler for the functional language Haskell
+WWW=		https://www.haskell.org/ghc/
+
+LICENSE=	BSD3CLAUSE
+LICENSE_FILE=	${WRKSRC}/LICENSE
+
+ONLY_FOR_ARCHS=		aarch64 amd64 powerpc64 powerpc64le
+
+BUILD_DEPENDS=		${LOCALBASE}/lib/libgmp.so:math/gmp
+
+USES=			autoreconf compiler:c11 gmake \
+			ncurses perl5 python:build shebangfix \
+			tar:xz
+
+GNU_CONFIGURE=		yes
+CONFIGURE_ARGS+=	--docdir=${DOCSDIR}
+CONFIGURE_ENV=		CC=${CC} CXX=${CXX} CPP=${CPP} GHC=${BOOT_GHC} \
+			ALEX=/usr/bin/true HAPPY=/usr/bin/true
+CONFIGURE_TARGET=	${GHC_ARCH}-portbld-${OPSYS:tl}
+NO_CCACHE=		yes
+OPTIONS_SUB=		yes
+SHEBANG_FILES=		boot.source \
+			hadrian/bootstrap/bootstrap.py
+
+OPTIONS_DEFINE?=	DYNAMIC GMP PROFILE DOCS PDFDOCS
+OPTIONS_DEFAULT=	DYNAMIC PROFILE GMP
+
+OPTIONS_GROUP=		BOOTSTRAP
+BOOTSTRAP_DESC=		Bootsrap using installed ghc
+OPTIONS_GROUP_BOOTSTRAP=BOOT
+
+BOOT_DESC=		Use installed GHC for bootstrapping
+DOCS_DESC=		Build and install HTML documentation
+PDFDOCS_DESC=		Build and install PDF documentation
+DYNAMIC_DESC=		Add support for dynamic linking
+GMP_DESC=		Use GNU Multi-precision Library from Ports
+PROFILE_DESC=		Add support for performance profiling
+
+DOCS_BUILD_DEPENDS=	sphinx-build:textproc/py-sphinx
+DOCS_VARS=		hadrian_docs_arg=--docs=no-sphinx-pdfs
+DOCS_VARS_OFF=		hadrian_docs_arg=--docs=none
+
+PDFDOCS_IMPLIES=	DOCS
+PDFDOCS_BUILD_DEPENDS=	xelatex:print/tex-xetex \
+			${LOCALBASE}/share/fonts/dejavu/DejaVuSans.ttf:x11-fonts/dejavu
+PDFDOCS_VARS=		hadrian_docs_arg=
+
+DYNAMIC_CONFIGURE_WITH=	system-libffi
+DYNAMIC_CONFIGURE_ON=	--with-ffi-includes=${LOCALBASE}/include \
+			--with-ffi-libraries=${LOCALBASE}/lib
+DYNAMIC_LIB_DEPENDS=	libffi.so:devel/libffi
+DYNAMIC_OFF_FLAVOUR?=	+no_dynamic_ghc+fully_static
+
+# do not replace this with GMP_CONFIGURE_WITH
+# it adds "--without-gmp-*" when the option is OFF, which results in "no" value
+# to be used as directory name
+GMP_CONFIGURE_ON=	--with-gmp-includes=${LOCALBASE}/include \
+			--with-gmp-libraries=${LOCALBASE}/lib
+GMP_LIB_DEPENDS=	libgmp.so:math/gmp
+GMP_VARS_OFF=		hadrian_gmp_arg=--bignum=native
+
+PROFILE_OFF_FLAVOUR=	+no_profiled_libs
+
+GHC_VERSION?=		9.12.4
+LLVM_VERSION?=		15
+BOOT_GHC_VERSION?=	9.6.7
+# LLVM version that bootstrap compiler uses
+BOOT_LLVM_VERSION?=	12
+
+BASE_PACKAGES?=		Cabal-3.14.2.0 array-0.5.8.0 base-4.21.2.0 binary-0.8.9.3 \
+			bytestring-0.12.2.0 containers-0.7 deepseq-1.5.1.0 \
+			directory-1.3.10.1 exceptions-0.10.12 file-io-0.1.6 \
+			filepath-1.5.5.0 ghc-${GHC_VERSION} ghc-bignum-1.3 \
+			ghc-compact-0.1.0.0 ghc-experimental-9.1204.0 \
+			ghc-internal-9.1204.0 ghc-platform-0.1.0.0 ghc-prim-0.13.0 \
+			ghc-toolchain-0.1.0.0 haddock-api-2.32.0 \
+			haddock-library-1.11.0 haskeline-0.8.4.1 hpc-0.7.0.2 \
+			integer-gmp-1.1 mtl-2.3.2 os-string-2.0.10 parsec-3.1.18.0 \
+			pretty-1.1.3.6 process-1.6.26.1 stm-2.5.3.1 \
+			semaphore-compat-1.0.0 template-haskell-2.23.0.0 \
+			terminfo-0.4.1.7 text-2.1.4 time-1.14 \
+			transformers-0.6.3.0 unix-2.8.8.0 xhtml-3000.2.2.1
+
+.for pkg in ${BASE_PACKAGES}
+PLIST_SUB+=	${pkg:C/-([0-9.])+//:tu}_VERSION=${pkg:C/^([^\.]*-)+//}
+.endfor
+
+PLIST_SUB+=		GHC_ARCH=${GHC_ARCH}
+
+.include <bsd.port.pre.mk>
+
+.if ${OSVERSION} >= 1500000
+BUILD_DEPENDS+=		${LOCALBASE}/lib/compat/libutil.so.9:misc/compat14x
+.endif
+
+.if ${SLAVE_PORT} != "yes"
+PORTDOCS=		*
+.else
+HADRIAN_DOCS_ARG=	--docs=none
+PLIST_SUB+=		GMP=
+.endif
+
+HADRIAN_FLAVOUR_ARG=	--flavour=default
+.if !${PORT_OPTIONS:MDYNAMIC}
+HADRIAN_FLAVOUR_ARG:=	${HADRIAN_FLAVOUR_ARG}${DYNAMIC_OFF_FLAVOUR}
+.endif
+.if !${PORT_OPTIONS:MPROFILE}
+HADRIAN_FLAVOUR_ARG:=	${HADRIAN_FLAVOUR_ARG}${PROFILE_OFF_FLAVOUR}
+.endif
+
+HADRIAN_PLAN=		${WRKSRC}/hadrian/bootstrap/plan-bootstrap-${BOOT_GHC_VERSION:C/\./_/g}.json
+HADRIAN_CMD=		${WRKSRC}/hadrian/bootstrap/_build/bin/hadrian \
+			${HADRIAN_DOCS_ARG} \
+			${HADRIAN_GMP_ARG} \
+			${HADRIAN_FLAVOUR_ARG}
+
+DO_MAKE_BUILD=		${SETENVI} ${WRK_ENV} ${HADRIAN_CMD} ${_MAKE_JOBS}
+ALL_TARGET=		binary-dist-dir
+INSTALL_WRKSRC=		${WRKSRC}/_build/bindist/ghc-${GHC_VERSION}-${CONFIGURE_TARGET}
+
+GHC_ARCH=		${ARCH:S/amd64/x86_64/:C/armv.*/arm/:C/powerpc64.*/ppc64/}
+BOOT_DIR=		${WRKDIR}/ghc-${BOOT_GHC_VERSION}-${CONFIGURE_TARGET}
+BOOT_INSTALL_DIR=	${WRKDIR}/ghc-boot-install
+
+.if ! ${PORT_OPTIONS:MBOOT}
+DISTFILES+=		ghc-${BOOT_GHC_VERSION}-boot-${ARCH}-freebsd${EXTRACT_SUFX}:boot
+BOOT_GHC=		${BOOT_INSTALL_DIR}/bin/ghc-${BOOT_GHC_VERSION}
+.else
+# Allow to be overriden by user when using the BOOT option
+BOOT_GHC?=		${LOCALBASE}/bin/ghc
+.endif # MBOOT
+
+HADRIAN_BOOT_TARBALL?=	hadrian-${GHC_VERSION}-boot.tar.gz
+
+.if !defined(IGNORE_MISSING_HADRIAN)
+DISTFILES+=		${HADRIAN_BOOT_TARBALL}:boot
+.endif
+
+.if ${ARCH} == aarch64
+CONFIGURE_TARGET=	${ARCH}-unknown-freebsd${"${ARCH:Maarch64}" != "":?:-gnueabihf}
+CONFIGURE_ARGS+=	--host=${CONFIGURE_TARGET}
+.elif ${ARCH:Mpowerpc64*}
+CONFIGURE_TARGET=	${ARCH}-unknown-freebsd
+CONFIGURE_ARGS+=	--host=${CONFIGURE_TARGET}
+.endif
+
+.if ${ARCH:Mpowerpc64*} && ${GHC_VERSION} == 9.6.7
+BOOT_GHC_VERSION=       9.6.7
+HADRIAN_BOOT_TARBALL=   hadrian-9.6.7-boot-powerpc64le.tar.gz
+.endif
+
+pre-configure:
+# Call the bootstrap script
+	cd ${WRKSRC} && ./boot.source
+.if ! ${PORT_OPTIONS:MBOOT}
+# If we are using bootstrap compiler, configure and install it into ${BOOT_DIR}
+	cd ${BOOT_DIR} && ${SETENVI} ${CONFIGURE_ENV} ${CONFIGURE_CMD} --prefix=${BOOT_INSTALL_DIR}
+	cd ${BOOT_DIR} && ${SETENVI} ${WRK_ENV} ${GMAKE} PACKAGES='' install
+.if ${ARCH} == powerpc64
+# Boot's settings are generated by configure which maps `powerpc64` to ELF_V1,
+# but FreeBSD ppc64 is ELFv2; flip so the boot's NCG dispatches correctly.
+	${REINPLACE_CMD} -e 's|ArchPPC_64 ELF_V1|ArchPPC_64 ELF_V2|g' \
+		${BOOT_INSTALL_DIR}/lib/ghc-${BOOT_GHC_VERSION}/lib/settings
+.endif
+.endif
+
+pre-build:
+.if ! ${PORT_OPTIONS:MBOOT}
+# Compile Hadrian using the bootstrap compiler and bootstrap Hadrian distfile
+	cd ${WRKSRC}/hadrian/bootstrap && \
+		./bootstrap.py -w ${BOOT_GHC} -s ${DISTDIR}/${HADRIAN_BOOT_TARBALL}
+.else
+# Otherwise, use whatever GHC and Hadrian plan the user wants
+.  if !exists(${BOOT_GHC})
+	@${ECHO_CMD} "===> BOOT_GHC ${BOOT_GHC} does not exist"
+	@${ECHO_CMD} "Re-run make BOOT_GHC=/path/to/correct/ghc"
+	@${FALSE}
+.  endif
+.  if !exists(${HADRIAN_PLAN})
+	@${ECHO_CMD} "===> HADRIAN_PLAN ${HADRIAN_PLAN} does not exist"
+	@${ECHO_CMD} "Run ls ${WRKSRC}/hadrian/bootstrap to see available plans"
+	@${ECHO_CMD} "Pick one closest to ${BOOT_GHC} ,"
+	@${ECHO_CMD} "hack if needed, run make HADRIAN_PLAN=/path/to/plan.json"
+	@${FALSE}
+.  endif
+	cd ${WRKSRC}/hadrian/bootstrap && \
+		./bootstrap.py -w ${BOOT_GHC} --deps ${HADRIAN_PLAN}
+.endif
+
+pre-install:
+	cd ${INSTALL_WRKSRC} && ${CONFIGURE_CMD} ${CONFIGURE_ENV} --prefix=${PREFIX}
+
+post-install:
+# Hadrian doesn't have --docdir
+	${MV} ${STAGEDIR}${DOCSDIR}-${GHC_VERSION} ${STAGEDIR}${DOCSDIR}
+# These includes are duplicated in lib/ghc-X.Y.Z/lib/<triple>/rts-X.Y.Z/include
+	${RM} -r ${STAGEDIR}${PREFIX}/include/*
+	${FIND} ${STAGEDIR}${DOCSDIR} -name .buildinfo -delete
+	${FIND} ${STAGEDIR}${PREFIX}/lib/ghc-${GHC_VERSION} -type f -perm +111 -not -name '*js' -exec ${STRIP_CMD} {} +
+.if ${SLAVE_PORT} == "yes"
+# Do not install docs for slave GHCs
+	${FIND} ${STAGEDIR}${PREFIX}/bin -not -type d -not -regex '.*-${GHC_VERSION}' -delete
+	${RM} -r ${STAGEDIR}${PREFIX}/lib/ghc-${GHC_VERSION}/html
+	${RM} -r ${STAGEDIR}${PREFIX}/lib/ghc-${GHC_VERSION}/latex
+.endif
+
+post-install-DOCS-off:
+	${RM} -r ${STAGEDIR}${DOCSDIR}/html
+
+# Create a bootstrap compiler tar ball: run this in an interactive poudriere jail
+# Set all OPTIONS to OFF when generating bootstraps
+.PHONY: create-bootstrap
+create-bootstrap:
+	cd ${WRKSRC} \
+		&& ${HADRIAN_CMD} binary-dist-xz \
+		&& ${MV} ${WRKSRC}/_build/bindist/ghc-${GHC_VERSION}-${CONFIGURE_TARGET}.tar.xz /tmp/ghc-${GHC_VERSION}-boot-${ARCH}-freebsd.tar.xz
+	@cd /tmp \
+		&& sha256 ghc-${GHC_VERSION}-boot-${ARCH}-freebsd.tar.xz \
+		&& ${ECHO_CMD} -n "SIZE (ghc-${GHC_VERSION}-boot-${ARCH}-freebsd.tar.xz) = " \
+		&& ${STAT} -f %z ghc-${GHC_VERSION}-boot-${ARCH}-freebsd.tar.xz
+
+# Much like create-bootstrap, just different naming and output format
+# Set DYNAMIC, GMP and PROFILE to ON, and DOCS to OFF when generating Stack bindist
+.PHONY: create-stack-bindist
+create-stack-bindist:
+	cd ${WRKSRC} \
+		&& ${HADRIAN_CMD} binary-dist-xz \
+		&& ${MV} ${WRKSRC}/_build/bindist/ghc-${GHC_VERSION}-${GHC_ARCH}-portbld-freebsd.tar.xz /tmp/
+	@cd /tmp \
+		&& ${ECHO_CMD} "${GHC_VERSION}:" \
+		&& ${ECHO_CMD} "url: \"http://distcache.FreeBSD.org/local-distfiles/arrowd/stack-bindists/ghc-${GHC_VERSION}-${GHC_ARCH}-portbld-freebsd.tar.xz\"" \
+		&& ${ECHO_CMD} -n "content-length: " \
+		&& ${STAT} -f %z ghc-${GHC_VERSION}-${GHC_ARCH}-portbld-freebsd.tar.xz \
+		&& ${ECHO_CMD} -n "sha1: " \
+		&& sha1 -q ghc-${GHC_VERSION}-${GHC_ARCH}-portbld-freebsd.tar.xz \
+		&& ${ECHO_CMD} -n "sha256: " \
+		&& sha256 -q ghc-${GHC_VERSION}-${GHC_ARCH}-portbld-freebsd.tar.xz
+
+.PHONY: create-hadrian-bootstrap
+create-hadrian-bootstrap:
+	${MAKE} -C ${.CURDIR} patch build-depends USE_PACKAGE_DEPENDS_ONLY=yes IGNORE_MISSING_HADRIAN=yes
+	cd ${WRKSRC}/hadrian/bootstrap && \
+		./bootstrap.py -w ${BOOT_GHC} --deps ${HADRIAN_PLAN} fetch -o /tmp/hadrian-${GHC_VERSION}-boot
+
+	@cd /tmp \
+		&& sha256 hadrian-${GHC_VERSION}-boot.tar.gz \
+		&& ${ECHO_CMD} -n "SIZE (hadrian-${GHC_VERSION}-boot.tar.gz) = " \
+		&& ${STAT} -f %z hadrian-${GHC_VERSION}-boot.tar.gz
+	@${ECHO_CMD}
+	@${ECHO_CMD} "Remember to check that hadrian bootstrap builds fine by running \"make check-hadrian-bootstrap\""
+
+.PHONY: check-hadrian-bootstrap
+check-hadrian-bootstrap:
+	cd ${WRKSRC}/hadrian/bootstrap && \
+		./bootstrap.py -w ${BOOT_GHC} -s /tmp/hadrian-${GHC_VERSION}-boot.tar.gz
+
+.include <bsd.port.post.mk>

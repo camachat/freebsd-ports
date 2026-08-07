@@ -1,0 +1,17 @@
+--- pyproject.toml.orig	2024-12-23 15:34:21 UTC
++++ pyproject.toml
+@@ -1,6 +1,6 @@ requires = [
+ [build-system]
+ requires = [
+-    "setuptools>=68.2.2",
++    "setuptools>=61",
+     "setuptools-scm[toml]>=6.2",
+     "Cython",
+     "numpy>=2.0.0",
+@@ -33,4 +33,4 @@ tag_prefix = ""
+ versionfile_source = "crick/_version.py"
+ versionfile_build = "crick/_version.py"
+ tag_prefix = ""
+-parentdir_prefix = "crick-"
+\ No newline at end of file
++parentdir_prefix = "crick-"

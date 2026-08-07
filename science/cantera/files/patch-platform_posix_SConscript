@@ -1,0 +1,11 @@
+--- platform/posix/SConscript.orig	2025-11-17 22:34:45 UTC
++++ platform/posix/SConscript
+@@ -4,7 +4,7 @@ localenv = env.Clone()
+ localenv = env.Clone()
+ 
+ # Copy man pages
+-if env['INSTALL_MANPAGES']:
++if True or env['INSTALL_MANPAGES']:
+     install('$inst_mandir', multi_glob(localenv, '#platform/posix/man', '*'))
+ 
+ ### Generate customized scripts ###

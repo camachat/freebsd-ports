@@ -1,0 +1,9 @@
+TIMESTAMP = 1774187371
+SHA256 (cabal/lhs2tex-1.26/lhs2tex-1.26.tar.gz) = 26a3a55d1a2e71a1af353e12e18c3dc704dfcebe9fa4418940f20aba0ee8c6a5
+SIZE (cabal/lhs2tex-1.26/lhs2tex-1.26.tar.gz) = 905241
+SHA256 (cabal/regex-base-0.94.0.3/regex-base-0.94.0.3.tar.gz) = e8ca2dee598c790dd1c1c4359bdd1e495d9b881f5aa1f539c22f0dd5563747bf
+SIZE (cabal/regex-base-0.94.0.3/regex-base-0.94.0.3.tar.gz) = 10550
+SHA256 (cabal/regex-compat-0.95.2.2/regex-compat-0.95.2.2.tar.gz) = e27ed1d8c3616a7bd471c66950c7dd3bbdfe435da8319d647bfea12031bb301c
+SIZE (cabal/regex-compat-0.95.2.2/regex-compat-0.95.2.2.tar.gz) = 4658
+SHA256 (cabal/regex-posix-0.96.0.2/regex-posix-0.96.0.2.tar.gz) = 7e570460c35c5deec54d1ba46305ddb4679c7d4aae84f631dd0c61daaeaa8150
+SIZE (cabal/regex-posix-0.96.0.2/regex-posix-0.96.0.2.tar.gz) = 13343

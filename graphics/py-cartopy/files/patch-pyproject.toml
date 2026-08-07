@@ -1,0 +1,11 @@
+--- pyproject.toml.orig	2024-04-10 17:45:30 UTC
++++ pyproject.toml
+@@ -15,7 +15,7 @@ build-backend = "setuptools.build_meta"
+ build-backend = "setuptools.build_meta"
+ 
+ [project]
+-name = "Cartopy"
++name = "cartopy"
+ authors = [
+     {name = "UK Met Office"},
+ ]

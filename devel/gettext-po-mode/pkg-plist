@@ -1,0 +1,3 @@
+%%EMACS_SITE_LISPDIR%%/po-compat.el
+%%EMACS_SITE_LISPDIR%%/po-mode.el
+%%EMACS_SITE_LISPDIR%%/start-po.el

@@ -1,0 +1,24 @@
+[
+{ type: install
+  message: <<EOM
+If this is a first installation of RoundCube you have to create
+a new database and a db user. Read INSTALL.md for detailed instructions.
+EOM
+}
+{ type: upgrade
+  message: <<EOM
+If you already had a previous version of RoundCube installed,
+you should check your config files and DB schema are up-to-date.
+Read UPGRADING.md for detailed instructions.
+EOM
+}
+{ type: upgrade
+  maximum_version: "1.6.0"
+  message: <<EOM
+Roundcube 1.7 has a number of breaking changes. Check 
+https://roundcube.net/news/2026/05/10/roundcube-1.7.0-released for
+details.
+Read UPGRADING.md for detailed instructions.
+EOM
+}
+]
