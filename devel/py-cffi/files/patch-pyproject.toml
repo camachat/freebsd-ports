@@ -1,0 +1,21 @@
+--- pyproject.toml.orig	2026-07-06 20:52:02 UTC
++++ pyproject.toml
+@@ -1,7 +1,7 @@ requires = [
+ [build-system]
+ requires = [
+     # Required for PEP 639 support
+-    "setuptools >= 77.0.3"
++    "setuptools >= 61"
+ ]
+ build-backend = "setuptools.build_meta"
+ 
+@@ -15,8 +15,7 @@ readme = "README.md"
+ 
+ description = "Foreign Function Interface for Python calling C code."
+ readme = "README.md"
+-license = "MIT-0"
+-license-files = ["LICENSE"]
++license = {text = "MIT-0"}
+ classifiers = [
+     "Programming Language :: Python",
+     "Programming Language :: Python :: 3",

@@ -1,0 +1,11 @@
+include/ta-lib/ta_abstract.h
+include/ta-lib/ta_common.h
+include/ta-lib/ta_defs.h
+include/ta-lib/ta_func.h
+include/ta-lib/ta_func_unguarded.h
+include/ta-lib/ta_libc.h
+lib/libta-lib.a
+lib/libta-lib.so
+lib/libta-lib.so.0
+lib/libta-lib.so.0.0.0
+libdata/pkgconfig/ta-lib.pc

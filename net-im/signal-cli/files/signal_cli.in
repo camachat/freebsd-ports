@@ -1,0 +1,66 @@
+#!/bin/sh
+
+# PROVIDE: signal_cli
+# REQUIRE: DAEMON LOGIN NETWORKING dbus
+
+. /etc/rc.subr
+
+name=signal_cli
+rcvar=signal_cli_enable
+
+# Load configuration variables from /etc/rc.conf and /etc/rc.conf.local
+load_rc_config ${name}
+
+# Default values for signal-cli configuration
+: ${signal_cli_enable:=NO}                              # Not enabled by default
+: ${signal_cli_config_dir:="/var/lib/signal-cli"}       # Default to /var/lib/signal-cli
+: ${signal_cli_user:="signal-cli"}                      # Default to "signal-cli" user
+: ${signal_cli_group:="signal-cli"}                     # Default to "signal-cli" group
+: ${signal_cli_phone_number}                            # No default value. Kept here for consistency.
+: ${signal_cli_cmd_opts:="--system"}                    # Type of daemon to run, default to system dbus
+: ${signal_cli_pidfile:="/var/run/${name}/${name}.pid"} # PID file, default to /var/run/signal_cli/signal_cli.pid
+
+pidfile="${signal_cli_pidfile}"
+procname="%%JAVA_HOME%%/bin/java"
+
+_daemon_args="-p ${pidfile}"
+_signal_cli="%%PREFIX%%/bin/signal-cli --config ${signal_cli_config_dir}"
+_signal_cli_args="-u ${signal_cli_phone_number}"
+_signal_cli_cmd="daemon"
+
+command="/usr/sbin/daemon"
+command_args="${_daemon_args} ${_signal_cli} ${_signal_cli_args} ${_signal_cli_cmd} ${signal_cli_cmd_opts}"
+extra_commands="runcli"
+
+start_precmd="signal_cli_prestart"
+runcli_cmd="signal_cli_runcli"
+
+signal_cli_create_config_dir()
+{
+	if ! install -d -o ${signal_cli_user} -g ${signal_cli_group} -m 700 "${signal_cli_config_dir}"; then
+		err 1 "Failed to create a config directory at \"${signal_cli_create_config_dir}\""
+	fi
+}
+
+signal_cli_prestart()
+{
+	if [ -z "${signal_cli_phone_number}" ]; then
+		err 1 "Phone number not provided; please set signal_cli_phone_number"
+	fi
+	signal_cli_create_config_dir
+}
+
+signal_cli_preconfigure()
+{
+	signal_cli_create_config_dir
+}
+
+# The "runcli" command can be used to run any signal-cli command (for example
+# "link -n DEVICENAME") from the environment of the service.
+signal_cli_runcli()
+{
+	chroot -u ${signal_cli_user} / ${_signal_cli} "$@"
+}
+
+load_rc_config ${name}
+run_rc_command "$@"

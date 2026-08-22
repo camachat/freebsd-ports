@@ -1,0 +1,13 @@
+--- gdb/cli/cli-cmds.c~	2026-06-19 08:01:36.144822000 +0200
++++ gdb/cli/cli-cmds.c	2026-06-19 08:03:03.972471000 +0200
+@@ -1748,6 +1748,10 @@
+ 	high += low;
+     }
+ 
++// XXX hack to work around bug # 13519
++// http://sourceware.org/bugzilla/show_bug.cgi?id=13519
++  low &= 0x800000 - 1;
++  high &= 0x800000 - 1;
+   print_disassembly (gdbarch, name, low, high, block, flags);
+ }
+ 

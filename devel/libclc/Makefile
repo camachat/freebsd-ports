@@ -1,0 +1,110 @@
+PORTNAME=	libclc
+DISTVERSION=	${DISTVERSION_${FLAVOR}}
+DISTVERSION_llvm23=	23.1.0-rc3
+DISTVERSION_llvm22=	22.1.8
+DISTVERSION_llvm21=	21.1.8
+DISTVERSION_llvm20=	20.1.8
+DISTVERSION_llvm19=	19.1.7
+DISTVERSION_llvm18=	18.1.8
+DISTVERSION_llvm17=	17.0.6
+DISTVERSION_llvm16=	16.0.6
+DISTVERSION_llvm15=	15.0.7
+CATEGORIES=	devel
+MASTER_SITES=	https://github.com/llvm/llvm-project/releases/download/llvmorg-${DISTVERSION}/
+DISTNAME=	libclc-${DISTVERSION}.src
+PKGNAMESUFFIX=	-${FLAVOR}
+
+MAINTAINER=	x11@FreeBSD.org
+COMMENT=	Required library functions for OpenCL C programming language
+WWW=		https://libclc.llvm.org/
+
+LICENSE=	LLVM
+LICENSE_FILE=	${WRKSRC}/LICENSE.TXT
+LICENSE_NAME=	Apache License 2.0 with LLVM Exceptions
+LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
+
+BUILD_DEPENDS=	spirv-llvm-translator-${FLAVOR}>0:devel/spirv-llvm-translator@${FLAVOR} \
+		libedit>=0:devel/libedit
+
+FLAVORS=	${23 22 21 20 19 18 17 16 15:L:S/^/llvm/}
+# FLAVOR?=	${FLAVORS:[1]}
+
+USES=		cmake compiler:c++11-lib llvm:${FLAVOR:S/llvm//},build python:build tar:xz
+USE_LDCONFIG=	${PREFIX}/${FLAVOR}/lib
+
+BINARY_ALIAS=	python=${PYTHON_CMD}
+CMAKE_ARGS+=	-DLLVM_DIR:PATH="${LOCALBASE}/${FLAVOR}" \
+		-DCMAKE_PREFIX_PATH="${LOCALBASE}/${FLAVOR}"
+CMAKE_INSTALL_PREFIX=		${PREFIX}/${FLAVOR}
+DISTINFO_FILE=	${.CURDIR}/distinfo.${FLAVOR}
+NO_ARCH=	yes
+
+# .if ${FLAVOR:S/llvm//} >= 23
+# # One CMake run = one libclc target. Mesa needs the mesa3d names.
+# LIBCLC_TARGETS=	spirv64-unknown-unknown
+# 
+# # Optional extras (not required for Rusticl/Clover):
+# # LIBCLC_TARGETS+=	amdgcn-amd-amdhsa \
+# # 			nvptx64-nvidia-cuda
+# 
+# # Do not set LLVM_DEFAULT_TARGET_TRIPLE in CMAKE_ARGS.
+# 
+# do-configure:
+# .for t in ${LIBCLC_TARGETS}
+# 	${MKDIR} ${WRKDIR}/.build-${t}
+# 	@cd ${WRKDIR}/.build-${t} && ${SETENV} ${CONFIGURE_ENV} \
+# 		${CMAKE_BIN} ${CMAKE_ARGS} \
+# 		-DLLVM_DEFAULT_TARGET_TRIPLE=${t} \
+# 		${CMAKE_SOURCE_PATH}
+# .endfor
+# 
+# do-build:
+# .for t in ${LIBCLC_TARGETS}
+# 	@${MAKE_CMD} -C ${WRKDIR}/.build-${t} ${MAKE_ARGS}
+# .endfor
+# 
+# do-install:
+# .for t in ${LIBCLC_TARGETS}
+# 	@cd ${WRKDIR}/.build-${t} && ${SETENV} ${MAKE_ENV} ${FAKE_MAKEENV} \
+# 		${MAKE_CMD} ${MAKE_ARGS} ${INSTALL_TARGET}
+# .endfor
+# .endif
+
+.include <bsd.port.pre.mk>
+
+.if ${FLAVOR} == llvm15
+BROKEN_FreeBSD_16=	Base libc++ is now too fresh for Clang 15 to compile
+.endif
+
+.if ${FLAVOR:S/llvm//} >= 22
+DISTNAME=	llvm-project-${DISTVERSION}.src
+WRKSRC_SUBDIR=	libclc
+.endif
+
+.if ${FLAVOR:S/llvm//} >= 23
+# One configure = one libclc target. llvm-spirv comes from spirv-llvm-translator.
+CMAKE_ARGS+=	-DLLVM_DEFAULT_TARGET_TRIPLE=spirv64-unknown-unknown
+EXTRA_PATCHES+=	${PATCHDIR}/llvm23-patch-CMakeLists.txt
+.endif
+
+.for i in ${FLAVORS:S/llvm//}
+.if ${FLAVOR:S/llvm//} >= ${i}
+PLIST_SUB+=	LLVM_GE${i}="" LLVM_LT${i}="@comment "
+.else
+PLIST_SUB+=	LLVM_GE${i}="@comment " LLVM_LT${i}=""
+.endif
+.endfor
+PLIST_SUB+=	LLVM_VERSION=${FLAVOR}
+
+post-patch:
+	@${REINPLACE_CMD} \
+		's,$${CMAKE_INSTALL_DATADIR}/pkgconfig,$${CMAKE_INSTALL_PREFIX}/libdata/pkgconfig,' \
+		${WRKSRC}/CMakeLists.txt
+.if ${FLAVOR:S/llvm//} >= 23
+	@${CP} ${FILESDIR}/libclc.pc.in ${WRKSRC}/libclc.pc.in
+post-install:
+	${MKDIR} ${STAGEDIR}${PREFIX}/${FLAVOR}/share/clc
+	${LN} -sf spirv64-unknown-unknown/libclc.spv \
+		${STAGEDIR}${PREFIX}/${FLAVOR}/share/clc/spirv64-mesa3d-.spv
+.endif
+.include <bsd.port.post.mk>

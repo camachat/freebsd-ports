@@ -1,0 +1,32 @@
+--- config/freebsd/build.xml.orig	2026-02-02 10:58:56 UTC
++++ config/freebsd/build.xml
+@@ -156,16 +156,18 @@
+                     <include name="${module.lwjgl}/jawt/src/generated/c/*.c" if:true="${binding.jawt}"/>
+                 </fileset>
+             </source>
+-            <beforeLink>
++            <beforeLink unless:true="${use.libffi.so}">
+                 <parallel threadsPerProcessor="2" failonany="true" unless:set="lib-dependencies-uptodate">
+                     <update-dependency module="core" artifact="core/libffi.a"/>
+                 </parallel>
+             </beforeLink>
+             <link>
+-                <fileset dir="${lib.native}/org/lwjgl">
++                <fileset dir="${lib.native}/org/lwjgl" unless:true="${use.libffi.so}">
+                     <include name="libffi.a"/>
+                 </fileset>
+                 <arg value="-ldl"/>
++                <arg value="-lffi" if:true="${use.libffi.so}"/>
++                <arg value="-L${libffi.path}" if:set="libffi.path"/>
+             </link>
+         </build>
+ 
+@@ -383,7 +385,7 @@
+         </build>
+ 
+         <!-- zstd -->
+-        <build module="zstd" simple="true" if:true="${binding.zstd}">
++        <build module="zstd" simple="true" flags="-Wno-deprecated-declarations" if:true="${binding.zstd}">
+             <beforeCompile>
+                 <compile flags="-DZSTD_MULTITHREAD">
+                     <arg value="-I${module.lwjgl.rel}/xxhash/src/main/c"/>

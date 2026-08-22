@@ -1,0 +1,151 @@
+PORTNAME=	amber
+DISTVERSIONPREFIX=	v
+DISTVERSION=	0.6.1
+PORTREVISION=	3
+CATEGORIES=	devel
+PKGNAMESUFFIX=	-code-search-replace-tool
+
+MAINTAINER=	yuri@FreeBSD.org
+COMMENT=	Code search/replace tool
+WWW=		https://github.com/dalance/amber
+
+LICENSE=	MIT
+LICENSE_FILE=	${WRKSRC}/LICENSE
+
+USES=		cargo
+
+USE_GITHUB=	yes
+GH_ACCOUNT=	dalance
+
+CARGO_CRATES=	aho-corasick-1.1.4 \
+		ansi_term-0.12.1 \
+		anyhow-1.0.102 \
+		atty-0.2.14 \
+		bitflags-1.3.2 \
+		bitflags-2.11.0 \
+		block2-0.6.2 \
+		bstr-1.12.1 \
+		cfg-if-1.0.4 \
+		cfg_aliases-0.2.1 \
+		chacha20-0.10.0 \
+		clap-2.34.0 \
+		cpufeatures-0.3.0 \
+		crossbeam-0.8.4 \
+		crossbeam-channel-0.5.15 \
+		crossbeam-deque-0.8.6 \
+		crossbeam-epoch-0.9.18 \
+		crossbeam-queue-0.3.12 \
+		crossbeam-utils-0.8.21 \
+		ctrlc-3.5.1 \
+		deranged-0.5.8 \
+		directories-6.0.0 \
+		dirs-sys-0.5.0 \
+		dispatch2-0.3.0 \
+		equivalent-1.0.2 \
+		errno-0.3.14 \
+		fastrand-2.3.0 \
+		filetime-0.2.27 \
+		foldhash-0.1.5 \
+		getch-0.3.1 \
+		getrandom-0.2.17 \
+		getrandom-0.4.1 \
+		glob-0.3.3 \
+		globset-0.4.18 \
+		hashbrown-0.15.5 \
+		hashbrown-0.16.1 \
+		heck-0.3.3 \
+		heck-0.5.0 \
+		hermit-abi-0.1.19 \
+		hermit-abi-0.5.2 \
+		id-arena-2.3.0 \
+		ignore-0.4.25 \
+		indexmap-2.13.0 \
+		itoa-1.0.17 \
+		lazy_static-1.5.0 \
+		leb128fmt-0.1.0 \
+		libc-0.2.182 \
+		libredox-0.1.12 \
+		linux-raw-sys-0.12.1 \
+		log-0.4.29 \
+		memchr-2.8.0 \
+		memmap-0.7.0 \
+		nix-0.30.1 \
+		num-conv-0.2.0 \
+		num_cpus-1.17.0 \
+		objc2-0.6.3 \
+		objc2-encode-4.1.0 \
+		once_cell-1.21.3 \
+		option-ext-0.2.0 \
+		powerfmt-0.2.0 \
+		prettyplease-0.2.37 \
+		proc-macro-error-1.0.4 \
+		proc-macro-error-attr-1.0.4 \
+		proc-macro2-1.0.106 \
+		quote-1.0.44 \
+		r-efi-5.3.0 \
+		rand-0.10.0 \
+		rand_core-0.10.0 \
+		redox_syscall-0.7.1 \
+		redox_users-0.5.2 \
+		regex-1.12.3 \
+		regex-automata-0.4.14 \
+		regex-syntax-0.8.9 \
+		rlibc-1.0.0 \
+		rustix-1.1.4 \
+		same-file-1.0.6 \
+		semver-1.0.27 \
+		serde-1.0.228 \
+		serde_core-1.0.228 \
+		serde_derive-1.0.228 \
+		serde_json-1.0.149 \
+		serde_spanned-1.0.4 \
+		strsim-0.8.0 \
+		structopt-0.3.26 \
+		structopt-derive-0.4.18 \
+		syn-1.0.109 \
+		syn-2.0.117 \
+		tempfile-3.25.0 \
+		term-1.2.1 \
+		termios-0.3.3 \
+		textwrap-0.11.0 \
+		thiserror-2.0.18 \
+		thiserror-impl-2.0.18 \
+		time-0.3.47 \
+		time-core-0.1.8 \
+		toml-1.0.3+spec-1.1.0 \
+		toml_datetime-1.0.0+spec-1.1.0 \
+		toml_parser-1.0.9+spec-1.1.0 \
+		toml_writer-1.0.6+spec-1.1.0 \
+		unicode-ident-1.0.24 \
+		unicode-segmentation-1.12.0 \
+		unicode-width-0.1.14 \
+		unicode-width-0.2.2 \
+		unicode-xid-0.2.6 \
+		vec_map-0.8.2 \
+		version_check-0.9.5 \
+		walkdir-2.5.0 \
+		wasi-0.11.1+wasi-snapshot-preview1 \
+		wasip2-1.0.2+wasi-0.2.9 \
+		wasip3-0.4.0+wasi-0.3.0-rc-2026-01-06 \
+		wasm-encoder-0.244.0 \
+		wasm-metadata-0.244.0 \
+		wasmparser-0.244.0 \
+		winapi-0.3.9 \
+		winapi-i686-pc-windows-gnu-0.4.0 \
+		winapi-util-0.1.11 \
+		winapi-x86_64-pc-windows-gnu-0.4.0 \
+		windows-link-0.2.1 \
+		windows-sys-0.61.2 \
+		winnow-0.7.14 \
+		wit-bindgen-0.51.0 \
+		wit-bindgen-core-0.51.0 \
+		wit-bindgen-rust-0.51.0 \
+		wit-bindgen-rust-macro-0.51.0 \
+		wit-component-0.244.0 \
+		wit-parser-0.244.0 \
+		zmij-1.0.21
+
+PLIST_FILES=	bin/ambr \
+		bin/ambs
+
+.include <bsd.port.mk>

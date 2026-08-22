@@ -1,0 +1,6 @@
+Netron is a viewer for neural network, deep learning, and machine learning
+models. It supports a wide variety of formats, including ONNX, TensorFlow Lite,
+Core ML, Keras, Caffe, Darknet, PyTorch, TensorFlow.js, Safetensors, and NumPy.
+
+Netron also has experimental support for TorchScript, torch.export, ExecuTorch,
+TensorFlow, OpenVINO, RKNN, ncnn, MNN, PaddlePaddle, GGUF, and scikit-learn.

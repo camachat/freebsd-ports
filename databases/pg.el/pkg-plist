@@ -1,0 +1,5 @@
+%%ELISPDIR%%/pg-bm25.el
+%%ELISPDIR%%/pg-geometry.el
+%%ELISPDIR%%/pg-gis.el
+%%ELISPDIR%%/pg-lo.el
+%%ELISPDIR%%/pg.el

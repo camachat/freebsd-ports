@@ -1,0 +1,44 @@
+PORTNAME=	fooyin
+DISTVERSIONPREFIX=	v
+DISTVERSION=	0.12.4
+CATEGORIES=	audio multimedia
+
+MAINTAINER=	diizzy@FreeBSD.org
+COMMENT=	foobar2000 inspired audio player
+WWW=		https://github.com/fooyin/fooyin
+
+LICENSE=	GPLv3
+LICENSE_FILE=	${WRKSRC}/COPYING
+
+NOT_FOR_ARCHS=  armv7 i386 powerpc
+NOT_FOR_ARCHS_REASON=	Fails to build on 32-bit platforms with various errors
+
+LIB_DEPENDS=	libavformat.so:multimedia/ffmpeg \
+		libgme.so:audio/libgme \
+		libicui18n.so:devel/icu \
+		libkdsingleapplication-qt6.so:devel/kdsingleapplication \
+		libQCoro6Core.so:devel/qcoro \
+		libtag.so:audio/taglib
+
+USES=		cmake compiler:c++23-lang desktop-file-utils gl libarchive \
+		pkgconfig qt:6 sdl
+USE_GL=		opengl
+USE_QT=		base sqldriver-sqlite svg tools:build
+USE_SDL=	sdl2
+
+USE_GITHUB=	yes
+
+CXXFLAGS+=	-fexperimental-library
+
+CMAKE_OFF=	BUILD_ALSA \
+		BUILD_CCACHE \
+		CMAKE_CXX_EXTENSIONS
+CMAKE_ON=	CMAKE_DISABLE_FIND_PACKAGE_ALSA \
+		CMAKE_DISABLE_FIND_PACKAGE_Ebur128 \
+		CMAKE_DISABLE_FIND_PACKAGE_OpenMpt \
+		CMAKE_DISABLE_FIND_PACKAGE_PipeWire \
+		CMAKE_DISABLE_FIND_PACKAGE_projectM4 \
+		CMAKE_DISABLE_FIND_PACKAGE_SndFile \
+		CMAKE_DISABLE_FIND_PACKAGE_SoXR
+
+.include <bsd.port.mk>

@@ -1,0 +1,11 @@
+--- requirements-build.txt.orig	2026-07-08 17:44:27 UTC
++++ requirements-build.txt
+@@ -1,7 +1,5 @@
+ # Build System requirements
+-setuptools>=77.0.0,<82  # 77.0 is the first release with PEP 639 license-files support
+-cmake>=3.27
+-ninja
++setuptools  # 77.0 is the first release with PEP 639 license-files support
+ numpy
+ packaging>=24.2  # required by setuptools>=77 to validate PEP 639 license expressions
+ pyyaml
