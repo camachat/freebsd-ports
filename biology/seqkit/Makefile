@@ -1,0 +1,34 @@
+PORTNAME=	seqkit
+DISTVERSIONPREFIX=	v
+DISTVERSION=	2.13.0
+PORTREVISION=	6
+CATEGORIES=	biology
+
+MAINTAINER=	yuri@FreeBSD.org
+COMMENT=	Cross-platform and ultrafast toolkit for FASTA/Q file manipulation
+WWW=		https://bioinf.shenwei.me/seqkit \
+		https://github.com/shenwei356/seqkit
+
+LICENSE=	MIT
+LICENSE_FILE=	${WRKSRC}/LICENSE
+
+BROKEN_i386=	compilation fails: vendor/github.com/ulikunitz/xz/lzma/reader.go:33:15: cannot use 1 << 31 (untyped int constant 2147483648) as int value in assignment (overflows)
+
+USES=		go:1.24+,modules
+USE_GITHUB=	nodefault
+GH_TUPLE=	golang:sys:v0.6.0:sys
+
+GO_MODULE=	github.com/shenwei356/seqkit/v2
+GO_TARGET=	./${PORTNAME}
+
+PLIST_FILES=	bin/${PORTNAME}
+
+pre-patch:
+	${RM} -r ${WRKSRC}/vendor/golang.org/x/sys
+	${LN} -s ${WRKDIR}/sys-* ${WRKSRC}/vendor/golang.org/x/sys
+
+do-test: # from https://bioinf.shenwei.me/seqkit/benchmark/
+	@cd ${WRKSRC}/tests && \
+		${GO_WRKDIR_BIN}/seqkit stat *.fa
+
+.include <bsd.port.mk>

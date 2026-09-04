@@ -1,0 +1,2 @@
+Fslsfonts lists the fonts served by an X font server (xfs) that match
+the given pattern. The wildcard characters "*" and "?" may be used.

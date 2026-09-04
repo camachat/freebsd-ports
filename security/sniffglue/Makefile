@@ -1,0 +1,191 @@
+PORTNAME=	sniffglue
+DISTVERSIONPREFIX=	v
+DISTVERSION=	0.16.2
+CATEGORIES=	security
+
+MAINTAINER=	freebsd@sysctl.cz
+COMMENT=	Secure multithreaded packet sniffer
+WWW=		https://github.com/kpcyrd/sniffglue
+
+LICENSE=	GPLv2
+LICENSE_FILE=	${WRKSRC}/LICENSE
+
+LIB_DEPENDS=	libpcap.so:net/libpcap
+
+USES=		cargo
+USE_GITHUB=	yes
+GH_ACCOUNT=	kpcyrd
+GH_PROJECT=	sniffglue
+CARGO_CRATES=	aho-corasick-1.1.4 \
+		ansi_term-0.12.1 \
+		anstream-1.0.0 \
+		anstyle-1.0.14 \
+		anstyle-parse-1.0.0 \
+		anstyle-query-1.1.5 \
+		anstyle-wincon-3.0.11 \
+		anyhow-1.0.102 \
+		arbitrary-1.4.2 \
+		autocfg-1.5.0 \
+		base64-0.13.1 \
+		bitflags-1.3.2 \
+		bitflags-2.11.1 \
+		block-buffer-0.12.0 \
+		boxxy-0.14.0 \
+		bstr-1.12.1 \
+		bufstream-0.1.4 \
+		byteorder-1.5.0 \
+		caps-0.5.6 \
+		cc-1.2.60 \
+		cfg-if-1.0.4 \
+		cfg_aliases-0.2.1 \
+		clap-3.2.25 \
+		clap-4.6.1 \
+		clap_builder-4.6.0 \
+		clap_complete-4.6.2 \
+		clap_derive-3.2.25 \
+		clap_derive-4.6.1 \
+		clap_lex-0.2.4 \
+		clap_lex-1.1.0 \
+		clipboard-win-5.4.1 \
+		close_fds-0.3.2 \
+		colorchoice-1.0.5 \
+		const-oid-0.10.2 \
+		cpufeatures-0.3.0 \
+		crypto-common-0.2.1 \
+		data-encoding-2.10.0 \
+		dhcp4r-0.2.3 \
+		digest-0.11.2 \
+		dirs-next-2.0.0 \
+		dirs-sys-next-0.1.2 \
+		dns-parser-0.8.0 \
+		endian-type-0.1.2 \
+		enum-primitive-derive-0.2.2 \
+		env_filter-1.0.1 \
+		env_logger-0.11.10 \
+		equivalent-1.0.2 \
+		errno-0.3.14 \
+		error-code-3.3.2 \
+		fd-lock-4.0.4 \
+		find-msvc-tools-0.1.9 \
+		getrandom-0.2.17 \
+		getrandom-0.3.4 \
+		hashbrown-0.12.3 \
+		hashbrown-0.17.0 \
+		heck-0.4.1 \
+		heck-0.5.0 \
+		hermit-abi-0.5.2 \
+		home-0.5.12 \
+		httparse-1.10.1 \
+		hybrid-array-0.4.10 \
+		indexmap-1.9.3 \
+		indexmap-2.14.0 \
+		is_terminal_polyfill-1.70.2 \
+		itoa-1.0.18 \
+		jiff-0.2.23 \
+		jiff-static-0.2.23 \
+		jobserver-0.1.34 \
+		libc-0.2.185 \
+		libfuzzer-sys-0.4.12 \
+		libredox-0.1.16 \
+		linux-raw-sys-0.12.1 \
+		log-0.4.29 \
+		memchr-2.8.0 \
+		minimal-lexical-0.2.1 \
+		nibble_vec-0.1.0 \
+		nix-0.29.0 \
+		nix-0.31.2 \
+		nom-7.1.3 \
+		nom-8.0.0 \
+		nom-derive-0.10.1 \
+		nom-derive-impl-0.10.1 \
+		num-traits-0.2.19 \
+		num_cpus-1.17.0 \
+		num_enum-0.7.6 \
+		num_enum_derive-0.7.6 \
+		once_cell-1.21.4 \
+		once_cell_polyfill-1.70.2 \
+		os_str_bytes-6.6.1 \
+		pcap-sys-0.1.3 \
+		phf-0.11.3 \
+		phf_codegen-0.11.3 \
+		phf_generator-0.11.3 \
+		phf_shared-0.11.3 \
+		pkg-config-0.3.33 \
+		pktparse-0.7.1 \
+		pledge-0.4.2 \
+		portable-atomic-1.13.1 \
+		portable-atomic-util-0.2.7 \
+		proc-macro-crate-3.5.0 \
+		proc-macro-error-1.0.4 \
+		proc-macro-error-attr-1.0.4 \
+		proc-macro2-1.0.106 \
+		quick-error-1.2.3 \
+		quote-1.0.45 \
+		r-efi-5.3.0 \
+		radix_trie-0.2.1 \
+		rand-0.8.6 \
+		rand_core-0.6.4 \
+		redox_users-0.4.6 \
+		regex-1.12.3 \
+		regex-automata-0.4.14 \
+		regex-syntax-0.8.10 \
+		rusticata-macros-4.1.0 \
+		rustix-1.1.4 \
+		rustversion-1.0.22 \
+		rustyline-15.0.0 \
+		seccomp-sys-0.1.3 \
+		serde-1.0.228 \
+		serde_core-1.0.228 \
+		serde_derive-1.0.228 \
+		serde_json-1.0.149 \
+		serde_spanned-1.1.1 \
+		sha2-0.11.0 \
+		shlex-1.3.0 \
+		siphasher-1.0.2 \
+		smallvec-1.15.1 \
+		strsim-0.11.1 \
+		strum-0.25.0 \
+		strum_macros-0.25.3 \
+		syn-1.0.109 \
+		syn-2.0.117 \
+		syscallz-0.17.0 \
+		textwrap-0.16.2 \
+		thiserror-1.0.69 \
+		thiserror-impl-1.0.69 \
+		tls-parser-0.12.2 \
+		toml-1.1.2+spec-1.1.0 \
+		toml_datetime-1.1.1+spec-1.1.0 \
+		toml_edit-0.25.11+spec-1.1.0 \
+		toml_parser-1.1.2+spec-1.1.0 \
+		toml_writer-1.1.1+spec-1.1.0 \
+		typenum-1.20.0 \
+		unicode-ident-1.0.24 \
+		unicode-segmentation-1.13.2 \
+		unicode-width-0.2.2 \
+		utf8parse-0.2.2 \
+		uzers-0.12.2 \
+		version_check-0.9.5 \
+		wasi-0.11.1+wasi-snapshot-preview1 \
+		wasip2-1.0.3+wasi-0.2.9 \
+		winapi-0.3.9 \
+		winapi-i686-pc-windows-gnu-0.4.0 \
+		winapi-x86_64-pc-windows-gnu-0.4.0 \
+		windows-link-0.2.1 \
+		windows-sys-0.59.0 \
+		windows-sys-0.61.2 \
+		windows-targets-0.52.6 \
+		windows_aarch64_gnullvm-0.52.6 \
+		windows_aarch64_msvc-0.52.6 \
+		windows_i686_gnu-0.52.6 \
+		windows_i686_gnullvm-0.52.6 \
+		windows_i686_msvc-0.52.6 \
+		windows_x86_64_gnu-0.52.6 \
+		windows_x86_64_gnullvm-0.52.6 \
+		windows_x86_64_msvc-0.52.6 \
+		winnow-1.0.1 \
+		wit-bindgen-0.57.1 \
+		zmij-1.0.21
+
+PLIST_FILES=	bin/sniffglue
+
+.include <bsd.port.mk>

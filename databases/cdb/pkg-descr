@@ -1,0 +1,20 @@
+cdb is a fast, reliable, lightweight package for creating and reading
+constant databases. Its database structure provides several features:
+
+* Fast lookups: A successful lookup in a large database normally
+  takes just two disk accesses. An unsuccessful lookup takes only one.
+* Low overhead: A database uses 2048 bytes (or 4096 bytes for cdb64),
+  plus 24 bytes per record (or 48 bytes per record for cdb64), plus
+  the space for keys and data.
+* No random limits: cdb can handle any database up to 4 gigabytes
+  (or up to an exabyte for cdb64). There are no other restrictions.
+  Records are streamed and don't have to fit into memory.
+  Databases are stored in a machine-independent format (one format for
+  cdb, one format for cdb64).
+* Fast atomic database replacement: `cdbmake` rewrites an entire
+  database much more quickly than other hashing packages. Database
+  replacement is safe against system crashes. Readers don't pause
+  during a rewrite: they continue transparently using the old database
+  until the new database is in place.
+* Fast database dumps: `cdbdump` prints the contents of a database in
+  cdbmake-compatible format.

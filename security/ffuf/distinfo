@@ -1,0 +1,5 @@
+TIMESTAMP = 1788145162
+SHA256 (go/security_ffuf/ffuf-v2.2.1/v2.2.1.mod) = 34b67014f24d717c016d7022f5bf6441d95797b53ac96ff06592ba95e9ba4bd9
+SIZE (go/security_ffuf/ffuf-v2.2.1/v2.2.1.mod) = 441
+SHA256 (go/security_ffuf/ffuf-v2.2.1/v2.2.1.zip) = 90b12cd82a21fbb03df669c4b2bb75b1d240685b55ca62db48ecdc06d1e67f6c
+SIZE (go/security_ffuf/ffuf-v2.2.1/v2.2.1.zip) = 309741

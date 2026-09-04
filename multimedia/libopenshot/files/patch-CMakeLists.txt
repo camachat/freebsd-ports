@@ -1,0 +1,30 @@
+--- CMakeLists.txt.orig	2026-04-02 23:34:37 UTC
++++ CMakeLists.txt
+@@ -131,7 +131,9 @@ add_subdirectory(src)
+ ### Process subdirectories
+ ###
+ add_subdirectory(src)
++if(BUILD_EXAMPLES)
+ add_subdirectory(examples)
++endif(BUILD_EXAMPLES)
+ add_subdirectory(bindings)
+ 
+ ###
+@@ -189,6 +191,8 @@ if (ENABLE_LIB_DOCS AND CMAKE_VERSION VERSION_GREATER 
+     set(DOXYGEN_INTERACTIVE_SVG YES)
+     set(DOXYGEN_DOT_TRANSPARENT YES)
+ 
++    set(DOXYGEN_DOT_GRAPH_MAX_NODES "100")	# set in src/config.xml of doxygen. the default value in 1.9.6 is 50.
++
+     doxygen_add_docs(${PROJECT_NAME}-doc
+       ${PROJECT_SOURCE_DIR}/src
+       ${PROJECT_SOURCE_DIR}/doc
+@@ -209,7 +213,7 @@ if (TARGET ${PROJECT_NAME}-doc)
+     OPTIONAL )    # No error if the docs aren't found
+ 
+   if(NOT TARGET doc)
+-    add_custom_target(doc)
++    add_custom_target(doc ALL)
+   endif()
+   if(TARGET doc)
+     add_dependencies(doc ${PROJECT_NAME}-doc)

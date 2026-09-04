@@ -1,0 +1,5 @@
+TIMESTAMP = 1788104875
+SHA256 (go/devel_cirrus-cli/cirrus-cli-v1.0.0/v1.0.0.mod) = 7847492ed114386ba04f4da0f4bd669882077e5154e845ed75b0918cc48b8aad
+SIZE (go/devel_cirrus-cli/cirrus-cli-v1.0.0/v1.0.0.mod) = 11840
+SHA256 (go/devel_cirrus-cli/cirrus-cli-v1.0.0/v1.0.0.zip) = 5428bde978f1795813230f1d6f0c8258c3c5a0cf43e7b76001056baeae3c3da3
+SIZE (go/devel_cirrus-cli/cirrus-cli-v1.0.0/v1.0.0.zip) = 1278800

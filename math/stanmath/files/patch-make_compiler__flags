@@ -1,0 +1,14 @@
+--- make/compiler_flags.orig	2026-05-19 13:36:01 UTC
++++ make/compiler_flags
+@@ -332,9 +332,9 @@ endif
+ 
+ endif
+ 
+-ifdef TBB_INTERFACE_NEW
++#ifdef TBB_INTERFACE_NEW
+ CPPFLAGS_TBB ?= -DTBB_INTERFACE_NEW
+-endif
++#endif
+ 
+ ################################################################################
+ # Setup STAN_THREADS

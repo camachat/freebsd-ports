@@ -1,0 +1,11 @@
+--- Jamtop
++++ Jamtop
+@@ -167,7 +167,7 @@ rule CheckForLibrary {
+ 				echo "Using system $(UCASE) library" ;
+ 				$(UCASE)LIB = ;
+ 				$(UCASE)INC = ;
+-				LINKFLAGS += $(LINKFLAG)$(lcase) ;
++				LINKFLAGS += -L$(LOCALBASE)/lib $(LINKFLAG)$(lcase) ;
+ 				HAVE_$(UCASE) = true ;
+ 			}
+ 		}

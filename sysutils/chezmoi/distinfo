@@ -1,0 +1,5 @@
+TIMESTAMP = 1780949699
+SHA256 (go/sysutils_chezmoi/twpayne-chezmoi-v2.70.5_GH0/go.mod) = 25397e9562735489a673b3250f860ae648f516e650eebe246e2fe036cf8fcb44
+SIZE (go/sysutils_chezmoi/twpayne-chezmoi-v2.70.5_GH0/go.mod) = 11876
+SHA256 (go/sysutils_chezmoi/twpayne-chezmoi-v2.70.5_GH0/twpayne-chezmoi-v2.70.5_GH0.tar.gz) = 653b6585db407c92ab902304136fa4516263c4e7e6e84163a3c1a186b3ddf55f
+SIZE (go/sysutils_chezmoi/twpayne-chezmoi-v2.70.5_GH0/twpayne-chezmoi-v2.70.5_GH0.tar.gz) = 2596537

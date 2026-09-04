@@ -1,0 +1,19 @@
+--- plugin/Makefile.in.orig	2026-08-29 19:34:45 UTC
++++ plugin/Makefile.in
+@@ -453,14 +453,14 @@ install: $(GRETLLIB) $(PLUGINS) $(URCDATA) $(DWDATA) i
+ .PHONY:
+ 
+ install: $(GRETLLIB) $(PLUGINS) $(URCDATA) $(DWDATA) installdirs
+-	$(LIBTOOL) --mode=install $(INSTALL_PROGRAM) \
++	$(LIBTOOL) --mode=install $(INSTALL_DATA) \
+ 	$(PLUGINS) $(DESTDIR)$(plugindir)
+ 	for f in $(PLUGIN_DATA) ; do \
+ 	$(INSTALL_DATA) $(topsrc)/plugin/data/$$f \
+ 	$(DESTDIR)$(plugindir)/data ; done
+ 
+ install-strip: $(GRETLLIB) $(PLUGINS) installdirs
+-	$(LIBTOOL) --mode=install $(INSTALL_PROGRAM) -s \
++	$(LIBTOOL) --mode=install $(INSTALL_DATA) -s \
+ 	$(PLUGINS) $(DESTDIR)$(plugindir)
+ 
+ installdirs:

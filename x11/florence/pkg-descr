@@ -1,0 +1,8 @@
+Florence is an extensible scalable virtual keyboard for X11. You need it if
+you cannot use a real keyboard (for example because of a handicap, a broken
+keyboard, or a tablet PC) but can use a pointing device.
+
+This port tracks the FrauBSD continuation of Florence after the SourceForge
+project stalled at 0.6.3 (2014). It includes sticky modifiers, a safer Resize
+scale path (stock magnifier +/− could crash), Framework-style Fn row layout,
+session placement, and a unified greeter mode.

@@ -1,0 +1,45 @@
+PORTNAME=	gifsicle
+PORTVERSION=	1.96
+CATEGORIES=	graphics
+MASTER_SITES=	https://www.lcdf.org/gifsicle/
+
+MAINTAINER=	tagattie@FreeBSD.org
+COMMENT=	Manipulates GIF images and animations
+WWW=		https://www.lcdf.org/gifsicle/
+
+LICENSE=	GPLv2
+LICENSE_FILE=	${WRKSRC}/COPYING
+
+FLAVORS=		x11 nox11
+FLAVOR?=		${FLAVORS:[1]}
+nox11_PKGNAMESUFFIX=	-nox11
+
+USES=		cpe
+
+CPE_VENDOR=	lcdf
+
+GNU_CONFIGURE=	yes
+
+PORTDOCS=	NEWS.md README.md
+PLIST_FILES=	bin/gifdiff bin/gifsicle \
+		share/man/man1/gifdiff.1.gz share/man/man1/gifsicle.1.gz
+
+.if ${FLAVOR} == x11
+USES+=			xorg
+USE_XORG=		ice sm x11
+CONFIGURE_ARGS=		--enable-gifview \
+			--with-x
+PLIST_FILES+=		bin/gifview \
+			share/man/man1/gifview.1.gz
+CONFLICTS_INSTALL=	gifsicle-nox11
+.else
+CONFLICTS_INSTALL=	gifsicle
+.endif
+
+OPTIONS_DEFINE=	DOCS
+
+post-install-DOCS-on:
+	@${MKDIR} ${STAGEDIR}${DOCSDIR}
+	(cd ${WRKSRC} && ${INSTALL_DATA} ${PORTDOCS} ${STAGEDIR}${DOCSDIR})
+
+.include <bsd.port.mk>

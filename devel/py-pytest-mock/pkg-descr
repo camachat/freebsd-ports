@@ -1,0 +1,2 @@
+This plugin provides a mocker fixture which is a thin-wrapper around the
+patching API provided by the mock package.

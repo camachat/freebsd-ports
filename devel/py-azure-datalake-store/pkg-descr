@@ -1,0 +1,6 @@
+A pure-python interface to the Azure Data-lake Storage Gen 1 system, providing
+pythonic file-system and file objects, seamless transition between Windows and
+POSIX remote paths, high-performance up- and down-loader.
+
+This software is under active development and not yet recommended for general
+use.

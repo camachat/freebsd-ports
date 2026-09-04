@@ -1,0 +1,27 @@
+PORTNAME=	nsc
+DISTVERSIONPREFIX=	v
+DISTVERSION=	2.15.0
+PORTREVISION=	5
+CATEGORIES=	net
+PKGNAMEPREFIX=	nats-
+
+MAINTAINER=	olgeni@FreeBSD.org
+COMMENT=	Tool for creating NATS account and user access configurations
+WWW=		https://github.com/nats-io/nsc
+
+LICENSE=	APACHE20
+LICENSE_FILE=	${WRKSRC}/LICENSE
+
+USES=		go:modules
+
+GO_MODULE=	github.com/nats-io/nsc/v2
+GO_LDFLAGS=	-X main.version=${DISTVERSION}
+
+PLIST_FILES=	bin/nsc \
+		share/doc/${PORTNAME}/README.md
+
+post-install:
+	@${MKDIR} ${STAGEDIR}${DOCSDIR}
+	${INSTALL_DATA} ${WRKSRC}/README.md ${STAGEDIR}${DOCSDIR}
+
+.include <bsd.port.mk>

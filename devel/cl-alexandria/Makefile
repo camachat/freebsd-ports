@@ -1,0 +1,65 @@
+PORTNAME=	alexandria
+DISTVERSIONPREFIX=	v
+DISTVERSION=	1.4
+PORTREVISION=	10
+PORTEPOCH=	1
+CATEGORIES=	devel lisp
+PKGNAMEPREFIX=	cl-
+
+MAINTAINER=	olgeni@FreeBSD.org
+COMMENT=	Collection of portable public domain utilities for Common Lisp
+WWW=		https://common-lisp.net/project/alexandria/
+
+LICENSE=	PD
+LICENSE_FILE=	${WRKSRC}/LICENCE
+
+USES=		cl
+USE_GITLAB=	yes
+GL_SITE=	https://gitlab.common-lisp.net
+
+PORTSCOUT=	limit:^1\.
+
+OPTIONS_DEFINE=	DOCS PDF
+
+PDF_DESC=	Build and install PDF documentation
+
+DOCS_BUILD_DEPENDS=	sbcl:lang/sbcl
+DOCS_USES=		makeinfo
+DOCS_INFO=		${PORTNAME}
+
+PDF_IMPLIES=		DOCS
+PDF_BUILD_DEPENDS=	texi2pdf:print/texinfo
+PDF_USES=		tex
+PDF_USE=		TEX=dvipdfmx:build
+PDF_PLIST_FILES=	${DOCSDIR}/${PORTNAME}.pdf
+
+do-build:
+	@${DO_NADA}
+
+do-build-DOCS-on:
+	cd ${WRKSRC}/doc && ${SETENV} ${MAKE_ENV} ${MAKE_CMD} ${MAKE_ARGS} html info
+
+do-build-PDF-on:
+	cd ${WRKSRC}/doc && ${SETENV} ${MAKE_ENV} ${MAKE_CMD} ${MAKE_ARGS} pdf
+
+do-install:
+	@${MKDIR} ${STAGEDIR}${ASDF_PATHNAME}/${PORTNAME}-1 \
+		${STAGEDIR}${ASDF_PATHNAME}/${PORTNAME}-2 \
+		${STAGEDIR}${ASDF_REGISTRY}
+	${INSTALL_DATA} ${WRKSRC}/${PORTNAME}-1/*.lisp ${STAGEDIR}${ASDF_PATHNAME}/${PORTNAME}-1
+	${INSTALL_DATA} ${WRKSRC}/${PORTNAME}-2/*.lisp ${STAGEDIR}${ASDF_PATHNAME}/${PORTNAME}-2
+	${INSTALL_DATA} ${WRKSRC}/${PORTNAME}.asd ${STAGEDIR}${ASDF_PATHNAME}
+	${INSTALL_DATA} ${WRKSRC}/${PORTNAME}-tests.asd ${STAGEDIR}${ASDF_PATHNAME}
+	${RLN} ${STAGEDIR}${ASDF_PATHNAME}/${PORTNAME}.asd ${STAGEDIR}${ASDF_REGISTRY}
+	${RLN} ${STAGEDIR}${ASDF_PATHNAME}/${PORTNAME}-tests.asd ${STAGEDIR}${ASDF_REGISTRY}
+
+do-install-DOCS-on:
+	@${MKDIR} ${STAGEDIR}${DOCSDIR} ${STAGEDIR}${PREFIX}/${INFO_PATH}
+	${INSTALL_DATA} ${WRKSRC}/doc/${PORTNAME}.html ${STAGEDIR}${DOCSDIR}
+	${INSTALL_DATA} ${WRKSRC}/doc/${PORTNAME}.info ${STAGEDIR}${PREFIX}/${INFO_PATH}
+
+do-install-PDF-on:
+	@${MKDIR} ${STAGEDIR}${DOCSDIR}
+	${INSTALL_DATA} ${WRKSRC}/doc/${PORTNAME}.pdf ${STAGEDIR}${DOCSDIR}
+
+.include <bsd.port.mk>

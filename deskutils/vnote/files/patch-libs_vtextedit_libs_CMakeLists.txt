@@ -1,0 +1,9 @@
+--- libs/vtextedit/libs/CMakeLists.txt.orig	2026-06-28 03:17:42 UTC
++++ libs/vtextedit/libs/CMakeLists.txt
+@@ -2,6 +2,5 @@ set(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
+ add_subdirectory(katevi)
+ set(BUILD_TESTING OFF CACHE BOOL "" FORCE)
+ set(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
+-add_subdirectory(cmark)
+ 
+ add_subdirectory(sonnet)

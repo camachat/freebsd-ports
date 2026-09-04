@@ -1,0 +1,32 @@
+PORTNAME=	pgweb
+DISTVERSIONPREFIX=	v
+DISTVERSION=	0.17.0
+PORTREVISION=	3
+CATEGORIES=	databases www
+PKGNAMEPREFIX=	go-
+
+MAINTAINER=	daniel@morante.net
+COMMENT=	Web-based database browser for PostgreSQL
+WWW=		https://github.com/sosedoff/pgweb
+
+LICENSE=	MIT
+
+USES=		go:modules
+USE_GITHUB=	yes
+GH_ACCOUNT=	sosedoff
+USE_RC_SUBR=	${PORTNAME}
+
+GO_MOD_DIST=	github
+GO_MODULE=	github.com/sosedoff/pgweb
+
+SUB_FILES+=	pkg-message
+SUB_LIST+=	PGWEBGROUP=${GROUPS} \
+		PGWEBUSER=${USERS} \
+		PORTNAME=${PORTNAME}
+
+PLIST_FILES=	bin/pgweb
+
+USERS=		www
+GROUPS=		www
+
+.include <bsd.port.mk>

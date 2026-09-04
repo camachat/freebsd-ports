@@ -1,0 +1,13 @@
+--- sesman/sesman.ini.in.orig	2026-04-17 14:22:02 UTC
++++ sesman/sesman.ini.in
+@@ -162,8 +162,8 @@ param=tcp
+ ; edit these lines to get debugging info in the xorgxrdp log file
+ #param=-logverbose
+ #param=5
+-param=-logfile
+-param=.xorgxrdp.%s.log
++#param=-logfile
++#param=.xorgxrdp.%s.log
+ 
+ [Xvnc]
+ param=Xvnc

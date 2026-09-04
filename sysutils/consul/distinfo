@@ -1,0 +1,15 @@
+TIMESTAMP = 1786815884
+SHA256 (go/sysutils_consul/hashicorp-consul-v2.0.3_GH0/go.mod) = 0fb41dc98fa5dbe7b4103dc2fd95110023b951f6c0c3b44a24991f10847ed548
+SIZE (go/sysutils_consul/hashicorp-consul-v2.0.3_GH0/go.mod) = 15329
+SHA256 (go/sysutils_consul/hashicorp-consul-v2.0.3_GH0/api/go.mod) = a06d6b434024b86864a387eeca3916c213a48dbc53ab59461df56d2edd1ee460
+SIZE (go/sysutils_consul/hashicorp-consul-v2.0.3_GH0/api/go.mod) = 2083
+SHA256 (go/sysutils_consul/hashicorp-consul-v2.0.3_GH0/envoyextensions/go.mod) = a9fa33b99a4e02d2303316f8cf212fe2c80216462ef581265a51a123bcb45d1b
+SIZE (go/sysutils_consul/hashicorp-consul-v2.0.3_GH0/envoyextensions/go.mod) = 2181
+SHA256 (go/sysutils_consul/hashicorp-consul-v2.0.3_GH0/proto-public/go.mod) = 72de2f6a41b44bc5875b6e6e0fe6accbb3aa6a12075e3b976443f1bf90c6326f
+SIZE (go/sysutils_consul/hashicorp-consul-v2.0.3_GH0/proto-public/go.mod) = 447
+SHA256 (go/sysutils_consul/hashicorp-consul-v2.0.3_GH0/sdk/go.mod) = 30a259d1e01ea5e3a8462e7d46020369865b9af6609f2c0125a5b2e8e2b3ff1a
+SIZE (go/sysutils_consul/hashicorp-consul-v2.0.3_GH0/sdk/go.mod) = 823
+SHA256 (go/sysutils_consul/hashicorp-consul-v2.0.3_GH0/troubleshoot/go.mod) = 86b1de4d01b9160abcce5b5b7b8c059257f144d6a420843a7cbf7cfa27697c30
+SIZE (go/sysutils_consul/hashicorp-consul-v2.0.3_GH0/troubleshoot/go.mod) = 3068
+SHA256 (go/sysutils_consul/hashicorp-consul-v2.0.3_GH0/hashicorp-consul-v2.0.3_GH0.tar.gz) = d91f6f99338216f9fbbe3035f67debb990f5fa49f8c554281ee5c4c352e69019
+SIZE (go/sysutils_consul/hashicorp-consul-v2.0.3_GH0/hashicorp-consul-v2.0.3_GH0.tar.gz) = 10998231
