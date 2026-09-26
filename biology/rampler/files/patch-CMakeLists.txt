@@ -1,0 +1,20 @@
+--- CMakeLists.txt.orig	2026-09-19 01:26:29 UTC
++++ CMakeLists.txt
+@@ -16,7 +16,7 @@ include(GNUInstallDirs)
+ include(FetchContent)
+ include(GNUInstallDirs)
+ 
+-find_package(bioparser 3.0.15 QUIET)
++find_package(bioparser REQUIRED)
+ if (NOT bioparser_FOUND)
+   FetchContent_Declare(
+     bioparser
+@@ -33,7 +33,7 @@ endif ()
+   endif ()
+ endif ()
+ 
+-find_package(biosoup 0.10.0 QUIET)
++find_package(biosoup REQUIRED)
+ if (NOT biosoup_FOUND)
+   FetchContent_Declare(
+     biosoup

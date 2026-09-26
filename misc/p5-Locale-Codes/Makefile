@@ -1,0 +1,19 @@
+PORTNAME=	Locale-Codes
+DISTVERSION=	3.64
+CATEGORIES=	misc perl5
+MASTER_SITES=	CPAN
+MASTER_SITE_SUBDIR=	CPAN:SBECK
+PKGNAMEPREFIX=	p5-
+
+MAINTAINER=	demon@FreeBSD.org
+COMMENT=	Perl5 module providing access to ISO3166 and ISO639 Country Codes
+WWW=		https://metacpan.org/release/Locale-Codes
+
+LICENSE=	ART10
+
+BUILD_DEPENDS=	p5-Test-Inter>=1.09:devel/p5-Test-Inter
+
+USES=		perl5
+USE_PERL5=	configure
+
+.include <bsd.port.mk>

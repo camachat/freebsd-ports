@@ -1,0 +1,18 @@
+PORTNAME=	rex-text
+PORTVERSION=	0.2.64
+CATEGORIES=	security rubygems
+MASTER_SITES=	RG
+
+MAINTAINER=	antoine@FreeBSD.org
+COMMENT=	Ruby Exploitation(Rex) methods for text manipulation and generation
+WWW=		https://github.com/rapid7/rex-text
+
+LICENSE=	BSD3CLAUSE
+LICENSE_FILE=	${WRKSRC}/LICENSE
+
+RUN_DEPENDS=	rubygem-bigdecimal>=0:math/rubygem-bigdecimal
+
+NO_ARCH=	yes
+USES=		gem
+
+.include <bsd.port.mk>

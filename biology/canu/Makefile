@@ -1,0 +1,66 @@
+PORTNAME=		canu
+DISTVERSION=		2.3
+CATEGORIES=		biology java perl5
+# Github auto-generated tarballs lack submodules
+MASTER_SITES=		https://github.com/marbl/canu/releases/download/v${DISTVERSION}/
+
+MAINTAINER=	jwb@FreeBSD.org
+COMMENT=	Single molecule sequence assembler
+WWW=		https://github.com/marbl/canu
+
+LICENSE=	GPLv2
+LICENSE_FILE=	${WRKDIR}/${PORTNAME}-${PORTVERSION}/README.license.GPL
+
+NOT_FOR_ARCHS=		armv6 armv7 i386 powerpc powerpcspe
+NOT_FOR_ARCHS_REASON=	Requires 64-bit processor
+
+BUILD_DEPENDS=	${LOCALBASE}/include/boost/config/platform/bsd.hpp:devel/boost-libs
+LIB_DEPENDS=	libcurl.so:ftp/curl
+RUN_DEPENDS=	gnuplot:math/gnuplot
+
+USES=		compiler:c++11-lang gmake java:run localbase perl5 pkgconfig ssl tar:xz
+
+JAVA_VERSION=	8+
+
+WRKSRC_SUBDIR=	src
+# Upstream Makefile compiles directly into ${DESTDIR}${PREFIX} rather than
+# using a separate install target.
+MAKE_ENV=	DESTDIR=${WRKSRC} CANU_BUILD_ENV=ports
+# Silence warnings about C++20 extensions
+CXXFLAGS+=	-std=c++20
+LDFLAGS+=	-lexecinfo
+
+.include <bsd.port.pre.mk>
+
+# Parasail should be unbundled, but that would be a project because it's
+# currently woven into the canu code
+post-extract:
+.if ${ARCH} == "aarch64"
+	${CP} ${FILESDIR}/cpuid_arm.c ${WRKSRC}/utility/src/parasail/cpuid.c
+.elif ${ARCH} == "powerpc64" || ${ARCH} == "powerpc64le"
+	${CP} ${FILESDIR}/cpuid_ppc.c ${WRKSRC}/utility/src/parasail/cpuid.c
+.elif ${ARCH} != "amd64"
+	${CP} ${FILESDIR}/cpuid_any.c ${WRKSRC}/utility/src/parasail/cpuid.c
+.endif
+
+pre-configure:
+	@${REINPLACE_CMD} \
+		-e 's|-O4||g' \
+		-e 's|-funroll-loops||g' \
+		-e 's|-fexpensive-optimizations||g' \
+		${WRKSRC}/Makefile
+	@${REINPLACE_CMD} \
+		-e 's|RealBin/../lib/perl5/site_perl|RealBin/../${SITE_PERL_REL}/canu|g' \
+		${WRKSRC}/pipelines/canu.pl
+
+do-install:
+	@${MKDIR} ${STAGEDIR}${PREFIX}
+	(cd ${WRKSRC}/build && ${COPYTREE_BIN} bin ${STAGEDIR}${PREFIX})
+	# STRIP_CMD fails without this under poudriere
+	@${CHMOD} u+w ${STAGEDIR}${PREFIX}/bin/*
+	@${STRIP_CMD} \
+		`file ${STAGEDIR}${PREFIX}/bin/* | ${GREP} ELF | cut -d : -f 1`
+	(cd ${WRKSRC}/build && \
+		${COPYTREE_SHARE} "lib share" ${STAGEDIR}${PREFIX})
+
+.include <bsd.port.post.mk>

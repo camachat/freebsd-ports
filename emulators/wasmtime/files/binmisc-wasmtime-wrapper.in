@@ -1,0 +1,3 @@
+#!/bin/sh
+exec %%PREFIX%%/bin/wasmtime run -Wthreads=y -Sthreads=y -- "$@"
+exec %%PREFIX%%/bin/wasmtime run -- "$@"

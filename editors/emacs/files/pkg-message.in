@@ -1,0 +1,20 @@
+[
+%%NATIVECOMP_COMMENT_START%%
+{ type: [install, upgrade], message: <<EOM
+Emacs has been built with support for native compilation.  Third-party
+elisp (from ELPA or FreeBSD packages) will be native-compiled at
+runtime.  You can configure the number of subprocesses used for native
+compilation via the native-comp-async-jobs-number variable.
+
+To disable native compilation:
+1. Add (setq native-comp-jit-compilation nil) to your early init file.
+2. Exit Emacs and remove the cache directory (often ~/.emacs.d/eln-cache).
+
+A small number of trampoline .eln files may still be generated even with
+native compilation disabled.  These are created when primitives are
+advised or redefined in your configuration, and are necessary to ensure
+that Emacs's own native-compiled code respects those customizations.
+EOM
+}
+%%NATIVECOMP_COMMENT_END%%
+]

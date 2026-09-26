@@ -1,0 +1,77 @@
+PORTNAME=	pgbouncer
+DISTVERSION=	1.25.1
+PORTREVISION=	1
+CATEGORIES=	databases
+MASTER_SITES=	https://www.pgbouncer.org/downloads/files/${DISTVERSION}/
+
+MAINTAINER=	dmitry.wagin@ya.ru
+COMMENT=	Lightweight connection pooler for PostgreSQL
+WWW=		https://www.pgbouncer.org/
+
+LICENSE=	BSD2CLAUSE
+LICENSE_FILE=	${WRKSRC}/COPYRIGHT
+
+LIB_DEPENDS=	libevent.so:devel/libevent
+
+USES=		cpe gmake pkgconfig python:build shebangfix ssl
+USE_RC_SUBR=	pgbouncer
+SHEBANG_FILES=	doc/filter.py etc/mkauth.py
+
+GNU_CONFIGURE=	yes
+CONFIGURE_ARGS=	--enable-evdns \
+		--with-libevent=${LOCALBASE}
+CONFIGURE_ENV+=	PTHREAD_LIBS="-lpthread"
+
+PORTSCOUT=	site:https://pgbouncer.github.io/downloads/
+SUB_FILES=	pkg-message
+SUB_LIST+=	PGBOUNCER_RUNDIR="${PGBOUNCER_RUNDIR}"
+
+PGBOUNCER_USER?=	${PORTNAME}
+PGBOUNCER_GROUP?=	${PORTNAME}
+.if ${PGBOUNCER_USER} == ${PORTNAME}
+USERS=		${PGBOUNCER_USER}
+.endif
+.if ${PGBOUNCER_GROUP} == ${PORTNAME}
+GROUPS=		${PGBOUNCER_GROUP}
+.endif
+
+PLIST_SUB+=	PGBOUNCER_GROUP="${GROUPS}" \
+		PGBOUNCER_LOGDIR="${PGBOUNCER_LOGDIR}" \
+		PGBOUNCER_RUNDIR="${PGBOUNCER_RUNDIR}" \
+		PGBOUNCER_USER="${USERS}"
+
+OPTIONS_DEFINE=		CARES MANPAGES
+OPTIONS_DEFAULT=	MANPAGES
+OPTIONS_SUB=		yes
+
+CARES_LIB_DEPENDS=	libcares.so:dns/c-ares
+CARES_CONFIGURE_WITH=	cares
+
+MANPAGES_BUILD_DEPENDS=		pandoc:textproc/hs-pandoc
+MANPAGES_CONFIGURE_ENV_OFF=	ac_cv_prog_PANDOC=${TRUE}
+
+PGBOUNCER_RUNDIR?=	/var/run/pgbouncer
+PGBOUNCER_LOGDIR?=	/var/log/pgbouncer
+
+post-patch:
+	@${REINPLACE_CMD} -e "s|= /etc/pgbouncer/userlist.txt|= ${PREFIX}/etc/pgbouncer.users|g" \
+		-e "s|= /var/log/pgbouncer/pgbouncer.log|= ${PGBOUNCER_LOGDIR}/pgbouncer.log|g" \
+		-e "s|= /var/run/pgbouncer/pgbouncer.pid|= ${PGBOUNCER_RUNDIR}/pgbouncer.pid|g" \
+		-e "s|= /etc/pgbouncer/resolv.conf|= ${PREFIX}/etc/pgbouncer-resolv.conf|g" \
+		-e "s|include /etc/pgbouncer/pgbouncer-other.ini|include ${PREFIX}/etc/pgbouncer-other.ini|g" \
+		${WRKSRC}/etc/pgbouncer.ini
+
+do-install:
+	${INSTALL_PROGRAM} ${WRKSRC}/pgbouncer ${STAGEDIR}${PREFIX}/bin/
+	${INSTALL_DATA} ${WRKSRC}/etc/pgbouncer.ini \
+		${STAGEDIR}${PREFIX}/etc/pgbouncer.ini.sample
+	${INSTALL_DATA} ${WRKSRC}/etc/userlist.txt \
+		${STAGEDIR}${PREFIX}/etc/pgbouncer.users.sample
+	@${MKDIR} ${STAGEDIR}${PGBOUNCER_RUNDIR} \
+		${STAGEDIR}${PGBOUNCER_LOGDIR}
+
+do-install-MANPAGES-on:
+	${INSTALL_MAN} ${WRKSRC}/doc/pgbouncer.1 ${STAGEDIR}${PREFIX}/share/man/man1
+	${INSTALL_MAN} ${WRKSRC}/doc/pgbouncer.5 ${STAGEDIR}${PREFIX}/share/man/man5
+
+.include <bsd.port.mk>

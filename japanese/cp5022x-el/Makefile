@@ -1,0 +1,31 @@
+PORTNAME=	cp5022x
+PORTVERSION=	0.0.20120324
+PORTREVISION=	18
+CATEGORIES=	japanese elisp
+PKGNAMESUFFIX=	-el
+
+MAINTAINER=	hrs@FreeBSD.org
+COMMENT=	CP50220 and CP51932 coding system support for Emacsen
+
+LICENSE=	GPLv3+
+
+USES=		emacs
+USE_GITHUB=	yes
+GH_ACCOUNT=	awasira
+GH_PROJECT=	cp5022x.el
+GH_TAGNAME=	ea7327d
+
+CONFLICTS_INSTALL=	ja-cp5022x-el-emacs_*
+
+NO_ARCH=	yes
+NO_BUILD=	yes
+
+PLIST_FILES=	${EMACS_SITE_LISPDIR}/cp5022x.el.gz
+
+do-install:
+	${GZIP_CMD} ${BUILD_WRKSRC}/cp5022x.el
+	${MKDIR} ${STAGEDIR}${PREFIX}/${EMACS_SITE_LISPDIR} && \
+	cd ${INSTALL_WRKSRC} && ${INSTALL_DATA} cp5022x.el.gz \
+		${STAGEDIR}${PREFIX}/${EMACS_SITE_LISPDIR}
+
+.include <bsd.port.mk>

@@ -1,0 +1,2 @@
+etc/man.d/erlang.conf
+@comment man pages listed dynamically in post-stage

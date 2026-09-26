@@ -1,0 +1,20 @@
+--- Makefile.orig	2025-04-24 17:07:30 UTC
++++ Makefile
+@@ -5,13 +5,13 @@ clean:
+ 
+ clean:
+ 
+-DSDIR=$(DESTDIR)/usr/share/debootstrap
++DSDIR=$(DESTDIR)$(DATADIR)
+ install:
+ 	mkdir -p $(DSDIR)/scripts
+-	mkdir -p $(DESTDIR)/usr/sbin
++	mkdir -p $(DESTDIR)$(PREFIX)/sbin
+ 
+ 	cp -a scripts/* $(DSDIR)/scripts/
+ 	install -m 0644 functions $(DSDIR)/
+ 
+-	sed 's/@VERSION@/$(VERSION)/g' debootstrap >$(DESTDIR)/usr/sbin/debootstrap
+-	chmod 0755 $(DESTDIR)/usr/sbin/debootstrap
++	sed 's/@VERSION@/$(VERSION)/g' debootstrap >$(DESTDIR)$(PREFIX)/sbin/debootstrap
++	chmod 0755 $(DESTDIR)$(PREFIX)/sbin/debootstrap

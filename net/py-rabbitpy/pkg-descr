@@ -1,0 +1,4 @@
+A pure python, thread-safe, minimalistic and Pythonic BSD Licensed
+AMQP/RabbitMQ library. rabbitpy aims to provide a simple and easy to
+use API for interfacing with RabbitMQ, minimizing the programming
+overhead often found in other libraries.

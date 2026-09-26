@@ -1,0 +1,5 @@
+TIMESTAMP = 1777676076
+SHA256 (zig/0.12.0.tar.gz) = f1ef979f8be70a128bc47f5b7e2f6194ec36f0f276cdc058a0a476e5d29fdf08
+SIZE (zig/0.12.0.tar.gz) = 25927
+SHA256 (zig/orhun-linuxwave-v0.4.0_GH0.tar.gz) = be5a2c9e5c59e3b241f9065cd922aace8595fbe2123843a6e3a43757b86f5ffe
+SIZE (zig/orhun-linuxwave-v0.4.0_GH0.tar.gz) = 372971

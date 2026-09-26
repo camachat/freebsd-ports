@@ -1,0 +1,5 @@
+TIMESTAMP = 1789916066
+SHA256 (go/sysutils_serf/serf-v0.11.0/v0.11.0.mod) = 8fa0f8edf7c212afb1336f4971905122936782e1c7a8dc1574b2bb86186fcfef
+SIZE (go/sysutils_serf/serf-v0.11.0/v0.11.0.mod) = 1862
+SHA256 (go/sysutils_serf/serf-v0.11.0/v0.11.0.zip) = fefaa0453e797c35dd261e3f0b801637e9d3ff99872ae1a96a11ef4df433aeb9
+SIZE (go/sysutils_serf/serf-v0.11.0/v0.11.0.zip) = 333314

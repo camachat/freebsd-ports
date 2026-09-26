@@ -1,0 +1,7 @@
+TIMESTAMP = 1790394176
+SHA256 (llama-cpp-11193/dist.tar.gz) = 2fc035671bf853940484f98db10821163a365e2b388c806a8698c5e5a55681ee
+SIZE (llama-cpp-11193/dist.tar.gz) = 3085790
+SHA256 (llama-cpp-11193/dist.tar.gz.sha256) = 32b0aca1ad546bdd763f188ecba36042b65ae206af42cc2baef94aba8cda9e62
+SIZE (llama-cpp-11193/dist.tar.gz.sha256) = 78
+SHA256 (llama-cpp-11193/ggml-org-llama.cpp-b11193_GH0.tar.gz) = 05ace82d60e93ae7ee9ec4320150f013614118902d1fb580626c9cee551cc933
+SIZE (llama-cpp-11193/ggml-org-llama.cpp-b11193_GH0.tar.gz) = 37596647

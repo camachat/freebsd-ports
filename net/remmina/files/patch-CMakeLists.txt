@@ -1,0 +1,14 @@
+--- CMakeLists.txt.orig	2026-03-11 09:50:57 UTC
++++ CMakeLists.txt
+@@ -285,9 +285,9 @@ include_directories(src/include)
+ include_directories(.)
+ include_directories(src/include)
+ 
+-# FreeBSD
++# FreeBSD|DragonFly
+ 
+-if(CMAKE_SYSTEM_NAME MATCHES "FreeBSD")
++if(CMAKE_SYSTEM_NAME MATCHES "FreeBSD|DragonFly")
+   set(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "-rdynamic")
+   include_directories(/usr/local/include /usr/include)
+   link_directories(/usr/local/lib /usr/lib)

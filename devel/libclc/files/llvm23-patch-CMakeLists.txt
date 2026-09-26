@@ -1,0 +1,13 @@
+--- CMakeLists.txt.orig	2026-08-21 16:25:33 UTC
++++ CMakeLists.txt
+@@ -192,6 +192,10 @@ add_dependencies(libclc libclc-opencl-builtins)
+ add_custom_target(libclc-opencl-builtins COMMENT "Build libclc OpenCL builtins")
+ add_dependencies(libclc libclc-opencl-builtins)
+ 
++configure_file(${CMAKE_CURRENT_SOURCE_DIR}/libclc.pc.in libclc.pc @ONLY)
++install(FILES ${CMAKE_CURRENT_BINARY_DIR}/libclc.pc
++        DESTINATION ${CMAKE_INSTALL_PREFIX}/libdata/pkgconfig)
++
+ # Configure the CLC internal builtins library.
+ set(LIBCLC_CLC_TARGET clc)
+ libclc_add_builtin_library(${LIBCLC_CLC_TARGET}

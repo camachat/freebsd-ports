@@ -1,0 +1,15 @@
+bin/YACReader
+bin/YACReaderLibrary
+bin/YACReaderLibraryServer
+lib/systemd/user/yacreaderlibraryserver.service
+share/applications/YACReader.desktop
+share/applications/YACReaderLibrary.desktop
+share/icons/hicolor/scalable/apps/YACReader.svg
+share/icons/hicolor/scalable/apps/YACReaderLibrary.svg
+share/man/man1/YACReader.1.gz
+share/man/man1/YACReaderLibrary.1.gz
+%%DATADIR%%/server/docroot/css/webui.css
+%%DATADIR%%/server/docroot/images/webui/YACLibraryServer.svg
+%%DATADIR%%/server/docroot/images/webui/app-store-badge.svg
+%%DATADIR%%/server/docroot/images/webui/google-play-badge.png
+%%DATADIR%%/server/docroot/js/webui.js

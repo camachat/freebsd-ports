@@ -1,0 +1,13 @@
+--- contrib/ffmpeg/module.defs.orig	2026-03-07 07:28:06 UTC
++++ contrib/ffmpeg/module.defs
+@@ -101,6 +101,10 @@ endif
+     FFMPEG.CONFIGURE.extra += --disable-vaapi
+ endif
+ 
++ifneq (1,$(FEATURE.gtk))
++    FFMPEG.CONFIGURE.extra += --disable-xlib
++endif
++
+ ifeq (1,$(FEATURE.fdk_aac))
+ FFMPEG.CONFIGURE.extra += \
+     --enable-nonfree \

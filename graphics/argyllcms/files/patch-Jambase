@@ -1,0 +1,15 @@
+--- Jambase
++++ Jambase
+@@ -1038,7 +1038,11 @@ else if $(UNIX)
+ # General defaults; a lot like UNIX
+ #
+ 
+-	AR				?= ar rusc ;
++	if ! $(AR) {
++		AR		= ar rusc ;
++	} else {
++		AR		+= rusc ;
++	}
+ 	AS				?= as ;
+ 	ASFLAGS			?= ;
+ 	AWK				?= awk ;

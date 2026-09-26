@@ -1,0 +1,26 @@
+--- app/meson.build.orig	2026-05-12 19:35:47 UTC
++++ app/meson.build
+@@ -70,8 +70,8 @@ feature_test_macros = [
+ 
+ feature_test_macros = [
+     '-D_GNU_SOURCE',
+-    '-D_POSIX_C_SOURCE=200809L',
+-    '-D_XOPEN_SOURCE=700',
++#     '-D_POSIX_C_SOURCE=200809L',
++#     '-D_XOPEN_SOURCE=700',
+ ]
+ 
+ conf = configuration_data()
+@@ -207,10 +207,10 @@ install_data('data/bash-completion/scrcpy',
+ install_data('data/zsh-completion/_scrcpy',
+              install_dir: datadir / 'zsh/site-functions')
+ install_data('data/bash-completion/scrcpy',
+-             install_dir: datadir / 'bash-completion/completions')
++             install_dir: 'etc/bash_completion.d')
+ 
+ # Desktop entry file for application launchers
+-if host_machine.system() == 'linux'
++if host_machine.system() == 'linux' or host_machine.system() == 'freebsd'
+     # Install a launcher (ex: /usr/local/share/applications/scrcpy.desktop)
+     install_data('data/scrcpy.desktop',
+                  install_dir: datadir / 'applications')

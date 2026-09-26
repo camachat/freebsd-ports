@@ -1,0 +1,11 @@
+--- pyproject.toml.orig	2026-03-03 21:32:59 UTC
++++ pyproject.toml
+@@ -7,7 +7,7 @@ authors = [
+     { name = "Matrix.org Team and Contributors", email = "packages@matrix.org" }
+ ]
+ requires-python = ">=3.10.0,<4.0.0"
+-license = "AGPL-3.0-or-later OR LicenseRef-Element-Commercial"
++license = { text = "AGPL-3.0-or-later OR LicenseRef-Element-Commercial" }
+ classifiers = [
+     "Development Status :: 5 - Production/Stable",
+     "Topic :: Communications :: Chat",

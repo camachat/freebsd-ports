@@ -1,0 +1,21 @@
+--- pyproject.toml.orig	1970-01-01 00:00:00 UTC
++++ pyproject.toml
+@@ -2,7 +2,7 @@ keywords = ["driver", "asyncio", "mysql"]
+ authors = [{ name = "long2ice", email = "long2ice@gmail.com" }]
+ description = "The fastest asyncio MySQL/MariaDB driver for Python"
+ keywords = ["driver", "asyncio", "mysql"]
+-license = "Apache-2.0"
++license = { text = "Apache-2.0" }
+ name = "asyncmy"
+ readme = "README.md"
+ requires-python = ">=3.9"
+@@ -16,9 +16,6 @@ include = [
+ 
+ [tool.poetry]
+ include = [
+-    "CHANGELOG.md",
+-    "LICENSE",
+-    "README.md",
+     # PEP 561: without these in the wheel the type information does not ship.
+     { path = "asyncmy/py.typed", format = ["sdist", "wheel"] },
+     { path = "asyncmy/*.pyi", format = ["sdist", "wheel"] },

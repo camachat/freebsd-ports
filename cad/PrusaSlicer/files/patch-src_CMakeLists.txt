@@ -1,0 +1,11 @@
+--- src/CMakeLists.txt.orig	2026-05-19 09:09:17 UTC
++++ src/CMakeLists.txt
+@@ -52,7 +52,7 @@ if (SLIC3R_GUI)
+     endif()
+ 
+     find_package(JPEG MODULE QUIET)
+-    find_package(NanoSVG REQUIRED)
++    #find_package(NanoSVG REQUIRED)
+ 
+     string(REGEX MATCH "wxpng" WX_PNG_BUILTIN ${wxWidgets_LIBRARIES})
+     if (PNG_FOUND AND NOT WX_PNG_BUILTIN)

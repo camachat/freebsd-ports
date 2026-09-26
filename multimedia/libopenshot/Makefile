@@ -1,0 +1,84 @@
+PORTNAME=	libopenshot
+DISTVERSIONPREFIX=	v
+DISTVERSION=	1.0.0
+CATEGORIES=	multimedia
+PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
+
+MAINTAINER=	tatsuki_makino@hotmail.com
+COMMENT=	OpenShot Video Library
+WWW=		https://www.openshot.org/
+
+LICENSE=	BSD3CLAUSE LGPL3+
+LICENSE_COMB=	multi
+LICENSE_FILE_BSD3CLAUSE=	${WRKSRC}/LICENSES/BSD-3-Clause.txt
+LICENSE_FILE_LGPL3+ =	${WRKSRC}/COPYING
+
+BUILD_DEPENDS=	${PY_SETUPTOOLS} \
+		swig:devel/swig \
+		${LOCALBASE}/include/zmq.hpp:net/cppzmq
+LIB_DEPENDS=	libavformat.so:multimedia/ffmpeg \
+		libbabl-0.1.so:x11/babl \
+		libjsoncpp.so:devel/jsoncpp \
+		libopenshot-audio.so:audio/libopenshot-audio \
+		libzmq.so:net/libzmq4
+
+USES=		cmake compiler:c++17-lang pkgconfig python qt:6
+USE_GITHUB=	yes
+GH_ACCOUNT=	OpenShot
+USE_LDCONFIG=	yes
+USE_PYTHON=	flavors
+USE_QT=		base
+CMAKE_ARGS=	-DUSE_QT6:STRING=ON
+CMAKE_ON=	USE_SYSTEM_JSONCPP DISABLE_BUNDLED_JSONCPP\
+		USE_HW_ACCEL ENABLE_PYTHON\
+		CMAKE_DISABLE_FIND_PACKAGE_Catch2
+CMAKE_OFF=	ENABLE_IWYU ENABLE_PARALLEL_CTEST VERBOSE_TESTS\
+		ENABLE_COVERAGE APPIMAGE_BUILD ENABLE_VULKAN_BENCHMARK\
+		BUILD_TESTING ENABLE_TESTS ENABLE_JAVA ENABLE_GODOT
+DEBUG_FLAGS?=	-g
+DEBUG_FLAGS+=	-D_DEBUG -DJUCE_FORCE_DEBUG=1
+PLIST_SUB=	VERSION=${DISTVERSION}
+
+OPTIONS_DEFINE=		DOCS DOXYGEN IMAGEMAGICK OPENCV RESVG RUBY WAYLAND
+OPTIONS_DEFAULT=	IMAGEMAGICK OPENCV
+OPTIONS_SUB=		yes
+RESVG_DESC?=		SVG vector graphics support via resvg
+DOCS_CMAKE_ON=		-DCMAKE_INSTALL_DOCDIR:PATH=${DOCSDIR_REL:Q}
+DOCS_PORTDOCS=		*
+DOXYGEN_IMPLIES=	DOCS
+DOXYGEN_BUILD_DEPENDS=	doxygen:devel/doxygen
+DOXYGEN_CMAKE_BOOL=	ENABLE_LIB_DOCS
+DOXYGEN_CMAKE_BOOL_OFF=	CMAKE_DISABLE_FIND_PACKAGE_Doxygen
+IMAGEMAGICK_USES=	magick
+IMAGEMAGICK_CMAKE_BOOL=	ENABLE_MAGICK
+IMAGEMAGICK_CMAKE_BOOL_OFF=	CMAKE_DISABLE_FIND_PACKAGE_ImageMagick
+OPENCV_LIB_DEPENDS=	libopencv_core.so:graphics/opencv \
+			libprotobuf.so:devel/protobuf
+OPENCV_CMAKE_BOOL=	ENABLE_OPENCV
+OPENCV_CMAKE_BOOL_OFF=	CMAKE_DISABLE_FIND_PACKAGE_OpenCV\
+			CMAKE_DISABLE_FIND_PACKAGE_Protobuf
+OPENCV_CMAKE_ON=	-DOpenCV_DIR:STRING=${LOCALBASE:Q}/cmake/opencv4
+RESVG_LIB_DEPENDS=	libresvg.so:graphics/resvg-capi
+RESVG_USE_OFF=		qt=svg
+RESVG_CMAKE_BOOL_OFF=	CMAKE_DISABLE_FIND_PACKAGE_Resvg
+RESVG_CMAKE_ON=		-DResvg_ROOT:STRING=${LOCALBASE:Q}
+RUBY_LIB_DEPENDS=	libruby${RUBY_SHLIBVER}.so:${RUBY_PORT}
+RUBY_USES=		ruby:none
+RUBY_CMAKE_BOOL=	ENABLE_RUBY
+RUBY_CMAKE_BOOL_OFF=	CMAKE_DISABLE_FIND_PACKAGE_Ruby
+WAYLAND_LIB_DEPENDS=	libpipewire-0.3.so:multimedia/pipewire
+WAYLAND_USES=		gnome
+WAYLAND_USE=		gnome=glib20
+WAYLAND_CMAKE_BOOL=	ENABLE_WAYLAND_CAPTURE
+
+.if !exists(/usr/include/omp.h)
+USE_GCC=		yes
+.endif
+
+# OpenGL that needs to be detected within
+# Qt6/FindWrapOpenGL.cmake by find_package is not used.
+# It seems that Qt was being loaded by dlopen,
+# so it needs to be resolved on the Qt side.
+LDFLAGS+=	-Wl,--as-needed
+
+.include <bsd.port.mk>

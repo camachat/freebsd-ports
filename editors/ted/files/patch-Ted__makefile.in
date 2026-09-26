@@ -1,0 +1,12 @@
+--- Ted/makefile.in.orig	2013-02-01 12:11:08 UTC
++++ Ted/makefile.in
+@@ -57,7 +57,8 @@ INCLUDES=			\
+ 	-I../bitmap		\
+ 	-I../ind		\
+ 	-I../include		\
+-	$(DEF_PKGDIR)
++	$(DEF_DOCUMENT_DIR)	\
++	$(DEF_PSSCRIPT_DIR)
+ 
+ CFLAGS=			\
+ 	@CFLAGS@	\

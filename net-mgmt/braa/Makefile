@@ -1,0 +1,30 @@
+PORTNAME=	braa
+DISTVERSIONPREFIX=	v
+DISTVERSION=	0.90.1
+PORTEPOCH=	1
+CATEGORIES=	net-mgmt
+
+MAINTAINER=	bram@cbbg.nl
+COMMENT=	Tool for making SNMP queries
+WWW=		https://github.com/mteg/braa
+
+LICENSE=	GPLv2
+LICENSE_FILE=	${WRKSRC}/COPYING
+
+USE_GITHUB=	yes
+GH_ACCOUNT=	mteg
+
+PLIST_FILES=	bin/braa share/man/man1/braa.1.gz
+PORTDOCS=	README
+
+OPTIONS_DEFINE=	DOCS
+
+do-install:
+	${INSTALL_PROGRAM} ${WRKSRC}/${PORTNAME} ${STAGEDIR}${PREFIX}/bin
+	${INSTALL_MAN} ${WRKSRC}/${PORTNAME}.1 ${STAGEDIR}${PREFIX}/share/man/man1
+
+do-install-DOCS-on:
+	@${MKDIR} ${STAGEDIR}${DOCSDIR}
+	${INSTALL_DATA} ${WRKSRC}/README ${STAGEDIR}${DOCSDIR}
+
+.include <bsd.port.mk>

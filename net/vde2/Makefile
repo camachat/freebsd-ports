@@ -1,0 +1,72 @@
+PORTNAME=	vde
+DISTVERSIONPREFIX=	v
+DISTVERSION=	2.3.3-57
+DISTVERSIONSUFFIX=	-g6ad51c2
+PORTREVISION=	1
+CATEGORIES=	net
+PKGNAMESUFFIX=	2
+
+MAINTAINER=	vbox@FreeBSD.org
+COMMENT=	User-mode virtual ethernet infrastructure
+WWW=		https://github.com/virtualsquare/vde-2
+
+LICENSE=	BSD3CLAUSE GPLv2 LGPL21
+LICENSE_COMB=	multi
+
+BUILD_DEPENDS=	gmake:devel/gmake
+
+USES=		cmake
+USE_GITHUB=	yes
+GH_ACCOUNT=	virtualsquare
+GH_PROJECT=	${PORTNAME}-${PKGNAMESUFFIX}
+USE_LDCONFIG=	yes
+
+CMAKE_ON=	ENABLE_VXLAN \
+		ENABLE_VDE_OVER_NS \
+		ENABLE_ROUTER \
+		ENABLE_PCAP \
+		ENABLE_TUNTAP
+CMAKE_OFF=	ENABLE_EXPERIMENTAL \
+		ENABLE_PROFILE
+
+CFLAGS_i386=	-fPIC
+LDFLAGS+=	-L/usr/lib # for use system libpcap
+
+CONFLICTS=	${PORTNAME}
+
+BINARY_ALIAS=	make=${GMAKE}
+
+OPTIONS_DEFINE=		EXPERIMENTAL PROFILE
+OPTIONS_RADIO=		CRYPTCAB
+OPTIONS_RADIO_CRYPTCAB=	MBEDTLS WOLFSSL
+OPTIONS_SUB=		yes
+
+CRYPTCAB_DESC=		Enable vde_cryptcab
+EXPERIMENTAL_DESC=	Enable experimental features
+MBEDTLS_DESC=		via mbed TLS
+WOLFSSL_DESC=		via wolfSSL
+
+EXPERIMENTAL_CMAKE_BOOL=	ENABLE_EXPERIMENTAL
+
+MBEDTLS_LIB_DEPENDS=	libmbedcrypto.so:security/mbedtls3
+MBEDTLS_USES=		localbase:ldflags
+MBEDTLS_CMAKE_ON=	-DENABLE_CRYPTCAB=ON \
+			-DWITH_CRYPT=mbedtls
+
+PROFILE_CMAKE_BOOL=	ENABLE_PROFILE
+
+WOLFSSL_LIB_DEPENDS=	libwolfssl.so:security/wolfssl
+WOLFSSL_USES=		localbase:ldflags
+WOLFSSL_CMAKE_ON=	-DENABLE_CRYPTCAB=ON \
+			-DWITH_CRYPT=wolfssl
+
+.include <bsd.port.options.mk>
+
+.if !${PORT_OPTIONS:MMBEDTLS} && !${PORT_OPTIONS:MWOLFSSL}
+CMAKE_OFF+=	ENABLE_CRYPTCAB
+.endif
+
+post-install:
+	${LN} -sf unixcmd.1 ${STAGEDIR}${PREFIX}/share/man/man1/vdecmd.1
+
+.include <bsd.port.mk>

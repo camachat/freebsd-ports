@@ -1,0 +1,7 @@
+TIMESTAMP = 1788377294
+SHA256 (apache-ant-1.10.17-bin.tar.bz2) = 5210fc9d77e96bf5f4639287f29826da85e54a542e0a409463b1642bc3caaee7
+SIZE (apache-ant-1.10.17-bin.tar.bz2) = 5414359
+SHA256 (ant_1.10.17-1.debian.tar.xz) = 6e81045c8355a911454d9b34577c8eaa390481840d65ace7963ee7b0283b9e79
+SIZE (ant_1.10.17-1.debian.tar.xz) = 20564
+SHA256 (apache-ant-1.10.17-manual.tar.bz2) = 0e87d357de31d4981f9e8b35a7bb9221c9ea7d4a139f55d1f6c8dfe769730ed2
+SIZE (apache-ant-1.10.17-manual.tar.bz2) = 2525542

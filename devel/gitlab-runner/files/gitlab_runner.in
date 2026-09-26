@@ -1,0 +1,92 @@
+#!/bin/sh
+# PROVIDE: gitlab_runner
+# REQUIRE: DAEMON NETWORKING
+# KEYWORD: shutdown
+
+#
+# Add the following line to /etc/rc.conf to enable gitlab_runner:
+#
+# gitlab_runner_enable (bool):  Set to "NO" by default.
+#                               Set it to "YES" to enable gitlab-runner
+# gitlab_runner_dir (str):      Set to "/var/tmp/gitlab_runner" by default.
+#                               Set it to directory to run gitlab-runner in
+# gitlab_runner_user (str):     Set to "gitlab-runner" by default.
+#                               Set it to user to run gitlab_runner under
+# gitlab_runner_group (str):    Set to "gitlab-runner" by default.
+#                               Set it to group to run gitlab-runner under
+# gitlab_runner_syslogtag (str):Set to "gitlab-runner" by default.
+#                               Set it to tag to be used by syslog
+#
+
+. /etc/rc.subr
+
+name="gitlab_runner"
+rcvar="gitlab_runner_enable"
+
+load_rc_config $name
+
+: ${gitlab_runner_enable:="NO"}
+: ${gitlab_runner_dir:="/var/tmp/gitlab_runner"}
+: ${gitlab_runner_user:="gitlab-runner"}
+: ${gitlab_runner_group:="gitlab-runner"}
+: ${gitlab_runner_syslogtag:="gitlab-runner"}
+: ${gitlab_runner_svcj_options:="net_basic"}
+
+export HOME=${gitlab_runner_dir}
+export PATH=${PATH}:%%PREFIX%%/bin
+
+pidfile="/var/run/${name}.pid"
+pidfile_child="/var/run/${name}_child.pid"
+
+command="/usr/sbin/daemon"
+command_args="-P ${pidfile} -p ${pidfile_child} -f env HOME=${gitlab_runner_dir} ${gitlab_runner_env} %%PREFIX%%/bin/gitlab-runner run --syslog --service ${gitlab_runner_syslogtag}"
+gitlab_runner_chdir="${gitlab_runner_dir}"
+rc_stop_wait=7200
+
+start_precmd="gitlab_runner_startprecmd"
+stop_cmd="gitlab_runner_stop"
+list_cmd="listfunc"
+register_cmd="registerfunc"
+
+listfunc()
+{
+        su -m ${gitlab_runner_user} -c "env HOME=${gitlab_runner_dir} ${gitlab_runner_env} %%PREFIX%%/bin/gitlab-runner list"
+}
+
+registerfunc()
+{
+        su -m ${gitlab_runner_user} -c "env HOME=${gitlab_runner_dir} ${gitlab_runner_env} %%PREFIX%%/bin/gitlab-runner register"
+}
+
+gitlab_runner_startprecmd()
+{
+        if [ ! -e "${pidfile}" ]; then
+                install -g ${gitlab_runner_group} -o ${gitlab_runner_user} -- /dev/null "${pidfile}"
+        fi
+	if [ ! -e "${pidfile_child}" ]; then
+		install -g ${gitlab_runner_group} -o ${gitlab_runner_user} -- /dev/null "${pidfile_child}"
+	fi
+        if [ ! -d "${gitlab_runner_dir}" ]; then
+                install -d -o "${gitlab_runner_user}" -g "${gitlab_runner_group}" "${gitlab_runner_dir}"
+        fi
+}
+
+gitlab_runner_stop()
+{
+	if [ ! -f "${pidfile_child}" ]; then
+		echo "${name} not running"
+		return 0
+	fi
+	child_pid=$(cat ${pidfile_child})
+	if [ -z "${child_pid}" ]; then
+		echo "${name} not running"
+		return 0
+	fi
+	echo "Sending SIGQUIT to gitlab-runner (pid=${child_pid})"
+	kill -QUIT ${child_pid}
+	# Wait for the daemon supervisor to exit, which happens after the child exits
+	wait_for_pids $(cat ${pidfile} 2>/dev/null)
+}
+
+extra_commands="list register"
+run_rc_command $1
