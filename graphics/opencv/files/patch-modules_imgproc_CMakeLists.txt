@@ -1,0 +1,23 @@
+--- modules/imgproc/CMakeLists.txt.orig	2026-06-05 18:50:05 UTC
++++ modules/imgproc/CMakeLists.txt
+@@ -35,17 +35,9 @@ if (WITH_UNIFONT)
+ unset(HAVE_UNIFONT CACHE)
+ 
+ if (WITH_UNIFONT)
+-    ocv_download(FILENAME ${UNIFONT_NAME}
+-                 HASH ${UNIFONT_MD5}
+-                 URL
+-                   "${OPENCV_UNIFONT_URL}"
+-                   "${UNIFONT_URL}"
+-                 DESTINATION_DIR "${CMAKE_CURRENT_BINARY_DIR}"
+-                 ID UNIFONT
+-                 STATUS res
+-                 RELATIVE_URL)
+-
+-    if (res)
++    set(DESTINATION_DIR ${CMAKE_CURRENT_BINARY_DIR})
++    set(FILENAME ${UNIFONT_NAME})
++    if (EXISTS ${FILENAME})
+         message(STATUS "Unicode font has been downloaded successfully.")
+         set(HAVE_UNIFONT ON CACHE INTERNAL "")
+     else()

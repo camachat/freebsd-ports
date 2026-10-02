@@ -1,0 +1,18 @@
+--- configure.ac.orig	2026-03-22 15:24:10 UTC
++++ configure.ac
+@@ -47,15 +47,8 @@
+ AC_CHECK_FUNCS(lutimes)
+ UNFS3_COMPILE_WARNINGS
+ 
+-PKG_CHECK_MODULES([TIRPC], [libtirpc])
+-AC_SUBST(TIRPC_CFLAGS)
+-AC_SUBST(TIRPC_LIBS)
+-
+ saved_CPPFLAGS="$CPPFLAGS"
+ saved_LIBS="$LIBS"
+-CPPFLAGS="$CPPFLAGS $TIRPC_CFLAGS"
+-LIBS="$LIBS $TIRPC_LIBS"
+-AC_CHECK_FUNCS(svc_getreq_poll)
+ # Old libtirpc has not implement poll() fully
+ AC_CHECK_DECLS(svc_pollfd,,,[#include <rpc/rpc.h>])
+ CPPFLAGS="$saved_CPPFLAGS"

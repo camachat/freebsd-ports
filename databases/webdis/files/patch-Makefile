@@ -1,0 +1,13 @@
+--- Makefile.orig	2026-08-23 14:58:26 UTC
++++ Makefile
+@@ -5,8 +5,8 @@ HTTP_PARSER_OBJS?=src/http-parser/http_parser.o
+ FORMAT_OBJS?=src/formats/json.o src/formats/raw.o src/formats/common.o src/formats/custom-type.o
+ HTTP_PARSER_OBJS?=src/http-parser/http_parser.o
+ 
+-CFLAGS ?= -std=c99 -Wall -Wextra -Isrc -Isrc/jansson/src -Isrc/http-parser -MD -D_POSIX_C_SOURCE=200809L -Wno-pragmas
+-LDFLAGS ?= -levent -pthread
++CFLAGS += -std=c99 -Isrc -Isrc/jansson/src -Isrc/http-parser -MD -D_POSIX_C_SOURCE=200809L -Wno-pragmas -I%%LOCALBASE%%/include -I%%LOCALBASE%%/include/event2
++LDFLAGS += -levent -pthread -L%%LOCALBASE%%/lib
+ 
+ # Pass preprocessor macros to the compile invocation
+ CFLAGS += $(CPPFLAGS)

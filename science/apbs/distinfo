@@ -1,0 +1,13 @@
+TIMESTAMP = 1790472969
+SHA256 (Electrostatics-apbs-v3.4.1_GH0.tar.gz) = 644e6246fd37c9dd4172fc7be1763337082ab8584dbcd53e738c831b62c89bb2
+SIZE (Electrostatics-apbs-v3.4.1_GH0.tar.gz) = 85806314
+SHA256 (Electrostatics-FETK-57195e55351e04ce6ee0ef56a143c996a9aee7e2_GH0.tar.gz) = d9affc573b1f5410a7d2dd550a6d9a05a349d3c52e2c5615084e850ed684e6f6
+SIZE (Electrostatics-FETK-57195e55351e04ce6ee0ef56a143c996a9aee7e2_GH0.tar.gz) = 27763972
+SHA256 (Electrostatics-geoflow_c-e8ce510_GH0.tar.gz) = 27e38916e141771b71a43cebf0739911905531100df59a9fb913626a35753c2f
+SIZE (Electrostatics-geoflow_c-e8ce510_GH0.tar.gz) = 45609
+SHA256 (Electrostatics-TABIPB-de187a4_GH0.tar.gz) = 080ab3eac9697063c7dce8696f2fca4b01a75892dd45398a1cda260f22faaba1
+SIZE (Electrostatics-TABIPB-de187a4_GH0.tar.gz) = 75628
+SHA256 (lwwilson1-mesh_routines-ddb75cb_GH0.tar.gz) = 5e58ea8c419c229efb5a7d9a1bb88ba96e62790f27f97d835262417d6b098a17
+SIZE (lwwilson1-mesh_routines-ddb75cb_GH0.tar.gz) = 3869445
+SHA256 (Electrostatics-pb_solvers-168a83e_GH0.tar.gz) = 0d26e4321a3297c8d6445ec551ebfc14961102e836e5ba8e9f36afd6080a7bed
+SIZE (Electrostatics-pb_solvers-168a83e_GH0.tar.gz) = 11187543

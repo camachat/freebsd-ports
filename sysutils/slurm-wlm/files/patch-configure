@@ -1,0 +1,11 @@
+--- configure.orig	2026-08-28 20:13:24 UTC
++++ configure
+@@ -27589,7 +27589,7 @@ else case e in #(
+ 	    if test "$ac_with_rpath" = "yes"; then
+ 	      S2N_LDFLAGS="-Wl,-rpath -Wl,$d/$bit "
+ 	    fi
+-	    S2N_LDFLAGS+="-L$d/$bit"
++	    S2N_LDFLAGS="${S2N_LDFLAGS} -L$d/$bit"
+             LIBS="$S2N_LDFLAGS $S2N_LIBS"
+             CPPFLAGS="$S2N_CPPFLAGS $CPPFLAGS"
+ 	    if test "$cross_compiling" = yes

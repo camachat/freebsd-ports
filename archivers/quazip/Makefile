@@ -1,0 +1,28 @@
+PORTNAME=	quazip
+DISTVERSIONPREFIX=	v
+DISTVERSION=	1.7.1
+CATEGORIES=	archivers
+PKGNAMESUFFIX=	-qt6
+
+MAINTAINER=	kde@FreeBSD.org
+COMMENT=	Qt/C++ wrapper for ZIP/UNZIP package
+WWW=		https://github.com/stachenov/quazip
+
+LICENSE=	LGPL21+
+LICENSE_FILE=	${WRKSRC}/COPYING
+
+USES=		cmake:testing compiler:c++17-lang cpe qt:6
+CPE_VENDOR=	quazip_project
+USE_GITHUB=	yes
+GH_ACCOUNT=	stachenov
+USE_LDCONFIG=	yes
+USE_QT=		5compat base
+
+CMAKE_ARGS=	-DQUAZIP_QT_MAJOR_VERSION=6
+CMAKE_TESTING_ON=	QUAZIP_ENABLE_TESTS
+
+PLIST_SUB=	QTVER_SUFFIX=6 \
+		QUAZIP_VER=${DISTVERSION:R} \
+		QUAZIP_VERSION=${DISTVERSION}
+
+.include <bsd.port.mk>

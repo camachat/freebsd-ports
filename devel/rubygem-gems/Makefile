@@ -1,0 +1,20 @@
+PORTNAME=	gems
+PORTVERSION=	2.0.0
+CATEGORIES=	devel rubygems
+MASTER_SITES=	RG
+
+MAINTAINER=	ruby@FreeBSD.org
+COMMENT=	Ruby wrapper for the RubyGems.org API
+WWW=		https://github.com/rubygems/gems
+
+LICENSE=	MIT
+LICENSE_FILE=	${WRKSRC}/LICENSE.md
+
+USES=		cpe gem
+
+CPE_PRODUCT=	rubygems
+CPE_VENDOR=	rubygems
+
+NO_ARCH=	yes
+
+.include <bsd.port.mk>

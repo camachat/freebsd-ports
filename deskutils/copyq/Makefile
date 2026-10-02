@@ -1,0 +1,30 @@
+PORTNAME=	copyq
+DISTVERSION=	16.0.0
+CATEGORIES=	deskutils
+MASTER_SITES=	https://github.com/hluk/CopyQ/releases/download/v${DISTVERSION}/
+DISTNAME=	CopyQ-${DISTVERSION}
+
+MAINTAINER=	eduardo@FreeBSD.org
+COMMENT=	Qt6 based clipboard manager
+WWW=		https://github.com/hluk/CopyQ
+
+LICENSE=	GPLv3+
+LICENSE_FILE=	${WRKSRC}/LICENSE
+
+USES=		cmake gl kde:6 pkgconfig qt:6 xorg
+USE_GL=		opengl
+USE_KDE=	guiaddons notifications statusnotifieritem ecm:build
+USE_QT=		base declarative svg translations:build
+USE_XORG=	ice sm x11 xext xfixes xtst
+
+CMAKE_OFF=	WITH_AUDIO WITH_QCA_ENCRYPTION
+
+PORTSCOUT=	limit:^d\.d\.
+
+OPTIONS_DEFINE=		PLUGINS
+OPTIONS_DEFAULT=	PLUGINS
+OPTIONS_SUB=		yes
+
+PLUGINS_CMAKE_BOOL=	WITH_PLUGINS
+
+.include <bsd.port.mk>

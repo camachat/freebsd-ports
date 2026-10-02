@@ -1,0 +1,23 @@
+# this is a workaround for a broken gimptool-2.0 (uses wrong plugin dir
+# when installing plugins)
+--- configure.orig	2025-03-12 19:27:58 UTC
++++ configure
+@@ -16315,8 +16315,7 @@ printf %s "checking for GIMP 2.0 plug-in directory... 
+   if test x${BUILD_GIMP2} = xyes ; then
+     { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for GIMP 2.0 plug-in directory" >&5
+ printf %s "checking for GIMP 2.0 plug-in directory... " >&6; }
+-    GIMPTOOL2_OUTPUT=`$GIMPTOOL2_CHECK --dry-run --install-${PLUG_IN_PATH} print | tail -n 1`
+-    GIMP2_PLUGIN_DIR=`echo "$GIMPTOOL2_OUTPUT" | cut -d ' ' -f 3 | tr -d "\'"`
++    GIMP2_PLUGIN_DIR=`$GIMPTOOL2_CHECK --gimpplugindir`/plug-ins
+     { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $GIMP2_PLUGIN_DIR" >&5
+ printf "%s\n" "$GIMP2_PLUGIN_DIR" >&6; }
+     if test "x$NO_PKGCONFIG_PATHS" = x; then
+@@ -20636,7 +20635,7 @@ fi
+ 
+ # C99 + POSIX extras
+ 
+-  for stp_ac_arg in -D_POSIX_C_SOURCE=200809L -std=c99 ; do
++  for stp_ac_arg in  ; do
+ 
+   { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking if ${CC} supports ${stp_ac_arg}" >&5
+ printf %s "checking if ${CC} supports ${stp_ac_arg}... " >&6; }

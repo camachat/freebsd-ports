@@ -1,0 +1,19 @@
+--- CMakeLists.txt.orig	2026-02-27 10:57:49 UTC
++++ CMakeLists.txt
+@@ -56,7 +56,6 @@ if (UNIX AND NOT APPLE)
+ if (UNIX AND NOT APPLE)
+ 
+     find_package(X11 REQUIRED)
+-    include_directories(SYSTEM ${X11_INCLUDE_DIR})
+ 
+     set(ois_source
+         ${ois_source}
+@@ -218,7 +217,7 @@ if(UNIX)
+ if(UNIX)
+ 
+     if (NOT APPLE)
+-        target_link_libraries(OIS X11)
++        target_link_libraries(OIS X11::X11)
+     endif()
+ 
+     set_target_properties(OIS PROPERTIES

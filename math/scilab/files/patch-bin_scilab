@@ -1,0 +1,33 @@
+--- bin/scilab.orig	2026-05-19 09:32:07 UTC
++++ bin/scilab
+@@ -184,7 +184,7 @@ detect_os() {
+         OS=$(uname -s) # Retrieve the Operating System
+     fi
+     if test "${MODEL}" = ""; then
+-        MODEL=$(uname -m) # Retrieve the model
++        MODEL=$(uname -p) # Retrieve the model
+     fi
+ 
+     if test $SCIVERBOSE -ne 0; then
+@@ -605,7 +605,20 @@ detect_java_vm() {
+                     JAVA_SHLIB="jvm.dll"
+                     ;;
+                 *FreeBSD*)
+-                    proc=$MODEL
++                    case $MODEL in
++                        "powerpc")
++                            proc="ppc"
++                            ;;
++                        "powerpc64")
++                            proc="ppc64"
++                            ;;
++                        "powerpc64le")
++                            proc="ppc64le"
++                            ;;
++			*)
++                    	    proc=$MODEL
++			    ;;
++		    esac
+                     ;;
+                 Darwin)
+                     proc=$MODEL
