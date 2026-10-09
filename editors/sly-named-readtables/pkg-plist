@@ -1,0 +1,3 @@
+%%THIS_LISPDIR%%/sly-named-readtables.el
+%%THIS_LISPDIR%%/slynk-named-readtables.asd
+%%THIS_LISPDIR%%/slynk-named-readtables.lisp

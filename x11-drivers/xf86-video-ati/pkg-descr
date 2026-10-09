@@ -1,0 +1,2 @@
+This package contains the Xorg driver for ATI/AMD Radeon GPUs using the
+radeon kernel driver.

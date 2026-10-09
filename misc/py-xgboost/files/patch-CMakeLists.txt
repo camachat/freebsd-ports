@@ -1,0 +1,26 @@
+-- Build against the system dmlc-core package instead of the bundled
+-- submodule. XGBoost 3.4.1 gained an option for this, but the default still
+-- expects the missing submodule and one upstream typo links against a
+-- non-existent variable instead of the imported dmlc::dmlc CMake target.
+--- ../CMakeLists.txt.orig
++++ ../CMakeLists.txt
+@@ -54,7 +54,7 @@
+ option(BUILD_DEPRECATED_CLI "Build the deprecated command line interface" OFF)
+ option(FORCE_SHARED_CRT "Build with dynamic CRT on Windows (/MD)" OFF)
+ option(BUILD_WITH_GIT_HASH "Add a short git hash to the build info." OFF)
+-option(BUILD_WITH_SYSTEM_DMLC "Use system package for dmlc." OFF)
++option(BUILD_WITH_SYSTEM_DMLC "Use system package for dmlc." ON)
+ ## Bindings
+ option(JVM_BINDINGS "Build JVM bindings" OFF)
+ option(R_LIB "Build shared library for R package" OFF)
+@@ -323,8 +323,8 @@
+ # core xgboost
+ add_subdirectory(${xgboost_SOURCE_DIR}/src)
+ # dmlc-core
+-if(BUILD_WTIH_SYSTEM_DMLC)
+-  target_link_libraries(objxgboost PUBLIC ${dmlc-LIBRARIES})
++if(BUILD_WITH_SYSTEM_DMLC)
++  target_link_libraries(objxgboost PUBLIC dmlc::dmlc)
+ else()
+   target_link_libraries(objxgboost PUBLIC dmlc)
+ endif()

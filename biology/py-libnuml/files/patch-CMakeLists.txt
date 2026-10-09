@@ -1,0 +1,32 @@
+-- Add a minimum CMake version declaration required by CMake 4.0.
+--- CMakeLists.txt.orig	2025-03-27 10:03:17 UTC
++++ CMakeLists.txt
+@@ -16,6 +16,8 @@
+ #
+ ###############################################################################
+ 
++cmake_minimum_required(VERSION 3.5)
++
+ find_package(SWIG REQUIRED)
+ include(${SWIG_USE_FILE})
+ find_package(PythonInterp)
+@@ -62,6 +64,7 @@ ADD_CUSTOM_COMMAND(	
+     OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/libnuml_wrap.cpp
+     COMMAND "${SWIG_EXECUTABLE}"
+     ARGS	-I${CMAKE_CURRENT_SOURCE_DIR}/../swig/
++    			-I${CMAKE_INSTALL_PREFIX}/include
+ 			-I${CMAKE_SOURCE_DIR}/
+ 			-I${CMAKE_BINARY_DIR}/
+ 			-I${CMAKE_BINARY_DIR}/src
+@@ -142,9 +145,9 @@ if (PYTHON_USE_DYNAMIC_LOOKUP)
+     if (APPLE)
+         set_target_properties (binding_python_lib PROPERTIES LINK_FLAGS "-undefined dynamic_lookup")
+     endif()
+-    target_link_libraries(binding_python_lib ${LIBNUML_LIBRARY}-static)
++    target_link_libraries(binding_python_lib ${LIBNUML_LIBRARY})
+ else()                                          
+-    target_link_libraries(binding_python_lib ${LIBNUML_LIBRARY}-static ${PYTHON_LIBRARIES})
++    target_link_libraries(binding_python_lib ${LIBNUML_LIBRARY} ${PYTHON_LIBRARIES})
+ endif()
+ 
+ 

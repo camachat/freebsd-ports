@@ -1,0 +1,44 @@
+PORTNAME=	yquake2
+DISTVERSION=	8.70
+CATEGORIES=	games
+MASTER_SITES=	https://deponie.yamagi.org/quake2/
+DISTNAME=	quake2-${DISTVERSION}
+
+MAINTAINER=	shamaz.mazum@gmail.com
+COMMENT=	Improved version of Icculus Quake II
+WWW=		https://www.yamagi.org/quake2/
+
+LICENSE=	GPLv2
+LICENSE_FILE=	${WRKSRC}/LICENSE
+
+# Quake II loads optional libraries via dlopen(3)
+BUILD_DEPENDS=	${LOCALBASE}/include/curl/curl.h:ftp/curl
+RUN_DEPENDS=	${LOCALBASE}/lib/libcurl.so:ftp/curl
+
+USES=		gl gmake openal pkgconfig sdl tar:xz
+USE_GL=		gl
+USE_SDL=	sdl3
+MAKE_ARGS=	VERBOSE=1 WITH_SYSTEMWIDE=yes \
+		WITH_SYSTEMDATADIR="${Q2DIR}" \
+		WITH_SYSTEMLIBDIR="${PREFIX}/lib/${PORTNAME}"
+
+OPTIONS_DEFINE=	DOCS
+
+do-install:
+	${INSTALL_PROGRAM} ${WRKSRC}/release/q2ded \
+		${STAGEDIR}${PREFIX}/bin/yq2ded
+	${INSTALL_PROGRAM} ${WRKSRC}/release/quake2 \
+		${STAGEDIR}${PREFIX}/bin/${PORTNAME}
+	@${MKDIR} ${STAGEDIR}${PREFIX}/lib/${PORTNAME}/baseq2
+	${INSTALL_LIB} ${WRKSRC}/release/baseq2/game.so \
+		${STAGEDIR}${PREFIX}/lib/${PORTNAME}/baseq2
+	${INSTALL_LIB} ${WRKSRC}/release/ref_*.so \
+		${STAGEDIR}${PREFIX}/lib/${PORTNAME}
+
+post-install-DOCS-on:
+	@${MKDIR} ${STAGEDIR}${DOCSDIR}
+	${INSTALL_DATA} ${WRKSRC}/CHANGELOG ${WRKSRC}/doc/*.md \
+		${STAGEDIR}${DOCSDIR}
+
+.include "${.CURDIR}/../quake2-data/Makefile.include"
+.include <bsd.port.mk>

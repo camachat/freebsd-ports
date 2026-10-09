@@ -1,0 +1,29 @@
+PORTNAME=	inspectrum
+DISTVERSIONPREFIX=     v
+PORTVERSION=   0.4.0
+PORTREVISION=	1
+CATEGORIES=	comms hamradio
+
+MAINTAINER=	mr@FreeBSD.org
+COMMENT=	Offline radio signal analyser
+WWW=		https://github.com/miek/inspectrum
+
+LICENSE=	GPLv3
+
+LIB_DEPENDS=	libfftw3.so:math/fftw3 \
+		libfftw3f.so:math/fftw3-float \
+		libliquid.so:comms/liquid-dsp
+
+CMAKE_INSTALL_PREFIX=	${STAGEDIR}${PREFIX}
+
+USES=		cmake compiler:c++11-lang pkgconfig qt:6
+USE_GITHUB=	yes
+GH_ACCOUNT=	miek
+#GH_TAGNAME=	d6115cb458068fa64c7bbd9020bcbab3373fee0e
+
+#USE_QT=		core buildtools:build concurrent gui widgets
+USE_QT=		base
+USE_LDCONFIG=	yes
+CMAKE_INSTALL_PREFIX=	${PREFIX}
+
+.include <bsd.port.mk>

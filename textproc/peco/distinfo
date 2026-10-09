@@ -1,0 +1,5 @@
+TIMESTAMP = 1771919551
+SHA256 (go/textproc_peco/peco-v0.6.0/v0.6.0.mod) = 906cbb12b6913d338147c8f73bf9eeba72373995422188c002b90b661922a1f0
+SIZE (go/textproc_peco/peco-v0.6.0/v0.6.0.mod) = 796
+SHA256 (go/textproc_peco/peco-v0.6.0/v0.6.0.zip) = d3d56512511a8260ce614ee2fc09ab4b74d3ee7236d89e62f1f489bf39c97993
+SIZE (go/textproc_peco/peco-v0.6.0/v0.6.0.zip) = 224626

@@ -1,0 +1,15 @@
+TIMESTAMP = 1790479764
+SHA256 (mitsuba-renderer-nanogui-v0.5.0_GH0.tar.gz) = ba570977c1d0061664e4a69b13d90f916c304ce0515ddc50722ff6c730ee2493
+SIZE (mitsuba-renderer-nanogui-v0.5.0_GH0.tar.gz) = 2963419
+SHA256 (wjakob-nanovg-0319c43_GH0.tar.gz) = cd42bf13d229ea234887054985828c589582d9e3daa591f53eddfd9014b883a2
+SIZE (wjakob-nanovg-0319c43_GH0.tar.gz) = 2046628
+SHA256 (wjakob-nanovg_metal-1e42439_GH0.tar.gz) = 86c316da3ef53fc7ae4965c8f47cfe523241164e9fb54959f21c3f011312bcc6
+SIZE (wjakob-nanovg_metal-1e42439_GH0.tar.gz) = 81734
+SHA256 (wjakob-glfw-22fc9e2_GH0.tar.gz) = 1535902af092ee39295bb89aab7fba2f74749e8f59d9726c285d5ff20173bacd
+SIZE (wjakob-glfw-22fc9e2_GH0.tar.gz) = 943032
+SHA256 (wjakob-nanobind-1bd3139_GH0.tar.gz) = 9378fbe9110d738c9d129216c33a1bde23b561b13cb96264c840a2291843ed92
+SIZE (wjakob-nanobind-1bd3139_GH0.tar.gz) = 1079104
+SHA256 (Tessil-robin-map-4ec1bf1_GH0.tar.gz) = 4c9d01db97cff5d788b658aac68afb47a38cbd954f8a6f601f713da11c8c71a6
+SIZE (Tessil-robin-map-4ec1bf1_GH0.tar.gz) = 70366
+SHA256 (mitsuba-renderer-nativefiledialog-extended-bd3d51b_GH0.tar.gz) = 07bf80bf6d52b51cb12b93d9c89a8bee4a3153cf60bcdf417925c137b36a1c04
+SIZE (mitsuba-renderer-nativefiledialog-extended-bd3d51b_GH0.tar.gz) = 435310

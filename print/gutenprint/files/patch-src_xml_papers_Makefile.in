@@ -1,0 +1,12 @@
+--- src/xml/papers/Makefile.in.orig	2026-06-18 16:52:01 UTC
++++ src/xml/papers/Makefile.in
+@@ -404,7 +404,8 @@ pkgxmldata_DATA = \
+ pkgxmldatadir = $(pkgdatadir)/@GUTENPRINT_MAJOR_VERSION@.@GUTENPRINT_MINOR_VERSION@/xml/papers
+ pkgxmldata_DATA = \
+ 	standard.xml				\
+-	labels.xml
++	labels.xml				\
++	freebsd-addons.xml
+ 
+ CLEANFILES = xmli18n-tmp.h xml-stamp xml-stamp.tmp
+ EXTRA_DIST = $(pkgxmldata_DATA)

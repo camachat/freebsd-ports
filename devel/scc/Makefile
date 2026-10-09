@@ -1,0 +1,18 @@
+PORTNAME=	scc
+DISTVERSIONPREFIX=	v
+DISTVERSION=	4.1.0
+CATEGORIES=	devel
+
+MAINTAINER=	adamw@FreeBSD.org
+COMMENT=	LOC counter with COCOMO and complexity estimation
+WWW=		https://github.com/boyter/scc
+
+LICENSE=	MIT
+LICENSE_FILE=	${WRKSRC}/LICENSE
+
+USES=		go:modules
+GO_MODULE=	github.com/boyter/scc/v4
+
+PLIST_FILES=	bin/scc
+
+.include <bsd.port.mk>

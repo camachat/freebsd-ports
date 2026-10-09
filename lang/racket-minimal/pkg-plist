@@ -1,0 +1,4 @@
+bin/racket
+bin/raco
+share/man/man1/racket.1.gz
+share/man/man1/raco.1.gz

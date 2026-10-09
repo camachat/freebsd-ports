@@ -1,0 +1,17 @@
+--- configure.orig	2025-09-09 09:36:39 UTC
++++ configure
+@@ -13615,7 +13615,12 @@ then :
+         DBG_CFLAGS="$DYNAMIC_CFLAGS $DBG_CFLAGS"
+       ;;
+       *bsd*)
+-        DYNAMIC_DEVS="\$(GLOBJDIR)/X11.so"
++        INSTALL_SHARED="install-shared"
++        if test "x$X_DEVS" != x; then
++                DYNAMIC_DEVS="\$(GLOBJDIR)/X11.so"
++        else
++                DYNAMIC_DEVS=""
++        fi
+         DYNAMIC_FLAGS="-DGS_DEVS_SHARED -DGS_DEVS_SHARED_DIR=\\\"\$(gssharedir)\\\""
+         X11_DEVS=""
+         OPT_CFLAGS="$DYNAMIC_CFLAGS $OPT_CFLAGS"
+ 

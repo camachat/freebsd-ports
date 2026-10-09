@@ -1,0 +1,10 @@
+--- CMakeLists.txt.orig	2026-08-25 23:01:05 UTC
++++ CMakeLists.txt
+@@ -201,7 +201,6 @@ add_library(${PROJECT_NAME} ${COMMON_SRC})
+         )
+ 
+ add_library(${PROJECT_NAME} ${COMMON_SRC})
+-aws_set_common_properties(${PROJECT_NAME} NO_WEXTRA)
+ aws_prepare_symbol_visibility_args(${PROJECT_NAME} "AWS_COMMON")
+ target_compile_options(${PROJECT_NAME} PUBLIC ${PLATFORM_CFLAGS})
+ 

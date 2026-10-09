@@ -1,0 +1,42 @@
+--- CMakeLists.txt.orig	2023-07-06 19:59:29 UTC
++++ CMakeLists.txt
+@@ -71,9 +71,8 @@ MESSAGE("--")
+ MESSAGE("-- deal.II-hash:      " ${DEAL_II_GIT_REVISION})
+ MESSAGE("--")
+ 
+-cmake_policy(SET CMP0053 OLD)
+-SET(HYPER_DEAL_GIT_BRANCH "@HYPER_DEAL_GIT_BRANCH@")
+-SET(HYPER_DEAL_GIT_REVISION "@HYPER_DEAL_GIT_REVISION@")
++SET(HYPER_DEAL_GIT_BRANCH "${HYPER_DEAL_GIT_BRANCH}")
++SET(HYPER_DEAL_GIT_REVISION "${HYPER_DEAL_GIT_REVISION}")
+ 
+ CONFIGURE_FILE(
+   ${CMAKE_CURRENT_SOURCE_DIR}/include/hyper.deal/base/revision.h.in
+@@ -91,7 +90,7 @@ TARGET_LINK_LIBRARIES(hyperdeal obj_base obj_grid)
+ # target the source files
+ TARGET_LINK_LIBRARIES(hyperdeal obj_base obj_grid)
+ 
+-ADD_SUBDIRECTORY(examples)
++#ADD_SUBDIRECTORY(examples)
+ 
+ 
+ IF(EXISTS ${CMAKE_SOURCE_DIR}/tests/CMakeLists.txt)
+@@ -99,13 +98,13 @@ ENDIF()
+ ENDIF()
+ 
+ # documentation
+-ADD_SUBDIRECTORY(doc/doxygen)
++#ADD_SUBDIRECTORY(doc/doxygen)
+ 
+ # performance tests
+-ADD_SUBDIRECTORY(performance)
++#ADD_SUBDIRECTORY(performance)
+ 
+ # tests
+ enable_testing()
+ ADD_SUBDIRECTORY(tests)
+-ADD_SUBDIRECTORY(examples/advection/tests)
+-ADD_SUBDIRECTORY(examples/vlasov_poisson/tests)
+\ No newline at end of file
++#ADD_SUBDIRECTORY(examples/advection/tests)
++#ADD_SUBDIRECTORY(examples/vlasov_poisson/tests)

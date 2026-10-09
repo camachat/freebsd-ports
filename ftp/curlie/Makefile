@@ -1,0 +1,22 @@
+PORTNAME=	curlie
+DISTVERSIONPREFIX=	v
+DISTVERSION=	1.8.2
+CATEGORIES=	ftp net www
+
+MAINTAINER=	0mp@FreeBSD.org
+COMMENT=	Frontend to cURL that adds the ease of use of HTTPie
+WWW=		https://curlie.io/
+
+LICENSE=	MIT
+LICENSE_FILE=	${WRKSRC}/LICENSE
+
+RUN_DEPENDS=	curl:ftp/curl
+
+USES=		go:modules
+USE_GITHUB=	yes
+GH_ACCOUNT=	rs
+GO_MODULE=	github.com/rs/curlie
+
+PLIST_FILES=	bin/${PORTNAME}
+
+.include <bsd.port.mk>

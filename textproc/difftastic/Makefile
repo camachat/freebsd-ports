@@ -1,0 +1,213 @@
+PORTNAME=	difftastic
+DISTVERSION=	0.71.0
+CATEGORIES=	textproc
+
+MAINTAINER=	amdmi3@FreeBSD.org
+COMMENT=	Diff tool that compares files based on their syntax
+WWW=		https://difftastic.wilfred.me.uk/ \
+		https://github.com/Wilfred/difftastic
+
+LICENSE=	MIT
+LICENSE_FILE=	${WRKSRC}/LICENSE
+
+USES=		cargo shared-mime-info
+USE_GITHUB=	yes
+GH_ACCOUNT=	Wilfred
+
+PLIST_FILES=	bin/difft
+
+CARGO_CRATES=	aho-corasick-1.1.3 \
+		allocator-api2-0.2.16 \
+		anstream-0.6.15 \
+		anstyle-1.0.10 \
+		anstyle-parse-0.2.6 \
+		anstyle-query-1.1.1 \
+		anstyle-wincon-3.0.4 \
+		assert_cmd-2.0.17 \
+		autocfg-1.1.0 \
+		bitflags-2.5.0 \
+		bstr-1.9.1 \
+		bumpalo-3.20.3 \
+		cc-1.2.54 \
+		cfg-if-1.0.0 \
+		clap-4.5.23 \
+		clap_builder-4.5.23 \
+		clap_lex-0.7.4 \
+		colorchoice-1.0.3 \
+		crossbeam-deque-0.8.5 \
+		crossbeam-epoch-0.9.20 \
+		crossbeam-utils-0.8.19 \
+		diff-0.1.13 \
+		difflib-0.4.0 \
+		doc-comment-0.3.3 \
+		either-1.10.0 \
+		encoding_rs-0.8.35 \
+		env_logger-0.10.2 \
+		equivalent-1.0.1 \
+		errno-0.3.8 \
+		find-msvc-tools-0.1.8 \
+		fixedbitset-0.5.7 \
+		float-cmp-0.10.0 \
+		foldhash-0.1.5 \
+		foldhash-0.2.0 \
+		glob-0.3.4 \
+		globset-0.4.19 \
+		hashbrown-0.15.5 \
+		hashbrown-0.17.1 \
+		heck-0.5.0 \
+		hermit-abi-0.3.9 \
+		humansize-2.1.3 \
+		humantime-2.1.0 \
+		ignore-0.4.29 \
+		imara-diff-0.2.0 \
+		indexmap-2.14.0 \
+		is-terminal-0.4.12 \
+		is_terminal_polyfill-1.70.1 \
+		itoa-1.0.10 \
+		lazy_static-1.4.0 \
+		libc-0.2.169 \
+		libm-0.2.8 \
+		line-numbers-0.3.1 \
+		linux-raw-sys-0.4.14 \
+		log-0.4.21 \
+		memchr-2.8.3 \
+		nom-8.0.0 \
+		normalize-line-endings-0.3.0 \
+		num-traits-0.2.19 \
+		owo-colors-4.2.3 \
+		petgraph-0.8.3 \
+		predicates-3.1.3 \
+		predicates-core-1.0.6 \
+		predicates-tree-1.0.9 \
+		pretty_assertions-1.4.1 \
+		pretty_env_logger-0.5.0 \
+		proc-macro2-1.0.101 \
+		quote-1.0.35 \
+		radix-heap-0.4.2 \
+		rayon-1.10.0 \
+		rayon-core-1.12.1 \
+		regex-1.12.2 \
+		regex-automata-0.4.13 \
+		regex-syntax-0.8.8 \
+		rustc-hash-2.0.0 \
+		rustix-0.38.34 \
+		ryu-1.0.17 \
+		same-file-1.0.6 \
+		serde-1.0.228 \
+		serde_core-1.0.228 \
+		serde_derive-1.0.228 \
+		serde_json-1.0.145 \
+		shlex-1.3.0 \
+		smallvec-1.13.2 \
+		streaming-iterator-0.1.9 \
+		strsim-0.11.1 \
+		strum-0.28.0 \
+		strum_macros-0.28.0 \
+		syn-2.0.106 \
+		termcolor-1.4.1 \
+		terminal_size-0.4.1 \
+		termtree-0.4.1 \
+		tikv-jemalloc-sys-0.7.1+5.3.1-0-g81034ce1f1373e37dc865038e1bc8eeecf559ce8 \
+		tikv-jemallocator-0.7.0 \
+		tree-sitter-0.26.10 \
+		tree-sitter-ada-0.1.0 \
+		tree-sitter-asm-0.24.0 \
+		tree-sitter-bash-0.25.1 \
+		tree-sitter-c-0.24.1 \
+		tree-sitter-c-sharp-0.23.1 \
+		tree-sitter-clojure-orchard-0.2.5 \
+		tree-sitter-cmake-0.7.1 \
+		tree-sitter-commonlisp-0.4.1 \
+		tree-sitter-containerfile-0.8.0 \
+		tree-sitter-cpp-0.23.4 \
+		tree-sitter-css-0.25.0 \
+		tree-sitter-dart-orchard-0.5.0 \
+		tree-sitter-devicetree-0.14.1 \
+		tree-sitter-elisp-1.7.2 \
+		tree-sitter-elixir-0.3.4 \
+		tree-sitter-elm-5.8.0 \
+		tree-sitter-erlang-0.20.0 \
+		tree-sitter-fish-3.6.0 \
+		tree-sitter-fortran-0.6.0 \
+		tree-sitter-fsharp-0.3.0 \
+		tree-sitter-gleam-1.0.0 \
+		tree-sitter-go-0.25.0 \
+		tree-sitter-haskell-0.23.1 \
+		tree-sitter-hcl-1.1.0 \
+		tree-sitter-html-0.23.2 \
+		tree-sitter-java-orchard-0.5.9 \
+		tree-sitter-javascript-0.25.0 \
+		tree-sitter-json-0.24.8 \
+		tree-sitter-julia-0.23.1 \
+		tree-sitter-language-0.1.7 \
+		tree-sitter-lua-0.5.0 \
+		tree-sitter-make-1.1.1 \
+		tree-sitter-newick-1.1.0 \
+		tree-sitter-nix-0.3.0 \
+		tree-sitter-objc-3.0.2 \
+		tree-sitter-ocaml-0.25.0 \
+		tree-sitter-pascal-0.10.0 \
+		tree-sitter-php-0.24.2 \
+		tree-sitter-proto-0.4.0 \
+		tree-sitter-python-0.25.0 \
+		tree-sitter-qmljs-0.3.0 \
+		tree-sitter-r-1.2.0 \
+		tree-sitter-racket-0.24.7 \
+		tree-sitter-ruby-0.23.1 \
+		tree-sitter-rust-orchard-0.16.6 \
+		tree-sitter-scala-0.26.2 \
+		tree-sitter-scheme-0.24.7 \
+		tree-sitter-sequel-0.3.11 \
+		tree-sitter-sfapex-2.4.0 \
+		tree-sitter-solidity-1.2.13 \
+		tree-sitter-swift-0.7.1 \
+		tree-sitter-toml-ng-0.7.0 \
+		tree-sitter-typescript-0.23.2 \
+		tree-sitter-verilog-1.0.3 \
+		tree-sitter-vhdl-1.4.0 \
+		tree-sitter-xml-0.7.0 \
+		tree-sitter-yaml-0.7.2 \
+		tree-sitter-zig-1.1.2 \
+		tree_magic_mini-3.2.2 \
+		ts-parser-perl-1.2.1 \
+		typed-arena-2.0.2 \
+		unicode-ident-1.0.12 \
+		unicode-width-0.2.2 \
+		utf8parse-0.2.2 \
+		version_check-0.9.4 \
+		wait-timeout-0.2.0 \
+		walkdir-2.5.0 \
+		winapi-util-0.1.9 \
+		windows-sys-0.52.0 \
+		windows-sys-0.59.0 \
+		windows-targets-0.52.6 \
+		windows_aarch64_gnullvm-0.52.6 \
+		windows_aarch64_msvc-0.52.6 \
+		windows_i686_gnu-0.52.6 \
+		windows_i686_gnullvm-0.52.6 \
+		windows_i686_msvc-0.52.6 \
+		windows_x86_64_gnu-0.52.6 \
+		windows_x86_64_gnullvm-0.52.6 \
+		windows_x86_64_msvc-0.52.6 \
+		yansi-1.0.1
+
+PORTSCOUT=	ignore:1
+
+PORTDOCS=	*
+
+OPTIONS_DEFINE=	DOCS
+
+.include <bsd.port.options.mk>
+
+.if ${ARCH} == powerpc
+LIB_DEPENDS+=	libatomic.so:lang/gcc${GCC_DEFAULT}
+LDFLAGS+=	-L/usr/local/lib/gcc${GCC_DEFAULT} -latomic
+.endif
+
+post-install-DOCS-on:
+	@${MKDIR} ${STAGEDIR}${DOCSDIR}
+	${INSTALL_DATA} ${WRKSRC}/README.md ${STAGEDIR}${DOCSDIR}/
+	${INSTALL_DATA} ${WRKSRC}/CHANGELOG.md ${STAGEDIR}${DOCSDIR}/
+	@cd ${WRKSRC}/manual/src && ${COPYTREE_SHARE} . ${STAGEDIR}${DOCSDIR}/manual
+
+.include <bsd.port.mk>

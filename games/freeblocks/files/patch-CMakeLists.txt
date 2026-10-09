@@ -1,0 +1,18 @@
+--- CMakeLists.txt.orig	2015-03-09 12:48:31 UTC
++++ CMakeLists.txt
+@@ -1,5 +1,5 @@ Project (freeblocks)
+ Project (freeblocks)
+-cmake_minimum_required (VERSION 2.6)
++cmake_minimum_required (VERSION 3.5)
+ 
+ Set (PACKAGE "FREEBLOCKS")
+ Set (VERSION "0.5")
+@@ -126,7 +126,7 @@ Target_Link_Libraries (freeblocks ${CMAKE_LD_FLAGS} ${
+ Target_Link_Libraries (freeblocks ${CMAKE_LD_FLAGS} ${SDL_LIBRARY} ${SDLIMAGE_LIBRARY} ${SDLMIXER_LIBRARY} ${SDLTTF_LIBRARY} ${SDLMAIN_LIBRARY} ${EXTRA_LIBRARIES})
+ 
+ # installing to the proper places
+-install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/freeblocks DESTINATION ${BINDIR})
++install(TARGETS freeblocks DESTINATION ${BINDIR})
+ install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/res" DESTINATION ${DATADIR})
+ install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/pkg/default.gcw0.desktop" DESTINATION ${APPDIR} RENAME freeblocks.desktop)
+ install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/pkg/freeblocks.png" DESTINATION ${CMAKE_INSTALL_PREFIX}/share/icons/hicolor/32x32/apps)

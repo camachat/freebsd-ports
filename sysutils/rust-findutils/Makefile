@@ -1,0 +1,266 @@
+PORTNAME=	rust-findutils
+DISTVERSION=	0.10.0
+CATEGORIES=	sysutils
+
+MAINTAINER=	pkubaj@FreeBSD.org
+COMMENT=	Rust implementation of findutils
+WWW=		https://crates.io/crates/findutils
+
+LICENSE=	MIT
+LICENSE_FILE=	${WRKSRC}/LICENSE
+
+LIB_DEPENDS=	libonig.so:devel/oniguruma
+
+USES=		cargo
+USE_GITHUB=	yes
+GH_ACCOUNT=	uutils
+GH_PROJECT=	findutils
+
+CARGO_CRATES=	aho-corasick-1.1.4 \
+		android_system_properties-0.1.5 \
+		anes-0.1.6 \
+		anstream-1.0.0 \
+		anstyle-1.0.14 \
+		anstyle-parse-1.0.0 \
+		anstyle-query-1.1.5 \
+		anstyle-wincon-3.0.11 \
+		anyhow-1.0.103 \
+		approx-0.5.1 \
+		argmax-0.4.0 \
+		assert_cmd-2.2.2 \
+		autocfg-1.5.1 \
+		bitflags-1.3.2 \
+		bitflags-2.13.0 \
+		bstr-1.12.1 \
+		bumpalo-3.20.3 \
+		cast-0.3.0 \
+		cc-1.2.63 \
+		cfg-if-1.0.4 \
+		cfg_aliases-0.2.1 \
+		chacha20-0.10.0 \
+		chrono-0.4.45 \
+		ciborium-0.2.2 \
+		ciborium-io-0.2.2 \
+		ciborium-ll-0.2.2 \
+		clap-4.6.4 \
+		clap_builder-4.6.2 \
+		clap_lex-1.1.0 \
+		codspeed-4.7.0 \
+		codspeed-criterion-compat-4.7.0 \
+		codspeed-criterion-compat-walltime-4.7.0 \
+		colorchoice-1.0.5 \
+		colored-2.2.0 \
+		core-foundation-sys-0.8.7 \
+		cpufeatures-0.3.0 \
+		criterion-plot-0.5.0 \
+		crossbeam-deque-0.8.6 \
+		crossbeam-epoch-0.9.20 \
+		crossbeam-utils-0.8.21 \
+		crunchy-0.2.4 \
+		ctor-1.0.12 \
+		deranged-0.5.8 \
+		diff-0.1.13 \
+		difflib-0.4.0 \
+		displaydoc-0.2.6 \
+		dns-lookup-3.0.1 \
+		dunce-1.0.5 \
+		either-1.16.0 \
+		equivalent-1.0.2 \
+		errno-0.3.14 \
+		faccess-0.2.4 \
+		fastrand-2.4.1 \
+		filetime-0.2.29 \
+		find-msvc-tools-0.1.9 \
+		fluent-0.17.0 \
+		fluent-bundle-0.16.0 \
+		fluent-langneg-0.13.1 \
+		fluent-syntax-0.12.0 \
+		foldhash-0.1.5 \
+		futures-core-0.3.32 \
+		futures-macro-0.3.32 \
+		futures-task-0.3.32 \
+		futures-timer-3.0.4 \
+		futures-util-0.3.32 \
+		getrandom-0.2.17 \
+		getrandom-0.4.2 \
+		glob-0.3.3 \
+		half-2.7.1 \
+		hashbrown-0.15.5 \
+		hashbrown-0.17.1 \
+		heck-0.5.0 \
+		hermit-abi-0.5.2 \
+		iana-time-zone-0.1.65 \
+		iana-time-zone-haiku-0.1.2 \
+		id-arena-2.3.0 \
+		indexmap-2.14.0 \
+		intl-memoizer-0.5.3 \
+		intl_pluralrules-7.0.2 \
+		is-terminal-0.4.17 \
+		is_terminal_polyfill-1.70.2 \
+		itertools-0.10.5 \
+		itertools-0.15.0 \
+		itoa-1.0.18 \
+		jiff-0.2.28 \
+		jiff-static-0.2.28 \
+		jiff-tzdb-0.1.6 \
+		jiff-tzdb-platform-0.1.3 \
+		js-sys-0.3.100 \
+		lazy_static-1.5.0 \
+		leb128fmt-0.1.0 \
+		libc-0.2.186 \
+		link-section-0.19.2 \
+		linktime-proc-macro-0.2.2 \
+		linux-raw-sys-0.12.1 \
+		log-0.4.32 \
+		memchr-2.8.1 \
+		nix-0.30.1 \
+		nix-0.31.3 \
+		num-conv-0.2.2 \
+		num-traits-0.2.19 \
+		num_threads-0.1.7 \
+		once_cell-1.21.4 \
+		once_cell_polyfill-1.70.2 \
+		onig-6.5.3 \
+		onig_sys-69.9.3 \
+		oorandom-11.1.5 \
+		os_display-0.1.4 \
+		pin-project-lite-0.2.17 \
+		pkg-config-0.3.33 \
+		plotters-0.3.7 \
+		plotters-backend-0.3.7 \
+		plotters-svg-0.3.7 \
+		portable-atomic-1.13.1 \
+		portable-atomic-util-0.2.7 \
+		powerfmt-0.2.0 \
+		predicates-3.1.4 \
+		predicates-core-1.0.10 \
+		predicates-tree-1.0.13 \
+		pretty_assertions-1.4.1 \
+		prettyplease-0.2.37 \
+		proc-macro-crate-3.5.0 \
+		proc-macro2-1.0.106 \
+		quote-1.0.45 \
+		r-efi-6.0.0 \
+		rand-0.10.1 \
+		rand_core-0.10.1 \
+		rayon-1.12.0 \
+		rayon-core-1.13.0 \
+		regex-1.13.1 \
+		regex-automata-0.4.16 \
+		regex-syntax-0.8.11 \
+		relative-path-1.9.3 \
+		rlimit-0.11.0 \
+		rstest-0.26.1 \
+		rstest_macros-0.26.1 \
+		rustc-hash-2.1.2 \
+		rustc_version-0.4.1 \
+		rustix-1.1.4 \
+		rustversion-1.0.22 \
+		same-file-1.0.6 \
+		self_cell-1.2.2 \
+		semver-1.0.28 \
+		serde-1.0.228 \
+		serde_core-1.0.228 \
+		serde_derive-1.0.228 \
+		serde_json-1.0.150 \
+		shlex-2.0.1 \
+		slab-0.4.12 \
+		smallvec-1.15.1 \
+		socket2-0.6.4 \
+		statrs-0.18.0 \
+		strsim-0.11.1 \
+		syn-2.0.117 \
+		syn-3.0.1 \
+		tempfile-3.27.0 \
+		terminal_size-0.4.4 \
+		termtree-0.5.1 \
+		thiserror-2.0.19 \
+		thiserror-impl-2.0.19 \
+		time-0.3.47 \
+		time-core-0.1.8 \
+		time-macros-0.2.27 \
+		tinystr-0.8.3 \
+		tinytemplate-1.2.1 \
+		toml_datetime-1.1.1+spec-1.1.0 \
+		toml_edit-0.25.12+spec-1.1.0 \
+		toml_parser-1.1.2+spec-1.1.0 \
+		type-map-0.5.1 \
+		unic-langid-0.9.6 \
+		unic-langid-impl-0.9.6 \
+		unicode-ident-1.0.24 \
+		unicode-width-0.2.2 \
+		unicode-xid-0.2.6 \
+		utf8parse-0.2.2 \
+		uucore-0.9.0 \
+		uucore_procs-0.9.0 \
+		uutests-0.9.0 \
+		wait-timeout-0.2.1 \
+		walkdir-2.5.0 \
+		wasi-0.11.1+wasi-snapshot-preview1 \
+		wasip2-1.0.3+wasi-0.2.9 \
+		wasip3-0.4.0+wasi-0.3.0-rc-2026-01-06 \
+		wasm-bindgen-0.2.123 \
+		wasm-bindgen-macro-0.2.123 \
+		wasm-bindgen-macro-support-0.2.123 \
+		wasm-bindgen-shared-0.2.123 \
+		wasm-encoder-0.244.0 \
+		wasm-metadata-0.244.0 \
+		wasmparser-0.244.0 \
+		web-sys-0.3.100 \
+		wild-2.2.1 \
+		winapi-0.3.9 \
+		winapi-i686-pc-windows-gnu-0.4.0 \
+		winapi-util-0.1.11 \
+		winapi-x86_64-pc-windows-gnu-0.4.0 \
+		windows-core-0.62.2 \
+		windows-implement-0.60.2 \
+		windows-interface-0.59.3 \
+		windows-link-0.2.1 \
+		windows-result-0.4.1 \
+		windows-strings-0.5.1 \
+		windows-sys-0.59.0 \
+		windows-sys-0.60.2 \
+		windows-sys-0.61.2 \
+		windows-targets-0.52.6 \
+		windows-targets-0.53.5 \
+		windows_aarch64_gnullvm-0.52.6 \
+		windows_aarch64_gnullvm-0.53.1 \
+		windows_aarch64_msvc-0.52.6 \
+		windows_aarch64_msvc-0.53.1 \
+		windows_i686_gnu-0.52.6 \
+		windows_i686_gnu-0.53.1 \
+		windows_i686_gnullvm-0.52.6 \
+		windows_i686_gnullvm-0.53.1 \
+		windows_i686_msvc-0.52.6 \
+		windows_i686_msvc-0.53.1 \
+		windows_x86_64_gnu-0.52.6 \
+		windows_x86_64_gnu-0.53.1 \
+		windows_x86_64_gnullvm-0.52.6 \
+		windows_x86_64_gnullvm-0.53.1 \
+		windows_x86_64_msvc-0.52.6 \
+		windows_x86_64_msvc-0.53.1 \
+		winnow-1.0.3 \
+		wit-bindgen-0.51.0 \
+		wit-bindgen-0.57.1 \
+		wit-bindgen-core-0.51.0 \
+		wit-bindgen-rust-0.51.0 \
+		wit-bindgen-rust-macro-0.51.0 \
+		wit-component-0.244.0 \
+		wit-parser-0.244.0 \
+		xattr-1.6.1 \
+		yansi-1.0.1 \
+		zerocopy-0.8.52 \
+		zerocopy-derive-0.8.52 \
+		zerofrom-0.1.8 \
+		zerovec-0.11.6 \
+		zmij-1.0.21
+
+CARGO_ENV=	RUSTONIG_SYSTEM_LIBONIG=1
+
+PLIST_FILES=	bin/find \
+		bin/locate \
+		bin/testing-commandline \
+		bin/updatedb \
+		bin/xargs
+
+.include <bsd.port.mk>

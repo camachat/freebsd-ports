@@ -1,0 +1,5 @@
+TIMESTAMP = 1790796283
+SHA256 (go/textproc_xql/xql-v1.12.3/v1.12.3.mod) = a61fad1132eb2a12c1b0bd4fc8a1918f4e864f7c9e81bb9c7a83e6170198b149
+SIZE (go/textproc_xql/xql-v1.12.3/v1.12.3.mod) = 782
+SHA256 (go/textproc_xql/xql-v1.12.3/v1.12.3.zip) = 917787628067f7fd967e533814befa371a65a3dc1377348da19a16e8ecbfb4f3
+SIZE (go/textproc_xql/xql-v1.12.3/v1.12.3.zip) = 213575

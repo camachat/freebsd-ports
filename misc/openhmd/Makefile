@@ -1,0 +1,30 @@
+PORTNAME=	OpenHMD
+DISTVERSION=	0.3.0
+PORTREVISION=	1
+CATEGORIES=	misc
+MASTER_SITES=	PYPI
+
+MAINTAINER=	yuri@FreeBSD.org
+COMMENT=	API and drivers for immersive technology
+WWW=		https://github.com/OpenHMD/OpenHMD
+
+LICENSE=	BSL
+LICENSE_FILE=	${WRKSRC}/LICENSE
+
+LIB_DEPENDS=	libhidapi.so:comms/hidapi
+
+USES=		cmake compiler:c++11-lang
+USE_GITHUB=	yes
+USE_LDCONFIG=	yes
+
+CMAKE_ON=	BUILD_SHARED_LIBS
+
+CMAKE_ARGS=	-DCMAKE_POLICY_VERSION_MINIMUM=3.5 # CMake 4.5 compatibility, see https://github.com/OpenHMD/OpenHMD/issues/369
+
+PLIST_FILES=	include/openhmd.h \
+		lib/libopenhmd.so \
+		lib/libopenhmd.so.0 \
+		lib/libopenhmd.so.0.1.0 \
+		libdata/pkgconfig/openhmd.pc
+
+.include <bsd.port.mk>

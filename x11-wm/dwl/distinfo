@@ -1,0 +1,5 @@
+TIMESTAMP = 1789898318
+SHA256 (dwl-v0.9.tar.gz) = 635c1c352c32f2e69d7acf95053ed6178e8614b51485f221bae78255b0bf3e3d
+SIZE (dwl-v0.9.tar.gz) = 71727
+SHA256 (a75ca796305e.patch) = d6c8a1eaff12fe218279ddf79909e47d31f19c9b090643eed8fd14eaaeaed98e
+SIZE (a75ca796305e.patch) = 644

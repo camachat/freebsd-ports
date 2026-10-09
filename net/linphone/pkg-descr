@@ -1,0 +1,7 @@
+Linphone 6 is the Qt 6 generation of the Linphone desktop SIP client.  It
+supports voice and video calls, messaging, multiple SIP accounts, contacts,
+and modern Qt Quick user interfaces.
+
+This port builds only the desktop application and links it to the
+Liblinphone and Mediastreamer libraries supplied by the ports collection.
+It does not build or install the embedded Linphone SDK.

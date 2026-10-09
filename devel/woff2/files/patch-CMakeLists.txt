@@ -1,0 +1,20 @@
+--- CMakeLists.txt.orig	2026-10-03 13:07:31 UTC
++++ CMakeLists.txt
+@@ -7,7 +7,7 @@
+ # several CI services, such as Travis and Drone, use it.  Solaris 11
+ # has 2.8.6, and it's not difficult to support if you already have to
+ # support 2.8.7.
+-cmake_minimum_required(VERSION 2.8.6)
++cmake_minimum_required(VERSION 3.5.0)
+ 
+ project(woff2)
+ 
+@@ -268,7 +268,7 @@ install(
+ endif()
+ 
+ install(
+-  TARGETS woff2common woff2dec woff2enc
++  TARGETS woff2common woff2dec woff2enc woff2_decompress woff2_compress woff2_info
+   ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+   LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+   RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"

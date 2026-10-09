@@ -1,0 +1,15 @@
+--- src/swig/CMakeLists.txt.orig	2026-06-05 18:42:06 UTC
++++ src/swig/CMakeLists.txt
+@@ -52,10 +52,10 @@ if (GUILE_FOUND AND NLOPT_CXX)
+ 
+   set (CMAKE_SWIG_FLAGS)
+ 
+-  target_include_directories (nlopt_guile PRIVATE ${GUILE_INCLUDE_DIRS})
++  target_compile_options(nlopt_guile PRIVATE ${GUILE_CFLAGS})
+ 
+   target_link_libraries (nlopt_guile PRIVATE ${nlopt_lib})
+-  target_link_libraries (nlopt_guile PRIVATE ${GUILE_LIBRARIES})
++  target_link_options(nlopt_guile PRIVATE ${GUILE_LDFLAGS})
+   set_target_properties (nlopt_guile PROPERTIES COMPILE_FLAGS "${SWIG_COMPILE_FLAGS}")
+ 
+   file (RELATIVE_PATH _REL_GUILE_SITE_PATH ${GUILE_ROOT_DIR} ${GUILE_SITE_DIR})

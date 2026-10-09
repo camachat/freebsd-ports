@@ -1,0 +1,5 @@
+#!/bin/sh -e
+
+export LEGO_CONFIG="%%ETCDIR%%/lego.yml"
+
+output=$(%%PREFIX%%/bin/lego) || (echo "$output" && exit 1)

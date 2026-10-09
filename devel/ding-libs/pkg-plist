@@ -1,0 +1,17 @@
+include/dhash.h
+include/ini_configmod.h
+include/ini_configobj.h
+include/ref_array.h
+lib/libdhash.so
+lib/libdhash.so.1
+lib/libdhash.so.1.1.0
+lib/libini_config.so
+lib/libini_config.so.8
+lib/libini_config.so.8.0.0
+libdata/pkgconfig/dhash.pc
+libdata/pkgconfig/ini_config.pc
+%%PORTDOCS%%%%DOCSDIR%%/README.dhash
+%%PORTDOCS%%%%DOCSDIR%%/README.path_utils
+%%PORTDOCS%%%%DOCSDIR%%/README.ref_array
+%%PORTDOCS%%%%DOCSDIR%%/examples/dhash_example.c
+%%PORTDOCS%%%%DOCSDIR%%/examples/dhash_test.c

@@ -1,0 +1,9 @@
+TIMESTAMP = 1786157068
+SHA256 (gst-plugins-base-1.28.6.tar.xz) = 0ba699c7c6c66f4ba640be78cb38a24715add9683f3e3a199f5369dc5a4f04ac
+SIZE (gst-plugins-base-1.28.6.tar.xz) = 2553864
+SHA256 (gst-plugins-bad-1.28.6.tar.xz) = 6636f2c2289ceda52c4aba971338c81e2b5780d3381bd3673c1c116ec87587c3
+SIZE (gst-plugins-bad-1.28.6.tar.xz) = 8343524
+SHA256 (gst-plugins-ugly-1.28.6.tar.xz) = ee279da13a740fd7f060d631a673223fa3bcc8c33d350c8d0264bd332a24ecd8
+SIZE (gst-plugins-ugly-1.28.6.tar.xz) = 243628
+SHA256 (gst-plugins-good-1.28.6.tar.xz) = b0c620a4b18b6ee931b4c43bbf1760d308666dc37f730a7e7f1ad327e59ce2df
+SIZE (gst-plugins-good-1.28.6.tar.xz) = 5999116

@@ -1,0 +1,16 @@
+PORTNAME=	forms
+PORTVERSION=	5.4.0
+DISTVERSIONPREFIX=	v
+CATEGORIES=	www
+
+MAINTAINER=	brnrd@FreeBSD.org
+COMMENT=	Forms app for Nextcloud
+WWW=		https://apps.nextcloud.com/apps/forms
+
+LICENSE_FILE=	${WRKSRC}/COPYING
+
+NEXTCLOUD_RUN_DEPENDS=	33
+
+USES=		nextcloud php:flavors
+
+.include <bsd.port.mk>
