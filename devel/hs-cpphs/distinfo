@@ -1,0 +1,5 @@
+TIMESTAMP = 1784988392
+SHA256 (cabal/cpphs-1.20.10/cpphs-1.20.10.tar.gz) = 7fa78ae9a2a1d1c69179238e8849340ad26be6496b763a489bf2e0eb5b7c4c19
+SIZE (cabal/cpphs-1.20.10/cpphs-1.20.10.tar.gz) = 45622
+SHA256 (cabal/polyparse-1.13.1/polyparse-1.13.1.tar.gz) = 395b89ed9901e9b19eaa652d2a17b9d1ed04c111b2cd92b8996868bea642bfd6
+SIZE (cabal/polyparse-1.13.1/polyparse-1.13.1.tar.gz) = 33421

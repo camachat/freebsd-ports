@@ -1,0 +1,17 @@
+--- DevIL/src-IL/CMakeLists.txt.orig	2017-01-01 23:37:37 UTC
++++ DevIL/src-IL/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 2.6)
++cmake_minimum_required(VERSION 3.31.12)
+ 
+ project(DevIL)
+ 
+@@ -58,6 +58,8 @@ if(BUILD_SHARED_LIBS)
+ 
+ if(BUILD_SHARED_LIBS)
+     add_library(IL SHARED ${DevIL_SRCS} ${DevIL_INC} ${DevIL_RSRC} ${DevIL_TXT})
++    set_target_properties(IL PROPERTIES SOVERSION 1)
++    set_target_properties(IL PROPERTIES VERSION 1.1.0)
+ else(BUILD_SHARED_LIBS)
+     add_library(IL ${DevIL_SRCS} ${DevIL_INC} ${DevIL_RSRC} ${DevIL_TXT})
+ endif(BUILD_SHARED_LIBS)

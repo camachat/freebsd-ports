@@ -1,0 +1,22 @@
+PORTNAME=	rubocop-rspec
+PORTVERSION=	3.10.2
+CATEGORIES=	devel rubygems
+MASTER_SITES=	RG
+
+MAINTAINER=	sunpoet@FreeBSD.org
+COMMENT=	RuboCop plugin of code style checking for RSpec files
+WWW=		https://docs.rubocop.org/rubocop-rspec/ \
+		https://github.com/rubocop/rubocop-rspec
+
+LICENSE=	MIT
+LICENSE_FILE=	${WRKSRC}/MIT-LICENSE.md
+
+RUN_DEPENDS=	rubygem-lint_roller>=1.1<2:devel/rubygem-lint_roller \
+		rubygem-regexp_parser>=2.0:textproc/rubygem-regexp_parser \
+		rubygem-rubocop>=1.86.2<2:devel/rubygem-rubocop
+
+USES=		gem
+
+NO_ARCH=	yes
+
+.include <bsd.port.mk>

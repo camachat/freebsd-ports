@@ -1,0 +1,61 @@
+--- CMakeLists.txt.orig	2026-08-26 23:26:54 UTC
++++ CMakeLists.txt
+@@ -161,6 +161,7 @@ endif()
+   message(STATUS "NanoGUI: building static library.")
+ endif()
+ 
++if (FALSE) # disable NANOGUI_NATIVE_FLAGS_DEFAULT to allow to build on all architectures
+ if (MSVC)
+   # Disable annoying MSVC warnings (all targets)
+   add_definitions(/D "_CRT_SECURE_NO_WARNINGS")
+@@ -168,6 +169,7 @@ endif()
+   # Parallel build on MSVC (all targets)
+   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /MP")
+ endif()
++endif()
+ 
+ # Compile with compiler warnings turned on
+ if (MSVC)
+@@ -552,6 +554,12 @@ endif()
+   target_include_directories(nanogui PUBLIC /opt/vc/include)
+ endif()
+ 
++# Find glfw if nanogui is not compiling it internally.
++if (NOT NANOGUI_BUILD_GLFW)
++  find_package(glfw3 CONFIG REQUIRED)
++  target_link_libraries(nanogui PUBLIC glfw)
++endif()
++
+ if (NANOGUI_INSTALL)
+   include(GNUInstallDirs)
+   include(CMakePackageConfigHelpers)
+@@ -580,6 +588,7 @@ if (NANOGUI_INSTALL)
+ 
+   set(NANOGUI_CMAKECONFIG_INSTALL_DIR "${CMAKE_INSTALL_DATAROOTDIR}/cmake/nanogui")
+ 
++  include(CMakePackageConfigHelpers)
+   configure_package_config_file(
+     resources/nanoguiConfig.cmake.in nanoguiConfig.cmake
+     INSTALL_DESTINATION ${NANOGUI_CMAKECONFIG_INSTALL_DIR})
+@@ -627,6 +636,12 @@ endif()
+   file(COPY resources/icons DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+ endif()
+ 
++target_include_directories(nanogui PRIVATE
++    ${CMAKE_CURRENT_SOURCE_DIR}/ext/glfw/include
++)
++
++include(CMakePackageConfigHelpers)
++
+ if (NANOGUI_BUILD_PYTHON)
+   message(STATUS "NanoGUI: building the Python plugin.")
+   if (NOT TARGET nanobind::module)
+@@ -634,7 +649,7 @@ if (NANOGUI_BUILD_PYTHON)
+       # Constrain FindPython to find the Python version used by scikit-build
+       set(Python_VERSION "${PYTHON_VERSION_STRING}")
+ 
+-      find_package(Python 3.10
++      find_package(Python3 ${FREEBSD_PYTHON_DISTVERSION}
+         REQUIRED COMPONENTS Interpreter Development.Module
+         OPTIONAL_COMPONENTS Development.SABIModule)
+ 

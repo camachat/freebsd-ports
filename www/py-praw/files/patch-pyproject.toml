@@ -1,0 +1,11 @@
+--- pyproject.toml.orig	2026-06-14 04:53:51 UTC
++++ pyproject.toml
+@@ -51,7 +51,7 @@ dependencies = [
+ ]
+ dependencies = [
+   "defusedxml==0.7.1",
+-  "prawcore>=4,<5",
++  "prawcore>=4",
+   "typing-extensions; python_version <= '3.10'",
+   "update_checker>=1.0,<2.0",
+   "websocket-client>=0.54.0,<2"

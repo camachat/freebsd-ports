@@ -1,0 +1,29 @@
+PORTNAME=	text2digits
+DISTVERSION=	0.1.2
+CATEGORIES=	textproc python
+MASTER_SITES=	PYPI
+PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
+
+MAINTAINER=	matthew@wener.org
+COMMENT=	Small library to convert text numbers to digits in a string
+WWW=		https://github.com/ShailChoksi/text2digits
+
+LICENSE=	MIT
+
+BUILD_DEPENDS=	${PY_SETUPTOOLS} \
+		${PYTHON_PKGNAMEPREFIX}wheel>=0:devel/py-wheel@${PY_FLAVOR}
+
+USES=		python
+USE_PYTHON=	autoplist pep517 pytest
+
+NO_ARCH=	yes
+
+PORTDOCS=	PKG-INFO README.md
+
+OPTIONS_DEFINE=	DOCS
+
+post-install-DOCS-on:
+	@${MKDIR} ${STAGEDIR}${DOCSDIR}/
+	${INSTALL_DATA} ${PORTDOCS:S,^,${WRKSRC}/,} ${STAGEDIR}${DOCSDIR}
+
+.include <bsd.port.mk>

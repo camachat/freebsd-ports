@@ -1,0 +1,34 @@
+--- configure.ac.orig	2026-04-13 13:37:14 UTC
++++ configure.ac
+@@ -327,9 +327,9 @@ if test "x$enable_introspection" = "xyes" ; then
+   dnl Add Python support for the PythonGI plug-in.
+   AM_PATH_PYTHON(3.1)
+   AM_CHECK_PYTHON_HEADERS(,[AC_MSG_ERROR(could not find Python headers)])
+-  PYTHON_INCLUDES="`python3-config --cflags`"
++  PYTHON_INCLUDES="`${PYTHON}-config --cflags`"
+   AC_SUBST(PYTHON_INCLUDES)
+-  PYTHON_LIBS="`python3-config --embed --ldflags`"
++  PYTHON_LIBS="`${PYTHON}-config --embed --ldflags`"
+   AC_SUBST(PYTHON_LIBS)
+ 
+   AC_MSG_CHECKING(for pygobject overrides directory)
+@@ -354,8 +354,8 @@ if test "$GCC" = "yes" -a "$STRICT_CFLAGS" = "yes"; th
+ flags='Wall W'
+ flags_cpp='Wall W'
+ if test "$GCC" = "yes" -a "$STRICT_CFLAGS" = "yes"; then
+-  flags=$flags' Werror Wpedantic std=c99'
+-  flags_cpp=$flags_cpp' Werror Wpedantic'
++  flags=$flags' std=c99'
++  flags_cpp=$flags_cpp''
+ fi
+ for fl in $flags ; do
+   case " $CFLAGS " in
+@@ -391,7 +391,7 @@ AC_SUBST(v_simlegaldir)
+ AC_SUBST(v_simiconsdir)
+ v_simlegaldir="${docdir}"
+ AC_SUBST(v_simlegaldir)
+-v_simexamplesdir="${docdir}/examples"
++v_simexamplesdir="/usr/local/share/examples/v_sim"
+ AC_SUBST(v_simexamplesdir)
+ v_simpluginsdir="$libdir/$PACKAGE/plug-ins"
+ AC_SUBST(v_simpluginsdir)

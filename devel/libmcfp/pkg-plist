@@ -1,0 +1,11 @@
+include/mcfp/charconv.hpp
+include/mcfp/error.hpp
+include/mcfp/mcfp.hpp
+include/mcfp/options.hpp
+include/mcfp/sections.hpp
+include/mcfp/text.hpp
+lib/cmake/mcfp/mcfp-config-version.cmake
+lib/cmake/mcfp/mcfp-config.cmake
+lib/cmake/mcfp/mcfp-targets-%%CMAKE_BUILD_TYPE%%.cmake
+lib/cmake/mcfp/mcfp-targets.cmake
+lib/libmcfp.a

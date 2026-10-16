@@ -1,0 +1,11 @@
+%%PORTDOCS%%%%DOCSDIR%%/CONTRIBUTING.txt
+%%PORTDOCS%%%%DOCSDIR%%/FONTLOG.txt
+%%PORTDOCS%%%%DOCSDIR%%/LICENCE-FAQ.txt
+%%PORTDOCS%%%%DOCSDIR%%/LICENCE.txt
+%%PORTDOCS%%%%DOCSDIR%%/README.txt
+%%PORTDOCS%%%%DOCSDIR%%/TRADEMARKS.txt
+%%PORTDOCS%%%%DOCSDIR%%/copyright.txt
+%%FONTSDIR%%/Ubuntu-Italic[wdth,wght].ttf
+%%FONTSDIR%%/UbuntuMono-Italic[wght].ttf
+%%FONTSDIR%%/UbuntuMono[wght].ttf
+%%FONTSDIR%%/Ubuntu[wdth,wght].ttf

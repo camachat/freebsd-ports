@@ -1,0 +1,172 @@
+PORTNAME=	thokr
+DISTVERSIONPREFIX=	v
+DISTVERSION=	0.6.0
+PORTREVISION=	1
+CATEGORIES=	deskutils
+
+MAINTAINER=	yuri@FreeBSD.org
+COMMENT=	Sleek typing tui with visualized results and historical logging
+WWW=		https://github.com/jrnxf/thokr
+
+LICENSE=	MIT
+LICENSE_FILE=	${WRKSRC}/LICENSE.md
+
+USES=		cargo
+
+USE_GITHUB=	yes
+GH_ACCOUNT=	jrnxf
+
+CARGO_CRATES=	allocator-api2-0.2.21 \
+		android_system_properties-0.1.6 \
+		anstream-1.0.0 \
+		anstyle-1.0.14 \
+		anstyle-parse-1.0.0 \
+		anstyle-query-1.1.5 \
+		anstyle-wincon-3.0.11 \
+		approx-0.5.1 \
+		autocfg-1.5.1 \
+		bitflags-2.13.2 \
+		bumpalo-3.20.3 \
+		by_address-1.2.1 \
+		castaway-0.2.4 \
+		cc-1.8.0 \
+		cfg-if-1.0.5 \
+		cgisf_lib-0.1.3 \
+		chrono-0.4.45 \
+		clap-4.6.7 \
+		clap_builder-4.6.7 \
+		clap_derive-4.6.7 \
+		clap_lex-1.1.1 \
+		colorchoice-1.0.5 \
+		compact_str-0.9.1 \
+		console-0.16.6 \
+		convert_case-0.10.0 \
+		core-foundation-sys-0.8.7 \
+		critical-section-1.2.0 \
+		crossterm-0.29.0 \
+		crossterm_winapi-0.9.1 \
+		darling-0.24.1 \
+		darling_core-0.24.1 \
+		darling_macro-0.24.1 \
+		deranged-0.5.8 \
+		derive_more-2.1.1 \
+		derive_more-impl-2.1.1 \
+		directories-6.0.0 \
+		dirs-sys-0.5.0 \
+		document-features-0.2.12 \
+		either-1.19.0 \
+		encode_unicode-1.0.0 \
+		equivalent-1.0.2 \
+		errno-0.3.14 \
+		fastrand-2.5.0 \
+		find-msvc-tools-0.1.14 \
+		foldhash-0.2.0 \
+		futures-core-0.3.34 \
+		futures-task-0.3.34 \
+		futures-util-0.3.34 \
+		getrandom-0.2.17 \
+		getrandom-0.4.3 \
+		hashbrown-0.16.1 \
+		hashbrown-0.17.1 \
+		heck-0.5.0 \
+		iana-time-zone-0.1.65 \
+		iana-time-zone-haiku-0.1.2 \
+		ident_case-1.0.1 \
+		indoc-2.0.8 \
+		insta-1.49.0 \
+		instability-0.3.14 \
+		is_terminal_polyfill-1.70.2 \
+		itertools-0.14.0 \
+		itoa-1.0.18 \
+		js-sys-0.3.106 \
+		kasuari-0.4.12 \
+		libc-0.2.190 \
+		libm-0.2.16 \
+		libredox-0.1.25 \
+		line-clipping-0.3.8 \
+		linux-raw-sys-0.12.1 \
+		litrs-1.0.0 \
+		lock_api-0.4.14 \
+		log-0.4.34 \
+		lru-0.18.5 \
+		mio-1.2.4 \
+		num-conv-0.2.2 \
+		num-traits-0.2.19 \
+		num_threads-0.1.7 \
+		once_cell-1.21.4 \
+		once_cell_polyfill-1.70.2 \
+		option-ext-0.2.0 \
+		palette-0.7.7 \
+		palette_derive-0.7.7 \
+		palette_math-0.7.7 \
+		parking_lot-0.12.5 \
+		parking_lot_core-0.9.12 \
+		pin-project-lite-0.2.17 \
+		portable-atomic-1.15.0 \
+		powerfmt-0.2.1 \
+		ppv-lite86-0.2.21 \
+		proc-macro2-1.0.107 \
+		quote-1.0.47 \
+		r-efi-6.0.0 \
+		rand-0.8.8 \
+		rand_chacha-0.3.1 \
+		rand_core-0.6.4 \
+		ratatui-0.30.2 \
+		ratatui-core-0.1.2 \
+		ratatui-crossterm-0.1.2 \
+		ratatui-widgets-0.3.2 \
+		redox_syscall-0.5.18 \
+		redox_users-0.5.3 \
+		rustc_version-0.4.1 \
+		rustix-1.1.5 \
+		rustversion-1.0.23 \
+		ryu-1.0.23 \
+		scopeguard-1.2.0 \
+		semver-1.0.28 \
+		serde-1.0.229 \
+		serde_core-1.0.229 \
+		serde_derive-1.0.229 \
+		shlex-2.0.1 \
+		signal-hook-0.3.18 \
+		signal-hook-mio-0.2.5 \
+		signal-hook-registry-1.4.8 \
+		similar-2.7.0 \
+		slab-0.4.12 \
+		smallvec-1.16.3 \
+		static_assertions-1.1.0 \
+		strsim-0.11.1 \
+		strum-0.28.0 \
+		strum_macros-0.28.0 \
+		syn-2.0.119 \
+		syn-3.0.8 \
+		tempfile-3.27.0 \
+		thiserror-2.0.21 \
+		thiserror-impl-2.0.21 \
+		time-0.3.55 \
+		time-core-0.1.9 \
+		unicode-ident-1.0.27 \
+		unicode-segmentation-1.13.3 \
+		unicode-truncate-2.0.1 \
+		unicode-width-0.2.2 \
+		utf8parse-0.2.2 \
+		wasi-0.11.1+wasi-snapshot-preview1 \
+		wasm-bindgen-0.2.129 \
+		wasm-bindgen-macro-0.2.129 \
+		wasm-bindgen-macro-support-0.2.129 \
+		wasm-bindgen-shared-0.2.129 \
+		winapi-0.3.9 \
+		winapi-i686-pc-windows-gnu-0.4.0 \
+		winapi-x86_64-pc-windows-gnu-0.4.0 \
+		windows-core-0.62.2 \
+		windows-implement-0.60.2 \
+		windows-interface-0.59.3 \
+		windows-link-0.2.1 \
+		windows-result-0.4.1 \
+		windows-strings-0.5.1 \
+		windows-sys-0.61.2 \
+		zerocopy-0.8.62 \
+		zerocopy-derive-0.8.62
+
+PLIST_FILES=	bin/${PORTNAME}
+
+.include <bsd.port.mk>

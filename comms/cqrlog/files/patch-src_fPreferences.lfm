@@ -1,0 +1,11 @@
+--- src/fPreferences.lfm.orig	2026-09-25 09:42:16.000000000 -0700
++++ src/fPreferences.lfm	2026-09-29 09:00:02.810988000 -0700
+@@ -6612,7 +6612,7 @@
+           Top = 15
+           Width = 432
+           TabOrder = 0
+-          Text = '/usr/bin/xplanet'
++          Text = '%%LOCALBASE%%/bin/xplanet'
+         end
+       end
+       object GroupBox22: TGroupBox

@@ -1,0 +1,3 @@
+Xdelta3 is a binary differencing tool and library that implements VCDIFF
+(RFC 3284) delta compression. It encodes and decodes deltas for large files
+and provides command-line and reusable static-library interfaces.

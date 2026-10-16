@@ -1,0 +1,2 @@
+libxkbfile is used by the X servers and utilities to parse the XKB
+configuration data files.

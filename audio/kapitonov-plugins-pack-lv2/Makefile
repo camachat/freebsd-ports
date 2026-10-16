@@ -1,0 +1,35 @@
+PORTNAME=	kapitonov-plugins-pack
+DISTVERSION=	1.2.1
+PORTREVISION=	1
+CATEGORIES=	audio
+PKGNAMESUFFIX=	-lv2
+
+PATCH_SITES=	https://github.com/${GH_ACCOUNT}/${GH_PROJECT}/commit/
+PATCHFILES=	0163b53ac942435645db5ccf9c2512cf2d2d7466.patch:-p1
+
+MAINTAINER=	yuri@FreeBSD.org
+COMMENT=	Kapitonov LV2 Plugins Pack (KPP)
+WWW=		https://github.com/olegkapitonov/Kapitonov-Plugins-Pack
+
+LICENSE=	GPLv3
+LICENSE_FILE=	${WRKSRC}/LICENSE.txt
+
+BUILD_DEPENDS=	lv2>0:audio/lv2 \
+		faust:audio/faust \
+		${LOCALBASE}/include/boost/circular_buffer.hpp:devel/boost-libs
+LIB_DEPENDS=	libzita-convolver.so:audio/zita-convolver \
+		libzita-resampler.so:audio/zita-resampler \
+		libxcb-icccm.so:x11/xcb-util-wm \
+		libxcb-util.so:x11/xcb-util
+
+USES=		compiler:c11 gnome localbase:ldflags meson pkgconfig xorg
+USE_GNOME=	cairo
+USE_XORG=	xcb
+
+USE_GITHUB=	yes
+GH_ACCOUNT=	olegkapitonov
+GH_PROJECT=	Kapitonov-Plugins-Pack
+
+MESON_ARGS=	-Dladspa=disabled
+
+.include <bsd.port.mk>

@@ -1,0 +1,4 @@
+%%EMACS_SITE_LISPDIR%%/dictionary/connection.el
+%%EMACS_SITE_LISPDIR%%/dictionary/dictionary-init.el
+%%EMACS_SITE_LISPDIR%%/dictionary/dictionary.el
+%%EMACS_SITE_LISPDIR%%/dictionary/link.el
