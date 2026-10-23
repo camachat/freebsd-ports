@@ -1,0 +1,11 @@
+--- lib/notification/CMakeLists.txt.orig	2026-04-22 09:29:50 UTC
++++ lib/notification/CMakeLists.txt
+@@ -21,7 +21,7 @@ install_if_not_exists(
+ )
+ 
+ install_if_not_exists(
+-  ${PROJECT_SOURCE_DIR}/etc/icinga2/features-available/notification.conf
++  ${PROJECT_SOURCE_DIR}/etc/icinga2/features-available/notification.conf.sample
+   ${ICINGA2_CONFIGDIR}/features-available
+ )
+ 

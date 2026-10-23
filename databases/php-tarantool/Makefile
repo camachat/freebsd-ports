@@ -1,0 +1,21 @@
+PORTNAME=	tarantool
+PORTVERSION=	0.4.0
+CATEGORIES=	databases
+PKGNAMEPREFIX=	${PHP_PKGNAMEPREFIX}
+
+MAINTAINER=	sunpoet@FreeBSD.org
+COMMENT=	PECL PHP driver for Tarantool
+WWW=		https://github.com/tarantool/tarantool-php
+
+LICENSE=	BSD2CLAUSE
+LICENSE_FILE=	${WRKSRC}/LICENSE
+
+USES=		php:ext
+IGNORE_WITH_PHP=	86
+
+CONFIGURE_ARGS=	--with-tarantool
+
+USE_GITHUB=	yes
+GH_PROJECT=	tarantool-php
+
+.include <bsd.port.mk>

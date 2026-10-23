@@ -1,0 +1,6 @@
+VERSIONS=		38 39
+MAVEN_VERSION?=		39
+
+MASTERDIR=		${.CURDIR}/../maven${MAVEN_VERSION}
+
+.include "${MASTERDIR}/Makefile"

@@ -1,0 +1,17 @@
+include/osqp/osqp.h
+include/osqp/osqp_api_constants.h
+include/osqp/osqp_api_functions.h
+include/osqp/osqp_api_types.h
+include/osqp/osqp_configure.h
+include/osqp/osqp_export_define.h
+include/qdldl/qdldl.h
+include/qdldl/qdldl_types.h
+include/qdldl/qdldl_version.h
+lib/cmake/osqp/osqp-config-version.cmake
+lib/cmake/osqp/osqp-config.cmake
+lib/cmake/osqp/osqp-targets-%%CMAKE_BUILD_TYPE%%.cmake
+lib/cmake/osqp/osqp-targets.cmake
+lib/cmake/osqp/osqpstatic-targets-%%CMAKE_BUILD_TYPE%%.cmake
+lib/cmake/osqp/osqpstatic-targets.cmake
+lib/libosqp.so
+lib/libosqpstatic.a

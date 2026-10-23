@@ -1,0 +1,15 @@
+TIMESTAMP = 1791533449
+SHA256 (vscode-node-modules-1.141.0.tar.gz) = 05fbc8f4f794ad1228b58dbd6b641742fd46ab9aca62315b87aa226ede0e1cd3
+SIZE (vscode-node-modules-1.141.0.tar.gz) = 987937755
+SHA256 (vscode-reh-web-linux-x64-4.141.0.tar.gz) = 20c1b717f583aff4ecbc5b7e86c822cdf9ded567df1c5fe0e84c29d5708e4930
+SIZE (vscode-reh-web-linux-x64-4.141.0.tar.gz) = 202006684
+SHA256 (github-copilot-1.0.73-linux-x64.tgz) = 061d8f55f557602a0b994ee9f053670174621405f04dfbb2aa294869a4b0f1c1
+SIZE (github-copilot-1.0.73-linux-x64.tgz) = 62819484
+SHA256 (copilot-sdk-linux-x64-1.0.17-unstable.37397886721.gad270aa.tgz) = cd0e40ea63ffbc2df27426d8e1b7207a7a4e29ddd43d132400e71427cdfde6b7
+SIZE (copilot-sdk-linux-x64-1.0.17-unstable.37397886721.gad270aa.tgz) = 58646006
+SHA256 (code-server-node-modules-4.141.0.tar.gz) = 0dc36705937a87fe2522a9a35ddb966e1a4236ef5aaf9e92263fe2ab4f588d8c
+SIZE (code-server-node-modules-4.141.0.tar.gz) = 20801616
+SHA256 (coder-code-server-4.141.0-v4.141.0_GH0.tar.gz) = 825067c009068930619368f1e7b25b7ff39a38e717a0344273e5764c21c10ead
+SIZE (coder-code-server-4.141.0-v4.141.0_GH0.tar.gz) = 794097
+SHA256 (microsoft-vscode-1.141.0_GH0.tar.gz) = 20061291ba192c09c00fe9a56a04c9b33d57caa2605387cd0b9c0b707f47daca
+SIZE (microsoft-vscode-1.141.0_GH0.tar.gz) = 58404510

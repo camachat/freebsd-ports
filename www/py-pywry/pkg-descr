@@ -1,0 +1,4 @@
+PyWry is a lightweight and blazingly fast, cross-platform, WebView rendering
+engine and desktop UI toolkit for Python, built on top of Tauri/PyTauri.
+It supports Plotly.js, AG Grid, TradingView Lightweight Charts, and custom
+event handling.

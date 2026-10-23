@@ -1,0 +1,28 @@
+PORTNAME=	snowddl
+DISTVERSION=	0.67.5
+CATEGORIES=	databases python
+MASTER_SITES=	PYPI
+PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
+
+MAINTAINER=	patmaddox@FreeBSD.org
+COMMENT=	Object management automation tool for Snowflake
+WWW=		https://docs.snowddl.com/
+
+LICENSE=	APACHE20
+
+BUILD_DEPENDS=	${PY_DEPENDS} \
+		${PY_SETUPTOOLS} \
+		${PYTHON_PKGNAMEPREFIX}wheel>=0:devel/py-wheel@${PY_FLAVOR}
+RUN_DEPENDS=	${PY_DEPENDS}
+
+USES=		python
+USE_PYTHON=	autoplist concurrent pep517
+
+NO_ARCH=	yes
+
+PY_DEPENDS=	${PYTHON_PKGNAMEPREFIX}jsonschema>=4.18<5:devel/py-jsonschema@${PY_FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}pydantic2>=2.4<3:devel/py-pydantic2@${PY_FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}pyyaml>=6.0<7:devel/py-pyyaml@${PY_FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}snowflake-connector-python>=4.0<5:databases/py-snowflake-connector-python@${PY_FLAVOR}
+
+.include <bsd.port.mk>

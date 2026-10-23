@@ -1,0 +1,11 @@
+--- CMakeLists.txt.orig	2026-06-28 13:38:25 UTC
++++ CMakeLists.txt
+@@ -352,7 +352,7 @@ if (NOT CLAD_BUILD_STATIC_ONLY)
+     endforeach()
+   endif()
+ 
+-  if (NOT CLAD_DISABLE_TESTS)
++  if (FREEBSD_BUILD_TESTS)
+     add_subdirectory(unittests)
+     add_subdirectory(test)
+   endif()
