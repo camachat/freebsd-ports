@@ -1,0 +1,31 @@
+PORTNAME=	classic
+DISTVERSION=	1.6.0-4
+DISTVERSIONSUFFIX=	-g790857d
+CATEGORIES?=	mail www
+PKGNAMEPREFIX=	roundcube-
+PKGNAMESUFFIX=	${PHP_PKGNAMESUFFIX}
+
+MAINTAINER=	brnrd@FreeBSD.org
+COMMENT=	Larry skin/theme for Rouncube webmail
+WWW=		https://github.com/roundcube/classic/
+
+LICENSE=	GPLv3+
+
+USES=		php:flavors
+
+RUN_DEPENDS=	roundcube${PHP_PKGNAMESUFFIX}>=1.6.0:mail/roundcube@${PHP_FLAVOR}
+NO_ARCH=	yes
+NO_BUILD=	yes
+
+WWWDIR=		${PREFIX}/www/${PKGNAMEPREFIX:S/-//}/skins/${PORTNAME}
+
+USE_GITHUB=	yes
+GH_ACCOUNT=	${PKGNAMEPREFIX:S/-//}
+
+do-install:
+	@${MKDIR} ${STAGEDIR}${WWWDIR}
+	@(cd ${WRKSRC} && ${COPYTREE_SHARE} . ${STAGEDIR}${WWWDIR})
+	@(cd ${WRKSRC}; ${FIND} . -not -type d) | ${SORT} | \
+		${SED} -e 's,^\.,${WWWDIR_REL},' >> ${TMPPLIST}
+
+.include <bsd.port.mk>

@@ -1,0 +1,21 @@
+--- pyproject.toml.orig	2026-10-09 15:00:10 UTC
++++ pyproject.toml
+@@ -11,8 +11,7 @@
+   description = "Memory efficient Python objects"
+   readme = "README.rst"
+   requires-python = ">=3.11"
+-  license = "BSD-3-Clause"
+-  license-files = ["LICENSE"]
++  license = {file = "LICENSE"}
+   authors = [{ name = "The Nucleic Development Team", email = "sccolbert@gmail.com" }]
+   maintainers = [{ name = "Matthieu C. Dartiailh", email = "m.dartiailh@gmail.com" }]
+   classifiers = [
+@@ -34,7 +33,7 @@
+     changelog = "https://github.com/nucleic/atom/blob/main/releasenotes.rst"
+ 
+ [build-system]
+-  requires = ["setuptools>=77.0", "wheel", "setuptools_scm[toml]>=3.4.3", "cppy>=1.2.0"]
++  requires = ["setuptools>=63.1.0", "wheel", "setuptools_scm[toml]>=3.4.3", "cppy>=1.2.0"]
+   build-backend = "setuptools.build_meta"
+ 
+ [tool.setuptools]

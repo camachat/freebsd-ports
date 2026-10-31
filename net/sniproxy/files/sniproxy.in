@@ -1,0 +1,34 @@
+#!/bin/sh
+
+# PROVIDE: sniproxy
+# REQUIRE: DAEMON
+# KEYWORD: shutdown
+
+#
+# Add the following lines to /etc/rc.conf to enable sniproxy:
+#
+# sniproxy_enable="YES"
+#
+#
+
+. /etc/rc.subr
+
+name=sniproxy
+rcvar=sniproxy_enable
+
+load_rc_config ${name}
+
+sniproxy_enable=${sniproxy_enable:-"NO"}
+sniproxy_conf=${sniproxy_conf:-"%%PREFIX%%/etc/sniproxy.conf"}
+
+pidfile=${sniproxy_pidfile:-"/var/run/${name}.pid"}
+procname=%%PREFIX%%/sbin/${name}
+command=/usr/sbin/daemon
+command_args="-c -p ${pidfile} -t ${name} -- ${procname} -f -c ${sniproxy_conf}"
+
+required_files=${sniproxy_conf}
+
+extra_commands="reload"
+sig_reload="HUP"
+
+run_rc_command "$1"

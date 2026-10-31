@@ -1,0 +1,22 @@
+PORTNAME=	Parse-BooleanLogic
+PORTVERSION=	0.10
+CATEGORIES=	textproc perl5
+MASTER_SITES=	CPAN
+PKGNAMEPREFIX=	p5-
+
+MAINTAINER=	skreuzer@FreeBSD.org
+COMMENT=	Parser of boolean expressions
+WWW=		https://metacpan.org/release/Parse-BooleanLogic
+
+LICENSE=	ART10 GPLv1+
+LICENSE_COMB=	dual
+
+BUILD_DEPENDS=	${RUN_DEPENDS}
+RUN_DEPENDS=	p5-Regexp-Common>=2.122:textproc/p5-Regexp-Common \
+		p5-Module-Install>=0.91_1:devel/p5-Module-Install
+TEST_DEPENDS=	p5-Test-Deep>=0:devel/p5-Test-Deep
+
+USES=		perl5
+USE_PERL5=	configure
+
+.include <bsd.port.mk>

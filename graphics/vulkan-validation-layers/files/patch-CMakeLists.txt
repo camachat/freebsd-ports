@@ -1,0 +1,12 @@
+--- CMakeLists.txt.orig	2026-07-08 00:00:00 UTC
++++ CMakeLists.txt
+@@ -120,6 +120,9 @@ find_package(VulkanHeaders ${PROJECT_VERSION} CONFIG
+ find_package(VulkanUtilityLibraries CONFIG QUIET)
+
+ find_package(SPIRV-Headers CONFIG QUIET)
++if (NOT TARGET SPIRV-Headers::SPIRV-Headers)
++    add_subdirectory(SPIRV-Headers EXCLUDE_FROM_ALL SYSTEM)
++endif()
+
+ find_package(SPIRV-Tools-opt CONFIG QUIET)
+

@@ -1,0 +1,14 @@
+bin/pdl2
+%%SITE_PERL%%/PDL/Perldl2/Plugin/CleanErrors.pm
+%%SITE_PERL%%/PDL/Perldl2/Plugin/NiceSlice.pm
+%%SITE_PERL%%/PDL/Perldl2/Plugin/PDLCommands.pm
+%%SITE_PERL%%/PDL/Perldl2/Plugin/PrintControl.pm
+%%SITE_PERL%%/PDL/Perldl2/Profile/Perldl2.pm
+%%SITE_PERL%%/PDL/Perldl2/Script.pm
+%%SITE_PERL%%/PDL/tctrl-c.pl
+%%PERL5_MAN1%%/pdl2.1.gz
+%%PERL5_MAN3%%/PDL::Perldl2::Plugin::CleanErrors.3.gz
+%%PERL5_MAN3%%/PDL::Perldl2::Plugin::NiceSlice.3.gz
+%%PERL5_MAN3%%/PDL::Perldl2::Plugin::PDLCommands.3.gz
+%%PERL5_MAN3%%/PDL::Perldl2::Plugin::PrintControl.3.gz
+%%PERL5_MAN3%%/PDL::Perldl2::Profile::Perldl2.3.gz

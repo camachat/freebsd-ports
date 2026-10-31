@@ -1,0 +1,33 @@
+PORTNAME=	dnsjit
+DISTVERSION=	1.4.0
+PORTREVISION=	3
+CATEGORIES=	dns net
+CPPFLAGS+=	-I${LOCALBASE}/lmdb0/include
+LDFLAGS+=	-L${LOCALBASE}/lmdb0/lib
+CONFIGURE_ENV+=	PKG_CONFIG_PATH=${LOCALBASE}/lmdb0/libdata/pkgconfig
+MASTER_SITES=	https://www.dns-oarc.net/files/${PORTNAME}/
+
+MAINTAINER=	freebsd@dns.company
+COMMENT=	Engine for capturing, parsing and replaying DNS
+WWW=		https://www.dns-oarc.net/tools/dnsjit
+
+LICENSE=	GPLv3
+LICENSE_FILE=	${WRKSRC}/LICENSE
+
+LIB_DEPENDS=	libck.so:devel/concurrencykit \
+		libgnutls.so:security/gnutls \
+		liblmdb0.so:databases/lmdb0 \
+		liblz4.so:archivers/liblz4 \
+		libzstd.so:archivers/zstd
+
+USES=		libtool localbase luajit pkgconfig
+
+GNU_CONFIGURE=	yes
+
+OPTIONS_DEFINE=	EXAMPLES
+
+post-install-EXAMPLES-on:
+	${MKDIR} ${STAGEDIR}${EXAMPLESDIR}
+	${INSTALL_DATA} ${WRKSRC}/examples/*.lua ${STAGEDIR}${EXAMPLESDIR}
+
+.include <bsd.port.mk>

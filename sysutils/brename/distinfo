@@ -1,0 +1,5 @@
+TIMESTAMP = 1793344103
+SHA256 (go/sysutils_brename/brename-v2.15.0/v2.15.0.mod) = 2b2372c7cf49cb9ec5d08c2104e67f373273f862cd0a4cc4bcc602ac2d4413f8
+SIZE (go/sysutils_brename/brename-v2.15.0/v2.15.0.mod) = 809
+SHA256 (go/sysutils_brename/brename-v2.15.0/v2.15.0.zip) = 295fdfbe7c89ecf2a3145b3b5cb70154578f1592d5ebf55e68ff3b9d9a925ed9
+SIZE (go/sysutils_brename/brename-v2.15.0/v2.15.0.zip) = 269370

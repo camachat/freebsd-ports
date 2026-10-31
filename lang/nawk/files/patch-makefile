@@ -1,0 +1,25 @@
+--- makefile.orig	2026-10-27 15:26:33 UTC
++++ makefile
+@@ -22,16 +22,17 @@
+ # THIS SOFTWARE.
+ # ****************************************************************/
+ 
+-CFLAGS = -fsanitize=address -O1 -g -fno-omit-frame-pointer -fno-optimize-sibling-calls
+-CFLAGS = -g
+-CFLAGS =
+-CFLAGS = -O2
++#CFLAGS = -fsanitize=address -O1 -g -fno-omit-frame-pointer -fno-optimize-sibling-calls
++#CFLAGS = -g
++#CFLAGS =
++#CFLAGS = -O2
+ 
+ # compiler options
+ #CC = cc -Wall -g -Wwrite-strings
+ #CC = cc -O4 -Wall -pedantic -fno-strict-aliasing
+ #CC = cc -fprofile-arcs -ftest-coverage # then gcov f1.c; cat f1.c.gcov
+-HOSTCC = cc -g -Wall -pedantic -Wcast-qual
++#HOSTCC = cc -g -Wall -pedantic -Wcast-qual
++HOSTCC = cc -g -Wall
+ # HOSTCC = g++ -g -Wall -pedantic -Wcast-qual
+ CC = $(HOSTCC)  # change this is cross-compiling.
+ 

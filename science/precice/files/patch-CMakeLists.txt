@@ -1,0 +1,11 @@
+--- CMakeLists.txt.orig	2026-04-21 07:09:32 UTC
++++ CMakeLists.txt
+@@ -789,7 +789,7 @@ install(DIRECTORY examples
+ 
+ # Install examples
+ install(DIRECTORY examples
+-  DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/precice
++  DESTINATION share/examples/precice
+   PATTERN ".gitignore" EXCLUDE
+   )
+ 

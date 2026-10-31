@@ -1,0 +1,9 @@
+--- CMakeLists.txt.orig	2024-01-01 00:00:00 UTC
++++ CMakeLists.txt
+@@ -43,7 +43,9 @@ dune_default_include_directories(duneistl INTERFACE)
+ add_subdirectory(cmake/modules)
+ add_subdirectory(dune)
++if (FREEBSD_INSTALL_DOCS)
+ add_subdirectory(doc)
++endif()
+ add_subdirectory(src)

@@ -1,0 +1,5 @@
+Xgamma allows X users to query and alter the gamma correction of a
+monitor via the X video mode extension (XFree86-VidModeExtension).
+
+Note that the xgamma utility is obsolete and deficient, x11/xrandr
+should be used with drivers that support the XRandr extension.

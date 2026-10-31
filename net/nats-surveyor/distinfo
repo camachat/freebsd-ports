@@ -1,0 +1,5 @@
+TIMESTAMP = 1792654352
+SHA256 (go/net_nats-surveyor/nats-surveyor-v0.9.12/v0.9.12.mod) = 6be44c04af78f9abf55f8f03ae18c60ee602b98157eff2cac02a1e4150460a52
+SIZE (go/net_nats-surveyor/nats-surveyor-v0.9.12/v0.9.12.mod) = 2041
+SHA256 (go/net_nats-surveyor/nats-surveyor-v0.9.12/v0.9.12.zip) = f50718cb247f25d08e556b26160c36a21c3c7fd2cb8f01dc0624c484a2cd03b2
+SIZE (go/net_nats-surveyor/nats-surveyor-v0.9.12/v0.9.12.zip) = 174910

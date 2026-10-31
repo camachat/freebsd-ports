@@ -1,0 +1,12 @@
+A package for easily working with US and state metadata.
+- all US states and territories
+- postal abbreviations
+- Associated Press style abbreviations
+- FIPS codes
+- capitals
+- years of statehood
+- time zones
+- phonetic state name lookup
+- is contiguous or continental
+- URLs to shapefiles for state, census, congressional districts, counties, and
+  census tracts

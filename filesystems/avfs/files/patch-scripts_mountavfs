@@ -1,0 +1,11 @@
+--- scripts/mountavfs.orig	2026-10-14 19:28:06 UTC
++++ scripts/mountavfs
+@@ -15,7 +15,7 @@ if [ ! -d "$AVFSBASE" ]; then
+     AVFSBASE="${HOME}/.avfs"
+ fi
+ 
+-grep -qE "avfsd ${AVFSBASE}" /proc/mounts || {
++mount -p | grep -qE "^${AVFSBASE}.*fusefs" || {
+    if [ ! -e "$AVFSBASE" ]; then
+       mkdir -p "$AVFSBASE"
+    fi

@@ -1,0 +1,4 @@
+GNOME Keyring credential cache for Apache Subversion.
+
+See https://wiki.freebsd.org/Ports/security/subversion-gnome-keyring for
+setup instructions.

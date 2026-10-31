@@ -1,0 +1,13 @@
+include/girara/datastructures.h
+include/girara/girara-version.h
+include/girara/girara.h
+include/girara/input-history.h
+include/girara/log.h
+include/girara/macros.h
+include/girara/template.h
+include/girara/types.h
+include/girara/utils.h
+lib/libgirara.so
+lib/libgirara.so.5
+lib/libgirara.so.5.0
+libdata/pkgconfig/girara.pc

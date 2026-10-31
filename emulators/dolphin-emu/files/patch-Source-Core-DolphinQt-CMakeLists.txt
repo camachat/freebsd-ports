@@ -1,0 +1,23 @@
+Add DISABLE_NLS option
+
+--- Source/Core/DolphinQt/CMakeLists.txt.orig	2026-03-11 23:36:49 UTC
++++ Source/Core/DolphinQt/CMakeLists.txt
+@@ -560,6 +560,9 @@ endif()
+   )
+ endif()
+ 
++option(DISABLE_NLS "Disable native language support (NLS)" OFF)
++if(NOT DISABLE_NLS)
++
+ # Handle localization
+ find_package(Gettext)
+ 
+@@ -611,6 +614,8 @@ endif()
+     endif()
+   endforeach()
+ endif()
++
++endif() # NOT DISABLE_NLS
+ 
+ if(APPLE)
+   include(BundleUtilities)
