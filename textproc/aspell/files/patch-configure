@@ -1,0 +1,11 @@
+--- configure.orig	2026-10-28 21:22:56 UTC
++++ configure
+@@ -18327,7 +18327,7 @@ if ac_fn_cxx_try_link "$LINENO"; then :
+ if ac_fn_cxx_try_link "$LINENO"; then :
+   CURSES_LIB=-lncurses
+ 
+-$as_echo "#define CURSES_HEADER <ncurses/curses.h>" >>confdefs.h
++$as_echo "#define CURSES_HEADER <ncurses/ncurses.h>" >>confdefs.h
+ 
+ 
+ $as_echo "#define TERM_HEADER <ncurses/term.h>" >>confdefs.h

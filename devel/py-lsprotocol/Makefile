@@ -1,0 +1,23 @@
+PORTNAME=	lsprotocol
+PORTVERSION=	2025.0.0
+CATEGORIES=	devel python
+MASTER_SITES=	PYPI
+PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
+
+MAINTAINER=	yuri@FreeBSD.org
+COMMENT=	Python implementation of the Language Server Protocol
+WWW=		https://github.com/microsoft/lsprotocol
+
+LICENSE=	MIT
+LICENSE_FILE=	${WRKSRC}/LICENSE
+
+BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}flit-core>0:devel/py-flit-core@${PY_FLAVOR}
+RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}attrs>=21.3.0:devel/py-attrs@${PY_FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}cattrs>=23.2.1:devel/py-cattrs@${PY_FLAVOR}
+
+USES=		python
+USE_PYTHON=	pep517 autoplist concurrent
+
+NO_ARCH=	yes
+
+.include <bsd.port.mk>

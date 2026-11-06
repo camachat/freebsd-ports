@@ -1,0 +1,23 @@
+PORTNAME=	async
+PORTVERSION=	2.45.1
+CATEGORIES=	devel rubygems
+MASTER_SITES=	RG
+PKGNAMESUFFIX=	-gitlab
+
+MAINTAINER=	mfechner@FreeBSD.org
+COMMENT=	Modern asynchronous I/O framework for Ruby
+WWW=		https://socketry.github.io/async/ \
+		https://github.com/socketry/async
+
+LICENSE=	MIT
+LICENSE_FILE=	${WRKSRC}/license.md
+
+RUN_DEPENDS=	rubygem-console>=1.29<2:devel/rubygem-console \
+		rubygem-fiber-annotation>=0:devel/rubygem-fiber-annotation \
+		rubygem-io-event-gitlab>=1.21<2:devel/rubygem-io-event-gitlab
+
+USES=		gem
+
+NO_ARCH=	yes
+
+.include <bsd.port.mk>

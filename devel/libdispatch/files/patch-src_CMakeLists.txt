@@ -1,0 +1,22 @@
+--- src/CMakeLists.txt.orig	2026-05-01 02:25:26 UTC
++++ src/CMakeLists.txt
+@@ -140,7 +140,7 @@ target_compile_options(dispatch PRIVATE -fblocks)
+ # FIXME(compnerd) add check for -fblocks?
+ target_compile_options(dispatch PRIVATE -fblocks)
+ 
+-check_c_compiler_flag("-momit-leaf-frame-pointer -Werror -Wall -O3" C_SUPPORTS_OMIT_LEAF_FRAME_POINTER)
++check_c_compiler_flag("-momit-leaf-frame-pointer -Wall" C_SUPPORTS_OMIT_LEAF_FRAME_POINTER)
+ if (C_SUPPORTS_OMIT_LEAF_FRAME_POINTER)
+   target_compile_options(dispatch PRIVATE -momit-leaf-frame-pointer)
+ endif()
+@@ -171,6 +171,10 @@ if(NOT APPLE AND NOT WIN32)
+ 
+ if(NOT APPLE AND NOT WIN32)
+   set_target_properties(dispatch PROPERTIES INSTALL_RPATH "$ORIGIN")
++  set_target_properties(dispatch PROPERTIES
++        VERSION ${PROJECT_VERSION}
++        SOVERSION ${PROJECT_VERSION_MAJOR}
++        EXPORT_NAME dispatch )
+ endif()
+ 
+ if(LINKER_SUPPORTS_BUILD_ID)

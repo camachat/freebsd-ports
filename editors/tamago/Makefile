@@ -1,0 +1,31 @@
+PORTNAME=	tamago
+PORTVERSION=	4.0.6.0.20041122.19.15
+DISTVERSIONPREFIX=	v
+PORTREVISION=	13
+CATEGORIES=	editors elisp
+
+MAINTAINER=	hrs@FreeBSD.org
+COMMENT=	Egg V4, Multilingual Input Method for Emacsen
+WWW=		https://github.com/hrs-allbsd/tamago
+
+LICENSE=	GPLv2
+LICENSE_FILE=	${WRKSRC}/COPYING
+
+USES=		emacs:build
+USE_GITHUB=	yes
+GH_ACCOUNT=	hrs-allbsd
+
+GNU_CONFIGURE=	yes
+CONFIGURE_ARGS=	--with-lispdir="${LOCALBASE}/${EMACS_SITE_LISPDIR}"
+CONFIGURE_ENV=	EMACS="${EMACS_CMD}"
+
+NO_ARCH=	yes
+
+PLIST_SUB=	ELISPDIR="${EMACS_SITE_LISPDIR}"
+PORTDOCS=	AUTHORS ChangeLog ChangeLog.1997-1998 \
+		ChangeLog.2000-2001 ChangeLog.2002-2004 \
+		PROBLEMS README README.ja.txt TODO egg-anthy.readme
+OPTIONS_DEFINE=	DOCS
+DOCS_CONFIGURE_ENABLE=	doc
+
+.include <bsd.port.mk>

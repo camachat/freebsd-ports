@@ -1,0 +1,980 @@
+bin/cudatext
+share/applications/cudatext.desktop
+%%DATADIR%%/data/autocomplete/Bash script.acp
+%%DATADIR%%/data/autocomplete/Batch files.acp
+%%DATADIR%%/data/autocompletespec/css_colors.ini
+%%DATADIR%%/data/autocompletespec/css_list.ini
+%%DATADIR%%/data/autocompletespec/css_sel.ini
+%%DATADIR%%/data/autocompletespec/emmet_lorem.txt
+%%DATADIR%%/data/autocompletespec/emmet_snippets.ini
+%%DATADIR%%/data/autocompletespec/html_entities.ini
+%%DATADIR%%/data/autocompletespec/html_globals.ini
+%%DATADIR%%/data/autocompletespec/html_list.ini
+%%DATADIR%%/data/autocompletespec/html_mediatypes.ini
+%%DATADIR%%/data/codetreeicons/default_16x16/ar1.png
+%%DATADIR%%/data/codetreeicons/default_16x16/ar2.png
+%%DATADIR%%/data/codetreeicons/default_16x16/box.png
+%%DATADIR%%/data/codetreeicons/default_16x16/dir.png
+%%DATADIR%%/data/codetreeicons/default_16x16/fx.png
+%%DATADIR%%/data/codetreeicons/default_16x16/st1.png
+%%DATADIR%%/data/codetreeicons/default_16x16/st2.png
+%%DATADIR%%/data/codetreeicons/default_16x16/st3.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/LICENSE.txt
+%%DATADIR%%/data/filetypeicons/vscode_16x16/README.txt
+%%DATADIR%%/data/filetypeicons/vscode_16x16/default_file.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/default_folder.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_actionscript.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_ada.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_antlr.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_apache.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_applescript.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_arduino.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_asciidoc.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_assembly.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_astro.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_audio.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_autohotkey.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_autoit.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_awk.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_babel.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_ballerina.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_bat.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_bazel.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_bicep.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_binary.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_blade.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_c.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_c3.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_cfm.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_cheader.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_clojure.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_cmake.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_cobol.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_coffeescript.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_config.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_cpp.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_cppheader.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_crystal.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_csharp.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_css.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_cucumber.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_cuda.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_cython.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_dartlang.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_delphi.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_diff.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_django.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_dlang.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_docker.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_ejs.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_elixir.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_elm.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_ember.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_erb.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_erlang.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_falcon.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_fortran.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_fsharp.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_fsproj.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_gcode.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_gdscript.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_gleam.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_glsl.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_gnuplot.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_go.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_godot.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_gradle.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_graphql.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_graphviz.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_groovy.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_haml.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_handlebars.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_harbour.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_haskell.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_haxe.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_hjson.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_hlsl.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_html.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_image.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_informix.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_ini.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_innosetup.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_jasmine.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_java.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_jinja.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_js.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_json.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_jsonnet.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_jsp.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_julia.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_kivy.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_kotlin.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_less.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_liquid.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_lisp.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_log.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_lua.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_makefile.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_markdown.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_matlab.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_maya.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_mdx.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_mediawiki.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_mojo.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_mustache.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_nim.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_nsi.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_objectivec.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_objectivecpp.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_ocaml.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_opencl.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_openscad.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_org.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_perl.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_perl6.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_php.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_plantuml.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_plsql.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_pony.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_powershell.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_prolog.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_protobuf.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_pug.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_puppet.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_pyret.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_python.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_r.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_racket.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_rails.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_razor.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_reason.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_red.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_rescript.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_rest.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_rexx.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_rmd.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_ruby.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_rust.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_sass.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_scala.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_scilab.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_scss.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_shell.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_slim.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_sln.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_smarty.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_solidity.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_sqf.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_sql.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_squirrel.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_stata.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_stylus.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_svelte.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_svg.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_swift.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_tcl.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_tex.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_text.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_textile.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_todo.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_toml.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_twig.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_typescript.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_vala.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_vb.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_vcxproj.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_velocity.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_verilog.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_vhdl.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_video.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_vim.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_vlang.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_vscode.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_vue.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_wolfram.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_xml.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_xsl.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_yacc.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_yaml.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_zig.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_zip.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_zip2.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/icon_bad.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/icon_server.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/icons.json
+%%DATADIR%%/data/lang/history.txt
+%%DATADIR%%/data/lang/translation template.ini
+%%DATADIR%%/data/lexlib/Bash script.cuda-lexmap
+%%DATADIR%%/data/lexlib/Bash script.lcf
+%%DATADIR%%/data/lexlib/Batch files.cuda-lexmap
+%%DATADIR%%/data/lexlib/Batch files.lcf
+%%DATADIR%%/data/lexlib/CSS.cuda-lexmap
+%%DATADIR%%/data/lexlib/CSS.lcf
+%%DATADIR%%/data/lexlib/Diff.cuda-lexmap
+%%DATADIR%%/data/lexlib/Diff.lcf
+%%DATADIR%%/data/lexlib/HTML style.cuda-lexmap
+%%DATADIR%%/data/lexlib/HTML style.lcf
+%%DATADIR%%/data/lexlib/HTML.cuda-lexmap
+%%DATADIR%%/data/lexlib/HTML.lcf
+%%DATADIR%%/data/lexlib/JSDoc.cuda-lexmap
+%%DATADIR%%/data/lexlib/JSDoc.lcf
+%%DATADIR%%/data/lexlib/JSON.cuda-lexmap
+%%DATADIR%%/data/lexlib/JSON.lcf
+%%DATADIR%%/data/lexlib/JavaScript.cuda-lexmap
+%%DATADIR%%/data/lexlib/JavaScript.lcf
+%%DATADIR%%/data/lexlib/Markdown.cuda-lexmap
+%%DATADIR%%/data/lexlib/Markdown.lcf
+%%DATADIR%%/data/lexlib/Python.cuda-lexmap
+%%DATADIR%%/data/lexlib/Python.lcf
+%%DATADIR%%/data/lexlib/RegEx.cuda-lexmap
+%%DATADIR%%/data/lexlib/RegEx.lcf
+%%DATADIR%%/data/lexlib/Search results.cuda-lexmap
+%%DATADIR%%/data/lexlib/Search results.lcf
+%%DATADIR%%/data/lexlib/XML.cuda-lexmap
+%%DATADIR%%/data/lexlib/XML.lcf
+%%DATADIR%%/data/lexlib/YAML.cuda-lexmap
+%%DATADIR%%/data/lexlib/YAML.lcf
+%%DATADIR%%/data/lexlib/aliases.ini
+%%DATADIR%%/data/lexlib/reStructuredText.cuda-lexmap
+%%DATADIR%%/data/lexlib/reStructuredText.lcf
+%%DATADIR%%/data/lexliblite/Config-RC.cuda-litelexer
+%%DATADIR%%/data/lexliblite/Ini files.cuda-litelexer
+%%DATADIR%%/data/lexliblite/JSON.cuda-litelexer
+%%DATADIR%%/data/lexliblite/Log files.cuda-litelexer
+%%DATADIR%%/data/lexliblite/SQL.cuda-litelexer
+%%DATADIR%%/data/lexliblite/XML.cuda-litelexer
+%%DATADIR%%/data/newdoc/Frameset.html
+%%DATADIR%%/data/newdoc/Glossary.html
+%%DATADIR%%/data/newdoc/Pascal unit.pas
+%%DATADIR%%/data/newdoc/Redirection.html
+%%DATADIR%%/data/newdoc/asp with HTML.asp
+%%DATADIR%%/data/newdoc/asp.asp
+%%DATADIR%%/data/newdoc/default.c
+%%DATADIR%%/data/newdoc/default.cpp
+%%DATADIR%%/data/newdoc/default.css
+%%DATADIR%%/data/newdoc/default.js
+%%DATADIR%%/data/newdoc/default.php
+%%DATADIR%%/data/newdoc/default.py
+%%DATADIR%%/data/newdoc/default.vbs
+%%DATADIR%%/data/newdoc/default.xml
+%%DATADIR%%/data/newdoc/html.htm
+%%DATADIR%%/data/newdoc/jsp.jsp
+%%DATADIR%%/data/newdoc/php with HTML.php
+%%DATADIR%%/data/newdoc/xhtml.html
+%%DATADIR%%/data/newdoc/xslt style.xsl
+%%DATADIR%%/data/projtoolbaricons/default_16x16/add-dir.png
+%%DATADIR%%/data/projtoolbaricons/default_16x16/add-file.png
+%%DATADIR%%/data/projtoolbaricons/default_16x16/cfg.png
+%%DATADIR%%/data/projtoolbaricons/default_16x16/del.png
+%%DATADIR%%/data/projtoolbaricons/default_16x16/license.txt
+%%DATADIR%%/data/projtoolbaricons/default_16x16/open.png
+%%DATADIR%%/data/projtoolbaricons/default_16x16/readme.txt
+%%DATADIR%%/data/projtoolbaricons/default_16x16/readme2.txt
+%%DATADIR%%/data/projtoolbaricons/default_16x16/recents.png
+%%DATADIR%%/data/projtoolbaricons/default_16x16/save.png
+%%DATADIR%%/data/projtoolbaricons/default_16x16/sync.png
+%%DATADIR%%/data/projtoolbaricons/default_white_16x16/add-dir.png
+%%DATADIR%%/data/projtoolbaricons/default_white_16x16/add-file.png
+%%DATADIR%%/data/projtoolbaricons/default_white_16x16/cfg.png
+%%DATADIR%%/data/projtoolbaricons/default_white_16x16/del.png
+%%DATADIR%%/data/projtoolbaricons/default_white_16x16/license.txt
+%%DATADIR%%/data/projtoolbaricons/default_white_16x16/open.png
+%%DATADIR%%/data/projtoolbaricons/default_white_16x16/readme.txt
+%%DATADIR%%/data/projtoolbaricons/default_white_16x16/readme2.txt
+%%DATADIR%%/data/projtoolbaricons/default_white_16x16/recents.png
+%%DATADIR%%/data/projtoolbaricons/default_white_16x16/save-min.png
+%%DATADIR%%/data/projtoolbaricons/default_white_16x16/save.png
+%%DATADIR%%/data/projtoolbaricons/default_white_16x16/sync.png
+%%DATADIR%%/data/projtoolbaricons/feather_black_16x16/add-dir.png
+%%DATADIR%%/data/projtoolbaricons/feather_black_16x16/add-dir.svg
+%%DATADIR%%/data/projtoolbaricons/feather_black_16x16/add-file.png
+%%DATADIR%%/data/projtoolbaricons/feather_black_16x16/add-file.svg
+%%DATADIR%%/data/projtoolbaricons/feather_black_16x16/cfg.png
+%%DATADIR%%/data/projtoolbaricons/feather_black_16x16/cfg.svg
+%%DATADIR%%/data/projtoolbaricons/feather_black_16x16/del.png
+%%DATADIR%%/data/projtoolbaricons/feather_black_16x16/del.svg
+%%DATADIR%%/data/projtoolbaricons/feather_black_16x16/license.txt
+%%DATADIR%%/data/projtoolbaricons/feather_black_16x16/open.png
+%%DATADIR%%/data/projtoolbaricons/feather_black_16x16/open.svg
+%%DATADIR%%/data/projtoolbaricons/feather_black_16x16/recents.png
+%%DATADIR%%/data/projtoolbaricons/feather_black_16x16/save.png
+%%DATADIR%%/data/projtoolbaricons/feather_black_16x16/save.svg
+%%DATADIR%%/data/projtoolbaricons/feather_black_16x16/sync.png
+%%DATADIR%%/data/projtoolbaricons/feather_white_16x16/add-dir.png
+%%DATADIR%%/data/projtoolbaricons/feather_white_16x16/add-dir.svg
+%%DATADIR%%/data/projtoolbaricons/feather_white_16x16/add-file.png
+%%DATADIR%%/data/projtoolbaricons/feather_white_16x16/add-file.svg
+%%DATADIR%%/data/projtoolbaricons/feather_white_16x16/cfg.png
+%%DATADIR%%/data/projtoolbaricons/feather_white_16x16/cfg.svg
+%%DATADIR%%/data/projtoolbaricons/feather_white_16x16/del.png
+%%DATADIR%%/data/projtoolbaricons/feather_white_16x16/del.svg
+%%DATADIR%%/data/projtoolbaricons/feather_white_16x16/license.txt
+%%DATADIR%%/data/projtoolbaricons/feather_white_16x16/open.png
+%%DATADIR%%/data/projtoolbaricons/feather_white_16x16/open.svg
+%%DATADIR%%/data/projtoolbaricons/feather_white_16x16/recents.png
+%%DATADIR%%/data/projtoolbaricons/feather_white_16x16/save.png
+%%DATADIR%%/data/projtoolbaricons/feather_white_16x16/save.svg
+%%DATADIR%%/data/projtoolbaricons/feather_white_16x16/sync.png
+%%DATADIR%%/data/sideicons/common_20x20/console.png
+%%DATADIR%%/data/sideicons/common_20x20/credits.txt
+%%DATADIR%%/data/sideicons/common_20x20/find.png
+%%DATADIR%%/data/sideicons/common_20x20/font.png
+%%DATADIR%%/data/sideicons/common_20x20/ftp log.png
+%%DATADIR%%/data/sideicons/common_20x20/ftp.png
+%%DATADIR%%/data/sideicons/common_20x20/menu.png
+%%DATADIR%%/data/sideicons/common_20x20/output.png
+%%DATADIR%%/data/sideicons/common_20x20/project.png
+%%DATADIR%%/data/sideicons/common_20x20/snip.png
+%%DATADIR%%/data/sideicons/common_20x20/tabs.png
+%%DATADIR%%/data/sideicons/common_20x20/tree.png
+%%DATADIR%%/data/sideicons/common_20x20/validate.png
+%%DATADIR%%/data/sideicons/octicons_20x20/console.png
+%%DATADIR%%/data/sideicons/octicons_20x20/find.png
+%%DATADIR%%/data/sideicons/octicons_20x20/font.png
+%%DATADIR%%/data/sideicons/octicons_20x20/ftp log.png
+%%DATADIR%%/data/sideicons/octicons_20x20/ftp.png
+%%DATADIR%%/data/sideicons/octicons_20x20/icons-octicons.txt
+%%DATADIR%%/data/sideicons/octicons_20x20/license.txt
+%%DATADIR%%/data/sideicons/octicons_20x20/menu.png
+%%DATADIR%%/data/sideicons/octicons_20x20/output.png
+%%DATADIR%%/data/sideicons/octicons_20x20/project.png
+%%DATADIR%%/data/sideicons/octicons_20x20/snip.png
+%%DATADIR%%/data/sideicons/octicons_20x20/tabs.png
+%%DATADIR%%/data/sideicons/octicons_20x20/tree.png
+%%DATADIR%%/data/sideicons/octicons_20x20/validate.png
+%%DATADIR%%/data/snippets_ct/std.HTML/config.json
+%%DATADIR%%/data/snippets_ct/std.HTML/snippets/HTML,HTML_,PHP.json
+%%DATADIR%%/data/themes/amy.cuda-theme-syntax
+%%DATADIR%%/data/themes/amy.cuda-theme-ui
+%%DATADIR%%/data/themes/cobalt.cuda-theme-syntax
+%%DATADIR%%/data/themes/cobalt.cuda-theme-ui
+%%DATADIR%%/data/themes/darkwolf.cuda-theme-syntax
+%%DATADIR%%/data/themes/darkwolf.cuda-theme-ui
+%%DATADIR%%/data/themes/ebony.cuda-theme-syntax
+%%DATADIR%%/data/themes/ebony.cuda-theme-ui
+%%DATADIR%%/data/themes/green.cuda-theme-syntax
+%%DATADIR%%/data/themes/green.cuda-theme-ui
+%%DATADIR%%/data/themes/navy.cuda-theme-syntax
+%%DATADIR%%/data/themes/navy.cuda-theme-ui
+%%DATADIR%%/data/themes/sub.cuda-theme-syntax
+%%DATADIR%%/data/themes/sub.cuda-theme-ui
+%%DATADIR%%/data/themes/syn.cuda-theme-syntax
+%%DATADIR%%/data/themes/syn.cuda-theme-ui
+%%DATADIR%%/data/toolbaricons/default_24x24/case.png
+%%DATADIR%%/data/toolbaricons/default_24x24/comment.png
+%%DATADIR%%/data/toolbaricons/default_24x24/e_copy.png
+%%DATADIR%%/data/toolbaricons/default_24x24/e_cut.png
+%%DATADIR%%/data/toolbaricons/default_24x24/e_paste.png
+%%DATADIR%%/data/toolbaricons/default_24x24/e_redo.png
+%%DATADIR%%/data/toolbaricons/default_24x24/e_undo.png
+%%DATADIR%%/data/toolbaricons/default_24x24/f_new.png
+%%DATADIR%%/data/toolbaricons/default_24x24/f_open.png
+%%DATADIR%%/data/toolbaricons/default_24x24/f_save.png
+%%DATADIR%%/data/toolbaricons/default_24x24/indent.png
+%%DATADIR%%/data/toolbaricons/default_24x24/map.png
+%%DATADIR%%/data/toolbaricons/default_24x24/opt.png
+%%DATADIR%%/data/toolbaricons/default_24x24/unindent.png
+%%DATADIR%%/data/toolbaricons/default_24x24/unpri.png
+%%DATADIR%%/data/toolbaricons/light_24x24/case.png
+%%DATADIR%%/data/toolbaricons/light_24x24/comment.png
+%%DATADIR%%/data/toolbaricons/light_24x24/e_copy.png
+%%DATADIR%%/data/toolbaricons/light_24x24/e_cut.png
+%%DATADIR%%/data/toolbaricons/light_24x24/e_paste.png
+%%DATADIR%%/data/toolbaricons/light_24x24/e_redo.png
+%%DATADIR%%/data/toolbaricons/light_24x24/e_undo.png
+%%DATADIR%%/data/toolbaricons/light_24x24/f_new.png
+%%DATADIR%%/data/toolbaricons/light_24x24/f_open.png
+%%DATADIR%%/data/toolbaricons/light_24x24/f_save.png
+%%DATADIR%%/data/toolbaricons/light_24x24/indent.png
+%%DATADIR%%/data/toolbaricons/light_24x24/map.png
+%%DATADIR%%/data/toolbaricons/light_24x24/opt.png
+%%DATADIR%%/data/toolbaricons/light_24x24/unindent.png
+%%DATADIR%%/data/toolbaricons/light_24x24/unpri.png
+%%DATADIR%%/py/cuda_addonman/__init__.py
+%%DATADIR%%/py/cuda_addonman/install.inf
+%%DATADIR%%/py/cuda_addonman/opt.py
+%%DATADIR%%/py/cuda_addonman/readme/readme.txt
+%%DATADIR%%/py/cuda_addonman/work_cudatext_updates__fosshub.py
+%%DATADIR%%/py/cuda_addonman/work_cudatext_updates__sourceforge.py
+%%DATADIR%%/py/cuda_addonman/work_dlg_config.py
+%%DATADIR%%/py/cuda_addonman/work_github.py
+%%DATADIR%%/py/cuda_addonman/work_install_helper.py
+%%DATADIR%%/py/cuda_addonman/work_local.py
+%%DATADIR%%/py/cuda_addonman/work_remote.py
+%%DATADIR%%/py/cuda_addonman/work_tempdir.py
+%%DATADIR%%/py/cuda_comments/__init__.py
+%%DATADIR%%/py/cuda_comments/cd_comments.py
+%%DATADIR%%/py/cuda_comments/install.inf
+%%DATADIR%%/py/cuda_insert_time/__init__.py
+%%DATADIR%%/py/cuda_insert_time/install.inf
+%%DATADIR%%/py/cuda_lexer_detecter/__init__.py
+%%DATADIR%%/py/cuda_lexer_detecter/cuda_gen_types.py
+%%DATADIR%%/py/cuda_lexer_detecter/install.inf
+%%DATADIR%%/py/cuda_lexer_detecter/lexertypes.py
+%%DATADIR%%/py/cuda_make_plugin/__init__.py
+%%DATADIR%%/py/cuda_make_plugin/dlg.py
+%%DATADIR%%/py/cuda_make_plugin/events.py
+%%DATADIR%%/py/cuda_make_plugin/install.inf
+%%DATADIR%%/py/cuda_make_plugin/sample_begin.py
+%%DATADIR%%/py/cuda_make_plugin/sample_begin_config.py
+%%DATADIR%%/py/cuda_make_plugin/sample_body.py
+%%DATADIR%%/py/cuda_make_plugin/sample_body_config.py
+%%DATADIR%%/py/cuda_multi_installer/__init__.py
+%%DATADIR%%/py/cuda_multi_installer/install.inf
+%%DATADIR%%/py/cuda_new_file/__init__.py
+%%DATADIR%%/py/cuda_new_file/install.inf
+%%DATADIR%%/py/cuda_palette/__init__.py
+%%DATADIR%%/py/cuda_palette/cd_plug_lib.py
+%%DATADIR%%/py/cuda_palette/lang/messages.pot
+%%DATADIR%%/py/cuda_palette/lang/ru_RU/LC_MESSAGES/cuda_palette.mo
+%%DATADIR%%/py/cuda_palette/lang/ru_RU/LC_MESSAGES/cuda_palette.po
+%%DATADIR%%/py/cuda_prefs/__init__.py
+%%DATADIR%%/py/cuda_prefs/cd_opts_dlg.py
+%%DATADIR%%/py/cuda_prefs/dlg.py
+%%DATADIR%%/py/cuda_prefs/dlg_json.py
+%%DATADIR%%/py/cuda_prefs/icons/asc.png
+%%DATADIR%%/py/cuda_prefs/icons/cb_checked.png
+%%DATADIR%%/py/cuda_prefs/icons/cb_none.png
+%%DATADIR%%/py/cuda_prefs/icons/cb_unckecked.png
+%%DATADIR%%/py/cuda_prefs/icons/desc.png
+%%DATADIR%%/py/cuda_prefs/install.inf
+%%DATADIR%%/py/cuda_prefs/readme/readme.txt
+%%DATADIR%%/py/cuda_prefs/tests/test_options_editor.py
+%%DATADIR%%/py/cuda_project_man/__init__.py
+%%DATADIR%%/py/cuda_project_man/install.inf
+%%DATADIR%%/py/cuda_project_man/projman_dlg.py
+%%DATADIR%%/py/cuda_project_man/projman_glob.py
+%%DATADIR%%/py/cuda_project_man/readme/history.txt
+%%DATADIR%%/py/cuda_project_man/readme/license.txt
+%%DATADIR%%/py/cuda_project_man/readme/readme.txt
+%%DATADIR%%/py/cuda_snippet_panel/__init__.py
+%%DATADIR%%/py/cuda_snippet_panel/clips/Arrows/List.txt
+%%DATADIR%%/py/cuda_snippet_panel/clips/Currency symbols/List.txt
+%%DATADIR%%/py/cuda_snippet_panel/clips/Greek alphabet (lower)/List.txt
+%%DATADIR%%/py/cuda_snippet_panel/clips/Greek alphabet (upper)/List.txt
+%%DATADIR%%/py/cuda_snippet_panel/clips/HTML - Arrows/List.txt
+%%DATADIR%%/py/cuda_snippet_panel/clips/HTML - Color names+values/List.txt
+%%DATADIR%%/py/cuda_snippet_panel/clips/HTML - Color names/List.txt
+%%DATADIR%%/py/cuda_snippet_panel/clips/HTML - Letters/List.txt
+%%DATADIR%%/py/cuda_snippet_panel/clips/HTML - Math symbols/List.txt
+%%DATADIR%%/py/cuda_snippet_panel/clips/HTML - Special characters/List.txt
+%%DATADIR%%/py/cuda_snippet_panel/clips/Math symbols/List.txt
+%%DATADIR%%/py/cuda_snippet_panel/clips/Quote selection/quote.txt
+%%DATADIR%%/py/cuda_snippet_panel/clips/Special characters/List.txt
+%%DATADIR%%/py/cuda_snippet_panel/install.inf
+%%DATADIR%%/py/cuda_snippet_panel/readme/readme.txt
+%%DATADIR%%/py/cuda_snippet_panel/snips.py
+%%DATADIR%%/py/cuda_snippet_panel/utils.py
+%%DATADIR%%/py/cuda_sort/__init__.py
+%%DATADIR%%/py/cuda_sort/app_specific.py
+%%DATADIR%%/py/cuda_sort/install.inf
+%%DATADIR%%/py/cuda_sort/readme/readme.txt
+%%DATADIR%%/py/cuda_sort/sort_dlg.py
+%%DATADIR%%/py/cuda_sort/sort_emails.py
+%%DATADIR%%/py/cuda_sort/sort_ini.py
+%%DATADIR%%/py/cuda_sort/sort_numeric.py
+%%DATADIR%%/py/cuda_sort/sort_sep.py
+%%DATADIR%%/py/cuda_tabs_list/__init__.py
+%%DATADIR%%/py/cuda_tabs_list/install.inf
+%%DATADIR%%/py/cuda_tabs_list/readme/history.txt
+%%DATADIR%%/py/cuda_tabs_list/readme/readme.txt
+%%DATADIR%%/py/cuda_testing_canvas_proc/__init__.py
+%%DATADIR%%/py/cuda_testing_canvas_proc/install.inf
+%%DATADIR%%/py/cuda_testing_complexity_plot/__init__.py
+%%DATADIR%%/py/cuda_testing_complexity_plot/install.inf
+%%DATADIR%%/py/cuda_testing_dlg_proc/__init__.py
+%%DATADIR%%/py/cuda_testing_dlg_proc/install.inf
+%%DATADIR%%/py/cuda_testing_dlg_proc/repro_labels.py
+%%DATADIR%%/py/cuda_testing_dlg_proc/testcall.py
+%%DATADIR%%/py/cuda_testing_finder_proc/__init__.py
+%%DATADIR%%/py/cuda_testing_finder_proc/install.inf
+%%DATADIR%%/py/cuda_testing_gaps/__init__.py
+%%DATADIR%%/py/cuda_testing_gaps/install.inf
+%%DATADIR%%/py/cuda_testing_lexers/__init__.py
+%%DATADIR%%/py/cuda_testing_lexers/install.inf
+%%DATADIR%%/py/cuda_testing_lexers/lexers/AWK (2).awk
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Ada.adb
+%%DATADIR%%/py/cuda_testing_lexers/lexers/AsciiDoc.adoc
+%%DATADIR%%/py/cuda_testing_lexers/lexers/AutoHotkey.ahk
+%%DATADIR%%/py/cuda_testing_lexers/lexers/AutoIt.au3
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Bash_script.sh
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Batch_files.bat
+%%DATADIR%%/py/cuda_testing_lexers/lexers/C (2).c
+%%DATADIR%%/py/cuda_testing_lexers/lexers/C++.cpp
+%%DATADIR%%/py/cuda_testing_lexers/lexers/CMake.cmake
+%%DATADIR%%/py/cuda_testing_lexers/lexers/CMakeLists.txt
+%%DATADIR%%/py/cuda_testing_lexers/lexers/CSS (2).css
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Clojure.clj
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Cobol.cob
+%%DATADIR%%/py/cuda_testing_lexers/lexers/CoffeeScript.coffee
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Crystal.cr
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Csharp.cs
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Cython.pyx
+%%DATADIR%%/py/cuda_testing_lexers/lexers/D (2).d
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Dart.dart
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Diff (2).diff
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Erlang.erl
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Fortran.f90
+%%DATADIR%%/py/cuda_testing_lexers/lexers/GDScript.gd
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Gleam.gleam
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Go (2).go
+%%DATADIR%%/py/cuda_testing_lexers/lexers/GraphQL.graphql
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Groovy.groovy
+%%DATADIR%%/py/cuda_testing_lexers/lexers/HTML (2).html
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Haskell.hs
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Ini_files.ini
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Inno_Setup.iss
+%%DATADIR%%/py/cuda_testing_lexers/lexers/JSON (2).json
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Java (2).java
+%%DATADIR%%/py/cuda_testing_lexers/lexers/JavaScript.js
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Jinja2.j2
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Julia.jl
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Kotlin.kt
+%%DATADIR%%/py/cuda_testing_lexers/lexers/LESS.less
+%%DATADIR%%/py/cuda_testing_lexers/lexers/LaTeX.tex
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Lua (2).lua
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Markdown (2).md
+%%DATADIR%%/py/cuda_testing_lexers/lexers/MoonBit.mbt
+%%DATADIR%%/py/cuda_testing_lexers/lexers/NSIS.nsi
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Nim (2).nim
+%%DATADIR%%/py/cuda_testing_lexers/lexers/PHP (2).php
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Pascal.pas
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Perl (2).pl
+%%DATADIR%%/py/cuda_testing_lexers/lexers/PowerShell (2).ps1
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Prolog.pl
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Properties.properties
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Protocol_Buffers.proto
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Python (2).py
+%%DATADIR%%/py/cuda_testing_lexers/lexers/R.r
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Racket.rkt
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Ruby (2).rb
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Rust (2).rs
+%%DATADIR%%/py/cuda_testing_lexers/lexers/SCSS.scss
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Sass.sass
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Scala.scala
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Scheme.scm
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Solidity.sol
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Standard_ML.sml
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Svelte.svelte
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Swift.swift
+%%DATADIR%%/py/cuda_testing_lexers/lexers/TODO.TODO
+%%DATADIR%%/py/cuda_testing_lexers/lexers/TOML.toml
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Tcl (2).tcl
+%%DATADIR%%/py/cuda_testing_lexers/lexers/TypeScript.ts
+%%DATADIR%%/py/cuda_testing_lexers/lexers/VBScript (2).vbs
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Vala.vala
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Vimscript.vim
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Vue.vue
+%%DATADIR%%/py/cuda_testing_lexers/lexers/XML (2).xml
+%%DATADIR%%/py/cuda_testing_lexers/lexers/YAML (2).yaml
+%%DATADIR%%/py/cuda_testing_lexers/lexers/Zig.zig
+%%DATADIR%%/py/cuda_testing_lexers/lexers/ahk.ahk
+%%DATADIR%%/py/cuda_testing_lexers/lexers/au3.au3
+%%DATADIR%%/py/cuda_testing_lexers/lexers/awk.awk
+%%DATADIR%%/py/cuda_testing_lexers/lexers/bat.bat
+%%DATADIR%%/py/cuda_testing_lexers/lexers/c.c
+%%DATADIR%%/py/cuda_testing_lexers/lexers/ccharp.cs
+%%DATADIR%%/py/cuda_testing_lexers/lexers/cmd.cmd
+%%DATADIR%%/py/cuda_testing_lexers/lexers/cpp.cpp
+%%DATADIR%%/py/cuda_testing_lexers/lexers/css.css
+%%DATADIR%%/py/cuda_testing_lexers/lexers/d.d
+%%DATADIR%%/py/cuda_testing_lexers/lexers/diff.diff
+%%DATADIR%%/py/cuda_testing_lexers/lexers/go.go
+%%DATADIR%%/py/cuda_testing_lexers/lexers/html.html
+%%DATADIR%%/py/cuda_testing_lexers/lexers/ini.ini
+%%DATADIR%%/py/cuda_testing_lexers/lexers/java.java
+%%DATADIR%%/py/cuda_testing_lexers/lexers/js.js
+%%DATADIR%%/py/cuda_testing_lexers/lexers/json.json
+%%DATADIR%%/py/cuda_testing_lexers/lexers/log.log
+%%DATADIR%%/py/cuda_testing_lexers/lexers/lua.lua
+%%DATADIR%%/py/cuda_testing_lexers/lexers/markdown.md
+%%DATADIR%%/py/cuda_testing_lexers/lexers/nim.nim
+%%DATADIR%%/py/cuda_testing_lexers/lexers/perl.pl
+%%DATADIR%%/py/cuda_testing_lexers/lexers/php.php
+%%DATADIR%%/py/cuda_testing_lexers/lexers/php_.phpt
+%%DATADIR%%/py/cuda_testing_lexers/lexers/powershell.ps1
+%%DATADIR%%/py/cuda_testing_lexers/lexers/python.py
+%%DATADIR%%/py/cuda_testing_lexers/lexers/reStructuredText.rst
+%%DATADIR%%/py/cuda_testing_lexers/lexers/ruby.rb
+%%DATADIR%%/py/cuda_testing_lexers/lexers/rust.rs
+%%DATADIR%%/py/cuda_testing_lexers/lexers/sh.sh
+%%DATADIR%%/py/cuda_testing_lexers/lexers/tcl.tcl
+%%DATADIR%%/py/cuda_testing_lexers/lexers/vbscript.vbs
+%%DATADIR%%/py/cuda_testing_lexers/lexers/xml.xml
+%%DATADIR%%/py/cuda_testing_lexers/lexers/yaml.yaml
+%%DATADIR%%/py/cuda_testing_lexers/readme/readme.txt
+%%DATADIR%%/py/cuda_testing_lexers/results_base/AWK (2).awk_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/AWK (2).awk_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Ada.adb_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Ada.adb_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/AsciiDoc.adoc_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/AsciiDoc.adoc_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/AutoHotkey.ahk_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/AutoHotkey.ahk_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/AutoIt.au3_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/AutoIt.au3_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Bash_script.sh_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Bash_script.sh_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Batch_files.bat_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Batch_files.bat_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/C (2).c_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/C (2).c_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/C++.cpp_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/C++.cpp_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/CMake.cmake_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/CMake.cmake_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/CMakeLists.txt_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/CMakeLists.txt_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/CSS (2).css_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/CSS (2).css_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Clojure.clj_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Clojure.clj_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Cobol.cob_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Cobol.cob_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/CoffeeScript.coffee_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/CoffeeScript.coffee_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Crystal.cr_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Crystal.cr_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Csharp.cs_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Csharp.cs_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Cython.pyx_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Cython.pyx_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/D (2).d_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/D (2).d_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Dart.dart_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Dart.dart_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Diff (2).diff_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Diff (2).diff_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Erlang.erl_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Erlang.erl_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Fortran.f90_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Fortran.f90_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/GDScript.gd_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/GDScript.gd_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Gleam.gleam_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Gleam.gleam_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Go (2).go_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Go (2).go_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/GraphQL.graphql_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/GraphQL.graphql_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Groovy.groovy_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Groovy.groovy_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/HTML (2).html_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/HTML (2).html_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Haskell.hs_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Haskell.hs_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Ini_files.ini_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Ini_files.ini_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Inno_Setup.iss_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Inno_Setup.iss_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/JSON (2).json_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/JSON (2).json_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Java (2).java_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Java (2).java_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/JavaScript.js_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/JavaScript.js_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Jinja2.j2_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Jinja2.j2_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Julia.jl_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Julia.jl_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Kotlin.kt_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Kotlin.kt_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/LESS.less_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/LESS.less_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/LaTeX.tex_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/LaTeX.tex_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Lua (2).lua_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Lua (2).lua_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Markdown (2).md_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Markdown (2).md_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/MoonBit.mbt_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/MoonBit.mbt_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/NSIS.nsi_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/NSIS.nsi_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Nim (2).nim_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Nim (2).nim_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/PHP (2).php_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/PHP (2).php_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Pascal.pas_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Pascal.pas_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Perl (2).pl_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Perl (2).pl_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/PowerShell (2).ps1_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/PowerShell (2).ps1_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Prolog.pl_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Prolog.pl_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Properties.properties_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Properties.properties_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Protocol_Buffers.proto_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Protocol_Buffers.proto_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Python (2).py_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Python (2).py_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/R.r_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/R.r_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Racket.rkt_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Racket.rkt_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Ruby (2).rb_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Ruby (2).rb_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Rust (2).rs_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Rust (2).rs_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/SCSS.scss_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/SCSS.scss_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Sass.sass_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Sass.sass_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Scala.scala_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Scala.scala_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Scheme.scm_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Scheme.scm_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Solidity.sol_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Solidity.sol_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Standard_ML.sml_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Standard_ML.sml_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Svelte.svelte_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Svelte.svelte_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Swift.swift_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Swift.swift_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/TODO.TODO_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/TODO.TODO_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/TOML.toml_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/TOML.toml_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Tcl (2).tcl_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Tcl (2).tcl_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/TypeScript.ts_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/TypeScript.ts_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/VBScript (2).vbs_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/VBScript (2).vbs_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Vala.vala_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Vala.vala_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Vimscript.vim_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Vimscript.vim_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Vue.vue_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Vue.vue_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/XML (2).xml_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/XML (2).xml_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/YAML (2).yaml_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/YAML (2).yaml_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Zig.zig_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/Zig.zig_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/_info.txt
+%%DATADIR%%/py/cuda_testing_lexers/results_base/ahk.ahk_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/ahk.ahk_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/au3.au3_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/au3.au3_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/awk.awk_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/awk.awk_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/bat.bat_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/bat.bat_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/c.c_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/c.c_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/ccharp.cs_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/ccharp.cs_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/cmd.cmd_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/cmd.cmd_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/cpp.cpp_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/cpp.cpp_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/css.css_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/css.css_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/d.d_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/d.d_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/diff.diff_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/diff.diff_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/go.go_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/go.go_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/html.html_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/html.html_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/ini.ini_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/ini.ini_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/java.java_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/java.java_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/js.js_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/js.js_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/json.json_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/json.json_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/log.log_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/log.log_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/lua.lua_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/lua.lua_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/markdown.md_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/markdown.md_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/nim.nim_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/nim.nim_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/perl.pl_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/perl.pl_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/php.php_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/php.php_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/php_.phpt_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/php_.phpt_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/powershell.ps1_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/powershell.ps1_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/python.py_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/python.py_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/reStructuredText.rst_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/reStructuredText.rst_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/ruby.rb_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/ruby.rb_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/rust.rs_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/rust.rs_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/sh.sh_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/sh.sh_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/tcl.tcl_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/tcl.tcl_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/vbscript.vbs_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/vbscript.vbs_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/xml.xml_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/xml.xml_tokens.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/yaml.yaml_fold.json
+%%DATADIR%%/py/cuda_testing_lexers/results_base/yaml.yaml_tokens.json
+%%DATADIR%%/py/cuda_testing_perf/__init__.py
+%%DATADIR%%/py/cuda_testing_perf/base_threshold__generic.txt
+%%DATADIR%%/py/cuda_testing_perf/base_threshold__personal.txt
+%%DATADIR%%/py/cuda_testing_perf/install.inf
+%%DATADIR%%/py/cuda_testing_perf/manual_base_tests.md
+%%DATADIR%%/py/cuda_testing_replace_lines/__init__.py
+%%DATADIR%%/py/cuda_testing_replace_lines/install.inf
+%%DATADIR%%/py/cuda_testing_replace_lines/readme/history.txt
+%%DATADIR%%/py/cuda_testing_replace_lines/readme/readme.txt
+%%DATADIR%%/py/cuda_testing_undo_redo/__init__.py
+%%DATADIR%%/py/cuda_testing_undo_redo/install.inf
+%%DATADIR%%/py/cudatext.py
+%%DATADIR%%/py/cudatext_cmd.py
+%%DATADIR%%/py/cudatext_keys.py
+%%DATADIR%%/py/cudatext_reset_plugins.py
+%%DATADIR%%/py/cudax_css.py
+%%DATADIR%%/py/cudax_lib.py
+%%DATADIR%%/py/cudax_nodejs.py
+%%DATADIR%%/py/sys/certifi/__init__.py
+%%DATADIR%%/py/sys/certifi/__main__.py
+%%DATADIR%%/py/sys/certifi/cacert.pem
+%%DATADIR%%/py/sys/certifi/core.py
+%%DATADIR%%/py/sys/certifi/py.typed
+%%DATADIR%%/py/sys/chardet/__init__.py
+%%DATADIR%%/py/sys/chardet/__main__.py
+%%DATADIR%%/py/sys/chardet/big5freq.py
+%%DATADIR%%/py/sys/chardet/big5prober.py
+%%DATADIR%%/py/sys/chardet/chardistribution.py
+%%DATADIR%%/py/sys/chardet/charsetgroupprober.py
+%%DATADIR%%/py/sys/chardet/charsetprober.py
+%%DATADIR%%/py/sys/chardet/cli/__init__.py
+%%DATADIR%%/py/sys/chardet/cli/chardetect.py
+%%DATADIR%%/py/sys/chardet/codingstatemachine.py
+%%DATADIR%%/py/sys/chardet/codingstatemachinedict.py
+%%DATADIR%%/py/sys/chardet/cp949prober.py
+%%DATADIR%%/py/sys/chardet/enums.py
+%%DATADIR%%/py/sys/chardet/escprober.py
+%%DATADIR%%/py/sys/chardet/escsm.py
+%%DATADIR%%/py/sys/chardet/eucjpprober.py
+%%DATADIR%%/py/sys/chardet/euckrfreq.py
+%%DATADIR%%/py/sys/chardet/euckrprober.py
+%%DATADIR%%/py/sys/chardet/euctwfreq.py
+%%DATADIR%%/py/sys/chardet/euctwprober.py
+%%DATADIR%%/py/sys/chardet/gb2312freq.py
+%%DATADIR%%/py/sys/chardet/gb2312prober.py
+%%DATADIR%%/py/sys/chardet/hebrewprober.py
+%%DATADIR%%/py/sys/chardet/jisfreq.py
+%%DATADIR%%/py/sys/chardet/johabfreq.py
+%%DATADIR%%/py/sys/chardet/johabprober.py
+%%DATADIR%%/py/sys/chardet/jpcntx.py
+%%DATADIR%%/py/sys/chardet/langbulgarianmodel.py
+%%DATADIR%%/py/sys/chardet/langgreekmodel.py
+%%DATADIR%%/py/sys/chardet/langhebrewmodel.py
+%%DATADIR%%/py/sys/chardet/langhungarianmodel.py
+%%DATADIR%%/py/sys/chardet/langrussianmodel.py
+%%DATADIR%%/py/sys/chardet/langthaimodel.py
+%%DATADIR%%/py/sys/chardet/langturkishmodel.py
+%%DATADIR%%/py/sys/chardet/latin1prober.py
+%%DATADIR%%/py/sys/chardet/macromanprober.py
+%%DATADIR%%/py/sys/chardet/mbcharsetprober.py
+%%DATADIR%%/py/sys/chardet/mbcsgroupprober.py
+%%DATADIR%%/py/sys/chardet/mbcssm.py
+%%DATADIR%%/py/sys/chardet/metadata/__init__.py
+%%DATADIR%%/py/sys/chardet/metadata/languages.py
+%%DATADIR%%/py/sys/chardet/py.typed
+%%DATADIR%%/py/sys/chardet/resultdict.py
+%%DATADIR%%/py/sys/chardet/sbcharsetprober.py
+%%DATADIR%%/py/sys/chardet/sbcsgroupprober.py
+%%DATADIR%%/py/sys/chardet/sjisprober.py
+%%DATADIR%%/py/sys/chardet/universaldetector.py
+%%DATADIR%%/py/sys/chardet/utf1632prober.py
+%%DATADIR%%/py/sys/chardet/utf8prober.py
+%%DATADIR%%/py/sys/chardet/version.py
+%%DATADIR%%/py/sys/idna/__init__.py
+%%DATADIR%%/py/sys/idna/codec.py
+%%DATADIR%%/py/sys/idna/compat.py
+%%DATADIR%%/py/sys/idna/core.py
+%%DATADIR%%/py/sys/idna/idnadata.py
+%%DATADIR%%/py/sys/idna/intranges.py
+%%DATADIR%%/py/sys/idna/package_data.py
+%%DATADIR%%/py/sys/idna/py.typed
+%%DATADIR%%/py/sys/idna/uts46data.py
+%%DATADIR%%/py/sys/requests/__init__.py
+%%DATADIR%%/py/sys/requests/__version__.py
+%%DATADIR%%/py/sys/requests/_internal_utils.py
+%%DATADIR%%/py/sys/requests/adapters.py
+%%DATADIR%%/py/sys/requests/api.py
+%%DATADIR%%/py/sys/requests/auth.py
+%%DATADIR%%/py/sys/requests/certs.py
+%%DATADIR%%/py/sys/requests/compat.py
+%%DATADIR%%/py/sys/requests/cookies.py
+%%DATADIR%%/py/sys/requests/exceptions.py
+%%DATADIR%%/py/sys/requests/help.py
+%%DATADIR%%/py/sys/requests/hooks.py
+%%DATADIR%%/py/sys/requests/models.py
+%%DATADIR%%/py/sys/requests/packages.py
+%%DATADIR%%/py/sys/requests/sessions.py
+%%DATADIR%%/py/sys/requests/status_codes.py
+%%DATADIR%%/py/sys/requests/structures.py
+%%DATADIR%%/py/sys/requests/utils.py
+%%DATADIR%%/py/sys/urllib3/__init__.py
+%%DATADIR%%/py/sys/urllib3/_base_connection.py
+%%DATADIR%%/py/sys/urllib3/_collections.py
+%%DATADIR%%/py/sys/urllib3/_request_methods.py
+%%DATADIR%%/py/sys/urllib3/_version.py
+%%DATADIR%%/py/sys/urllib3/connection.py
+%%DATADIR%%/py/sys/urllib3/connectionpool.py
+%%DATADIR%%/py/sys/urllib3/contrib/__init__.py
+%%DATADIR%%/py/sys/urllib3/contrib/emscripten/__init__.py
+%%DATADIR%%/py/sys/urllib3/contrib/emscripten/connection.py
+%%DATADIR%%/py/sys/urllib3/contrib/emscripten/emscripten_fetch_worker.js
+%%DATADIR%%/py/sys/urllib3/contrib/emscripten/fetch.py
+%%DATADIR%%/py/sys/urllib3/contrib/emscripten/request.py
+%%DATADIR%%/py/sys/urllib3/contrib/emscripten/response.py
+%%DATADIR%%/py/sys/urllib3/contrib/pyopenssl.py
+%%DATADIR%%/py/sys/urllib3/contrib/socks.py
+%%DATADIR%%/py/sys/urllib3/exceptions.py
+%%DATADIR%%/py/sys/urllib3/fields.py
+%%DATADIR%%/py/sys/urllib3/filepost.py
+%%DATADIR%%/py/sys/urllib3/http2/__init__.py
+%%DATADIR%%/py/sys/urllib3/http2/connection.py
+%%DATADIR%%/py/sys/urllib3/http2/probe.py
+%%DATADIR%%/py/sys/urllib3/poolmanager.py
+%%DATADIR%%/py/sys/urllib3/py.typed
+%%DATADIR%%/py/sys/urllib3/response.py
+%%DATADIR%%/py/sys/urllib3/util/__init__.py
+%%DATADIR%%/py/sys/urllib3/util/connection.py
+%%DATADIR%%/py/sys/urllib3/util/proxy.py
+%%DATADIR%%/py/sys/urllib3/util/request.py
+%%DATADIR%%/py/sys/urllib3/util/response.py
+%%DATADIR%%/py/sys/urllib3/util/retry.py
+%%DATADIR%%/py/sys/urllib3/util/ssl_.py
+%%DATADIR%%/py/sys/urllib3/util/ssl_match_hostname.py
+%%DATADIR%%/py/sys/urllib3/util/ssltransport.py
+%%DATADIR%%/py/sys/urllib3/util/timeout.py
+%%DATADIR%%/py/sys/urllib3/util/url.py
+%%DATADIR%%/py/sys/urllib3/util/util.py
+%%DATADIR%%/py/sys/urllib3/util/wait.py
+%%DATADIR%%/readme/history.txt
+%%DATADIR%%/readme/license.CudaText.txt
+%%DATADIR%%/readme/license.certifi.txt
+%%DATADIR%%/readme/license.chardet.txt
+%%DATADIR%%/readme/license.idna.txt
+%%DATADIR%%/readme/license.requests.txt
+%%DATADIR%%/readme/license.urllib3.txt
+%%DATADIR%%/settings_default/default.json
+%%DATADIR%%/settings_default/lexer Bash script.json
+%%DATADIR%%/settings_default/lexer CSS.json
+%%DATADIR%%/settings_default/lexer HTML.json
+%%DATADIR%%/settings_default/lexer JSON.json
+%%DATADIR%%/settings_default/lexer JavaScript.json
+%%DATADIR%%/settings_default/lexer Python.json
+%%DATADIR%%/settings_default/lexer YAML.json
+share/icons/hicolor/512x512/apps/cudatext.png

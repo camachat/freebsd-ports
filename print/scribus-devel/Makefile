@@ -1,0 +1,75 @@
+PORTNAME=	scribus
+DISTVERSION=	1.7.4
+CATEGORIES=	print editors
+MASTER_SITES=	SF/${PORTNAME}/${PORTNAME}${PKGNAMESUFFIX}/${PORTVERSION}/ \
+		http://www.scribus.net/downloads/${PORTVERSION}/
+PKGNAMESUFFIX=	-devel
+
+MAINTAINER=	pkubaj@FreeBSD.org
+COMMENT=	Comprehensive desktop publishing program (development version)
+WWW=		https://www.scribus.net/
+
+LICENSE=	GPLv2+
+LICENSE_FILE=	${WRKSRC}/COPYING
+
+LIB_DEPENDS=	liblcms2.so:graphics/lcms2 \
+		librevenge-0.0.so:textproc/librevenge \
+		libcups.so:print/cups \
+		libcdr-0.1.so:graphics/libcdr01 \
+		libfreehand-0.1.so:graphics/libfreehand \
+		libpagemaker-0.0.so:print/libpagemaker \
+		libmspub-0.1.so:print/libmspub01 \
+		libvisio-0.1.so:textproc/libvisio01 \
+		libfreetype.so:print/freetype2 \
+		libtiff.so:graphics/tiff \
+		libpoppler.so:graphics/poppler \
+		libharfbuzz-icu.so:print/harfbuzz-icu \
+		libfontconfig.so:x11-fonts/fontconfig \
+		libharfbuzz.so:print/harfbuzz \
+		libpng.so:graphics/png \
+		libicuuc.so:devel/icu \
+		libqxp-0.0.so:textproc/libqxp \
+		libzmf-0.0.so:graphics/libzmf \
+		libhunspell-1.7.so:textproc/hunspell \
+		libxkbcommon.so:x11/libxkbcommon
+
+USES=		cmake compiler:c++20-lang desktop-file-utils gl gnome jpeg \
+		pkgconfig python qt:6 shared-mime-info tar:xz xorg
+USE_GL=		opengl
+USE_GNOME=	cairo libxml2
+USE_QT=		5compat base svg tools
+USE_XORG=	xcb
+
+CONFLICTS_INSTALL=	scribus
+
+OPTIONS_DEFINE=	BOOST DOCS EXAMPLES GRAPHICSMAGICK JXL OSG PDF
+OPTIONS_DEFAULT=BOOST GRAPHICSMAGICK JXL OSG PDF
+OPTIONS_SUB=	yes
+
+BOOST_DESC=	Enable support for Boost-based enhancement
+GRAPHICSMAGICK_DESC=	Use GraphicsMagick for image import support
+OSG_DESC=	Enable 3D rendering via osg
+PDF_DESC=	Embed PDF files in PDF export and import AI files via podofo
+
+BOOST_BUILD_DEPENDS=	boost-libs>0:devel/boost-libs
+BOOST_CMAKE_BOOL=	WITH_BOOST
+
+EXAMPLES_CMAKE_BOOL_OFF=	WANT_NOEXAMPLES
+
+GRAPHICSMAGICK_LIB_DEPENDS=	libGraphicsMagick.so:graphics/GraphicsMagick
+GRAPHICSMAGICK_CMAKE_BOOL=	WANT_GRAPHICSMAGICK
+
+JXL_LIB_DEPENDS=	libjxl.so:graphics/libjxl
+JXL_CMAKE_BOOL_OFF=	CMAKE_DISABLE_FIND_PACKAGE_JXL
+
+OSG_LIB_DEPENDS=	libosg.so:graphics/osg
+OSG_CMAKE_BOOL_OFF=	WANT_NOOSG
+
+PDF_LIB_DEPENDS=	libpodofo.so:graphics/podofo
+PDF_CMAKE_BOOL=	WITH_PODOFO
+
+post-install:
+		${LN} -sf ../scribus/icons/1_5_1/scribus.png \
+			${STAGEDIR}${PREFIX}/share/pixmaps/
+
+.include <bsd.port.mk>

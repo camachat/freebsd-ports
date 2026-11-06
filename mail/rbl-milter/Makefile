@@ -1,0 +1,25 @@
+PORTNAME=	rbl-milter
+PORTVERSION=	0.30
+PORTREVISION=	6
+CATEGORIES=	mail
+MASTER_SITES=	http://www.gnu-darwin.org/distfiles/
+
+MAINTAINER=	dinoex@FreeBSD.org
+COMMENT=	Milter that adds mail header warnings on mail from open-relays
+WWW=		https://github.com/jbeker/rbl-milter
+
+LICENSE=	GPLv2+
+LICENSE_FILE=	${WRKSRC}/COPYING
+
+USES=		gmake
+GNU_CONFIGURE=	yes
+
+USE_RC_SUBR=	rblmilter
+PLIST_FILES=	sbin/rbl-milter
+
+CONFIGURE_ARGS+=	--with-sendmail=${MILTERBASE} \
+			--with-sendmail-obj=${MILTERBASE}/lib
+
+.include "${.CURDIR}/../sendmail/bsd.milter.mk"
+
+.include <bsd.port.mk>

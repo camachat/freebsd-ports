@@ -1,0 +1,11 @@
+--- lib/icingadb/CMakeLists.txt.orig	2026-04-22 09:29:50 UTC
++++ lib/icingadb/CMakeLists.txt
+@@ -26,7 +26,7 @@ install_if_not_exists(
+ )
+ 
+ install_if_not_exists(
+-  ${PROJECT_SOURCE_DIR}/etc/icinga2/features-available/icingadb.conf
++  ${PROJECT_SOURCE_DIR}/etc/icinga2/features-available/icingadb.conf.sample
+   ${CMAKE_INSTALL_SYSCONFDIR}/icinga2/features-available
+ )
+ 

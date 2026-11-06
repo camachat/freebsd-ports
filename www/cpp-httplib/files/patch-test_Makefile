@@ -1,0 +1,45 @@
+--- test/Makefile.orig	2026-02-10 03:44:48 UTC
++++ test/Makefile
+@@ -32,7 +32,7 @@ ifneq ($(OS), Windows_NT)
+ 		# Linux: use system paths
+ 		BROTLI_SUPPORT = -DCPPHTTPLIB_BROTLI_SUPPORT -lbrotlicommon -lbrotlienc -lbrotlidec
+ 		ZSTD_SUPPORT = -DCPPHTTPLIB_ZSTD_SUPPORT -lzstd
+-		LIBS = -lpthread -lcurl -lanl
++		LIBS = -lpthread -lcurl
+ 	endif
+ endif
+ 
+@@ -95,13 +95,13 @@ test : test.cc include_httplib.cc ../httplib.h Makefil
+ 	exit $$exit_code
+ 
+ test : test.cc include_httplib.cc ../httplib.h Makefile cert.pem
+-	$(CXX) -o $@ -I.. $(CXXFLAGS) test.cc include_httplib.cc $(TEST_ARGS)
++	$(CXX) -o $@ -I.. $(CXXFLAGS) test.cc include_httplib.cc ${LDFLAGS} $(TEST_ARGS)
+ 	@file $@
+ 
+ # Note: The intention of test_split is to verify that it works to compile and
+ # link the split httplib.h, so there is normally no need to execute it.
+ test_split : test.cc ../httplib.h httplib.cc Makefile cert.pem
+-	$(CXX) -o $@ $(CXXFLAGS) test.cc httplib.cc $(TEST_ARGS)
++	$(CXX) -o $@ $(CXXFLAGS) test.cc httplib.cc ${LDFLAGS} $(TEST_ARGS)
+ 
+ # Mbed TLS backend targets
+ test_mbedtls : test.cc include_httplib.cc ../httplib.h Makefile cert.pem
+@@ -145,7 +145,7 @@ test_proxy : test_proxy.cc ../httplib.h Makefile cert.
+ 	fi
+ 
+ test_proxy : test_proxy.cc ../httplib.h Makefile cert.pem
+-	$(CXX) -o $@ -I.. $(CXXFLAGS) test_proxy.cc $(TEST_ARGS)
++	$(CXX) -o $@ -I.. $(CXXFLAGS) test_proxy.cc ${LDFLAGS} $(TEST_ARGS)
+ 
+ test_proxy_mbedtls : test_proxy.cc ../httplib.h Makefile cert.pem
+ 	$(CXX) -o $@ -I.. $(CXXFLAGS) test_proxy.cc $(TEST_ARGS_MBEDTLS)
+@@ -157,7 +157,7 @@ server_fuzzer : fuzzing/server_fuzzer.cc ../httplib.h 
+ 
+ # Fuzz target, so that you can choose which $(LIB_FUZZING_ENGINE) to use.
+ server_fuzzer : fuzzing/server_fuzzer.cc ../httplib.h standalone_fuzz_target_runner.o
+-	$(CXX) -o $@ -I.. $(CXXFLAGS) $< $(OPENSSL_SUPPORT) $(ZLIB_SUPPORT) $(BROTLI_SUPPORT) $(LIB_FUZZING_ENGINE) $(ZSTD_SUPPORT) $(LIBS)
++	$(CXX) -o $@ -I.. $(CXXFLAGS) $< $(OPENSSL_SUPPORT) $(ZLIB_SUPPORT) $(BROTLI_SUPPORT) $(LIB_FUZZING_ENGINE) $(ZSTD_SUPPORT) $(LIBS) -pthread
+ 	@file $@
+ 
+ # Standalone fuzz runner, which just reads inputs from fuzzing/corpus/ dir and

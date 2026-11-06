@@ -1,0 +1,20 @@
+PORTNAME=	aiomcache
+DISTVERSION=	0.8.2
+CATEGORIES=	databases python
+MASTER_SITES=	PYPI
+PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
+
+MAINTAINER=	acm@FreeBSD.org
+COMMENT=	Minimal asyncio memcached client
+WWW=		https://github.com/aio-libs/aiomcache/
+
+LICENSE=	BSD2CLAUSE
+LICENSE_FILE=	${WRKSRC}/LICENSE
+
+USES=		cpe python
+CPE_VENDOR=	${PORTNAME}_project
+USE_PYTHON=	autoplist distutils cython
+
+NO_ARCH=	yes
+
+.include <bsd.port.mk>

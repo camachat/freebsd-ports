@@ -1,0 +1,11 @@
+--- CMakeLists.txt.orig	2026-09-27 00:45:19 UTC
++++ CMakeLists.txt
+@@ -231,7 +231,7 @@ endif()
+ include_directories(${RK_INCLUDE_PATH}/impl/platforms/xwin)
+ endif()
+ 
+-add_library(redkite STATIC
++add_library(redkite
+   ${RK_HEADERS}
+   ${RK_HEADERS_IMPL}
+   ${RK_HEADERS_PLATFORM}

@@ -1,0 +1,39 @@
+PORTNAME=	flatbuffers
+PORTVERSION=	25.12.19
+DISTVERSIONPREFIX=	v
+DISTVERSIONSUFFIX=	-2026-02-06-03fffb2
+PORTREVISION=	3
+CATEGORIES=	devel python
+#MASTER_SITES=	PYPI
+PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
+
+MAINTAINER=	sunpoet@FreeBSD.org
+COMMENT=	FlatBuffers serialization format for Python
+WWW=		https://flatbuffers.dev/ \
+		https://github.com/google/flatbuffers/tree/master/python \
+		https://github.com/google/flatbuffers
+
+LICENSE=	APACHE20
+
+BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}setuptools>=0:devel/py-setuptools@${PY_FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}wheel>=0:devel/py-wheel@${PY_FLAVOR}
+
+USES=		cpe python
+USE_PYTHON=	autoplist concurrent pep517
+
+NO_ARCH=	yes
+WRKSRC_SUBDIR=	python
+
+CPE_VENDOR=	google
+
+PORTSCOUT=	limit:^[0-9][0-9]\.[0-9][0-9]\.[0-9][0-9]$$
+
+USE_GITHUB=	yes
+GH_ACCOUNT=	google
+
+OPTIONS_DEFINE=	NUMPY
+NUMPY_DESC=	Support scalar vectors as numpy arrays
+
+NUMPY_RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}numpy>=0,1:math/py-numpy@${PY_FLAVOR}
+
+.include <bsd.port.mk>

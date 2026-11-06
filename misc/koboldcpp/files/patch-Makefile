@@ -1,0 +1,59 @@
+--- Makefile.orig	2026-10-15 16:15:23 UTC
++++ Makefile
+@@ -45,8 +45,8 @@ endif
+ #
+ 
+ # keep standard at C11 and C++17
+-CFLAGS =
+-CXXFLAGS =
++CFLAGS = $(PRESET_CFLAGS)
++CXXFLAGS = $(PRESET_CXXFLAGS)
+ ifdef KCPP_DEBUG
+ CFLAGS = -g -O0
+ CXXFLAGS = -g -O0
+@@ -186,10 +186,10 @@ else
+ endif # LLAMA_NOAVX2
+ endif # LLAMA_NOAVX1
+ else
+-CFLAGS += -march=native -mtune=native
+-SIMPLECFLAGS += -march=native -mtune=native
+-SIMPLERCFLAGS += -march=native -mtune=native
+-FULLCFLAGS += -march=native -mtune=native
++#CFLAGS += -march=native -mtune=native
++#SIMPLECFLAGS += -march=native -mtune=native
++#SIMPLERCFLAGS += -march=native -mtune=native
++#FULLCFLAGS += -march=native -mtune=native
+ endif # LLAMA_PORTABLE
+ endif # if x86
+ 
+@@ -261,7 +261,7 @@ else
+ NVCCFLAGS += -Wno-deprecated-gpu-targets -arch=all
+ 
+ else
+-NVCCFLAGS += -arch=native
++#NVCCFLAGS += -arch=native
+ endif
+ 
+ ifdef LLAMA_CUDA_CCBIN
+@@ -369,15 +369,15 @@ ifneq ($(findstring clang, $(CCV)), )
+ # sve is cooked on termux so we are disabling it
+ ifeq ($(UNAME_O), Android)
+ ifneq ($(findstring clang, $(CCV)), )
+-CFLAGS += -mcpu=native+nosve
+-CXXFLAGS += -mcpu=native+nosve
++#CFLAGS += -mcpu=native+nosve
++#CXXFLAGS += -mcpu=native+nosve
+ else
+-CFLAGS += -mcpu=native
+-CXXFLAGS += -mcpu=native
++#CFLAGS += -mcpu=native
++#CXXFLAGS += -mcpu=native
+ endif
+ else
+-CFLAGS += -mcpu=native
+-CXXFLAGS += -mcpu=native
++#CFLAGS += -mcpu=native
++#CXXFLAGS += -mcpu=native
+ endif
+ endif
+ endif

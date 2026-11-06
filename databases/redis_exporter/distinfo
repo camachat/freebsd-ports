@@ -1,0 +1,5 @@
+TIMESTAMP = 1792840923
+SHA256 (go/databases_redis_exporter/redis_exporter-v1.96.0/v1.96.0.mod) = 31de8f173295096de0b9a6f293f0c1c099672dcca443522b3000da3ff3d263f0
+SIZE (go/databases_redis_exporter/redis_exporter-v1.96.0/v1.96.0.mod) = 706
+SHA256 (go/databases_redis_exporter/redis_exporter-v1.96.0/v1.96.0.zip) = f57d1b69cca394fa28bb291b55bd7b3e9028f1df8dc77dbb87a7b1013d269320
+SIZE (go/databases_redis_exporter/redis_exporter-v1.96.0/v1.96.0.zip) = 200591

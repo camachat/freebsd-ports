@@ -1,0 +1,5 @@
+%%EMACS_SITE_LISPDIR%%/ghub/ghub-autoloads.el
+%%EMACS_SITE_LISPDIR%%/ghub/ghub-graphql.el
+%%EMACS_SITE_LISPDIR%%/ghub/ghub-legacy.el
+%%EMACS_SITE_LISPDIR%%/ghub/ghub.el
+%%EMACS_SITE_LISPDIR%%/ghub/gsexp.el

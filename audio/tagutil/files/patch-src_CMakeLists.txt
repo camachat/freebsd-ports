@@ -1,0 +1,28 @@
+https://github.com/kaworu/tagutil/commit/5d1a1d74815375edb69314f8189e8590f188b6f4
+
+--- src/CMakeLists.txt.orig	2019-12-23 16:19:17 UTC
++++ src/CMakeLists.txt
+@@ -1,8 +1,6 @@
+ # {{{ CMake stuff
+-cmake_minimum_required(VERSION 2.6.0)
+-if(COMMAND cmake_policy)
+-    cmake_policy(VERSION 2.6)
+-endif()
++cmake_minimum_required(VERSION 3.8)
++cmake_policy(VERSION 3.8)
+ # }}}
+ 
+ #{{{ Basic App setup
+@@ -31,10 +29,10 @@ add_compile_options(-std=c11 -Wall -Wextra)
+ 
+ # CFLAGS
+ add_compile_options(-std=c11 -Wall -Wextra)
+-add_compile_options(-fstack-protector-strong -o aslr -fpie)
++add_compile_options(-fstack-protector-strong -fpie)
+ set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -pie")
+ # Per build type flags.
+-set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS} -O0 -g -fsanitize=undefined")
++set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS}")
+ # CMAKE_BUILD_TYPE=GRIM: *very* strict compiler options
+ set(CMAKE_C_FLAGS_GRIM "${CMAKE_C_FLAGS_DEBUG} -Wextra -pedantic -Wconversion -Wstrict-prototypes -Wcast-qual -Wcast-align -Wshadow -Wredundant-decls -Wundef -Wfloat-equal -Wmissing-include-dirs -Wswitch-default -Wpointer-arith -Wbad-function-cast -Wnested-externs -Wold-style-definition -Wformat=2 -Winit-self -Wwrite-strings -Wmissing-prototypes")
+ include(CheckCCompilerFlag)

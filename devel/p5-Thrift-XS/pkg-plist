@@ -1,0 +1,9 @@
+%%SITE_ARCH%%/Thrift/XS.pm
+%%SITE_ARCH%%/Thrift/XS/BinaryProtocol.pm
+%%SITE_ARCH%%/Thrift/XS/CompactProtocol.pm
+%%SITE_ARCH%%/Thrift/XS/MemoryBuffer.pm
+%%SITE_ARCH%%/auto/Thrift/XS/XS.so
+%%PERL5_MAN3%%/Thrift::XS.3.gz
+%%PERL5_MAN3%%/Thrift::XS::BinaryProtocol.3.gz
+%%PERL5_MAN3%%/Thrift::XS::CompactProtocol.3.gz
+%%PERL5_MAN3%%/Thrift::XS::MemoryBuffer.3.gz

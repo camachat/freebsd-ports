@@ -1,0 +1,20 @@
+--- examples/chrony.conf.example2.orig	2026-08-27 12:38:15 UTC
++++ examples/chrony.conf.example2
+@@ -5,7 +5,7 @@
+ # Use four public NTP servers from the pool.ntp.org project. If this
+ # host has a static public IP address, please consider joining the pool:
+ # https://www.ntppool.org/join.html
+-pool pool.ntp.org iburst
++pool 0.freebsd.pool.ntp.org iburst
+ 
+ # Record the rate at which the system clock gains/losses time.
+ driftfile /var/lib/chrony/drift
+@@ -34,7 +34,7 @@ rtcsync
+ #authselectmode require
+ 
+ # Specify file containing keys for NTP authentication.
+-#keyfile /etc/chrony.keys
++#keyfile %%PREFIX%%/etc/chrony.keys
+ 
+ # Save NTS keys and cookies.
+ ntsdumpdir /var/lib/chrony

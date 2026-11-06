@@ -1,0 +1,12 @@
+%%EMACS_SITE_LISPDIR%%/psgml/iso88591.map
+%%EMACS_SITE_LISPDIR%%/psgml/psgml-api.el.gz
+%%EMACS_SITE_LISPDIR%%/psgml/psgml-charent.el.gz
+%%EMACS_SITE_LISPDIR%%/psgml/psgml-dtd.el.gz
+%%EMACS_SITE_LISPDIR%%/psgml/psgml-edit.el.gz
+%%EMACS_SITE_LISPDIR%%/psgml/psgml-ids.el.gz
+%%EMACS_SITE_LISPDIR%%/psgml/psgml-info.el.gz
+%%EMACS_SITE_LISPDIR%%/psgml/psgml-other.el.gz
+%%EMACS_SITE_LISPDIR%%/psgml/psgml-parse.el.gz
+%%EMACS_SITE_LISPDIR%%/psgml/psgml-sysdep.el.gz
+%%EMACS_SITE_LISPDIR%%/psgml/psgml.el.gz
+%%EMACS_SITE_LISPDIR%%/%%PSGML_STARTUP%%

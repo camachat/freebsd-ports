@@ -1,0 +1,10 @@
+bin/gpxsee
+share/applications/gpxsee.desktop
+share/icons/hicolor/128x128/apps/gpxsee.png
+share/icons/hicolor/16x16/apps/gpxsee.png
+share/icons/hicolor/32x32/apps/gpxsee.png
+share/icons/hicolor/48x48/apps/gpxsee.png
+share/icons/hicolor/64x64/apps/gpxsee.png
+share/icons/hicolor/scalable/apps/gpxsee.svg
+share/metainfo/gpxsee.appdata.xml
+share/mime/packages/gpxsee.xml

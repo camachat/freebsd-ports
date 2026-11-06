@@ -1,0 +1,28 @@
+-- Relax exact version requirements and comment out code generation tools
+-- in build-system dependencies.
+--
+-- 1. Comment out grpcio-tools and mypy-protobuf as these are only needed for
+--    generating protobuf code, which is already included in the distribution
+--    tarball.
+--
+-- 2. Relax exact version requirement for distlib to allow using newer versions.
+--- pyproject.toml.orig	2026-10-12 07:12:01 UTC
++++ pyproject.toml
+@@ -24,12 +24,12 @@ requires = [
+     # Note: after upgrading to grpcio-tools, we must bump protobuf to >=5.0.
+     # Currently Blocked on old dependencies of Beam tft extra:
+     # https://github.com/apache/beam/issues/37854
+-    "grpcio-tools==1.62.1; python_version <= '3.12'",
+-    "grpcio-tools==1.71.0; python_version >= '3.13' and python_version < '3.14'",
+-    "grpcio-tools==1.78.0; python_version >= '3.14'",
+-    "mypy-protobuf==3.5.0",
++    # "grpcio-tools==1.62.1; python_version <= '3.12'",  # Not needed for building (proto files already generated)
++    # "grpcio-tools==1.71.0; python_version >= '3.13' and python_version < '3.14'",  # Not needed for building
++    # "grpcio-tools==1.78.0; python_version >= '3.14'",  # Not needed for building
++    # "mypy-protobuf==3.5.0",  # Not needed for building
+     # Avoid https://github.com/pypa/virtualenv/issues/2006
+-    "distlib==0.4.3",
++    "distlib>=0.4.3",
+     # Numpy headers
+     "numpy>=1.14.3,<2.5.0", # Update setup.py as well.
+     # having cython here will create wheels that are platform dependent.

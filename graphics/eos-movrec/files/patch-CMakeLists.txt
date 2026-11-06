@@ -1,0 +1,85 @@
+--- CMakeLists.txt.orig	2013-06-08 16:30:01 UTC
++++ CMakeLists.txt
+@@ -1,6 +1,6 @@ project(eos-movrec)
+ project(eos-movrec)
+ 
+-cmake_minimum_required(VERSION 2.6.2)
++cmake_minimum_required(VERSION 2.6.2...9.9.9)
+ 
+ include(FindPkgConfig)
+ include(CheckIncludeFile)
+@@ -24,12 +24,14 @@ endif(WIN32)
+ 	endif(MINGW)
+ endif(WIN32)
+ 
+-find_package(Qt4 4.4.2 COMPONENTS QtCore QtGui REQUIRED)
+-include(${QT_USE_FILE})
+ 
+-add_definitions (${QT_DEFINITIONS})
+-include_directories (${QT_INCLUDES} ${CMAKE_BINARY_DIR})
++# Find the Qt5 libraries
++find_package(Qt5Core REQUIRED)
++find_package(Qt5Gui REQUIRED)
++find_package(Qt5Widgets REQUIRED)
+ 
++include_directories(${CMAKE_BINARY_DIR})
++
+ set(EDSDK_LDFLAGS "")
+ if(WIN32)
+ 	set(EDSDKPATH "${CMAKE_SOURCE_DIR}/EDSDK")
+@@ -46,6 +48,13 @@ endif(WIN32)
+ 	add_definitions(-DGPHOTO2=1)
+ endif(WIN32)
+ 
++# Find includes in corresponding current build & source directories
++set(CMAKE_INCLUDE_CURRENT_DIR ON)
++
++# Instruct CMake to run moc automatically when needed.
++set(CMAKE_AUTOMOC ON)
++set(CMAKE_AUTOUIC ON)
++
+ set(eos_movrec_SRCS
+ 	main.cpp
+ 	mainwnd.cpp
+@@ -68,12 +77,6 @@ endif(WIN32)
+ 	set(eos_movrec_SRCS ${eos_movrec_SRCS} eos_movrec.rc)
+ endif(WIN32)
+ 
+-# headers with Q_OBJECT
+-set(eos_movrec_MOC_HEADERS
+-	mainwnd.h
+-	blinklabel.h
+-)
+-
+ # force use exceptions
+ set(CMAKE_CXX_FLAGS         "${CMAKE_CXX_FLAGS} -fexceptions")
+ # add debug defines
+@@ -81,12 +84,13 @@ add_definitions(-D_FILE_OFFSET_BITS=64 -D_LARGE_FILES=
+ set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -DNDEBUG")
+ 
+ add_definitions(-D_FILE_OFFSET_BITS=64 -D_LARGE_FILES=1)
+-QT4_WRAP_CPP(MOC_SRCS ${eos_movrec_MOC_HEADERS})
+ 
+ if (WIN32)
+ 	set(CMAKE_RC_COMPILER windres)
+ 	# set rc syntax
+ 	set(CMAKE_RC_COMPILE_OBJECT "<CMAKE_RC_COMPILER> <FLAGS> <DEFINES> -O coff -o <OBJECT> <SOURCE>")
++    set(CMAKE_RC_SOURCE_FILE_EXTENSIONS rc)
++    set(CMAKE_RC_FLAGS "-I${CMAKE_BINARY_DIR}")
+ 
+ 	# enable resource language
+ 	enable_language(RC)
+@@ -97,10 +101,10 @@ endif(WIN32)
+ 	set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,--enable-auto-import")
+ endif(WIN32)
+ 
+-add_executable(eos_movrec ${eos_movrec_SRCS} ${MOC_SRCS})
++add_executable(eos_movrec WIN32 ${eos_movrec_SRCS})
+ if (WIN32)
+-	TARGET_LINK_LIBRARIES(eos_movrec ${QT_LIBRARIES} ${EDSDK_LDFLAGS})
++    TARGET_LINK_LIBRARIES(eos_movrec Qt5::Core Qt5::Gui Qt5::Widgets ${EDSDK_LDFLAGS})
+ elseif(UNIX)
+-	TARGET_LINK_LIBRARIES(eos_movrec ${QT_LIBRARIES} ${LIBGPHOTO2_LDFLAGS})
++    TARGET_LINK_LIBRARIES(eos_movrec Qt5::Core Qt5::Gui Qt5::Widgets ${LIBGPHOTO2_LDFLAGS})
+ endif(WIN32)
+ install(TARGETS eos_movrec RUNTIME DESTINATION bin)

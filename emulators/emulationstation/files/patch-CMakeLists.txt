@@ -1,0 +1,29 @@
+--- CMakeLists.txt.orig	2023-04-13 14:23:07 UTC
++++ CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 2.8)
++cmake_minimum_required(VERSION 3.5)
+ 
+ option(GLES "Set to ON if targeting Embedded OpenGL" ${GLES})
+ option(GL "Set to ON if targeting Desktop OpenGL" ${GL})
+@@ -22,6 +22,10 @@ project(emulationstation-all)
+ 
+ project(emulationstation-all)
+ 
++# program name to be used as a reference when looking up resources
++set(AppDataName "EmulationStation" CACHE STRING "Internal program name passed to compiler")
++add_definitions(-DAPPDATANAME="${AppDataName}")
++
+ #-------------------------------------------------------------------------------
+ #add local find scripts to CMAKE path
+ LIST(APPEND CMAKE_MODULE_PATH
+@@ -263,6 +267,9 @@ set(LIBRARY_OUTPUT_PATH ${dir} CACHE PATH "Build direc
+ set(EXECUTABLE_OUTPUT_PATH ${dir} CACHE PATH "Build directory" FORCE)
+ set(LIBRARY_OUTPUT_PATH ${dir} CACHE PATH "Build directory" FORCE)
+ 
++# install rules for resources
++include(GNUInstallDirs)
++install(DIRECTORY resources DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/${AppDataName}/")
+ 
+ #-------------------------------------------------------------------------------
+ # add each component

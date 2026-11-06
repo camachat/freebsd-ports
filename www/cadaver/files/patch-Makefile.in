@@ -1,0 +1,29 @@
+--- Makefile.in.orig	2025-09-18 19:33:52.000000000 +0000
++++ Makefile.in	2026-02-28 20:24:37.726900000 +0000
+@@ -42,8 +42,8 @@
+ OBJECTS = src/cadaver.o src/common.o src/commands.o src/ls.o	\
+ 	 src/cmdline.o src/options.o src/utils.o src/edit.o \
+ 	src/version.o src/search.o 
+-LIBOBJS = lib/basename.o lib/dirname.o lib/rpmatch.o lib/yesno.o	\
+-	lib/getpass.o lib/tempname.o lib/mkstemp.o \
++LIBOBJS = lib/rpmatch.o lib/yesno.o	\
++	lib/getpass.o \
+ 	@LIBOBJS@
+ ALLOBJS = $(OBJECTS) $(LIBOBJS)
+ 
+@@ -103,11 +103,11 @@
+ # Deps
+ src/cadaver.o: src/cadaver.c config.h src/common.h	\
+ 	src/options.h src/cmdline.h src/commands.h src/cadaver.h
+-src/options.o: src/options.c config.h src/options.h src/cadaver.h src/common.h 
+-src/cmdline.o: src/cmdline.c src/cmdline.h src/cadaver.h lib/basename.h \
+-	lib/glob/glob.h src/commands.h src/common.h
++src/optIons.o: src/options.c config.h src/options.h src/cadaver.h src/common.h 
++src/cmdline.o: src/cmdline.c src/cmdline.h src/cadaver.h \
++	src/commands.h src/common.h
+ src/commands.o: src/commands.c src/commands.h src/cadaver.h \
+-	lib/basename.h src/options.h src/common.h
++	src/options.h src/common.h
+ src/edit.o: src/edit.c src/cadaver.h src/options.h src/common.h
+ src/common.o: src/common.c src/common.h config.h
+ src/ls.o: src/ls.c src/commands.h src/cadaver.h config.h

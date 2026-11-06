@@ -1,0 +1,42 @@
+PORTNAME=	mygui
+DISTVERSIONPREFIX=	MyGUI
+DISTVERSION=	3.4.4
+PORTREVISION?=	0
+CATEGORIES=	x11-toolkits graphics devel
+
+MAINTAINER=	fluffy@FreeBSD.org
+COMMENT?=	Fast, simple and flexible GUI system for games and 3D applications
+WWW=		http://mygui.info/ \
+		https://github.com/MyGUI/mygui
+
+LICENSE=	MIT
+LICENSE_FILE=	${WRKSRC}/COPYING.MIT
+
+.if !defined(MASTERDIR)
+LIB_DEPENDS=	libfreetype.so:print/freetype2
+.else
+LIB_DEPENDS+=	libMyGUIEngine.so:x11-toolkits/mygui
+
+BUILD_WRKSRC=	${WRKSRC}/${MYGUI_SUBDIR}
+INSTALL_WRKSRC=	${WRKSRC}/${MYGUI_SUBDIR}
+.endif
+
+USES+=		cmake:insource compiler:c++11-lib pkgconfig sdl
+USE_SDL+=	sdl2
+USE_GITHUB=	yes
+GH_ACCOUNT=	MyGUI
+CMAKE_ON+=	MYGUI_DONT_USE_OBSOLETE
+CMAKE_OFF+=	MYGUI_BUILD_DEMOS MYGUI_BUILD_TOOLS MYGUI_BUILD_DOCS
+USE_LDCONFIG=	yes
+
+MYGUI_RENDERSYSTEM?=	0
+
+CMAKE_ARGS+=	-DMYGUI_RENDERSYSTEM=${MYGUI_RENDERSYSTEM}
+CMAKE_ARGS+=	-DCMAKE_POLICY_VERSION_MINIMUM:STRING=3.5 # CMake 4 compatibility
+
+PLIST=		${.CURDIR}/pkg-plist
+PLIST_SUB+=	LIBVERSION=${PORTVERSION}
+
+PORTSCOUT=	limit:^${PORTVERSION:R}
+
+.include <bsd.port.mk>

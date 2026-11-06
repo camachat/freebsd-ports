@@ -1,0 +1,11 @@
+--- cmake/modules/pyproject.toml.in.orig	2026-05-29 21:17:03 UTC
++++ cmake/modules/pyproject.toml.in
+@@ -9,7 +9,7 @@ sip-files-dir = "@module_srcs@"
+ sip-module = "@sip_name@"
+ sip-include-dirs = @sip_include_dirs@
+ sip-files-dir = "@module_srcs@"
+-abi-version = "@abi_version@"
++abi-version = "13.8"
+ 
+ [tool.sip.bindings.@module_name_toml@]
+ pep484-pyi = true

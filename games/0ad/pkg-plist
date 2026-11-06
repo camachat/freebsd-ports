@@ -1,0 +1,7 @@
+bin/pyrogenesis
+bin/0ad
+bin/ActorEditor
+lib/0ad/libAtlasUI.so
+lib/0ad/libCollada.so
+share/applications/0ad.desktop
+share/pixmaps/0ad.png

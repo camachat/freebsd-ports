@@ -1,0 +1,97 @@
+PORTNAME=	libheif
+DISTVERSION=	1.23.6
+CATEGORIES=	graphics
+MASTER_SITES=	https://github.com/strukturag/${PORTNAME}/releases/download/v${DISTVERSION}/
+
+MAINTAINER=	makc@FreeBSD.org
+COMMENT=	ISO/IEC 23008-12:2017 HEIF file format de- and encoder
+WWW=		https://github.com/strukturag/libheif
+
+LICENSE=	LGPL3+
+LICENSE_FILE=	${WRKSRC}/COPYING
+
+LIB_DEPENDS=	libsharpyuv.so:graphics/webp
+
+USES=		cmake:testing compiler:c++20-lang cpe gettext-runtime gnome \
+		localbase:ldflags pathfix pkgconfig
+CPE_VENDOR=	struktur
+USE_GNOME=	gdkpixbuf glib20
+USE_LDCONFIG=	yes
+PLIST_SUB=	LIB_VER=${DISTVERSION}
+
+CMAKE_OFF=	BUILD_TESTING \
+		WITH_KVAZAAR \
+		WITH_UVG266 \
+		WITH_VVDEC \
+		WITH_VVENC \
+		CMAKE_COMPILE_WARNING_AS_ERROR
+CMAKE_ON=	CMAKE_DISABLE_FIND_PACKAGE_Doxygen
+
+OPTIONS_GROUP=		AV1 AVC HEVC
+AV1_DESC=		AV1 encoders/decoders
+OPTIONS_GROUP_AV1=	AOM DAV1D SVTAV1 RAV1E
+AVC_DESC=		AVC encoders/decoders
+OPTIONS_GROUP_AVC=	OPENH264 X264
+HEVC_DESC=		HEVC encoders/decoders
+OPTIONS_GROUP_HEVC=	FFMPEG LIBDE265 X265
+
+OPTIONS_DEFINE=	EXAMPLES JPEG OPENJPEG OPENJPH
+OPTIONS_DEFAULT=AOM DAV1D FFMPEG JPEG OPENH264 OPENJPEG OPENJPH SVTAV1 X264 X265
+OPTIONS_SUB=	yes
+
+AOM_DESC=		AV1 encoding/decoding via libaom
+AOM_LIB_DEPENDS=	libaom.so:multimedia/aom
+AOM_CMAKE_BOOL=		WITH_AOM_ENCODER WITH_AOM_DECODER
+
+DAV1D_DESC=		AV1 decoding via dav1e
+DAV1D_LIB_DEPENDS=	libdav1d.so:multimedia/dav1d
+DAV1D_CMAKE_BOOL=	WITH_DAV1D
+
+EXAMPLES_LIB_DEPENDS=	libpng16.so:graphics/png \
+			libtiff.so:graphics/tiff
+EXAMPLES_USES=		sdl
+EXAMPLES_USE=		SDL=sdl2
+EXAMPLES_CMAKE_BOOL=	WITH_EXAMPLES
+EXAMPLE_IMPLIES=	JPEG
+
+FFMPEG_DESC=		HEVC decoding via FFmpeg
+FFMPEG_LIB_DEPENDS=	libavcodec.so:multimedia/ffmpeg
+FFMPEG_CMAKE_BOOL=	WITH_FFMPEG_DECODER
+
+JPEG_DESC=		JPEG decoding/encoding
+JPEG_USES=		jpeg
+JPEG_CMAKE_BOOL=	WITH_JPEG_ENCODER WITH_JPEG_DECODER
+
+LIBDE265_DESC=		HEVC decoding via libde265
+LIBDE265_LIB_DEPENDS=	libde265.so:multimedia/libde265
+LIBDE265_CMAKE_BOOL=	WITH_LIBDE265
+
+OPENH264_DESC=		AVC decoding via OpenH264
+OPENH264_LIB_DEPENDS=	libopenh264.so:multimedia/openh264
+OPENH264_CMAKE_BOOL=	WITH_OpenH264_DECODER
+
+OPENJPEG_DESC=		JPEG 2000 decoding/encoding via OpenJPEG
+OPENJPEG_LIB_DEPENDS=	libopenjp2.so:graphics/openjpeg
+OPENJPEG_CMAKE_BOOL=	WITH_OpenJPEG_ENCODER WITH_OpenJPEG_DECODER
+
+OPENJPH_DESC=		HT-J2K encoding via OpenJPH
+OPENJPH_LIB_DEPENDS=	libopenjph.so:graphics/openjph
+OPENJPH_CMAKE_BOOL=	WITH_OPENJPH_ENCODER WITH_OPENJPH_DECODER
+
+SVTAV1_DESC=		AV1 encoding via SVT-AV1
+SVTAV1_LIB_DEPENDS=	libSvtAv1Enc.so:multimedia/svt-av1
+SVTAV1_CMAKE_BOOL=	WITH_SvtEnc
+
+RAV1E_DESC=		AV1 encoding via Rav1e
+RAV1E_LIB_DEPENDS=	librav1e.so:multimedia/librav1e
+RAV1E_CMAKE_BOOL=	WITH_RAV1E
+
+X264_DESC=		AVC encoding via x264
+X264_LIB_DEPENDS=	libx264.so:multimedia/libx264
+X264_CMAKE_BOOL=	WITH_X264
+
+X265_DESC=		HEVC encoding via x265
+X265_LIB_DEPENDS=	libx265.so:multimedia/x265
+X265_CMAKE_BOOL=	WITH_X265
+
+.include <bsd.port.mk>

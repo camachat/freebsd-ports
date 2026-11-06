@@ -1,0 +1,11 @@
+--- src/CMakeLists.txt.orig	2026-09-21 17:36:31 UTC
++++ src/CMakeLists.txt
+@@ -128,7 +128,7 @@ install(DIRECTORY ${GSOURCE_PATH}/include/
+ endif()
+ 
+ install(DIRECTORY ${GSOURCE_PATH}/include/
+-	DESTINATION include/decaf
++	DESTINATION include
+ 	FILES_MATCHING PATTERN "*.h*"
+ 	PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ
+ )

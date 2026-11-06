@@ -1,0 +1,45 @@
+--- CMakeLists.txt.orig	2026-06-09 13:32:28 UTC
++++ CMakeLists.txt
+@@ -199,7 +199,7 @@ set( TEST_OPTS "" )
+ enable_testing()
+ set( TEST_OPTS "" )
+ 
+-if ( HAVE_PYTHON )
++if ( BUILD_PYTHON AND HAVE_PYTHON )
+   set( TEST_OPTS "${TEST_OPTS};--with-python=${PYTHON}" )
+ endif ()
+ 
+@@ -227,7 +227,9 @@ add_custom_target( installcheck
+ ##################        Define Subdirectories here          ##################
+ ################################################################################
+ 
++if (INSTALL_DOCS)
+ add_subdirectory( doc )
++endif()
+ add_subdirectory( bin )
+ add_subdirectory( build_support )
+ add_subdirectory( libnestutil )
+@@ -235,7 +237,7 @@ add_subdirectory( testsuite )
+ add_subdirectory( nestkernel )
+ add_subdirectory( thirdparty )
+ add_subdirectory( testsuite )
+-if ( HAVE_PYTHON )
++if ( BUILD_PYTHON AND HAVE_PYTHON )
+   add_subdirectory( pynest )
+ endif ()
+ 
+@@ -348,12 +350,10 @@ endif()
+   set( CMAKE_INSTALL_DOCDIR "nest/doc")
+ endif()
+ 
+-install( FILES LICENSE README.md
+-    DESTINATION ${CMAKE_INSTALL_DOCDIR}
+-)
+-
++if (INSTALL_EXAMPLES)
+ install( DIRECTORY examples/
+     DESTINATION ${CMAKE_INSTALL_DOCDIR}/examples
+ )
++endif()
+ 
+ nest_print_config_summary()

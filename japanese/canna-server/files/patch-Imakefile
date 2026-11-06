@@ -1,0 +1,15 @@
+--- Imakefile.orig	2025-06-05 14:35:46 UTC
++++ Imakefile
+@@ -121,9 +121,9 @@ CANNAROOT = .
+ 	$(CANNAROOT)/confwrapper mkenv CFLAGS $(PURE_CFLAGS) >> $@
+ 
+ CANNAROOT = .
+-SERVERDIR = server dic/phono dic/ideo
+-CLIENTDIR = cmd dic/phono misc
+-SGSDIR = canna lib
++SERVERDIR = server dic/ideo
++CLIENTDIR = cmd
++SGSDIR = canna lib dic/phono misc
+ MOSTDIR = lib canna server cmd dic/phono misc doc
+ 
+ install:: mkbindir mklibdir mkdicdir mkerrdir

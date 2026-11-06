@@ -1,0 +1,7 @@
+bin/SciTE
+bin/scite
+lib/scite/liblexilla.so
+lib/scite/libscintilla.so
+share/applications/SciTE.desktop
+share/man/man1/scite.1.gz
+share/pixmaps/Sci48M.png

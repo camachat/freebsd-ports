@@ -1,0 +1,24 @@
+--- CMakeLists.txt.orig	2026-10-09 19:03:03 UTC
++++ CMakeLists.txt
+@@ -17,7 +17,7 @@
+ # meant for generating project files for those working with IDE's to do
+ # otherwise generic builds of the library and supporting applications.
+ 
+-cmake_minimum_required(VERSION 2.6)
++cmake_minimum_required(VERSION 3.5)
+ PROJECT(ucommon)
+ set (VERSION 7.0.0)
+ 
+@@ -101,7 +101,11 @@ if(OPENSSL_FOUND)
+ endif()
+ if(OPENSSL_FOUND)
+     set(HAVE_OPENSSL TRUE)
+-    check_include_files(openssl/fips.h HAVE_OPENSSL_FIPS_H)
++    if(${CMAKE_SYSTEM_NAME} MATCHES "^(FreeBSD|DragonFly)$")
++        set(HAVE_OPENSSL_FIPS_H "")
++    else()
++        check_include_files(openssl/fips.h HAVE_OPENSSL_FIPS_H)
++    endif()
+ elseif(PKGCONFIG_FOUND)
+     pkg_check_modules(GNUTLS gnutls>=3.0.0)
+ endif()

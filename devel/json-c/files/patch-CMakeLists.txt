@@ -1,0 +1,22 @@
+Avoid use of newlocale(3) that results in increasing memory usage
+
+--- CMakeLists.txt.orig	2026-06-27 13:44:12 UTC
++++ CMakeLists.txt
+@@ -232,7 +232,7 @@ if (HAVE_LOCALE_H)
+ endif()
+ if (HAVE_LOCALE_H)
+     check_symbol_exists(setlocale   "locale.h" HAVE_SETLOCALE)
+-    check_symbol_exists(uselocale   "locale.h" HAVE_USELOCALE)
++    # check_symbol_exists(uselocale   "locale.h" HAVE_USELOCALE)
+     if (NOT NIX20 AND NOT NIX13)
+         # libnix does not fully support this yet
+         check_symbol_exists(duplocale   "locale.h" HAVE_DUPLOCALE)
+@@ -521,8 +521,6 @@ include_directories(${PROJECT_BINARY_DIR})
+ 
+ include_directories(${PROJECT_SOURCE_DIR})
+ include_directories(${PROJECT_BINARY_DIR})
+-
+-add_subdirectory(doc)
+ 
+ # "uninstall" custom target for make generators in unix like operating systems
+ # and if that target is not present

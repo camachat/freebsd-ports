@@ -1,0 +1,17 @@
+--- lib/compat/CMakeLists.txt.orig	2026-04-22 09:29:50 UTC
++++ lib/compat/CMakeLists.txt
+@@ -23,12 +23,12 @@ install_if_not_exists(
+ )
+ 
+ install_if_not_exists(
+-  ${PROJECT_SOURCE_DIR}/etc/icinga2/features-available/command.conf
++  ${PROJECT_SOURCE_DIR}/etc/icinga2/features-available/command.conf.sample
+   ${ICINGA2_CONFIGDIR}/features-available
+ )
+ 
+ install_if_not_exists(
+-  ${PROJECT_SOURCE_DIR}/etc/icinga2/features-available/compatlog.conf
++  ${PROJECT_SOURCE_DIR}/etc/icinga2/features-available/compatlog.conf.sample
+   ${ICINGA2_CONFIGDIR}/features-available
+ )
+ 

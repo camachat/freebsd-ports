@@ -1,0 +1,11 @@
+--- Makefile.am.orig	2026-10-22 17:00:59 UTC
++++ Makefile.am
+@@ -284,6 +284,8 @@ edit_cmd = $(SED) \
+ 
+ edit_cmd = $(SED) \
+     -e 's|@sbindir[@]|$(sbindir)|g' \
++    -e 's|@sysconfdir[@]|$(sysconfdir)|g' \
++    -e 's|@socketname[@]|$(socketname)|g' \
+     -e 's|@localstatedir[@]|$(localstatedir)|g' \
+     -e 's|@libdir[@]|$(libdir)|g' \
+     -e 's|@gpclidir[@]|$(gpclidir)|g'

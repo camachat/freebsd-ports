@@ -1,0 +1,38 @@
+PORTNAME=	metpy
+PORTVERSION=	1.7.1
+CATEGORIES=	astro python
+MASTER_SITES=	PYPI
+PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
+
+MAINTAINER=	sunpoet@FreeBSD.org
+COMMENT=	Collection of tools for processing weather data
+WWW=		https://unidata.github.io/MetPy/latest/ \
+		https://github.com/Unidata/MetPy
+
+LICENSE=	BSD3CLAUSE
+LICENSE_FILE=	${WRKSRC}/LICENSE
+
+BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}setuptools>=61:devel/py-setuptools@${PY_FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}setuptools-scm>=3.4:devel/py-setuptools-scm@${PY_FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}wheel>=0:devel/py-wheel@${PY_FLAVOR}
+RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}matplotlib>=3.5.0:math/py-matplotlib@${PY_FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}numpy>=1.23.0,1:math/py-numpy@${PY_FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}pandas>=1.4.0,1:math/py-pandas@${PY_FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}pint>=0.17:devel/py-pint@${PY_FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}pooch>=1.2.0:devel/py-pooch@${PY_FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}pyproj>=3.3.0:graphics/py-pyproj@${PY_FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}scipy>=1.8.0:science/py-scipy@${PY_FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}traitlets>=5.1.0:devel/py-traitlets@${PY_FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}xarray>=2022.6.0:devel/py-xarray@${PY_FLAVOR}
+
+USES=		python
+USE_PYTHON=	autoplist concurrent pep517
+
+NO_ARCH=	yes
+
+PLIST_FILES=	${PYTHON_SITELIBDIR}/metpy/static-data-manifest.txt
+
+post-install:
+	${INSTALL_DATA} ${WRKSRC}/src/metpy/static-data-manifest.txt ${STAGEDIR}${PYTHON_SITELIBDIR}/metpy/static-data-manifest.txt
+
+.include <bsd.port.mk>

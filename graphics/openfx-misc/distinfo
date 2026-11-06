@@ -1,0 +1,9 @@
+TIMESTAMP = 1792451152
+SHA256 (NatronGitHub-openfx-misc-Natron-2.5.0_GH0.tar.gz) = 5db48aa0479a8a1c962434a42d6a2c5441b16ab78fc5d69153faaaf505627be6
+SIZE (NatronGitHub-openfx-misc-Natron-2.5.0_GH0.tar.gz) = 1896615
+SHA256 (NatronGitHub-openfx-supportext-8aff0b0_GH0.tar.gz) = 4cd5f6e2f3210679e27e7bab2eaf3883fe179fce8a7184c2f7e5c02b147a1aae
+SIZE (NatronGitHub-openfx-supportext-8aff0b0_GH0.tar.gz) = 296312
+SHA256 (NatronGitHub-openfx-a5d9ca8_GH0.tar.gz) = d810bfbaf4f9cc3694ff5b682a45ec4332abd444185585861f258f2f66ec902d
+SIZE (NatronGitHub-openfx-a5d9ca8_GH0.tar.gz) = 10706202
+SHA256 (dtschump-CImg-b33dcc8f9f1acf1f276ded92c04f8231f6c23fcd_GH0.tar.gz) = e0a0e1958f66dfc758a28ab537a44779fe15c22364ec96ce45fd3d39cf868b4b
+SIZE (dtschump-CImg-b33dcc8f9f1acf1f276ded92c04f8231f6c23fcd_GH0.tar.gz) = 11272408

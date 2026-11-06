@@ -1,0 +1,13 @@
+include/popt.h
+lib/cmake/popt/poptConfig.cmake
+lib/cmake/popt/poptConfigVersion.cmake
+lib/cmake/popt/poptTargets-%%CMAKE_BUILD_TYPE%%.cmake
+lib/cmake/popt/poptTargets.cmake
+lib/libpopt.so
+lib/libpopt.so.0
+lib/libpopt.so.%%PORTVERSION%%
+libdata/pkgconfig/popt.pc
+%%PORTDOCS%%%%DOCSDIR%%/COPYING
+%%PORTDOCS%%%%DOCSDIR%%/CREDITS
+%%PORTDOCS%%%%DOCSDIR%%/README
+share/man/man3/popt.3.gz

@@ -1,0 +1,11 @@
+--- CMakeLists.txt.orig	2026-04-06 19:55:53 UTC
++++ CMakeLists.txt
+@@ -92,7 +92,7 @@ add_subdirectory(tests)
+ enable_testing()
+ add_subdirectory(tests)
+ 
+-add_subdirectory(demos)
++#add_subdirectory(demos)
+ add_subdirectory(scripts)
+ add_subdirectory(doc)
+ 

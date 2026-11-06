@@ -1,0 +1,47 @@
+PORTNAME=	dynamechs
+PORTVERSION=	4.0.p1
+PORTREVISION=	10
+PORTEPOCH=	1
+CATEGORIES=	graphics
+MASTER_SITES=	SF/${PORTNAME}/${PORTNAME}/4.0pre1
+DISTNAME=	${PORTNAME}_${PORTVERSION:S/.p/pre/}
+
+MAINTAINER=	ports@FreeBSD.org
+COMMENT=	Multibody Dynamic Simulation Library
+WWW=		https://dynamechs.sourceforge.net/
+
+LICENSE=	GPLv2+
+LICENSE_FILE=	${WRKSRC}/LICENSE
+
+USES=		gl gmake perl5 shebangfix tar:bzip2 xorg
+USE_CXXSTD=	c++14
+USE_GL=		gl glu glut
+USE_LDCONFIG=	yes
+USE_PERL5=	build
+USE_XORG=	x11
+
+SHEBANG_FILES=	make/*.pl
+
+MAKE_ENV=	OPENGLINCDIR="${LOCALBASE}/include" \
+		OPENGLLIBDIR="${LOCALBASE}/lib"
+MAKE_JOBS_UNSAFE=	yes
+ALL_TARGET=	freebsd
+
+post-patch:
+	@${REINPLACE_CMD} -e \
+		's|.SILENT:||' ${WRKSRC}/Makefile
+
+do-configure:
+	@${CP} -f ${FILESDIR}/make.platform.freebsd ${WRKSRC}/make/
+
+do-install:
+.for dir in dm dmu dmGL
+	@${MKDIR} ${STAGEDIR}${PREFIX}/include/${PORTNAME}/${dir}
+	(cd ${WRKSRC}/${dir} && ${FIND} . -name  "*.h" -or -name "*.hpp" | \
+		${XARGS} -J % ${INSTALL_DATA} % \
+		${STAGEDIR}${PREFIX}/include/${PORTNAME}/${dir})
+	(cd ${WRKSRC}/lib/platform.freebsd && ${INSTALL_LIB} lib${dir}.so \
+		${STAGEDIR}${PREFIX}/lib)
+.endfor
+
+.include <bsd.port.mk>

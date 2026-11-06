@@ -1,0 +1,29 @@
+--- protos/perfetto/config/data_source_config.proto.orig	2026-10-27 15:13:27 UTC
++++ protos/perfetto/config/data_source_config.proto
+@@ -45,6 +45,7 @@ import "protos/perfetto/config/ftrace/frozen_ftrace_co
+ import "protos/perfetto/config/chrome/system_metrics.proto";
+ import "protos/perfetto/config/ftrace/ftrace_config.proto";
+ import "protos/perfetto/config/ftrace/frozen_ftrace_config.proto";
++import "protos/perfetto/config/dtrace/dtrace_config.proto";
+ import "protos/perfetto/config/gpu/gpu_counter_config.proto";
+ import "protos/perfetto/config/gpu/vulkan_memory_config.proto";
+ import "protos/perfetto/config/gpu/gpu_renderstages_config.proto";
+@@ -79,7 +80,7 @@ import "protos/perfetto/config/qnx/qnx_config.proto";
+ // cpp classes and polluting tracing/core with data-source-specific classes.
+ // Instead they are treated as opaque strings containing raw proto bytes.
+ //
+-// Next id: 149
++// Next id: 151
+ message DataSourceConfig {
+   enum SessionInitiator {
+     SESSION_INITIATOR_UNSPECIFIED = 0;
+@@ -392,6 +393,9 @@ message DataSourceConfig {
+ 
+   // Data source name: linux.smaps
+   optional ProcessSmapsConfig process_smaps_config = 146 [lazy = true];
++
++  // Data source name: dtrace
++  optional DtraceConfig dtrace_config = 149 [lazy = true];
+ 
+   // Data source name: qnx.kernel
+   optional QnxConfig qnx_config = 150 [lazy = true];

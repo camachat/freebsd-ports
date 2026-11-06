@@ -1,0 +1,11 @@
+--- configure.ac.orig	2026-04-23 20:49:26 UTC
++++ configure.ac
+@@ -1032,7 +1032,7 @@ AC_MSG_ERROR([PLEASE INSTALL INN OR SET PATH TO inncon
+ 	    exit 1;
+ 	fi
+     fi
+-    if $newsbindir/innconfval -v 2>&1 </dev/null | egrep 2\.[3\|4\|5\|6] > /dev/null; then
++    if $newsbindir/innconfval -v 2>&1 </dev/null | egrep 2\.[3\|4\|5\|6\|7] > /dev/null; then
+       eval `$newsbindir/innconfval -s|grep -e 'PATHNEWS\|PATHBIN\|PATHOUTGOING\|PATHDB\|PATHARTICLES\|PATHETC'`
+       NEWSLIBDIR=${PATHNEWS}
+     else

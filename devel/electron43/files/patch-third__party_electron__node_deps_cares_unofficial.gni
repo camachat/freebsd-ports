@@ -1,0 +1,21 @@
+--- third_party/electron_node/deps/cares/unofficial.gni.orig	2026-10-13 14:09:48 UTC
++++ third_party/electron_node/deps/cares/unofficial.gni
+@@ -60,6 +60,8 @@ template("cares_gn_build") {
+         include_dirs += [ "config/linux" ]
+       } else if (is_mac) {
+         include_dirs += [ "config/darwin" ]
++      } else if (is_freebsd) {
++        include_dirs += [ "config/freebsd" ]
+       }
+ 
+       if (is_win) {
+@@ -75,6 +77,9 @@ template("cares_gn_build") {
+       }
+       if (is_mac) {
+         sources += gypi_values.cares_sources_mac
++      }
++      if (is_freebsd) {
++        sources += [ "config/freebsd/ares_config.h" ]
+       }
+ 
+       if (is_clang) {

@@ -1,0 +1,11 @@
+TIMESTAMP = 1777020140
+SHA256 (tenox7-stc-1.5.5_GH0.tar.gz) = 66ee5f957e2dfb5fe884102d52a7121b0d39187c507dd370172be02ec7796f04
+SIZE (tenox7-stc-1.5.5_GH0.tar.gz) = 14041
+SHA256 (dustin-go-humanize-v1.0.1_GH0.tar.gz) = ac3a0d8d0eef07c75d12eddce775a8e8306dfb9783a45312597c34ff643793d8
+SIZE (dustin-go-humanize-v1.0.1_GH0.tar.gz) = 17692
+SHA256 (go-resty-resty-v2.17.2_GH0.tar.gz) = 1548d7af5e8236ec394b672f603f3bd3f89211cdc69e26bb62f5117a42d10e74
+SIZE (go-resty-resty-v2.17.2_GH0.tar.gz) = 2668067
+SHA256 (golang-net-v0.53.0_GH0.tar.gz) = dde4377de949f539eb137ec1ff2bf2e15f4063f9e20427616e5fbcbc8b45c231
+SIZE (golang-net-v0.53.0_GH0.tar.gz) = 1561839
+SHA256 (hako-durafmt-5c1018a4e16b_GH0.tar.gz) = dde0e91c9bb3b662c74b86ef6ae28f72f795a59051ba5b8254ba0402ce714ccf
+SIZE (hako-durafmt-5c1018a4e16b_GH0.tar.gz) = 9790

@@ -1,0 +1,27 @@
+#!/bin/sh
+
+# PROVIDE: mdnsd
+# REQUIRE: DAEMON
+# KEYWORD: resume shutdown
+
+. /etc/rc.subr
+
+name=mdnsd
+rcvar=mdnsd_enable
+
+load_rc_config $name
+
+: ${mdnsd_enable="NO"}
+: ${mdnsd_pidfile="/var/run/${name}.pid"}
+
+command="%%PREFIX%%/sbin/${name}"
+extra_commands="resume"
+resume_cmd="mdnsd_resume"
+pidfile="${mdnsd_pidfile}"
+
+mdnsd_resume()
+{
+	run_rc_command restart
+}
+
+run_rc_command $*

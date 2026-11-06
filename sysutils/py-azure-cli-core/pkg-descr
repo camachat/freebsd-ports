@@ -1,0 +1,6 @@
+Azure CLI is a cross-platform tool that simplifies managing Azure resources from
+the command line. Optimized for automation and ease of use, it supports
+interactive sessions and scripting with straightforward commands that integrate
+seamlessly with the Azure Resource Manager model. You can start using it in your
+browser with Azure Cloud Shell or install it locally to use from your preferred
+terminal.

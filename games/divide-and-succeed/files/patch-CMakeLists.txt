@@ -1,0 +1,27 @@
+--- CMakeLists.txt.orig	2013-12-11 17:36:43 UTC
++++ CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 2.6) # Pour éviter un warning au lancement de CMake, on doit préciser la version minimale
++cmake_minimum_required(VERSION 3.31.12) # Pour éviter un warning au lancement de CMake, on doit préciser la version minimale
+ 
+ # Nom du projet
+ project(Divide_And_Succeed)
+@@ -24,15 +24,13 @@ include_directories(
+ set(SRC_DIR ${PROJECT_SOURCE_DIR}/src)
+ 
+ include_directories(
+-	${SDL_INCLUDE_DIR}
++	${SDL_INCLUDE_DIR}/..
+ 	${SDLTTF_INCLUDE_DIR}
+ )
+ 
+-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -O0")
+-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall -g")
+-set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Wall -O2")
++set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
+ 
+-add_definitions(-DDATA_DIR=".:${CMAKE_INSTALL_PREFIX}/share/divideandsucceed/")
++add_definitions(-DDATA_DIR="${CMAKE_INSTALL_PREFIX}/share/divideandsucceed/")
+ 
+ # Déclaration de l'exécutable
+ add_executable(

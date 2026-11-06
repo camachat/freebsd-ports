@@ -1,0 +1,45 @@
+PORTNAME=	libisofs
+DISTVERSION=	1.5.8.02
+CATEGORIES=	devel
+MASTER_SITES=	https://files.libburnia-project.org/releases/
+DISTNAME=	${PORTNAME}-${DISTVERSION:R}.pl${DISTVERSION:E}
+
+MAINTAINER=	ports@FreeBSD.org
+COMMENT=	Libburnia ISO9660 filesystem creation library
+WWW=		https://dev.lovelyhq.com/libburnia/web/wiki/Libisofs
+
+LICENSE=	GPLv2
+LICENSE_FILE=	${WRKSRC}/COPYING
+
+LIB_DEPENDS=	libburn.so:devel/libburn
+
+USES=		iconv libtool
+USE_LDCONFIG=	yes
+GNU_CONFIGURE=	yes
+INSTALL_TARGET=	install-strip
+
+WRKSRC=		${WRKDIR}/${PORTNAME}-${DISTVERSION:R}
+
+PORTDOCS=	Tutorial susp_* zisofs_format.txt
+
+OPTIONS_DEFINE=		DEBUG DOCS LIBACL LIBJTE XATTR ZLIB
+OPTIONS_DEFAULT=	LIBACL LIBJTE XATTR ZLIB
+
+LIBACL_DESC=	Enable use of ACL functions
+LIBJTE_DESC=	Jigdo file support
+XATTR_DESC=	Extended file attribute support
+
+DEBUG_CONFIGURE_ENABLE=		debug
+LIBACL_CONFIGURE_ENABLE=	libacl
+LIBJTE_CONFIGURE_ENABLE=	libjte
+XATTR_CONFIGURE_ENABLE=		xattr
+ZLIB_CONFIGURE_ENABLE=		zlib
+
+post-patch:
+	@${REINPLACE_CMD} 's/-liconv/${ICONV_LIB}/' ${WRKSRC}/configure
+
+do-install-DOCS-on:
+	@${MKDIR} ${STAGEDIR}${DOCSDIR}
+	${INSTALL_DATA} ${PORTDOCS:S|^|${WRKSRC}/doc/|} ${STAGEDIR}${DOCSDIR}
+
+.include <bsd.port.mk>

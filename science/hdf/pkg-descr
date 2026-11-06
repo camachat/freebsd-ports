@@ -1,0 +1,8 @@
+HDF4 is a library and multi-object file format for storing and managing data
+between machines. HDF4 is a very different technology than HDF5. The HDF Group
+recommends that, other than for working with existing HDF4 data, new
+applications use HDF5 since HDF5 addresses important deficiencies of HDF4.
+
+Although The HDF Group maintains HDF4 by fixing defects and porting it to new
+operating environments, there is no longer any new development occurring. HDF4
+is considered deprecated and new products should be developed in HDF5.

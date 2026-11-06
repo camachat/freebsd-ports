@@ -1,0 +1,14 @@
+PORTNAME=	fracdiff
+DISTVERSION=	1.5-4
+CATEGORIES=	math
+DISTNAME=	${PORTNAME}_${DISTVERSION}
+
+MAINTAINER=	eduardo@FreeBSD.org
+COMMENT=	Fractionally differenced ARIMA aka ARFIMA(p,d,q) models
+WWW=		https://cran.r-project.org/package=fracdiff
+
+LICENSE=	GPLv2+
+
+USES=		cran:auto-plist,compiles
+
+.include <bsd.port.mk>

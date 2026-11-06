@@ -1,0 +1,14 @@
+[
+{ type: install
+  message: <<EOM
+navi2ch now requires ja-proxy2ch(japanese/proxy2ch) to access 5ch.io.
+Before using navi2ch, put the following line into /etc/rc.conf:
+
+  proxy2ch_enable="YES"
+
+and start proxy2ch service:
+
+  # service proxy2ch start
+EOM
+}
+]

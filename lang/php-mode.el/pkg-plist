@@ -1,0 +1,13 @@
+%%EMACS_SITE_LISPDIR%%/php-align.el
+%%EMACS_SITE_LISPDIR%%/php-complete.el
+%%EMACS_SITE_LISPDIR%%/php-defs.el
+%%EMACS_SITE_LISPDIR%%/php-face.el
+%%EMACS_SITE_LISPDIR%%/php-flymake.el
+%%EMACS_SITE_LISPDIR%%/php-format.el
+%%EMACS_SITE_LISPDIR%%/php-ide-phpactor.el
+%%EMACS_SITE_LISPDIR%%/php-ide.el
+%%EMACS_SITE_LISPDIR%%/php-local-manual.el
+%%EMACS_SITE_LISPDIR%%/php-mode-debug.el
+%%EMACS_SITE_LISPDIR%%/php-mode.el
+%%EMACS_SITE_LISPDIR%%/php-project.el
+%%EMACS_SITE_LISPDIR%%/php.el

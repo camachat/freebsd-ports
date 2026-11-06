@@ -1,0 +1,12 @@
+--- CMakeLists.txt.orig	2026-01-08 13:54:31 UTC
++++ CMakeLists.txt
+@@ -323,9 +323,9 @@ add_subdirectory(${xgboost_SOURCE_DIR}/src)
+ 
+ # dmlc-core
+-if(BUILD_WTIH_SYSTEM_DMLC)
+-  target_link_libraries(objxgboost PUBLIC ${dmlc-LIBRARIES})
++if(BUILD_WITH_SYSTEM_DMLC)
++  target_link_libraries(objxgboost PUBLIC dmlc::dmlc)
+ else()
+   target_link_libraries(objxgboost PUBLIC dmlc)
+ endif()

@@ -1,0 +1,4 @@
+Fluent, fully typed assertion library for Python: your type checker
+sees only the assertions that fit the value, and every failure carries
+a structured diff. Soft assertions, polling, inline snapshots, OpenAPI
+contracts

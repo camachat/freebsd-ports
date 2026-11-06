@@ -1,0 +1,111 @@
+#!/bin/sh
+
+# Mozc does not run by priviledged user.  Ignore silently.
+MOZC_UID=$(id -u) || exit 1
+[ "${MOZC_UID}" -eq 0 ] && exit 0
+
+# Mozc looks into the following directories:
+#
+#   ~/.mozc if any
+#   ${XDG_CONFIG_HOME}/mozc
+#   ~/.config/mozc
+#
+if [ -z "${HOME}" ]; then
+	echo "HOME is not set." >&2
+	exit 1
+fi
+if [ -d "${HOME}/.mozc" ]; then
+	MOZCDIR="${HOME}/.mozc"
+else
+	MOZCDIR="${XDG_CONFIG_HOME:-${HOME}/.config}/mozc"
+fi
+
+mkdir -m 0700 -p "${MOZCDIR}" || exit 1
+chmod 0700 "${MOZCDIR}" || exit 1
+
+server_pids()
+{
+	pgrep -u "${MOZC_UID}" -x mozc_server
+}
+start_cmd()
+{
+	pids=$(server_pids)
+	rc=$?
+	case $rc in
+	0)
+		printf 'mozc_server is already running (PID: %s).\n' \
+		    "${pids}" >&2
+		return 1
+		;;
+	1)
+		# No matching process.
+		;;
+	*)
+		echo "Cannot check mozc_server status." >&2
+		return 1
+		;;
+	esac
+
+	daemon -c -f -p "${MOZCDIR}/mozc_server.pid" \
+	    "%%PREFIX%%/libexec/mozc_server"
+}
+stop_cmd()
+{
+	pkill -TERM -u "${MOZC_UID}" -x mozc_server
+	rc=$?
+	case $rc in
+	0|1)
+		# A signal was sent, or no matching process existed.
+		;;
+	*)
+		echo "Cannot stop mozc_server." >&2
+		return 1
+		;;
+	esac
+
+	attempt=0
+	while :; do
+		pids=$(server_pids)
+		rc=$?
+		case $rc in
+		0)
+			;;
+		1)
+			return 0
+			;;
+		*)
+			echo "Cannot check mozc_server status." >&2
+			return 1
+			;;
+		esac
+
+		if [ "$attempt" -ge 10 ]; then
+			printf 'mozc_server did not stop (PID: %s).\n' \
+			    "${pids}" >&2
+			return 1
+		fi
+
+		sleep 1
+		attempt=$((attempt + 1))
+	done
+}
+
+case $1 in
+start)
+	start_cmd
+;;
+forcestart|restart)
+	stop_cmd || exit 1
+	start_cmd
+;;
+stop|forcestop)
+	stop_cmd
+;;
+status)
+	server_pids
+;;
+*)
+	echo "$0 [start|stop|restart|forcestart|forcestop|status]" >&2
+	exit 1
+;;
+esac

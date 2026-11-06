@@ -1,0 +1,12 @@
+--- emacs/Makefile.am.orig	2026-10-10 10:29:44 UTC
++++ emacs/Makefile.am
+@@ -13,9 +13,6 @@ uimel_lispdir = $(UIMEL_LISP_DIR)
+ 	-I$(top_srcdir)
+ 
+ uimel_lispdir = $(UIMEL_LISP_DIR)
+-dist_uimel_lisp_DATA = uim.el uim-var.el uim-version.el uim-keymap.el \
+- uim-key.el uim-util.el \
+- uim-candidate.el uim-preedit.el uim-debug.el uim-leim.el uim-helper.el
+ 
+ bin_PROGRAMS = uim-el-agent uim-el-helper-agent
+ 

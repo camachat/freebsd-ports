@@ -1,0 +1,11 @@
+--- thirdparty/ecaludp/ecaludp/ecaludp/CMakeLists.txt.orig	2025-05-14 10:03:12 UTC
++++ thirdparty/ecaludp/ecaludp/ecaludp/CMakeLists.txt
+@@ -26,7 +26,7 @@ find_package(asio    REQUIRED)
+ set(CMAKE_VISIBILITY_INLINES_HIDDEN 1)
+ 
+ find_package(asio    REQUIRED)
+-find_package(recycle REQUIRED)
++#find_package(recycle REQUIRED)
+ 
+ message(STATUS "ECALUDP_ENABLE_NPCAP: ${ECALUDP_ENABLE_NPCAP}")
+ if(ECALUDP_ENABLE_NPCAP)
