@@ -1,0 +1,14 @@
+--- man/Makefile.in.orig	2026-11-09 01:49:30 UTC
++++ man/Makefile.in
+@@ -488,10 +488,7 @@ otangle_man_sources = ofm2opl.man opl2ofm.man ovf2ovp.
+ 
+ pdftex_man_sources = pdftex.man pdftosrc.man ttf2afm.man
+ otangle_man_sources = ofm2opl.man opl2ofm.man ovf2ovp.man ovp2ovf.man
+-misc_man_sources = \
+-	amstex.man \
+-	latex.man \
+-	latex-dev.man
++misc_man_sources =
+ 
+ SUFFIXES = .1 .man .ps .dvi
+ man_files = $(man_sources:.man=.1)

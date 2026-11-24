@@ -1,0 +1,7 @@
+TIMESTAMP = 1788794515
+SHA256 (AcademySoftwareFoundation-OpenTimelineIO-v0.18.1_GH0.tar.gz) = bcb516a43a962dac0cde3e1f9da634c1fd409915d499ff8f3ce6f738a4637d72
+SIZE (AcademySoftwareFoundation-OpenTimelineIO-v0.18.1_GH0.tar.gz) = 1622906
+SHA256 (pybind-pybind11-a2e59f0e7065404b44dfe92a28aca47ba1378dc4_GH0.tar.gz) = 1da0a5c38950e4f49329e9de10c59b2527840a1b963113f1c53b455971cd6aef
+SIZE (pybind-pybind11-a2e59f0e7065404b44dfe92a28aca47ba1378dc4_GH0.tar.gz) = 801302
+SHA256 (Tencent-rapidjson-24b5e7a8b27f42fa16b96fc70aade9106cf7102f_GH0.tar.gz) = 2d2601a82d2d3b7e143a3c8d43ef616671391034bc46891a9816b79cf2d3e7a8
+SIZE (Tencent-rapidjson-24b5e7a8b27f42fa16b96fc70aade9106cf7102f_GH0.tar.gz) = 1116703

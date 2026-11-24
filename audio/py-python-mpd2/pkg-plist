@@ -1,0 +1,10 @@
+%%PORTDOCS%%%%DOCSDIR%%/changes.rst
+%%PORTDOCS%%%%DOCSDIR%%/commands_header.txt
+%%PORTDOCS%%%%DOCSDIR%%/conf.py
+%%PORTDOCS%%%%DOCSDIR%%/generate_command_reference.py
+%%PORTDOCS%%%%DOCSDIR%%/index.rst
+%%PORTDOCS%%%%DOCSDIR%%/topics/advanced.rst
+%%PORTDOCS%%%%DOCSDIR%%/topics/commands.rst
+%%PORTDOCS%%%%DOCSDIR%%/topics/getting-started.rst
+%%PORTDOCS%%%%DOCSDIR%%/topics/logging.rst
+%%PORTDOCS%%%%DOCSDIR%%/topics/porting.rst

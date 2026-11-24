@@ -1,0 +1,5 @@
+TIMESTAMP = 1794364206
+SHA256 (go/databases_litestream/litestream-v0.5.18/v0.5.18.mod) = 1ae94803c9675a48b74a4a34a938b2885f3f9b7831b7e9e16cbb57fd716b8f95
+SIZE (go/databases_litestream/litestream-v0.5.18/v0.5.18.mod) = 7302
+SHA256 (go/databases_litestream/litestream-v0.5.18/v0.5.18.zip) = ed367a449a92677e3958cc1fa01687f0576ff4eb07dc772278e04d60affd4130
+SIZE (go/databases_litestream/litestream-v0.5.18/v0.5.18.zip) = 1110465

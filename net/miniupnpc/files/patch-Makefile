@@ -1,0 +1,19 @@
+--- Makefile.orig	2026-11-16 21:53:08 UTC
++++ Makefile
+@@ -148,7 +148,6 @@ endif
+ LIBOBJS += $(BUILD)/minissdpc.o
+ endif
+ 
+-LIBDIR ?= lib
+ # install directories
+ ifeq ($(strip $(PREFIX)),)
+ INSTALLPREFIX ?= /usr
+@@ -156,7 +155,7 @@ INSTALLDIRINC = $(INSTALLPREFIX)/include/miniupnpc
+ INSTALLPREFIX ?= $(PREFIX)
+ endif
+ INSTALLDIRINC = $(INSTALLPREFIX)/include/miniupnpc
+-INSTALLDIRLIB = $(INSTALLPREFIX)/$(LIBDIR)
++INSTALLDIRLIB = $(INSTALLPREFIX)/lib
+ INSTALLDIRBIN = $(INSTALLPREFIX)/bin
+ INSTALLDIRMAN = $(INSTALLPREFIX)/share/man
+ PKGCONFIGDIR = $(INSTALLDIRLIB)/pkgconfig

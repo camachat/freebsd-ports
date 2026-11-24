@@ -1,0 +1,5 @@
+TIMESTAMP = 1776595646
+SHA256 (libsndfile-libsndfile-1.2.2.20251216-68f6c16_GH0.tar.gz) = f5f9de38b23b7c69d31c2fc083ab1e1edfb2026f0785bef4e38bca8b3b7e1c03
+SIZE (libsndfile-libsndfile-1.2.2.20251216-68f6c16_GH0.tar.gz) = 684377
+SHA256 (f8cc69656cf401cc33e4e380dfb972c9fdca0750.patch) = 867136ffe7968d08eb6fcf2f7d21098699a5fe82dc5296af3db91a355fde4727
+SIZE (f8cc69656cf401cc33e4e380dfb972c9fdca0750.patch) = 967

@@ -1,0 +1,31 @@
+--- Makefile.orig	2026-06-23 08:35:28 UTC
++++ Makefile
+@@ -4,8 +4,8 @@
+ ###################################################################
+ 
+ # Linux, FreeBSD, OpenBSD
+-CFLAGS = 
+-LDFLAGS = 
++#CFLAGS = 
++#LDFLAGS = 
+ 
+ # Solaris / SPARC
+ # CFLAGS = -DSOLARIS_SPARC
+@@ -24,12 +24,12 @@ all: ${OBJECTS}
+ LIBS = 
+ 
+ all: ${OBJECTS}
+-	cc $(OBJECTS) -o $(OUT) $(LDFLAGS) $(LIBS)
+-	strip $(OUT)
++	$(CC) $(OBJECTS) -o $(OUT) $(LDFLAGS) $(LIBS)
++	#strip $(OUT)
+ 
+ static: ${OBJECTS}
+-	cc $(OBJECTS) -static -o $(OUT).static $(LDFLAGS) $(LIBS)
++	$(CC) $(OBJECTS) -static -o $(OUT).static $(LDFLAGS) $(LIBS)
+ 
+ clean:
+ 	rm -rf $(OBJECTS) $(OUT)
+-	
+\ No newline at end of file
++	

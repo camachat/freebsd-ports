@@ -1,0 +1,5 @@
+TIMESTAMP = 1775931659
+SHA256 (go/misc_perkeep/perkeep-perkeep-v0.12_GH0/go.mod) = 5013d202cb03eef8b58e2b7409d8657116cd552a4f1be4ed3ebc70d51e4d0fd5
+SIZE (go/misc_perkeep/perkeep-perkeep-v0.12_GH0/go.mod) = 7705
+SHA256 (go/misc_perkeep/perkeep-perkeep-v0.12_GH0/perkeep-perkeep-v0.12_GH0.tar.gz) = f7387e7d27b55ad208b6adc45a1d957da2c981c0dbda650005fbdb89076fde2b
+SIZE (go/misc_perkeep/perkeep-perkeep-v0.12_GH0/perkeep-perkeep-v0.12_GH0.tar.gz) = 7494583

@@ -1,0 +1,103 @@
+PORTNAME=	snazy
+DISTVERSION=	0.59.1
+CATEGORIES=	devel
+
+MAINTAINER=	yuri@FreeBSD.org
+COMMENT=	Snazzy json log viewer
+WWW=		https://github.com/chmouel/snazy
+
+LICENSE=	APACHE20
+LICENSE_FILE=	${WRKSRC}/LICENSE
+
+USES=		cargo
+USE_GITHUB=	yes
+GH_ACCOUNT=	chmouel
+
+CARGO_CRATES=	aho-corasick-1.1.5 \
+		android_system_properties-0.1.6 \
+		anstream-1.0.0 \
+		anstyle-1.0.14 \
+		anstyle-parse-1.0.0 \
+		anstyle-query-1.1.5 \
+		anstyle-wincon-3.0.11 \
+		autocfg-1.5.1 \
+		bitflags-2.13.2 \
+		bumpalo-3.20.3 \
+		cc-1.11.0 \
+		cfg-if-1.0.5 \
+		chrono-0.4.45 \
+		chrono-tz-0.10.4 \
+		clap-4.6.7 \
+		clap_builder-4.6.7 \
+		clap_complete-4.6.11 \
+		clap_derive-4.6.7 \
+		clap_lex-1.1.1 \
+		color-print-0.3.7 \
+		color-print-proc-macro-0.3.7 \
+		colorchoice-1.0.5 \
+		core-foundation-sys-0.8.7 \
+		errno-0.3.14 \
+		fastrand-2.5.0 \
+		find-msvc-tools-0.1.15 \
+		futures-core-0.3.34 \
+		futures-task-0.3.34 \
+		futures-util-0.3.34 \
+		getrandom-0.4.3 \
+		heck-0.5.0 \
+		hermit-abi-0.5.3 \
+		iana-time-zone-0.1.65 \
+		iana-time-zone-haiku-0.1.2 \
+		is-terminal-0.4.17 \
+		is_terminal_polyfill-1.70.2 \
+		itoa-1.0.18 \
+		js-sys-0.3.107 \
+		libc-0.2.191 \
+		linux-raw-sys-0.12.1 \
+		log-0.4.35 \
+		memchr-2.8.3 \
+		minimal-lexical-0.2.1 \
+		nom-7.1.3 \
+		num-traits-0.2.19 \
+		once_cell-1.21.4 \
+		once_cell_polyfill-1.70.2 \
+		phf-0.12.1 \
+		phf_shared-0.12.1 \
+		pin-project-lite-0.2.17 \
+		proc-macro2-1.0.107 \
+		quote-1.0.47 \
+		r-efi-6.0.0 \
+		regex-1.13.1 \
+		regex-automata-0.4.18 \
+		regex-syntax-0.8.11 \
+		rustix-1.1.6 \
+		rustversion-1.0.23 \
+		serde-1.0.229 \
+		serde_core-1.0.229 \
+		serde_derive-1.0.229 \
+		serde_json-1.0.154 \
+		shlex-2.0.1 \
+		siphasher-1.0.4 \
+		slab-0.4.12 \
+		strsim-0.11.1 \
+		syn-2.0.119 \
+		syn-3.0.9 \
+		tempfile-3.27.0 \
+		unicode-ident-1.0.27 \
+		utf8parse-0.2.2 \
+		wasm-bindgen-0.2.130 \
+		wasm-bindgen-macro-0.2.130 \
+		wasm-bindgen-macro-support-0.2.130 \
+		wasm-bindgen-shared-0.2.130 \
+		windows-core-0.62.2 \
+		windows-implement-0.60.2 \
+		windows-interface-0.59.3 \
+		windows-link-0.2.1 \
+		windows-result-0.4.1 \
+		windows-strings-0.5.1 \
+		windows-sys-0.61.2 \
+		yansi-1.0.1 \
+		zmij-1.0.23
+
+PLIST_FILES=	bin/${PORTNAME}
+
+.include <bsd.port.mk>

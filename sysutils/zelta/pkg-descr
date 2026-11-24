@@ -1,0 +1,5 @@
+Zelta is a portable ZFS replication, backup, and recovery suite. Its
+snapshot matching compares datasets across hosts and sends only what is
+safe: diverged targets are preserved, never overwritten. Policy-driven
+orchestration, pruning, rewinds, and failover are included, and Zelta
+prefers delegated, non-root ZFS permissions.

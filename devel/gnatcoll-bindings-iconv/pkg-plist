@@ -1,0 +1,16 @@
+include/gnatcoll/iconv/gnatcoll-iconv.adb
+include/gnatcoll/iconv/gnatcoll-iconv.ads
+include/gnatcoll/iconv/iconv_support.c
+lib/gnatcoll/iconv/relocatable/libgnatcoll_iconv.so
+lib/gnatcoll/iconv/relocatable/libgnatcoll_iconv.so.%%SO_VERSION%%
+lib/gnatcoll/iconv/relocatable/libgnatcoll_iconv.so.%%SO_DISTVERSION%%
+lib/gnatcoll/iconv/static-pic/libgnatcoll_iconv.a
+lib/gnatcoll/iconv/static/libgnatcoll_iconv.a
+lib/libgnatcoll_iconv.so
+lib/libgnatcoll_iconv.so.%%SO_VERSION%%
+lib/libgnatcoll_iconv.so.%%SO_DISTVERSION%%
+libdata/gnatcoll/iconv/relocatable/gnatcoll-iconv.ali
+libdata/gnatcoll/iconv/static-pic/gnatcoll-iconv.ali
+libdata/gnatcoll/iconv/static/gnatcoll-iconv.ali
+share/gpr/gnatcoll_iconv.gpr
+share/man/man1/gnatcoll-iconv.1.gz

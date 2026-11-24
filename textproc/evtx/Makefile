@@ -1,0 +1,208 @@
+PORTNAME=	evtx
+DISTVERSION=	0.15.1
+DISTVERSIONPREFIX=	v
+CATEGORIES=	textproc
+
+MAINTAINER=	acm@FreeBSD.org
+COMMENT=	A Fast parser for the Windows XML Event Log (EVTX) format
+WWW=		https://github.com/omerbenamram/evtx
+
+LICENSE=	MIT
+
+USES=		cargo
+USE_GITHUB=     yes
+GH_ACCOUNT=     omerbenamram
+
+CARGO_CRATES=	ahash-0.8.12 \
+		aho-corasick-1.1.5 \
+		alloca-0.4.0 \
+		anes-0.1.6 \
+		anstream-1.0.0 \
+		anstyle-1.0.14 \
+		anstyle-parse-1.0.0 \
+		anstyle-query-1.1.5 \
+		anstyle-wincon-3.0.11 \
+		anyhow-1.0.104 \
+		assert_cmd-2.2.2 \
+		autocfg-1.5.1 \
+		bitflags-1.3.2 \
+		bitflags-2.13.2 \
+		bstr-1.13.1 \
+		bumpalo-3.20.3 \
+		byteorder-1.5.0 \
+		bytes-1.12.1 \
+		cast-0.3.0 \
+		cc-1.10.0 \
+		cfg-if-1.0.5 \
+		cfg_aliases-0.2.2 \
+		chrono-0.4.45 \
+		ciborium-0.2.2 \
+		ciborium-io-0.2.2 \
+		ciborium-ll-0.2.2 \
+		clap-4.6.7 \
+		clap_builder-4.6.7 \
+		clap_lex-1.1.1 \
+		colorchoice-1.0.5 \
+		comma-1.0.0 \
+		console-0.16.6 \
+		core_detect-1.0.0 \
+		crc32fast-1.5.3 \
+		criterion-0.8.2 \
+		criterion-plot-0.8.2 \
+		crossbeam-deque-0.8.8 \
+		crossbeam-epoch-0.9.21 \
+		crossbeam-utils-0.8.23 \
+		crunchy-0.2.4 \
+		defmt-1.2.0 \
+		defmt-macros-1.2.0 \
+		defmt-parser-1.1.0 \
+		deranged-0.5.9 \
+		dialoguer-0.12.0 \
+		difflib-0.4.0 \
+		either-1.19.0 \
+		encode_unicode-1.0.0 \
+		encoding_rs-0.8.42 \
+		env_filter-2.0.0 \
+		env_logger-0.11.11 \
+		equivalent-1.0.3 \
+		errno-0.3.14 \
+		fastrand-2.5.0 \
+		faststr-0.2.34 \
+		find-msvc-tools-0.1.15 \
+		foldhash-0.2.0 \
+		futures-core-0.3.34 \
+		futures-task-0.3.34 \
+		futures-util-0.3.34 \
+		getrandom-0.3.4 \
+		getrandom-0.4.3 \
+		glob-0.3.4 \
+		goblin-0.10.7 \
+		half-2.7.1 \
+		hashbrown-0.17.1 \
+		indexmap-2.14.2 \
+		indoc-2.0.8 \
+		insta-1.49.0 \
+		is_terminal_polyfill-1.70.2 \
+		itertools-0.13.0 \
+		itoa-1.0.18 \
+		jiff-0.2.38 \
+		jiff-core-0.1.1 \
+		jiff-static-0.2.38 \
+		jiff-tzdb-0.1.9 \
+		jiff-tzdb-platform-0.1.3 \
+		js-sys-0.3.106 \
+		libc-0.2.191 \
+		linux-raw-sys-0.12.1 \
+		log-0.4.34 \
+		memchr-2.8.3 \
+		multiversion_no_op-1.0.0 \
+		munge-0.4.7 \
+		munge_macro-0.4.7 \
+		nix-0.31.3 \
+		num-conv-0.2.2 \
+		num-derive-0.3.3 \
+		num-traits-0.2.19 \
+		num_threads-0.1.8 \
+		once_cell-1.21.4 \
+		once_cell_polyfill-1.70.2 \
+		oorandom-11.1.5 \
+		page_size-0.6.0 \
+		pin-project-lite-0.2.17 \
+		pkg-config-0.3.34 \
+		plain-0.2.3 \
+		plotters-0.3.7 \
+		plotters-backend-0.3.7 \
+		plotters-svg-0.3.7 \
+		portable-atomic-1.15.0 \
+		portable-atomic-util-0.2.8 \
+		powerfmt-0.2.1 \
+		predicates-3.1.4 \
+		predicates-core-1.0.10 \
+		predicates-tree-1.0.13 \
+		proc-macro2-1.0.107 \
+		ptr_meta-0.3.2 \
+		ptr_meta_derive-0.3.2 \
+		quote-1.0.47 \
+		r-efi-5.3.0 \
+		r-efi-6.0.0 \
+		rancor-0.1.3 \
+		rayon-1.12.0 \
+		rayon-core-1.13.0 \
+		ref-cast-1.0.27 \
+		ref-cast-impl-1.0.27 \
+		regex-1.13.1 \
+		regex-automata-0.4.18 \
+		regex-syntax-0.8.11 \
+		rend-0.5.4 \
+		rexpect-0.6.4 \
+		rkyv-0.8.18 \
+		rkyv_derive-0.8.18 \
+		roxmltree-0.21.2 \
+		rpmalloc-0.2.2 \
+		rpmalloc-sys-0.2.3+b097fd0 \
+		rustix-1.1.6 \
+		rustversion-1.0.23 \
+		same-file-1.0.6 \
+		scopeguard-1.2.0 \
+		scroll-0.13.0 \
+		scroll_derive-0.13.2 \
+		serde-1.0.229 \
+		serde_core-1.0.229 \
+		serde_derive-1.0.229 \
+		serde_json-1.0.154 \
+		shell-words-1.1.1 \
+		shlex-2.0.1 \
+		simdutf8-0.1.5 \
+		similar-2.7.0 \
+		simplelog-0.12.2 \
+		slab-0.4.12 \
+		sonic-number-0.1.3 \
+		sonic-rs-0.5.10 \
+		sonic-simd-0.1.4 \
+		strsim-0.11.1 \
+		syn-1.0.109 \
+		syn-2.0.119 \
+		syn-3.0.9 \
+		tempfile-3.27.0 \
+		termcolor-1.4.1 \
+		termtree-0.5.1 \
+		thiserror-1.0.69 \
+		thiserror-2.0.21 \
+		thiserror-impl-1.0.69 \
+		thiserror-impl-2.0.21 \
+		tikv-jemalloc-sys-0.6.1+5.3.0-1-ge13ca993e8ccb9ba9847cc330696e02839f328f7 \
+		tikv-jemallocator-0.6.1 \
+		time-0.3.55 \
+		time-core-0.1.9 \
+		time-macros-0.2.32 \
+		tinytemplate-1.2.1 \
+		tinyvec-1.13.3 \
+		unicode-ident-1.0.27 \
+		unicode-width-0.2.3 \
+		utf8parse-0.2.2 \
+		uuid-1.29.0 \
+		version_check-0.9.5 \
+		wait-timeout-0.2.1 \
+		walkdir-2.5.0 \
+		wasip2-1.0.4+wasi-0.2.12 \
+		wasm-bindgen-0.2.129 \
+		wasm-bindgen-macro-0.2.129 \
+		wasm-bindgen-macro-support-0.2.129 \
+		wasm-bindgen-shared-0.2.129 \
+		web-sys-0.3.106 \
+		winapi-0.3.9 \
+		winapi-i686-pc-windows-gnu-0.4.0 \
+		winapi-util-0.1.11 \
+		winapi-x86_64-pc-windows-gnu-0.4.0 \
+		windows-link-0.2.1 \
+		windows-sys-0.61.2 \
+		winstructs-0.3.2 \
+		wit-bindgen-0.57.1 \
+		zerocopy-0.8.63 \
+		zerocopy-derive-0.8.63 \
+		zeroize-1.9.1 \
+		zmij-1.0.23
+
+PLIST_FILES=	bin/evtx_dump
+
+.include <bsd.port.mk>

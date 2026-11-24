@@ -1,0 +1,1 @@
+/var/log/ttrssd/ttrssd.log ttrssd:ttrssd 660 3 * $W0 JC /var/run/ttrssd/ttrssd.pid

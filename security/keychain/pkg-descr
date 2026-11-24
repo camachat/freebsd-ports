@@ -1,0 +1,7 @@
+Keychain helps you securely manage your SSH and GPG private keys. As a frontend
+to ssh-agent and gpg-agent, it maintains a single, long-running agent per user
+and host so you only have to enter your passphrases once per reboot.
+
+By writing the agent's environment to per-host files, Keychain makes it
+effortless for new shells and background cron jobs to securely access your
+cached keys.

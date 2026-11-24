@@ -1,0 +1,30 @@
+--- CMakeLists.txt.orig	2022-09-25 03:00:36 UTC
++++ CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 2.4.3)
++cmake_minimum_required(VERSION 3.5)
+ set(CMAKE_ALLOW_LOOSE_LOOP_CONSTRUCTS true)
+ cmake_policy(SET CMP0017 NEW)
+ #this line has to appear before 'PROJECT' in order to be able to disable incremental linking
+@@ -429,9 +429,9 @@ IF(BUILD_BULLET2_DEMOS)
+ OPTION(BUILD_BULLET2_DEMOS "Set when you want to build the Bullet 2 demos" ON)
+ IF(BUILD_BULLET2_DEMOS)
+ 
+-	IF(EXISTS ${BULLET_PHYSICS_SOURCE_DIR}/examples AND IS_DIRECTORY ${BULLET_PHYSICS_SOURCE_DIR}/examples)
+-		SUBDIRS(examples)
+-	ENDIF()
++#	IF(EXISTS ${BULLET_PHYSICS_SOURCE_DIR}/examples AND IS_DIRECTORY ${BULLET_PHYSICS_SOURCE_DIR}/examples)
++#		SUBDIRS(examples)
++#	ENDIF()
+ 
+ ENDIF(BUILD_BULLET2_DEMOS)
+ 
+@@ -470,7 +470,7 @@ IF(INSTALL_LIBS)
+ 	SET (LIB_DESTINATION "lib${LIB_SUFFIX}" CACHE STRING "Library directory name")
+ 	## the following are directories where stuff will be installed to
+ 	SET(INCLUDE_INSTALL_DIR "include/bullet/" CACHE PATH "The subdirectory to the header prefix")
+-	SET(PKGCONFIG_INSTALL_PREFIX "lib${LIB_SUFFIX}/pkgconfig/" CACHE STRING "Base directory for pkgconfig files")
++	SET(PKGCONFIG_INSTALL_PREFIX "libdata/pkgconfig/" CACHE STRING "Base directory for pkgconfig files")
+ 	IF(NOT MSVC)
+ 	  CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/bullet.pc.cmake ${CMAKE_CURRENT_BINARY_DIR}/bullet.pc @ONLY)
+   	INSTALL(

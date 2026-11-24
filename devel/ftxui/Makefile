@@ -1,0 +1,41 @@
+PORTNAME=	ftxui
+DISTVERSIONPREFIX=	v
+DISTVERSION=	7.0.3
+CATEGORIES=	devel science
+
+MAINTAINER=	yuri@FreeBSD.org
+COMMENT=	C++ Functional Terminal User Interface (TUI) library
+WWW=		https://github.com/ArthurSonzogni/FTXUI
+
+LICENSE=	MIT
+LICENSE_FILE=	${WRKSRC}/LICENSE
+
+TEST_DEPENDS=	benchmark>0:devel/benchmark \
+		googletest>0:devel/googletest
+
+USES=		cmake:testing compiler:c++20-lang
+USE_LDCONFIG=	yes
+
+USE_GITHUB=	yes
+GH_ACCOUNT=	ArthurSonzogni
+GH_PROJECT=	FTXUI
+
+CMAKE_OFF=	FTXUI_BUILD_TESTS
+CMAKE_ON=	BUILD_SHARED_LIBS
+CMAKE_TESTING_ON=	FTXUI_BUILD_TESTS
+CMAKE_TESTING_ARGS=	-DBUILD_SHARED_LIBS:BOOL=OFF
+
+PLIST_SUB=	SOVERSION=${DISTVERSION}
+
+OPTIONS_DEFINE=	DOCS
+OPTIONS_SUB=	yes
+
+DOCS_BUILD_DEPENDS=	doxygen:devel/doxygen
+DOCS_CMAKE_BOOL=	FTXUI_BUILD_DOCS
+EXAMPLES_CMAKE_BOOL=	FTXUI_BUILD_EXAMPLES
+
+PORTDOCS=	*
+
+# tests as of 7.0.3: 100% tests passed out of 352
+
+.include <bsd.port.mk>

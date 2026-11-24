@@ -1,0 +1,20 @@
+--- configure.orig	2025-12-11 11:41:24 UTC
++++ configure
+@@ -18595,7 +18595,7 @@ else $as_nop
+   printf %s "(cached) " >&6
+ else $as_nop
+ 
+-   for path in /usr/local/lib/mysql /usr/lib/mysql
++   for path in ${PREFIX}/lib/mysql /usr/local/lib/mysql /usr/lib/mysql
+    do
+       LIBS="$save_LIBS -lm -L$path -lmysqlclient"
+       cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+@@ -18681,7 +18681,7 @@ else $as_nop
+   printf %s "(cached) " >&6
+ else $as_nop
+ 
+-   for path in /usr/local/pgsql/lib /usr/pgsql/lib
++   for path in ${PREFIX}/lib /usr/local/lib /usr/lib
+    do
+       LIBS="$save_LIBS  -L$path -lpq"
+       cat confdefs.h - <<_ACEOF >conftest.$ac_ext

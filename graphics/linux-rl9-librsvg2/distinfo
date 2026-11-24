@@ -1,0 +1,9 @@
+TIMESTAMP = 1795010777
+SHA256 (rocky/l/librsvg2-2.50.7-3.el9_8.1.aarch64.rpm) = d3793a4411a6b59cb6e03afa91af94363a27d7fc92667055a881c112c7dd3c78
+SIZE (rocky/l/librsvg2-2.50.7-3.el9_8.1.aarch64.rpm) = 2787481
+SHA256 (rocky/l/librsvg2-2.50.7-3.el9_8.1.i686.rpm) = 57677d6abf0af05791283e22d56a677898a7ac20db740d64909c463346e52148
+SIZE (rocky/l/librsvg2-2.50.7-3.el9_8.1.i686.rpm) = 3109778
+SHA256 (rocky/l/librsvg2-2.50.7-3.el9_8.1.x86_64.rpm) = 64c4aa0fa85f83bc0a70ef36b94bf499b09353bb6f09df509237655023291d08
+SIZE (rocky/l/librsvg2-2.50.7-3.el9_8.1.x86_64.rpm) = 2983569
+SHA256 (rocky/l/librsvg2-2.50.7-3.el9_8.1.src.rpm) = 2f8ccefc217b67feffe659edeb8f582e73f93f5321dce2f96056860c327ff9db
+SIZE (rocky/l/librsvg2-2.50.7-3.el9_8.1.src.rpm) = 22253079

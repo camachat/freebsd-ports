@@ -1,0 +1,9 @@
+TIMESTAMP = 1794987012
+SHA256 (rocky/l/libgcrypt-1.10.0-13.el9_8.aarch64.rpm) = 1ffe154ce17977a672c68f0c7b3e39feed014bdd370443048ede09c77f6e2c84
+SIZE (rocky/l/libgcrypt-1.10.0-13.el9_8.aarch64.rpm) = 463507
+SHA256 (rocky/l/libgcrypt-1.10.0-13.el9_8.i686.rpm) = 92da2f79afa68187ec543381fd65156a1e475faff622d29f1ca8cc38f1ed895e
+SIZE (rocky/l/libgcrypt-1.10.0-13.el9_8.i686.rpm) = 493253
+SHA256 (rocky/l/libgcrypt-1.10.0-13.el9_8.x86_64.rpm) = 7f1640e5c53049dfcc180ae98973855d660eae40636312f844eb8f356246a20e
+SIZE (rocky/l/libgcrypt-1.10.0-13.el9_8.x86_64.rpm) = 517440
+SHA256 (rocky/l/libgcrypt-1.10.0-13.el9_8.src.rpm) = 587bd993558d045e5557d88b11e592fb2483149df1fb717e23a98a9d88cca09c
+SIZE (rocky/l/libgcrypt-1.10.0-13.el9_8.src.rpm) = 3974310

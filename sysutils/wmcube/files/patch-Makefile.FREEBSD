@@ -1,0 +1,34 @@
+--- Makefile.FREEBSD.orig	2016-02-27 22:49:07 UTC
++++ Makefile.FREEBSD
+@@ -1,11 +1,9 @@
+-CC = gcc
+ OS = -DFREEBSD
+ 
+ VERSION = 1.0.2
+ 
+-LIBDIR = -L/usr/X11R6/lib
+-LIBDIR = -L/usr/X11R6/lib
+-INCDIR = -I/usr/X11R6/include
++LIBDIR = -L${LOCALBASE}/lib
++INCDIR = -I${LOCALBASE}/include
+ 
+ PREFIX = /usr
+ BINDIR = $(PREFIX)/bin
+@@ -17,7 +15,7 @@ LIBS   = -lXpm -lXext -lX11 -lm $(OSLIBS)
+ 
+ OSLIBS = -lkvm
+ LIBS   = -lXpm -lXext -lX11 -lm $(OSLIBS)
+-CFLAGS = -Wall -O2 $(OS)
++CFLAGS += -Wall $(OS)
+ 
+ OBJS =	wmcube.o \
+ 	../wmgeneral/wmgeneral.o \
+@@ -28,7 +26,7 @@ wmcube: $(OBJS)
+ 	$(CC) $(CFLAGS) $(INCDIR) -c $< -o $*.o
+ 
+ wmcube: $(OBJS)
+-	$(CC) -o wmcube $(OBJS) -lXext $(LIBDIR) $(LIBS)
++	$(CC) -o wmcube $(OBJS) $(LDFLAGS) $(LIBDIR) $(LIBS)
+ 
+ all:: wmcube
+ 

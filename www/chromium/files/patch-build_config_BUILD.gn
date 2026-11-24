@@ -1,0 +1,13 @@
+--- build/config/BUILD.gn.orig	2026-11-19 12:25:27 UTC
++++ build/config/BUILD.gn
+@@ -208,6 +208,10 @@ config("default_libs") {
+     # Targets should choose to explicitly link frameworks they require. Since
+     # linking can have run-time side effects, nothing should be listed here.
+     libs = []
++  } else if (is_bsd) {
++    libs = [
++      "pthread",
++    ]
+   } else if (is_linux || is_chromeos) {
+     libs = [
+       "dl",

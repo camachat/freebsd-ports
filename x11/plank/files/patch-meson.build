@@ -1,0 +1,14 @@
+--- meson.build.orig	2026-10-17 21:56:55 UTC
++++ meson.build
+@@ -296,11 +296,6 @@ endif
+   )
+ endif
+ 
+-install_data(
+-  'README.md',
+-  install_dir: join_paths(get_option('datadir'), 'doc', 'plank-reloaded'),
+-)
+-
+ # Dist script to include additional files
+ meson.add_dist_script(
+   'sh',

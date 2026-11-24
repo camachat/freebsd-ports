@@ -1,0 +1,5 @@
+TIMESTAMP = 1794200300
+SHA256 (TeX/texlive-20260301-source.tar.xz) = cb120d314d3ceb23ac608af17ddd2c623afcf02331f400a0f25eead5b8ac1d70
+SIZE (TeX/texlive-20260301-source.tar.xz) = 99377088
+SHA256 (TeX/texlive-20260301-texmf-japanese_tex-ptex-freebsd.tar.xz) = bd01180d9f5f07a1cc2b3f0152eae6fdb3a690c62b1cb774aae176072cbd5925
+SIZE (TeX/texlive-20260301-texmf-japanese_tex-ptex-freebsd.tar.xz) = 9655020

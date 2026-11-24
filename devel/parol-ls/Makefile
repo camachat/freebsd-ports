@@ -1,0 +1,238 @@
+PORTNAME=	parol-ls
+DISTVERSIONPREFIX=	parol-v
+DISTVERSION=	5.0.4
+CATEGORIES=	devel
+
+MAINTAINER=	yuri@FreeBSD.org
+COMMENT=	Language server for Parol, a LL(k) parser generator
+WWW=		https://jsinger67.github.io/ \
+		https://github.com/jsinger67/parol
+
+LICENSE=	APACHE20 MIT
+LICENSE_COMB=	dual
+LICENSE_FILE_APACHE20=	${WRKSRC}/LICENSE-APACHE
+LICENSE_FILE_MIT=	${WRKSRC}/LICENSE-MIT
+
+USES=		cargo
+
+USE_GITHUB=	yes
+GH_ACCOUNT=	jsinger67
+GH_PROJECT=	parol
+
+CARGO_SRC_SUBDIR=	crates/parol-ls
+CARGO_BUILD=	yes
+CARGO_INSTALL=	yes
+
+CARGO_CRATES=	aho-corasick-1.1.4 \
+		alloca-0.4.0 \
+		anes-0.1.6 \
+		anstream-1.0.0 \
+		anstyle-1.0.13 \
+		anstyle-parse-1.0.0 \
+		anstyle-query-1.1.5 \
+		anstyle-wincon-3.0.11 \
+		anyhow-1.0.104 \
+		assert_cmd-2.2.2 \
+		autocfg-1.5.0 \
+		bitflags-1.3.2 \
+		bitflags-2.13.2 \
+		bstr-1.12.1 \
+		bumpalo-3.19.1 \
+		cast-0.3.0 \
+		cc-1.2.51 \
+		cfg-if-1.0.5 \
+		chacha20-0.10.0 \
+		ciborium-0.2.2 \
+		ciborium-io-0.2.2 \
+		ciborium-ll-0.2.2 \
+		clap-4.6.1 \
+		clap_builder-4.6.0 \
+		clap_derive-4.6.1 \
+		clap_lex-1.0.0 \
+		codespan-reporting-0.13.1 \
+		colorchoice-1.0.4 \
+		cpufeatures-0.3.0 \
+		criterion-0.8.2 \
+		criterion-plot-0.8.2 \
+		crossbeam-channel-0.5.15 \
+		crossbeam-deque-0.8.6 \
+		crossbeam-epoch-0.9.18 \
+		crossbeam-utils-0.8.21 \
+		crunchy-0.2.4 \
+		darling-0.20.11 \
+		darling_core-0.20.11 \
+		darling_macro-0.20.11 \
+		derive_builder-0.20.2 \
+		derive_builder_core-0.20.2 \
+		derive_builder_macro-0.20.2 \
+		diff-0.1.13 \
+		difflib-0.4.0 \
+		displaydoc-0.2.5 \
+		either-1.15.0 \
+		env_filter-2.0.0 \
+		env_logger-0.11.11 \
+		equivalent-1.0.2 \
+		errno-0.3.14 \
+		fastrand-2.3.0 \
+		file_url-0.3.3 \
+		find-msvc-tools-0.1.6 \
+		fixedbitset-0.5.7 \
+		float-cmp-0.10.0 \
+		fluent-uri-0.1.4 \
+		fnv-1.0.7 \
+		foldhash-0.1.5 \
+		form_urlencoded-1.2.2 \
+		function_name-0.3.0 \
+		function_name-proc-macro-0.3.0 \
+		getrandom-0.4.1 \
+		half-2.7.1 \
+		hashbrown-0.15.5 \
+		hashbrown-0.16.1 \
+		heck-0.5.0 \
+		hermit-abi-0.5.2 \
+		icu_collections-2.1.1 \
+		icu_locale_core-2.1.1 \
+		icu_normalizer-2.1.1 \
+		icu_normalizer_data-2.1.1 \
+		icu_properties-2.1.2 \
+		icu_properties_data-2.1.2 \
+		icu_provider-2.1.1 \
+		id-arena-2.3.0 \
+		ident_case-1.0.1 \
+		idna-1.1.0 \
+		idna_adapter-1.2.1 \
+		indexmap-2.12.1 \
+		is_terminal_polyfill-1.70.2 \
+		itertools-0.13.0 \
+		itertools-0.15.0 \
+		itoa-1.0.17 \
+		jiff-0.2.23 \
+		jiff-static-0.2.23 \
+		js-sys-0.3.83 \
+		lalry-0.1.0 \
+		leb128fmt-0.1.0 \
+		libc-0.2.182 \
+		linux-raw-sys-0.12.1 \
+		litemap-0.8.1 \
+		log-0.4.34 \
+		lsp-server-0.10.0 \
+		lsp-types-0.97.0 \
+		memchr-2.7.6 \
+		normalize-line-endings-0.3.0 \
+		num-traits-0.2.19 \
+		num_cpus-1.17.0 \
+		once_cell-1.21.4 \
+		once_cell_polyfill-1.70.2 \
+		oorandom-11.1.5 \
+		owo-colors-4.4.0 \
+		page_size-0.6.0 \
+		percent-encoding-2.3.2 \
+		petgraph-0.8.3 \
+		plotters-0.3.7 \
+		plotters-backend-0.3.7 \
+		plotters-svg-0.3.7 \
+		portable-atomic-1.13.0 \
+		portable-atomic-util-0.2.4 \
+		potential_utf-0.1.4 \
+		predicates-3.1.4 \
+		predicates-core-1.0.9 \
+		predicates-tree-1.0.12 \
+		pretty_assertions-1.4.1 \
+		prettyplease-0.2.37 \
+		proc-macro2-1.0.106 \
+		quickcheck-1.1.0 \
+		quickcheck_macros-1.2.0 \
+		quote-1.0.45 \
+		r-efi-5.3.0 \
+		rand-0.10.1 \
+		rand_core-0.10.0 \
+		rand_regex-0.19.0 \
+		rayon-1.12.0 \
+		rayon-core-1.13.0 \
+		regex-1.13.1 \
+		regex-automata-0.4.18 \
+		regex-syntax-0.8.11 \
+		rustc-hash-2.1.3 \
+		rustix-1.1.4 \
+		rustversion-1.0.22 \
+		same-file-1.0.6 \
+		scnr2-0.5.3 \
+		scnr2_generate-0.5.3 \
+		scnr2_macro-0.5.3 \
+		semver-1.0.27 \
+		serde-1.0.229 \
+		serde_core-1.0.229 \
+		serde_derive-1.0.229 \
+		serde_json-1.0.154 \
+		serde_repr-0.1.20 \
+		shlex-1.3.0 \
+		smallvec-1.15.1 \
+		stable_deref_trait-1.2.1 \
+		strsim-0.11.1 \
+		syn-2.0.119 \
+		syn-3.0.9 \
+		synstructure-0.13.2 \
+		syntree-0.19.0 \
+		syntree_layout-0.5.0 \
+		tempfile-3.27.0 \
+		termcolor-1.4.1 \
+		termtree-0.5.1 \
+		thiserror-2.0.21 \
+		thiserror-impl-2.0.21 \
+		tinystr-0.8.2 \
+		tinytemplate-1.2.1 \
+		ts-rs-12.0.1 \
+		ts-rs-macros-12.0.1 \
+		typed-path-0.13.0 \
+		ume-0.1.0 \
+		unicode-ident-1.0.22 \
+		unicode-width-0.2.2 \
+		unicode-xid-0.2.6 \
+		url-2.5.8 \
+		utf8_iter-1.0.4 \
+		utf8parse-0.2.2 \
+		wait-timeout-0.2.1 \
+		walkdir-2.5.0 \
+		wasip2-1.0.1+wasi-0.2.4 \
+		wasip3-0.4.0+wasi-0.3.0-rc-2026-01-06 \
+		wasm-bindgen-0.2.106 \
+		wasm-bindgen-macro-0.2.106 \
+		wasm-bindgen-macro-support-0.2.106 \
+		wasm-bindgen-shared-0.2.106 \
+		wasm-encoder-0.244.0 \
+		wasm-metadata-0.244.0 \
+		wasmparser-0.244.0 \
+		web-sys-0.3.83 \
+		winapi-0.3.9 \
+		winapi-i686-pc-windows-gnu-0.4.0 \
+		winapi-util-0.1.11 \
+		winapi-x86_64-pc-windows-gnu-0.4.0 \
+		windows-link-0.2.1 \
+		windows-sys-0.61.2 \
+		wit-bindgen-0.46.0 \
+		wit-bindgen-0.51.0 \
+		wit-bindgen-core-0.51.0 \
+		wit-bindgen-rust-0.51.0 \
+		wit-bindgen-rust-macro-0.51.0 \
+		wit-component-0.244.0 \
+		wit-parser-0.244.0 \
+		writeable-0.6.2 \
+		xml_writer-0.4.0 \
+		yansi-1.0.1 \
+		yoke-0.8.1 \
+		yoke-derive-0.8.1 \
+		zerocopy-0.8.31 \
+		zerocopy-derive-0.8.31 \
+		zerofrom-0.1.6 \
+		zerofrom-derive-0.1.6 \
+		zerotrie-0.2.3 \
+		zerovec-0.11.5 \
+		zerovec-derive-0.11.2 \
+		zmij-1.0.10
+
+PLIST_FILES=	bin/${PORTNAME}
+
+post-extract:
+	${RLN} ${WRKSRC}/Cargo.lock ${WRKSRC}/${CARGO_SRC_SUBDIR}/Cargo.lock
+
+.include <bsd.port.mk>

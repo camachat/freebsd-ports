@@ -1,0 +1,12 @@
+include/raylib/raylib.h
+include/raylib/raymath.h
+include/raylib/rcamera.h
+include/raylib/rlgl.h
+lib/cmake/raylib/raylib-config-version.cmake
+lib/cmake/raylib/raylib-config.cmake
+lib/cmake/raylib/raylib-targets-%%CMAKE_BUILD_TYPE%%.cmake
+lib/cmake/raylib/raylib-targets.cmake
+lib/libraylib.so
+lib/libraylib.so.%%VER%%
+lib/libraylib.so.%%SONAME%%
+libdata/pkgconfig/raylib.pc

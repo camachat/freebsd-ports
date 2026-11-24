@@ -1,0 +1,6 @@
+lib/%%TCL_PKG%%/filelist-bindings.tcl
+lib/%%TCL_PKG%%/libtreectrl.so
+lib/%%TCL_PKG%%/lib%%TCL_PKG%%.so
+lib/%%TCL_PKG%%/pkgIndex.tcl
+lib/%%TCL_PKG%%/treectrl.tcl
+share/man/mann/treectrl.n.gz

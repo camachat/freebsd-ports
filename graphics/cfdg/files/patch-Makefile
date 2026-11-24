@@ -1,0 +1,65 @@
+--- Makefile.orig	2026-06-30 05:32:23 UTC
++++ Makefile
+@@ -19,7 +19,7 @@ INC_DIRS = $(COMMON_DIR) $(UNIX_DIR) $(DERIVED_DIR) $(
+ vpath %.cfdg input
+ 
+ INC_DIRS = $(COMMON_DIR) $(UNIX_DIR) $(DERIVED_DIR) $(COMMON_DIR)/agg-extras
+-INC_DIRS += /usr/local/include
++INC_DIRS += %%LOCALBASE%%/include
+ 
+ #
+ # Installation directories
+@@ -34,7 +34,7 @@ MAN_DIR = $(DESTDIR)$(prefix)/share/man
+ # Library directories for FFmpeg and libpng
+ #
+ 
+-LIB_DIRS = /usr/local/lib
++LIB_DIRS := %%LOCALBASE%%/lib $(shell libpng-config --libdir)
+ 
+ #
+ # Sources and Objects
+@@ -69,15 +69,16 @@ INPUT_SRCS = ciliasun_v2.cfdg demo1_v2.cfdg demo2_v2.c
+     welcome.cfdg ziggy.cfdg
+ 
+ 
+-LIBS = png m
++LIBS = m
+ 
+ # Use the first one for clang and the second one for gcc
+ ifeq ($(shell uname -s), Darwin)
+   LIBS += c++ icucore
+ else
+-  LIBS += stdc++ atomic icui18n icuuc icudata
++  LIBS += stdc++ icuuc icudata
+ endif
+ 
++
+ #
+ # FFmpeg support
+ ifdef CFDG_FFMPEG
+@@ -117,6 +118,7 @@ LINKFLAGS += $(patsubst %,-l%,$(LIBS))
+ 
+ LINKFLAGS += $(patsubst %,-L%,$(LIB_DIRS))
+ LINKFLAGS += $(patsubst %,-l%,$(LIBS))
++LINKFLAGS += $(shell libpng-config --libs)
+ LINKFLAGS += -fexceptions
+ 
+ deps: $(OBJ_DIR) $(DEPS)
+@@ -137,7 +139,7 @@ cfdg: $(OBJS)
+ # Under Cygwin replace strip $@ with strip $@.exe
+ 
+ cfdg: $(OBJS)
+-	$(LINK.o) $^ $(LINKFLAGS) -o $@
++	$(CXX) $^ $(LINKFLAGS) -o $@
+ ifndef DEB_BUILD_MAINT_OPTIONS
+ 	strip $@
+ endif
+@@ -202,7 +204,7 @@ CXXFLAGS += $(patsubst %,-I%,$(INC_DIRS))
+ #
+ 
+ CXXFLAGS += $(patsubst %,-I%,$(INC_DIRS))
+-CXXFLAGS += -O2 -Wall -Wextra -Wno-parentheses -std=c++17
++CXXFLAGS += -Wall -Wextra -Wno-parentheses -std=c++17
+ CXXFLAGS += -g -D_GLIBCXX_USE_C99_MATH=1
+ CPPFLAGS += -DNDEBUG
+ 

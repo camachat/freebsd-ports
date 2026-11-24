@@ -1,0 +1,9 @@
+TIMESTAMP = 1794986859
+SHA256 (rocky/l/libssh-0.10.4-19.el9_8.aarch64.rpm) = f26f44d9098be2f87425c480305db152bd47a1708202c664bd6dfb0b0725a01d
+SIZE (rocky/l/libssh-0.10.4-19.el9_8.aarch64.rpm) = 216445
+SHA256 (rocky/l/libssh-0.10.4-19.el9_8.i686.rpm) = 2a3c2fb6be52d6b7882574faf27404472171677aa4a165d2f3bd29cd4cc6139e
+SIZE (rocky/l/libssh-0.10.4-19.el9_8.i686.rpm) = 235910
+SHA256 (rocky/l/libssh-0.10.4-19.el9_8.x86_64.rpm) = 7861a0af920045bd7e5d4212129d266d2eb78f228e31a75936c8171b0bec9271
+SIZE (rocky/l/libssh-0.10.4-19.el9_8.x86_64.rpm) = 219227
+SHA256 (rocky/l/libssh-0.10.4-19.el9_8.src.rpm) = 525154fb059513bb21f509062e1cef81e9ea3baf9062cf86566476031123ee24
+SIZE (rocky/l/libssh-0.10.4-19.el9_8.src.rpm) = 707465

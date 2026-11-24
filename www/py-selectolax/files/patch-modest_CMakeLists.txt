@@ -1,0 +1,11 @@
+--- modest/CMakeLists.txt.orig	2026-04-08 02:20:00 UTC
++++ modest/CMakeLists.txt
+@@ -150,7 +150,7 @@ else()
+ 
+   list(APPEND PROJECT_INTERFACE_COMPILE_DEFINITIONS "MyCORE_OS_WINDOWS_NT")
+ else()
+-  list(APPEND PROJECT_PRIVATE_COMPILE_OPTIONS -Wall -Werror -pipe -pedantic -Wno-unused-variable -Wno-unused-function)
++  list(APPEND PROJECT_PRIVATE_COMPILE_OPTIONS -Wall -Werror -pipe -pedantic -Wno-unused-variable -Wno-unused-function -Wno-void-pointer-to-enum-cast -Wno-int-to-void-pointer-cast -Wno-unused-but-set-variable)
+ endif()
+ 
+ list(APPEND PROJECT_PRIVATE_COMPILE_DEFINITIONS $<$<CONFIG:Debug>:MyCORE_BUILD_DEBUG> $<$<CONFIG:RelWithDebInfo>:MyCORE_BUILD_DEBUG>)

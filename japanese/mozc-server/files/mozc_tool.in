@@ -1,0 +1,24 @@
+#!/bin/sh
+
+mode=${1:-${MODE:-about_dialog}}
+if [ "$#" -gt 0 ]; then
+	shift
+fi
+mode=${mode#--mode=}
+
+case "$mode" in
+config_dialog|dictionary_tool|word_register_dialog|about_dialog|error_message_dialog)
+	exec "%%PREFIX%%/libexec/mozc_tool" --mode="${mode}" "$@"
+;;
+*)
+	echo "Usage: $0 [MODE|--mode=MODE] [arguments ...]" >&2
+	echo "Available modes:" >&2
+	printf '  %s\n' \
+	    config_dialog \
+	    dictionary_tool \
+	    word_register_dialog \
+	    about_dialog \
+	    error_message_dialog >&2
+	exit 1
+;;
+esac

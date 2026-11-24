@@ -1,0 +1,11 @@
+-- Do not require setuptools>=64, the setuptools port provides an older version.
+
+--- pyproject.toml.orig	2026-11-06 00:00:00 UTC
++++ pyproject.toml
+@@ -1,5 +1,5 @@
+ [build-system]
+-requires = ["setuptools>=64", "wheel"]
++requires = ["setuptools", "wheel"]
+ build-backend = "setuptools.build_meta"
+ 
+ [project]

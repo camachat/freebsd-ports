@@ -1,0 +1,38 @@
+---
+# Minimal Authelia Configuration
+theme: light
+
+identity_validation:
+  reset_password:
+    jwt_secret: "a_very_secure_and_long_jwt_secret_here"
+
+server:
+  address: "tcp://0.0.0.0:9091/"
+
+log:
+  level: "info"
+
+authentication_backend:
+  file:
+    path: "/var/db/authelia-users.yml"
+
+access_control:
+  default_policy: "one_factor"
+
+session:
+  secret: "insecure_session_secret_must_be_changed"
+  name: "authelia_session"
+  cookies:
+    - domain: "example.com"
+      # FIXED: Changed from https://example.com to a distinct login subdomain
+      authelia_url: "https://auth.example.com"
+      default_redirection_url: "https://example.com"
+
+storage:
+  encryption_key: "you_must_provide_a_secure_storage_encryption_key_here"
+  local:
+    path: "/var/db/authelia.sqlite3"
+
+notifier:
+  filesystem:
+    filename: "/var/log/authelia-notification.txt"

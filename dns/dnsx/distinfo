@@ -1,0 +1,5 @@
+TIMESTAMP = 1788183002
+SHA256 (go/dns_dnsx/dnsx-v1.3.1/v1.3.1.mod) = cb30fd4f8cd631df3025f6897f1d35ee0a035ce5a76e06af7bcef0aab4559662
+SIZE (go/dns_dnsx/dnsx-v1.3.1/v1.3.1.mod) = 5562
+SHA256 (go/dns_dnsx/dnsx-v1.3.1/v1.3.1.zip) = 59b55187d3ed427cdf194e2f26fc5e06baa9a5358a2da5edc81668ea31b4ca54
+SIZE (go/dns_dnsx/dnsx-v1.3.1/v1.3.1.zip) = 14212702

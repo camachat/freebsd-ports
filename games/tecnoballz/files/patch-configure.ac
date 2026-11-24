@@ -1,0 +1,32 @@
+--- configure.ac.orig	2014-09-30 10:20:26 UTC
++++ configure.ac
+@@ -40,6 +40,8 @@ AC_SUBST(MIKMOD_LIBS)
+ AC_SUBST(MIKMOD_FLAGS)
+ AC_SUBST(MIKMOD_LIBS)
+ 
++AC_LANG_PUSH([C++])
++
+ AC_CHECK_LIB([tinyxml], [main], [
+   TINYXML_LIBS="-ltinyxml"
+ ],[
+@@ -47,6 +49,8 @@ AC_SUBST(TINYXML_LIBS)
+ ])
+ AC_SUBST(TINYXML_LIBS)
+ 
++AC_LANG_POP([C++])
++
+ # Checks for header files.
+ AC_CHECK_HEADERS([fcntl.h stddef.h stdlib.h string.h sys/time.h unistd.h])
+ 
+@@ -63,9 +67,9 @@ if test "x${enable_devel}" = "xyes"; then
+ 
+ if test "x${enable_devel}" = "xyes"; then
+   AC_DEFINE(UNDER_DEVELOPMENT,  1, Define to enable development version)
+-  CXXFLAGS="-Werror -O2 -Wall -pedantic -Wextra -std=gnu++98 -g"
++#  CXXFLAGS="-Werror -O2 -Wall -pedantic -Wextra -std=gnu++98 -g"
+ else
+-  CXXFLAGS="-O2 -Werror -Wall -pedantic -Wextra -std=gnu++98"
++#  CXXFLAGS="-O2 -Werror -Wall -pedantic -Wextra -std=gnu++98"
+ fi
+ 
+ AC_OUTPUT(

@@ -1,0 +1,17 @@
+Removed tcl8.6, asound and jack flags, this is now handled in the ports
+script.
+
+--- src/Makefile.am.orig	2026-04-30 13:53:43 UTC
++++ src/Makefile.am
+@@ -34,9 +34,9 @@ all-local: din$(EXEEXT)
+ 
+ #dinincludedir = $(pkgsrcdir)
+ 
+-AM_CXXFLAGS = -std=c++03 -ffast-math -Wall -I /usr/include/tcl8.6 -D_THREAD_SAFE -DHAVE_OPENGL -D__LICENSED__ -D__SVG__ -D__GPL20__ -DPREFIX=\"@prefix@\" -Wno-overloaded-virtual -Wno-empty-body
++AM_CXXFLAGS = -std=c++03 -ffast-math -Wall -D_THREAD_SAFE -DHAVE_OPENGL -D__LICENSED__ -D__SVG__ -D__GPL20__ -DPREFIX=\"@prefix@\" -Wno-overloaded-virtual -Wno-empty-body
+ 
+-LIBS += -ltcl8.6 -lSDL -lGL -lpthread -lrt -lasound
++LIBS += -lSDL -lGL -lpthread -lrt
+ 
+ bin_PROGRAMS = din
+ 

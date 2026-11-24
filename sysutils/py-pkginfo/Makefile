@@ -1,0 +1,24 @@
+PORTNAME=	pkginfo
+PORTVERSION=	1.13.3
+CATEGORIES=	sysutils python
+MASTER_SITES=	PYPI \
+		https://github.com/tseaver/pkginfo/releases/download/v${PORTVERSION}/
+PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
+
+MAINTAINER=	sunpoet@FreeBSD.org
+COMMENT=	Query metadata from sdists / bdists / installed packages
+WWW=		https://tseaver.github.io/pkginfo/ \
+		https://github.com/tseaver/pkginfo
+
+LICENSE=	MIT
+LICENSE_FILE=	${WRKSRC}/LICENSE.txt
+
+BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}setuptools>=40.8.0:devel/py-setuptools@${PY_FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}wheel>=0:devel/py-wheel@${PY_FLAVOR}
+
+USES=		python
+USE_PYTHON=	autoplist concurrent pep517
+
+NO_ARCH=	yes
+
+.include <bsd.port.mk>

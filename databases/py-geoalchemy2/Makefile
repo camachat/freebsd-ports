@@ -1,0 +1,33 @@
+PORTNAME=	geoalchemy2
+PORTVERSION=	0.21.0
+CATEGORIES=	databases geography python
+MASTER_SITES=	PYPI
+PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
+
+MAINTAINER=	sunpoet@FreeBSD.org
+COMMENT=	Using SQLAlchemy with Spatial Databases
+WWW=		https://geoalchemy-2.readthedocs.io/en/stable/ \
+		https://github.com/geoalchemy/geoalchemy2
+
+LICENSE=	MIT
+LICENSE_FILE=	${WRKSRC}/COPYING.rst
+
+BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}setuptools>=61:devel/py-setuptools@${PY_FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}setuptools-scm>=6.2:devel/py-setuptools-scm@${PY_FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}wheel>=0:devel/py-wheel@${PY_FLAVOR}
+RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}packaging>=0:devel/py-packaging@${PY_FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}sqlalchemy20>=1.4:databases/py-sqlalchemy20@${PY_FLAVOR}
+
+USES=		python
+USE_PYTHON=	autoplist concurrent pep517
+
+NO_ARCH=	yes
+
+OPTIONS_DEFINE=	SHAPELY WKB_WKT_CONVERTER
+SHAPELY_DESC=	Shapely integration
+WKB_WKT_CONVERTER_DESC=	WKB/EWKB and WKT/EWKT geometry formats converter
+
+SHAPELY_RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}shapely>=1.7:devel/py-shapely@${PY_FLAVOR}
+WKB_WKT_CONVERTER_RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}wkb-wkt-converter>=0.6.3:devel/py-wkb-wkt-converter@${PY_FLAVOR}
+
+.include <bsd.port.mk>

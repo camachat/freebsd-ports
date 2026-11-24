@@ -1,0 +1,13 @@
+-- Allow building with the hatchling version available in ports.
+
+--- pyproject.toml.orig	2026-11-13 03:54:59 UTC
++++ pyproject.toml
+@@ -118,7 +118,7 @@ build-constraint-dependencies = [
+ 
+ 
+ [build-system]
+-requires = ["hatchling==1.33.0"]
++requires = ["hatchling>0"]
+ build-backend = "hatchling.build"
+ 
+ [tool.hatch.build]

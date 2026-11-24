@@ -1,0 +1,17 @@
+bin/mdb_copy0
+bin/mdb_dump0
+bin/mdb_load0
+bin/mdb_stat0
+include/lmdb0/lmdb.h
+lib/liblmdb.so.0
+lib/liblmdb0.a
+lib/liblmdb0.so
+libdata/pkgconfig/lmdb0.pc
+lmdb0/include/lmdb.h
+lmdb0/lib/liblmdb.a
+lmdb0/lib/liblmdb.so
+lmdb0/libdata/pkgconfig/lmdb.pc
+share/man/man1/mdb_copy0.1.gz
+share/man/man1/mdb_dump0.1.gz
+share/man/man1/mdb_load0.1.gz
+share/man/man1/mdb_stat0.1.gz

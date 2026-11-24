@@ -1,0 +1,7 @@
+TIMESTAMP = 1794957389
+SHA256 (rocky/w/wget-1.21.1-11.el9_8.aarch64.rpm) = 7551b8c91ff653a9a101dcb766556fdba189f071fc70d3da580027fdee9ef03e
+SIZE (rocky/w/wget-1.21.1-11.el9_8.aarch64.rpm) = 779678
+SHA256 (rocky/w/wget-1.21.1-11.el9_8.x86_64.rpm) = 0999dc10591e1d3861d08687c57f2ef06fee8123c9d1215ed9d6a0b97c6c1594
+SIZE (rocky/w/wget-1.21.1-11.el9_8.x86_64.rpm) = 785183
+SHA256 (rocky/w/wget-1.21.1-11.el9_8.src.rpm) = 0cffc9cf72ed1ac5e7eff971d948c36164166b68d7589219da9b78e395bd0dd0
+SIZE (rocky/w/wget-1.21.1-11.el9_8.src.rpm) = 4910236

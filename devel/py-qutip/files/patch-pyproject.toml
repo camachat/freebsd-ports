@@ -1,0 +1,18 @@
+--- pyproject.toml.orig	2026-05-22 16:32:42 UTC
++++ pyproject.toml
+@@ -1,6 +1,6 @@ requires = [
+ [build-system]
+ requires = [
+-    "setuptools>=77.0.3",
++    "setuptools",
+     "packaging",
+     "wheel",
+     "cython>=0.29.20",
+@@ -15,7 +15,6 @@ requires-python = ">=3.11"
+ description = "QuTiP: The Quantum Toolbox in Python"
+ readme = "README.md"
+ requires-python = ">=3.11"
+-license = "BSD-3-Clause"
+ keywords = ["quantum", "physics", "dynamics"]
+ authors = [
+   {name = "Alexander Pitchford"},

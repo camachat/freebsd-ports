@@ -1,0 +1,12 @@
+bin/ocioarchive
+bin/ociobakelut
+bin/ociocheck
+bin/ociochecklut
+bin/ocioconvert
+bin/ociocpuinfo
+bin/ociodisplay
+bin/ociolutimage
+bin/ociomakeclf
+bin/ociomergeconfigs
+bin/ocioperf
+bin/ociowrite

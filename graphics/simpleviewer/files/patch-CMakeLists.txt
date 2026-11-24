@@ -1,0 +1,39 @@
+--- CMakeLists.txt.orig	2024-05-18 22:33:19 UTC
++++ CMakeLists.txt
+@@ -63,7 +63,7 @@ pretty_print("*" "*" "*" "*" "-")
+ if(CMAKE_BUILD_TYPE STREQUAL "Release")
+     pretty_print("*" "Release Build" "*" " " "-")
+     add_definitions("-DNDEBUG" )
+-    add_definitions("-Wall -Wextra -pedantic -pedantic-errors -Wno-unused-function -Wno-deprecated-register -O2")
++    add_definitions("-Wall -Wextra")
+ else()
+     pretty_print("*" "Debug Build" "*" " " "-")
+     add_definitions("-DDEBUG" )
+@@ -75,7 +75,6 @@ pretty_print("*" "*" "*" "*" "-")
+ find_package(PkgConfig REQUIRED)
+ 
+ add_subdirectory(third-party/imgui)
+-add_subdirectory(third-party/lz4)
+ 
+ # set(VERBOSE_PATHS TRUE)
+ 
+@@ -298,7 +297,7 @@ set(DISABLE_OPENEXR_SUPPORT "0" CACHE STRING "Disable 
+ if (DISABLE_OPENEXR_SUPPORT EQUAL 0)
+     pkg_check_modules(OPENEXR QUIET OpenEXR)
+     if(OPENEXR_FOUND)
+-        pkg_check_modules(ILMBASE QUIET IlmBase)
++        pkg_check_modules(ILMBASE QUIET Imath)
+         if(ILMBASE_FOUND)
+             pretty_print("* " "[+] OpenEXR support enabled" " *" " " "<")
+             if(VERBOSE_PATHS)
+@@ -398,8 +397,8 @@ else()
+     add_executable(${APPLICATION_NAME} ${SVIEW_SOURCES})
+ endif()
+ 
+-add_dependencies(${APPLICATION_NAME} ImGui LZ4)
+-target_link_libraries(${APPLICATION_NAME} ImGui LZ4)
++add_dependencies(${APPLICATION_NAME} ImGui)
++target_link_libraries(${APPLICATION_NAME} ImGui lz4)
+ 
+ if(OPENGL_FOUND)
+     target_link_libraries(${APPLICATION_NAME} ${OPENGL_LIBRARY})

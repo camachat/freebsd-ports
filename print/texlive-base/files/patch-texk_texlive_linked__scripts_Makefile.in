@@ -1,0 +1,78 @@
+--- texk/texlive/linked_scripts/Makefile.in.orig	2026-03-01 02:26:07 UTC
++++ texk/texlive/linked_scripts/Makefile.in
+@@ -299,8 +299,6 @@ texmf_shell_scripts = \
+ 	texlive-extra/dvi2fax.sh \
+ 	texlive-extra/dvired.sh \
+ 	texlive-extra/fontinst.sh \
+-	texlive-extra/kpsetool.sh \
+-	texlive-extra/kpsewhere.sh \
+ 	texlive-extra/ps2frag.sh \
+ 	texlive-extra/pslatex.sh \
+ 	texlive-extra/rubibtex.sh \
+@@ -334,7 +332,6 @@ texmf_other_scripts = \
+ 	bib2gls/convertgls2bib.sh \
+ 	bib2gls/datatool2bib.sh \
+ 	bibcop/bibcop.pl \
+-	bibtexperllibs/ltx2unitxt \
+ 	bookshelf/bookshelf-listallfonts \
+ 	bookshelf/bookshelf-mkfontsel \
+ 	bundledoc/arlatex \
+@@ -363,9 +360,7 @@ texmf_other_scripts = \
+ 	dosepsbin/dosepsbin.pl \
+ 	dviasm/dviasm.py \
+ 	dviinfox/dviinfox.pl \
+-	easydtx/edtx2dtx.pl \
+ 	ebong/ebong.py \
+-	eolang/eolang.pl \
+ 	epspdf/epspdf.tlu \
+ 	epspdf/epspdftk.tcl \
+ 	epstopdf/epstopdf.pl \
+@@ -412,10 +407,6 @@ texmf_other_scripts = \
+ 	markdown/markdown2tex.lua \
+ 	match_parens/match_parens \
+ 	mathspic/mathspic.pl \
+-	memoize/memoize-clean.pl \
+-	memoize/memoize-clean.py \
+-	memoize/memoize-extract.pl \
+-	memoize/memoize-extract.py \
+ 	mf2pt1/mf2pt1.pl \
+ 	minted/latexminted.py \
+ 	mkgrkindex/mkgrkindex \
+@@ -449,7 +440,6 @@ texmf_other_scripts = \
+ 	pythontex/pythontex.py \
+ 	rubik/rubikrotation.pl \
+ 	runtexfile/runtexfile.lua \
+-	runtexshebang/runtexshebang.lua \
+ 	show-pdf-tags/show-pdf-tags.lua \
+ 	spix/spix.py \
+ 	splitindex/splitindex.pl \
+@@ -458,12 +448,10 @@ texmf_other_scripts = \
+ 	sty2dtx/sty2dtx.pl \
+ 	svn-multi/svn-multi.pl \
+ 	tex4ebook/tex4ebook \
+-	texblend/texblend \
+ 	texcount/texcount.pl \
+ 	texdef/texdef.pl \
+ 	texdiff/texdiff \
+ 	texdirflatten/texdirflatten \
+-	texfindpkg/texfindpkg.lua \
+ 	texdoc/texdoc.tlu \
+ 	texfot/texfot.pl \
+ 	texlive/fmtutil-sys.sh \
+@@ -474,7 +462,6 @@ texmf_other_scripts = \
+ 	texlive/mktexpk \
+ 	texlive/mktextfm \
+ 	texlive/rungs.lua \
+-	texlive/tlmgr.pl \
+ 	texlive/updmap-sys.sh \
+ 	texlive/updmap-user.sh \
+ 	texlive/updmap.pl \
+@@ -506,8 +493,6 @@ bin_links = \
+ 	epstopdf:repstopdf \
+ 	extractbb:ebb \
+ 	fmtutil:mktexfmt \
+-	kpsetool:kpsexpand \
+-	kpsetool:kpsepath \
+ 	mktexlsr:texhash \
+ 	pdfcrop:rpdfcrop \
+ 	texdef:latexdef

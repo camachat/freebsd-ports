@@ -1,0 +1,5 @@
+TIMESTAMP = 1792960478
+SHA256 (rocky/c/ca-certificates-2026.2.92_v9.0.319-90.3.el9_8.noarch.rpm) = 337922dcc4454005814427f9222d7634ddea3369e36237c6a36b72dfabb45d77
+SIZE (rocky/c/ca-certificates-2026.2.92_v9.0.319-90.3.el9_8.noarch.rpm) = 977179
+SHA256 (rocky/c/ca-certificates-2026.2.92_v9.0.319-90.3.el9_8.src.rpm) = 4de2778efe893a64fc995105a83391419cf731f13bc7b771334a933a1ee1d64f
+SIZE (rocky/c/ca-certificates-2026.2.92_v9.0.319-90.3.el9_8.src.rpm) = 734097

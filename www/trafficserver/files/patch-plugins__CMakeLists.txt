@@ -1,0 +1,12 @@
+--- plugins/CMakeLists.txt.orig	2026-11-10 02:47:40 UTC
++++ plugins/CMakeLists.txt
+@@ -70,7 +70,9 @@ if(TARGET ImageMagick::Magick++)
+ endif()
+ 
+ if(TARGET ImageMagick::Magick++)
++if(BUILD_MAGICK)
+   add_subdirectory(webp_transform)
++endif()
+ endif()
+ 
+ add_subdirectory(experimental)

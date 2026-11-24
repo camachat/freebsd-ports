@@ -1,0 +1,11 @@
+--- tests/Makefile.orig	2026-10-30 15:35:43 UTC
++++ tests/Makefile
+@@ -16,7 +16,7 @@ TESTS= test_unicode \
+ # Force running all the tests
+ .PHONY: ${TESTS}
+ 
+-tests: build ${TESTS}
++tests: ${TESTS}
+ 
+ build:
+ 	make -C .. test

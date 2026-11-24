@@ -1,0 +1,28 @@
+PORTNAME=	vulkan
+PORTVERSION=	1.4.341.0
+DISTVERSIONSUFFIX=	-1.el9
+PORTREVISION=	1
+CATEGORIES=	graphics linux
+
+MAINTAINER=	emulation@FreeBSD.org
+COMMENT=	Driver loader for the Vulkan graphics API (Rocky Linux ${LINUX_DIST_VER})
+WWW=		https://github.com/KhronosGroup/Vulkan-Loader
+
+LICENSE=	APACHE20
+
+USES=		cpe linux:rl9
+USE_LDCONFIG=	yes
+USE_LINUX=	wayland xorglibs
+USE_LINUX_RPM=	yes
+WANT_LINUX32=	yes
+
+BIN_DISTNAMES=	${PORTNAME}-tools-${DISTVERSIONFULL}
+LIB_DISTNAMES=	${PORTNAME}-loader-${DISTVERSIONFULL}
+SRC_DISTFILES=	${PORTNAME}-loader-${DISTVERSIONFULL}${SRC_SUFX}:SOURCE \
+		${PORTNAME}-tools-${DISTVERSIONFULL}${SRC_SUFX}:SOURCE
+
+OPTIONS_DEFINE=	DOCS
+
+PLIST_SUB=	LIBVERSION=${PORTVERSION:R}
+
+.include <bsd.port.mk>

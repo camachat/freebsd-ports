@@ -1,0 +1,13 @@
+[
+{ type: install
+  message: <<EOM
+
+To use riece, add the following line to your Emacs configuration:
+
+(autoload 'riece "riece" "Start Riece" t)
+
+Some add-ons (e.g. riece-async, riece-rdcc) require Ruby.
+If you use them, you need to install Ruby from port or package.
+EOM
+}
+]

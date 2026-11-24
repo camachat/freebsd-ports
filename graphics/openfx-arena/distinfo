@@ -1,0 +1,15 @@
+TIMESTAMP = 1734554928
+SHA256 (NatronGitHub-openfx-arena-Natron-2.5.0_GH0.tar.gz) = 474195004056809f9260e11d80309cbef62ce27e12c7a22d8c1fbc468b88ea0e
+SIZE (NatronGitHub-openfx-arena-Natron-2.5.0_GH0.tar.gz) = 617816
+SHA256 (NatronGitHub-openfx-supportext-8aff0b0_GH0.tar.gz) = 4cd5f6e2f3210679e27e7bab2eaf3883fe179fce8a7184c2f7e5c02b147a1aae
+SIZE (NatronGitHub-openfx-supportext-8aff0b0_GH0.tar.gz) = 296312
+SHA256 (NatronGitHub-openfx-a5d9ca8_GH0.tar.gz) = d810bfbaf4f9cc3694ff5b682a45ec4332abd444185585861f258f2f66ec902d
+SIZE (NatronGitHub-openfx-a5d9ca8_GH0.tar.gz) = 10706202
+SHA256 (NatronGitHub-openfx-io-d4c9612_GH0.tar.gz) = b0890484445029dcbc41cba468e9f649df0f120d8fce4998705922091d5773ec
+SIZE (NatronGitHub-openfx-io-d4c9612_GH0.tar.gz) = 479524
+SHA256 (lvandeve-lodepng-997936f_GH0.tar.gz) = 0a80effa5adb8a1be63c1f1110ea9c07823799569f427cea0245bb36ae88f10e
+SIZE (lvandeve-lodepng-997936f_GH0.tar.gz) = 246225
+SHA256 (NatronGitHub-SequenceParsing-3c93fcc_GH0.tar.gz) = 143112f7f59a2edccd63bb8354536f47f77b283d2eda5d2123e058ed8ccd6224
+SIZE (NatronGitHub-SequenceParsing-3c93fcc_GH0.tar.gz) = 16032
+SHA256 (NatronGitHub-tinydir-64fb1d4_GH0.tar.gz) = 728f9948b59131b650bc2c53b8dcb1db8c49ef07c27d0aca3a13b666ae6b2c59
+SIZE (NatronGitHub-tinydir-64fb1d4_GH0.tar.gz) = 24782

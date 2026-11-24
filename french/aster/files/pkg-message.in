@@ -1,0 +1,8 @@
+[
+{ type: install
+  message: <<EOM
+On i386 or amd64 platforms, we suggest you install the port french/homard,
+an additional meshing tool.
+EOM
+}
+]

@@ -1,0 +1,22 @@
+@(root,kmem,2755) bin/enigmatic
+bin/enigmatic_client
+bin/enigmatic_start
+bin/evisum
+include/enigmatic/Enigmatic_Client.h
+include/enigmatic/Events.h
+include/enigmatic/enigmatic_util.h
+include/enigmatic/enigmatic_visibility.h
+include/enigmatic/intl/gettext.h
+include/enigmatic/system/file_systems.h
+include/enigmatic/system/machine.h
+include/enigmatic/system/process.h
+include/enigmatic/system/uptime.h
+lib/libenigmatic_client.so
+lib/libenigmatic_client.so.0
+lib/libenigmatic_client.so.%%PORTVERSION%%
+libdata/pkgconfig/enigmatic_client.pc
+share/applications/evisum.desktop
+%%DATADIR%%/themes/evisum.edj
+share/icons/hicolor/256x256/apps/evisum.png
+share/icons/hicolor/256x256/apps/evisum_cpu.png
+share/icons/hicolor/256x256/apps/evisum_mem.png

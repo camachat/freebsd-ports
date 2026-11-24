@@ -1,0 +1,16 @@
+diaMCP is an all-in-one Model Context Protocol (MCP) server designed
+for integration with llama.cpp webui.
+
+It provides many built-in tools including:
+- File operations (read, write, list, etc.)
+- Web search and fetch (via DDGS)
+- Git operations (clone, pull)
+- Shell command execution
+- Python code evaluation
+- yfinance stock data
+- Custom tool support
+
+This port installs diaMCP as a native Python application and provides
+an rc.d script for easy service management.
+
+WWW: https://github.com/chartrambiz/diaMCP

@@ -1,0 +1,13 @@
+- pass supplied FFLAGS to the build
+
+--- makefile.orig	2023-05-24 07:18:35 UTC
++++ makefile
+@@ -312,7 +312,7 @@ surf/surf:	src/surf/*.h src/surf/*.c
+ 
+ surf/surf:	src/surf/*.h src/surf/*.c
+ 	$(MAKE) -C src/surf depend 
+-	$(MAKE) -C src/surf EXT="${EXT}"
++	$(MAKE) -C src/surf EXT="${EXT}" FFLAGS="$(FFLAGS)"
+ 	mv src/surf/surf bin/surf
+ 
+ docker/docker:	docker/*.f docker/*.c

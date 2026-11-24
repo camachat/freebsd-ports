@@ -1,0 +1,218 @@
+PORTNAME=	star-history
+DISTVERSION=	1.0.34
+PORTREVISION=	1
+CATEGORIES=	misc
+
+MAINTAINER=	yuri@FreeBSD.org
+COMMENT=	Graph history of GitHub stars of a user or repo over time
+WWW=		https://github.com/dtolnay/star-history
+
+LICENSE=	APACHE20 MIT
+LICENSE_COMB=	dual
+LICENSE_FILE_APACHE20=	${WRKSRC}/LICENSE-APACHE
+LICENSE_FILE_MIT=	${WRKSRC}/LICENSE-MIT
+
+USES=		cargo ssl
+
+USE_GITHUB=	yes
+GH_ACCOUNT=	dtolnay
+
+MAKE_ENV+=	AWS_LC_SYS_NO_JITTER_ENTROPY=1
+
+CARGO_CRATES=	android_system_properties-0.1.6 \
+		anyhow-1.0.104 \
+		atomic-waker-1.1.2 \
+		autocfg-1.5.1 \
+		aws-lc-rs-1.18.1 \
+		aws-lc-sys-0.45.0 \
+		base64-0.23.1 \
+		bitflags-2.13.2 \
+		bumpalo-3.20.3 \
+		bytes-1.12.1 \
+		cc-1.6.0 \
+		cfg-if-1.0.5 \
+		cfg_aliases-0.2.2 \
+		chacha20-0.10.2 \
+		chrono-0.4.45 \
+		cmake-0.1.58 \
+		combine-4.6.8 \
+		core-foundation-0.9.4 \
+		core-foundation-0.10.1 \
+		core-foundation-sys-0.8.7 \
+		core_detect-1.0.0 \
+		cpufeatures-0.3.1 \
+		displaydoc-0.2.7 \
+		dunce-1.0.5 \
+		encoding_rs-0.8.42 \
+		equivalent-1.0.2 \
+		find-msvc-tools-0.1.14 \
+		fnv-1.0.7 \
+		form_urlencoded-1.2.2 \
+		fs_extra-1.3.0 \
+		futures-channel-0.3.34 \
+		futures-core-0.3.34 \
+		futures-io-0.3.34 \
+		futures-sink-0.3.34 \
+		futures-task-0.3.34 \
+		futures-util-0.3.34 \
+		getrandom-0.2.17 \
+		getrandom-0.4.3 \
+		h2-0.4.20 \
+		hashbrown-0.17.1 \
+		home-0.5.12 \
+		http-1.5.0 \
+		http-body-1.1.0 \
+		http-body-util-0.1.5 \
+		httparse-1.10.1 \
+		hyper-1.12.0 \
+		hyper-rustls-0.27.10 \
+		hyper-util-0.1.21 \
+		iana-time-zone-0.1.65 \
+		iana-time-zone-haiku-0.1.2 \
+		icu_collections-2.3.0 \
+		icu_locale_core-2.3.0 \
+		icu_normalizer-2.3.0 \
+		icu_normalizer_data-2.3.0 \
+		icu_properties-2.3.0 \
+		icu_properties_data-2.3.0 \
+		icu_provider-2.3.1 \
+		idna-1.1.0 \
+		idna_adapter-1.2.2 \
+		indexmap-2.14.2 \
+		ipnet-2.12.2 \
+		itoa-1.0.18 \
+		jni-0.22.4 \
+		jni-macros-0.22.4 \
+		jni-sys-0.4.1 \
+		jni-sys-macros-0.4.1 \
+		jobserver-0.1.35 \
+		js-sys-0.3.106 \
+		libc-0.2.190 \
+		litemap-0.8.3 \
+		log-0.4.34 \
+		lru-slab-0.1.3 \
+		memchr-2.8.3 \
+		mime-0.3.17 \
+		mio-1.2.4 \
+		multiversion_no_op-1.0.0 \
+		normpath-1.5.2 \
+		num-traits-0.2.19 \
+		once_cell-1.21.4 \
+		opener-0.9.0 \
+		openssl-probe-0.2.1 \
+		percent-encoding-2.3.2 \
+		pin-project-lite-0.2.17 \
+		pkg-config-0.3.34 \
+		potential_utf-0.1.6 \
+		proc-macro2-1.0.107 \
+		quinn-0.11.12 \
+		quinn-proto-0.11.19 \
+		quinn-udp-0.5.16 \
+		quote-1.0.47 \
+		r-efi-6.0.0 \
+		rand-0.10.3 \
+		rand_core-0.10.1 \
+		rand_pcg-0.10.2 \
+		reqwest-0.13.5 \
+		ring-0.17.14 \
+		rustc-hash-2.1.3 \
+		rustc_version-0.4.1 \
+		rustls-0.23.45 \
+		rustls-native-certs-0.8.4 \
+		rustls-pki-types-1.15.1 \
+		rustls-platform-verifier-0.7.1 \
+		rustls-platform-verifier-android-0.2.0 \
+		rustls-webpki-0.103.15 \
+		rustversion-1.0.23 \
+		ryu-1.0.23 \
+		same-file-1.0.6 \
+		schannel-0.1.29 \
+		scopeguard-1.2.0 \
+		security-framework-3.7.0 \
+		security-framework-sys-2.17.0 \
+		semver-1.0.28 \
+		serde-1.0.229 \
+		serde_core-1.0.229 \
+		serde_derive-1.0.229 \
+		serde_json-1.0.151 \
+		serde_yaml-0.9.34+deprecated \
+		shlex-2.0.1 \
+		simd_cesu8-1.2.0 \
+		simdutf8-0.1.5 \
+		slab-0.4.12 \
+		smallvec-1.16.2 \
+		socket2-0.6.5 \
+		stable_deref_trait-1.2.1 \
+		subtle-2.6.1 \
+		syn-2.0.119 \
+		syn-3.0.6 \
+		sync_wrapper-1.0.2 \
+		synstructure-0.14.0 \
+		system-configuration-0.7.0 \
+		system-configuration-sys-0.6.0 \
+		thiserror-2.0.21 \
+		thiserror-impl-2.0.21 \
+		tinystr-0.8.4 \
+		tinyvec-1.13.3 \
+		tokio-1.53.2 \
+		tokio-rustls-0.26.6 \
+		tokio-util-0.7.20 \
+		tower-0.5.3 \
+		tower-http-0.6.11 \
+		tower-layer-0.3.3 \
+		tower-service-0.3.3 \
+		tracing-0.1.44 \
+		tracing-core-0.1.36 \
+		try-lock-0.2.5 \
+		unicode-ident-1.0.26 \
+		unsafe-libyaml-0.2.11 \
+		untrusted-0.9.0 \
+		url-2.5.8 \
+		utf8_iter-1.0.4 \
+		walkdir-2.5.0 \
+		want-0.3.2 \
+		wasi-0.11.1+wasi-snapshot-preview1 \
+		wasm-bindgen-0.2.129 \
+		wasm-bindgen-futures-0.4.79 \
+		wasm-bindgen-macro-0.2.129 \
+		wasm-bindgen-macro-support-0.2.129 \
+		wasm-bindgen-shared-0.2.129 \
+		web-sys-0.3.106 \
+		web-time-1.1.0 \
+		webpki-root-certs-1.0.9 \
+		winapi-util-0.1.11 \
+		windows-core-0.62.2 \
+		windows-implement-0.60.2 \
+		windows-interface-0.59.3 \
+		windows-link-0.2.1 \
+		windows-registry-0.6.1 \
+		windows-result-0.4.1 \
+		windows-strings-0.5.1 \
+		windows-sys-0.52.0 \
+		windows-sys-0.61.2 \
+		windows-targets-0.52.6 \
+		windows_aarch64_gnullvm-0.52.6 \
+		windows_aarch64_msvc-0.52.6 \
+		windows_i686_gnu-0.52.6 \
+		windows_i686_gnullvm-0.52.6 \
+		windows_i686_msvc-0.52.6 \
+		windows_x86_64_gnu-0.52.6 \
+		windows_x86_64_gnullvm-0.52.6 \
+		windows_x86_64_msvc-0.52.6 \
+		writeable-0.6.4 \
+		yoke-0.8.3 \
+		yoke-derive-0.8.4 \
+		zerofrom-0.1.8 \
+		zerofrom-derive-0.1.8 \
+		zeroize-1.9.1 \
+		zerotrie-0.2.5 \
+		zerovec-0.11.8 \
+		zerovec-derive-0.11.6 \
+		zmij-1.0.23
+
+OPENSSLINC=	/usr/include
+OPENSSLLIB=	/usr/lib
+
+PLIST_FILES=	bin/${PORTNAME}
+
+.include <bsd.port.mk>

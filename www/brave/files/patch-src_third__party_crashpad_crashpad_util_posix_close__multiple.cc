@@ -1,0 +1,11 @@
+--- src/third_party/crashpad/crashpad/util/posix/close_multiple.cc.orig	2026-10-18 18:43:23 UTC
++++ src/third_party/crashpad/crashpad/util/posix/close_multiple.cc
+@@ -75,7 +75,7 @@ void CloseNowOrOnExec(int fd, bool ebadf
+ // no attempt needs to be made to close file descriptors that are not open.
+ bool CloseMultipleNowOrOnExecUsingFDDir(int min_fd,
+                                         const std::set<int>& preserve_fds) {
+-#if BUILDFLAG(IS_APPLE)
++#if BUILDFLAG(IS_APPLE) || BUILDFLAG(IS_BSD)
+   static constexpr char kFDDir[] = "/dev/fd";
+ #elif BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_CHROMEOS) || BUILDFLAG(IS_ANDROID)
+   static constexpr char kFDDir[] = "/proc/self/fd";

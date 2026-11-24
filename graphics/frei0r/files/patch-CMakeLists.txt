@@ -1,0 +1,52 @@
+- Add logic so extra plugins can build without installing base components.
+
+--- CMakeLists.txt.orig	2026-11-12 09:33:52 UTC
++++ CMakeLists.txt
+@@ -21,6 +21,7 @@ include(CTest)
+ set(CMAKE_CTEST_ARGUMENTS "--verbose")
+ include(CTest)
+ 
++option (BUILD_EXTRA_PLUGINS "Build plugins with optional dependencies" ON)
+ option (WITHOUT_OPENCV "Disable plugins dependent upon OpenCV" OFF)
+ option (WITHOUT_FACERECOGNITION "Disable facedetect plugin to avoid protobuf conflicts" OFF)
+ 
+@@ -125,6 +126,7 @@ INCLUDE( cmake/modules/TargetDistclean.cmake OPTIONAL)
+ # --- custom targets: ---
+ INCLUDE( cmake/modules/TargetDistclean.cmake OPTIONAL)
+ 
++if (NOT BUILD_EXTRA_PLUGINS)
+ install(DIRECTORY ${CMAKE_SOURCE_DIR}/include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+ 
+ # For code documentation run: doxygen doc/Doxyfile
+@@ -193,6 +195,11 @@ set(FREI0R_BUNDLE_CLASSIFICATIONS "${FREI0R_BUNDLE_CLA
+ get_property(FREI0R_BUNDLE_CLASSIFICATIONS GLOBAL PROPERTY FREI0R_BUNDLE_CLASSIFICATIONS)
+ set(FREI0R_BUNDLE_CLASSIFICATIONS "${FREI0R_BUNDLE_CLASSIFICATIONS}" CACHE INTERNAL
+     "Auditable target/profile/reason classification for bundle selection" FORCE)
++else (NOT BUILD_EXTRA_PLUGINS)
++  add_subdirectory (src/filter)
++  add_subdirectory (src/mixer2)
++endif(NOT BUILD_EXTRA_PLUGINS)
++
+ if (BUILD_TESTING)
+   add_subdirectory (test)
+ endif ()
+@@ -201,10 +208,12 @@ endif()
+   add_subdirectory(examples/browser-demo/runtime)
+ endif()
+ 
+-# Generate frei0r.pc and install it.
+-set (prefix "${CMAKE_INSTALL_PREFIX}")
+-set (exec_prefix "${CMAKE_INSTALL_PREFIX}")
+-set (libdir "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}")
+-set (includedir "${CMAKE_INSTALL_PREFIX}/include")
+-configure_file ("frei0r.pc.in" "frei0r.pc" @ONLY)
+-install (FILES "${CMAKE_CURRENT_BINARY_DIR}/frei0r.pc" DESTINATION "${CMAKE_INSTALL_LIBDIR}/pkgconfig")
++if (NOT BUILD_EXTRA_PLUGINS)
++  # Generate frei0r.pc and install it.
++  set (prefix "${CMAKE_INSTALL_PREFIX}")
++  set (exec_prefix "${CMAKE_INSTALL_PREFIX}")
++  set (libdir "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}")
++  set (includedir "${CMAKE_INSTALL_PREFIX}/include")
++  configure_file ("frei0r.pc.in" "frei0r.pc" @ONLY)
++  install (FILES "${CMAKE_CURRENT_BINARY_DIR}/frei0r.pc" DESTINATION "${CMAKE_INSTALL_LIBDIR}/pkgconfig")
++endif(NOT BUILD_EXTRA_PLUGINS)

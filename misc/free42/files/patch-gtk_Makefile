@@ -1,0 +1,11 @@
+--- gtk/Makefile.orig	2026-11-15 03:37:32 UTC
++++ gtk/Makefile
+@@ -214,7 +214,7 @@ cleaner: clean
+ 	rm -f `find . -type l` \
+ 		readtest_lines.cc \
+ 		gcc111libbid.a \
+-	rm -rf IntelRDFPMathLib20U1
++	#rm -rf IntelRDFPMathLib20U1
+ 
+ cleanerer: cleaner
+ 	rm -f free42bin* free42dec*

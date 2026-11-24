@@ -1,0 +1,9 @@
+TIMESTAMP = 1794956899
+SHA256 (rocky/a/alsa-lib-devel-1.2.16.1-1.el9.aarch64.rpm) = 17c652eefd3bafe4ee8fe96da320807ff1f59610df86c1a49b15bd4009b42f21
+SIZE (rocky/a/alsa-lib-devel-1.2.16.1-1.el9.aarch64.rpm) = 944979
+SHA256 (rocky/a/alsa-lib-devel-1.2.16.1-1.el9.i686.rpm) = 85d39f5adaab41ac28b98a4d35a9a6c91700362f217fa7842af8000c556d5733
+SIZE (rocky/a/alsa-lib-devel-1.2.16.1-1.el9.i686.rpm) = 944922
+SHA256 (rocky/a/alsa-lib-devel-1.2.16.1-1.el9.x86_64.rpm) = 9d2aa6bcad20a57797ec3230a39dfa3dcc566cc9ef8d682bac3a86b4d85a9db8
+SIZE (rocky/a/alsa-lib-devel-1.2.16.1-1.el9.x86_64.rpm) = 945079
+SHA256 (rocky/a/alsa-lib-1.2.16.1-1.el9.src.rpm) = a5a464440354bbd1ed3cc3159317bdd980cbe79ca07231fec0b9b2f47079f709
+SIZE (rocky/a/alsa-lib-1.2.16.1-1.el9.src.rpm) = 1241784

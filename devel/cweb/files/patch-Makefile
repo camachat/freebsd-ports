@@ -1,0 +1,11 @@
+--- Makefile.orig	2025-07-27 14:04:02 UTC
++++ Makefile
+@@ -155,7 +155,7 @@ cweave: cweave.o common.o
+ cweave: cweave.o common.o
+ 	$(CC) $(LINKFLAGS) -o cweave cweave.o common.o
+ 
+-cweave.c: cweave.w $(WCHANGES) common.h prod.w
++cweave.c: cweave.w $(WCHANGES) common.h prod.w ctangle
+ 	$(CTANGLE) cweave $(WCHANGES)
+ 
+ doc: $(SOURCES:.w=.dvi)

@@ -1,0 +1,9 @@
+bin/mad
+bin/mcp
+bin/mln
+bin/mmv
+%%PORTDOCS%%%%DOCSDIR%%/README.md
+share/man/man1/mad.1.gz
+share/man/man1/mcp.1.gz
+share/man/man1/mln.1.gz
+share/man/man1/mmv.1.gz

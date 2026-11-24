@@ -1,0 +1,28 @@
+PORTNAME=	shimmy
+DISTVERSIONPREFIX=	v
+DISTVERSION=	2.6.7
+CATEGORIES=	misc
+
+MAINTAINER=	tagattie@FreeBSD.org
+COMMENT=	Pure-Rust WebGPU inference engine
+WWW=		https://github.com/Michael-A-Kuykendall/shimmy
+
+LICENSE=	APACHE20
+LICENSE_FILE=	${WRKSRC}/LICENSE
+
+USES=		cargo
+
+USE_GITHUB=	yes
+GH_ACCOUNT=	Michael-A-Kuykendall
+
+PLIST_FILES=	bin/${PORTNAME}
+PORTDOCS=	CHANGELOG.md CONTRIBUTING.md DEVELOPERS.md README.md \
+		ROADMAP.md SECURITY.md
+
+OPTIONS_DEFINE=		DOCS
+
+do-install-DOCS-on:
+	@${MKDIR} ${STAGEDIR}${DOCSDIR}
+	${INSTALL_MAN} ${PORTDOCS:S|^|${WRKSRC}/|} ${STAGEDIR}${DOCSDIR}
+
+.include <bsd.port.mk>

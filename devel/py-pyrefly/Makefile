@@ -1,0 +1,487 @@
+PORTNAME=	pyrefly
+DISTVERSION=	1.5.0
+CATEGORIES=	devel python
+MASTER_SITES=	PYPI
+PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
+DISTFILES=	${PORTNAME}-${DISTVERSION}${EXTRACT_SUFX} \
+		meta-pyrefly-1.4.1_GH0${EXTRACT_SUFX}:GH
+EXTRACT_ONLY=	${DISTFILES:N*\:GH:C/:[^:]+$//}
+
+MAINTAINER=	yuri@FreeBSD.org
+COMMENT=	Fast type checker and language server for Python
+WWW=		https://pyrefly.org \
+		https://github.com/facebook/pyrefly
+
+LICENSE=	MIT
+LICENSE_FILE=	${WRKSRC}/LICENSE
+
+BROKEN_i386=	compilation fails: rustc-LLVM ERROR: out of memory
+
+BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}maturin>=1.10.2<2.0:devel/py-maturin@${PY_FLAVOR}
+LIB_DEPENDS=	libzstd.so:archivers/zstd
+
+USES=		cargo python
+USE_GITHUB=	nodefault
+USE_PYTHON=	autoplist concurrent pep517
+
+GH_ACCOUNT=	meta
+GH_PROJECT=	pyrefly
+GH_TAGNAME=	1.4.1
+
+MASTER_SITES+=	https://codeload.github.com/${GH_ACCOUNT}/${GH_PROJECT}/tar.gz/${GH_TAGNAME}?dummy=/:GH
+
+CARGO_BUILD=	no
+CARGO_INSTALL=	no
+CARGO_CARGOTOML=	${WRKSRC}/pyrefly/Cargo.toml
+CARGO_CARGOLOCK=	${WRKSRC}/Cargo.lock
+CARGO_TARGET_DIR=	${WRKSRC}/target
+CARGO_CRATES=	addr2line-0.25.1 \
+		adler2-2.0.1 \
+		aho-corasick-1.1.5 \
+		allocative-0.3.6 \
+		allocative_derive-0.3.6 \
+		allocator-api2-0.2.21 \
+		anes-0.1.6 \
+		anstream-1.0.0 \
+		anstyle-1.0.14 \
+		anstyle-parse-1.0.0 \
+		anstyle-query-1.1.5 \
+		anstyle-wincon-3.0.11 \
+		anyhow-1.0.104 \
+		append-only-vec-0.1.10 \
+		approx-0.5.1 \
+		ar_archive_writer-0.5.3 \
+		arc-swap-1.9.4 \
+		argfile-1.0.0 \
+		arrayref-0.3.9 \
+		arrayvec-0.7.8 \
+		astral-version-ranges-0.2.3 \
+		atomic-0.5.3 \
+		attribute-derive-0.11.0 \
+		attribute-derive-macro-0.11.0 \
+		autocfg-1.5.1 \
+		backtrace-on-stack-overflow-0.3.0 \
+		base64-0.23.1 \
+		bitflags-1.3.2 \
+		bitflags-2.13.2 \
+		blake3-1.8.6 \
+		block-buffer-0.10.4 \
+		block-buffer-0.12.1 \
+		bs58-0.5.1 \
+		bstr-1.13.1 \
+		bumpalo-3.20.3 \
+		byteorder-1.5.0 \
+		bytes-1.12.1 \
+		capnp-0.27.3 \
+		cast-0.3.0 \
+		castaway-0.2.4 \
+		cc-1.11.1 \
+		cfg-if-1.0.5 \
+		cfg_aliases-0.2.2 \
+		chacha20-0.10.2 \
+		char_str-0.0.4 \
+		chrono-0.4.45 \
+		ciborium-0.2.2 \
+		ciborium-io-0.2.2 \
+		ciborium-ll-0.2.2 \
+		clap-4.6.7 \
+		clap_builder-4.6.7 \
+		clap_complete-4.6.11 \
+		clap_derive-4.6.7 \
+		clap_lex-1.1.1 \
+		cmov-0.5.4 \
+		codspeed-6.0.0 \
+		codspeed-criterion-compat-6.0.0 \
+		codspeed-criterion-compat-walltime-6.0.0 \
+		collection_literals-1.0.3 \
+		colorchoice-1.0.5 \
+		colored-3.1.1 \
+		compact_str-0.10.0 \
+		configparser-3.3.0 \
+		console-0.16.6 \
+		constant_time_eq-0.4.2 \
+		convert_case-0.10.0 \
+		convert_case-0.12.0 \
+		cpufeatures-0.2.17 \
+		cpufeatures-0.3.1 \
+		criterion-plot-0.5.0 \
+		crossbeam-channel-0.5.17 \
+		crossbeam-deque-0.8.8 \
+		crossbeam-epoch-0.9.21 \
+		crossbeam-utils-0.8.23 \
+		crunchy-0.2.4 \
+		crypto-common-0.1.7 \
+		crypto-common-0.2.2 \
+		ctor-1.0.13 \
+		ctutils-0.4.8 \
+		darling-0.24.1 \
+		darling_core-0.24.1 \
+		darling_macro-0.24.1 \
+		dashmap-6.2.1 \
+		defmt-0.3.101 \
+		defmt-1.2.0 \
+		defmt-macros-1.2.0 \
+		defmt-parser-1.1.0 \
+		deranged-0.5.9 \
+		derivative-2.2.0 \
+		derive_more-2.1.1 \
+		derive_more-impl-2.1.1 \
+		diff-0.1.13 \
+		digest-0.10.7 \
+		digest-0.11.3 \
+		displaydoc-0.2.7 \
+		drop_bomb-0.1.5 \
+		dupe-0.9.1 \
+		dupe_derive-0.9.1 \
+		either-1.19.0 \
+		embedded-io-0.7.1 \
+		encode_unicode-1.0.0 \
+		enum-iterator-2.3.0 \
+		enum-iterator-derive-1.5.0 \
+		equivalent-1.0.3 \
+		errno-0.3.14 \
+		faster-hex-1.0.0 \
+		fastrand-2.5.0 \
+		filetime-0.2.29 \
+		find-msvc-tools-0.1.15 \
+		foldhash-0.2.0 \
+		form_urlencoded-1.2.2 \
+		fs-err-3.3.2 \
+		futures-0.1.31 \
+		futures-0.3.34 \
+		futures-channel-0.3.34 \
+		futures-core-0.3.34 \
+		futures-executor-0.3.34 \
+		futures-io-0.3.34 \
+		futures-macro-0.3.34 \
+		futures-sink-0.3.34 \
+		futures-task-0.3.34 \
+		futures-util-0.3.34 \
+		fuzzy-matcher-0.3.7 \
+		fxhash-0.2.1 \
+		gen-lsp-types-0.11.0 \
+		generic-array-0.14.7 \
+		get-size-derive2-0.11.1 \
+		get-size2-0.11.1 \
+		getopts-0.2.24 \
+		getrandom-0.4.3 \
+		gimli-0.32.3 \
+		glob-0.3.4 \
+		globset-0.4.21 \
+		half-2.7.1 \
+		hashbrown-0.14.5 \
+		hashbrown-0.16.1 \
+		hashbrown-0.17.1 \
+		heck-0.5.0 \
+		hermit-abi-0.5.3 \
+		hex-0.4.3 \
+		human_bytes-0.4.3 \
+		hybrid-array-0.4.15 \
+		icu_collections-2.4.0 \
+		icu_locale_core-2.4.0 \
+		icu_normalizer-2.4.0 \
+		icu_normalizer_data-2.4.0 \
+		icu_properties-2.4.0 \
+		icu_properties_data-2.4.0 \
+		icu_provider-2.4.0 \
+		ident_case-1.0.1 \
+		idna-1.1.0 \
+		idna_adapter-1.2.2 \
+		ignore-0.4.34 \
+		index_vec-0.1.4 \
+		indexmap-2.14.2 \
+		indicatif-0.18.6 \
+		inotify-0.11.5 \
+		inotify-sys-0.1.8 \
+		interpolator-0.5.0 \
+		is-macro-0.3.8 \
+		is-terminal-0.4.17 \
+		is_executable-1.0.6 \
+		is_terminal_polyfill-1.70.2 \
+		itertools-0.10.5 \
+		itertools-0.15.0 \
+		itoa-0.4.8 \
+		itoa-1.0.19 \
+		jiff-0.2.38 \
+		jiff-core-0.1.1 \
+		jiff-static-0.2.38 \
+		jobserver-0.1.35 \
+		js-sys-0.3.107 \
+		kqueue-1.2.1 \
+		kqueue-sys-1.1.2 \
+		lazy_static-1.5.1 \
+		libc-0.2.191 \
+		libmimalloc-sys-0.1.49 \
+		link-section-0.19.3 \
+		linktime-proc-macro-0.2.3 \
+		linux-raw-sys-0.12.1 \
+		litemap-0.8.3 \
+		lock_api-0.4.14 \
+		lock_api-0.5.0 \
+		lock_free_hashtable-0.1.4 \
+		log-0.4.35 \
+		lsp-server-0.10.0 \
+		manyhow-0.14.1 \
+		manyhow-macros-0.14.1 \
+		maplit-1.0.2 \
+		matchers-0.2.0 \
+		memchr-2.8.3 \
+		memmap2-0.9.12 \
+		memoffset-0.6.5 \
+		memory-stats-1.2.0 \
+		mimalloc-0.1.52 \
+		miniz_oxide-0.8.9 \
+		mio-1.2.4 \
+		nix-0.23.2 \
+		nix-0.31.3 \
+		notify-9.0.0-rc.6 \
+		notify-types-2.2.0 \
+		num-bigint-0.5.1 \
+		num-conv-0.2.2 \
+		num-integer-0.1.47 \
+		num-traits-0.2.19 \
+		objc2-core-foundation-0.3.2 \
+		objc2-core-services-0.3.2 \
+		object-0.37.3 \
+		object-0.39.1 \
+		once_cell-1.21.4 \
+		once_cell_polyfill-1.70.2 \
+		oorandom-11.1.5 \
+		ordermap-1.2.2 \
+		os_str_bytes-7.2.1 \
+		parking_lot-0.12.5 \
+		parking_lot-0.13.0 \
+		parking_lot_core-0.9.12 \
+		parking_lot_core-0.10.0 \
+		parse-display-0.11.0 \
+		parse-display-derive-0.11.0 \
+		paste-1.0.15 \
+		path-absolutize-4.0.1 \
+		path-dedot-4.0.1 \
+		pathdiff-0.2.3 \
+		percent-encoding-2.3.2 \
+		phf-0.14.0 \
+		phf_codegen-0.14.0 \
+		phf_generator-0.14.0 \
+		phf_shared-0.14.0 \
+		pin-project-lite-0.2.17 \
+		pkg-config-0.3.34 \
+		plotters-0.3.7 \
+		plotters-backend-0.3.7 \
+		plotters-svg-0.3.7 \
+		portable-atomic-1.15.0 \
+		portable-atomic-util-0.2.8 \
+		potential_utf-0.1.6 \
+		powerfmt-0.2.1 \
+		pretty_assertions-1.4.1 \
+		proc-macro-utils-0.10.0 \
+		proc-macro2-1.0.107 \
+		protobuf-3.7.2 \
+		protobuf-support-3.7.2 \
+		psm-0.1.29 \
+		pulldown-cmark-0.13.6 \
+		pulldown-cmark-escape-0.11.0 \
+		quote-1.0.47 \
+		quote-use-0.9.0 \
+		quote-use-macros-0.9.0 \
+		r-efi-6.0.0 \
+		rand-0.10.3 \
+		rand_core-0.10.1 \
+		rayon-1.12.0 \
+		rayon-core-1.13.0 \
+		redox_syscall-0.5.18 \
+		redox_syscall-0.9.5 \
+		ref-cast-1.0.27 \
+		ref-cast-impl-1.0.27 \
+		regex-1.13.1 \
+		regex-automata-0.4.18 \
+		regex-syntax-0.7.5 \
+		regex-syntax-0.8.11 \
+		ruff_annotate_snippets-0.0.21 \
+		ruff_cache-0.0.21 \
+		ruff_diagnostics-0.0.21 \
+		ruff_notebook-0.0.21 \
+		ruff_python_ast-0.0.21 \
+		ruff_python_parser-0.0.21 \
+		ruff_python_trivia-0.0.21 \
+		ruff_source_file-0.0.21 \
+		ruff_text_size-0.0.21 \
+		ruff_unicode_names2-0.0.21 \
+		ruff_unicode_names2_generator-0.0.21 \
+		rustc-demangle-0.1.28 \
+		rustc-hash-2.1.3 \
+		rustc_version-0.4.1 \
+		rustix-1.1.6 \
+		rustversion-1.0.23 \
+		ryu-0.2.8 \
+		ryu-1.0.23 \
+		same-file-1.0.6 \
+		scip-0.10.0 \
+		scopeguard-1.2.0 \
+		seahash-4.1.0 \
+		semver-1.0.28 \
+		serde-1.0.229 \
+		serde_bser-0.4.0 \
+		serde_bytes-0.11.19 \
+		serde_core-1.0.229 \
+		serde_derive-1.0.229 \
+		serde_json-1.0.154 \
+		serde_jsonrc-0.1.0 \
+		serde_repr-0.1.21 \
+		serde_spanned-1.1.3 \
+		serde_with-3.24.0 \
+		serde_with_macros-3.24.0 \
+		sha2-0.10.9 \
+		sharded-slab-0.1.7 \
+		shlex-2.0.1 \
+		signal-hook-registry-1.4.8 \
+		similar-3.2.1 \
+		siphasher-1.0.4 \
+		slab-0.4.12 \
+		smallvec-1.16.5 \
+		socket2-0.6.5 \
+		stable_deref_trait-1.2.1 \
+		stacker-0.1.25 \
+		starlark_map-0.14.2 \
+		static_assertions-1.1.0 \
+		static_interner-0.1.3 \
+		statrs-0.18.0 \
+		strong_hash-0.1.0 \
+		strong_hash_derive-0.1.0 \
+		strsim-0.11.1 \
+		structmeta-0.3.0 \
+		structmeta-derive-0.3.0 \
+		syn-1.0.109 \
+		syn-2.0.119 \
+		syn-3.0.9 \
+		synstructure-0.14.0 \
+		tar-0.4.46 \
+		tempfile-3.27.0 \
+		terminal_size-0.4.4 \
+		thin-vec-0.2.21 \
+		thiserror-1.0.69 \
+		thiserror-2.0.21 \
+		thiserror-impl-1.0.69 \
+		thiserror-impl-2.0.21 \
+		thread_local-1.1.10 \
+		tikv-jemalloc-sys-0.7.1+5.3.1-0-g81034ce1f1373e37dc865038e1bc8eeecf559ce8 \
+		tikv-jemallocator-0.7.0 \
+		time-0.3.55 \
+		time-core-0.1.9 \
+		tinystr-0.8.5 \
+		tinytemplate-1.2.1 \
+		tinyvec-1.13.3 \
+		tokio-1.54.1 \
+		tokio-macros-2.7.2 \
+		tokio-util-0.6.10 \
+		toml-1.2.1+spec-1.1.0 \
+		toml_datetime-1.1.3+spec-1.1.0 \
+		toml_edit-0.25.19+spec-1.1.0 \
+		toml_parser-1.1.5+spec-1.1.0 \
+		toml_writer-1.2.0+spec-1.1.0 \
+		tracing-0.1.44 \
+		tracing-attributes-0.1.31 \
+		tracing-core-0.1.36 \
+		tracing-subscriber-0.3.23 \
+		typenum-1.20.1 \
+		unicase-2.10.0 \
+		unicode-ident-1.0.27 \
+		unicode-normalization-0.1.26 \
+		unicode-segmentation-1.13.3 \
+		unicode-width-0.2.3 \
+		unicode-xid-0.2.6 \
+		unit-prefix-0.5.2 \
+		unscanny-0.1.0 \
+		url-2.5.8 \
+		utf8_iter-1.1.0 \
+		utf8parse-0.2.2 \
+		utf_types-1.0.0 \
+		uuid-1.29.1 \
+		uuid-rng-internal-1.29.1 \
+		uv-cache-key-0.0.100 \
+		uv-pep440-0.0.100 \
+		uv-redacted-0.0.100 \
+		valuable-0.1.1 \
+		vec1-1.12.1 \
+		version_check-0.9.5 \
+		walkdir-2.5.0 \
+		wasi-0.11.1+wasi-snapshot-preview1 \
+		wasm-bindgen-0.2.130 \
+		wasm-bindgen-macro-0.2.130 \
+		wasm-bindgen-macro-support-0.2.130 \
+		wasm-bindgen-shared-0.2.130 \
+		watchman_client-0.9.0 \
+		web-sys-0.3.107 \
+		web-time-1.1.0 \
+		which-8.0.6 \
+		winapi-0.3.9 \
+		winapi-i686-pc-windows-gnu-0.4.0 \
+		winapi-util-0.1.11 \
+		winapi-x86_64-pc-windows-gnu-0.4.0 \
+		windows-link-0.2.1 \
+		windows-sys-0.52.0 \
+		windows-sys-0.61.2 \
+		windows-targets-0.52.6 \
+		windows_aarch64_gnullvm-0.52.6 \
+		windows_aarch64_msvc-0.52.6 \
+		windows_i686_gnu-0.52.6 \
+		windows_i686_gnullvm-0.52.6 \
+		windows_i686_msvc-0.52.6 \
+		windows_x86_64_gnu-0.52.6 \
+		windows_x86_64_gnullvm-0.52.6 \
+		windows_x86_64_msvc-0.52.6 \
+		winnow-1.0.5 \
+		writeable-0.6.4 \
+		xattr-1.7.0 \
+		xxhash-rust-0.8.19 \
+		yansi-1.0.1 \
+		yoke-0.8.4 \
+		yoke-derive-0.8.4 \
+		zerocopy-0.8.63 \
+		zerocopy-derive-0.8.63 \
+		zerofrom-0.1.8 \
+		zerofrom-derive-0.1.8 \
+		zerotrie-0.2.5 \
+		zerovec-0.11.9 \
+		zerovec-derive-0.11.7 \
+		zmij-1.0.23 \
+		zstd-0.13.4 \
+		zstd-0.14.3 \
+		zstd-safe-7.4.0 \
+		zstd-safe-8.2.0 \
+		zstd-sys-2.1.2+zstd.1.5.7 \
+		backtrace@git+https://github.com/rust-lang/backtrace-rs?rev=df979dcf80027eb047d7bb9e0874710c15009f31\#df979dcf80027eb047d7bb9e0874710c15009f31
+
+CARGO_TEST=	no
+
+GH_FIXTURES_DISTFILE=	${GH_ACCOUNT}-${GH_PROJECT}-${GH_TAGNAME}_GH0${EXTRACT_SUFX}
+GH_FIXTURES_DIR=	${WRKDIR}/gh-fixtures
+
+# The PyPI sdist is missing the .cargo/config.toml that sets test fixture env
+# vars, and a few fixture directories that are only present in the upstream
+# GitHub tarball.  Extract that tarball and copy the missing pieces in.
+post-extract:
+	@${MKDIR} ${GH_FIXTURES_DIR}
+	@${TAR} -xf ${DISTDIR}/${GH_FIXTURES_DISTFILE} -C ${GH_FIXTURES_DIR} --strip-components=1
+	@${MKDIR} ${WRKSRC}/.cargo ${WRKSRC}/tensor-shapes ${WRKSRC}/website/docs ${WRKSRC}/scripts
+	@${CP} ${GH_FIXTURES_DIR}/.cargo/config.toml ${WRKSRC}/.cargo/
+	@${CP} -R ${GH_FIXTURES_DIR}/tensor-shapes/pyrefly-shape-extensions ${WRKSRC}/tensor-shapes/
+	@${CP} ${GH_FIXTURES_DIR}/website/docs/configuration.mdx ${WRKSRC}/website/docs/
+	@${CP} ${GH_FIXTURES_DIR}/website/docs/error-kinds.mdx ${WRKSRC}/website/docs/
+	@${CP} ${GH_FIXTURES_DIR}/scripts/error_presets.json ${WRKSRC}/scripts/
+
+MAKE_ENV=	${CARGO_ENV} CARGO_PROFILE_RELEASE_LTO=false CARGO_PROFILE_RELEASE_CODEGEN_UNITS=4
+
+TEST_TMPDIR=	${WRKDIR:H}/tmp-test
+TEST_ENV=	${MAKE_ENV} TMPDIR=${TEST_TMPDIR}
+
+do-test:
+	@${MKDIR} ${TEST_TMPDIR}
+	cd ${WRKSRC} && ${SETENV} ${TEST_ENV} cargo test --workspace --jobs 1
+
+post-test:
+	@${RM} -r ${TEST_TMPDIR}
+
+# tests as of 1.4.1: 9196 passed; 0 failed; 3 ignored (cargo test --workspace --jobs 1)
+
+.include <bsd.port.mk>

@@ -1,0 +1,16 @@
+Fix the find_package() call for USE_SYSTEM_RAPIDYAML. Without this fix, CMake
+reads VERSION and 0.10.0 as required component names, and ryml is not found.
+
+Obtained from:	https://github.com/google/jsonnet/commit/2ef32abf3d
+
+--- CMakeLists.txt.orig	2026-03-24 14:14:29 UTC
++++ CMakeLists.txt
+@@ -70,7 +70,7 @@ if(USE_SYSTEM_RAPIDYAML)
+ endif()
+ 
+ if(USE_SYSTEM_RAPIDYAML)
+-    find_package(ryml REQUIRED VERSION 0.10.0)
++    find_package(ryml 0.10.0 REQUIRED)
+ endif()
+ 
+ #### Utility function to configure a target with our preferred C and C++ compilation flags.

@@ -1,0 +1,13 @@
+--- chrome/browser/extensions/BUILD.gn.orig	2026-11-19 12:25:27 UTC
++++ chrome/browser/extensions/BUILD.gn
+@@ -1231,6 +1231,10 @@ source_set("extensions") {
+       ]
+     }
+ 
++    if (is_bsd) {
++      sources -= [ "api/image_writer_private/removable_storage_provider_linux.cc" ]
++    }
++
+     if (enable_pdf) {
+       deps += [
+         "//chrome/browser/pdf",

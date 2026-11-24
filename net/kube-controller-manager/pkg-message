@@ -1,0 +1,9 @@
+[
+{ type: install
+  message: <<EOM
+Set kube_controller_manager_args in rc.conf (at least --kubeconfig) for
+the controller manager to start; see
+https://kubernetes.io/docs/reference/command-line-tools-reference/kube-controller-manager/
+EOM
+}
+]

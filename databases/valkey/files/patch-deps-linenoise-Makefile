@@ -1,0 +1,13 @@
+--- deps/linenoise/Makefile.orig	2026-11-19 02:46:51 UTC
++++ deps/linenoise/Makefile
+@@ -1,10 +1,8 @@ WARN= -Wall -Werror
+ STD=
+ WARN= -Wall -Werror
+-OPT= -Os
+ 
+ R_CFLAGS= $(STD) $(WARN) $(OPT) $(DEBUG) $(CFLAGS) $(CPPFLAGS)
+ R_LDFLAGS= $(LDFLAGS)
+-DEBUG= -g
+ 
+ R_CC=$(CC) $(R_CFLAGS)
+ R_LD=$(CC) $(R_LDFLAGS)

@@ -1,0 +1,4 @@
+VIT (Visual Interactive Taskwarrior) is a lightweight, curses-based
+front end for Taskwarrior. It lists tasks of a report or filter, lets you
+add, modify and annotate tasks with Taskwarrior-style commands and supports
+customizable key bindings, themes and per-column colorization.

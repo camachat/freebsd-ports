@@ -1,0 +1,10 @@
+share/applications/org.thonny.Thonny.desktop
+share/icons/hicolor/128x128/apps/thonny.png
+share/icons/hicolor/16x16/apps/thonny.png
+share/icons/hicolor/192x192/apps/thonny.png
+share/icons/hicolor/22x22/apps/thonny.png
+share/icons/hicolor/256x256/apps/thonny.png
+share/icons/hicolor/32x32/apps/thonny.png
+share/icons/hicolor/48x48/apps/thonny.png
+share/icons/hicolor/64x64/apps/thonny.png
+@dir %%DATADIR%%

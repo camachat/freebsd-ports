@@ -1,0 +1,15 @@
+include/gnatcoll/readline/gnatcoll-readline.adb
+include/gnatcoll/readline/gnatcoll-readline.ads
+lib/gnatcoll/readline/relocatable/libgnatcoll_readline.so
+lib/gnatcoll/readline/relocatable/libgnatcoll_readline.so.%%SO_VERSION%%
+lib/gnatcoll/readline/relocatable/libgnatcoll_readline.so.%%SO_DISTVERSION%%
+lib/gnatcoll/readline/static-pic/libgnatcoll_readline.a
+lib/gnatcoll/readline/static/libgnatcoll_readline.a
+lib/libgnatcoll_readline.so
+lib/libgnatcoll_readline.so.%%SO_VERSION%%
+lib/libgnatcoll_readline.so.%%SO_DISTVERSION%%
+libdata/gnatcoll/readline/relocatable/gnatcoll-readline.ali
+libdata/gnatcoll/readline/static-pic/gnatcoll-readline.ali
+libdata/gnatcoll/readline/static/gnatcoll-readline.ali
+share/gpr/gnatcoll_readline.gpr
+share/man/man1/gnatcoll-readline.1.gz

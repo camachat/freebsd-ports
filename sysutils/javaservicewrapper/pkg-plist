@@ -1,0 +1,4 @@
+bin/javaservicewrapper
+bin/wrapper
+lib/libwrapper.so
+%%JAVAJARDIR%%/wrapper.jar

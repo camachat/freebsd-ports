@@ -1,0 +1,11 @@
+%%WWWDIR%%/CHANGELOG.md
+%%WWWDIR%%/LICENSE.md
+%%WWWDIR%%/README.md
+%%WWWDIR%%/composer.json
+%%WWWDIR%%/src/GettextTranslator.php
+%%WWWDIR%%/src/Locale.php
+%%WWWDIR%%/src/NoopTranslator.php
+%%WWWDIR%%/src/StaticTranslator.php
+%%WWWDIR%%/src/Translation.php
+%%WWWDIR%%/src/functions.php
+%%WWWDIR%%/src/functions_include.php

@@ -1,0 +1,39 @@
+PORTNAME=	hyprshutdown
+DISTVERSIONPREFIX=	v
+DISTVERSION=	0.1.2
+CATEGORIES=	x11 wayland
+
+MAINTAINER=	tagattie@FreeBSD.org
+COMMENT=	Graceful shutdown utility for Hyprland
+WWW=		https://github.com/hyprwm/hyprshutdown
+
+LICENSE=	BSD3CLAUSE
+LICENSE_FILE=	${WRKSRC}/LICENSE
+
+BUILD_DEPENDS=	glaze>=6.1.0:devel/glaze \
+		wayland-protocols>0:graphics/wayland-protocols
+LIB_DEPENDS=	libhyprutils.so:devel/hyprutils \
+		libhyprgraphics.so:graphics/hyprgraphics \
+		libdrm.so:graphics/libdrm \
+		libharfbuzz.so:print/harfbuzz \
+		libaquamarine.so:x11-toolkits/aquamarine \
+		libhyprtoolkit.so:x11-toolkits/hyprtoolkit
+
+USES=		cmake compiler gettext-runtime gl gnome pkgconfig xorg
+
+USE_GITHUB=	yes
+GH_ACCOUNT=	hyprwm
+
+USE_XORG=	pixman
+USE_GL=		glesv2
+USE_GNOME=	cairo glib20 pango
+
+PLIST_FILES=	bin/${PORTNAME}
+
+.include <bsd.port.mk>
+
+# XXX COMPILER_TYPE is defined after USES was already parsed
+.if ${CHOSEN_COMPILER_TYPE} == clang && ${_CCVERSION:M+assertions}
+llvm_ARGS=	build
+.include "${USESDIR}/llvm.mk"
+.endif

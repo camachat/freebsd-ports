@@ -1,0 +1,29 @@
+server:
+  logging:
+    - levels: "info|warning|error"
+      output: "stdout"
+  sources:
+    - path: %%WWWDIR%%
+      config:
+        defaultPermissions:
+          view: true
+          modify: false
+          create: false
+          delete: false
+          download: false
+  database:
+    path: "/var/db/filebrowser-quantum/filebrowser.sqlite"
+http:
+  port: 3080
+  baseURL: "/"
+userDefaults:
+  listing:
+    singleClick: false
+  ui:
+    darkMode: true
+  account:
+    disableSettings: false
+    permissions:
+      admin: false
+      api: false
+      share: false

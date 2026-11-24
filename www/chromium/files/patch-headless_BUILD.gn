@@ -1,0 +1,11 @@
+--- headless/BUILD.gn.orig	2026-11-19 12:25:27 UTC
++++ headless/BUILD.gn
+@@ -808,7 +808,7 @@ component("headless_shell_lib") {
+     "//v8",
+   ]
+ 
+-  if (!is_fuchsia) {
++  if (!is_fuchsia && !is_bsd) {
+     deps += [ "//components/crash/core/app" ]
+   }
+ 

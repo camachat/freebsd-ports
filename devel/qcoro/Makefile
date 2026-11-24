@@ -1,0 +1,28 @@
+PORTNAME=	qcoro
+DISTVERSIONPREFIX=	v
+DISTVERSION=	0.13.0
+CATEGORIES=	devel kde
+PKGNAMESUFFIX=	-qt6
+
+MAINTAINER=	kde@FreeBSD.org
+COMMENT=	Coroutines for Qt
+WWW=		https://github.com/qcoro/qcoro
+
+LICENSE=	MIT
+LICENSE_FILE=	${WRKSRC}/LICENSES/MIT.txt
+
+USES=		cmake:testing compiler:c++20-lang gl pkgconfig qt:6
+USE_GITHUB=	yes
+USE_GL=		opengl
+USE_QT=		base declarative websockets
+
+CMAKE_ARGS=		-DUSE_QT_VERSION="6"
+CMAKE_ON=		BUILD_SHARED_LIBS
+CMAKE_OFF=		QCORO_BUILD_EXAMPLES \
+			QCORO_BUILD_TESTING
+CMAKE_TESTING_ON=	QCORO_BUILD_TESTING
+
+PLIST_SUB=	SHORTVER=${DISTVERSION:R:R} \
+		FULLVER=${DISTVERSION}
+
+.include <bsd.port.mk>

@@ -1,0 +1,12 @@
+lib/cmake/Qt5Widgets/Qt5Widgets_QBB10StylePlugin.cmake
+lib/cmake/Qt5Widgets/Qt5Widgets_QCleanlooksStylePlugin.cmake
+lib/cmake/Qt5Widgets/Qt5Widgets_QMotifStylePlugin.cmake
+lib/cmake/Qt5Widgets/Qt5Widgets_QPlastiqueStylePlugin.cmake
+%%QT_PLUGINDIR%%/styles/libbb10styleplugin.so
+@comment %%QT_PLUGINDIR%%/styles/libbb10styleplugin.so.debug
+%%QT_PLUGINDIR%%/styles/libqcleanlooksstyle.so
+@comment %%QT_PLUGINDIR%%/styles/libqcleanlooksstyle.so.debug
+%%QT_PLUGINDIR%%/styles/libqmotifstyle.so
+@comment %%QT_PLUGINDIR%%/styles/libqmotifstyle.so.debug
+%%QT_PLUGINDIR%%/styles/libqplastiquestyle.so
+@comment %%QT_PLUGINDIR%%/styles/libqplastiquestyle.so.debug

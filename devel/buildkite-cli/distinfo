@@ -1,0 +1,5 @@
+TIMESTAMP = 1794263585
+SHA256 (go/devel_buildkite-cli/buildkite-cli-v3.67.0/v3.67.0.mod) = af3fd55a5ede4686cdd84aecd1f4baf59978fe1133112bda7a1fb83d9fbc4d23
+SIZE (go/devel_buildkite-cli/buildkite-cli-v3.67.0/v3.67.0.mod) = 4544
+SHA256 (go/devel_buildkite-cli/buildkite-cli-v3.67.0/v3.67.0.zip) = 72682489719f4fe07ded2ad9714fa9a9b1ce0333b21f8a1914b075dc7a438fc1
+SIZE (go/devel_buildkite-cli/buildkite-cli-v3.67.0/v3.67.0.zip) = 1591976

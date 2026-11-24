@@ -1,0 +1,15 @@
+TIMESTAMP = 1795010106
+SHA256 (rocky/a/avahi-glib-0.8-24.el9.aarch64.rpm) = c49e2ebae7f78e8e22d50fbcb60749ecf417ec57d695562c2186efbaf2a787a3
+SIZE (rocky/a/avahi-glib-0.8-24.el9.aarch64.rpm) = 13323
+SHA256 (rocky/a/avahi-glib-0.8-24.el9.i686.rpm) = 1d6fd9471afa82abc9575c5a210d5476d40a1effaa5cbecb166a8719fc7398b1
+SIZE (rocky/a/avahi-glib-0.8-24.el9.i686.rpm) = 14197
+SHA256 (rocky/a/avahi-glib-0.8-24.el9.x86_64.rpm) = 12c58ab099072293c99a8c1e42d2eca2061ab254cecac99c67a0125f4f535f37
+SIZE (rocky/a/avahi-glib-0.8-24.el9.x86_64.rpm) = 13747
+SHA256 (rocky/a/avahi-libs-0.8-24.el9.aarch64.rpm) = 312c73ddc7053328e30311ed48c019c3a18ffff9d859691fdae26e70e7132319
+SIZE (rocky/a/avahi-libs-0.8-24.el9.aarch64.rpm) = 66299
+SHA256 (rocky/a/avahi-libs-0.8-24.el9.i686.rpm) = 5f79d1fc51a00f6a85f6fc229a1717c9f95f8bd78ef1f4a9ecd371fe594dad89
+SIZE (rocky/a/avahi-libs-0.8-24.el9.i686.rpm) = 72109
+SHA256 (rocky/a/avahi-libs-0.8-24.el9.x86_64.rpm) = 5b82c7a969a9605a91aae0a0625e6773b44ef7700d18dff89a4e405cbdc7c979
+SIZE (rocky/a/avahi-libs-0.8-24.el9.x86_64.rpm) = 67687
+SHA256 (rocky/a/avahi-0.8-24.el9.src.rpm) = d1cf29af2bf768e19114ad6964cdded535759790e2e2281ae9919795e651ca88
+SIZE (rocky/a/avahi-0.8-24.el9.src.rpm) = 1627106

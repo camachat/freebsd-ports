@@ -1,0 +1,14 @@
+bin/hla-http
+bin/hla-https
+bin/hla-meshtastic
+bin/hla-tcp
+bin/hlc
+bin/hlk
+bin/hls-filesharer
+bin/hls-messenger
+bin/hls-pinger
+%%DOCS%%%%PORTDOCS%%%%DOCSDIR%%/CODESTYLE.md
+%%DOCS%%%%PORTDOCS%%%%DOCSDIR%%/DEF_PORTS.md
+%%DOCS%%%%PORTDOCS%%%%DOCSDIR%%/README.md
+%%DOCS%%%%PORTDOCS%%%%DOCSDIR%%/hidden_lake_anonymous_network.pdf
+%%DOCS%%%%PORTDOCS%%%%DOCSDIR%%/hidden_lake_anonymous_network_scheme.svg

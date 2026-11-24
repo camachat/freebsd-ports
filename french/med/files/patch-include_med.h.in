@@ -1,0 +1,34 @@
+--- include/med.h.in.orig	2025-05-15 15:20:19 UTC
++++ include/med.h.in
+@@ -24,6 +24,18 @@
+ #include <stdint.h>   // Use the C99 official header
+ #endif
+ 
++/* Include mpi.h to fix the compilation for the consumers */
++/* Avoid conflict between Status in X11/Xlib.h and mpicxx.h with SKIP_MPICXX */
++/* FreeBSD: remove if MED_HAVE_MPI
++#ifndef MPICH_SKIP_MPICXX
++#define MPICH_SKIP_MPICXX
++#endif
++#ifndef OMPI_SKIP_MPICXX
++#define OMPI_SKIP_MPICXX
++#endif
++#include <mpi.h>
++FreeBSD: remove if MED_HAVE_MPI */
++
+ #ifdef __cplusplus
+ extern "C" {
+ #endif
+@@ -37,12 +49,7 @@ extern "C" {
+ 
+ #define HDF5_VERSION (H5_VERS_MAJOR * 10000 + H5_VERS_MINOR * 100  + H5_VERS_RELEASE )
+ 
+-#if HDF5_VERSION < 10607
+-/*TODO : A enlever après MAJ complète api hdf5-1.8 */
+-#define HDF5_SELECT_BUG (const hsize_t **)
+-#else
+ #define HDF5_SELECT_BUG
+-#endif
+ 
+ /*Le symbole H5F_LIBVER_18 n'existe pas dans hdf5-1.8.4 (uniquement à partir de la version 1.8.6)
+   Pour rester dans le modèle interne hdf introduit en 1.8 quelque soit les futurs modèles internes hdf

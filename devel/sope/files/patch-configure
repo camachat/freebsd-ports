@@ -1,0 +1,11 @@
+--- configure.orig	2026-03-03 11:58:39 UTC
++++ configure
+@@ -46,7 +46,7 @@ fi
+ fi
+ 
+ # TODO: add pg_config, mysql_config etc!
+-LINK_SYSLIBDIRS="-L/usr/local/pgsql/lib -L/usr/local/lib -L/usr/lib"
++LINK_SYSLIBDIRS="-L%%LOCALBASE%%/lib/postgresql -L%%LOCALBASE%%/lib/mysql -L%%LOCALBASE%%/lib -L/usr/lib"
+ 
+ # ******************** usage ********************
+ 

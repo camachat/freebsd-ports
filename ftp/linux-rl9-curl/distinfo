@@ -1,0 +1,13 @@
+TIMESTAMP = 1795008103
+SHA256 (rocky/c/curl-7.76.1-43.el9.aarch64.rpm) = ac247f276eb21305fbedb92da44f3d0d50af34e18e6ccf836cd2f74f8e18597a
+SIZE (rocky/c/curl-7.76.1-43.el9.aarch64.rpm) = 296408
+SHA256 (rocky/c/curl-7.76.1-43.el9.x86_64.rpm) = e347c656cfa38a6d02893977b610adc61d293d63a779696b5d82259f7ac081ed
+SIZE (rocky/c/curl-7.76.1-43.el9.x86_64.rpm) = 299535
+SHA256 (rocky/l/libcurl-7.76.1-43.el9.aarch64.rpm) = 19adbe90ed495da9a8199570c687adaed9de703d22ceab4233948b703cecee88
+SIZE (rocky/l/libcurl-7.76.1-43.el9.aarch64.rpm) = 285789
+SHA256 (rocky/l/libcurl-7.76.1-43.el9.i686.rpm) = ef76ff5f3f6ece2156d22b61092257ac45abac576e92f25051ee31245ce7e3c4
+SIZE (rocky/l/libcurl-7.76.1-43.el9.i686.rpm) = 317206
+SHA256 (rocky/l/libcurl-7.76.1-43.el9.x86_64.rpm) = 81c489eaf839a304ea7428af8c274a87be4cb2f1219690e1eb0545bd6fbaa5c0
+SIZE (rocky/l/libcurl-7.76.1-43.el9.x86_64.rpm) = 290096
+SHA256 (rocky/c/curl-7.76.1-43.el9.src.rpm) = 0818afd7a82c89385913cba16abcefe079af9759d919cbd7a32498ac36b1cbcd
+SIZE (rocky/c/curl-7.76.1-43.el9.src.rpm) = 2560692

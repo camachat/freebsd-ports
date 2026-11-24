@@ -1,0 +1,6 @@
+bin/stalwart-proxy
+@dir(stalwart-proxy,stalwart-proxy,750) %%ETCDIR%%
+@dir(stalwart-proxy,stalwart-proxy,750) %%ETCDIR%%/certs
+@dir(stalwart-proxy,stalwart-proxy,750) %%ETCDIR%%/mappings
+@sample(root,stalwart-proxy,640) %%ETCDIR%%/config.toml.sample
+@sample(root,stalwart-proxy,640) %%ETCDIR%%/mappings/mappings.tsv.sample

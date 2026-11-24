@@ -1,0 +1,5 @@
+TIMESTAMP = 1795395164
+SHA256 (go/net_qrcp/qrcp-v0.12.0/v0.12.0.mod) = dfb4027a9ada46f246b9b967a8e8ef667efaa6fcdef1b3577c61c00b17fc9b90
+SIZE (go/net_qrcp/qrcp-v0.12.0/v0.12.0.mod) = 1528
+SHA256 (go/net_qrcp/qrcp-v0.12.0/v0.12.0.zip) = cf6a42272deac17699dc690bdf9b8fbc88f838f64f7559abcd40110994a4f3fa
+SIZE (go/net_qrcp/qrcp-v0.12.0/v0.12.0.zip) = 13357464

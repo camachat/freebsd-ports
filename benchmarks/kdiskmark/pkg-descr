@@ -1,0 +1,6 @@
+KDiskMark is an HDD and SSD benchmark tool with a very friendly graphical
+Qt-based user interface.  KDiskMark with its presets and powerful GUI calls
+Flexible I/O Tester and handles the output to provide an easy to view and
+interpret comprehensive benchmark result.
+
+It is inspired by and resembles famous CrystalDiskMark program for Windows.

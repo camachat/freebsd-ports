@@ -1,0 +1,113 @@
+--- net/BUILD.gn.orig	2026-11-17 21:17:00 UTC
++++ net/BUILD.gn
+@@ -105,7 +105,7 @@ net_configs = [
+   "//build/config/compiler:wexit_time_destructors",
+ ]
+ 
+-if (is_linux || is_chromeos) {
++if ((is_linux || is_chromeos) && !is_bsd) {
+   net_configs += [ "//build/config/linux:libresolv" ]
+ }
+ 
+@@ -1269,6 +1269,7 @@ component("net") {
+     ":cronet_buildflags",
+     ":net_deps",
+     "//components/network_time/time_tracker",
++    "//content/public/common:buildflags",
+     "//components/unexportable_keys",
+     "//net/http:transport_security_state_generated_files",
+     "//third_party/rust/sfv/v0_15/wrapper",
+@@ -1464,7 +1465,7 @@ component("net") {
+       "proxy_resolution/proxy_config_service_linux.h",
+     ]
+     deps += [ "//build/config/linux/dbus:buildflags" ]
+-    if (use_dbus && !is_cronet_build) {
++    if (use_dbus && !is_cronet_build && !is_bsd) {
+       sources += [ "base/network_change_notifier_linux_portal.cc" ]
+       deps += [
+         "//components/dbus",
+@@ -1495,6 +1496,19 @@ component("net") {
+     ]
+   }
+ 
++  if (is_bsd) {
++    sources -= [
++      "base/address_map_cache_linux.cc",
++      "base/address_map_cache_linux.h",
++      "base/address_map_linux.cc",
++      "base/address_map_linux.h",
++      "base/address_tracker_linux.cc",
++      "base/address_tracker_linux.h",
++      "base/network_change_notifier_linux.cc",
++      "base/network_interfaces_linux.cc",
++    ]
++  }   
++
+   if (is_mac) {
+     sources += [
+       "base/network_notification_thread_mac.cc",
+@@ -1669,7 +1683,7 @@ component("net") {
+   }
+ 
+   # Use getifaddrs() on POSIX platforms, except Linux.
+-  if (is_posix && !is_linux && !is_chromeos) {
++  if ((is_posix && !is_linux && !is_chromeos) || is_bsd) {
+     sources += [
+       "base/network_interfaces_getifaddrs.cc",
+       "base/network_interfaces_getifaddrs.h",
+@@ -2454,7 +2468,7 @@ static_library("test_support") {
+     ]
+   }
+ 
+-  if (is_linux || is_chromeos || is_android) {
++  if (!is_bsd && (is_linux || is_chromeos || is_android)) {
+     sources += [
+       "base/address_tracker_linux_test_util.cc",
+       "base/address_tracker_linux_test_util.h",
+@@ -3311,7 +3325,7 @@ target(_test_target_type, "net_unittests") {
+     ]
+   }
+ 
+-  if (is_linux) {
++  if (is_linux && !is_bsd) {
+     sources += [
+       "base/network_change_notifier_linux_unittest.cc",
+       "proxy_resolution/linux/linux_system_proxy_resolution_service_unittest.cc",
+@@ -3319,7 +3333,7 @@ target(_test_target_type, "net_unittests") {
+     ]
+   }
+ 
+-  if (is_linux || is_chromeos) {
++  if ((is_linux || is_chromeos) && !is_bsd) {
+     sources += [
+       "base/address_tracker_linux_unittest.cc",
+       "base/network_interfaces_linux_unittest.cc",
+@@ -3462,6 +3476,10 @@ target(_test_target_type, "net_unittests") {
+     ]
+   }
+ 
++  if (is_bsd) {
++    deps += [ "//sandbox/policy" ]
++  }
++
+   if (enable_websockets) {
+     sources += [
+       "server/http_connection_unittest.cc",
+@@ -3520,7 +3538,7 @@ target(_test_target_type, "net_unittests") {
+   ]
+   data_deps = [ "//testing/buildbot/filters:net_unittests_filters" ]
+ 
+-  if (is_linux || is_chromeos) {
++  if ((is_linux || is_chromeos) && !is_bsd) {
+     sources += [ "tools/quic/quic_simple_server_test.cc" ]
+   }
+ 
+@@ -3656,7 +3674,7 @@ target(_test_target_type, "net_unittests") {
+   }
+ 
+   # Use getifaddrs() on POSIX platforms, except Linux.
+-  if (is_posix && !is_linux && !is_chromeos) {
++  if (is_posix && !is_linux && !is_chromeos && !is_bsd) {
+     sources += [ "base/network_interfaces_getifaddrs_unittest.cc" ]
+   }
+ 

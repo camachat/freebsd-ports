@@ -1,0 +1,40 @@
+- use the shared library for nanopb
+
+--- meson.build.orig	2026-10-03 19:32:11 UTC
++++ meson.build
+@@ -136,7 +136,7 @@ cmake = import('cmake')
+ 
+ cmake = import('cmake')
+ 
+-debugbreak = dependency('debugbreak')
++#debugbreak = dependency('debugbreak')
+ 
+ # klib is header-only
+ klib_fallback = (get_option('wrap_mode') == 'forcefallback'
+@@ -190,7 +190,7 @@ nanopb = dependency('nanopb', required: get_option('wr
+ endif
+ 
+ nanopb = dependency('nanopb', required: get_option('wrap_mode') == 'nofallback', method: 'cmake',
+-					modules: ['nanopb::protobuf-nanopb-static'])
++					modules: ['nanopb::protobuf-nanopb'])
+ must_regenerate_pb = nanopb.found()
+ if (not nanopb.found()
+ 	or get_option('wrap_mode') == 'forcefallback'
+@@ -204,7 +204,7 @@ if (not nanopb.found()
+ 		'CMAKE_POSITION_INDEPENDENT_CODE': true,
+ 	})
+ 	nanopb_proj = cmake.subproject('nanopb-cmake', options: nanopb_opts)
+-	nanopb = nanopb_proj.dependency('protobuf-nanopb-static')
++	nanopb = nanopb_proj.dependency('protobuf-nanopb')
+ endif
+ 
+ libgit2 = dependency('libgit2', required: get_option('wrap_mode') == 'nofallback')
+@@ -257,7 +257,7 @@ deps += [
+ endif
+ 
+ deps += [
+-	debugbreak,
++	#debugbreak,
+ 	klib,
+ 	threads,
+ 	boxfort,

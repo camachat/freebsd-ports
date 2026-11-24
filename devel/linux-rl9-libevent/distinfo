@@ -1,0 +1,9 @@
+TIMESTAMP = 1794957631
+SHA256 (rocky/l/libevent-2.1.13-1.el9_8.aarch64.rpm) = 018798c96163a428b3ba32366d0cfcdb7c8f762d21324b2bad42f97f8a107339
+SIZE (rocky/l/libevent-2.1.13-1.el9_8.aarch64.rpm) = 259258
+SHA256 (rocky/l/libevent-2.1.13-1.el9_8.i686.rpm) = 0ae4b2e1a2567a66817c5b2ff5e6dd06c4d145626b038bdc9706576e48b8a4bf
+SIZE (rocky/l/libevent-2.1.13-1.el9_8.i686.rpm) = 285099
+SHA256 (rocky/l/libevent-2.1.13-1.el9_8.x86_64.rpm) = 3f5dec4cb901f21e0cd20bdca2a7a30cf2cc1973faa79896c19676dcb75e563b
+SIZE (rocky/l/libevent-2.1.13-1.el9_8.x86_64.rpm) = 267020
+SHA256 (rocky/l/libevent-2.1.13-1.el9_8.src.rpm) = f100cd47fbe8222d27d7d2c63ed16bed1b0fca9214c746215d13e128bc51e527
+SIZE (rocky/l/libevent-2.1.13-1.el9_8.src.rpm) = 1146656

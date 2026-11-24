@@ -1,0 +1,17 @@
+- Add logic so extra plugins can build without installing base components.
+
+--- src/filter/CMakeLists.txt.orig	2026-11-12 09:33:52 UTC
++++ src/filter/CMakeLists.txt
+@@ -16,6 +16,7 @@ endif (${Cairo_FOUND})
+   add_subdirectory (shake0scillate)
+ endif (${Cairo_FOUND})
+ 
++if (NOT BUILD_EXTRA_PLUGINS)
+ add_subdirectory (3dflippo)
+ add_subdirectory (3dperspective)
+ add_subdirectory (aech0r)
+@@ -118,3 +119,4 @@ add_subdirectory (whirlpinch0r)
+ add_subdirectory (vignette)
+ add_subdirectory (water)
+ add_subdirectory (whirlpinch0r)
++endif(NOT BUILD_EXTRA_PLUGINS)

@@ -1,0 +1,43 @@
+--- configure.orig	2026-08-23 06:35:09 UTC
++++ configure
+@@ -15421,7 +15421,7 @@ case "$host_os" in
+ fi
+ 
+ case "$host_os" in
+-freebsd*)
++XXXfreebsd*)
+ 	# This is only necessary if you are linking against an obsolete
+ 	# version of ncurses (but it should do no harm, since it is static).
+ 	if test "$cf_nculib_root" = ncurses ; then
+@@ -17753,7 +17753,7 @@ case "$host_os" in
+ fi
+ 
+ case "$host_os" in
+-freebsd*)
++XXXfreebsd*)
+ 	# This is only necessary if you are linking against an obsolete
+ 	# version of ncurses (but it should do no harm, since it is static).
+ 	if test "$cf_nculib_root" = ncurses ; then
+@@ -18621,3 +18621,3 @@
+ if test "$cf_result" = no ; then
+ case "$host_os" in
+-freebsd*)
++XXXfreebsd*)
+@@ -23228,13 +23228,13 @@ echo $ECHO_N "checking for OpenSSL... $ECHO_C" >&6
+ echo "$as_me:23228: checking for OpenSSL" >&5
+ echo $ECHO_N "checking for OpenSSL... $ECHO_C" >&6
+ 
+-if test "$PKG_CONFIG" != none && "$PKG_CONFIG" --exists "openssl"; then
+-	test -n "$verbose" && echo "	found package openssl" 1>&6
++# FreeBSD base does not provide openssl.pc.
++if true; then
+ 
+ echo "${as_me:-configure}:23234: testing found package openssl ..." 1>&5
+ 
+-	cf_pkgconfig_incs="`$PKG_CONFIG --cflags "openssl" 2>/dev/null`"
+-	cf_pkgconfig_libs="`$PKG_CONFIG --libs   "openssl" 2>/dev/null`"
++	cf_pkgconfig_incs=""
++	cf_pkgconfig_libs="-lssl -lcrypto"
+ 	test -n "$verbose" && echo "	package openssl CFLAGS: $cf_pkgconfig_incs" 1>&6
+ 
+ echo "${as_me:-configure}:23240: testing package openssl CFLAGS: $cf_pkgconfig_incs ..." 1>&5

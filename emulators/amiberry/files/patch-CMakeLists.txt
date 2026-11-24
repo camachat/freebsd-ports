@@ -1,0 +1,12 @@
+--- CMakeLists.txt.orig	2026-10-04 18:34:33 UTC
++++ CMakeLists.txt
+@@ -139,9 +139,6 @@ if(QEMU_UAE_PLUGIN)
+         message(FATAL_ERROR "QEMU_UAE_PLUGIN requires USE_PPC=ON and USE_QEMU_PPC=ON")
+     endif()
+     get_filename_component(QEMU_UAE_PLUGIN "${QEMU_UAE_PLUGIN}" ABSOLUTE BASE_DIR "${CMAKE_SOURCE_DIR}")
+-    if(NOT EXISTS "${QEMU_UAE_PLUGIN}")
+-        message(FATAL_ERROR "QEMU_UAE_PLUGIN does not exist: ${QEMU_UAE_PLUGIN}")
+-    endif()
+     set(QEMU_UAE_PLUGIN "${QEMU_UAE_PLUGIN}" CACHE FILEPATH "Path to a prebuilt qemu-uae plugin artifact to bundle" FORCE)
+     if(QEMU_UAE_PLUGIN_DIR)
+         get_filename_component(QEMU_UAE_PLUGIN_DIR "${QEMU_UAE_PLUGIN_DIR}" ABSOLUTE BASE_DIR "${CMAKE_SOURCE_DIR}")

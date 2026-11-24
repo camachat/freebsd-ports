@@ -1,0 +1,5 @@
+TIMESTAMP = 1795103844
+SHA256 (otelcol-contrib_0.165.0_linux_amd64.tar.gz) = bd6e73d94bf3359ad6fac25529a8ee308adb9b0b8a0e8af034ed3891fbe5aa33
+SIZE (otelcol-contrib_0.165.0_linux_amd64.tar.gz) = 114481108
+SHA256 (otelcol-contrib_0.165.0_linux_arm64.tar.gz) = 376420729c862230807bc89811d07d10031eaeca3f6481fe371a2bdcefd2c8fa
+SIZE (otelcol-contrib_0.165.0_linux_arm64.tar.gz) = 103664601

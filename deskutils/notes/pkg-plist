@@ -1,0 +1,6 @@
+bin/notes
+share/applications/io.github.nuttyartist.notes.desktop
+share/icons/hicolor/128x128/apps/io.github.nuttyartist.notes.png
+share/icons/hicolor/256x256/apps/io.github.nuttyartist.notes.png
+share/icons/hicolor/512x512/apps/io.github.nuttyartist.notes.png
+share/metainfo/io.github.nuttyartist.notes.metainfo.xml

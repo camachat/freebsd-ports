@@ -1,0 +1,7 @@
+TIMESTAMP = 1795358486
+SHA256 (go/www_opengist/opengist-v1.16.0/opengist1.16.0-webdist.tar.gz) = 13af439f5c7da34b6e62d492ee321885bc12dee338a2bfcd2818e431e544702a
+SIZE (go/www_opengist/opengist-v1.16.0/opengist1.16.0-webdist.tar.gz) = 2008248
+SHA256 (go/www_opengist/opengist-v1.16.0/v1.16.0.mod) = 987aac85e37e68307766d24109c1b8c6a1ed67bd040b36daaa7c00191617b028
+SIZE (go/www_opengist/opengist-v1.16.0/v1.16.0.mod) = 5763
+SHA256 (go/www_opengist/opengist-v1.16.0/v1.16.0.zip) = fe12555332db4c53690aea5238b37629584cd1353bd52a5b78bc099153c5f141
+SIZE (go/www_opengist/opengist-v1.16.0/v1.16.0.zip) = 1941756

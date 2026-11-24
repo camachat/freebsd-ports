@@ -1,0 +1,12 @@
+[
+{ type: install
+  message: <<EOM
+----------------------------------------------------------------------
+Thanks for installing Kubernetes API server on FreeBSD.
+Set kube_apiserver_args in rc.conf (defaults to --bind-address=0.0.0.0
+--v=2); see
+https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/
+----------------------------------------------------------------------
+EOM
+}
+]

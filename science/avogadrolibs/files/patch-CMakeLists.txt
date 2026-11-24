@@ -1,0 +1,15 @@
+- git is only needed when 'molecules' and 'crystals' aren't supplied by the caller
+
+--- CMakeLists.txt.orig	2026-10-23 12:26:15 UTC
++++ CMakeLists.txt
+@@ -26,8 +26,8 @@ set(AvogadroLibs_VERSION
+ set(AvogadroLibs_VERSION_PATCH   "0")
+ set(AvogadroLibs_VERSION
+   "${AvogadroLibs_VERSION_MAJOR}.${AvogadroLibs_VERSION_MINOR}.${AvogadroLibs_VERSION_PATCH}")
+-find_package(Git)
+-determine_version(${AvogadroLibs_SOURCE_DIR} ${GIT_EXECUTABLE} "AvogadroLibs")
++#find_package(Git)
++#determine_version(${AvogadroLibs_SOURCE_DIR} ${GIT_EXECUTABLE} "AvogadroLibs")
+ 
+ # path for data / fragment files which could be overridden by package maintainers
+ # by default we assume we're using the openchemistry superbuild layout

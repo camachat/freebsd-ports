@@ -1,0 +1,40 @@
+PORTNAME=	bsdrcmds
+PORTVERSION=	20260315
+PORTREVISION=	0
+CATEGORIES=	net
+
+MAINTAINER=	jlh@FreeBSD.org
+COMMENT=	FreeBSD rcmds (rcp/rlogin/rlogind/rsh/rshd)
+
+LICENSE=	BSD3CLAUSE
+
+USES=		uidfix
+
+USE_GITHUB=	yes
+GH_ACCOUNT=	jlehen
+
+MAKE_ARGS+=		BINOWN=${BINOWN} BINMODE=${BINMODE} MANDIR=${PREFIX}/share/man/man
+MAKE_ENV+=		MK_WERROR=no
+
+OPTIONS_DEFINE=		IPV6 LIBBLOCKLIST
+OPTIONS_DEFAULT=	LIBBLOCKLIST
+
+IPV6_MAKE_ARGS=		USE_IPV6=yes
+
+LIBBLOCKLIST_DESC=	libblocklist(3) support for rlogind(8) and rshd(8)
+LIBBLOCKLIST_MAKE_ARGS=	USE_LIBBLOCKLIST=yes
+
+.include <bsd.port.options.mk>
+
+PATCH_SITES=	https://github.com/${GH_ACCOUNT}/${PORTNAME}/pull/
+PATCHFILES=	4.patch
+PATCH_DIST_STRIP=	-p1
+
+.if ${PORT_OPTIONS:MLIBBLOCKLIST}
+. if ${OPSYS} == FreeBSD && ${OSVERSION} < 1500000
+LIBBLOCKLIST_MAKE_ARGS=	USE_LIBBLACKLIST=yes
+EXTRA_PATCHES=		${FILESDIR}/libblacklist-patches
+. endif
+.endif
+
+.include <bsd.port.mk>

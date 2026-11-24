@@ -1,0 +1,29 @@
+--- src/3rdparty/chromium/base/allocator/partition_allocator/partition_alloc.gni.orig	2026-05-08 07:54:08 UTC
++++ src/3rdparty/chromium/base/allocator/partition_allocator/partition_alloc.gni
+@@ -66,7 +66,7 @@ if (current_cpu == "x64" || current_cpu == "arm64" || 
+ # Whether 64-bit pointers are used.
+ # A static_assert in partition_alloc_config.h verifies that.
+ if (current_cpu == "x64" || current_cpu == "arm64" || current_cpu == "arm64e" ||
+-    current_cpu == "loong64" || current_cpu == "riscv64") {
++    current_cpu == "loong64" || current_cpu == "riscv64" || current_cpu == "ppc64") {
+   assert(current_cpu != "arm64e" || (is_ios && target_environment == "device"))
+   has_64_bit_pointers = true
+ } else if (current_cpu == "x86" || current_cpu == "arm" ||
+@@ -87,7 +87,7 @@ use_large_empty_slot_span_ring = true
+ # TODO(crbug.com/329199197): Clean this up when experiments are complete.
+ use_large_empty_slot_span_ring = true
+ 
+-has_memory_tagging = current_cpu == "arm64" && is_clang && !is_asan &&
++has_memory_tagging = current_cpu == "arm64" && !is_bsd && is_clang && !is_asan &&
+                      !is_hwasan && (is_linux || is_android)
+ 
+ declare_args() {
+@@ -493,7 +493,7 @@ is_pkeys_available =
+ # dependencies that use partition_allocator are compiled in AOSP against a
+ # version of glibc that does not include pkeys syscall numbers.
+ is_pkeys_available =
+-    (is_linux || is_chromeos) && current_cpu == "x64" && !is_cronet_build
++    !is_bsd && (is_linux || is_chromeos) && current_cpu == "x64" && !is_cronet_build
+ declare_args() {
+   enable_pkeys = is_pkeys_available
+ }

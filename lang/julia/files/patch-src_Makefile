@@ -1,0 +1,22 @@
+--- src/Makefile.orig	2026-10-25 17:06:47 UTC
++++ src/Makefile
+@@ -168,7 +168,8 @@ ifneq ($(USE_LLVM_SHLIB),1)
+ # USE_SYSTEM_LLVM == 0
+ ifneq ($(USE_LLVM_SHLIB),1)
+ # USE_LLVM_SHLIB != 1
+-CG_LLVMLINK += $(LLVM_LDFLAGS) $(shell $(LLVM_CONFIG_HOST) --libs $(CG_LLVM_LIBS) --link-static) $($(LLVM_LDFLAGS) $(shell $(LLVM_CONFIG_HOST) --system-libs 2> /dev/null)
++# CG_LLVMLINK += $(LLVM_LDFLAGS) $(shell $(LLVM_CONFIG_HOST) --libs $(CG_LLVM_LIBS) --link-static) $($(LLVM_LDFLAGS) $(shell $(LLVM_CONFIG_HOST) --system-libs 2> /dev/null)
++CG_LLVMLINK += $(LLVM_LDFLAGS) $($(LLVM_LDFLAGS) $(shell $(LLVM_CONFIG_HOST) --libs 2> /dev/null)
+ else
+ # USE_LLVM_SHLIB == 1
+ ifeq ($(OS), Darwin)
+@@ -187,7 +188,8 @@ CG_LLVMLINK := $(subst /workspace/destdir/lib/libzstd.
+ 
+ # Use subst to work around llvm-configure bug in Yggdrasil build: https://github.com/llvm/llvm-project/pull/139945
+ CG_LLVMLINK := $(subst /workspace/destdir/lib/libzstd.dll.a,-lzstd,$(CG_LLVMLINK))
+-RT_LLVM_LINK_ARGS := $(subst /workspace/destdir/lib/libzstd.dll.a,-lzstd,$(shell $(LLVM_CONFIG_HOST) --libs $(RT_LLVM_LIBS) --system-libs --link-static))
++#RT_LLVM_LINK_ARGS := $(subst /workspace/destdir/lib/libzstd.dll.a,-lzstd,$(shell $(LLVM_CONFIG_HOST) --libs $(RT_LLVM_LIBS) --system-libs --link-static))
++RT_LLVM_LINK_ARGS := $(shell $(LLVM_CONFIG_HOST) --libs --system-libs)
+ RT_LLVMLINK += $(LLVM_LDFLAGS) $(RT_LLVM_LINK_ARGS)
+ ifeq ($(OS), WINNT)
+ RT_LLVMLINK += -luuid -lole32

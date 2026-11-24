@@ -1,0 +1,9 @@
+%%EMACS_SITE_LISPDIR%%/emacsql/emacsql-autoloads.el
+%%EMACS_SITE_LISPDIR%%/emacsql/emacsql-compiler.el
+%%EMACS_SITE_LISPDIR%%/emacsql/emacsql-mysql.el
+%%EMACS_SITE_LISPDIR%%/emacsql/emacsql-pg.el
+%%EMACS_SITE_LISPDIR%%/emacsql/emacsql-psql.el
+%%EMACS_SITE_LISPDIR%%/emacsql/emacsql-sqlite-builtin.el
+%%EMACS_SITE_LISPDIR%%/emacsql/emacsql-sqlite-module.el
+%%EMACS_SITE_LISPDIR%%/emacsql/emacsql-sqlite.el
+%%EMACS_SITE_LISPDIR%%/emacsql/emacsql.el

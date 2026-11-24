@@ -1,0 +1,34 @@
+--- services/device/usb/BUILD.gn.orig	2026-11-19 12:25:27 UTC
++++ services/device/usb/BUILD.gn
+@@ -89,7 +89,7 @@ static_library("usb") {
+     deps += [ "//third_party/re2" ]
+   }
+ 
+-  if (is_mac) {
++  if (is_mac || is_openbsd) {
+     # These sources and deps are required for libusb.
+     # TODO(crbug.com/40136337) Remove these sources.
+     sources += [
+@@ -112,6 +112,13 @@ static_library("usb") {
+     deps += [ "//third_party/libusb" ]
+   }
+ 
++  if (is_freebsd) {
++    sources += [
++      "usb_service_fake.cc",
++      "usb_service_fake.h",
++    ]
++  }
++
+   if (is_linux || is_chromeos) {
+     sources += [
+       "usb_device_linux.cc",
+@@ -129,7 +136,7 @@ static_library("usb") {
+     deps += [ "//device/udev_linux" ]
+   }
+ 
+-  if (is_android || is_chromeos || is_linux) {
++  if (is_android || is_chromeos || is_linux && !is_bsd) {
+     sources += [
+       "usb_device_handle_usbfs.cc",
+       "usb_device_handle_usbfs.h",

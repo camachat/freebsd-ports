@@ -1,0 +1,5 @@
+TIMESTAMP = 1795362363
+SHA256 (go/sysutils_helm/helm-v3.22.1/v3.22.1.mod) = be0cacce34c7c9535c519a231caa0a29481c3a2db0d4b16d47734afa470f0e47
+SIZE (go/sysutils_helm/helm-v3.22.1/v3.22.1.mod) = 9072
+SHA256 (go/sysutils_helm/helm-v3.22.1/v3.22.1.zip) = 863abb637628988991670d567e1ad11122647fccf2794fb71bf44a22129b57f8
+SIZE (go/sysutils_helm/helm-v3.22.1/v3.22.1.zip) = 1428622

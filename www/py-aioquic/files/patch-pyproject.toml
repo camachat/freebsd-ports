@@ -1,0 +1,18 @@
+--- pyproject.toml.orig	2026-10-16 19:13:50 UTC
++++ pyproject.toml
+@@ -1,5 +1,5 @@
+ [build-system]
+-requires = ["setuptools>=70.1"]
++requires = ["setuptools>=61"]
+ build-backend = "setuptools.build_meta"
+ 
+ [project]
+@@ -7,7 +7,7 @@ requires-python = ">=3.11"
+ description = "An implementation of QUIC and HTTP/3"
+ readme = "README.rst"
+ requires-python = ">=3.11"
+-license = "BSD-3-Clause"
++license = { text = "BSD-3-Clause" }
+ authors = [
+     { name = "Jeremy Lainé", email = "jeremy.laine@m4x.org" },
+ ]

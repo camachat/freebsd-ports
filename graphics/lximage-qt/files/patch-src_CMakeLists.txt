@@ -1,0 +1,11 @@
+--- src/CMakeLists.txt.orig	2026-11-03 13:19:22 UTC
++++ src/CMakeLists.txt
+@@ -94,7 +94,7 @@ target_link_libraries(lximage-qt
+ target_link_libraries(lximage-qt
+     fm-qt6
+     ${QT_LIBRARIES}
+-    ${EXIF_LIBRARIES}
++    ${EXIF_LDFLAGS}
+     ${X11_LIBRARIES}
+     ${XFIXES_LDFLAGS}
+ )

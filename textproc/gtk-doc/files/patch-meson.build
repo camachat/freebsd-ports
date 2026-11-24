@@ -1,0 +1,20 @@
+--- meson.build.orig	2026-03-10 10:57:12 UTC
++++ meson.build
+@@ -13,7 +13,7 @@ endif
+   required_python_modules += ['parameterized']
+ endif
+ 
+-python3 = python.find_installation('python3', modules: required_python_modules)
++python3 = python.find_installation(python.find_installation().full_path(), modules: required_python_modules)
+ 
+ # Paths
+ srcdir = meson.current_source_dir()
+@@ -140,7 +140,7 @@ configure_file(
+   output: 'gtk-doc.pc',
+   configuration: gtkdoc_pc,
+   install: true,
+-  install_dir: get_option('datadir') / 'pkgconfig',
++  install_dir: join_paths(get_option('prefix'), 'libdata', 'pkgconfig'),
+ )
+ 
+ subdir('help')

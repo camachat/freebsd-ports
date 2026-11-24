@@ -1,0 +1,20 @@
+--- CMakeLists.txt.orig	2024-11-14 09:40:56 UTC
++++ CMakeLists.txt
+@@ -2,7 +2,7 @@ else()
+   set(CMAKE_LEGACY_CYGWIN_WIN32 0) # Remove when CMake > 2.8.4 is required
+   cmake_minimum_required(VERSION 2.8)
+ else()
+-  cmake_minimum_required(VERSION 3.1)
++  cmake_minimum_required(VERSION 3.5)
+ endif()
+ 
+ project(lpass)
+@@ -101,7 +101,7 @@ set(PROJECT_DEFINITIONS "_GNU_SOURCE")
+ 
+ set(PROJECT_DEFINITIONS "_GNU_SOURCE")
+ 
+-set(PROJECT_FLAGS "-std=gnu99 -pedantic -Wall -Wextra -Wno-language-extension-token")
++set(PROJECT_FLAGS "-std=gnu99 -pedantic -Wall -Wextra")
+ if(APPLE)
+   set(PROJECT_FLAGS "${PROJECT_FLAGS} -Wno-deprecated-declarations")
+ endif()

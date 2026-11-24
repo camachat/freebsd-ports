@@ -1,0 +1,11 @@
+--- src/meson.build.orig	2024-11-08 18:29:25 UTC
++++ src/meson.build
+@@ -13,7 +13,7 @@ liblxi_deps = [
+   dependency('threads', required: true),
+ ]
+ 
+-tirpc_excluded_systems = ['darwin']
++tirpc_excluded_systems = ['darwin', 'freebsd']
+ liblxi_link_args = ['-fvisibility=hidden']
+ tirpc_incdir = []
+ 

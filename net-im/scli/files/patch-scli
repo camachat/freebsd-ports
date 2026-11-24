@@ -1,0 +1,11 @@
+--- scli.orig	2026-10-17 02:32:55 UTC
++++ scli
+@@ -57,7 +57,7 @@ SCLI_EXEC_DIR = Path(__file__).resolve().parent
+ SCLI_LOG_FILE = SCLI_DATA_DIR / 'log'
+ 
+ SCLI_EXEC_DIR = Path(__file__).resolve().parent
+-SCLI_README_FILE = SCLI_EXEC_DIR / 'README.md'
++SCLI_README_FILE = '%%DOCSDIR%%' / 'README.md'
+ 
+ 
+ # #############################################################################
